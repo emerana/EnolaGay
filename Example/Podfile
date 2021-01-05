@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'EnolaGay_Example' do
+  pod 'EnolaGay', :path => '../'
+
+  target 'EnolaGay_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

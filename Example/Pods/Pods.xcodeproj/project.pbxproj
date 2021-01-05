@@ -1,0 +1,770 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0DBC014B68CEF98DD7C29AE041ECB4DD /* Pods-EnolaGay_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DAAE7783C106F9C664758E13033814 /* Pods-EnolaGay_Tests-dummy.m */; };
+		328ACABFF941A9669CC2FB475FBEC32C /* Pods-EnolaGay_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F56889238F7C812D093C91BD258956C3 /* Pods-EnolaGay_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3FB9F2CD1F082CE5F1F4EBA24F35CAB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		50C6A6CEDFD9584C4D7EF3E27CE2998E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		95073C5F0A7FEFAFF3DEA24F20912835 /* EnolaGay-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 052B586468164AFC7B67E12A59C53DB6 /* EnolaGay-dummy.m */; };
+		AEB5FA04D91C4EA2ECBCF16B49E0E1A0 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95371DF31910B0AEF2BA714D6B00026C /* ReplaceMe.swift */; };
+		B7E70E146719B058444C3B1993AA9E2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		C1971B92EC966FDEDDF86A102E330982 /* EnolaGay-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 63CDE6E6AC6D0F276E2AECA1A2921C8D /* EnolaGay-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CCFDCF0554050EF63D8BF40A84E3125C /* Pods-EnolaGay_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FFA159A99B3F1611D2AC9A82C5B6679 /* Pods-EnolaGay_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D09324BE72406C0415214D1C37B2F2DE /* Pods-EnolaGay_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE65C3DE36F3DB0B6A18C6951A85277 /* Pods-EnolaGay_Example-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7728FD4032C8906FD49014ABCD7B95BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6934B6FC51054102D76B1C7EF05CE1E6;
+			remoteInfo = "Pods-EnolaGay_Example";
+		};
+		C91B7A0AD4959EA53CAB280C5697FD38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD5B562733C3004B1C10D9C1A0EEB84F;
+			remoteInfo = EnolaGay;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		052B586468164AFC7B67E12A59C53DB6 /* EnolaGay-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EnolaGay-dummy.m"; sourceTree = "<group>"; };
+		12B810E7D6BF6FBBB97971C50609519F /* Pods-EnolaGay_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		14DAAE7783C106F9C664758E13033814 /* Pods-EnolaGay_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Tests-dummy.m"; sourceTree = "<group>"; };
+		1511624025B7D8140BD5AC5D321F138E /* EnolaGay-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EnolaGay-prefix.pch"; sourceTree = "<group>"; };
+		1915D021DEEC89651C484B289867592C /* Pods-EnolaGay_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		22ED6FFF2287776829AD9C6407060A95 /* EnolaGay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EnolaGay.release.xcconfig; sourceTree = "<group>"; };
+		25950E2362DA0A9165A5243F66E15A20 /* Pods-EnolaGay_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Tests-Info.plist"; sourceTree = "<group>"; };
+		37BA14E3D0715B91783D340C1E7D331D /* EnolaGay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EnolaGay.debug.xcconfig; sourceTree = "<group>"; };
+		38B7BE27BA4B2DA8B746146F0B478062 /* Pods_EnolaGay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnolaGay_Example.framework; path = "Pods-EnolaGay_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CAA96F1D6DBE1672DC87D75CB2AC90C /* Pods-EnolaGay_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example.release.xcconfig"; sourceTree = "<group>"; };
+		5CBBAE54D884CBF5BE819D21CF3CB340 /* Pods-EnolaGay_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		5EE5F161CC1A4F942E77A8C49EE54790 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		5F799698E5ECB61738113F37B4F58942 /* Pods-EnolaGay_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5FFA159A99B3F1611D2AC9A82C5B6679 /* Pods-EnolaGay_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-umbrella.h"; sourceTree = "<group>"; };
+		63CDE6E6AC6D0F276E2AECA1A2921C8D /* EnolaGay-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EnolaGay-umbrella.h"; sourceTree = "<group>"; };
+		70D838FA4A6CC422E5C95E450D3DAE24 /* Pods-EnolaGay_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Tests.modulemap"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7BCD20ED01A41F2F30145F3593850D63 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		8CFB6E496C1453BF75A98F535E2E3C38 /* Pods-EnolaGay_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-Info.plist"; sourceTree = "<group>"; };
+		95371DF31910B0AEF2BA714D6B00026C /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = EnolaGay/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DC94ED62BC417BFEC60CE8F0BDB690A /* Pods-EnolaGay_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		A6AA09DB4F80E221BE55AB99051EB116 /* Pods-EnolaGay_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		A874A0D9E01CC4751D87818B9E62F5CB /* Pods-EnolaGay_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-frameworks.sh"; sourceTree = "<group>"; };
+		A98C0B69550D43E9A24ACD029F7F91F5 /* Pods_EnolaGay_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnolaGay_Tests.framework; path = "Pods-EnolaGay_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B34003763FD5F583891A1E8D900F5124 /* Pods-EnolaGay_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example.modulemap"; sourceTree = "<group>"; };
+		D03B253E9D52A41070084E4B15FEDFF7 /* EnolaGay.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = EnolaGay.modulemap; sourceTree = "<group>"; };
+		DEE65C3DE36F3DB0B6A18C6951A85277 /* Pods-EnolaGay_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-dummy.m"; sourceTree = "<group>"; };
+		E0C507B4CF2D526AF35885F2260607B6 /* EnolaGay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = EnolaGay.framework; path = EnolaGay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E61ED8CA254C2C0A53F4B3E284607D1A /* EnolaGay-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "EnolaGay-Info.plist"; sourceTree = "<group>"; };
+		E7CFFAAF393A426856DAF9512F946C66 /* Pods-EnolaGay_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		F56889238F7C812D093C91BD258956C3 /* Pods-EnolaGay_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Tests-umbrella.h"; sourceTree = "<group>"; };
+		FF657F385E6E8AC8B5E5D66F5911C661 /* EnolaGay.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = EnolaGay.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22D98E0A27C6B63A1FB3A6821A6815BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7E70E146719B058444C3B1993AA9E2A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		813CB4521737164905C16BCCD50E03E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50C6A6CEDFD9584C4D7EF3E27CE2998E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2163C8FD58F13C89C6EFF4D796A632A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FB9F2CD1F082CE5F1F4EBA24F35CAB8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		362A56FFCB25CF1DC01557C26778024F /* Pods-EnolaGay_Example */ = {
+			isa = PBXGroup;
+			children = (
+				B34003763FD5F583891A1E8D900F5124 /* Pods-EnolaGay_Example.modulemap */,
+				12B810E7D6BF6FBBB97971C50609519F /* Pods-EnolaGay_Example-acknowledgements.markdown */,
+				A6AA09DB4F80E221BE55AB99051EB116 /* Pods-EnolaGay_Example-acknowledgements.plist */,
+				DEE65C3DE36F3DB0B6A18C6951A85277 /* Pods-EnolaGay_Example-dummy.m */,
+				A874A0D9E01CC4751D87818B9E62F5CB /* Pods-EnolaGay_Example-frameworks.sh */,
+				8CFB6E496C1453BF75A98F535E2E3C38 /* Pods-EnolaGay_Example-Info.plist */,
+				5FFA159A99B3F1611D2AC9A82C5B6679 /* Pods-EnolaGay_Example-umbrella.h */,
+				9DC94ED62BC417BFEC60CE8F0BDB690A /* Pods-EnolaGay_Example.debug.xcconfig */,
+				3CAA96F1D6DBE1672DC87D75CB2AC90C /* Pods-EnolaGay_Example.release.xcconfig */,
+			);
+			name = "Pods-EnolaGay_Example";
+			path = "Target Support Files/Pods-EnolaGay_Example";
+			sourceTree = "<group>";
+		};
+		39B6A5296C00ACA55AAFD9A82B83565D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E0C507B4CF2D526AF35885F2260607B6 /* EnolaGay.framework */,
+				38B7BE27BA4B2DA8B746146F0B478062 /* Pods_EnolaGay_Example.framework */,
+				A98C0B69550D43E9A24ACD029F7F91F5 /* Pods_EnolaGay_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		595FCE1656B954A1264ABCE6489F604C /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F693016AF158C06C4B0E03CF91C5EC5 /* EnolaGay */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		5F693016AF158C06C4B0E03CF91C5EC5 /* EnolaGay */ = {
+			isa = PBXGroup;
+			children = (
+				95371DF31910B0AEF2BA714D6B00026C /* ReplaceMe.swift */,
+				77EC16FABED2522008772C519C20553B /* Pod */,
+				BD1CA0FA999F79995523E5ADD77370F5 /* Support Files */,
+			);
+			name = EnolaGay;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		77EC16FABED2522008772C519C20553B /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				FF657F385E6E8AC8B5E5D66F5911C661 /* EnolaGay.podspec */,
+				7BCD20ED01A41F2F30145F3593850D63 /* LICENSE */,
+				5EE5F161CC1A4F942E77A8C49EE54790 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		8577642E3DD39F9982AF79CD9F612123 /* Pods-EnolaGay_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				70D838FA4A6CC422E5C95E450D3DAE24 /* Pods-EnolaGay_Tests.modulemap */,
+				5F799698E5ECB61738113F37B4F58942 /* Pods-EnolaGay_Tests-acknowledgements.markdown */,
+				E7CFFAAF393A426856DAF9512F946C66 /* Pods-EnolaGay_Tests-acknowledgements.plist */,
+				14DAAE7783C106F9C664758E13033814 /* Pods-EnolaGay_Tests-dummy.m */,
+				25950E2362DA0A9165A5243F66E15A20 /* Pods-EnolaGay_Tests-Info.plist */,
+				F56889238F7C812D093C91BD258956C3 /* Pods-EnolaGay_Tests-umbrella.h */,
+				1915D021DEEC89651C484B289867592C /* Pods-EnolaGay_Tests.debug.xcconfig */,
+				5CBBAE54D884CBF5BE819D21CF3CB340 /* Pods-EnolaGay_Tests.release.xcconfig */,
+			);
+			name = "Pods-EnolaGay_Tests";
+			path = "Target Support Files/Pods-EnolaGay_Tests";
+			sourceTree = "<group>";
+		};
+		96C366CDFD91AA7EC8834D62275F88FA /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				362A56FFCB25CF1DC01557C26778024F /* Pods-EnolaGay_Example */,
+				8577642E3DD39F9982AF79CD9F612123 /* Pods-EnolaGay_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BD1CA0FA999F79995523E5ADD77370F5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D03B253E9D52A41070084E4B15FEDFF7 /* EnolaGay.modulemap */,
+				052B586468164AFC7B67E12A59C53DB6 /* EnolaGay-dummy.m */,
+				E61ED8CA254C2C0A53F4B3E284607D1A /* EnolaGay-Info.plist */,
+				1511624025B7D8140BD5AC5D321F138E /* EnolaGay-prefix.pch */,
+				63CDE6E6AC6D0F276E2AECA1A2921C8D /* EnolaGay-umbrella.h */,
+				37BA14E3D0715B91783D340C1E7D331D /* EnolaGay.debug.xcconfig */,
+				22ED6FFF2287776829AD9C6407060A95 /* EnolaGay.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/EnolaGay";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				595FCE1656B954A1264ABCE6489F604C /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				39B6A5296C00ACA55AAFD9A82B83565D /* Products */,
+				96C366CDFD91AA7EC8834D62275F88FA /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		470486CA4AB195CB7DAC6E6B6DE19A86 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1971B92EC966FDEDDF86A102E330982 /* EnolaGay-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66EAD87F82CA13EF544AD956E984AA0D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCFDCF0554050EF63D8BF40A84E3125C /* Pods-EnolaGay_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75F61A9DF3C8B8A0AC432B18A032CEEA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				328ACABFF941A9669CC2FB475FBEC32C /* Pods-EnolaGay_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6934B6FC51054102D76B1C7EF05CE1E6 /* Pods-EnolaGay_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 612F61410E473951DE237FD419C64B65 /* Build configuration list for PBXNativeTarget "Pods-EnolaGay_Example" */;
+			buildPhases = (
+				66EAD87F82CA13EF544AD956E984AA0D /* Headers */,
+				2DEF82DE2D2E037DFFD76AF8BF30FA17 /* Sources */,
+				813CB4521737164905C16BCCD50E03E2 /* Frameworks */,
+				5DB6C1D0A6114A0F35C56B46357812AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E47DC2177486279A4376B0E51025A358 /* PBXTargetDependency */,
+			);
+			name = "Pods-EnolaGay_Example";
+			productName = "Pods-EnolaGay_Example";
+			productReference = 38B7BE27BA4B2DA8B746146F0B478062 /* Pods_EnolaGay_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B1D93838F98297B74A2960B726A949A8 /* Pods-EnolaGay_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDBD86DDC2FC463FBA968EC7E72C4091 /* Build configuration list for PBXNativeTarget "Pods-EnolaGay_Tests" */;
+			buildPhases = (
+				75F61A9DF3C8B8A0AC432B18A032CEEA /* Headers */,
+				9F2CBE7CFBCB04F6D955D9F7DDDDEF8E /* Sources */,
+				C2163C8FD58F13C89C6EFF4D796A632A /* Frameworks */,
+				C74ABF23C05AC029CC634FF518CE0FB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B4B91119FFD3F30BED3F4DFC04DA0B3E /* PBXTargetDependency */,
+			);
+			name = "Pods-EnolaGay_Tests";
+			productName = "Pods-EnolaGay_Tests";
+			productReference = A98C0B69550D43E9A24ACD029F7F91F5 /* Pods_EnolaGay_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E53CE545F7550266A27A45A4FC318AF /* Build configuration list for PBXNativeTarget "EnolaGay" */;
+			buildPhases = (
+				470486CA4AB195CB7DAC6E6B6DE19A86 /* Headers */,
+				1A1C67C742C1CC8145CBDD57D16150CA /* Sources */,
+				22D98E0A27C6B63A1FB3A6821A6815BF /* Frameworks */,
+				B1A9D9DC7B38848EBA604116E37D53B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EnolaGay;
+			productName = EnolaGay;
+			productReference = E0C507B4CF2D526AF35885F2260607B6 /* EnolaGay.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 39B6A5296C00ACA55AAFD9A82B83565D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */,
+				6934B6FC51054102D76B1C7EF05CE1E6 /* Pods-EnolaGay_Example */,
+				B1D93838F98297B74A2960B726A949A8 /* Pods-EnolaGay_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5DB6C1D0A6114A0F35C56B46357812AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1A9D9DC7B38848EBA604116E37D53B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C74ABF23C05AC029CC634FF518CE0FB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A1C67C742C1CC8145CBDD57D16150CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95073C5F0A7FEFAFF3DEA24F20912835 /* EnolaGay-dummy.m in Sources */,
+				AEB5FA04D91C4EA2ECBCF16B49E0E1A0 /* ReplaceMe.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DEF82DE2D2E037DFFD76AF8BF30FA17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D09324BE72406C0415214D1C37B2F2DE /* Pods-EnolaGay_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F2CBE7CFBCB04F6D955D9F7DDDDEF8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DBC014B68CEF98DD7C29AE041ECB4DD /* Pods-EnolaGay_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B4B91119FFD3F30BED3F4DFC04DA0B3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-EnolaGay_Example";
+			target = 6934B6FC51054102D76B1C7EF05CE1E6 /* Pods-EnolaGay_Example */;
+			targetProxy = 7728FD4032C8906FD49014ABCD7B95BE /* PBXContainerItemProxy */;
+		};
+		E47DC2177486279A4376B0E51025A358 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EnolaGay;
+			target = CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */;
+			targetProxy = C91B7A0AD4959EA53CAB280C5697FD38 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		17B4A56FDFB15B533219DD7C70475F48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1915D021DEEC89651C484B289867592C /* Pods-EnolaGay_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-EnolaGay_Tests/Pods-EnolaGay_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EnolaGay_Tests/Pods-EnolaGay_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		2A28ACAE8F3ACA3C9E81FB231B64F666 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37BA14E3D0715B91783D340C1E7D331D /* EnolaGay.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/EnolaGay/EnolaGay-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/EnolaGay/EnolaGay-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/EnolaGay/EnolaGay.modulemap";
+				PRODUCT_MODULE_NAME = EnolaGay;
+				PRODUCT_NAME = EnolaGay;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		38934C3BC6EB6FFAC8FF94E9CB3E057C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DC94ED62BC417BFEC60CE8F0BDB690A /* Pods-EnolaGay_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		77F6211C33FC1681F2A8C02690E71456 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CAA96F1D6DBE1672DC87D75CB2AC90C /* Pods-EnolaGay_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9F7F05842AB7D74EF9C87D3516A311FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22ED6FFF2287776829AD9C6407060A95 /* EnolaGay.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/EnolaGay/EnolaGay-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/EnolaGay/EnolaGay-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/EnolaGay/EnolaGay.modulemap";
+				PRODUCT_MODULE_NAME = EnolaGay;
+				PRODUCT_NAME = EnolaGay;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A0C8EE2A5497A549A581A306D483F3E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CBBAE54D884CBF5BE819D21CF3CB340 /* Pods-EnolaGay_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-EnolaGay_Tests/Pods-EnolaGay_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EnolaGay_Tests/Pods-EnolaGay_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */,
+				CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E53CE545F7550266A27A45A4FC318AF /* Build configuration list for PBXNativeTarget "EnolaGay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A28ACAE8F3ACA3C9E81FB231B64F666 /* Debug */,
+				9F7F05842AB7D74EF9C87D3516A311FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		612F61410E473951DE237FD419C64B65 /* Build configuration list for PBXNativeTarget "Pods-EnolaGay_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38934C3BC6EB6FFAC8FF94E9CB3E057C /* Debug */,
+				77F6211C33FC1681F2A8C02690E71456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDBD86DDC2FC463FBA968EC7E72C4091 /* Build configuration list for PBXNativeTarget "Pods-EnolaGay_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17B4A56FDFB15B533219DD7C70475F48 /* Debug */,
+				A0C8EE2A5497A549A581A306D483F3E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "EnolaGay",
+  "version": "0.1.0",
+  "summary": "A short description of EnolaGay.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/醉翁之意/EnolaGay",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "醉翁之意": "Judy_u@163.com"
+  },
+  "source": {
+    "git": "https://github.com/醉翁之意/EnolaGay.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "EnolaGay/Classes/**/*"
+}
