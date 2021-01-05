@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = '历时30个月，EMERANA 已经不再是当年那个艾美拉娜公主了，已经强化成足矣摧毁日本帝国的战士。'
+  s.description      = '历时30个月，EMERANA 已经不再是当年那个艾美拉娜公主了，现如今已经强化成足矣摧毁日本帝国的战士。'
 
   s.homepage         = 'https://github.com/emerana/EnolaGay'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
@@ -37,5 +37,10 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  
+  s.dependency 'Alamofire', '~> 4.9.0'
+  s.dependency 'MJRefresh'
+  s.dependency 'SDWebImage'
+  s.dependency 'MBProgressHUD'
+
 end
