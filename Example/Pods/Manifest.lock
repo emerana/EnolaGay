@@ -1,16 +1,41 @@
 PODS:
-  - EnolaGay (0.1.0)
+  - Alamofire (4.9.1)
+  - EnolaGay (0.0.3):
+    - Alamofire (~> 4.9.0)
+    - MBProgressHUD
+    - MJRefresh
+    - SDWebImage
+  - MBProgressHUD (1.2.0)
+  - MJRefresh (3.5.0)
+  - SDWebImage (5.10.2):
+    - SDWebImage/Core (= 5.10.2)
+  - SDWebImage/Core (5.10.2)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.9.0)
   - EnolaGay (from `../`)
+  - MBProgressHUD
+  - MJRefresh
+  - SDWebImage
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - MBProgressHUD
+    - MJRefresh
+    - SDWebImage
 
 EXTERNAL SOURCES:
   EnolaGay:
     :path: "../"
 
 SPEC CHECKSUMS:
-  EnolaGay: 8c0be2a2adefa6f445859e804e3a34460f397eba
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  EnolaGay: 96019ee9432a22eafc74374f5187f4469175f5b1
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  SDWebImage: b969dcfc02c40a5da71eac0b03b8f1a0c794a86f
 
-PODFILE CHECKSUM: 2093e0ca8d9620602b5bad421aee39bc3a4769ee
+PODFILE CHECKSUM: a9472361f3cd01145aedddb9b5e0f9fe25bc01c9
 
 COCOAPODS: 1.10.0
