@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EnolaGay'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of EnolaGay.'
+  s.version          = '0.0.1'
+  s.summary          = 'EnolaGay，奇迹型 EMERANA！'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,18 +17,17 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = '历时30个月，EMERANA 已经不再是当年那个艾美拉娜公主了，已经强化成足矣摧毁日本帝国的战士。'
 
-  s.homepage         = 'https://github.com/醉翁之意/EnolaGay'
+  s.homepage         = 'https://github.com/emerana/EnolaGay'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '醉翁之意' => 'Judy_u@163.com' }
-  s.source           = { :git => 'https://github.com/醉翁之意/EnolaGay.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/emerana/EnolaGay.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '12.0'
+  s.swift_version = '5.0'
 
   s.source_files = 'EnolaGay/Classes/**/*'
   
