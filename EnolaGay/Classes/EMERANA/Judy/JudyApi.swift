@@ -35,6 +35,7 @@ public protocol EMERANA_Api_Response {
 
 
 import Alamofire
+import SwiftyJSON
 
 // MARK: - typealias
 

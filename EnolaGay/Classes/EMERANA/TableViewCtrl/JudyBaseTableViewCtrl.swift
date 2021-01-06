@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 /**
  *  该类包含一个 tableView，请将 tableView 与故事板关联

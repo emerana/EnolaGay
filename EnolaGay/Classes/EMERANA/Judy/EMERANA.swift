@@ -131,7 +131,9 @@ public extension EMERANA_Api where Self: JudyBaseViewCtrl {
 
 
 // MARK: - 刷新视图专用协议，主要用于 tableView、collectionView
+
 import MJRefresh
+
 /// tableView、collectionView 专用刷新协议
 /// * warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
 /// * since: 1.0
@@ -202,6 +204,9 @@ public extension EMERANA_Refresh {
     }
 
 }
+
+import SwiftyJSON
+
 
 /// tableViewCtrl、collectionViewCtrl 基础协议
 /// * warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供

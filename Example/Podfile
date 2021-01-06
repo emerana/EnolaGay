@@ -9,6 +9,7 @@ target 'EnolaGay_Example' do
   pod 'SDWebImage'
   pod 'Alamofire', '~> 4.9.0'
   pod 'MBProgressHUD'
+  pod 'SwiftyJSON'
 
   target 'EnolaGay_Tests' do
     inherit! :search_paths

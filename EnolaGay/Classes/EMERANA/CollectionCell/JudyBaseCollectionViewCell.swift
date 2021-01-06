@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import SwiftyJSON
 
 /// collectionView 通用 cell，包含一张主要图片、副标题以及默认数据源 json。
 /// * labelsForColor 中的 labels 会配置颜色 foreground
