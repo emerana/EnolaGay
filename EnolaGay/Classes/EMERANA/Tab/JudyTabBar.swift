@@ -129,19 +129,28 @@ public  protocol EMERANATabBar: class {
 
     // MARK: - private var
 
-    /// 添加中间按钮时需要加入到viewControllers中的ViewCtrl。
-    /// * 如果设置了该ViewCtrl，这中间按钮点击时会直接切换到该ViewCtrl而不执行代理方法。
-    /// ```
-    /// 使用setJudyViewCtrl()以设置ViewCtrl
-    /// ```
+    /// 添加中间按钮时需要加入到 viewControllers 中的 ViewCtrl。
+    ///
+    /// 如果设置了该ViewCtrl，这中间按钮点击时会直接切换到该ViewCtrl而不执行代理方法。
+    /// * warning: 使用 setJudyViewCtrl() 函数以设置 ViewCtrl
+    /// * since: v2.0 2021年01月06日17:04:54
     private(set) var judyViewCtrl: UIViewController?
     
-    private var judyButton: UIButton? = nil
+    public private(set) var judyButton: UIButton? = nil
     
     /// 这个View要将UITabBarButton完全挡住
     private var backgroundView: UIView? = nil
     
+    /// 对外的 imageView
+    ///
+    /// 该 imageView 将覆盖在中间按钮之上
+    /// * warning: 需要该 imageView 时记得隐藏 judyButton
+    /// * since: v2.0 2021年01月06日17:06:23
+    public private(set) lazy var judyImageView: UIImageView = UIImageView()
+    
+
     // MARK: - 生命周期方法
+    
     
     open override func awakeFromNib() {
         super.awakeFromNib()
@@ -157,6 +166,9 @@ public  protocol EMERANATabBar: class {
         }
 
         self.updateFrame()
+        
+        judyImageView.frame = judyButton!.frame
+
 //        UIView.animate(withDuration: 0.5) {
 //            self.layoutIfNeeded()
 //        }
@@ -165,7 +177,7 @@ public  protocol EMERANATabBar: class {
 
     // MARK: - 重写重载父类方法
 
-    // 按钮超出TabBar部分点击手势失效问题
+    // 按钮超出 TabBar 部分点击手势失效问题
     open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         guard judy != nil else {
             return super.hitTest(point, with: event)
@@ -197,21 +209,17 @@ public  protocol EMERANATabBar: class {
         }
     }
     
-    // MARK: - method 最好定义在扩展里
     
     // MARK: public method
     
-    /// 获取当前tabBar上是否已经存在judy
+    
+    /// 获取当前tabBar上是否已经存在 judy 中间大按钮
     ///
     /// - Returns: judy == nil ?
-    public func getJudyIsNil() -> Bool{
-        return judy == nil
-    }
+    public func isJudy() -> Bool { return judy == nil }
     
     /// 将judy从tabBar上移除
-    public func setJudyNil(){
-        judy = nil
-    }
+    public func removeJudy(){ judy = nil }
     
     /// 设置judy
     ///
@@ -239,7 +247,7 @@ public  protocol EMERANATabBar: class {
     
     
     // MARK: private method
-    
+
     /// 初始化按钮及背景图
     private func initButton() {
 
@@ -261,13 +269,17 @@ public  protocol EMERANATabBar: class {
             }
             
             addSubview(judyButton!)
+            addSubview(judyImageView)
+            
         }
         
         judyButton!.setImage(judy, for: .normal)
+
     }
     
     /// 将按钮和bgView移除
     private func deinitButton() {
+        judyImageView.removeFromSuperview()
         judyButton?.removeFromSuperview()
         backgroundView?.removeFromSuperview()
         judyButton = nil
@@ -294,8 +306,10 @@ public  protocol EMERANATabBar: class {
                 break
             }
         }
-        bringSubviewToFront(backgroundView!)        
+        bringSubviewToFront(backgroundView!)
         bringSubviewToFront(judyButton!)
+        bringSubviewToFront(judyImageView)
+
     }
     
 }
