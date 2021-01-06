@@ -83,7 +83,7 @@ public final class JudyApi {
     private init() {}
     
     /// api 数据校验配置代理
-    public static var dataValidationDelegate: EMERANA_JudyApi? = UIApplication.shared as? EMERANA_JudyApi
+    static let dataValidationDelegate: EMERANA_JudyApi? = UIApplication.shared as? EMERANA_JudyApi
 
             
     /// 请求映射代理
@@ -309,7 +309,7 @@ public extension EMERANA_ApiActionEnums {
 final public class ApiRequestConfig {
 
     /// api 配置代理
-    public static var apiConfigDelegate: EMERANA_ApiRequestConfig? = UIApplication.shared as? EMERANA_ApiRequestConfig
+    static let apiConfigDelegate: EMERANA_ApiRequestConfig? = UIApplication.shared as? EMERANA_ApiRequestConfig
     
     /// 当前界面请求的 Api ，用于与 domain 拼接的部分，初值 nil
     /// * warning: 配置 api 请通过创建实现 EMERANA_ApiActionEnums 协议的 public enum

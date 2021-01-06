@@ -339,7 +339,7 @@ public protocol EMERANA_FontStyle: class {
 ///     * 如需自定义请 extension UIColor 覆盖 judy() 函数
 ///     * 此协仅对 UIColor 类型提供
 /// * since: 1.0
-public  protocol EMERANA_UIColor where Self: UIColor {
+public protocol EMERANA_UIColor {
     /*
      # static 定义的属性和func 没办法被子类 override.
      # class 定义的属性和func 可以被子类 override.
@@ -348,13 +348,15 @@ public  protocol EMERANA_UIColor where Self: UIColor {
     /// 使用 EMERANA 配置获取颜色
     /// * 自定义配置请 public extension UIColor 并覆盖此函数
     /// - Parameter style: 颜色样式，参阅 ColorStyle
-    static func judy(_ style: UIColor.ColorStyle) -> UIColor
+    /// * since: 1.0 2021年01月06日11:02:33
+    func configColorStyle(_ style: UIColor.ColorStyle) -> UIColor
+
 }
 
 // EMERANA_UIColor 协议默认实现
 public extension EMERANA_UIColor where Self: UIColor {
     
-    static func judy(_ style: UIColor.ColorStyle) -> UIColor {
+    func configColorStyle(_ style: UIColor.ColorStyle) -> UIColor {
         
         switch style {
         
@@ -416,10 +418,12 @@ public extension EMERANA_UIColor where Self: UIColor {
     }
 }
 
-extension UIColor: EMERANA_UIColor {
+// MARK: UIColor 扩展
+
+public extension UIColor {
     
     /// EMERANA 对 App 中所使用的的 UIColor 集中管理
-    public enum ColorStyle {
+    enum ColorStyle {
         /// App 主色调、通用前景色
         case appTint
 
@@ -454,7 +458,26 @@ extension UIColor: EMERANA_UIColor {
         case colorStyleA, colorStyleB, colorStyleC, colorStyleD, colorStyleE
     }
     
+    
+    /// 颜色配置代理对象
+    static let colorStyleConfigDelegate: EMERANA_UIColor? = UIApplication.shared as? EMERANA_UIColor
+
+    
     // MARK: 构造函数
+    
+    /// 通过 ColorStyle 配置一个颜色
+    /// - Parameter style: ColorStyle 样式，请通过
+    /// * since: 1.0 2021年01月06日11:02:33
+    static func judy(_ style: UIColor.ColorStyle) -> UIColor {
+        
+        guard colorStyleConfigDelegate != nil else {
+            Judy.log("未实现 extension UIApplication: EMERANA_UIColor，该颜色将返回一个 red")
+            return .red
+        }
+
+        return colorStyleConfigDelegate!.configColorStyle(style)
+    }
+    
     
     /// 通过16进制转换成 UIColor
     ///
@@ -462,7 +485,7 @@ extension UIColor: EMERANA_UIColor {
     ///   - rgbValue: 如:0x36c7b7（其实就是#36c7b7）
     ///   - alpha: 默认1。 可见度，0.0~1.0，值越高越不透明，越小越透明。
     /// - Returns: UIColor
-    public convenience init(rgbValue: Int, alpha: CGFloat = 1) {
+    convenience init(rgbValue: Int, alpha: CGFloat = 1) {
         self.init(red: CGFloat(Float((rgbValue & 0xff0000) >> 16)) / 255.0,
                                green: CGFloat((Float((rgbValue & 0xff00) >> 8)) / 255.0),
                                blue: CGFloat((Float(rgbValue & 0xff) / 255.0)),
@@ -477,7 +500,7 @@ extension UIColor: EMERANA_UIColor {
     ///   - b: 蓝色值
     ///   - a: 默认1。 透密昂度，0.0~1.0，值越高越不透明，越小越透明。
     /// - Returns: UIColor
-    public convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1) {
+    convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1) {
         self.init(red: CGFloat(r / 255.0), green: CGFloat(g / 255.0), blue: CGFloat(b / 255.0), alpha: a)
     }
     
@@ -557,16 +580,20 @@ public extension EMERANA_UIFont where Self: UIFont {
     static func judy(_ style: UIFont.FontStyle) -> UIFont { return .systemFont(ofSize: 16) }
     
 }
-//  UIFont 实现 EMERANA_UIFont 协议
-extension UIFont {
+
+
+// MARK: UIFont 扩展
+
+public extension UIFont {
     
+    /// 字体样式配置代理
     static let fontStyleConfig: EMERANA_UIFont? = UIApplication.shared as? EMERANA_UIFont
     
     /// 字体样式。**EMERANA 中默认使用 M 码**
     /// * warning: 原始值范围-8...14，N系列从10开始
     /// * warning: 原始值为奇数表示加粗（N系列除外）
-    public enum FontStyle: Int {
-
+    enum FontStyle: Int {
+        
         /// 比 xxs 码还要小一号
         case xxxs = -8, xxxs_B = -7
         /// 比 XS 码还要小一号
@@ -585,7 +612,7 @@ extension UIFont {
         case xxl = 6, xxl_B = 7
         /// 比 xxl 码还要大一号
         case xxxl = 8, xxxl_B = 9
-
+        
         /// 其他补充码号，从 10 开始
         case Nx1, Nx2, Nx3, Nx4, Nx5
         
@@ -602,7 +629,7 @@ extension UIFont {
     }
     
     /// 常用字体名
-    public enum FontName: String {
+    enum FontName: String {
         case 苹方_简_极细体 = "PingFangSC-Ultralight"
         case 苹方_简_纤细体 = "PingFangSC-Thin"
         case 苹方_简_细体 = "PingFangSC-Light"
@@ -625,7 +652,7 @@ extension UIFont {
     /// 通过 FontStyle 获得一个 UIFont 对象。
     /// # 若有需要，请 public extension UIFont 并覆盖 configFontStyle()
     /// - Parameter style: 目标 style
-    public convenience init(style: UIFont.FontStyle) {
+    convenience init(style: UIFont.FontStyle) {
 
         if UIFont.fontStyleConfig == nil {
             Judy.log("请 extension UIApplication: EMERANA_UIFont 配置字体协议")
