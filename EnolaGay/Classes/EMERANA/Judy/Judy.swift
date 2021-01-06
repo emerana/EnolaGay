@@ -220,27 +220,27 @@ public extension Judy {
     ///
     /// - Parameter items: 允许传入多个要打印的对象
     static func judyLog(_ items: Any...) {
-
+        #if DEBUG
         print("Judy:\(items)")
-
+        #endif
     }
     
     /// 简单输出
     ///
     /// - Parameter item: 只能传入一个字符
     static func judyLog(item: @autoclosure () -> Any) {
-
+        #if DEBUG
         print("Judy:\(item())")
-
+        #endif
     }
     
     /// 打印TODO。此方法用于在控制台输入提醒需要做的事。如：TODO: 实现 JudyConfigDelegate.
     ///
     /// - Parameter item: 只能传入一个字符
     static func judyLogTODO(_ item: Any) {
-
+        #if DEBUG
         print("TODO:\n\(item)\n")
-
+        #endif
     }
 
     /// 详细的 Log 控制台输出，此函数只在 DEBUG 下执行，请放心随处使用，
@@ -252,10 +252,10 @@ public extension Judy {
     ///   - method: 调用此函数所在的方法
     ///   - line: 调用此函数所在的行
     static func log<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
-
+        #if DEBUG
         // 🚥❤️🧡💛💚💙💜💟🎇♒️🚦🚖🚘🚔🚙
         print("🚘 \((file as NSString).lastPathComponent)[\(line)] 💟 \(method)\n\(message())\n🚥")
-
+        #endif
     }
     
     /// 此函数在 log() 函数的基础上同时在控制台打印线程相关信息
@@ -263,10 +263,10 @@ public extension Judy {
     /// * note: 此函数基于 log() 函数
     /// * date: 2020年12月04日09:40:08
     static func logt<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
-
+        #if DEBUG
         // 🚥❤️🧡💛💚💙💜💟🎇♒️🚦🚖🚘🚔🚙
         print("🚘 Thread\(Thread.current) \((file as NSString).lastPathComponent)[\(line)] 💟 \(method)\n\(message())\n🚥")
-
+        #endif
     }
 
     // MARK: 自定义方法输入
