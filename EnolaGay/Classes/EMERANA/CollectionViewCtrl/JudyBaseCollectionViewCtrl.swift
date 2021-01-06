@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 /// 该类包含一个 collectionView，请将 collectionView 与故事板关联
 /// * 该类已经实现了三个代理，UICollectionReusableView 在 dataSource 里

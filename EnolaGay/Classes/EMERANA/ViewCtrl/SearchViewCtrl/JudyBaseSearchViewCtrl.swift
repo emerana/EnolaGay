@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 /**
  通用搜索界面，已将 searchBar?.delegate = self。需设置 dataSource，且将 searchDataSource = dataSource 内容查看效果
