@@ -1,9 +1,14 @@
 use_frameworks!
 
-platform :ios, '9.0'
+platform :ios, '12.0'
 
 target 'EnolaGay_Example' do
   pod 'EnolaGay', :path => '../'
+  
+  pod 'MJRefresh'
+  pod 'SDWebImage'
+  pod 'Alamofire', '~> 4.9.0'
+  pod 'MBProgressHUD'
 
   target 'EnolaGay_Tests' do
     inherit! :search_paths
