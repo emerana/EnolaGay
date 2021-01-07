@@ -258,6 +258,16 @@ public extension Judy {
         #endif
     }
     
+    /// 在输出函数 log 的基础上增加警告标识符输出
+    static func logWarning<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
+        #if DEBUG
+        // 🚥❤️🧡💛💚💙💜💟🎇♒️🚦🚖🚘🚔🚙⚠️
+        print("🚔 \((file as NSString).lastPathComponent)[\(line)] 🔎 \(method)\n⚠️\(message())\n🚥")
+        #endif
+    }
+    
+    
+    
     /// 此函数在 log() 函数的基础上同时在控制台打印线程相关信息
     ///
     /// * note: 此函数基于 log() 函数
