@@ -35,12 +35,12 @@ extension UIApplication: EMERANA_UIColor {
 }
 
 // ApiRequestConfig
-//extension UIApplication: EMERANA_ApiRequestConfig {
-//    
-//    public func domain() -> String { "https://www.baidu.com" }
-//    
-//    
-//}
+extension UIApplication: EMERANA_ApiRequestConfig {
+    
+    public func domain() -> String { "https://www.baidu.com" }
+    
+    
+}
 
     
 enum Actions: String, EMERANA_ApiActionEnums {
