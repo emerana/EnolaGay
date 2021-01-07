@@ -39,7 +39,7 @@ class JudyLivePageViewTest: UIViewController {
 
 }
 
-extension JudyLivePageViewTest: EMERANA_JudyBasePageViewCtrlLiveModel {
+extension JudyLivePageViewTest: EMERANA_JudyLivePageViewCtrl {
     
     func viewController(isForward forward: Bool, awayViewCtrl viewCtrl: UIViewController?) -> UIViewController? {
         

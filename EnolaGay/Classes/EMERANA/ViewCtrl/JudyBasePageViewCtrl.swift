@@ -349,10 +349,10 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl {
 
 }
 
-
-
+@available(*, unavailable, message: "该协议已变更命名，请更新", renamed: "EMERANA_JudyLivePageViewCtrl")
+public protocol EMERANA_JudyBasePageViewCtrlLiveModel {}
 /// 适用于垂直方向滑动的 pageViewCtrl 中创建 UIViewCtrl 模型的协议
-public protocol EMERANA_JudyBasePageViewCtrlLiveModel: UIViewController {
+public protocol EMERANA_JudyLivePageViewCtrl: UIViewController {
     
     /// 询问初始页、上一页、下一页的 ViewCtrl
     ///
@@ -391,9 +391,9 @@ public protocol EMERANA_JudyBasePageViewCtrlLiveModel: UIViewController {
 /// 适用于直播、短视频类型的垂直滚动 pageViewCtrl
 /// * 请设置 pageViewCtrl.navigationOrientation 为 vertical
 open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate {
-    
-    /// viewCtrl 数据源配置代理对象
-    weak public var enolagay: EMERANA_JudyBasePageViewCtrlLiveModel!
+
+    /// viewCtrl 数据源配置代理对象，所有要显示的 ViewCtrl 均通过此协议配置
+    weak public var enolagay: EMERANA_JudyLivePageViewCtrl!
     
     
     open override func viewDidLoad() {
