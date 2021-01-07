@@ -82,10 +82,6 @@ public final class JudyApi {
 
     // 私有化init()，禁止构建对象
     private init() {}
-    
-    /// api 数据校验配置代理
-    static let dataValidationDelegate: EMERANA_JudyApi? = UIApplication.shared as? EMERANA_JudyApi
-
             
     /// 请求映射代理
     /// 此代理将替换所有使用JudyApi的请求，需自行实现模拟服务器返回数据
@@ -155,8 +151,8 @@ public final class JudyApi {
                 }
                 
                 // 数据校验
-                if dataValidationDelegate != nil {
-                    let result = dataValidationDelegate!.responseErrorValidation(json: json)
+                if EMERANA.dataValidationDelegate != nil {
+                    let result = EMERANA.dataValidationDelegate!.responseErrorValidation(json: json)
                     if result.isError {   // 配置错误信息
                         json[EMERANA.Key.Api.error] = [EMERANA.Key.Api.code: result.1, EMERANA.Key.Api.msg: result.2]
                     }
@@ -309,8 +305,6 @@ public extension EMERANA_ApiActionEnums {
 /// * since: V1.3 2020年11月20日10:39:58
 final public class ApiRequestConfig {
 
-    /// api 配置代理
-    static let apiConfigDelegate: EMERANA_ApiRequestConfig? = UIApplication.shared as? EMERANA_ApiRequestConfig
     
     /// 当前界面请求的 Api ，用于与 domain 拼接的部分，初值 nil
     /// * warning: 配置 api 请通过创建实现 EMERANA_ApiActionEnums 协议的 public enum
@@ -325,7 +319,7 @@ final public class ApiRequestConfig {
     public var domain: Domain = .default
         
     /// 请求方式，默认 POST。通过覆盖 globalMethodPOST() 以配置全局通用值
-    public var method: HTTPMethod = ((apiConfigDelegate?.globalMethodPOST() ?? true) ? .post : .get)
+    public var method: HTTPMethod = ((EMERANA.apiConfigDelegate?.globalMethodPOST() ?? true) ? .post : .get)
 
     
     /// 请求参数，初值是一个空数组
@@ -343,11 +337,11 @@ final public class ApiRequestConfig {
     public lazy var headers: JudyApiHeader? = JudyApiHeader()
     
     /// 请求的响应数据格式是否为 responseJSON，默认 true，反之响应为 responseString。通过覆盖 responseJSON() 以配置全局通用值
-    public var isResponseJSON: Bool = apiConfigDelegate?.responseJSON() ?? true
+    public var isResponseJSON: Bool = EMERANA.apiConfigDelegate?.responseJSON() ?? true
 
     /// 发生请求时的最终完整 URL，访问该属性即触发 apiRequestConfig_end() 函数
     public var reqURL: String {
-        ApiRequestConfig.apiConfigDelegate?.apiRequestConfig_end(apiConfig: self)
+        EMERANA.apiConfigDelegate?.apiRequestConfig_end(apiConfig: self)
         guard api != nil else {
             Judy.log("ApiRequestConfig 的 api 为 nil!")
             return domain.rawValue
@@ -376,7 +370,7 @@ final public class ApiRequestConfig {
     }
 
     public init() {
-        ApiRequestConfig.apiConfigDelegate?.apiRequestConfig_init(apiConfig: self)
+        EMERANA.apiConfigDelegate?.apiRequestConfig_init(apiConfig: self)
     }
 
     /// ApiRequestConfig 中的域名模块
@@ -394,7 +388,7 @@ final public class ApiRequestConfig {
         public init(rawValue: String) {
             self.rawValue = rawValue
             
-            if apiConfigDelegate == nil {
+            if EMERANA.apiConfigDelegate == nil {
                 //  Judy.log("未配置 apiConfigDelegate，所有请求将使用默认值！")
                 Judy.log("未实现 extension UIApplication: EMERANA_ApiRequestConfig，所有请求将使用默认值！")
                 
@@ -402,7 +396,7 @@ final public class ApiRequestConfig {
         }
         
         /// 项目中默认使用的主要域名，值为 domain() 函数
-        static let `default` = Domain(rawValue: apiConfigDelegate?.domain() ?? "https://www.baidu.com")
+        static let `default` = Domain(rawValue: EMERANA.apiConfigDelegate?.domain() ?? "https://www.baidu.com")
     }
 
     

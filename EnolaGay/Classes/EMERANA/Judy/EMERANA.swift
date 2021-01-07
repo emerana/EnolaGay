@@ -462,10 +462,6 @@ public extension UIColor {
         @available(*, deprecated, message: "请使用新命名 colorStyle1……", renamed: "colorStyle1")
         case colorStyleA, colorStyleB, colorStyleC, colorStyleD, colorStyleE
     }
-    
-    
-    /// 颜色配置代理对象
-    static let colorStyleConfigDelegate: EMERANA_UIColor? = UIApplication.shared as? EMERANA_UIColor
 
     
     // MARK: 构造函数
@@ -475,12 +471,12 @@ public extension UIColor {
     /// * since: 1.0 2021年01月06日11:02:33
     static func judy(_ style: UIColor.ColorStyle) -> UIColor {
         
-        guard colorStyleConfigDelegate != nil else {
+        guard EMERANA.colorStyleConfigDelegate != nil else {
             Judy.log("未实现 extension UIApplication: EMERANA_UIColor，该颜色将返回一个 red")
             return .red
         }
 
-        return colorStyleConfigDelegate!.configColorStyle(style)
+        return EMERANA.colorStyleConfigDelegate!.configColorStyle(style)
     }
     
     
@@ -591,8 +587,6 @@ public extension EMERANA_UIFont where Self: UIFont {
 
 public extension UIFont {
     
-    /// 字体样式配置代理
-    static let fontStyleConfig: EMERANA_UIFont? = UIApplication.shared as? EMERANA_UIFont
     
     /// 字体样式。**EMERANA 中默认使用 M 码**
     /// * warning: 原始值范围-8...14，N系列从10开始
@@ -659,11 +653,11 @@ public extension UIFont {
     /// - Parameter style: 目标 style
     convenience init(style: UIFont.FontStyle) {
 
-        if UIFont.fontStyleConfig == nil {
+        if EMERANA.fontStyleConfig == nil {
             Judy.log("请 extension UIApplication: EMERANA_UIFont 配置字体协议")
             self.init(name: UIFont.FontName.苹方_简_常规体.rawValue, size: 16)!
         } else {
-            let style = UIFont.fontStyleConfig!.configFontStyle(style)
+            let style = EMERANA.fontStyleConfig!.configFontStyle(style)
             self.init(name: style.0.rawValue, size: min(style.1, 100))!
         }
         
@@ -1557,6 +1551,19 @@ public struct EMERANA {
     
     /// EMERANA 结构体的唯一实例
     public static let judy = EMERANA()
+
+    
+    /// 颜色配置代理对象
+    static let colorStyleConfigDelegate: EMERANA_UIColor? = UIApplication.shared as? EMERANA_UIColor
+    
+    /// 字体样式配置代理
+    static let fontStyleConfig: EMERANA_UIFont? = UIApplication.shared as? EMERANA_UIFont
+
+    /// api 数据校验配置代理
+    static let dataValidationDelegate: EMERANA_JudyApi? = UIApplication.shared as? EMERANA_JudyApi
+
+    /// api 配置代理
+    static let apiConfigDelegate: EMERANA_ApiRequestConfig? = UIApplication.shared as? EMERANA_ApiRequestConfig
 
     
     private init() {
