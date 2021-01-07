@@ -51,7 +51,7 @@ public typealias JudyApiHeader = HTTPHeaders
 /// * author: 王仁洁
 /// * warning: 请实现该协议中的函数 responseErrorValidation
 /// * since: V2.0 2020年12月31日13:27:18
-public protocol EMERANA_JudyApi where Self: UIApplication {
+public protocol EMERANA_ApiDataValidation where Self: UIApplication {
     
     /// 校验服务器响应消息
     ///
@@ -64,7 +64,7 @@ public protocol EMERANA_JudyApi where Self: UIApplication {
 }
 /*
  // 默认实现 where Self: JudyApi
-public extension EMERANA_JudyApi  {
+public extension EMERANA_ApiDataValidation  {
 
     func responseErrorValidation(json: JSON) -> (isError: Bool, errorCode: Int, message: String) {
         return (isError: false, errorCode: 0, message: "尚未发现错误")
@@ -75,7 +75,7 @@ public extension EMERANA_JudyApi  {
 
 /// Api 管理层
 ///
-/// public extension JudyApi 并覆盖 EMERANA_JudyApi 中的函数以配置数据校验
+/// public extension JudyApi 并覆盖 EMERANA_ApiDataValidation 中的函数以配置数据校验
 /// * warning: 此类依赖 Alamofire
 /// * since: V1.1 2020年11月20日14:03:12
 public final class JudyApi {
@@ -151,13 +151,13 @@ public final class JudyApi {
                 }
                 
                 // 数据校验
-                if EMERANA.dataValidationDelegate != nil {
-                    let result = EMERANA.dataValidationDelegate!.responseErrorValidation(json: json)
+                if EMERANA.dataValidationConfigDelegate != nil {
+                    let result = EMERANA.dataValidationConfigDelegate!.responseErrorValidation(json: json)
                     if result.isError {   // 配置错误信息
                         json[EMERANA.Key.Api.error] = [EMERANA.Key.Api.code: result.1, EMERANA.Key.Api.msg: result.2]
                     }
                 } else {
-                    Judy.log("未实现 extension UIApplication: EMERANA_JudyApi，服务器响应的数据将不会进行校验！")
+                    Judy.logWarning("未实现 extension UIApplication: EMERANA_ApiDataValidation，服务器响应的数据将不会进行校验！")
                 }
             case .failure(let error):   // 请求失败
                 Judy.log("请求失败:\(error)\n请求地址：\(String(describing: response.request))")
@@ -267,7 +267,7 @@ public protocol EMERANA_ApiRequestConfig where Self: UIApplication {
 public extension EMERANA_ApiRequestConfig {
 
     func domain() -> String {
-        Judy.log("⚠️ 默认域名未配置，将使用 www.baidu.com，请确认此函数的实现")
+        Judy.logWarning(" 默认域名未配置，将使用 www.baidu.com，请确认 extension UIApplication: EMERANA_ApiRequestConfig 中 domain 函数的实现")
         return "https://www.baidu.com"
     }
 
@@ -306,9 +306,17 @@ public extension EMERANA_ApiActionEnums {
 final public class ApiRequestConfig {
 
     
-    /// 当前界面请求的 Api ，用于与 domain 拼接的部分，初值 nil
-    /// * warning: 配置 api 请通过创建实现 EMERANA_ApiActionEnums 协议的 public enum
-    /// * since: V1.0 2020年11月21日16:57:45
+    /// 当前界面请求的 api (action)
+    ///
+    /// 该值为用于与 domain 拼接的部分，初值 nil，一般每次请求都有一个 api
+    /// * warning: 配置 api 请通过创建实现 EMERANA_ApiActionEnums 协议的 public enum，参考如下代码：
+    /// ```
+    /// enum Api: String, EMERANA_ApiActionEnums {
+    ///     var value: String { rawValue }
+    ///     case testAction = "test"
+    /// }
+    /// ```
+    /// * since: V1.1 2021年01月07日16:59:28
     public lazy var api: EMERANA_ApiActionEnums? = nil
 
     /// 请求域名，如: https://www.baidu.com，默认值为静态函数 domain()
@@ -343,7 +351,7 @@ final public class ApiRequestConfig {
     public var reqURL: String {
         EMERANA.apiConfigDelegate?.apiRequestConfig_end(apiConfig: self)
         guard api != nil else {
-            Judy.log("ApiRequestConfig 的 api 为 nil!")
+            Judy.logWarning("ApiRequestConfig 的 api 为 nil!")
             return domain.rawValue
         }
         return domain.rawValue + api!.value
@@ -389,8 +397,8 @@ final public class ApiRequestConfig {
             self.rawValue = rawValue
             
             if EMERANA.apiConfigDelegate == nil {
-                //  Judy.log("未配置 apiConfigDelegate，所有请求将使用默认值！")
-                Judy.log("未实现 extension UIApplication: EMERANA_ApiRequestConfig，所有请求将使用默认值！")
+
+                Judy.logWarning("未实现 extension UIApplication: EMERANA_ApiRequestConfig，所有请求将使用默认值！")
                 
             }
         }

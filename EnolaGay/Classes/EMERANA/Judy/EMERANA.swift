@@ -472,7 +472,7 @@ public extension UIColor {
     static func judy(_ style: UIColor.ColorStyle) -> UIColor {
         
         guard EMERANA.colorStyleConfigDelegate != nil else {
-            Judy.log("未实现 extension UIApplication: EMERANA_UIColor，该颜色将返回一个 red")
+            Judy.logWarning("未实现 extension UIApplication: EMERANA_UIColor，该颜色将返回一个 red")
             return .red
         }
 
@@ -653,11 +653,11 @@ public extension UIFont {
     /// - Parameter style: 目标 style
     convenience init(style: UIFont.FontStyle) {
 
-        if EMERANA.fontStyleConfig == nil {
-            Judy.log("请 extension UIApplication: EMERANA_UIFont 配置字体协议")
+        if EMERANA.fontStyleConfigDelegate == nil {
+            Judy.logWarning("请 extension UIApplication: EMERANA_UIFont 配置字体协议")
             self.init(name: UIFont.FontName.苹方_简_常规体.rawValue, size: 16)!
         } else {
-            let style = EMERANA.fontStyleConfig!.configFontStyle(style)
+            let style = EMERANA.fontStyleConfigDelegate!.configFontStyle(style)
             self.init(name: style.0.rawValue, size: min(style.1, 100))!
         }
         
@@ -717,7 +717,7 @@ public extension UIImage {
         
         guard image?.cgImage != nil else {
             self.init()
-            Judy.log("通过颜色生成图像时发生错误！")
+            Judy.logWarning("通过颜色生成图像时发生错误！")
             return
         }
         self.init(cgImage: image!.cgImage!)
@@ -746,7 +746,7 @@ public extension UIImage {
         
         guard outputImage?.cgImage != nil else {
             self.init()
-            Judy.log("通过渐变颜色生成图像时发生错误！")
+            Judy.logWarning("通过渐变颜色生成图像时发生错误！")
             return
         }
         self.init(cgImage: outputImage!.cgImage!)
@@ -865,7 +865,7 @@ public extension UIImage {
     @available(*, deprecated, message: "此函数尚未确定其正确性，不建议使用！")
     final func roundImage() {
         guard bounds.size.height == bounds.size.width else {
-            Judy.log("图片非正方形，无法设置正圆！")
+            Judy.logWarning("图片非正方形，无法设置正圆！")
             return
         }
         //开始图形上下文
@@ -1557,10 +1557,10 @@ public struct EMERANA {
     static let colorStyleConfigDelegate: EMERANA_UIColor? = UIApplication.shared as? EMERANA_UIColor
     
     /// 字体样式配置代理
-    static let fontStyleConfig: EMERANA_UIFont? = UIApplication.shared as? EMERANA_UIFont
+    static let fontStyleConfigDelegate: EMERANA_UIFont? = UIApplication.shared as? EMERANA_UIFont
 
     /// api 数据校验配置代理
-    static let dataValidationDelegate: EMERANA_JudyApi? = UIApplication.shared as? EMERANA_JudyApi
+    static let dataValidationConfigDelegate: EMERANA_ApiDataValidation? = UIApplication.shared as? EMERANA_ApiDataValidation
 
     /// api 配置代理
     static let apiConfigDelegate: EMERANA_ApiRequestConfig? = UIApplication.shared as? EMERANA_ApiRequestConfig
