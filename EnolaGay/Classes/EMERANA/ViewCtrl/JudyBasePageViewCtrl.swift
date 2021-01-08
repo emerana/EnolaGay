@@ -351,7 +351,7 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl {
 
 @available(*, unavailable, message: "该协议已变更命名，请更新", renamed: "EMERANA_JudyLivePageViewCtrl")
 public protocol EMERANA_JudyBasePageViewCtrlLiveModel {}
-/// 适用于垂直方向滑动的 pageViewCtrl 中创建 UIViewCtrl 模型的协议
+/// 在 JudyLivePageViewCtrl 中，适用创建 UIViewCtrl 模型的协议
 public protocol EMERANA_JudyLivePageViewCtrl: UIViewController {
     
     /// 询问初始页、上一页、下一页的 ViewCtrl
@@ -359,16 +359,16 @@ public protocol EMERANA_JudyLivePageViewCtrl: UIViewController {
     /// 所有需要显示的 ViewCtrl 均通过此代理函数实现，实现可参考如下代码：
     ///
     /// ```
+    /// let modelViewCtrl = storyboard?.instantiateViewController(withIdentifier: "LiveModelViewCtrl") as? ModelViewCtrl
+    ///
     /// // 配置初始页
     /// guard viewCtrl != nil else {
-    ///     let vc = storyboard?.instantiateViewController(withIdentifier: "modelViewCtrl") as? ModelViewCtrl
-    ///     vc?.tagDataSource = dataSource[0]
-    ///     return vc
+    ///     modelViewCtrl?.tagDataSource = dataSource[0]
+    ///     return modelViewCtrl
     /// }
     ///
     /// // 配置上一页或下一页
     /// guard let index = dataSource.firstIndex(of: (viewCtrl as! ModelViewCtrl).tagDataSource) else { return nil }
-    /// let modelViewCtrl = storyboard?.instantiateViewController(withIdentifier: "modelViewCtrl")as? ModelViewCtrl
     ///
     /// if forward { // 下一个界面
     ///     if index >= dataSource.count - 1 { return nil }
@@ -378,18 +378,24 @@ public protocol EMERANA_JudyLivePageViewCtrl: UIViewController {
     ///     modelViewCtrl?.tagDataSource = dataSource[index-1]
     /// }
     ///
-    /// return shortVideoViewCtrl
+    /// return modelViewCtrl
     /// ```
-    /// * since: 1.2 2021年01月07日22:17:51
+    /// * version: 1.2
+    /// * since: 2021年01月07日22:17:51
     /// - Parameters:
     ///   - forward: 是否为询问下一个界面，需要根据该值做出对应的界面显示
     ///   - viewCtrl: 当前正显示且即将离开的 viewCtrl。该值为 nil 时，请配置初始页（第一页）
+    /// - Returns: 通常情况下，建议返回的 viewCtrl 包含一个用于对应外部数据源的标识
     func viewController(isForward forward: Bool, awayViewCtrl viewCtrl: UIViewController?) -> UIViewController?
     
 }
 
-/// 适用于直播、短视频类型的垂直滚动 pageViewCtrl
-/// * 请设置 pageViewCtrl.navigationOrientation 为 vertical
+/// 适用于直播、短视频类型的 pageViewCtrl
+///
+/// 别忘了设置滚动方向 pageViewCtrl.navigationOrientation
+/// * warning: 请记得设置 transitionStyle 为 scroll
+/// * since: 2021年01月08日09:19:07
+/// * version: v1.2
 open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate {
 
     /// viewCtrl 数据源配置代理对象，所有要显示的 ViewCtrl 均通过此协议配置

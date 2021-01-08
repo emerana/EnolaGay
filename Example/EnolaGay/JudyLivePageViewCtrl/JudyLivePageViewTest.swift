@@ -43,16 +43,16 @@ extension JudyLivePageViewTest: EMERANA_JudyLivePageViewCtrl {
     
     func viewController(isForward forward: Bool, awayViewCtrl viewCtrl: UIViewController?) -> UIViewController? {
         
+        let modelViewCtrl = storyboard?.instantiateViewController(withIdentifier: "LiveModelViewCtrl") as? LiveModelViewCtrl
+
         // 配置初始页
         guard viewCtrl != nil else {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "LiveModelViewCtrl") as? LiveModelViewCtrl
-            vc?.tagDataSource = dataSource[0]
-            return vc
+            modelViewCtrl?.tagDataSource = dataSource[0]
+            return modelViewCtrl
         }
 
         // 配置上一页或下一页
         guard let index = dataSource.firstIndex(of: (viewCtrl as! LiveModelViewCtrl).tagDataSource) else { return nil }
-        let modelViewCtrl = storyboard?.instantiateViewController(withIdentifier: "LiveModelViewCtrl")as? LiveModelViewCtrl
 
         if forward { // 下一个界面
             if index >= dataSource.count - 1 { return nil }

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--传统的使用方式-->
         <scene sceneID="eba-d3-lMf">
             <objects>
-                <navigationController id="Sa9-Mo-JXs" sceneMemberID="viewController">
+                <navigationController title="传统的使用方式" id="Sa9-Mo-JXs" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MCx-Nc-nCU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -61,7 +61,7 @@
         <!--Judy Live Page View Ctrl-->
         <scene sceneID="0Pt-2b-VdL">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="vertical" spineLocation="none" id="WmF-Wo-4OD" customClass="JudyLivePageViewCtrl" customModule="EnolaGay" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="WmF-Wo-4OD" customClass="JudyLivePageViewCtrl" customModule="EnolaGay" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="hnC-r6-gHh"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4z-Hf-wpb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
