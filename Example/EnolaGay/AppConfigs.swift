@@ -20,6 +20,8 @@ extension UIApplication: EMERANA_UIColor {
             color = #colorLiteral(red: 1, green: 0.2274509804, blue: 0.3725490196, alpha: 0)
         case .navigationBarTitle, .navigationBarItems:
             color = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1) // 0x333333
+        case .scrollView, .view:
+            color = .white
         case .text:
             if #available(iOS 13, *) {
                 color = .label

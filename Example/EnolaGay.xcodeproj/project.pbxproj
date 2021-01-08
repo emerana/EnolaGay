@@ -14,6 +14,12 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		6F337C824DB7574EEDA8C564 /* Pods_EnolaGay_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E3731438F1EBC192427EC6 /* Pods_EnolaGay_Tests.framework */; };
+		8B1AA67325A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */; };
+		8B1AA67425A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */; };
+		8B1AA67925A74B600063BE04 /* JudyLivePageViewCtrl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */; };
+		8B1AA67A25A74B600063BE04 /* JudyLivePageViewCtrl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */; };
+		8B1AA68025A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */; };
+		8B1AA68125A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */; };
 		8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76428F25A702C400A418F8 /* AppConfigs.swift */; };
 		8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */; };
 		9DC7BC7100ED3705BDB81B72 /* Pods_EnolaGay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC7CAC302FF14B8C947237A0 /* Pods_EnolaGay_Example.framework */; };
@@ -46,6 +52,9 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7747A34155239783B6CF9842 /* EnolaGay.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = EnolaGay.podspec; path = ../EnolaGay.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudyLivePageViewTest.swift; sourceTree = "<group>"; };
+		8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JudyLivePageViewCtrl.storyboard; sourceTree = "<group>"; };
+		8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveModelViewCtrl.swift; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
 		BC7CAC302FF14B8C947237A0 /* Pods_EnolaGay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,9 +117,11 @@
 		607FACD21AFB9204008FA782 /* Example for EnolaGay */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				8B1AA67725A74B350063BE04 /* JudyLivePageViewCtrl */,
 				8B76428E25A702C400A418F8 /* Tests */,
+				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				8B76428F25A702C400A418F8 /* AppConfigs.swift */,
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -154,11 +165,20 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		8B1AA67725A74B350063BE04 /* JudyLivePageViewCtrl */ = {
+			isa = PBXGroup;
+			children = (
+				8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */,
+				8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */,
+				8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */,
+			);
+			path = JudyLivePageViewCtrl;
+			sourceTree = "<group>";
+		};
 		8B76428E25A702C400A418F8 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				8B76428F25A702C400A418F8 /* AppConfigs.swift */,
 				8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */,
 			);
 			path = Tests;
@@ -265,6 +285,7 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				8B1AA67925A74B600063BE04 /* JudyLivePageViewCtrl.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B1AA67A25A74B600063BE04 /* JudyLivePageViewCtrl.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,8 +381,10 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */,
+				8B1AA67325A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */,
 				8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				8B1AA68025A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +393,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				8B1AA67425A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */,
+				8B1AA68125A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
