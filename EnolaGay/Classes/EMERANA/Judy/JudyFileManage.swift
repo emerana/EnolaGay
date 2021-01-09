@@ -9,7 +9,7 @@
 
 import UIKit
 
-/// 文件管理类。为car8891专用，不推荐使用。
+/// 文件管理类。为 car8891 专用，不推荐使用。
 class JudyFileManage: NSObject {
     
     private let fileManager = FileManager.default

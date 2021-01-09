@@ -8,10 +8,16 @@
 //  JudySDK
 
 import UIKit
+import SwiftyJSON
 
-/* 主类需要加上public，对于分类，只要在public extension前面加了public，则该分类里面的方法默认都是公开的，只有加fileprivate才能实现文件内私有  */
+/* 主类需要加上 public，extension 前面加了public，则该分类里面的方法默认都是公开的，只有加 fileprivate 才能实现文件内私有  */
 
-/** Judy常用工具类 */
+
+/// 常用系统级相关工具类
+///
+/// 在 EnolaGay 中最早的工具类，后演变成 struct，起源于 2017 年，在深圳数睿科技 8891 部门，极具收藏意义，非必要不移除任何成员。
+/// * Version: 1.2
+/// * Since: 2021年01月09日09:12:33
 public struct Judy {
     
     /// 私有init,不允许构建对象
@@ -181,18 +187,14 @@ public struct Judy {
         return timeString
     }
     
-    #warning("此处扩展原有 Dictionary")
     /// dictionary 转成 String。服务器需要 String 类型的参数时使用此方法方便地转换数据。
     /// # 在有 JSON 的时候直接使用json.rawString()即可。
     /// - Parameter withDictionary: 比如：["userName": "Judy", "age": 23]
     /// - Returns: "{\"userName\": \"Judy\", \"age\": 23}"
-    public static func string(withDictionary: [String: Any]) -> String {
-        // 替换中括号为花括号
-        var string = withDictionary.description.replacingOccurrences(of: "[", with: "{")
-        string = string.description.replacingOccurrences(of: "]", with: "}")
-        
-        return string
-    }
+    /// * Version: 1.0
+    /// * Since: 2021年01月08日21:30:08
+    @available(*, unavailable, message: "此函数一起用，请使用 SwiftyJSON 的 json.rawString() ")
+    public static func string(withDictionary: [String: Any]) -> String { "" }
 
 }
 
@@ -316,9 +318,9 @@ public extension Judy {
         }
         
         if NSNotFound == nDotLoc && 0 != range.location {   // 没有输入小数点时匹配这里
-            cs = CharacterSet.init(charactersIn: "0123456789.\n").inverted
+            cs = CharacterSet(charactersIn: "0123456789.\n").inverted
         } else {    // 当已输入的内容中有小数点，则匹配此处。
-            cs = CharacterSet.init(charactersIn: "0123456789\n").inverted
+            cs = CharacterSet(charactersIn: "0123456789\n").inverted
         }
         
         let filtered: String = (string.components(separatedBy: cs!) as NSArray).componentsJoined(by: "")
@@ -427,14 +429,14 @@ public extension Judy {
     /// 获取version,即CFBundleShortVersionString
     ///
     /// - Returns: 如：2.5.8
-    static func versionShort() -> String{
+    static func versionShort() -> String {
         return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     }
     
     /// 获取Build版本号
     ///
     /// - Returns: 如：1
-    static func versionBuild() -> String{
+    static func versionBuild() -> String {
         return Bundle.main.infoDictionary!["CFBundleVersion"] as! String
     }
     
@@ -514,19 +516,19 @@ public extension Judy {
     ///- URL: String?    AppStore URL:(AppStore URL只在有新版本时有值，默认没有此字段)
     ///- status: Int 当前App状态，-4:data转json失败，-3:版本检查失败，-2:没有找到，-1:审核状态，0：最新版本，1:有新版本，请更新
     /// - Parameter closure: 回调函数
-//    public static func versionCheck(completionHandler closure: @escaping ((JSON) -> Void)){
-//        versionCheck { (status: Int, newVersion: Bool, msg: String, url: String?) in
-//            var json = JSON(["status":0])
-//            if newVersion {
-//                json["URL"] = JSON(url ?? "")
-//            }
-//            json["newVersion"] = JSON(newVersion)
-//            json["msg"] = JSON(msg)
-//            json["status"] = JSON(status)
-//
-//            closure(json)
-//        }
-//    }
+    static func versionCheck(completionHandler closure: @escaping ((JSON) -> Void)){
+        versionCheck { (status: Int, newVersion: Bool, msg: String, url: String?) in
+            var json = JSON(["status":0])
+            if newVersion {
+                json["URL"] = JSON(url ?? "")
+            }
+            json["newVersion"] = JSON(newVersion)
+            json["msg"] = JSON(msg)
+            json["status"] = JSON(status)
+            
+            closure(json)
+        }
+    }
     
     /// 当前App版本状态
     ///
@@ -736,7 +738,7 @@ public extension Judy {
 /****************************************  ****************************************/
 // MARK: - 测试类
 extension Judy {
-    /*   对于分类，只要在public extension前面加了public，则该分类里面的方法默认都是公开的，只有加fileprivate才能实现文件内私有   */
+
     public static func test(){
         judyLog("这是来自测试类的打印")
         testPrivate()
@@ -756,6 +758,9 @@ extension Judy {
 // MARK: - 私有方法
 fileprivate extension Judy {
     
+    /// 获取最顶层的 ViewCtrl
+    /// - Parameter rootVC: 以该 ViewCtrl 为基础查找最顶层的 ViewCtrl
+    /// - Returns: 可能是 NavigationCtrl、UIViewCtrl
     static func getTopViewCtrl(rootVC: UIViewController) -> UIViewController {
         let topVC = rootVC
         if (topVC.presentedViewController != nil) {
