@@ -130,7 +130,7 @@ open class CircularProgressView: UIView {
 
 
 /// 适用于按住按钮递加进度
-open class CircularProgressLievView: CircularProgressView {
+open class CircularProgressLiveView: CircularProgressView {
     
     /// 主要的 layer
     public let lineLayer = CAShapeLayer()
@@ -165,7 +165,6 @@ open class CircularProgressLievView: CircularProgressView {
     // 覆盖父类的 draw 函数，使其啥都不做
     open override func draw(_ rect: CGRect) {
         // Drawing code
-
     }
     
 
