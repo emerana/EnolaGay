@@ -111,7 +111,11 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     /// 重写此方法务必调用父类方法
     /// * warning:当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1
     /// * since: V1.1 2020年11月06日13:23:36
-    open override func reqFailed() { if isAddMore { currentPage -= 1 } }
+    open override func reqFailed() {
+        super.reqFailed()
+        
+        if isAddMore { currentPage -= 1 }
+    }
 
     // MARK: - Intial Methods - 初始化的方法
     

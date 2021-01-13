@@ -31,8 +31,9 @@ public typealias ClosureString = ((String) -> Void)
 // MARK: - 为 ViewCtrl 新增部分协议
 
 /// viewCtrl 基础协议
+/// * version: 1.0
+/// * since: 2020年10月22日16:50
 /// * warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
-/// * since: 1.0 2020年10月22日16:50
 public protocol EMERANA_ViewCtrl where Self: JudyBaseViewCtrl {
 
     /// navigationItem.title，该 viewTitle 优先于 self.title 显示，且将覆盖 self.title 值

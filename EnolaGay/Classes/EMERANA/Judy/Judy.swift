@@ -25,40 +25,37 @@ public struct Judy {
     
     /// 获取最顶层的 ViewController，不包含 navigationCtrl
     ///
-    /// * Version: 1.1
-    /// * Since: 2021年01月08日21:17:38
-    /// * Warning: 调用时请注意在 App 启动后再调用，否则有可能出现 keyWindow 为空，就会返回一个新的 UIViewController
+    /// * version: 1.2
+    /// * since: 2021年01月13日14:24:46
+    /// * warning: 调用时请注意在 App 启动后再调用，否则有可能出现 keyWindow 为空，就会返回一个新的 UIViewController
     public static var topViewCtrl: UIViewController {
-        get{    //  UIApplication.shared.windows.last!.rootViewController
-            guard keyWindow?.rootViewController != nil else {
-                logWarning("topViewCtrl 调用太早，此时 keyWindow 为 nil，只能返回一个 UIViewController()")
-                return UIViewController()
-            }
-            return getTopViewCtrl(rootVC: keyWindow!.rootViewController!)
+        //  UIApplication.shared.windows.last!.rootViewController
+        guard keyWindow?.rootViewController != nil else {
+            logWarning("topViewCtrl 调用太早，此时 keyWindow 为 nil，只能返回一个 UIViewController()")
+            return UIViewController()
         }
+        return getTopViewCtrl(rootVC: keyWindow!.rootViewController!)
     }
     
-    /// 获取最顶层tabBarController
+    /// 获取 App 中的 最开始使用的 tabBarController
     ///
-    /// * Version: 1.1
-    /// * Since: 2021年01月08日21:16:19
-    /// * Warning: 请在 App 启动后再调用，否则可能出现 keyWindow 为空并返回 UITabBarController()
+    /// * version: 1.2
+    /// * since: 2021年01月13日14:05:19
+    /// * warning: 请在 App 启动后再调用，否则可能出现 keyWindow 为空并返回 UITabBarController()
     public static var tabBarCtrl: UITabBarController? {
-        get{
-            if appWindow.rootViewController != nil {
-                return appWindow.rootViewController as? UITabBarController
-            }
-            logWarning("appWindow.rootViewController 为 nil！")
-            return keyWindow?.rootViewController as? UITabBarController
+        if appWindow.rootViewController != nil {
+            return appWindow.rootViewController as? UITabBarController
         }
+        logWarning("appWindow.rootViewController 为 nil！")
+        return keyWindow?.rootViewController as? UITabBarController
     }
     
     /// 获取 App 的 window 而不是 keyWindow,也就是呈现故事板时用到的 window
     ///
     /// 在呈现故事板时使用的Window。该属性包含用于在设备主屏幕上显示应用程序的可视内容的窗口。（UIApplication.shared.delegate!.window!!）
-    /// * Version: 1.1
-    /// * Since: 2021年01月08日21:19:23
-    /// * Warning: 如果调用太早（如程序刚启动）这个 window 可能正被隐藏中，并不活跃。
+    /// * version: 1.1
+    /// * since: 2021年01月08日21:19:23
+    /// * warning: 如果调用太早（如程序刚启动）这个 window 可能正被隐藏中，并不活跃。
     public static var appWindow: UIWindow {
         guard app.window! != nil else {
             logWarning("app?.window 为 nil，调用太早！")
@@ -75,9 +72,9 @@ public struct Judy {
     /// 获取当前活跃的 window，如 alertview、键盘等关键的 Window。
     ///
     /// 该属性保存 windows 数组中的 UIWindow 对象，该对象最近发送了 makeKeyAndVisible 消息。
-    /// * Version: 1.1
-    /// * Since: 2021年01月08日21:21:31
-    /// * Warning: 注意要在视图加载到视图树后在调用以免为 nil，一般是在 viewDidAppear 后使用
+    /// * version: 1.1
+    /// * since: 2021年01月08日21:21:31
+    /// * warning: 注意要在视图加载到视图树后在调用以免为 nil，一般是在 viewDidAppear 后使用
     public static var keyWindow: UIWindow? { UIApplication.shared.keyWindow }
     
     /// 获取 App 代理对象。即 UIApplication.shared.delegate
@@ -101,8 +98,8 @@ public struct Judy {
     ///   - storyboardName: 故事板 name
     ///   - ident: viewCtrl ident
     /// - Returns: UIViewController
-    /// * Version: 1.1
-    /// * Since: 2021年01月08日21:23:42
+    /// * version: 1.1
+    /// * since: 2021年01月08日21:23:42
     public static func getViewCtrl(storyboardName: String, ident: String) -> UIViewController {
         return UIStoryboard(name: storyboardName, bundle: nil)
             .instantiateViewController(withIdentifier: ident)
@@ -131,7 +128,7 @@ public struct Judy {
         openURL(url: url, completionHandler: closure)
     }
     
-    // FIXME: 制作framework时当闭包参数大于1个时注释将会多余 -No description.
+    // FIXME: 制作 framework 时当闭包参数大于1个时注释将会多余 -No description.
     
     /// 打开路由
     ///
@@ -158,8 +155,8 @@ public struct Judy {
     /// 拨打电话
     /// - Parameter phoneNo: 要拨打的号码，如：18612345678
     /// - Returns: 是否成功触发
-    /// * Version: 1.1
-    /// * Since: 2021年01月08日21:30:08
+    /// * version: 1.1
+    /// * since: 2021年01月08日21:30:08
     @discardableResult
     public static func call(phoneNo: String) -> Bool{
         if let url = URL(string: "tel://\(phoneNo)") {
@@ -191,8 +188,8 @@ public struct Judy {
     /// # 在有 JSON 的时候直接使用json.rawString()即可。
     /// - Parameter withDictionary: 比如：["userName": "Judy", "age": 23]
     /// - Returns: "{\"userName\": \"Judy\", \"age\": 23}"
-    /// * Version: 1.0
-    /// * Since: 2021年01月08日21:30:08
+    /// * version: 1.0
+    /// * since: 2021年01月08日21:30:08
     @available(*, unavailable, message: "此函数一起用，请使用 SwiftyJSON 的 json.rawString() ")
     public static func string(withDictionary: [String: Any]) -> String { "" }
 
