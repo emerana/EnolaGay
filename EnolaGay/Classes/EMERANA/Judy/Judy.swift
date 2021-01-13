@@ -8,21 +8,30 @@
 //  JudySDK
 
 import UIKit
+import SwiftyJSON
 
-/* 主类需要加上public，对于分类，只要在public extension前面加了public，则该分类里面的方法默认都是公开的，只有加fileprivate才能实现文件内私有  */
+/* 主类需要加上 public，extension 前面加了public，则该分类里面的方法默认都是公开的，只有加 fileprivate 才能实现文件内私有  */
 
-/** Judy常用工具类 */
+
+/// 常用系统级相关工具类
+///
+/// 在 EnolaGay 中最早的工具类，后演变成 struct，起源于 2017 年，在深圳数睿科技 8891 部门，极具收藏意义，非必要不移除任何成员。
+/// * Version: 1.2
+/// * Since: 2021年01月09日09:12:33
 public struct Judy {
     
     /// 私有init,不允许构建对象
     private init() {}
     
     /// 获取最顶层的 ViewController，不包含 navigationCtrl
-    /// - **调用时请注意在 App 启动后再调用，否则有可能出现 keyWindow 为空，就会返回一个新的 UIViewController**
+    ///
+    /// * Version: 1.1
+    /// * Since: 2021年01月08日21:17:38
+    /// * Warning: 调用时请注意在 App 启动后再调用，否则有可能出现 keyWindow 为空，就会返回一个新的 UIViewController
     public static var topViewCtrl: UIViewController {
         get{    //  UIApplication.shared.windows.last!.rootViewController
             guard keyWindow?.rootViewController != nil else {
-                judyLog("警告：topViewCtrl调用太早，此时keyWindow是空的！只能返回一个UIViewController()")
+                logWarning("topViewCtrl 调用太早，此时 keyWindow 为 nil，只能返回一个 UIViewController()")
                 return UIViewController()
             }
             return getTopViewCtrl(rootVC: keyWindow!.rootViewController!)
@@ -30,44 +39,46 @@ public struct Judy {
     }
     
     /// 获取最顶层tabBarController
-    /// - **调用时请注意在App启动后再调用，否则有可能出现keyWindow为空，就会返回一个新的UITabBarController**
+    ///
+    /// * Version: 1.1
+    /// * Since: 2021年01月08日21:16:19
+    /// * Warning: 请在 App 启动后再调用，否则可能出现 keyWindow 为空并返回 UITabBarController()
     public static var tabBarCtrl: UITabBarController? {
         get{
             if appWindow.rootViewController != nil {
                 return appWindow.rootViewController as? UITabBarController
             }
-            Judy.log("appWindow.rootViewController居然为空！")
+            logWarning("appWindow.rootViewController 为 nil！")
             return keyWindow?.rootViewController as? UITabBarController
         }
     }
     
-    /**
-     获取App的window而不是keyWindow,也就是呈现故事板时用到的window。
-     * 在呈现故事板时使用的Window。该属性包含用于在设备主屏幕上显示应用程序的可视内容的窗口。
-     ## UIApplication.shared.delegate!.window!!
-     **如果调用太早（如程序刚启动）这个window可能正被隐藏中，并不活跃。**
-     */
+    /// 获取 App 的 window 而不是 keyWindow,也就是呈现故事板时用到的 window
+    ///
+    /// 在呈现故事板时使用的Window。该属性包含用于在设备主屏幕上显示应用程序的可视内容的窗口。（UIApplication.shared.delegate!.window!!）
+    /// * Version: 1.1
+    /// * Since: 2021年01月08日21:19:23
+    /// * Warning: 如果调用太早（如程序刚启动）这个 window 可能正被隐藏中，并不活跃。
     public static var appWindow: UIWindow {
         guard app.window! != nil else {
-            judyLog("app?.window!为nil，调用太早了！")
+            logWarning("app?.window 为 nil，调用太早！")
             if keyWindow != nil {
                 return keyWindow!
             } else {
-                judyLog("尼玛连keyWindow也是空的！")
+                logWarning("keyWindow 为 nil")
             }
             return UIWindow()
         }
         return app.window!!
     }
     
-    /**
-     获取当前活跃的 window，如 alertview、键盘等关键的 Window。
-     - 该属性保存 windows 数组中的 UIWindow 对象，该对象最近发送了 makeKeyAndVisible 消息。
-     - 注意要在视图加载到视图树后在调用以免为 nil，一般是在 viewDidAppear 后使用
-     */
-    public static var keyWindow: UIWindow? {
-        return UIApplication.shared.keyWindow
-    }
+    /// 获取当前活跃的 window，如 alertview、键盘等关键的 Window。
+    ///
+    /// 该属性保存 windows 数组中的 UIWindow 对象，该对象最近发送了 makeKeyAndVisible 消息。
+    /// * Version: 1.1
+    /// * Since: 2021年01月08日21:21:31
+    /// * Warning: 注意要在视图加载到视图树后在调用以免为 nil，一般是在 viewDidAppear 后使用
+    public static var keyWindow: UIWindow? { UIApplication.shared.keyWindow }
     
     /// 获取 App 代理对象。即 UIApplication.shared.delegate
     public static var app: UIApplicationDelegate {
@@ -80,26 +91,28 @@ public struct Judy {
     /// 当前是否有alert弹出，主要是提醒更新版本的Alert。
     fileprivate static var isAlerting = false {
         didSet{
-            judyLog("哎呀，isAlerting被设置为\(isAlerting)")
+            judyLog("哎呀，isAlerting 被设置为\(isAlerting)")
         }
     }
     
-    /// 从故事板获取ViewCtrl实例
+    /// 从指定故事板中获取 ViewCtrl 实例
     ///
     /// - Parameters:
-    ///   - storyboardName: 故事板name
+    ///   - storyboardName: 故事板 name
     ///   - ident: viewCtrl ident
     /// - Returns: UIViewController
+    /// * Version: 1.1
+    /// * Since: 2021年01月08日21:23:42
     public static func getViewCtrl(storyboardName: String, ident: String) -> UIViewController {
-        return UIStoryboard.init(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: ident)
+        return UIStoryboard(name: storyboardName, bundle: nil)
+            .instantiateViewController(withIdentifier: ident)
     }
     
     /// 获取屏幕宽度
     ///
     /// - Returns: 屏幕宽度
-    public static func getScreenWidth() -> CGFloat {
-        return UIScreen.main.bounds.size.width
-    }
+    public static func getScreenWidth() -> CGFloat { UIScreen.main.bounds.size.width }
+    
     
     // MARK: 系统、常用事件
     
@@ -144,12 +157,17 @@ public struct Judy {
     
     /// 拨打电话
     /// - Parameter phoneNo: 要拨打的号码，如：18612345678
-    public static func call(phoneNo: String) {
+    /// - Returns: 是否成功触发
+    /// * Version: 1.1
+    /// * Since: 2021年01月08日21:30:08
+    @discardableResult
+    public static func call(phoneNo: String) -> Bool{
         if let url = URL(string: "tel://\(phoneNo)") {
             UIApplication.shared.open(url)
-        } else {
-            log("不合法的电话号码：\(phoneNo)")
+            return true
         }
+        log("不合法的电话号码：\(phoneNo)")
+        return false
     }
     
     
@@ -169,18 +187,14 @@ public struct Judy {
         return timeString
     }
     
-    
     /// dictionary 转成 String。服务器需要 String 类型的参数时使用此方法方便地转换数据。
     /// # 在有 JSON 的时候直接使用json.rawString()即可。
     /// - Parameter withDictionary: 比如：["userName": "Judy", "age": 23]
     /// - Returns: "{\"userName\": \"Judy\", \"age\": 23}"
-    public static func string(withDictionary: [String: Any]) -> String {
-        // 替换中括号为花括号
-        var string = withDictionary.description.replacingOccurrences(of: "[", with: "{")
-        string = string.description.replacingOccurrences(of: "]", with: "}")
-        
-        return string
-    }
+    /// * Version: 1.0
+    /// * Since: 2021年01月08日21:30:08
+    @available(*, unavailable, message: "此函数一起用，请使用 SwiftyJSON 的 json.rawString() ")
+    public static func string(withDictionary: [String: Any]) -> String { "" }
 
 }
 
@@ -188,18 +202,14 @@ public struct Judy {
 // MARK: - Base64加密、解密
 public extension Judy {
     
-    /**
-     *   编码
-     */
+    /// 编码
     static func base64Encoding(plainString: String) -> String {
         let plainData = plainString.data(using: String.Encoding.utf8)
         let base64String = plainData?.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
         return base64String!
     }
     
-    /**
-     *   解码
-     */
+    /// 解码
     static func base64Decoding(encodedString: String) -> String {
         let decodedData = NSData(base64Encoded: encodedString, options: NSData.Base64DecodingOptions.init(rawValue: 0))
         let decodedString = NSString(data: decodedData! as Data, encoding: String.Encoding.utf8.rawValue)! as String
@@ -308,9 +318,9 @@ public extension Judy {
         }
         
         if NSNotFound == nDotLoc && 0 != range.location {   // 没有输入小数点时匹配这里
-            cs = CharacterSet.init(charactersIn: "0123456789.\n").inverted
+            cs = CharacterSet(charactersIn: "0123456789.\n").inverted
         } else {    // 当已输入的内容中有小数点，则匹配此处。
-            cs = CharacterSet.init(charactersIn: "0123456789\n").inverted
+            cs = CharacterSet(charactersIn: "0123456789\n").inverted
         }
         
         let filtered: String = (string.components(separatedBy: cs!) as NSArray).componentsJoined(by: "")
@@ -419,14 +429,14 @@ public extension Judy {
     /// 获取version,即CFBundleShortVersionString
     ///
     /// - Returns: 如：2.5.8
-    static func versionShort() -> String{
+    static func versionShort() -> String {
         return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     }
     
     /// 获取Build版本号
     ///
     /// - Returns: 如：1
-    static func versionBuild() -> String{
+    static func versionBuild() -> String {
         return Bundle.main.infoDictionary!["CFBundleVersion"] as! String
     }
     
@@ -506,19 +516,19 @@ public extension Judy {
     ///- URL: String?    AppStore URL:(AppStore URL只在有新版本时有值，默认没有此字段)
     ///- status: Int 当前App状态，-4:data转json失败，-3:版本检查失败，-2:没有找到，-1:审核状态，0：最新版本，1:有新版本，请更新
     /// - Parameter closure: 回调函数
-//    public static func versionCheck(completionHandler closure: @escaping ((JSON) -> Void)){
-//        versionCheck { (status: Int, newVersion: Bool, msg: String, url: String?) in
-//            var json = JSON(["status":0])
-//            if newVersion {
-//                json["URL"] = JSON(url ?? "")
-//            }
-//            json["newVersion"] = JSON(newVersion)
-//            json["msg"] = JSON(msg)
-//            json["status"] = JSON(status)
-//
-//            closure(json)
-//        }
-//    }
+    static func versionCheck(completionHandler closure: @escaping ((JSON) -> Void)){
+        versionCheck { (status: Int, newVersion: Bool, msg: String, url: String?) in
+            var json = JSON(["status":0])
+            if newVersion {
+                json["URL"] = JSON(url ?? "")
+            }
+            json["newVersion"] = JSON(newVersion)
+            json["msg"] = JSON(msg)
+            json["status"] = JSON(status)
+            
+            closure(json)
+        }
+    }
     
     /// 当前App版本状态
     ///
@@ -728,7 +738,7 @@ public extension Judy {
 /****************************************  ****************************************/
 // MARK: - 测试类
 extension Judy {
-    /*   对于分类，只要在public extension前面加了public，则该分类里面的方法默认都是公开的，只有加fileprivate才能实现文件内私有   */
+
     public static func test(){
         judyLog("这是来自测试类的打印")
         testPrivate()
@@ -748,6 +758,9 @@ extension Judy {
 // MARK: - 私有方法
 fileprivate extension Judy {
     
+    /// 获取最顶层的 ViewCtrl
+    /// - Parameter rootVC: 以该 ViewCtrl 为基础查找最顶层的 ViewCtrl
+    /// - Returns: 可能是 NavigationCtrl、UIViewCtrl
     static func getTopViewCtrl(rootVC: UIViewController) -> UIViewController {
         let topVC = rootVC
         if (topVC.presentedViewController != nil) {
