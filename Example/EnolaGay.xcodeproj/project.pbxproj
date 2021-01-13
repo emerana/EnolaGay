@@ -14,6 +14,10 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		6F337C824DB7574EEDA8C564 /* Pods_EnolaGay_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E3731438F1EBC192427EC6 /* Pods_EnolaGay_Tests.framework */; };
+		8B19561D25ADE035008C5633 /* CircularProgressViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19561C25ADE035008C5633 /* CircularProgressViewCtrl.swift */; };
+		8B19561E25ADE035008C5633 /* CircularProgressViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19561C25ADE035008C5633 /* CircularProgressViewCtrl.swift */; };
+		8B19562225ADE045008C5633 /* CircularProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B19562125ADE045008C5633 /* CircularProgress.storyboard */; };
+		8B19562325ADE045008C5633 /* CircularProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B19562125ADE045008C5633 /* CircularProgress.storyboard */; };
 		8B1AA67325A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */; };
 		8B1AA67425A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */; };
 		8B1AA67925A74B600063BE04 /* JudyLivePageViewCtrl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */; };
@@ -52,6 +56,8 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7747A34155239783B6CF9842 /* EnolaGay.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = EnolaGay.podspec; path = ../EnolaGay.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8B19561C25ADE035008C5633 /* CircularProgressViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressViewCtrl.swift; sourceTree = "<group>"; };
+		8B19562125ADE045008C5633 /* CircularProgress.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CircularProgress.storyboard; sourceTree = "<group>"; };
 		8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudyLivePageViewTest.swift; sourceTree = "<group>"; };
 		8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JudyLivePageViewCtrl.storyboard; sourceTree = "<group>"; };
 		8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveModelViewCtrl.swift; sourceTree = "<group>"; };
@@ -117,6 +123,7 @@
 		607FACD21AFB9204008FA782 /* Example for EnolaGay */ = {
 			isa = PBXGroup;
 			children = (
+				8B19561925ADD840008C5633 /* CircularProgressView */,
 				8B1AA67725A74B350063BE04 /* JudyLivePageViewCtrl */,
 				8B76428E25A702C400A418F8 /* Tests */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -163,6 +170,15 @@
 				5D849979F9CC82D37AB0E47D /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		8B19561925ADD840008C5633 /* CircularProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				8B19561C25ADE035008C5633 /* CircularProgressViewCtrl.swift */,
+				8B19562125ADE045008C5633 /* CircularProgress.storyboard */,
+			);
+			path = CircularProgressView;
 			sourceTree = "<group>";
 		};
 		8B1AA67725A74B350063BE04 /* JudyLivePageViewCtrl */ = {
@@ -286,6 +302,7 @@
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				8B1AA67925A74B600063BE04 /* JudyLivePageViewCtrl.storyboard in Resources */,
+				8B19562225ADE045008C5633 /* CircularProgress.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +310,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B19562325ADE045008C5633 /* CircularProgress.storyboard in Resources */,
 				8B1AA67A25A74B600063BE04 /* JudyLivePageViewCtrl.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +399,7 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */,
+				8B19561D25ADE035008C5633 /* CircularProgressViewCtrl.swift in Sources */,
 				8B1AA67325A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */,
 				8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
@@ -395,6 +414,7 @@
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 				8B1AA67425A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */,
 				8B1AA68125A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */,
+				8B19561E25ADE035008C5633 /* CircularProgressViewCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
