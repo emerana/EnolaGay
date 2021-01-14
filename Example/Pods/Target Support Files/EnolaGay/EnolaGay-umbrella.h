@@ -13,8 +13,6 @@
 #import "UICollectionViewLeftAlignedLayout.h"
 #import "JudySegmentedCtrl.h"
 #import "UICountingLabel.h"
-#import "AnimationContoller.h"
-#import "JudyNavigationFullCtrl.h"
 #import "EDStarRating.h"
 #import "GestureLockPreviewView.h"
 #import "GestureLockView.h"

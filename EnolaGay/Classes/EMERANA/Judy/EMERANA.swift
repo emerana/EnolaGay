@@ -77,15 +77,14 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
     static func isGlobalHideWaitingHUD() -> Bool
     
     
-    /// 发起网络请求的方法。此方法中将更新 apiData。**请求结果在此方法中分流。**
+    /// 发起网络请求的方法。此方法中将更新 apiData。
     ///
-    ///* # 此方法中将最先执行 setApi() 函数，重写它并在其中设置 requestConfig 信息
-    ///* # 此方法中会更改 isReqSuccess 对应状态
-    ///* # 此方法中将依次执行 setApi() -> reqNotApi() / { reqResult() -> reqFailed() / reqSuccess() }
-    ///* # 重写以上方法以实现对应操作
-    ///
+    /// 请求结果在此函数中分流，此函数内部将依次执行 setApi() -> { reqResult() -> reqSuccess() / reqFailed() } / reqNotApi()，请重写相关函数以实现对应操作
+    /// * version: 1.2
+    /// * since: 2021年01月14日11:17:36
+    /// * warning: 此方法中会更改 isReqSuccess 对应状态
     /// - Parameters:
-    ///   - isSetApi: 是否需要调用 setApi()，默认 true，若 isSetApi = false，则本次请求不调用 setApi()
+    ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi()
     func reqApi(isSetApi: Bool)
     
     /**
@@ -115,6 +114,10 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
     func reqResult()
     
     /// 请求成功的消息处理
+    ///
+    /// * version: 1.2
+    /// * since: 2021年01月14日11:11:52
+    /// * warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则
     func reqSuccess()
     
     /// 请求失败或服务器响应失败时的消息处理

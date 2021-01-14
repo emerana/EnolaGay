@@ -45,8 +45,6 @@
 		1A769ABAC50E63C2092D29E2A89F26A6 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BBBFDDEDBE245F9909B7888D1270F0 /* SwiftyJSON.swift */; };
 		1D414CA9457C8A74FBCAD6D2ACF8FC35 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDD54D1B246453804C8D6416B5884DC /* UIScrollView+MJExtension.m */; };
 		1E6950229A01CF813C89911958AFAB77 /* JudyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA99B299A281D6FAFA4836560BDB44 /* JudyAlert.swift */; };
-		1E7E0ED879F932D34F34C180DB225788 /* JudyNavigationFullCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3C85984EFFF232CA62FE6F1FC7EF01 /* JudyNavigationFullCtrl.m */; };
-		1F57411543C2749CF2F10D9DC9C9E614 /* AnimationContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EBF288F7CA5E3E98DAFFF08327DF20 /* AnimationContoller.m */; };
 		1FCBDA636C2CC7DFEFBD633EACF818C5 /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A15470C58A88026FCBFE7D6002E14081 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2005A8D520A6AB3F442062524E6F573D /* SDmetamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DDCC16206122762802BAC67B48B774 /* SDmetamacros.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		2029E4FBF8327D9106CF18BD833DCCDB /* NSBundle+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = C6A5B6E20D76579D0BC96775704DCB4A /* NSBundle+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -169,7 +167,6 @@
 		87ED20B4EBDEA5882A05376EE371444C /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AE63C13B0A78D54130F66C6CA006BD /* MJRefreshHeader.m */; };
 		88AC2BF098545A7231B9FBAF1429DCFB /* SDWebImageCacheSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 212D5670884CE0AB708B556411505207 /* SDWebImageCacheSerializer.m */; };
 		88F580845D0D1878392ADEF284B0DC08 /* SDImageAWebPCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A692F6E0DA5C42E158FA83EA69E0F8E /* SDImageAWebPCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		896ED04D09CC7A3719C69EA44DD71A5A /* AnimationContoller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B746CD6524C8EB857CED94DAACFFDF8 /* AnimationContoller.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89DDB4B154A511B352485EF99A899684 /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9295EEFCE4FD42C50AA94868F4C389 /* MJRefreshGifHeader.m */; };
 		89FB462F2069AE37F9BF7DFAFE1C7BAB /* JudyBaseSearchViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE6EE6D60500DC74324E19B368EAAEB /* JudyBaseSearchViewCtrl.swift */; };
 		8A07E7E2C483ED4055AC124991C52BF6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3373A5CBFB02C021E8FCE386B0FB7785 /* QuartzCore.framework */; };
@@ -225,7 +222,6 @@
 		B35FD64D12BE4C763E87497C5FEE439D /* MJRefreshNormalTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFE4B968B256839838EA2F837A61F7F /* MJRefreshNormalTrailer.m */; };
 		B40B9B10375E7FFFBBE817B5B83DFA2F /* SDWebImageError.m in Sources */ = {isa = PBXBuildFile; fileRef = DA60FDC008655D2FC314B63947FE92CF /* SDWebImageError.m */; };
 		B5E38747075788A6DEB69182CE06E73D /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC2E0F731FC3D45DE94FCD6E4BEC17 /* SDWebImageCompat.m */; };
-		B5F72C0B03E6F157153C0924C114349A /* JudyNavigationFullCtrl.h in Headers */ = {isa = PBXBuildFile; fileRef = D220C75720665782C85DFC8DF93E5C97 /* JudyNavigationFullCtrl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B771DDE4F1B8066DA9F8901155CE6205 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F41ACE845489CDF3DAE6BA40F02BA549 /* MBProgressHUD.m */; };
 		B818C3A2F9B00FD2B36165EC978FFF01 /* JudyBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7855527D74D6D62483005F7D8CEB85 /* JudyBaseButton.swift */; };
 		B9FE070A0F9D618E7AA50A4AF5F65CA9 /* SDWebImageDownloaderDecryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 11002AA19C07AA9FE154EC024D29C5BD /* SDWebImageDownloaderDecryptor.m */; };
@@ -1732,12 +1728,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				896ED04D09CC7A3719C69EA44DD71A5A /* AnimationContoller.h in Headers */,
 				F87928C6D15EC0CB5B69DCD28E3B29EB /* EDStarRating.h in Headers */,
 				28FC40018A563C219543D4AC7BE3851C /* EnolaGay-umbrella.h in Headers */,
 				FF766B81E51B632FB9638937BF976DA9 /* GestureLockPreviewView.h in Headers */,
 				4D4FE0CF3DD9037925470297D3356A3A /* GestureLockView.h in Headers */,
-				B5F72C0B03E6F157153C0924C114349A /* JudyNavigationFullCtrl.h in Headers */,
 				BF4097B1C1B4C90DC006206F28B7C275 /* JudySegmentedCtrl.h in Headers */,
 				E15ED899E7828DFB6E4A9C4036A36E14 /* NewPagedFlowView.h in Headers */,
 				24F8839EE9476B2E545A9245A50F8244 /* PGIndexBannerSubiew.h in Headers */,
@@ -2055,7 +2049,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1C4AD754F7230517362B785146D2316 /* Alert.xib in Sources */,
-				1F57411543C2749CF2F10D9DC9C9E614 /* AnimationContoller.m in Sources */,
 				38FBA113DCD8BA07C50F02D7F7CA36D8 /* EDStarRating.m in Sources */,
 				6E4A837EC3E02A4A8D58946B51C292FA /* EMERANA.swift in Sources */,
 				7068AE2A3AA2D8AE60A9812B838DEB4B /* EnolaGay-dummy.m in Sources */,
@@ -2091,7 +2084,6 @@
 				4770E98E2A495ECC12CD2668214B6A25 /* JudyMadokaTextField.swift in Sources */,
 				5B49FE5D5395EC6EA88C2F326D63F3B3 /* JudyMinoruTextField.swift in Sources */,
 				330EE5851E6A02B97617FE41743FBBC8 /* JudyNavigationCtrl.swift in Sources */,
-				1E7E0ED879F932D34F34C180DB225788 /* JudyNavigationFullCtrl.m in Sources */,
 				EFD5F40FE5968D221EB4A423458FF39D /* JudySearchView.swift in Sources */,
 				170DE00E965976630F5AC251D1775B31 /* JudySearchView.xib in Sources */,
 				F33E3658C35EAA78C15FA5DC7B2F8B1E /* JudySegmentedCtrl.m in Sources */,
