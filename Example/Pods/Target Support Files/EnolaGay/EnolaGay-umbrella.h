@@ -10,7 +10,6 @@
 #endif
 #endif
 
-#import "UICollectionViewLeftAlignedLayout.h"
 #import "JudySegmentedCtrl.h"
 
 FOUNDATION_EXPORT double EnolaGayVersionNumber;

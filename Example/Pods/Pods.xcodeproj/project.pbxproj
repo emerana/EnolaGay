@@ -58,7 +58,6 @@
 		28FC40018A563C219543D4AC7BE3851C /* EnolaGay-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 90A53C29D0E373CCA87C438F1612B554 /* EnolaGay-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2A84E3C0E1D664AFFF7A35FBF7CDDFCF /* SDImageLoadersManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 91DCD3DCADAE889B52A09E4AF5DE8087 /* SDImageLoadersManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2A9255D34B280DD65C5A0A273A993D74 /* MJRefreshStateTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3965D7EC4B6000310D33814C6B944857 /* MJRefreshStateTrailer.m */; };
-		2AB3CFB872CFA745435225052BDBD3AD /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C42DA119CE4282A2E6C432FF83E13498 /* UICollectionViewLeftAlignedLayout.m */; };
 		2BB4650156A7EE8785B8031CF14E8E90 /* SDFileAttributeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 86E35DFBC02477F55065574CBF7DFC45 /* SDFileAttributeHelper.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		2C61B040BA6A9A7AE66C4D9BA26D5520 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B18807FE5B11F9F76F78305579F627 /* SessionDelegate.swift */; };
 		2CF225130B2EF0E3C5F735190D9B6472 /* SDWebImageOptionsProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 48964CCD97026F7B5996F55ACFDE8350 /* SDWebImageOptionsProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -209,7 +208,6 @@
 		AFC64B1097F7355FF423D6A73E9C7210 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B81C233FAE387AB5E6A814C59C8E84 /* TaskDelegate.swift */; };
 		B0CECE850050DBB9C9B2C26585993498 /* MJRefreshAutoStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 0977FA50D849362A96BF45FC0C1143A8 /* MJRefreshAutoStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2A6D85A2CC23818503DEF0F03B63990 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D89EDAD271C224831CD9D71056D7B86 /* MJRefreshConst.m */; };
-		B33E4DCE984D2708F88C038AD84EF187 /* UICollectionViewLeftAlignedLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 34EFF9185023F80C47D581C77601D1A2 /* UICollectionViewLeftAlignedLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B35FD64D12BE4C763E87497C5FEE439D /* MJRefreshNormalTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFE4B968B256839838EA2F837A61F7F /* MJRefreshNormalTrailer.m */; };
 		B40B9B10375E7FFFBBE817B5B83DFA2F /* SDWebImageError.m in Sources */ = {isa = PBXBuildFile; fileRef = DA60FDC008655D2FC314B63947FE92CF /* SDWebImageError.m */; };
 		B5E38747075788A6DEB69182CE06E73D /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC2E0F731FC3D45DE94FCD6E4BEC17 /* SDWebImageCompat.m */; };
@@ -458,7 +456,6 @@
 		3373A5CBFB02C021E8FCE386B0FB7785 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		34211AF0772AD6D16D18B0A9A61545D8 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
 		349DD2DFE4B612E107DD1ABB604C429A /* NSButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSButton+WebCache.m"; path = "SDWebImage/Core/NSButton+WebCache.m"; sourceTree = "<group>"; };
-		34EFF9185023F80C47D581C77601D1A2 /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
 		35556FE883ECAF00400DAD9C88C1D271 /* SDWeakProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWeakProxy.h; path = SDWebImage/Private/SDWeakProxy.h; sourceTree = "<group>"; };
 		3582E4ACE4E3624C318ED35058B4C844 /* MJRefreshBackStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackStateFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.h; sourceTree = "<group>"; };
 		36745B9899ED42CB5D66B23E6B0A7786 /* SwiftyJSON.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.release.xcconfig; sourceTree = "<group>"; };
@@ -648,7 +645,6 @@
 		BFF3E650EA838E2B61F21A3E4E12D219 /* JudyFileManage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyFileManage.swift; sourceTree = "<group>"; };
 		C0BA4321CA20AACF666FB619998B59DA /* JudyBaseCollectionViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyBaseCollectionViewCtrl.swift; sourceTree = "<group>"; };
 		C267E82F12466E2D29AD3EAFA5957AC3 /* SDImageLoadersManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageLoadersManager.m; path = SDWebImage/Core/SDImageLoadersManager.m; sourceTree = "<group>"; };
-		C42DA119CE4282A2E6C432FF83E13498 /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
 		C4B18807FE5B11F9F76F78305579F627 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
 		C63A09F21D0D64DB875FB9B93C6D260D /* MJRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.debug.xcconfig; sourceTree = "<group>"; };
 		C6A5B6E20D76579D0BC96775704DCB4A /* NSBundle+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+MJRefresh.h"; path = "MJRefresh/NSBundle+MJRefresh.h"; sourceTree = "<group>"; };
@@ -1128,8 +1124,6 @@
 				0931F0257E0D89BFB59C45AC3532FCF9 /* JudyBaseCollectionRefreshViewCtrl.swift */,
 				C0BA4321CA20AACF666FB619998B59DA /* JudyBaseCollectionViewCtrl.swift */,
 				3D9A6745607A95FAB751C4ACE0EDABFF /* JudyCollectionViewLayout.swift */,
-				34EFF9185023F80C47D581C77601D1A2 /* UICollectionViewLeftAlignedLayout.h */,
-				C42DA119CE4282A2E6C432FF83E13498 /* UICollectionViewLeftAlignedLayout.m */,
 			);
 			name = CollectionViewCtrl;
 			path = EnolaGay/Classes/EMERANA/CollectionViewCtrl;
@@ -1616,7 +1610,6 @@
 			files = (
 				28FC40018A563C219543D4AC7BE3851C /* EnolaGay-umbrella.h in Headers */,
 				BF4097B1C1B4C90DC006206F28B7C275 /* JudySegmentedCtrl.h in Headers */,
-				B33E4DCE984D2708F88C038AD84EF187 /* UICollectionViewLeftAlignedLayout.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1970,7 +1963,6 @@
 				4FC02D8A565D6DC454A260161C8CF41C /* JudyYokoTextField.swift in Sources */,
 				E673587D4A1F430A7B394BB8076BF0B6 /* JudyYoshikoTextField.swift in Sources */,
 				D396FE95C0E646A0B6AAD7B0C6950C9E /* MarqueeView.swift in Sources */,
-				2AB3CFB872CFA745435225052BDBD3AD /* UICollectionViewLeftAlignedLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
