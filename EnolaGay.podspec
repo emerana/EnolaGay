@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.description      = <<-DESC
   历时30个月，EMERANA 已经不再是当年那个艾美拉娜公主了，现如今已经强化成足矣摧毁日本帝国的战士
-  DESC
+                       DESC
 
   s.homepage         = 'https://github.com/emerana/EnolaGay'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
