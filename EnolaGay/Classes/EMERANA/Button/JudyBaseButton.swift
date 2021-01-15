@@ -66,6 +66,33 @@ import UIKit
     
 }
 
+// MARK: - 显示的效果
+public extension JudyBaseButton {
+    
+    /// 以动画的方式显示该按钮
+    func show() {
+
+        guard isHidden == true else { return }
+        
+        isHidden = false
+        
+        let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
+        scaleAnimation.fromValue = 2
+        scaleAnimation.toValue = 1
+        scaleAnimation.duration = 0.3
+        
+        let opacityAnimation = CABasicAnimation(keyPath: "opacity")
+        opacityAnimation.fromValue = 5
+        opacityAnimation.toValue = 1
+        opacityAnimation.duration = 0.3
+        
+
+        layer.add(scaleAnimation, forKey: "scale")
+        layer.add(opacityAnimation, forKey: "opacity")
+
+    }
+}
+
 
 // MARK: - UIButton扩展，支持调整图片和文字的排序及间距
 public extension UIButton {
@@ -137,3 +164,4 @@ public extension UIButton {
     }
     
 }
+
