@@ -12,6 +12,8 @@ import SwiftyJSON
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var theButton: JudyBaseButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +24,14 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func goAction(_ sender: Any) {
+        
+        if theButton.isHidden {
+            theButton.show()
+        } else {
+            theButton.isHidden = true
+        }
+    }
     
 }
 
