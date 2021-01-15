@@ -151,12 +151,12 @@ public extension UIButton {
         let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
         scaleAnimation.fromValue = 2
         scaleAnimation.toValue = 1
-        scaleAnimation.duration = 3
+        scaleAnimation.duration = 0.3
         
         let opacityAnimation = CABasicAnimation(keyPath: "opacity")
         opacityAnimation.fromValue = 5
         opacityAnimation.toValue = 1
-        opacityAnimation.duration = 3
+        opacityAnimation.duration = 0.3
         
 
         layer.add(scaleAnimation, forKey: "scale")
