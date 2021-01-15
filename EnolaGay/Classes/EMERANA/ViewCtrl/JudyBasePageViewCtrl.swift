@@ -384,22 +384,28 @@ public protocol EMERANA_JudyLivePageViewCtrl: UIViewController {
     /// * since: 2021年01月07日22:17:51
     /// - Parameters:
     ///   - forward: 是否为询问下一个界面，需要根据该值做出对应的界面显示
-    ///   - viewCtrl: 当前正显示且即将离开的 viewCtrl。该值为 nil 时，请配置初始页（第一页）
+    ///   - viewCtrl: 在转换之前的视图控制器，当前正显示且即将离开的 viewCtrl。该值为 nil 时，请配置初始页（第一页）
     /// - Returns: 通常情况下，建议返回的 viewCtrl 包含一个用于对应外部数据源的标识
-    func viewController(isForward forward: Bool, awayViewCtrl viewCtrl: UIViewController?) -> UIViewController?
+    func viewController(isForward forward: Bool, previousViewControllers viewCtrl: UIViewController?) -> UIViewController?
     
 }
 
 /// 适用于直播、短视频类型的 pageViewCtrl
 ///
-/// 别忘了设置滚动方向 pageViewCtrl.navigationOrientation
-/// * warning: 请记得设置 transitionStyle 为 scroll
-/// * since: 2021年01月08日09:19:07
-/// * version: v1.2
+/// 别忘了设置滚动方向 pageViewCtrl.navigationOrientation，根据需要设置为水平方向滑动还是垂直方向滑动
+/// * version: v1.3
+/// * since: 2021年01月15日12:35:45
+/// * warning: 请记得设置 transitionStyle 为 scroll；
+/// * 请通过调用 onStart() 函数使 pageViewCtrl 正常工作，通常情况下在数据源被确定时调用此函数;
+/// * JudyLivePageViewCtrl 无需支持下拉刷新;
 open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate {
 
     /// viewCtrl 数据源配置代理对象，所有要显示的 ViewCtrl 均通过此协议配置
     weak public var enolagay: EMERANA_JudyLivePageViewCtrl!
+    
+    /// 是否已经配置了首页，默认 false
+    private var isLoadedFirstPage = false
+        
     
     
     open override func viewDidLoad() {
@@ -412,33 +418,61 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
         
         view.backgroundColor = .judy(.scrollView)
         
-        dataSource = self
-        delegate = self
         
         let scrollView = view.subviews.filter { $0 is UIScrollView }.first as! UIScrollView
         scrollView.delegate = self
         
-        // 第一页
-        if let initViewCtrl = enolagay.viewController(isForward: true, awayViewCtrl: nil) {
+    }
+    
+
+    /// 通过此函数以设置 pageViewCtrl 的起始页
+    ///
+    /// 只有通过此函数才能使 pageViewCtrl 正常工作
+    /// * version: 1.0
+    /// * since: 2021年01月15日12:29:40
+    /// * warning: 此函数已经做好校验，只要初始页配置成功，即使重复调用此函数，也不会重新配置，请放心调用
+    public final func onStart() {
+       
+        // 确保往下执行配置第一页的条件
+        guard isLoadedFirstPage == false else {
+            Judy.log("已经配置过第一页啦")
+            return
+        }
+        /// 配置第一页及代理
+        if let initViewCtrl = enolagay.viewController(isForward: true, previousViewControllers: nil) {
             setViewControllers([initViewCtrl], direction: .forward, animated: true)
-        } else { fatalError("首页初始化为 nil") }
+            
+            if isLoadedFirstPage == false {
+                dataSource = self
+                delegate = self
+            }
+            
+            isLoadedFirstPage = true
+            
+        } else {
+            dataSource = nil
+            delegate = nil
+            isLoadedFirstPage = false
+            Judy.logWarning("初始页不能配置为 nil !，请重新配置")
+        }
+        
+        
     }
     
     
     // MARK: - UIPageViewControllerDataSource
     
-    /// 显示上一页
-    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
-        return enolagay.viewController(isForward: false, awayViewCtrl: viewController)
+    /// 显示前一页
+    public final func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+
+        return enolagay.viewController(isForward: false, previousViewControllers: viewController)
     }
     
     /// 显示下一页
-    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    public final func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        return enolagay.viewController(isForward: true, awayViewCtrl: viewController)
+        return enolagay.viewController(isForward: true, previousViewControllers: viewController)
     }
-    
     
     // MARK: - UIPageViewControllerDelegate
     
