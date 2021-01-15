@@ -19,7 +19,6 @@ class JudyLivePageViewTest: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         
     }
     
@@ -33,6 +32,8 @@ class JudyLivePageViewTest: UIViewController {
         if segue.identifier == "loadJudyLivePageViewCtrl" {
             livePageViewCtrl = segue.destination as? JudyLivePageViewCtrl
             livePageViewCtrl.enolagay = self
+            livePageViewCtrl.onStart()
+
         }
 
     }
@@ -41,7 +42,7 @@ class JudyLivePageViewTest: UIViewController {
 
 extension JudyLivePageViewTest: EMERANA_JudyLivePageViewCtrl {
     
-    func viewController(isForward forward: Bool, awayViewCtrl viewCtrl: UIViewController?) -> UIViewController? {
+    func viewController(isForward forward: Bool, previousViewControllers viewCtrl: UIViewController?) -> UIViewController? {
         
         let modelViewCtrl = storyboard?.instantiateViewController(withIdentifier: "LiveModelViewCtrl") as? LiveModelViewCtrl
 
@@ -52,14 +53,14 @@ extension JudyLivePageViewTest: EMERANA_JudyLivePageViewCtrl {
         }
 
         // 配置上一页或下一页
-        guard let index = dataSource.firstIndex(of: (viewCtrl as! LiveModelViewCtrl).tagDataSource) else { return nil }
+        guard let current = dataSource.firstIndex(of: (viewCtrl as! LiveModelViewCtrl).tagDataSource) else { return nil }
 
         if forward { // 下一个界面
-            if index >= dataSource.count - 1 { return nil }
-            modelViewCtrl?.tagDataSource = dataSource[index+1]
+            if current >= dataSource.count - 1 { return nil }
+            modelViewCtrl?.tagDataSource = dataSource[current+1]
         } else { // 上一个界面
-            if index <= 0 { return nil }
-            modelViewCtrl?.tagDataSource = dataSource[index-1]
+            if current <= 0 { return nil }
+            modelViewCtrl?.tagDataSource = dataSource[current-1]
         }
 
         return modelViewCtrl

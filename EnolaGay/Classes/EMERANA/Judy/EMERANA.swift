@@ -64,10 +64,17 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
     var apiData: JSON { get }
 
     /// 当前界面网络请求成功的标识，默认 false。
-    /// * 当该值为 true，viewWillAppear() 将不执行 reqApi()，反之发起请求。
-    /// * 若需要取消自动请求，请重写 viewWillAppear() 并在 super.viewWillAppear() 之前将该值设为 true，**注意生命周期，每次都会调用**。
+    ///
+    /// 该值为 false 时会在 viewWillAppear() 中触发 reqApi()；若需要取消该请求，重写父类 viewWillAppear() 参考如下代码：
+    /// ```
+    /// isReqSuccess = true
+    /// super.viewWillAppear(animated)
+    /// ```
+    /// * version: 1.2
+    /// * since: 2021年01月15日12:58:43
+    /// * warning: 注意生命周期 viewWillAppear() ，每次都会调用；
+    /// * 当 requestConfig.api = nil，reqApi() 中会将该值设为 true;
     /// * 若需要界面每次出现都发送请求，请在 super.viewWillAppear() 之前或 reqApi() 响应后（如 reqOver()）将该值设为 false。
-    /// * 当 requestConfig.api = nil，reqApi()会将该值设为 true
     var isReqSuccess: Bool { get set }
     
     /// 未设置 requestConfig.api 时是否隐藏 HUD，默认 false
