@@ -368,14 +368,14 @@ public protocol EMERANA_JudyLivePageViewCtrl: UIViewController {
     /// }
     ///
     /// // 配置上一页或下一页
-    /// guard let index = dataSource.firstIndex(of: (viewCtrl as! ModelViewCtrl).tagDataSource) else { return nil }
+    /// guard let current = dataSource.firstIndex(of: (viewCtrl as! ModelViewCtrl).tagDataSource) else { return nil }
     ///
     /// if forward { // 下一个界面
-    ///     if index >= dataSource.count - 1 { return nil }
-    ///     modelViewCtrl?.tagDataSource = dataSource[index+1]
+    ///     if current >= dataSource.count - 1 { return nil }
+    ///     modelViewCtrl?.tagDataSource = dataSource[current+1]
     /// } else { // 上一个界面
-    ///     if index <= 0 { return nil }
-    ///     modelViewCtrl?.tagDataSource = dataSource[index-1]
+    ///     if current <= 0 { return nil }
+    ///     modelViewCtrl?.tagDataSource = dataSource[current-1]
     /// }
     ///
     /// return modelViewCtrl
@@ -406,7 +406,6 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     /// 是否已经配置了首页，默认 false
     private var isLoadedFirstPage = false
         
-    
     
     open override func viewDidLoad() {
         guard transitionStyle == .scroll else {
