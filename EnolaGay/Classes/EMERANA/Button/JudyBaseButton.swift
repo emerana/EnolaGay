@@ -67,8 +67,9 @@ import UIKit
 }
 
 // MARK: - 显示的效果
-public extension JudyBaseButton {
-    /* keypath值：
+public extension UIButton {
+    /*
+     常用的keypath值：
 
      transform.scale = 大小比例
      transform.scale.x = 宽的比例转换
@@ -94,7 +95,9 @@ public extension JudyBaseButton {
      shadowOffset
      shadowOpacity
      shadowRadius
+     
      */
+    
     /// 以动画的方式显示该按钮
     func show() {
 
@@ -123,7 +126,10 @@ public extension JudyBaseButton {
 public extension UIButton {
 
     /// 设置文字在左，图片在右
-    /// # 也可以直接在 Storyboard 使用 semanticContentAttribute 属性
+    ///
+    /// * version: 1.1
+    /// * since: 2021年01月16日10:47:37
+    /// * warning: 直接在 Storyboard 使用 semanticContentAttribute 属性设为从右向左即可
     /// - Parameter spacing: 间距
     func setImageRight(spacing: CGFloat = 0) {
         semanticContentAttribute = .forceRightToLeft
@@ -140,15 +146,17 @@ public extension UIButton {
          */
     }
     
+    
     /// 设置按钮中图片在文字的正上方。
-    /// # 请在设置 font（涉及到尺寸变化）大小之后再调用此函数，否则可能出现文字与图片不对齐
-    /// # 同样，如果更改了涉及尺寸变化的属性需要重新调用该函数
     ///
+    /// 此函数将重新计算按钮尺寸并将图片放置在文本的上方
+    /// * version: 1.1
+    /// * since: 2021年01月16日10:40:51
+    /// * warning: 在设置字体、文本、尺寸大小后需要重新调用此函数已确保正确将图片显示在文本上方
     /// - Parameter spacing: 图片与文本的间隔，默认0，此属性决定了图片和文字各偏移spacing/2
     func setImageTop(spacing: CGFloat = 0) {
-        guard imageView != nil, titleLabel != nil else {
-            return
-        }
+        
+        guard imageView != nil, titleLabel != nil, titleLabel?.text != nil else { return }
         /*
          修复日志：
          2018年05月24日17:19
@@ -163,12 +171,15 @@ public extension UIButton {
     }
     
     /// 设置左右结构的间距。正常情况下图片在左，文字在右，但间距太小。
-    /// # 此属性会在原有 UIEdgeInsets 基础上做修改而不是重置为0
     ///
+    /// * version: 1.1
+    /// * since: 2021年01月16日10:46:33
+    /// * warning: 若按钮发生变化需重新调用此函数
     /// - Parameter spacing: 间距值，默认2，此属性决定了图片和文字各偏移 spacing/2
     func setImageTextSpacing(spacing: CGFloat = 2) {
         
         guard imageView != nil, titleLabel != nil else { return }
+        
         // UIEdgeInsets(top: 0, left: 8, bottom: 0, right: -8)
         contentEdgeInsets = UIEdgeInsets(top: 0 + contentEdgeInsets.top, left: spacing/2 + contentEdgeInsets.left, bottom: 0 + contentEdgeInsets.bottom, right: spacing/2 + contentEdgeInsets.right)
 
