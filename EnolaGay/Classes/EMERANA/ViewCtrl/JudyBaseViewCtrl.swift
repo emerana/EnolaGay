@@ -13,7 +13,7 @@ import UIKit
 import SwiftyJSON
 
 /// 遵循统一标准的 ViewController
-/// * warning: **该 viewController 遵循以下标准**
+/// - warning: **该 viewController 遵循以下标准**
 /// * 重写 viewTitle 以设置标题
 /// * 设置 requestConfig 对象以配置请求信息
 open class JudyBaseViewCtrl: UIViewController, EMERANA_Api {

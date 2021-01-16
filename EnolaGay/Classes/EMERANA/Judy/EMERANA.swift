@@ -31,9 +31,9 @@ public typealias ClosureString = ((String) -> Void)
 // MARK: - 为 ViewCtrl 新增部分协议
 
 /// viewCtrl 基础协议
-/// * version: 1.0
-/// * since: 2020年10月22日16:50
-/// * warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
+/// - version: 1.0
+/// - since: 2020年10月22日16:50
+/// - warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
 public protocol EMERANA_ViewCtrl where Self: JudyBaseViewCtrl {
 
     /// navigationItem.title，该 viewTitle 优先于 self.title 显示，且将覆盖 self.title 值
@@ -53,8 +53,8 @@ public protocol EMERANA_ViewCtrl where Self: JudyBaseViewCtrl {
 // MARK: - Api专用协议，仅适用于 JudyBaseViewCtrl 规范 Api 流程。
 
 /// ViewCtrl 专用 Api 协议，此协议中规定了一个viewCtrl中必须的属性及函数
-/// * warning: 此协议限制为 JudyBaseViewCtrl 及其派生类使用
-/// * since: 1.2
+/// - warning: 此协议限制为 JudyBaseViewCtrl 及其派生类使用
+/// - since: 1.2
 public protocol EMERANA_Api: EMERANA_ViewCtrl {
     
     /// 请求配置对象
@@ -70,9 +70,9 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
     /// isReqSuccess = true
     /// super.viewWillAppear(animated)
     /// ```
-    /// * version: 1.2
-    /// * since: 2021年01月15日12:58:43
-    /// * warning: 注意生命周期 viewWillAppear() ，每次都会调用；
+    /// - version: 1.2
+    /// - since: 2021年01月15日12:58:43
+    /// - warning: 注意生命周期 viewWillAppear() ，每次都会调用；
     /// * 当 requestConfig.api = nil，reqApi() 中会将该值设为 true;
     /// * 若需要界面每次出现都发送请求，请在 super.viewWillAppear() 之前或 reqApi() 响应后（如 reqOver()）将该值设为 false。
     var isReqSuccess: Bool { get set }
@@ -87,9 +87,9 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
     /// 发起网络请求的方法。此方法中将更新 apiData。
     ///
     /// 请求结果在此函数中分流，此函数内部将依次执行 setApi() -> { reqResult() -> reqSuccess() / reqFailed() } / reqNotApi()，请重写相关函数以实现对应操作
-    /// * version: 1.2
-    /// * since: 2021年01月14日11:17:36
-    /// * warning: 此方法中会更改 isReqSuccess 对应状态
+    /// - version: 1.2
+    /// - since: 2021年01月14日11:17:36
+    /// - warning: 此方法中会更改 isReqSuccess 对应状态
     /// - Parameters:
     ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi()
     func reqApi(isSetApi: Bool)
@@ -122,9 +122,9 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
     
     /// 请求成功的消息处理
     ///
-    /// * version: 1.2
-    /// * since: 2021年01月14日11:11:52
-    /// * warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则
+    /// - version: 1.2
+    /// - since: 2021年01月14日11:11:52
+    /// - warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则
     func reqSuccess()
     
     /// 请求失败或服务器响应失败时的消息处理
@@ -147,8 +147,8 @@ public extension EMERANA_Api where Self: JudyBaseViewCtrl {
 import MJRefresh
 
 /// tableView、collectionView 专用刷新协议
-/// * warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
-/// * since: 1.0
+/// - warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
+/// - since: 1.0
 public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     
     /// 初始页数，默认为1，该值决定了 currentPage 的初始值，下拉刷新时 currentPage 会重置为该值。一般建议定义为计算属性
@@ -208,9 +208,9 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
 public extension EMERANA_Refresh {
     
     /// 是否隐藏上拉刷新控件？默认 false
-    /// * warning: 所有实现 EMERANA_Refresh 协议的对象均能触发此扩展函数
+    /// - warning: 所有实现 EMERANA_Refresh 协议的对象均能触发此扩展函数
     ///     * 在此函数中补充所需操作，扩展对应的类并重写此函数
-    /// * since: 1.0
+    /// - since: 1.0
     func hideFooterStateLabel() -> Bool {
         return false
     }
@@ -221,8 +221,8 @@ import SwiftyJSON
 
 
 /// tableViewCtrl、collectionViewCtrl 基础协议
-/// * warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
-/// * since: 1.0
+/// - warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
+/// - since: 1.0
 public protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
 
     /// 主要数据源，需要手动赋值，默认为空数组。
@@ -247,8 +247,8 @@ public protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
 // MARK: - tableViewCell 和 collectionViewCell 专用协议
 
 /// Cell 基础协议
-/// * warning: 此协议针对 tableViewCell、collectionViewCell 类定制
-/// * since: 1.0
+/// - warning: 此协议针对 tableViewCell、collectionViewCell 类定制
+/// - since: 1.0
 public protocol EMERANA_CellBasic {
     
     /// 标题
@@ -297,8 +297,8 @@ public extension EMERANA_CellBasic {
 // MARK: - 字体样式协议。目前用于 button、label、textField
 
 /// 字体专用协议
-/// * warning: 此协仅对 class 类型提供
-/// * since: 1.0
+/// - warning: 此协仅对 class 类型提供
+/// - since: 1.0
 public protocol EMERANA_FontStyle: class {
     
     /// 配置 EMERANA 字体大小及样式，默认值为 m
@@ -352,10 +352,10 @@ public protocol EMERANA_FontStyle: class {
 // MARK: - UIColor 配置
 
 /// UIColor EMERANA 配置协议，此协议已经默认实现
-/// * warning: 使用注意事项
+/// - warning: 使用注意事项
 ///     * 如需自定义请 extension UIColor 覆盖 judy() 函数
 ///     * 此协仅对 UIColor 类型提供
-/// * since: 1.0
+/// - since: 1.0
 public protocol EMERANA_UIColor {
     /*
      # static 定义的属性和func 没办法被子类 override.
@@ -365,7 +365,7 @@ public protocol EMERANA_UIColor {
     /// 使用 EMERANA 配置获取颜色
     /// * 自定义配置请 public extension UIColor 并覆盖此函数
     /// - Parameter style: 颜色样式，参阅 ColorStyle
-    /// * since: 1.0 2021年01月06日11:02:33
+    /// - since: 1.0 2021年01月06日11:02:33
     func configColorStyle(_ style: UIColor.ColorStyle) -> UIColor
 
 }
@@ -480,7 +480,7 @@ public extension UIColor {
     
     /// 通过 ColorStyle 配置一个颜色
     /// - Parameter style: ColorStyle 样式，请通过
-    /// * since: 1.0 2021年01月06日11:02:33
+    /// - since: 1.0 2021年01月06日11:02:33
     static func judy(_ style: UIColor.ColorStyle) -> UIColor {
         
         guard EMERANA.colorStyleConfigDelegate != nil else {
@@ -524,10 +524,10 @@ public extension UIColor {
 
 
 /// UIFont EMERANA 配置协议，此协议已经默认实现
-/// * warning: 使用注意事项
+/// - warning: 使用注意事项
 ///     * 如需自定义请 public extension UIFont 覆盖 judy() 函数
 ///     * 此协仅对 UIFont 类型提供
-/// * since: 1.0    //    where Self: UIFont
+/// - since: 1.0    //    where Self: UIFont
 public protocol EMERANA_UIFont {
 
     /// 配置 FontStyle 的函数。若有需要，请 public extension UIFont 并覆盖此函数，分别返回对应 style 下的 fontName 和 fontSize
@@ -536,7 +536,7 @@ public protocol EMERANA_UIFont {
     /// init?(style: UIFont.FontStyle)
     /// ```
     /// - Parameter style: 对应的 FontStyle
-    /// * warning:通过 init(style: UIFont.FontStyle) 函数创建的字体大小最大值被限制为 100
+    /// - warning:通过 init(style: UIFont.FontStyle) 函数创建的字体大小最大值被限制为 100
     func configFontStyle(_ style: UIFont.FontStyle) -> (UIFont.FontName, CGFloat)
 }
 
@@ -601,8 +601,8 @@ public extension UIFont {
     
     
     /// 字体样式。**EMERANA 中默认使用 M 码**
-    /// * warning: 原始值范围-8...14，N系列从10开始
-    /// * warning: 原始值为奇数表示加粗（N系列除外）
+    /// - warning: 原始值范围-8...14，N系列从10开始
+    /// - warning: 原始值为奇数表示加粗（N系列除外）
     enum FontStyle: Int {
         
         /// 比 xxs 码还要小一号
@@ -716,7 +716,7 @@ public extension UIImage {
     
     /// 通过颜色生成一张图片
     /// - Parameter color: 该颜色用于直接生成一张图像
-    /// * since 1.0 2020年10月24日11:22
+    /// - since 1.0 2020年10月24日11:22
     convenience init(color: UIColor) {
         
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
@@ -741,7 +741,7 @@ public extension UIImage {
     ///   - startColor: 渐变起始颜色，默认red
     ///   - endColor: 渐变结束颜色，默认blue
     ///   - frame: 生成的图片 frame
-    /// * since 1.0 2020年10月24日11:32
+    /// - since 1.0 2020年10月24日11:32
     convenience init(gradientColors startColor: UIColor = .red, endColor: UIColor = .blue, frame: CGRect) {
         
         let gradientLayer : CAGradientLayer = CAGradientLayer()
@@ -771,9 +771,12 @@ public extension UIImage {
 }
 
 public extension UIImage {
-    /**
-     *  重设图片大小
-     */
+    
+    /// 重设图片大小
+    /// - version: 1.0
+    /// - since: 2021年01月16日14:32:11
+    /// - Parameter reSize: 目标 size
+    /// - Returns: 目标 image
     func reSizeImage(reSize: CGSize) -> UIImage {
         //UIGraphicsBeginImageContext(reSize);
         UIGraphicsBeginImageContextWithOptions(reSize, false, UIScreen.main.scale)
@@ -784,9 +787,12 @@ public extension UIImage {
         return reSizeImage
     }
      
-    /**
-     *  等比率缩放
-     */
+
+    /// 等比率缩放
+    /// - version: 1.0
+    /// - since: 2021年01月16日14:32:11
+    /// - Parameter scaleSize: 缩放倍数
+    /// - Returns: 目标 image
     func scaleImage(scaleSize: CGFloat) -> UIImage {
         let reSize = CGSize(width: size.width * scaleSize, height: size.height * scaleSize)
 
@@ -794,8 +800,10 @@ public extension UIImage {
     }
     
     /// 压缩图像的体积
-    /// * warning: UIImage 对象通过此函数得到一个小于原始体积的 Data，通常用于图片上传限制体积
-    /// * since: V1.2   2020年10月30日14:58:38
+    ///
+    /// 此函数将返回 UIImage 对象通过此函数得到一个小于原始体积的 Data，通常用于图片上传时限制体积
+    /// - version: 1.3
+    /// - since: 2021年01月16日14:29:28
     /// - Parameters:
     ///   - maxImageLenght: 最大长度，如：0
     ///   - maxSizeKB: 最大 KB 体积，如 2048
@@ -851,10 +859,10 @@ public extension UIImage {
 @IBDesignable public extension UIImageView {
     
     /// 标识该 imageView 是否需要设置为正圆，需要的话请确保其为正方形，否则不生效
-    /// * since: 1.2
+    /// - since: 1.2
     /// * author: 王仁洁
     /// * date: 2020年12月22日09:16:32 强化属性
-    /// * warning: 若在 Cell 中不能正常显示正圆，请覆盖 Cell 中 layoutIfNeeded() 设置正圆，或在父 View 中设置
+    /// - warning: 若在 Cell 中不能正常显示正圆，请覆盖 Cell 中 layoutIfNeeded() 设置正圆，或在父 View 中设置
     @IBInspectable private(set) var isRound: Bool {
         set {
             if newValue {
@@ -933,8 +941,8 @@ public extension UILabel {
     // MARK: NSMutableAttributedString 函数
     
     /// 设置部分文字高亮
-    /// * warning: label 的 attributedText 不能直接添加属性，需先转换成 NSMutableAttributedString。
-    /// * since: V1.1   2020年10月30日13:36
+    /// - warning: label 的 attributedText 不能直接添加属性，需先转换成 NSMutableAttributedString。
+    /// - since: V1.1   2020年10月30日13:36
     /// - Parameters:
     ///   - highlightedText: label 中需要要高亮的文本
     ///   - highlightedColor: 高亮颜色，默认红色
@@ -959,8 +967,8 @@ public extension UILabel {
     
     
     /// 给 label 设置一个全新的 attributedText
-    /// * warning: 此函数将覆盖 label 的 text/attributedText。
-    /// * since: V1.0   2020年10月30日13:53
+    /// - warning: 此函数将覆盖 label 的 text/attributedText。
+    /// - since: V1.0   2020年10月30日13:53
     /// - Parameters:
     ///   - text: 显示的完整文本
     ///   - textColor: 显示的文本颜色，默认蓝色
@@ -1091,10 +1099,10 @@ public extension NSMutableAttributedString {
     }
     
     /// 给当前操作的 View 设置正圆，该函数会验证 View 是否为正方形，若不是正方形则圆角不生效
-    /// * since: 1.1
+    /// - since: 1.1
     /// * author: 王仁洁
     /// * date: 2020年12月22日09:18:00 优化宽高验证
-    /// * warning: 请在 viewDidLayout 函数或涉及到布局的函数中调用，否则可能出现问题
+    /// - warning: 请在 viewDidLayout 函数或涉及到布局的函数中调用，否则可能出现问题
     /// - Parameters:
     ///   - border: 边框大小，默认0
     ///   - color: 边框颜色，默认深灰色
@@ -1212,8 +1220,8 @@ public extension NSMutableAttributedString {
     /// 执行一次发光效果
     ///
     /// 该函数以 View 为中心执行一个烟花爆炸动效
-    /// * warning: 如有必要可参考此函数创建新的扩展函数
-    /// * since: V1.0 2020年11月12日13:26:57
+    /// - warning: 如有必要可参考此函数创建新的扩展函数
+    /// - since: V1.0 2020年11月12日13:26:57
     /// - Parameter finishededAction: 动画完成后执行的事件，默认为 nil
     func judy_blingBling(finishededAction: (()->Void)? = nil) {
         
@@ -1270,8 +1278,8 @@ public extension JudySegmentedCtrl {
     /// 快速配置 JudySegmentedCtrl
     ///
     /// 此函数将快速设置 JudySegmentedCtrl 一些基础属性以便直接调用或设置
-    /// * warning:该函数应该在 JudySegmentedCtrl 创建的最初时机调用，其他属性的配置均应该在此函数之后调用
-    /// * since: V1.1 2020年11月28日09:03:30
+    /// - warning:该函数应该在 JudySegmentedCtrl 创建的最初时机调用，其他属性的配置均应该在此函数之后调用
+    /// - since: V1.1 2020年11月28日09:03:30
     /// - Parameters:
     ///   - indicatorHeight: JudySegmentedCtrl 指示器的高度，若将该值设为0，则为 none (没有指示器)
     final func judy_configSegmentedCtrl(withIndicatorHeight indicatorHeight: CGFloat = 2) {
@@ -1535,7 +1543,7 @@ public extension UITableView {
     /// 
     /// 在此之前的方法可能会引起数组越界问题，此函数针对该问题修复
     /// - Parameter animated: 是否需要动画效果？默认为 true
-    /// * warning: 在调用该函数之前请先调用 reloadData()
+    /// - warning: 在调用该函数之前请先调用 reloadData()
     /// - since: V1.0 2020年11月09日22:11:19
     func scrollToBottom(animated: Bool = true) {
         
@@ -1557,8 +1565,8 @@ import UIKit
 
 
 /// EMERANA 结构体，项目中所有辅助性功能应该基于 EMERANA 模块化，可以通过 public extension 新增模块
-/// * warning: 该结构体已禁用 init() 函数，请使用 judy 单例对象
-/// * since: 1.2
+/// - warning: 该结构体已禁用 init() 函数，请使用 judy 单例对象
+/// - since: 1.2
 public struct EMERANA {
     
     /// EMERANA 结构体的唯一实例
@@ -1587,11 +1595,11 @@ public struct EMERANA {
     }
     
     /// 该数据结构的主要用来封装少量相关简单数据值
-    /// * warning: 注意
+    /// - warning: 注意
     ///     * 项目中所有固定的可访问性字符都应该封装在此结构体内，在此结构体中定义所有可访问性数据（字符）
     ///     * 希望数据结构的实例被赋值给另一个实例时是拷贝而不是引用，封装的数据及其中存储的值也是拷贝而不是引用
     ///     * 该数据结构不需要使用继承
-    /// * since: 1.0
+    /// - since: 1.0
     public struct Key { }
     
 }
@@ -1600,7 +1608,7 @@ public struct EMERANA {
 public extension EMERANA.Key {
     
     /// Api 层中的 JSON 常用 Key
-    /// * since: 1.0
+    /// - since: 1.0
     struct Api {
         /// 一般通过此字段判断 ERROR 是否为空，如果不为空则存在错误信息
         /// * 此 Key 的 Value 应该是一个字典，EMERANA.Key.Api.msg/EMERANA.Key.Api.code 均作为 Key 存在 EMERANA.Key.Api.error 层级下
@@ -1612,7 +1620,7 @@ public extension EMERANA.Key {
     }
 
     /// 与各种 Cell 相关的常用 Key
-    /// * since: 1.0
+    /// - since: 1.0
     struct Cell {
         /// Cell 的重用标识符，能够代表该 Cell 具体类型标识
         public static let cell = "identitierCellKey"
@@ -1674,8 +1682,8 @@ public extension EMERANA.Key {
 public extension EMERANA {
     
     /// 一个气泡动画类
-    /// * warning: 通过调用 judy_popBubble 函数来弹出一个气泡动画
-    /// * since: 1.0
+    /// - warning: 通过调用 judy_popBubble 函数来弹出一个气泡动画
+    /// - since: 1.0
     class JudyPopBubble {
         
         /// 指定气泡的中心点，默认为 bubble_belowView 的中心点

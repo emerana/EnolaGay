@@ -132,8 +132,8 @@ public  protocol EMERANATabBar: class {
     /// 添加中间按钮时需要加入到 viewControllers 中的 ViewCtrl。
     ///
     /// 如果设置了该ViewCtrl，这中间按钮点击时会直接切换到该ViewCtrl而不执行代理方法。
-    /// * warning: 使用 setJudyViewCtrl() 函数以设置 ViewCtrl
-    /// * since: v2.0 2021年01月06日17:04:54
+    /// - warning: 使用 setJudyViewCtrl() 函数以设置 ViewCtrl
+    /// - since: v2.0 2021年01月06日17:04:54
     private(set) var judyViewCtrl: UIViewController?
     
     public private(set) var judyButton: UIButton? = nil
@@ -144,8 +144,8 @@ public  protocol EMERANATabBar: class {
     /// 对外的 imageView
     ///
     /// 该 imageView 将覆盖在中间按钮之上
-    /// * warning: 需要该 imageView 时记得隐藏 judyButton
-    /// * since: v2.0 2021年01月06日17:06:23
+    /// - warning: 需要该 imageView 时记得隐藏 judyButton
+    /// - since: v2.0 2021年01月06日17:06:23
     public private(set) lazy var judyImageView: UIImageView = UIImageView()
     
 

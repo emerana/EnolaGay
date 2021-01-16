@@ -88,9 +88,9 @@ import UIKit
 
 /// 支持模型驱动和数据驱动的标准 JudyBasePageViewCtrl
 /// # 通过 setPageViewDataSource 函数设置数据及界面
-/// * warning: setPageViewDataSource 函数中直接明确了所有需要出现的 viewCtrls 及对应的 titles。
-/// * warning: 如果是模型驱动，则必须实现 enolagay 代理对象。
-/// * since: v2.3.0
+/// - warning: setPageViewDataSource 函数中直接明确了所有需要出现的 viewCtrls 及对应的 titles。
+/// - warning: 如果是模型驱动，则必须实现 enolagay 代理对象。
+/// - since: v2.3.0
 open class JudyBasePageViewCtrl: UIPageViewController, EMERANA_PageViewCtrl {
     
     @IBInspectable lazy public var isAutoPop: Bool = false
@@ -276,7 +276,7 @@ extension JudyBasePageViewCtrl: UIScrollViewDelegate {
 // MARK: - 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl
 
 /// 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl
-///  * warning:本类中的 segmentedCtrl 已经和 pageViewCtrl 互相关联，无需手动配置二者关系
+///  - warning:本类中的 segmentedCtrl 已经和 pageViewCtrl 互相关联，无需手动配置二者关系
 open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl {
     
     /// 分段控制器，如果有设置 pageViewCtrlToSegmentDelegate 对象，navigationSegmentedCtrl 将不会生效
@@ -300,7 +300,7 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl {
     // MARK: - segmentedCtrl 相关函数
     
     /// 设置 SegmentedCtrl 基本信息
-    /// * warning: 此函数将会设置以下行为
+    /// - warning: 此函数将会设置以下行为
     /// * sectionTitles 与 viewCtrlTitleArray 同步
     /// * segmentedCtrl.frame.size.width 被设为所有 title 宽度之和
     /// * backgroundColor = .clear
@@ -380,8 +380,8 @@ public protocol EMERANA_JudyLivePageViewCtrl: UIViewController {
     ///
     /// return modelViewCtrl
     /// ```
-    /// * version: 1.2
-    /// * since: 2021年01月07日22:17:51
+    /// - version: 1.2
+    /// - since: 2021年01月07日22:17:51
     /// - Parameters:
     ///   - forward: 是否为询问下一个界面，需要根据该值做出对应的界面显示
     ///   - viewCtrl: 在转换之前的视图控制器，当前正显示且即将离开的 viewCtrl。该值为 nil 时，请配置初始页（第一页）
@@ -393,9 +393,9 @@ public protocol EMERANA_JudyLivePageViewCtrl: UIViewController {
 /// 适用于直播、短视频类型的 pageViewCtrl
 ///
 /// 别忘了设置滚动方向 pageViewCtrl.navigationOrientation，根据需要设置为水平方向滑动还是垂直方向滑动
-/// * version: v1.3
-/// * since: 2021年01月15日12:35:45
-/// * warning: 请记得设置 transitionStyle 为 scroll；
+/// - version: v1.3
+/// - since: 2021年01月15日12:35:45
+/// - warning: 请记得设置 transitionStyle 为 scroll；
 /// * 请通过调用 onStart() 函数使 pageViewCtrl 正常工作，通常情况下在数据源被确定时调用此函数;
 /// * JudyLivePageViewCtrl 无需支持下拉刷新;
 open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate {
@@ -427,9 +427,9 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     /// 通过此函数以设置 pageViewCtrl 的起始页
     ///
     /// 只有通过此函数才能使 pageViewCtrl 正常工作
-    /// * version: 1.0
-    /// * since: 2021年01月15日12:29:40
-    /// * warning: 此函数已经做好校验，只要初始页配置成功，即使重复调用此函数，也不会重新配置，请放心调用
+    /// - version: 1.0
+    /// - since: 2021年01月15日12:29:40
+    /// - warning: 此函数已经做好校验，只要初始页配置成功，即使重复调用此函数，也不会重新配置，请放心调用
     public final func onStart() {
        
         // 确保往下执行配置第一页的条件

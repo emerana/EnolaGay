@@ -16,8 +16,8 @@ import SwiftyJSON
 /// 常用系统级相关工具类
 ///
 /// 在 EnolaGay 中最早的工具类，后演变成 struct，起源于 2017 年，在深圳数睿科技 8891 部门，极具收藏意义，非必要不移除任何成员。
-/// * Version: 1.2
-/// * Since: 2021年01月09日09:12:33
+/// - version: 1.2
+/// - since: 2021年01月09日09:12:33
 public struct Judy {
     
     /// 私有init,不允许构建对象
@@ -25,9 +25,9 @@ public struct Judy {
     
     /// 获取最顶层的 ViewController，不包含 navigationCtrl
     ///
-    /// * version: 1.2
-    /// * since: 2021年01月13日14:24:46
-    /// * warning: 调用时请注意在 App 启动后再调用，否则有可能出现 keyWindow 为空，就会返回一个新的 UIViewController
+    /// - version: 1.2
+    /// - since: 2021年01月13日14:24:46
+    /// - warning: 调用时请注意在 App 启动后再调用，否则有可能出现 keyWindow 为空，就会返回一个新的 UIViewController
     public static var topViewCtrl: UIViewController {
         //  UIApplication.shared.windows.last!.rootViewController
         guard keyWindow?.rootViewController != nil else {
@@ -39,9 +39,9 @@ public struct Judy {
     
     /// 获取 App 中的 最开始使用的 tabBarController
     ///
-    /// * version: 1.2
-    /// * since: 2021年01月13日14:05:19
-    /// * warning: 请在 App 启动后再调用，否则可能出现 keyWindow 为空并返回 UITabBarController()
+    /// - version: 1.2
+    /// - since: 2021年01月13日14:05:19
+    /// - warning: 请在 App 启动后再调用，否则可能出现 keyWindow 为空并返回 UITabBarController()
     public static var tabBarCtrl: UITabBarController? {
         if appWindow.rootViewController != nil {
             return appWindow.rootViewController as? UITabBarController
@@ -53,9 +53,9 @@ public struct Judy {
     /// 获取 App 的 window 而不是 keyWindow,也就是呈现故事板时用到的 window
     ///
     /// 在呈现故事板时使用的Window。该属性包含用于在设备主屏幕上显示应用程序的可视内容的窗口。（UIApplication.shared.delegate!.window!!）
-    /// * version: 1.1
-    /// * since: 2021年01月08日21:19:23
-    /// * warning: 如果调用太早（如程序刚启动）这个 window 可能正被隐藏中，并不活跃。
+    /// - version: 1.1
+    /// - since: 2021年01月08日21:19:23
+    /// - warning: 如果调用太早（如程序刚启动）这个 window 可能正被隐藏中，并不活跃。
     public static var appWindow: UIWindow {
         guard app.window! != nil else {
             logWarning("app?.window 为 nil，调用太早！")
@@ -72,9 +72,9 @@ public struct Judy {
     /// 获取当前活跃的 window，如 alertview、键盘等关键的 Window。
     ///
     /// 该属性保存 windows 数组中的 UIWindow 对象，该对象最近发送了 makeKeyAndVisible 消息。
-    /// * version: 1.1
-    /// * since: 2021年01月08日21:21:31
-    /// * warning: 注意要在视图加载到视图树后在调用以免为 nil，一般是在 viewDidAppear 后使用
+    /// - version: 1.1
+    /// - since: 2021年01月08日21:21:31
+    /// - warning: 注意要在视图加载到视图树后在调用以免为 nil，一般是在 viewDidAppear 后使用
     public static var keyWindow: UIWindow? { UIApplication.shared.keyWindow }
     
     /// 获取 App 代理对象。即 UIApplication.shared.delegate
@@ -98,8 +98,8 @@ public struct Judy {
     ///   - storyboardName: 故事板 name
     ///   - ident: viewCtrl ident
     /// - Returns: UIViewController
-    /// * version: 1.1
-    /// * since: 2021年01月08日21:23:42
+    /// - version: 1.1
+    /// - since: 2021年01月08日21:23:42
     public static func getViewCtrl(storyboardName: String, ident: String) -> UIViewController {
         return UIStoryboard(name: storyboardName, bundle: nil)
             .instantiateViewController(withIdentifier: ident)
@@ -155,8 +155,8 @@ public struct Judy {
     /// 拨打电话
     /// - Parameter phoneNo: 要拨打的号码，如：18612345678
     /// - Returns: 是否成功触发
-    /// * version: 1.1
-    /// * since: 2021年01月08日21:30:08
+    /// - version: 1.1
+    /// - since: 2021年01月08日21:30:08
     @discardableResult
     public static func call(phoneNo: String) -> Bool{
         if let url = URL(string: "tel://\(phoneNo)") {
@@ -188,8 +188,8 @@ public struct Judy {
     /// # 在有 JSON 的时候直接使用json.rawString()即可。
     /// - Parameter withDictionary: 比如：["userName": "Judy", "age": 23]
     /// - Returns: "{\"userName\": \"Judy\", \"age\": 23}"
-    /// * version: 1.0
-    /// * since: 2021年01月08日21:30:08
+    /// - version: 1.0
+    /// - since: 2021年01月08日21:30:08
     @available(*, unavailable, message: "此函数一起用，请使用 SwiftyJSON 的 json.rawString() ")
     public static func string(withDictionary: [String: Any]) -> String { "" }
 
