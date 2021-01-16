@@ -99,8 +99,10 @@ public extension UIButton {
      */
     
     /// 以动画的方式显示该按钮
+    /// - version: 1.0
+    /// - since: 2021年01月15日
     func show() {
-
+        
         guard isHidden == true else { return }
         
         isHidden = false
@@ -114,17 +116,17 @@ public extension UIButton {
         opacityAnimation.fromValue = 0
         opacityAnimation.toValue = 1
         opacityAnimation.duration = 0.3
-
+        
         layer.add(scaleAnimation, forKey: "scale")
         layer.add(opacityAnimation, forKey: "opacity")
-
+        
     }
 }
 
 
 // MARK: - UIButton扩展，支持调整图片和文字的排序及间距
 public extension UIButton {
-
+    
     /// 设置文字在左，图片在右
     ///
     /// - version: 1.1

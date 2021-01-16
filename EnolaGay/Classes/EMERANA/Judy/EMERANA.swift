@@ -297,11 +297,13 @@ public extension EMERANA_CellBasic {
 // MARK: - 字体样式协议。目前用于 button、label、textField
 
 /// 字体专用协议
+/// - version: 1.0
+/// - since: 2020年10月
 /// - warning: 此协仅对 class 类型提供
-/// - since: 1.0
 public protocol EMERANA_FontStyle: class {
     
     /// 配置 EMERANA 字体大小及样式，默认值为 m
+    ///
     /// 实现协议参考如下：建议在 didSet 中直接设置 font
     /// ```
     /// var fontStyle: EMERANA.FontStyle = .m {
@@ -310,21 +312,27 @@ public protocol EMERANA_FontStyle: class {
     ///     }
     /// }
     /// ```
-    /// # 设置该属性等同直接设置 UIFont
+    /// - version: 1.0
+    /// - since: 2020年10月
+    /// - warning: 设置该属性等同直接设置 UIFont
     var fontStyle: UIFont.FontStyle { get set }
 
-    /// 初始字体样式,将通过该值得到一个 EMERANA.FontStyle，默认 0，奇数为粗体，**该值仅对初始化时有效**
-    /// * 与 FontStyle 的对应关系：
-    /// * -4：xs，-3：xsb，-2：s，-1：sb，0：m，1：mb，2：l，3：lb，4：xl，5：xlb，6：other
+    
+    /// 初始字体样式,将通过该值得到一个 EMERANA.FontStyle，默认 0，奇数为粗体
+    ///
     /// * 实现协议参考如下：
     /// ```
     /// @IBInspectable private(set) var initFontStyle: Int = 0
     /// ```
-    /// 调用方式
+    /// 使用方式
     /// ```
-    /// EMERANA.FontStyle.new(rawValue: initFontStyle)
+    /// FontStyle.new(rawValue: initFontStyle)
     /// ```
+    /// - version: 1.0
+    /// - since: 2020年10月
+    /// - warning: 该值仅对初始化时有效
     var initFontStyle: Int { get }
+    
 }
 
 /*
