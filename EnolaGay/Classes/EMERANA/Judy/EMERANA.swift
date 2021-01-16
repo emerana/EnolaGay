@@ -360,10 +360,11 @@ public protocol EMERANA_FontStyle: class {
 // MARK: - UIColor 配置
 
 /// UIColor EMERANA 配置协议，此协议已经默认实现
+/// - version: 1.0
+/// - since: 2021年01月06日11:02:33
 /// - warning: 使用注意事项
 ///     * 如需自定义请 extension UIColor 覆盖 judy() 函数
 ///     * 此协仅对 UIColor 类型提供
-/// - since: 1.0
 public protocol EMERANA_UIColor {
     /*
      # static 定义的属性和func 没办法被子类 override.
@@ -371,9 +372,10 @@ public protocol EMERANA_UIColor {
      */
     
     /// 使用 EMERANA 配置获取颜色
-    /// * 自定义配置请 public extension UIColor 并覆盖此函数
+    /// - version: 1.0
+    /// - since: 2021年01月06日11:02:33
+    /// - warning: 自定义配置请 public extension UIColor 并覆盖此函数
     /// - Parameter style: 颜色样式，参阅 ColorStyle
-    /// - since: 1.0 2021年01月06日11:02:33
     func configColorStyle(_ style: UIColor.ColorStyle) -> UIColor
 
 }
@@ -532,11 +534,12 @@ public extension UIColor {
 
 
 /// UIFont EMERANA 配置协议，此协议已经默认实现
+/// - version: 1.0
+/// - since: 2021年01月16日14:43:00
 /// - warning: 使用注意事项
 ///     * 如需自定义请 public extension UIFont 覆盖 judy() 函数
 ///     * 此协仅对 UIFont 类型提供
-/// - since: 1.0    //    where Self: UIFont
-public protocol EMERANA_UIFont {
+public protocol EMERANA_UIFont { // where Self: UIFont
 
     /// 配置 FontStyle 的函数。若有需要，请 public extension UIFont 并覆盖此函数，分别返回对应 style 下的 fontName 和 fontSize
     /// # 此函数仅对此构造函数有效
@@ -609,8 +612,11 @@ public extension UIFont {
     
     
     /// 字体样式。**EMERANA 中默认使用 M 码**
-    /// - warning: 原始值范围-8...14，N系列从10开始
-    /// - warning: 原始值为奇数表示加粗（N系列除外）
+    /// - version: 1.0
+    /// - since: 2020年10月
+    /// - warning: 使用注意事项
+    /// - 原始值范围-8...14，N系列从10开始
+    /// - 原始值为奇数表示加粗（N系列除外）
     enum FontStyle: Int {
         
         /// 比 xxs 码还要小一号
@@ -669,7 +675,7 @@ public extension UIFont {
     }
 
     /// 通过 FontStyle 获得一个 UIFont 对象。
-    /// # 若有需要，请 public extension UIFont 并覆盖 configFontStyle()
+    /// - warning: 若有需要，请 public extension UIFont 并覆盖 configFontStyle()
     /// - Parameter style: 目标 style
     convenience init(style: UIFont.FontStyle) {
 
