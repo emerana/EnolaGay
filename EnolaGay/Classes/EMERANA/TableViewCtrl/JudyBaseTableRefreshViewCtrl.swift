@@ -12,7 +12,7 @@ import MJRefresh
 /// 在 JudyBaseTableViewCtrl 的基础上加上刷新控件，以支持分页加载数据
 ///
 /// 需要重写 setSumPage() 函数以设置总页数
-/// * warning: reqApi() 周期主要匹配分页加载功能，若存在多种用途请注意参考重写以下函数：
+/// - warning: reqApi() 周期主要匹配分页加载功能，若存在多种用途请注意参考重写以下函数：
 ///     * reqResult()，此函数中影响上下拉状态，无需控制 UI 状态时需要在此函数中排除
 ///     * reqSuccess()，此函数中影响设置总页数函数 setSumPage(), 无关的逻辑应该在此排除
 ///```
@@ -27,7 +27,7 @@ import MJRefresh
 ///    }
 ///}
 ///```
-/// * since: V1.1 2020年11月06日11:12:05
+/// - since: V1.1 2020年11月06日11:12:05
 open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh {
     
     // MARK: - let property and IBOutlet
@@ -71,8 +71,8 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     ///requestConfig.api = .???
     ///requestConfig.parameters?["userName"] = "Judy"
     ///```
-    /// * warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage
-    /// * since: V1.1 2020年11月06日13:11:01
+    /// - warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage
+    /// - since: V1.1 2020年11月06日13:11:01
     open override func setApi() { requestConfig.parameters?["page"] = currentPage }
     
     open override func reqNotApi() {
@@ -86,16 +86,16 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     /// 当服务器响应时首先执行此函数
     ///
     /// 此函数中会调用 endRefresh()，即结束 header、footer 的刷新状态。
-    /// * warning: 此函数中影响上下拉状态，无需控制 UI 状态时需要在此函数中排除
-    /// * since: V1.1 2020年11月06日11:27:24
+    /// - warning: 此函数中影响上下拉状态，无需控制 UI 状态时需要在此函数中排除
+    /// - since: V1.1 2020年11月06日11:27:24
     open override func reqResult() { endRefresh() }
     
     /// 请求成功的消息处理
     ///
     /// 此函数已经处理是否有更多数据，需自行根据服务器响应数据更改数据源及刷新 tableView
-    /// * version: V1.1 2020年11月06日11:27:24
-    /// * since: V1.1 2020年11月06日11:27:24
-    /// * warning: 此函数中影响设置总页数函数 setSumPage(), 无关的逻辑应该在此排除
+    /// - version: V1.1 2020年11月06日11:27:24
+    /// - since: V1.1 2020年11月06日11:27:24
+    /// - warning: 此函数中影响设置总页数函数 setSumPage(), 无关的逻辑应该在此排除
     open override func reqSuccess() {
         // 设置总页数
         let sumPage = setSumPage()
@@ -111,8 +111,8 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     /// 请求失败的消息处理
     ///
     /// 重写此方法务必调用父类方法
-    /// * warning:当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1
-    /// * since: V1.1 2020年11月06日13:23:36
+    /// - warning:当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1
+    /// - since: V1.1 2020年11月06日13:23:36
     open override func reqFailed() {
         super.reqFailed()
         
@@ -177,8 +177,8 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     /// 询问当前分页数据的总页数
     ///
     /// 若不重写该函数，则总页数视为1。
-    /// * warning: 该函数只有在 reqSuccess() 时才会被执行，请确保 super.reqSuccess() 正确响应。
-    /// * since: V1.1 2020年11月06日13:20:26
+    /// - warning: 该函数只有在 reqSuccess() 时才会被执行，请确保 super.reqSuccess() 正确响应。
+    /// - since: V1.1 2020年11月06日13:20:26
     /// - Returns: 总页数
     open func setSumPage() -> Int { return 1 }
     

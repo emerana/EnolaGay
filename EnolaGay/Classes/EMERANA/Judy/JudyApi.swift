@@ -49,17 +49,17 @@ public typealias JudyApiHeader = HTTPHeaders
 //  where Self: JudyApi
 /// JudyApi 响应数据验证协议
 /// * author: 王仁洁
-/// * warning: 请实现该协议中的函数 responseErrorValidation
-/// * since: V2.0 2020年12月31日13:27:18
+/// - warning: 请实现该协议中的函数 responseErrorValidation
+/// - since: V2.0 2020年12月31日13:27:18
 public protocol EMERANA_ApiDataValidation where Self: UIApplication {
     
     /// 校验服务器响应消息
     ///
     /// 此函数仅在 Alamofire response.result.success 时执行
-    /// * warning: 此方法中将对服务器返回的消息（请求成功响应的消息）进行进一步校验，排查是否有错误
+    /// - warning: 此方法中将对服务器返回的消息（请求成功响应的消息）进行进一步校验，排查是否有错误
     /// - Parameter json: 服务器返回的原始 JSON 数据
     /// - Returns: (Bool：是否有错误, Int：错误码，String: 消息体)
-    /// * since: V1.2 2020年11月20日14:05:22
+    /// - since: V1.2 2020年11月20日14:05:22
     func responseErrorValidation(json: JSON) -> (isError: Bool, errorCode: Int, message: String)
 }
 /*
@@ -76,8 +76,8 @@ public extension EMERANA_ApiDataValidation  {
 /// Api 管理层
 ///
 /// public extension JudyApi 并覆盖 EMERANA_ApiDataValidation 中的函数以配置数据校验
-/// * warning: 此类依赖 Alamofire
-/// * since: V1.1 2020年11月20日14:03:12
+/// - warning: 此类依赖 Alamofire
+/// - since: V1.1 2020年11月20日14:03:12
 public final class JudyApi {
 
     // 私有化init()，禁止构建对象
@@ -102,7 +102,7 @@ public final class JudyApi {
     /// 发起网络请求
     ///
     /// 唯一发起请求的函数，closure 中的 JSON 已经处理好，可直接使用
-    ///  * since: V1.1
+    ///  - since: V1.1
     ///  * author: 王仁洁 2020年12月04日09:25
     ///  * note: 暂无
     /// - Parameters:
@@ -217,28 +217,28 @@ public final class JudyApi {
 // where Self: ApiRequestConfig
 /// ApiRequestConfig 专用初始化协议，该协议定义了 ApiRequestConfig 部分属性的初值
 /// * author: 王仁洁
-/// * warning: 该协议主要针对 ApiRequestConfig 进行全局性的配置，可单独设置其属性
-/// * since: V2.0 2020年12月31日13:27:18
+/// - warning: 该协议主要针对 ApiRequestConfig 进行全局性的配置，可单独设置其属性
+/// - since: V2.0 2020年12月31日13:27:18
 public protocol EMERANA_ApiRequestConfig where Self: UIApplication {
         
     /// 询问请求的主要（默认）域名
-    /// * warning: 该函数主要针对全局配置，如需变更请单独设置 apiConfig.domain
-    /// * since: V1.3 2020年12月31日13:27:18
+    /// - warning: 该函数主要针对全局配置，如需变更请单独设置 apiConfig.domain
+    /// - since: V1.3 2020年12月31日13:27:18
     func domain() -> String
     
     /// 询问请求方法是否为 POST 请求？默认实现为 true
-    /// * warning: 该函数主要针对全局配置，如需变更请单独设置 apiConfig.method
-    /// * since: V1.3 2020年12月31日13:27:18
+    /// - warning: 该函数主要针对全局配置，如需变更请单独设置 apiConfig.method
+    /// - since: V1.3 2020年12月31日13:27:18
     func globalMethodPOST() -> Bool
 
     /// 询问 apiRequestConfig 请求的响应方式是否为 responseJSON？默认实现为 true，否则为 responseString
-    /// * since: V1.3 2020年12月31日13:27:18
+    /// - since: V1.3 2020年12月31日13:27:18
     func responseJSON() -> Bool
 
     /// apiRequestConfig 对象初始化扩展
     ///
     /// 一般在此函数中设置全局 headers、parameters 的初值或其它通用信息
-    /// * warning: token 需要注意是否存在变更，如登录新用户变更了 token，则应在 apiRequestConfig_last() 配置
+    /// - warning: token 需要注意是否存在变更，如登录新用户变更了 token，则应在 apiRequestConfig_last() 配置
     ///
     /// # 部分参考代码
     /// * 请求头设置
@@ -249,15 +249,15 @@ public protocol EMERANA_ApiRequestConfig where Self: UIApplication {
     /// ```
     /// parameters?["userName"] = "Judy"
     /// ```
-    /// * since: V1.3 2020年12月31日13:27:18
+    /// - since: V1.3 2020年12月31日13:27:18
     /// - Parameter apiConfig: 当前 apiConfig 对象
     func apiRequestConfig_init(apiConfig: ApiRequestConfig)
     
     /// apiRequestConfig 最终阶段配置
     ///
     /// 该函数为触发请求前的最后操作，发生在访问 reqURL 属性时。
-    /// * warning: 发生请求时，若请求头/请求参数的初值发生改变应该在此函数中更新/覆盖对应信息，如用户登录的 token
-    /// * since: V1.3 2020年12月31日13:27:18
+    /// - warning: 发生请求时，若请求头/请求参数的初值发生改变应该在此函数中更新/覆盖对应信息，如用户登录的 token
+    /// - since: V1.3 2020年12月31日13:27:18
     /// - Parameter apiConfig: 当前 apiConfig 对象
     func apiRequestConfig_end(apiConfig: ApiRequestConfig)
     
@@ -301,29 +301,29 @@ public extension EMERANA_ApiActionEnums {
 /// JudyApi 中的请求配置类
 ///
 /// ApiRequestConfig 对象在初始化时就已经通过 EMERANA_ApiRequestConfig 协议中的函数配置好了必须属性，关于 domain 和 api 属性的使用请参考其自身说明
-/// * warning: 请 public extension ApiRequestConfig 并覆盖 EMERANA_ApiRequestConfig 中指定函数以配置属性的初始值
-/// * since: V1.3 2020年11月20日10:39:58
+/// - warning: 请 public extension ApiRequestConfig 并覆盖 EMERANA_ApiRequestConfig 中指定函数以配置属性的初始值
+/// - since: V1.3 2020年11月20日10:39:58
 final public class ApiRequestConfig {
 
     
     /// 当前界面请求的 api (action)
     ///
     /// 该值为用于与 domain 拼接的部分，初值 nil，一般每次请求都有一个 api
-    /// * warning: 配置 api 请通过创建实现 EMERANA_ApiActionEnums 协议的 public enum，参考如下代码：
+    /// - warning: 配置 api 请通过创建实现 EMERANA_ApiActionEnums 协议的 public enum，参考如下代码：
     /// ```
     /// enum Api: String, EMERANA_ApiActionEnums {
     ///     var value: String { rawValue }
     ///     case testAction = "test"
     /// }
     /// ```
-    /// * since: V1.1 2021年01月07日16:59:28
+    /// - since: V1.1 2021年01月07日16:59:28
     public lazy var api: EMERANA_ApiActionEnums? = nil
 
     /// 请求域名，如: https://www.baidu.com，默认值为静态函数 domain()
     ///
     /// 通常为项目中使用频率最高的域名。若需要多个域名，请 public extension ApiRequestConfig.Domain 新增
-    /// * warning: 扩展并覆盖 static func domain() 以配置全局域名，该值将与 api 拼接成最终请求的完整 URL
-    /// * since: V1.0 2020年11月19日16:51:59
+    /// - warning: 扩展并覆盖 static func domain() 以配置全局域名，该值将与 api 拼接成最终请求的完整 URL
+    /// - since: V1.0 2020年11月19日16:51:59
     public var domain: Domain = .default
         
     /// 请求方式，默认 POST。通过覆盖 globalMethodPOST() 以配置全局通用值
@@ -384,11 +384,11 @@ final public class ApiRequestConfig {
     /// ApiRequestConfig 中的域名模块
     ///
     /// ApiRequestConfig 中所有域名均通过此 structure 配置，通常扩展并覆盖 static func domain() 即为项目配置了主要域名，若需要多个域名，请 public extension ApiRequestConfig.Domain 新增即可
-    /// * warning: 通过 public extension 的方式新增域名，请务必参考如下代码
+    /// - warning: 通过 public extension 的方式新增域名，请务必参考如下代码
     /// ```
     /// static let masterDomain = ApiRequestConfig.Domain(rawValue: "https://www.baidu.com")
     /// ```
-    /// * since: V1.0 2020年11月19日16:51:59
+    /// - since: V1.0 2020年11月19日16:51:59
     public struct Domain: Hashable, Equatable, RawRepresentable {
         
         private(set) public var rawValue: String

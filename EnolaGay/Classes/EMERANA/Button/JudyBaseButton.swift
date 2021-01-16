@@ -99,8 +99,10 @@ public extension UIButton {
      */
     
     /// 以动画的方式显示该按钮
+    /// - version: 1.0
+    /// - since: 2021年01月15日
     func show() {
-
+        
         guard isHidden == true else { return }
         
         isHidden = false
@@ -114,22 +116,22 @@ public extension UIButton {
         opacityAnimation.fromValue = 0
         opacityAnimation.toValue = 1
         opacityAnimation.duration = 0.3
-
+        
         layer.add(scaleAnimation, forKey: "scale")
         layer.add(opacityAnimation, forKey: "opacity")
-
+        
     }
 }
 
 
 // MARK: - UIButton扩展，支持调整图片和文字的排序及间距
 public extension UIButton {
-
+    
     /// 设置文字在左，图片在右
     ///
-    /// * version: 1.1
-    /// * since: 2021年01月16日10:47:37
-    /// * warning: 直接在 Storyboard 使用 semanticContentAttribute 属性设为从右向左即可
+    /// - version: 1.1
+    /// - since: 2021年01月16日10:47:37
+    /// - warning: 直接在 Storyboard 使用 semanticContentAttribute 属性设为从右向左即可
     /// - Parameter spacing: 间距
     func setImageRight(spacing: CGFloat = 0) {
         semanticContentAttribute = .forceRightToLeft
@@ -150,9 +152,9 @@ public extension UIButton {
     /// 设置按钮中图片在文字的正上方。
     ///
     /// 此函数将重新计算按钮尺寸并将图片放置在文本的上方
-    /// * version: 1.1
-    /// * since: 2021年01月16日10:40:51
-    /// * warning: 在设置字体、文本、尺寸大小后需要重新调用此函数已确保正确将图片显示在文本上方
+    /// - version: 1.1
+    /// - since: 2021年01月16日10:40:51
+    /// - warning: 在设置字体、文本、尺寸大小后需要重新调用此函数已确保正确将图片显示在文本上方
     /// - Parameter spacing: 图片与文本的间隔，默认0，此属性决定了图片和文字各偏移spacing/2
     func setImageTop(spacing: CGFloat = 0) {
         
@@ -172,9 +174,9 @@ public extension UIButton {
     
     /// 设置左右结构的间距。正常情况下图片在左，文字在右，但间距太小。
     ///
-    /// * version: 1.1
-    /// * since: 2021年01月16日10:46:33
-    /// * warning: 若按钮发生变化需重新调用此函数
+    /// - version: 1.1
+    /// - since: 2021年01月16日10:46:33
+    /// - warning: 若按钮发生变化需重新调用此函数
     /// - Parameter spacing: 间距值，默认2，此属性决定了图片和文字各偏移 spacing/2
     func setImageTextSpacing(spacing: CGFloat = 2) {
         

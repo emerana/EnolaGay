@@ -13,9 +13,9 @@ import UIKit
 /// 圆形进度条
 ///
 /// 支持自定义相关属性的圆形进度条
-/// * Version: 1.0
-/// * Since: 2021年01月12日15:05:46
-/// * Warning: 仅限在 StoryBoard 中使用
+/// - version: 1.0
+/// - since: 2021年01月12日15:05:46
+/// - warning: 仅限在 StoryBoard 中使用
 open class CircularProgressView: UIView {
     
     // MARK: 公开属性
