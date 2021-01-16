@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,9 +19,34 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igN-hf-jGL" customClass="JudyBaseButton" customModule="EnolaGay">
+                                <rect key="frame" x="164" y="407" width="62" height="30"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <state key="normal" title="这个按钮">
+                                    <color key="titleShadowColor" red="0.97647058819999999" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fp9-hh-wKa">
+                                <rect key="frame" x="180" y="722" width="30" height="30"/>
+                                <state key="normal" title="Go!"/>
+                                <connections>
+                                    <action selector="goAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2Ed-Kp-AJI"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="fp9-hh-wKa" secondAttribute="bottom" constant="58" id="NSq-Wg-xC7"/>
+                            <constraint firstItem="igN-hf-jGL" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="bqz-z7-Tu0"/>
+                            <constraint firstItem="igN-hf-jGL" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="sT4-Xq-pXv"/>
+                            <constraint firstItem="fp9-hh-wKa" firstAttribute="centerX" secondItem="igN-hf-jGL" secondAttribute="centerX" id="tSu-va-BFQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ssa-ff-e7G"/>
+                    <connections>
+                        <outlet property="theButton" destination="igN-hf-jGL" id="Jhh-3c-3Jm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,4 +71,14 @@
             <point key="canvasLocation" x="29.600000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="igN-hf-jGL">
+            <size key="intrinsicContentSize" width="62" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
