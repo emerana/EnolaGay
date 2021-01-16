@@ -729,8 +729,9 @@ public extension UIImage {
     
     
     /// 通过颜色生成一张图片
+    /// - version: 1.0
+    /// - since: 2020年10月24日11:22
     /// - Parameter color: 该颜色用于直接生成一张图像
-    /// - since 1.0 2020年10月24日11:22
     convenience init(color: UIColor) {
         
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
@@ -751,11 +752,12 @@ public extension UIImage {
     
     
     /// 通过渐变颜色生成一张图片
+    /// - version: 1.0
+    /// - since: 2020年10月24日11:32
     /// - Parameters:
     ///   - startColor: 渐变起始颜色，默认red
     ///   - endColor: 渐变结束颜色，默认blue
     ///   - frame: 生成的图片 frame
-    /// - since 1.0 2020年10月24日11:32
     convenience init(gradientColors startColor: UIColor = .red, endColor: UIColor = .blue, frame: CGRect) {
         
         let gradientLayer : CAGradientLayer = CAGradientLayer()
