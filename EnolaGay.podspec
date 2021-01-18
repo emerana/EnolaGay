@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EnolaGay'
-  s.version          = '0.0.20'
+  s.version          = '0.0.21'
   s.summary          = 'EnolaGay，奇迹型 EMERANA！'
 
 # This description is used to generate tags and improve search results.
@@ -17,9 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-  历时30个月，EMERANA 已经不再是当年那个艾美拉娜公主了，现如今已经强化成足矣摧毁日本帝国的战士
-                       DESC
+  s.description      = '历时30个月，EMERANA 已经不再是当年那个艾美拉娜公主了，现如今已经强化成足矣摧毁日本帝国的战士'
 
   s.homepage         = 'https://github.com/emerana/EnolaGay'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
