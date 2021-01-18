@@ -13,10 +13,10 @@ import UIKit
  * * 配置 clickActionClosure 设置按钮点击事件(可选)
  * * 通过 star() 方法启动倒计时以及配置按钮的颜色
  */
-class JudyVerifyButton: JudyBaseButton {
+open class JudyVerifyButton: JudyBaseButton {
     
     /// 按钮点击事件的回调，JudyVerifyButton: 该按钮对象
-    var clickActionClosure:((JudyVerifyButton) -> Void)?
+    public var clickActionClosure:((JudyVerifyButton) -> Void)?
 
     /// 计时状态改变回调，Bool: 是否开始计时
     private var countingStatuClosure:((Bool) -> Void)?
@@ -64,7 +64,7 @@ class JudyVerifyButton: JudyBaseButton {
     
     
     
-    override func awakeFromNib() {
+    open override func awakeFromNib() {
         super.awakeFromNib()
         
         self.addTarget(self, action: #selector(verificationButtonAction), for: .touchUpInside)
@@ -75,7 +75,7 @@ class JudyVerifyButton: JudyBaseButton {
     /// - Parameters:
     ///   - waitTime: 允许再次点击时的等待时长，默认60秒
     ///   - countingChangedAction: 计时状态改变回调，isCounting: Bool 是否正在计时
-    func star(waitTime: Int = 60, _ countingChangedAction: ((Bool) -> Void)? = nil) {
+    public func star(waitTime: Int = 60, _ countingChangedAction: ((Bool) -> Void)? = nil) {
         self.waitTime = waitTime
         countingStatuClosure = countingChangedAction
         // 启动倒计时
