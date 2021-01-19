@@ -9,7 +9,7 @@
 import UIKit
 
 /// 波浪动画View
-@IBDesignable class JudyWaterWaveView: UIView {
+@IBDesignable open class JudyWaterWaveView: UIView {
     
     /** 进度，已用容量百分比。默认为60% */
     @IBInspectable var 进度: CGFloat = 0.6
