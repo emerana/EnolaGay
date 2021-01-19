@@ -16,7 +16,7 @@ import UIKit
  JudySearchView.judy().action = { button in ...}
  ```
  */
-class JudySearchView: UIView {
+open class JudySearchView: UIView {
     
     @IBOutlet private weak var widthForSearchView: NSLayoutConstraint!
     @IBOutlet private weak var heightForSearchView: NSLayoutConstraint!

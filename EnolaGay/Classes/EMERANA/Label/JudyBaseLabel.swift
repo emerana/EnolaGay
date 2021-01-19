@@ -48,25 +48,25 @@ import UIKit
     public private(set) var padding = UIEdgeInsets.zero
     
     /// 文本左边距，请在设置 label.text 前使用，否则可能影响到 frame
-    @IBInspectable var paddingLeft: CGFloat {
+    @IBInspectable public var paddingLeft: CGFloat {
         get { return padding.left }
         set { padding.left = newValue }
     }
     
     /// 文本右边距，请在设置 label.text 前使用，否则可能影响到 frame
-    @IBInspectable var paddingRight: CGFloat {
+    @IBInspectable public var paddingRight: CGFloat {
         get { return padding.right }
         set { padding.right = newValue }
     }
     
     /// 文本上边距，请在设置 label.text 前使用，否则可能影响到 frame
-    @IBInspectable var paddingTop: CGFloat {
+    @IBInspectable public var paddingTop: CGFloat {
         get { return padding.top }
         set { padding.top = newValue }
     }
     
     /// 文本下边距，请在设置 label.text 前使用，否则可能影响到 frame
-    @IBInspectable var paddingBottom: CGFloat {
+    @IBInspectable public var paddingBottom: CGFloat {
         get { return padding.bottom }
         set { padding.bottom = newValue }
     }

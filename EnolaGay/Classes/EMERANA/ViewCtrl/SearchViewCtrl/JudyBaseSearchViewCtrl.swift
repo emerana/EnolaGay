@@ -17,30 +17,28 @@ import SwiftyJSON
  - 请自行实现代理 textDidChange searchText
  - 已配置一个默认的 searchDataSource
  */
-class JudyBaseSearchViewCtrl: JudyBaseTableRefreshViewCtrl {
+open class JudyBaseSearchViewCtrl: JudyBaseTableRefreshViewCtrl {
     
     // MARK: - let property and IBOutlet
     
     /// 搜索条
-    @IBOutlet weak var searchBar: UISearchBar?
+    @IBOutlet weak public var searchBar: UISearchBar?
     
     // MARK: - var property
     
     /// 禁用下拉刷新
-    override var isNoHeader: Bool {
-        return true
-    }
+    open override var isNoHeader: Bool { true }
     
     /// 搜索图标，重写此属性以设置searchBar上面的搜索图标，如果为nil则显示系统默认的图标
-    @IBInspectable lazy var searchIcon: UIImage? = nil
+    @IBInspectable lazy public var searchIcon: UIImage? = nil
 
     /// 输入框的光标和输入的文本颜色，默认 Licorice
-    @IBInspectable var textFieldTintColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    @IBInspectable public var textFieldTintColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     /// 输入框的背景色，默认为 AppStore 搜索界面一样的颜色
-    @IBInspectable var textFieldBackgroundColor: UIColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+    @IBInspectable public var textFieldBackgroundColor: UIColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
 
     /// 搜索结果数据源，当 searchDataSource 发生改变时会 reload tableView.
-    var searchDataSource = [JSON](){
+    public var searchDataSource = [JSON](){
         didSet{
             tableView?.reloadData()
         }
@@ -53,7 +51,7 @@ class JudyBaseSearchViewCtrl: JudyBaseTableRefreshViewCtrl {
     /// searchView = JudySearchView.judy(type: JudySearchView.searchViewType.button)
     /// searchView.searchButton?.setImage(UIImage(name: "abc"), for: .normal)
     /// ```
-    var searchView: JudySearchView? = nil {
+    public var searchView: JudySearchView? = nil {
         didSet{
             if searchView != nil {
                 navigationItem.titleView = searchView
@@ -70,7 +68,7 @@ class JudyBaseSearchViewCtrl: JudyBaseTableRefreshViewCtrl {
      anchorPointX = 0.45，// 搜索视图会向右偏移
      ```
      */
-    var searchViewAnchorPointX = 0.5 {
+    public var searchViewAnchorPointX = 0.5 {
         didSet{
             searchView?.layer.anchorPoint =  CGPoint(x: searchViewAnchorPointX, y: 0.5)
         }
@@ -78,7 +76,7 @@ class JudyBaseSearchViewCtrl: JudyBaseTableRefreshViewCtrl {
 
     
     // MARK: - Life Cycle
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         searchBar?.delegate = self
@@ -97,7 +95,7 @@ class JudyBaseSearchViewCtrl: JudyBaseTableRefreshViewCtrl {
                 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         guard searchBar != nil else {
@@ -122,7 +120,7 @@ class JudyBaseSearchViewCtrl: JudyBaseTableRefreshViewCtrl {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         searchBar?.becomeFirstResponder()
@@ -131,7 +129,7 @@ class JudyBaseSearchViewCtrl: JudyBaseTableRefreshViewCtrl {
         
     // MARK: - override - 重写重载父类的方法
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
         enableCancel()
@@ -141,9 +139,7 @@ class JudyBaseSearchViewCtrl: JudyBaseTableRefreshViewCtrl {
     // MARK: - Target Methods - 点击事件或通知事件
 
     @available(*, unavailable, message: "该方法已废弃")
-    func cancelAction() {
-        
-    }
+    func cancelAction() { }
 
     // MARK: - Intial Methods - 初始化的方法
     
@@ -154,7 +150,7 @@ class JudyBaseSearchViewCtrl: JudyBaseTableRefreshViewCtrl {
     
     // MARK: dataSource
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchDataSource.isEmpty {
             return dataSource.count
         }
@@ -193,20 +189,20 @@ extension JudyBaseSearchViewCtrl: UISearchBarDelegate {
      */
     
     /// 取消按钮点击事件，关闭键盘且dismiss
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    open func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 //        searchBar.resignFirstResponder()
         
 //        dismiss(animated: true, completion: nil)
     }
     
     /// 键盘搜索按钮点击事件，关闭键盘
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    open func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         enableCancel()
     }
     
     /// searchBar聚焦事件
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+    open func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
 
         return true
     }
@@ -215,13 +211,13 @@ extension JudyBaseSearchViewCtrl: UISearchBarDelegate {
 }
 
 // MARK: - 本类方法
-extension JudyBaseSearchViewCtrl {
+public extension JudyBaseSearchViewCtrl {
     
     /// 该函数将取消按钮设为可用状态
     final func enableCancel() {
         let cancelButton = searchBar?.value(forKey: "cancelButton")
         (cancelButton as? UIButton)?.isEnabled = true
-//        Judy.log("取消按钮已改变")
+        //        Judy.log("取消按钮已改变")
     }
     
 }

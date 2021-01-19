@@ -100,7 +100,7 @@ import UIKit
 
 // MARK: 公开函数
 
-extension JudyWaterWaveView {
+public extension JudyWaterWaveView {
     
     /// 停止动画
     func stop() {
