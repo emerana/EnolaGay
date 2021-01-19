@@ -11,6 +11,7 @@
 #endif
 
 #import "JudySegmentedCtrl.h"
+#import "EDStarRating.h"
 
 FOUNDATION_EXPORT double EnolaGayVersionNumber;
 FOUNDATION_EXPORT const unsigned char EnolaGayVersionString[];
