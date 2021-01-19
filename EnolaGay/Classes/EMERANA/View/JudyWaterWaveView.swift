@@ -12,29 +12,29 @@ import UIKit
 @IBDesignable open class JudyWaterWaveView: UIView {
     
     /** 进度，已用容量百分比。默认为60% */
-    @IBInspectable var 进度: CGFloat = 0.6
+    @IBInspectable public var 进度: CGFloat = 0.6
     /** 曲线(波浪)振幅 */
-    @IBInspectable var 振幅: CGFloat = 6
+    @IBInspectable public var 振幅: CGFloat = 6
     /** 是否为正圆，如果该View长宽不等则不会设置正圆。默认为true */
-    @IBInspectable var 正圆: Bool = true
+    @IBInspectable public var 正圆: Bool = true
     /** 底层波浪颜色，最先被添加到layer上的波浪的颜色 */
-    @IBInspectable var 底层波浪颜色: UIColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 0.5)
+    @IBInspectable public var 底层波浪颜色: UIColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 0.5)
     /** 覆盖在底层波浪上layer的颜色 */
-    @IBInspectable var 顶层波浪颜色: UIColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 0.6818011559)
-
+    @IBInspectable public var 顶层波浪颜色: UIColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 0.6818011559)
+    
     /** 曲线移动速度 */
-    var 速度: CGFloat = 1
+    public var 速度: CGFloat = 1
     
     /// 两条波浪
     private let 底层Layer = CAShapeLayer(), 顶层Layer = CAShapeLayer()
-
+    
     /// 曲线角速度
     private var wavePalstance = CGFloat()
     /// 曲线初相，默认为0
     private var waveX: CGFloat = 0
     /// 曲线偏距
     private var waveY = CGFloat()
-
+    
     private var disPlayLink = CADisplayLink()
     
     /**
@@ -47,9 +47,9 @@ import UIKit
      这个效果主要的思路是添加两条曲线 一条正玄曲线、一条余弦曲线 然后在曲线下添加深浅不同的背景颜色，从而达到波浪显示的效果
      */
     
-    override func awakeFromNib() {
+    open override func awakeFromNib() {
         super.awakeFromNib()
-
+        
         // 设定两条波浪的颜色
         底层Layer.fillColor = 底层波浪颜色.cgColor
         底层Layer.strokeColor = 底层波浪颜色.cgColor
@@ -71,14 +71,14 @@ import UIKit
         waveY = bounds.height
         //x轴移动速度
         速度 = wavePalstance * 2
-
+        
         //以屏幕刷新速度为周期刷新曲线的位置
         disPlayLink = CADisplayLink.init(target: self, selector: #selector(waveAnimation(link:)))
-//        disPlayLink.add(to: RunLoop.main, forMode: .commonModes)
-
+        //        disPlayLink.add(to: RunLoop.main, forMode: .commonModes)
+        
     }
-
-    override func layoutSubviews() {
+    
+    open override func layoutSubviews() {
         super.layoutSubviews()
         
         // 正圆设置
@@ -92,23 +92,40 @@ import UIKit
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
+    open override func draw(_ rect: CGRect) {
         // Drawing code
     }
-
+    
 }
+
+// MARK: 公开函数
 
 extension JudyWaterWaveView {
     
-    @objc private func waveAnimation(link: CADisplayLink){
+    /// 停止动画
+    func stop() {
+        disPlayLink.invalidate()
+    }
+    
+    /// 开始动画
+    func star() {
+        disPlayLink.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
+    }
+}
+
+// MARK: 私有函数
+
+private extension JudyWaterWaveView {
+    
+    @objc func waveAnimation(link: CADisplayLink){
         waveX += 速度
         
-        updateWaveY() //更新波浪的高度位置
-        startWaveAnimation() //波浪轨迹和动画
+        updateWaveY() // 更新波浪的高度位置
+        startWaveAnimation() // 波浪轨迹和动画
     }
     
     // 更新偏距的大小 直到达到目标偏距 让wave有一个匀速增长的效果
-    private func updateWaveY() {
+    func updateWaveY() {
         let targetY: CGFloat = bounds.height - 进度 * bounds.height
         if (waveY < targetY) {
             waveY += 2
@@ -119,14 +136,14 @@ extension JudyWaterWaveView {
     }
     
     /// 开始执行波浪动画
-    private func startWaveAnimation() {
+    func startWaveAnimation() {
         //波浪宽度
         let waterWaveWidth: CGFloat = bounds.width
         
         //初始化运动路径
         let path: CGMutablePath = CGMutablePath()
         let maskPath: CGMutablePath = CGMutablePath()
-
+        
         //设置起始位置
         path.move(to: CGPoint(x: 0, y: waveY))
         //设置起始位置
@@ -143,12 +160,12 @@ extension JudyWaterWaveView {
             maskPath.addLine(to: CGPoint(x: tempX, y: y))
             tempX += 1.0
         }
-
+        
         updateLayer(layer: 底层Layer, path: path)
         updateLayer(layer: 顶层Layer, path: maskPath)
     }
     
-    private func updateLayer(layer: CAShapeLayer, path: CGMutablePath) {
+    func updateLayer(layer: CAShapeLayer, path: CGMutablePath) {
         //填充底部颜色
         let waterWaveWidth: CGFloat = bounds.width
         path.addLine(to: CGPoint(x: waterWaveWidth, y: bounds.height))
@@ -156,15 +173,6 @@ extension JudyWaterWaveView {
         path.closeSubpath()
         layer.path = path
     }
-
-    /// 停止动画
-    func stop() {
-        disPlayLink.invalidate()
-    }
     
-    /// 开始动画
-    func star() {
-        disPlayLink.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
-    }
-
+    
 }
