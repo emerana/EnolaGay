@@ -323,7 +323,7 @@ extension JudyBaseNavigationCtrl: UINavigationBarDelegate {
 
 
 // MARK: 为 UIViewController 新增 push 函数，并配合 JudyBaseNavigationCtrl 控制器
-public extension UIViewController {
+extension UIViewController {
 
     /// 当前界面 push 事件，该函数只在导航控制器为 JudyBaseNavigationCtrl 下才有效
     /// * 常用于当前界面 push 新界面之后无需返回此界面场景，参考如下代码：
@@ -341,7 +341,7 @@ public extension UIViewController {
     /// - Parameters:
     ///   - viewCtrl: 当前的 viewCtrl
     ///   - targetViewCtrl: push 的目标 viewCtrl
-    @objc func pushAction(current viewCtrl: UIViewController, pushTo targetViewCtrl: UIViewController) {
+    @objc open func pushAction(current viewCtrl: UIViewController, pushTo targetViewCtrl: UIViewController) {
         
     }
     

@@ -24,13 +24,13 @@ import UIKit
     /// 是否支持复制功能，默认 false.
     @IBInspectable var isSupportCopy: Bool = false
     /// 当 isSupportCopy = true 时，点击 label 进行复制时的提示文字
-    @IBInspectable var altTitle: String = ""
+    @IBInspectable public var altTitle: String = ""
     /// 是否允许成为第一响应
     open override var canBecomeFirstResponder: Bool {
         return true
     }
     /// 要复制的文本，默认 nil(复制时将复制整个 Label 的值)
-    var pasteboardText: String? = nil
+    public var pasteboardText: String? = nil
     
     // MARK: - EMERANA 字体
     
@@ -45,7 +45,7 @@ import UIKit
     // MARK: - 内边距属性
     
     /// 内边距，请在设置 label.text 前使用，否则可能影响到 frame
-    final var padding = UIEdgeInsets.zero
+    public private(set) var padding = UIEdgeInsets.zero
     
     /// 文本左边距，请在设置 label.text 前使用，否则可能影响到 frame
     @IBInspectable var paddingLeft: CGFloat {
