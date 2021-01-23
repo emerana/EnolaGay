@@ -87,10 +87,11 @@ public protocol EMERANA_PageViewCtrl where Self: JudyBasePageViewCtrl {
 import UIKit
 
 /// 支持模型驱动和数据驱动的标准 JudyBasePageViewCtrl
-/// # 通过 setPageViewDataSource 函数设置数据及界面
+///
+/// 通过 setPageViewDataSource 函数设置数据及界面
+/// - version: 2.3.0
 /// - warning: setPageViewDataSource 函数中直接明确了所有需要出现的 viewCtrls 及对应的 titles。
 /// - warning: 如果是模型驱动，则必须实现 enolagay 代理对象。
-/// - since: v2.3.0
 open class JudyBasePageViewCtrl: UIPageViewController, EMERANA_PageViewCtrl {
     
     @IBInspectable lazy public var isAutoPop: Bool = false
@@ -276,7 +277,7 @@ extension JudyBasePageViewCtrl: UIScrollViewDelegate {
 // MARK: - 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl
 
 /// 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl
-///  - warning:本类中的 segmentedCtrl 已经和 pageViewCtrl 互相关联，无需手动配置二者关系
+///  - warning: 本类中的 segmentedCtrl 已经和 pageViewCtrl 互相关联，无需手动配置二者关系
 open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl {
     
     /// 分段控制器，如果有设置 pageViewCtrlToSegmentDelegate 对象，navigationSegmentedCtrl 将不会生效
