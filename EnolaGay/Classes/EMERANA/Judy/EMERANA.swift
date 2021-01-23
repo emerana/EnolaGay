@@ -84,8 +84,9 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
     static func isGlobalHideWaitingHUD() -> Bool
     
     
-    /// 发起网络请求的方法。此方法中将更新 apiData。
+    /// 发起网络请求。
     ///
+    /// 通过调用此函数发起一个完整的请求流，此方法中将更新 apiData。
     /// 请求结果在此函数中分流，此函数内部将依次执行 setApi() -> { reqResult() -> reqSuccess() / reqFailed() } / reqNotApi()，请重写相关函数以实现对应操作
     /// - version: 1.2
     /// - since: 2021年01月14日11:17:36
@@ -94,27 +95,32 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
     ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi()
     func reqApi(isSetApi: Bool)
     
-    /**
-     设置 requestConfig 及其它任何需要在发起请求前处理的事情
-     # 在整个 reqApi()请求流程中最先执行的方法
-     - 在此方法中配置好 requestConfig 对象
-     ```
-     domain = "http://www.baidu.com/Api"
-     ```
-     ## 设置请求api的字段.
-     ```
-     requestConfig.api = .???
-     ```
-     ## 设置请求参数体.
-     ```
-     requestConfig.parameters?["userName"] = "Judy"
-     ```
-     */
+
+    /// 设置 requestConfig 及其它任何需要在发起请求前处理的事情
+    ///
+    /// 在整个 reqApi()请求流程中最先执行的方法
+    /// - version: 1.1
+    /// - since: 2021年01月23日09:40:56
+    /// - warning: 在此方法中配置好 requestConfig 对象
+    ///
+    /// ```
+    /// requestConfig.domain = "http://www.baidu.com/Api"
+    /// ```
+    /// 设置请求api的字段
+    /// ```
+    /// requestConfig.api = .???
+    /// ```
+    /// 设置请求参数体
+    /// ```
+    /// requestConfig.parameters?["userName"] = "Judy"
+    /// ```
     func setApi()
 
-    /// 当 api 为 nil 时调用 reqApi() ，请求流将终止在此方法中，不会进行网络请求，且 isReqSuccess 将被设为 true。
+    /// 当 api 为 nil 时调用了 reqApi() ，请求流将终止在此方法中，不会进行网络请求，且 isReqSuccess 将被设为 true。
     ///
-    /// **此方法应主要执行在上下拉刷新界面时需要中断 header、footer 刷新状态，更改 isReqSuccess 等操作。**。
+    /// - version: 1.0
+    /// - since: 2020年10月
+    /// - warning: 此方法应主要执行在上下拉刷新界面时需要中断 header、footer 刷新状态，更改 isReqSuccess 等操作。
     func reqNotApi()
     
     /// 当服务器有响应时，最先执行此方法，无论请求是否成功。**此时 apiData 为服务器返回的元数据**。
@@ -131,10 +137,14 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
     func reqFailed()
 
     /// 在整个请求流程中最后执行的方法。
-    /// # 执行到此方法时，setApi() -> reqNotApi() / [ reqResult() -> reqFailed() / reqSuccess() ] 整个流程已经全部执行完毕
+    ///
+    /// - version: 1.0
+    /// - since: 2020年10月
+    /// - warning: 执行到此方法时，setApi() -> reqNotApi() / [ reqResult() -> reqFailed() / reqSuccess() ] 整个流程已经全部执行完毕
     func reqOver()
 
 }
+
 // 默认实现
 public extension EMERANA_Api where Self: JudyBaseViewCtrl {
     
@@ -176,7 +186,11 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
 
     
     /// 初始化上下拉刷新控件，一般应该在 viewDidLoad() 执行。
-    /// # 注意初始化控件时闭包中使用 [weak self]，否则会引发循环引用
+    ///
+    /// 该函数应该由包含集合视图的 ViewCtrl 实现并 final，子类也无需再次调用该函数。
+    /// - version: v1.0
+    /// - since: 2020年10月
+    /// - warning: 注意初始化控件时闭包中使用 [weak self]，否则会引发循环引用
     func initRefresh()
     
     /// 当 currentPage 发生变化的事件
@@ -193,7 +207,15 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     /// 结束所有上拉、下拉状态。
     func endRefresh()
 
-    /// 分页加载数据时重写此方法从服务器确认总页数，默认值为 1
+    /// 询问当前分页数据的总页数
+    ///
+    /// 通过服务器响应的数据量来判断是否还有更多数据，通常以请求数据大小为条件，只要没有达到目标数据大小即视为没有更多数据，参考代码：
+    /// ```
+    /// return apiData["data"].arrayValue.count != 10 ? currentPage:currentPage+1
+    /// ```
+    /// - version: v1.1
+    /// - since: 2021年01月23日09:46:58
+    /// - warning: 若未覆盖此函数，默认值为 1。该函数只有在 reqSuccess() 时才会被执行，请确保 super.reqSuccess() 正确响应。
     func setSumPage() -> Int
     
     /// 重置当前页面请求页数及上下拉状态。
