@@ -38,7 +38,7 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
     
     override func setApi() {
         super.setApi()
-        
+
         requestConfig.api = Actions.testAction
         
     }
