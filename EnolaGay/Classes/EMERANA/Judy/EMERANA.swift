@@ -18,6 +18,9 @@
  */
 
 
+import SwiftyJSON
+
+
 // MARK: - typealias
 
 /// 一个不传递任何参数的闭包
@@ -70,8 +73,6 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
     /// isReqSuccess = true
     /// super.viewWillAppear(animated)
     /// ```
-    /// - version: 1.2
-    /// - since: 2021年01月15日12:58:43
     /// - warning: 注意生命周期 viewWillAppear() ，每次都会调用；
     /// * 当 requestConfig.api = nil，reqApi() 中会将该值设为 true;
     /// * 若需要界面每次出现都发送请求，请在 super.viewWillAppear() 之前或 reqApi() 响应后（如 reqOver()）将该值设为 false。
@@ -88,8 +89,6 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
     ///
     /// 通过调用此函数发起一个完整的请求流，此方法中将更新 apiData。
     /// 请求结果在此函数中分流，此函数内部将依次执行 setApi() -> { reqResult() -> reqSuccess() / reqFailed() } / reqNotApi()，请重写相关函数以实现对应操作
-    /// - version: 1.2
-    /// - since: 2021年01月14日11:17:36
     /// - warning: 此方法中会更改 isReqSuccess 对应状态
     /// - Parameters:
     ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi()
@@ -99,8 +98,6 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
     /// 设置 requestConfig 及其它任何需要在发起请求前处理的事情
     ///
     /// 在整个 reqApi()请求流程中最先执行的方法
-    /// - version: 1.1
-    /// - since: 2021年01月23日09:40:56
     /// - warning: 在此方法中配置好 requestConfig 对象
     ///
     /// ```
@@ -118,8 +115,6 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
 
     /// 当 api 为 nil 时调用了 reqApi() ，请求流将终止在此方法中，不会进行网络请求，且 isReqSuccess 将被设为 true。
     ///
-    /// - version: 1.0
-    /// - since: 2020年10月
     /// - warning: 此方法应主要执行在上下拉刷新界面时需要中断 header、footer 刷新状态，更改 isReqSuccess 等操作。
     func reqNotApi()
     
@@ -128,8 +123,6 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
     
     /// 请求成功的消息处理
     ///
-    /// - version: 1.2
-    /// - since: 2021年01月14日11:11:52
     /// - warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则
     func reqSuccess()
     
@@ -138,8 +131,6 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
 
     /// 在整个请求流程中最后执行的方法。
     ///
-    /// - version: 1.0
-    /// - since: 2020年10月
     /// - warning: 执行到此方法时，setApi() -> reqNotApi() / [ reqResult() -> reqFailed() / reqSuccess() ] 整个流程已经全部执行完毕
     func reqOver()
 
@@ -148,7 +139,7 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
 // 默认实现
 public extension EMERANA_Api where Self: JudyBaseViewCtrl {
     
-    static func isGlobalHideWaitingHUD() -> Bool { return false }
+    static func isGlobalHideWaitingHUD() -> Bool { false }
 }
 
 
@@ -189,8 +180,6 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     /// 初始化上下拉刷新控件，一般应该在 viewDidLoad() 执行。
     ///
     /// 该函数应该由包含集合视图的 ViewCtrl 实现并 final，子类也无需再次调用该函数。
-    /// - version: 1.0
-    /// - since: 2020年10月
     /// - warning: 注意初始化控件时闭包中使用 [weak self]，否则会引发循环引用
     func initRefresh()
     
@@ -214,8 +203,6 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     /// ```
     /// return apiData["data"].arrayValue.count != 10 ? currentPage:currentPage+1
     /// ```
-    /// - version: 1.1
-    /// - since: 2021年01月23日09:46:58
     /// - warning: 若未覆盖此函数，默认值为 1。该函数只有在 reqSuccess() 时才会被执行，请确保 super.reqSuccess() 正确响应。
     func setSumPage() -> Int
     
@@ -233,14 +220,10 @@ public extension EMERANA_Refresh {
     /// 是否隐藏上拉刷新控件？默认 false
     /// - warning: 所有实现 EMERANA_Refresh 协议的对象均能触发此扩展函数
     ///     * 在此函数中补充所需操作，扩展对应的类并重写此函数
-    /// - since: 1.0
-    func hideFooterStateLabel() -> Bool {
-        return false
-    }
+    func hideFooterStateLabel() -> Bool { false }
 
 }
 
-import SwiftyJSON
 
 
 /// tableViewCtrl、collectionViewCtrl 基础协议
@@ -335,8 +318,6 @@ public protocol EMERANA_FontStyle: class {
     ///     }
     /// }
     /// ```
-    /// - version: 1.0
-    /// - since: 2020年10月
     /// - warning: 设置该属性等同直接设置 UIFont
     var fontStyle: UIFont.FontStyle { get set }
 
@@ -351,8 +332,6 @@ public protocol EMERANA_FontStyle: class {
     /// ```
     /// FontStyle.new(rawValue: initFontStyle)
     /// ```
-    /// - version: 1.0
-    /// - since: 2020年10月
     /// - warning: 该值仅对初始化时有效
     var initFontStyle: Int { get }
     
@@ -395,8 +374,6 @@ public protocol EMERANA_UIColor {
      */
     
     /// 使用 EMERANA 配置获取颜色
-    /// - version: 1.0
-    /// - since: 2021年01月06日11:02:33
     /// - warning: 自定义配置请 public extension UIColor 并覆盖此函数
     /// - Parameter style: 颜色样式，参阅 ColorStyle
     func configColorStyle(_ style: UIColor.ColorStyle) -> UIColor
@@ -635,8 +612,6 @@ public extension UIFont {
     
     
     /// 字体样式。**EMERANA 中默认使用 M 码**
-    /// - version: 1.0
-    /// - since: 2020年10月
     /// - warning: 使用注意事项
     /// - 原始值范围-8...14，N系列从10开始
     /// - 原始值为奇数表示加粗（N系列除外）
@@ -752,8 +727,6 @@ public extension UIImage {
     
     
     /// 通过颜色生成一张图片
-    /// - version: 1.0
-    /// - since: 2020年10月24日11:22
     /// - Parameter color: 该颜色用于直接生成一张图像
     convenience init(color: UIColor) {
         
@@ -775,8 +748,6 @@ public extension UIImage {
     
     
     /// 通过渐变颜色生成一张图片
-    /// - version: 1.0
-    /// - since: 2020年10月24日11:32
     /// - Parameters:
     ///   - startColor: 渐变起始颜色，默认red
     ///   - endColor: 渐变结束颜色，默认blue
@@ -812,8 +783,6 @@ public extension UIImage {
 public extension UIImage {
     
     /// 重设图片大小
-    /// - version: 1.0
-    /// - since: 2021年01月16日14:32:11
     /// - Parameter reSize: 目标 size
     /// - Returns: 目标 image
     func reSizeImage(reSize: CGSize) -> UIImage {
@@ -828,8 +797,6 @@ public extension UIImage {
      
 
     /// 等比率缩放
-    /// - version: 1.0
-    /// - since: 2021年01月16日14:32:11
     /// - Parameter scaleSize: 缩放倍数
     /// - Returns: 目标 image
     func scaleImage(scaleSize: CGFloat) -> UIImage {
@@ -841,8 +808,6 @@ public extension UIImage {
     /// 压缩图像的体积
     ///
     /// 此函数将返回 UIImage 对象通过此函数得到一个小于原始体积的 Data，通常用于图片上传时限制体积
-    /// - version: 1.3
-    /// - since: 2021年01月16日14:29:28
     /// - Parameters:
     ///   - maxImageLenght: 最大长度，如：0
     ///   - maxSizeKB: 最大 KB 体积，如 2048
@@ -898,9 +863,6 @@ public extension UIImage {
 @IBDesignable public extension UIImageView {
     
     /// 标识该 imageView 是否需要设置为正圆，需要的话请确保其为正方形，否则不生效
-    /// - since: 1.2
-    /// * author: 王仁洁
-    /// * date: 2020年12月22日09:16:32 强化属性
     /// - warning: 若在 Cell 中不能正常显示正圆，请覆盖 Cell 中 layoutIfNeeded() 设置正圆，或在父 View 中设置
     @IBInspectable private(set) var isRound: Bool {
         set {
@@ -981,7 +943,6 @@ public extension UILabel {
     
     /// 设置部分文字高亮
     /// - warning: label 的 attributedText 不能直接添加属性，需先转换成 NSMutableAttributedString。
-    /// - since: V1.1   2020年10月30日13:36
     /// - Parameters:
     ///   - highlightedText: label 中需要要高亮的文本
     ///   - highlightedColor: 高亮颜色，默认红色
@@ -1007,7 +968,6 @@ public extension UILabel {
     
     /// 给 label 设置一个全新的 attributedText
     /// - warning: 此函数将覆盖 label 的 text/attributedText。
-    /// - since: V1.0   2020年10月30日13:53
     /// - Parameters:
     ///   - text: 显示的完整文本
     ///   - textColor: 显示的文本颜色，默认蓝色
@@ -1048,7 +1008,6 @@ public extension NSMutableAttributedString {
     
     /// 生成一个 NSMutableAttributedString
     /// - warning: addAttribute() 或 addAttributes() 均需要指定一个 range，如需扩展，可模拟此函数创建新的自定义函数。
-    /// - since: 1.0 2020年10月30日11:29
     /// - Parameters:
     ///   - text: 要显示的文本信息
     ///   - textColor: 文本颜色，若不指定该值，该颜色默认为白色
@@ -1138,9 +1097,6 @@ public extension NSMutableAttributedString {
     }
     
     /// 给当前操作的 View 设置正圆，该函数会验证 View 是否为正方形，若不是正方形则圆角不生效
-    /// - since: 1.1
-    /// * author: 王仁洁
-    /// * date: 2020年12月22日09:18:00 优化宽高验证
     /// - warning: 请在 viewDidLayout 函数或涉及到布局的函数中调用，否则可能出现问题
     /// - Parameters:
     ///   - border: 边框大小，默认0
@@ -1260,7 +1216,6 @@ public extension NSMutableAttributedString {
     ///
     /// 该函数以 View 为中心执行一个烟花爆炸动效
     /// - warning: 如有必要可参考此函数创建新的扩展函数
-    /// - since: V1.0 2020年11月12日13:26:57
     /// - Parameter finishededAction: 动画完成后执行的事件，默认为 nil
     func judy_blingBling(finishededAction: (()->Void)? = nil) {
         
@@ -1318,7 +1273,6 @@ public extension JudySegmentedCtrl {
     ///
     /// 此函数将快速设置 JudySegmentedCtrl 一些基础属性以便直接调用或设置
     /// - warning:该函数应该在 JudySegmentedCtrl 创建的最初时机调用，其他属性的配置均应该在此函数之后调用
-    /// - since: V1.1 2020年11月28日09:03:30
     /// - Parameters:
     ///   - indicatorHeight: JudySegmentedCtrl 指示器的高度，若将该值设为0，则为 none (没有指示器)
     final func judy_configSegmentedCtrl(withIndicatorHeight indicatorHeight: CGFloat = 2) {
@@ -1581,9 +1535,8 @@ public extension UITableView {
     /// 将 tableView 滚动到最底部
     /// 
     /// 在此之前的方法可能会引起数组越界问题，此函数针对该问题修复
-    /// - Parameter animated: 是否需要动画效果？默认为 true
     /// - warning: 在调用该函数之前请先调用 reloadData()
-    /// - since: V1.0 2020年11月09日22:11:19
+    /// - Parameter animated: 是否需要动画效果？默认为 true
     func scrollToBottom(animated: Bool = true) {
         
         if numberOfSections > 0 {
@@ -1638,7 +1591,6 @@ public struct EMERANA {
     ///     * 项目中所有固定的可访问性字符都应该封装在此结构体内，在此结构体中定义所有可访问性数据（字符）
     ///     * 希望数据结构的实例被赋值给另一个实例时是拷贝而不是引用，封装的数据及其中存储的值也是拷贝而不是引用
     ///     * 该数据结构不需要使用继承
-    /// - since: 1.0
     public struct Key { }
     
 }
@@ -1721,8 +1673,9 @@ public extension EMERANA.Key {
 public extension EMERANA {
     
     /// 一个气泡动画类
+    /// - version: 1.0
+    /// - date: 2020年10月23日
     /// - warning: 通过调用 judy_popBubble 函数来弹出一个气泡动画
-    /// - since: 1.0
     class JudyPopBubble {
         
         /// 指定气泡的中心点，默认为 bubble_belowView 的中心点
