@@ -157,8 +157,9 @@ public extension EMERANA_Api where Self: JudyBaseViewCtrl {
 import MJRefresh
 
 /// tableView、collectionView 专用刷新协议
+/// - version: 1.0
+/// - since: 2021年01月23日10:02:30
 /// - warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
-/// - since: 1.0
 public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     
     /// 初始页数，默认为1，该值决定了 currentPage 的初始值，下拉刷新时 currentPage 会重置为该值。一般建议定义为计算属性
@@ -168,15 +169,15 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     var currentPage: Int { get }
     
     /// 是否上拉加载更多？默认否
-    /// # 此变量标识当前是上拉还是下拉，以便在 reqSuccess 处理数据源是重新赋值还是在原有基础上添加。
+    /// - warning: 此变量标识当前是上拉还是下拉，以便在 reqSuccess 处理数据源是重新赋值还是在原有基础上添加。
     var isAddMore: Bool { get }
     
     /// 是否不需要下拉加载，默认 false。
-    /// # 当不需要下拉加载时将此属性设为 true 即可，tableView 在 viewdidLoad 时将不会初始化刷新控件
+    /// - warning: 当不需要下拉加载时将此属性设为 true 即可，集合视图将不会初始化下拉刷新
     var isNoHeader: Bool { get }
     
     /// 是否不需要上拉加载，默认 false
-    /// # 当不需要上拉加载时将此属性设为 true 即可，tableView 在 viewdidLoad 时将不会初始化刷新控件
+    /// - warning: 当不需要上拉加载时将此属性设为 true 即可，集合视图将不会初始化上拉刷新
     var isNoFooter: Bool { get }
     
     /// 头部刷新控件，可通过该属性设置下拉刷新时的样式
@@ -188,7 +189,7 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     /// 初始化上下拉刷新控件，一般应该在 viewDidLoad() 执行。
     ///
     /// 该函数应该由包含集合视图的 ViewCtrl 实现并 final，子类也无需再次调用该函数。
-    /// - version: v1.0
+    /// - version: 1.0
     /// - since: 2020年10月
     /// - warning: 注意初始化控件时闭包中使用 [weak self]，否则会引发循环引用
     func initRefresh()
@@ -213,7 +214,7 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     /// ```
     /// return apiData["data"].arrayValue.count != 10 ? currentPage:currentPage+1
     /// ```
-    /// - version: v1.1
+    /// - version: 1.1
     /// - since: 2021年01月23日09:46:58
     /// - warning: 若未覆盖此函数，默认值为 1。该函数只有在 reqSuccess() 时才会被执行，请确保 super.reqSuccess() 正确响应。
     func setSumPage() -> Int

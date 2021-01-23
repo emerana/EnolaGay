@@ -393,7 +393,7 @@ public protocol EMERANA_JudyLivePageViewCtrl: UIViewController {
 /// 适用于直播、短视频类型的 pageViewCtrl
 ///
 /// 别忘了设置滚动方向 pageViewCtrl.navigationOrientation，根据需要设置为水平方向滑动还是垂直方向滑动
-/// - version: v1.3
+/// - version: 1.3
 /// - since: 2021年01月15日12:35:45
 /// - warning: 请记得设置 transitionStyle 为 scroll；
 /// * 请通过调用 onStart() 函数使 pageViewCtrl 正常工作，通常情况下在数据源被确定时调用此函数;

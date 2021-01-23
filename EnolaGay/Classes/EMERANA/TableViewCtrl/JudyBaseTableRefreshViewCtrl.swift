@@ -93,8 +93,8 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     /// 请求成功的消息处理
     ///
     /// 此函数已经处理是否有更多数据，需自行根据服务器响应数据更改数据源及刷新 tableView
-    /// - version: V1.1 2020年11月06日11:27:24
-    /// - since: V1.1 2020年11月06日11:27:24
+    /// - version: 1.1
+    /// - since: 2020年11月06日11:27:24
     /// - warning: 此函数中影响设置总页数函数 setSumPage(), 无关的逻辑应该在此排除
     open override func reqSuccess() {
         // 设置总页数
