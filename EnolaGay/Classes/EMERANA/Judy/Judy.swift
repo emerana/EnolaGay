@@ -422,18 +422,18 @@ public extension Judy {
 // MARK: - App版本相关
 public extension Judy {
     
-    /// 获取version,即CFBundleShortVersionString
+    /// 获取 version,即 CFBundleShortVersionString
     ///
     /// - Returns: 如：2.5.8
     static func versionShort() -> String {
-        return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     }
     
-    /// 获取Build版本号
+    /// 获取 Build 版本号
     ///
     /// - Returns: 如：1
     static func versionBuild() -> String {
-        return Bundle.main.infoDictionary!["CFBundleVersion"] as! String
+        Bundle.main.infoDictionary!["CFBundleVersion"] as! String
     }
     
     /// 检查是否有新版本,如果有新版本则会弹出一个AlertController,引导用户去更新App
@@ -506,11 +506,12 @@ public extension Judy {
     }
     
     /// 从AppStore检查当前App状态
-    ///## 此方法会在闭包参数里传入一个JSON字典，字段如下
-    ///- newVersion: Bool    是否有新版本
-    ///- msg: String 消息体
-    ///- URL: String?    AppStore URL:(AppStore URL只在有新版本时有值，默认没有此字段)
-    ///- status: Int 当前App状态，-4:data转json失败，-3:版本检查失败，-2:没有找到，-1:审核状态，0：最新版本，1:有新版本，请更新
+    ///
+    /// - warning: 此方法会在闭包参数里传入一个JSON字典，字段如下
+    ///     - newVersion: Bool    是否有新版本
+    ///     - msg: String 消息体
+    ///     - URL: String?    AppStore URL:(AppStore URL只在有新版本时有值，默认没有此字段)
+    ///     - status: Int 当前App状态，-4:data转json失败，-3:版本检查失败，-2:没有找到，-1:审核状态，0：最新版本，1:有新版本，请更新
     /// - Parameter closure: 回调函数
     static func versionCheck(completionHandler closure: @escaping ((JSON) -> Void)){
         versionCheck { (status: Int, newVersion: Bool, msg: String, url: String?) in
@@ -650,11 +651,10 @@ public extension Judy {
     /// - Parameter callBack: 需传入闭包
     private static func versionCheck(callBack: @escaping ((Int, Bool,String,String?) -> Void)) {
         
-        //得到CFBundleIdentifier
-//        let bundleId = "com.gymj.kepu.xj"  // "com.Addcn.car8891" "com.gymj.kepu.xj"
-        let bundleId = (Bundle.main.infoDictionary!["CFBundleIdentifier"] as! String)
+        // 得到CFBundleIdentifier
+        let bundleIdentifier = Bundle.main.infoDictionary!["CFBundleIdentifier"] as! String
         //设置请求地址
-        var requestURLStr = "https://itunes.apple.com/cn/lookup?bundleId=\(bundleId)"
+        var requestURLStr = "https://itunes.apple.com/cn/lookup?bundleId=\(bundleIdentifier)"
         
         //解决UTF-8乱码问题
         requestURLStr = requestURLStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -662,10 +662,10 @@ public extension Judy {
         let storeURL = URL(string: requestURLStr)
         
         // timeoutInterval: 网络请求超时时间(单位：秒)
-        //        var request = URLRequest(url: storeURL!)
+        // var request = URLRequest(url: storeURL!)
         var request = URLRequest.init(url: storeURL!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 8)
         
-        // 3、设置请求方式为POST，默认是GET
+        // 设置请求方式为POST，默认是GET
         request.httpMethod = "POST"
         
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, res: URLResponse?, err: Error?) in
@@ -724,7 +724,7 @@ public extension Judy {
             
             // 回调
             callBack(status, bNewVersion, msg, appStoreUrl)
-//            judyLog("发现AppStore的版本:\(versionOnLine)")
+            // log("发现AppStore的版本:\(versionOnLine)")
         }
         task.resume()
     }
@@ -732,6 +732,7 @@ public extension Judy {
 }
 
 /****************************************  ****************************************/
+
 // MARK: - 测试类
 extension Judy {
 
