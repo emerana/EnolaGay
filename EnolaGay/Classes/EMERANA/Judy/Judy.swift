@@ -10,7 +10,8 @@
 import UIKit
 import SwiftyJSON
 
-/* 主类需要加上 public，extension 前面加了public，则该分类里面的方法默认都是公开的，只有加 fileprivate 才能实现文件内私有  */
+/* 主类需要加上 public，extension 前面加了 public，则该分类里面的方法默认都是公开的 */
+/* FIXME: 制作 framework 时当闭包参数大于1个时注释将会多余 -No description. */
 
 
 /// 常用系统级相关工具类
@@ -26,7 +27,6 @@ public struct Judy {
     /// 获取最顶层的 ViewController，不包含 navigationCtrl
     ///
     /// - version: 1.2
-    /// - since: 2021年01月13日14:24:46
     /// - warning: 调用时请注意在 App 启动后再调用，否则有可能出现 keyWindow 为空，就会返回一个新的 UIViewController
     public static var topViewCtrl: UIViewController {
         //  UIApplication.shared.windows.last!.rootViewController
@@ -37,10 +37,9 @@ public struct Judy {
         return getTopViewCtrl(rootVC: keyWindow!.rootViewController!)
     }
     
-    /// 获取 App 中的 最开始使用的 tabBarController
+    /// 获取 App 中最开始使用的 tabBarController
     ///
     /// - version: 1.2
-    /// - since: 2021年01月13日14:05:19
     /// - warning: 请在 App 启动后再调用，否则可能出现 keyWindow 为空并返回 UITabBarController()
     public static var tabBarCtrl: UITabBarController? {
         if appWindow.rootViewController != nil {
@@ -79,9 +78,9 @@ public struct Judy {
     
     /// 获取 App 代理对象。即 UIApplication.shared.delegate
     public static var app: UIApplicationDelegate {
-//        if UIApplication.shared.delegate == nil {
-//            judyLog("我操！UIApplication.shared.delegate 竟然为 nil !")
-//        }
+        //  if UIApplication.shared.delegate == nil {
+        //      judyLog("我操！UIApplication.shared.delegate 竟然为 nil !")
+        //  }
         return UIApplication.shared.delegate!
     }
 
@@ -120,15 +119,13 @@ public struct Judy {
     ///   - closure: 闭包,(success: Bool)
     public static func openURL(_ urlStr: String, completionHandler closure: @escaping ((Bool) -> Void)) {
         guard NSURL.init(string: urlStr) != nil  else {
-            Judy.judyLog("无效URL--->\(urlStr)")
+            logWarning("无效URL--->\(urlStr)")
             return
         }
         let url: URL = NSURL.init(string: urlStr)! as URL
         
         openURL(url: url, completionHandler: closure)
     }
-    
-    // FIXME: 制作 framework 时当闭包参数大于1个时注释将会多余 -No description.
     
     /// 打开路由
     ///
@@ -147,7 +144,7 @@ public struct Judy {
         } else {
             //  入口协议：从其他App跳转到当前App的协议。在配置文件的URL Types中URL Schemes设定，如：tc。
             //  出口协议：当前App跳转到其他App的协议。需要将目标App的入口协议添加到当前App中配置文件的LSApplicationQueriesSchemes白名单里。
-            judyLog("未安装路由->\(url)或没有在plist文件中添加LSApplicationQueriesSchemes白名单(出口失败)")
+            logWarning("未安装路由->\(url)或没有在plist文件中添加LSApplicationQueriesSchemes白名单(出口失败)")
             closure(false)
         }
     }
@@ -163,7 +160,7 @@ public struct Judy {
             UIApplication.shared.open(url)
             return true
         }
-        log("不合法的电话号码：\(phoneNo)")
+        logWarning("不合法的电话号码：\(phoneNo)")
         return false
     }
     
@@ -185,12 +182,13 @@ public struct Judy {
     }
     
     /// dictionary 转成 String。服务器需要 String 类型的参数时使用此方法方便地转换数据。
-    /// # 在有 JSON 的时候直接使用json.rawString()即可。
+    /// ##在有 JSON 的时候直接使用json.rawString()即可。
+    /// - warning: 在有 JSON 的时候直接使用json.rawString()即可。
     /// - Parameter withDictionary: 比如：["userName": "Judy", "age": 23]
     /// - Returns: "{\"userName\": \"Judy\", \"age\": 23}"
     /// - version: 1.0
     /// - since: 2021年01月08日21:30:08
-    @available(*, unavailable, message: "此函数一起用，请使用 SwiftyJSON 的 json.rawString() ")
+    @available(*, unavailable, message: "此函数已禁用，请使用 SwiftyJSON 的 json.rawString() ")
     public static func string(withDictionary: [String: Any]) -> String { "" }
 
 }
@@ -250,9 +248,11 @@ public extension Judy {
         #endif
     }
 
-    /// 详细的 Log 控制台输出，此函数只在 DEBUG 下执行，请放心随处使用，
-    /// ## 若需要关闭此函数所有打印，在 Swift Compiler - Custom Flags 中 Active Compilation Conditions 下增加 NOLOG 即可禁用此函数打印。
-    /// ## 使用此函数时只需要传入要输出的 msg 即可，系统会自动传入除 msg 以外的参数
+    /// 详细的 Log 控制台输出，此函数只在 DEBUG 下执行，请放心随处使用
+    ///
+    /// 若需要关闭此函数所有打印，在 Swift Compiler - Custom Flags 中 Active Compilation Conditions 下增加 NOLOG 即可禁用此函数打印。
+    ///
+    /// - warning: 使用此函数时只需要传入要输出的 msg 即可，系统会自动传入除 msg 以外的参数
     /// - Parameters:
     ///   - message: 要输出的消息体
     ///   - file: 调用此函数所在的文件名
@@ -275,9 +275,9 @@ public extension Judy {
     
     
     
-    /// 此函数在 log() 函数的基础上同时在控制台打印线程相关信息
+    /// 输出包含线程相关信息的日志
     ///
-    /// * note: 此函数基于 log() 函数
+    /// 此函数基于 log() 函数同时在控制台打印线程相关信息
     /// * date: 2020年12月04日09:40:08
     static func logt<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
@@ -290,8 +290,7 @@ public extension Judy {
     
     /// 对要输入的数值进行小数验证。比如只能输入2.1之类的，用于价格、里程数等
     ///
-    /// **此方法限textField shouldChangeCharactersInRange代理方法中调用**
-    ///
+    /// - warning: 此方法限textField shouldChangeCharactersInRange代理方法中调用
     /// - Parameters:
     ///   - textFieldText: 代理方法的 textField.text! as NSString
     ///   - range: 代理方法的range
@@ -336,7 +335,7 @@ public extension Judy {
     
     /// 验证正整型输入，确保当下输入的值符合所需数值要求
     ///
-    /// **此方法限 textField shouldChangeCharactersInRange 代理方法中调用**
+    /// - warning: 此方法限 textField shouldChangeCharactersInRange 代理方法中调用
     /// - Parameters:
     ///   - textField: UITextField 对象
     ///   - range: 代理方法的range
@@ -423,18 +422,18 @@ public extension Judy {
 // MARK: - App版本相关
 public extension Judy {
     
-    /// 获取version,即CFBundleShortVersionString
+    /// 获取 version,即 CFBundleShortVersionString
     ///
     /// - Returns: 如：2.5.8
     static func versionShort() -> String {
-        return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     }
     
-    /// 获取Build版本号
+    /// 获取 Build 版本号
     ///
     /// - Returns: 如：1
     static func versionBuild() -> String {
-        return Bundle.main.infoDictionary!["CFBundleVersion"] as! String
+        Bundle.main.infoDictionary!["CFBundleVersion"] as! String
     }
     
     /// 检查是否有新版本,如果有新版本则会弹出一个AlertController,引导用户去更新App
@@ -507,11 +506,12 @@ public extension Judy {
     }
     
     /// 从AppStore检查当前App状态
-    ///## 此方法会在闭包参数里传入一个JSON字典，字段如下
-    ///- newVersion: Bool    是否有新版本
-    ///- msg: String 消息体
-    ///- URL: String?    AppStore URL:(AppStore URL只在有新版本时有值，默认没有此字段)
-    ///- status: Int 当前App状态，-4:data转json失败，-3:版本检查失败，-2:没有找到，-1:审核状态，0：最新版本，1:有新版本，请更新
+    ///
+    /// - warning: 此方法会在闭包参数里传入一个JSON字典，字段如下
+    ///     - newVersion: Bool    是否有新版本
+    ///     - msg: String 消息体
+    ///     - URL: String?    AppStore URL:(AppStore URL只在有新版本时有值，默认没有此字段)
+    ///     - status: Int 当前App状态，-4:data转json失败，-3:版本检查失败，-2:没有找到，-1:审核状态，0：最新版本，1:有新版本，请更新
     /// - Parameter closure: 回调函数
     static func versionCheck(completionHandler closure: @escaping ((JSON) -> Void)){
         versionCheck { (status: Int, newVersion: Bool, msg: String, url: String?) in
@@ -651,11 +651,10 @@ public extension Judy {
     /// - Parameter callBack: 需传入闭包
     private static func versionCheck(callBack: @escaping ((Int, Bool,String,String?) -> Void)) {
         
-        //得到CFBundleIdentifier
-//        let bundleId = "com.gymj.kepu.xj"  // "com.Addcn.car8891" "com.gymj.kepu.xj"
-        let bundleId = (Bundle.main.infoDictionary!["CFBundleIdentifier"] as! String)
+        // 得到CFBundleIdentifier
+        let bundleIdentifier = Bundle.main.infoDictionary!["CFBundleIdentifier"] as! String
         //设置请求地址
-        var requestURLStr = "https://itunes.apple.com/cn/lookup?bundleId=\(bundleId)"
+        var requestURLStr = "https://itunes.apple.com/cn/lookup?bundleId=\(bundleIdentifier)"
         
         //解决UTF-8乱码问题
         requestURLStr = requestURLStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -663,10 +662,10 @@ public extension Judy {
         let storeURL = URL(string: requestURLStr)
         
         // timeoutInterval: 网络请求超时时间(单位：秒)
-        //        var request = URLRequest(url: storeURL!)
+        // var request = URLRequest(url: storeURL!)
         var request = URLRequest.init(url: storeURL!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 8)
         
-        // 3、设置请求方式为POST，默认是GET
+        // 设置请求方式为POST，默认是GET
         request.httpMethod = "POST"
         
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, res: URLResponse?, err: Error?) in
@@ -725,7 +724,7 @@ public extension Judy {
             
             // 回调
             callBack(status, bNewVersion, msg, appStoreUrl)
-//            judyLog("发现AppStore的版本:\(versionOnLine)")
+            // log("发现AppStore的版本:\(versionOnLine)")
         }
         task.resume()
     }
@@ -733,6 +732,7 @@ public extension Judy {
 }
 
 /****************************************  ****************************************/
+
 // MARK: - 测试类
 extension Judy {
 
