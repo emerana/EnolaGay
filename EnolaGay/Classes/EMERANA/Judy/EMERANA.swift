@@ -235,7 +235,7 @@ public protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
     var dataSource: [JSON] { get set }
     
     /// 重写此方法并在此方法中注册 Cell 或 HeaderFooter。**此方法在 ViewDidLoad() 中被执行**
-    /// ## 注意：一个 Nib 里面只放一个 Cell，且里面的 cell 不能自带 identifier。如果有则必须用自带的 identifier 进行注册
+    ///
     /// * 注册 Cell 参考代码
     /// ```
     /// let nib = UINib(nibName: "<#XibName#>", bundle: nil)
@@ -247,6 +247,7 @@ public protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
     /// ```
     /// let cell = tableView.dequeueReusableCell(withIdentifier: "<#Cell#>", for: indexPath)
     /// ```
+    /// - warning: 一个 Nib 里面只放一个 Cell，且里面的 Cell 不能自带 identifier，如果有则必须用自带的 identifier 进行注册
     func registerReuseComponents()
 }
 
