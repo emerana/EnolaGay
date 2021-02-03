@@ -24,16 +24,11 @@
                                     <constraint firstAttribute="width" secondItem="mJI-yW-CYr" secondAttribute="height" id="oP9-y9-UG8"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="村民" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvY-EV-zxL" customClass="JudyBaseLabel" customModule="EnolaGay">
-                                <rect key="frame" x="189.5" y="437.5" width="35" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="村民" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvY-EV-zxL">
+                                <rect key="frame" x="118.5" y="395.5" width="177" height="105.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="88"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="initFontStyle">
-                                        <integer key="value" value="11"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Urg-16-a1l"/>
@@ -53,11 +48,6 @@
             <point key="canvasLocation" x="-30" y="54"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="kvY-EV-zxL">
-            <size key="intrinsicContentSize" width="35" height="20.5"/>
-        </designable>
-    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

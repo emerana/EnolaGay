@@ -644,10 +644,8 @@ public extension UIFont {
         /// - Parameter rawValue: FontStyle 实例对象，若传入不合法的值将返回 m
         static func new(rawValue: Int) -> FontStyle {
             var raw = 0
-            if (-8...14).contains(rawValue) {
-                raw = rawValue
-            }
-            return FontStyle.init(rawValue: raw)!
+            if (-8...14).contains(rawValue) { raw = rawValue }
+            return FontStyle(rawValue: raw)!
         }
         
     }
