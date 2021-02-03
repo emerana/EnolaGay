@@ -238,9 +238,9 @@ public protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
     /// ## 注意：一个 Nib 里面只放一个 Cell，且里面的 cell 不能自带 identifier。如果有则必须用自带的 identifier 进行注册
     /// * 注册 Cell 参考代码
     /// ```
-    /// let nib = UINib.init(nibName: "<#XibName#>", bundle: nil)
+    /// let nib = UINib(nibName: "<#XibName#>", bundle: nil)
     /// tableView?.register(nib, forCellReuseIdentifier: "<#Cell#>")
-    /// let rightHeader = UINib.init(nibName: "<#XibName#>", bundle: Bundle.main)
+    /// let rightHeader = UINib(nibName: "<#XibName#>", bundle: Bundle.main)
     /// tableView?.register(leftHeader, forHeaderFooterViewReuseIdentifier: "<#Header#>")
     /// ```
     /// * 创建 Cell 参考代码
