@@ -44,8 +44,9 @@ import UIKit
 
     // MARK: - 内边距属性
     
-    /// 内边距，请在设置 label.text 前使用，否则可能影响到 frame
-    public private(set) var padding = UIEdgeInsets.zero
+    /// 内边距
+    /// - warning: 请在设置 label.text 前使用，否则可能影响到 frame
+    public var padding = UIEdgeInsets.zero
     
     /// 文本左边距，请在设置 label.text 前使用，否则可能影响到 frame
     @IBInspectable public var paddingLeft: CGFloat {
