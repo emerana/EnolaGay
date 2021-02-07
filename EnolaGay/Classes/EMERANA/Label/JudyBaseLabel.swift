@@ -10,25 +10,23 @@ import UIKit
 
 /// EMERANA 框架中所用到的 Label，实现 EMERANA_FontStyle，默认 fontStyle 为均码。
 /// ## 支持功能：
-/// * label 单击复制功能。需要在storyboard中开启 isSupportCopy 选项或手动设置 isSupportCopy = true
-/// ```
-/// isSupportCopy = true
-/// ```
+/// * 在 label 上显示删除线
+/// * 单击弹出复制功能（在 storyboard 中启用 isSupportCopy 或 isSupportCopy = true）
 /// * 内边距属性调整功能
 /// * 支持深度拷贝，参考 copy(with zone: NSZone? = nil) -> Any 函数
 @IBDesignable open class JudyBaseLabel: UILabel, EMERANA_FontStyle {
     
     /// 是否显示一条删除线，默认 false.
     @IBInspectable var isUnderline: Bool = false
-
+    
+    // MARK: 复制文本功能
+    
+    /// 允许成为第一响应
+    open override var canBecomeFirstResponder: Bool { true }
     /// 是否支持复制功能，默认 false.
     @IBInspectable var isSupportCopy: Bool = false
     /// 当 isSupportCopy = true 时，点击 label 进行复制时的提示文字
     @IBInspectable public var altTitle: String = ""
-    /// 是否允许成为第一响应
-    open override var canBecomeFirstResponder: Bool {
-        return true
-    }
     /// 要复制的文本，默认 nil(复制时将复制整个 Label 的值)
     public var pasteboardText: String? = nil
     
