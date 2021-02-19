@@ -13,27 +13,22 @@ import UIKit
 open class JudyBaseTabBarCtrl: UITabBarController {
     
     /// 是否使 tabBar.items 中的图标使用原图，默认 false，若需要此功能请在 storyboard 手动开启
-    /// # 初始值必须为 false
-    @IBInspectable public private(set) var isItemOriginal: Bool = false
-
-    // MARK: - tabBar中间按钮
+    /// - warning: 初始值必须为 false
+    @IBInspectable
+    public private(set) var isItemOriginal: Bool = false
     
-    /// 重写 tabBar，返回一个 JudyTabBar
-    //    override var tabBar: JudyTabBar {
-    //        return JudyTabBar()
-    //    }
     
     // MARK: - tabBarCtrl 生命周期
-
+    
     open override func awakeFromNib() {
         super.awakeFromNib()
         
     }
     
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
         // 变更 tabBar icon 的呈现模式（原色彩）
         if isItemOriginal, let items = tabBar.items {
             for item in items {
@@ -41,19 +36,14 @@ open class JudyBaseTabBarCtrl: UITabBarController {
                 item.selectedImage = item.selectedImage?.withRenderingMode(.alwaysOriginal)
             }
         }
-
+        
     }
     
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        
     }
     
-    open override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-        
     
 }
 
@@ -63,12 +53,7 @@ open class JudyBaseTabBarCtrl: UITabBarController {
 
 extension JudyBaseTabBarCtrl: UITabBarControllerDelegate {
     
-    /// tabBarCtrl 切换前的触发事件，询问委托是否应该激活指定的视图控制器，如果视图控制器的标签应该被选中，为 true;如果当前标签应该保持活动，为 false。
-    /// 标签栏控制器调用这个方法来响应用户点击一个标签栏项目。您可以使用此方法来动态地决定是否应该将给定的选项卡设置为活动选项卡。
-    /// - Parameters:
-    ///   - tabBarController: tabBarCtrl
-    ///   - viewController: 要激活的目标视图
-    /// - Returns: 是否切换
+    // 询问委托是否应该激活指定的视图控制器。
     open func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         
         tabBar.isHidden = false
@@ -76,7 +61,7 @@ extension JudyBaseTabBarCtrl: UITabBarControllerDelegate {
         return true
     }
     
-    
+    // 告诉委托用户在选项卡栏中选择了一个项。
     open func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
         /*
