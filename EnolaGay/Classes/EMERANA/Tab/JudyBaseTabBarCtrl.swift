@@ -1,9 +1,9 @@
 //
-//  TabBarCtrl.swift
-//  TabBarCtrl 基类
+//  JudyBaseTabBarCtrl.swift
+//  建议作为所有 UITabBarController 的基类
 //
-//  Created by Judy-王仁洁 on 2017/6/21.
-//  Copyright © 2017年 Judy.ICBC. All rights reserved.
+//  Created by 王仁洁 on 2017/6/21.
+//  Copyright © 2017年 数睿科技（深圳）. All rights reserved.
 //
 
 import UIKit
