@@ -156,7 +156,6 @@
 		87A03BD5F5FD7CE2E556ED0AEF8A8C2A /* SDImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BABC4B5019F9224CF413E3069123B7 /* SDImageLoader.m */; };
 		87E16A2FC0C262F58D129DA12F2D2CAF /* SDWebImageIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A03162EDBAA01BC3CCC6A45FC85C3623 /* SDWebImageIndicator.m */; };
 		87FE1B80CC3B110B1B21BF241D5DC589 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBED86F5E3073627AC81D0820E6E264A /* Foundation.framework */; };
-		8A9C7EED53C21C6EF14CE38ABEFF6405 /* JudyTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4165C9BB941FD73AE2FB70AB946286 /* JudyTabBar.swift */; };
 		8C464CFA735058622A2A19AED605EEFC /* SDAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D71CC960988D6B5FC0CB3E30210661E0 /* SDAnimatedImageView.m */; };
 		8CF7F7C07C57B7B66D6E5305AE5DB902 /* SDAnimatedImageRep.h in Headers */ = {isa = PBXBuildFile; fileRef = EC509081E0C394D0D63E07E2D14D8B9A /* SDAnimatedImageRep.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8E2FFCB2E89B588F0B0B8D2C70114A92 /* SDFileAttributeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F32D92A83B417A4F089D018C03387FD5 /* SDFileAttributeHelper.m */; };
@@ -635,7 +634,6 @@
 		B8005CC102EF6BFDA51FA6BBC4BF9EDC /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/Core/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		B8A2D5CEF5E05626BBB5792C54CE1205 /* JudyApi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyApi.swift; sourceTree = "<group>"; };
 		BA85F50F8ECA3FB6401E0E015AC61D7B /* SDImageFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageFrame.h; path = SDWebImage/Core/SDImageFrame.h; sourceTree = "<group>"; };
-		BB4165C9BB941FD73AE2FB70AB946286 /* JudyTabBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyTabBar.swift; sourceTree = "<group>"; };
 		BC233511A2C2E70B294515872461934E /* SDWebImageTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageTransition.h; path = SDWebImage/Core/SDWebImageTransition.h; sourceTree = "<group>"; };
 		BD2093739B8CBD3A006029BD21EBBF01 /* SDImageCacheConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCacheConfig.h; path = SDWebImage/Core/SDImageCacheConfig.h; sourceTree = "<group>"; };
 		BE8476C4027F96118BCCA49D40703EEE /* SDWebImageDownloaderDecryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderDecryptor.h; path = SDWebImage/Core/SDWebImageDownloaderDecryptor.h; sourceTree = "<group>"; };
@@ -1063,7 +1061,6 @@
 			isa = PBXGroup;
 			children = (
 				70025B7EA68CB7DAEE600EC7A3B47920 /* JudyBaseTabBarCtrl.swift */,
-				BB4165C9BB941FD73AE2FB70AB946286 /* JudyTabBar.swift */,
 			);
 			name = Tab;
 			path = EnolaGay/Classes/EMERANA/Tab;
@@ -1921,7 +1918,6 @@
 				C0505653D19AFE9C4F9E4FECD43EDE50 /* JudySearchView.swift in Sources */,
 				A4C1EF520E10FBC875F658F26481EB38 /* JudySearchView.xib in Sources */,
 				FC52B3F2EF37C1D55DCAF94EF1C9001C /* JudySegmentedCtrl.m in Sources */,
-				8A9C7EED53C21C6EF14CE38ABEFF6405 /* JudyTabBar.swift in Sources */,
 				5847DC7D5F4488FB2D456F22DCA7BCC9 /* JudyTextFieldsEffects.swift in Sources */,
 				3D053B9DB5AB4D3C55C315017DB92A25 /* JudyTip.swift in Sources */,
 				D448B622EA0B9E88AAFDA36DBD214CD4 /* JudyVerifyButton.swift in Sources */,
