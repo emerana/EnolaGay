@@ -194,7 +194,6 @@
 		A6063DB22DE6ACDA16602E381CD1180E /* JudyBaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609C7D5691AC7DC0F66B5607222C86C8 /* JudyBaseTableCell.swift */; };
 		A6568A1DAB956D3C854F21532CCCC0A0 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 262954241D1532621686E5BDE48D364E /* UIScrollView+MJRefresh.m */; };
 		A6EED81D86DA7F025313768EA65E2B5A /* SDWebImageDownloaderOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 33230BD23113E1D649FD4EE9BA8884BE /* SDWebImageDownloaderOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A77E0019E5CEFAE53218262322C5CBC3 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC20F29B5B0898618D3CAF2ADA9A685 /* CircularProgressView.swift */; };
 		AA336333667FB74D4CEEC334BDF015A0 /* SDWebImageCacheKeyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1738BEEFF67FF9FD311DF8302115520E /* SDWebImageCacheKeyFilter.m */; };
 		AB2CD9071A0A17ECB112ED8BE56B9F52 /* UIColor+SDHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = B3165F185FDCCD3C332FB19562F23F8C /* UIColor+SDHexString.m */; };
 		AD9AC9B93F6F30CE8937A7AFBFAC52ED /* SDWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = A706E536C4B9B27C5F42D8ABA9DB6C9B /* SDWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -472,7 +471,6 @@
 		3CAA96F1D6DBE1672DC87D75CB2AC90C /* Pods-EnolaGay_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example.release.xcconfig"; sourceTree = "<group>"; };
 		3DA99FDFA7473B0BEB4F51C7B8804F77 /* EMERANA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EMERANA.swift; sourceTree = "<group>"; };
 		3DD166A6911966061682A6790D1A8A67 /* JudyBaseViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyBaseViewCtrl.swift; sourceTree = "<group>"; };
-		3EC20F29B5B0898618D3CAF2ADA9A685 /* CircularProgressView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		3F64F1C3D510A0929367EA7797185112 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		3F88FEF201064087DF9A5D9D177FD080 /* UIImage+ForceDecode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ForceDecode.h"; path = "SDWebImage/Core/UIImage+ForceDecode.h"; sourceTree = "<group>"; };
 		3FA8453A1BD2422710E0D85B07DD86CD /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+HighlightedWebCache.h"; path = "SDWebImage/Core/UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
@@ -1236,7 +1234,6 @@
 		CBD0096524D3F58DB1EE409C729B17E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3EC20F29B5B0898618D3CAF2ADA9A685 /* CircularProgressView.swift */,
 				6F1AFBE72C17E2FA57FB0B965BEF51A8 /* JudyWaterWaveView.swift */,
 				2E88C4EA63020398ECF6B7ABC0170657 /* MarqueeView.swift */,
 			);
@@ -1884,7 +1881,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A77E0019E5CEFAE53218262322C5CBC3 /* CircularProgressView.swift in Sources */,
 				5FB6119D11D8F701DB4664F255967DBC /* EMERANA.swift in Sources */,
 				17D062175437B7EB786B26310E7D79D4 /* EnolaGay-dummy.m in Sources */,
 				0680038E3C1701E7C9E200D5A7418513 /* Judy.swift in Sources */,
