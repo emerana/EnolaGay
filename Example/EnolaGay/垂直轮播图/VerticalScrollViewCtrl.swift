@@ -68,7 +68,6 @@ public class JudyVerticalScrollView: UIView {
             if index == 0 {
                 view.backgroundColor = .red
                 // TODO: 设置初始页内容
-                // ……
                 
             } else {
                 view.backgroundColor = .green
