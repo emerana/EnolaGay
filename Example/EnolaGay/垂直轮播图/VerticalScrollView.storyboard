@@ -46,7 +46,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqr-dC-Unp" customClass="JudyVerticalScrollView" customModule="Woodpecker" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqr-dC-Unp" customClass="JudyVerticalScrollView" customModule="EnolaGay_Example" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="216" width="414" height="128"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
@@ -64,10 +64,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="U1P-WR-7cR"/>
+                    <connections>
+                        <outlet property="verticalScrollView" destination="dqr-dC-Unp" id="zEk-JK-g06"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhk-oJ-4Np" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1610" y="125"/>
+            <point key="canvasLocation" x="1645" y="135"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pO9-UL-inq">

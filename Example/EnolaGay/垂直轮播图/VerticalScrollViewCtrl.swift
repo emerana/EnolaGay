@@ -36,20 +36,21 @@ class VerticalScrollViewCtrl: UIViewController {
     
     // MARK: - override
     deinit {
-        verticalScrollView.invalidateTimer()
+        print("已经完全释放")
     }
 
-    
+
 }
 
 
 
 /// 垂直广告轮播图（自动滚动）
-class JudyVerticalScrollView: UIView {
+public class JudyVerticalScrollView: UIView {
         
     /// 数据源
     var dataSource = ["String", "String", "String",]
     
+    /// 用于展示内容的两个 View
     private let views = [UIView(), UIView()]
     
     /// 计时器
@@ -58,54 +59,54 @@ class JudyVerticalScrollView: UIView {
     private var index: Int = 0
     
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         
+        // 将两个内容 View 设置好 frame 并显示出来
         views.enumerated().forEach { (index, view) in
             view.frame = CGRect(origin: CGPoint(x: 0, y: CGFloat(index)*frame.size.height), size: frame.size)
             if index == 0 {
                 view.backgroundColor = .red
                 // TODO: 设置初始页内容
                 // ……
-
+                
             } else {
                 view.backgroundColor = .green
             }
             addSubview(view)
         }
-
-        clipsToBounds = true
         
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(updateTime(timer:)), userInfo: nil, repeats: true)
+        clipsToBounds = true
+        // 启动计时器
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(updateViews(timer:)), userInfo: nil, repeats: true)
 
     }
     
-    
-    
-    /// 销毁定时器
-    /// - warning: 请在使用本 View 的视图控制器的 deinit 函数中调用此方法
-    public func invalidateTimer() { timer?.invalidate() }
-    
+    public override func willMove(toSuperview newSuperview: UIView?) {
+        // 如果新的父视图为 nil 说明被移除了，此时需要释放 timer
+        if newSuperview == nil { timer?.invalidate() }
+    }
     
     
     /// 逐秒递减
     ///
     /// - Parameter timer: timer
-    @objc private func updateTime(timer: Timer) {
+    @objc private func updateViews(timer: Timer) {
         // 对应的索引
         index += 1
         index = index >= dataSource.count ? 0:index
         
         UIView.animate(withDuration: 1, animations: { [weak self] in
-
+            // 移动所有内容 View
             self?.views.forEach { view in
                 view.frame.origin.y -= self!.frame.height
             }
             
         }) { [weak self] (isFinish) in
-            // TODO: 为即将要出现的View设置位置及内容
+
             self?.views.forEach { view in
                 if view.frame.origin.y == -self!.frame.height {
+                    // TODO: 为即将要出现的View设置位置及内容
                     view.frame.origin.y = self!.frame.height
                 }
             }
@@ -114,8 +115,6 @@ class JudyVerticalScrollView: UIView {
         
     }
         
-    deinit {
-        Judy.log("JudyVerticalScrollView 已释放")
-    }
+    deinit { Judy.log("JudyVerticalScrollView 已释放") }
 
 }
