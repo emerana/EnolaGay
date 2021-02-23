@@ -86,8 +86,12 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     /// 当服务器响应时首先执行此函数
     ///
     /// 此函数中会调用 endRefresh()，即结束 header、footer 的刷新状态。
-    /// - warning: 此函数中影响上下拉状态，无需控制 UI 状态时需要在此函数中排除
-    /// - since: V1.1 2020年11月06日11:27:24
+    /// - warning: 此函数中影响上下拉状态，请确认正确条件下调用 super.reqResult()
+    /// ```
+    /// if  requestConfig.api?.value == ApiActions.Live.getAnchorLibraries.rawValue {
+    ///     super.reqResult()
+    /// }
+    /// ```
     open override func reqResult() { endRefresh() }
     
     /// 请求成功的消息处理
