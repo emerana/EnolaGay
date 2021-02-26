@@ -139,11 +139,12 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
             mj_header = MJRefreshNormalHeader(refreshingBlock: {
                 [weak self] in
 
+                self?.refreshHeader()
+
                 self?.isAddMore = false
                 self?.currentPage = self!.initialPage
                 self?.collectionView?.mj_footer?.resetNoMoreData()
                 self?.reqApi()
-                self?.refreshHeader()
             })
             collectionView?.mj_header = mj_header!
         }
@@ -156,10 +157,12 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
                     self?.collectionView?.mj_footer?.endRefreshingWithNoMoreData()
                     return
                 }
+                
+                self?.refreshFooter()
+
                 self?.isAddMore = true
                 self?.currentPage += 1
                 self?.reqApi()
-                self?.refreshFooter()
                 
             })
             mj_footer?.stateLabel?.isHidden = hideFooterStateLabel()

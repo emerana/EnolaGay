@@ -140,11 +140,12 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
             mj_header = MJRefreshNormalHeader(refreshingBlock: {
                 [weak self] in
 
+                self?.refreshHeader()
+
                 self?.isAddMore = false
                 self?.currentPage = self!.initialPage
                 self?.tableView?.mj_footer?.resetNoMoreData()
                 self?.reqApi()
-                self?.refreshHeader()
             })
             tableView?.mj_header = mj_header!
         }
@@ -157,10 +158,12 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
                     self?.tableView?.mj_footer?.endRefreshingWithNoMoreData()
                     return
                 }
+                
+                self?.refreshFooter()
+
                 self?.isAddMore = true
                 self?.currentPage += 1
                 self?.reqApi()
-                self?.refreshFooter()
             })
             mj_footer?.stateLabel?.isHidden = hideFooterStateLabel()
             tableView?.mj_footer = mj_footer!
