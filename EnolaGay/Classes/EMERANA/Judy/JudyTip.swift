@@ -217,6 +217,7 @@ extension JudyTip {
     ///   - font: 指定显示的字体，该值默认为 UIFont(name: "Helvetica-Bold", size: 14)
     ///   - isBottom: 是否显示在底部？默认值为 false，显示在中央
     /// - Returns: 配置好基本信息的目标 HUD 对象，可以直接用来展示，通过该对象调用其 hide() 函数来移除 HUD
+    /// - warning: 此方法需要再 viewDidAppear 之后调用
     @discardableResult
     public static func message(text: String, parentView: UIView = UIApplication.shared.keyWindow!, duration: Double = 2, font: UIFont? = UIFont(name: "Helvetica-Bold", size: 14), isBottom: Bool = false) -> MBProgressHUD {
         

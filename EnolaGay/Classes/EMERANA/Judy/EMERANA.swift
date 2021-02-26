@@ -186,12 +186,12 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     /// 当 currentPage 发生变化的事件
     func didSetCurrentPage()
 
-    /// 下拉后的补充事件
-    /// * 此方法执行前已经将 reqApi() 流程执行完毕，此方法是对操作下拉的事件补充
+    /// 下拉刷新之前的事件补充
+    /// - warning: 此函数在下拉刷新触发之前执行
     func refreshHeader()
     
-    /// 上拉加载补充事件
-    /// * 此方法执行前已经将 reqApi() 流程执行完毕，此方法是对操作上拉的事件补充
+    /// 上拉加载之前的事件补充
+    /// - warning: 此函数在上拉加载事件触发之前执行
     func refreshFooter()
 
     /// 结束所有上拉、下拉状态。
@@ -1586,6 +1586,12 @@ public struct EMERANA {
     ///     * 该数据结构不需要使用继承
     public struct Key { }
     
+    
+    public enum Info: String {
+        case 新增Api请求代理管理
+        case 新增全局Cell代理管理
+    }
+
 }
 
 

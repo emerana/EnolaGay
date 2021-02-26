@@ -4,12 +4,7 @@ platform :ios, '12.0'
 
 target 'EnolaGay_Example' do
   pod 'EnolaGay', :path => '../'
-  
-  pod 'MJRefresh'
-  pod 'SDWebImage'
-  pod 'Alamofire', '~> 4.9.0'
-  pod 'MBProgressHUD'
-  pod 'SwiftyJSON'
+  pod 'Cache'
 
   target 'EnolaGay_Tests' do
     inherit! :search_paths
