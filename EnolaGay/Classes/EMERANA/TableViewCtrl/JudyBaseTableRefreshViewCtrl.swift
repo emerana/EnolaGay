@@ -71,8 +71,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     ///requestConfig.api = .???
     ///requestConfig.parameters?["userName"] = "Judy"
     ///```
-    /// - warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage
-    /// - since: V1.1 2020年11月06日13:11:01
+    /// - warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage，子类请 super
     open override func setApi() { requestConfig.parameters?["page"] = currentPage }
     
     open override func reqNotApi() {
