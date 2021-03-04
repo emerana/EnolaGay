@@ -97,8 +97,8 @@ public protocol EMERANA_Api: EMERANA_ViewCtrl {
 
     /// 设置 requestConfig 及其它任何需要在发起请求前处理的事情
     ///
-    /// 在整个 reqApi()请求流程中最先执行的方法
-    /// - warning: 在此方法中配置好 requestConfig 对象
+    /// 在整个 reqApi() 请求流程中最先执行的方法
+    /// - warning: 在此方法中配置好 requestConfig 对象，一般情况子类可以不调用 super.setApi()
     ///
     /// ```
     /// requestConfig.domain = "http://www.baidu.com/Api"
