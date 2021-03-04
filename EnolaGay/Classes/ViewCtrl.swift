@@ -43,9 +43,9 @@ open class JudyBaseViewCtrl: UIViewController, EMERANA_Api {
     
     // MARK: - private var property
     
-
-
+    
     // MARK: - Life Cycle
+    
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,7 +162,7 @@ open class JudyBaseViewCtrl: UIViewController, EMERANA_Api {
         JudyApi.req(requestConfig: requestConfig, closure: responseClosure)
 
     }
-
+    
     open func setApi() {}
     
     open func reqNotApi() {}
