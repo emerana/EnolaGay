@@ -80,7 +80,6 @@
 		3571F958A3907B3A806E62D50C2550D4 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFF1D3ECA617F608527E014C96260E /* NetworkReachabilityManager.swift */; };
 		358C5DF16F04D3926116B69FD735012A /* MJRefreshGifHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 214E0A8F486F9B855A2F41FA9E0386A7 /* MJRefreshGifHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35B82A74F1F0BCE58B96928E1017C7F1 /* JSONDecoder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A09F2B12BB8EAE96CE9C875A1B06A08 /* JSONDecoder+Extensions.swift */; };
-		3601D9E0949336527242436F946644A1 /* JudyBaseTableRefreshViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE147D3EE6234141503D3261DED86AD8 /* JudyBaseTableRefreshViewCtrl.swift */; };
 		36229A8250C85693D64569F08B23A6D8 /* JudyBaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C45A252EAD144D5D49E0EA6CE499926 /* JudyBaseTextField.swift */; };
 		362A0000D3F5D9D16CFFC74C39282489 /* JudyBaseNavigationCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B097FBAA4B8335AAA3C10B4AD98C9C9 /* JudyBaseNavigationCtrl.swift */; };
 		37E6ED5EB8446C3C9D322E1E6F32BE05 /* Hasher+constantAccrossExecutions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE04DB07D091DC64C6E397275F3532 /* Hasher+constantAccrossExecutions.swift */; };
@@ -116,7 +115,6 @@
 		595779B2D5CE0380243C31B9C555A266 /* SDFileAttributeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D237252072B26E2D65BC1AC22D82BF9E /* SDFileAttributeHelper.m */; };
 		5B2098701E959C9E04C99F3D3B4C5021 /* JudyBaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779D34671E012852153352EF35809D75 /* JudyBaseTableCell.swift */; };
 		5C585A29560312C0658B2EF3D260A4C2 /* SDDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DB1111BA3D9F1ECD5253BC9F194C53A /* SDDiskCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5CDDF0C0868074163EA8B6F7FFA0EBF6 /* JudyBaseCollectionViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6441961DA8FE16B7D231C649B9B632A4 /* JudyBaseCollectionViewCtrl.swift */; };
 		5DF55776673204751B160E551C4450BE /* SDImageIOAnimatedCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FFFF1A15F92F193D7CDE52DC15EF47 /* SDImageIOAnimatedCoder.m */; };
 		5EAC2B3AA3649F88F5334783BE633AD1 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2E898424BE923CAB482BD699039C8 /* SDWebImagePrefetcher.m */; };
 		5F7D484E67267146ED3C1A52A17F2BFC /* UIImage+MemoryCacheCost.h in Headers */ = {isa = PBXBuildFile; fileRef = E097A4FF305CAF8BC77E03E0CF56C572 /* UIImage+MemoryCacheCost.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -140,7 +138,6 @@
 		6D87A5844D99725D7DB160F51E471903 /* JudySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A9936D7324491356AB55A25782F6B1 /* JudySearchView.swift */; };
 		6DC7B80DEA47A19D03B1D543A1F993FE /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E99F90C4A997DF9A76B95407E42253 /* MJRefreshAutoGifFooter.m */; };
 		6E77677933A17DE0B0E602B1045DE92C /* JudyMinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9135BFAB503D2294CC183AAF53A082 /* JudyMinoruTextField.swift */; };
-		7112F9CD994DC19D2CAF296119184E4D /* JudyCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6A840C28817D746EB8CC44351CACF9 /* JudyCollectionViewLayout.swift */; };
 		73149F94F61B16DFBCD3A893D642C1E4 /* SDDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFE5FB78D1164CB99E16E39D8F17907 /* SDDiskCache.m */; };
 		73266D90E971BAB2FF1D1EFD20916F45 /* NSBezierPath+SDRoundedCorners.m in Sources */ = {isa = PBXBuildFile; fileRef = D27D40C79899F786ED5898F0B6DD7F0D /* NSBezierPath+SDRoundedCorners.m */; };
 		734CA482E5ED7053AEDDDD97B690E0BF /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC3717348B4EB3ED45ECBB0A458C941 /* MJRefreshAutoStateFooter.m */; };
@@ -177,6 +174,8 @@
 		89E66EF355B2016A5B49AC3D05FBD156 /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = CF5509F96FF87FD309B72FAFECE6C752 /* NSData+ImageContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A601B7FF6CD4FAAB44C08B97941895A /* MJRefreshAutoStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 03C83F4068BA569B655F65A201F06191 /* MJRefreshAutoStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8AC48D3C2A59BAD48291B05E94C513F1 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 947ABA9B9FCFDE824BF37F4E2F077AAC /* MJRefreshBackFooter.m */; };
+		8B9E846425F07E67009EAAAB /* CollectionViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E846325F07E67009EAAAB /* CollectionViewCtrl.swift */; };
+		8B9E848C25F07F09009EAAAB /* TableViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E848B25F07F09009EAAAB /* TableViewCtrl.swift */; };
 		8CC9181DA743A37A2EFCFF4620F88B85 /* SDmetamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F6A2F2D91E6547E18A4882CE532C5B /* SDmetamacros.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		8E3AAD8F89912B32EFE952B7E8CEA0A8 /* SDImageCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6AEABBDDD87299DA31A9E8DA03F8C0 /* SDImageCoder.m */; };
 		8EE17DA677967E67EAB2308535D63B65 /* SDImageCacheDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CD9EF6F9CDFB05D0AA18ACE16EDA8A /* SDImageCacheDefine.m */; };
@@ -190,7 +189,6 @@
 		931BBB8230A25161D5C37528A8F9FECF /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F516E41A70C2B77CEAD19E646A719A /* SessionManager.swift */; };
 		932DE266B1739DDE32C2A5A6CA03CB66 /* SDImageAWebPCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 67CF63189E0D9879E1CD5ED4EF02A39B /* SDImageAWebPCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		933FDA5970AA525D6CB92BFEBA2BAB4A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7005B39F5A35140337FC718CAB95E040 /* Timeline.swift */; };
-		949354E6EA34486E64EA7DBFF266EE2B /* JudyBaseCollectionRefreshViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674B7072998A6B81CCC3BF22557EF92 /* JudyBaseCollectionRefreshViewCtrl.swift */; };
 		954FDFBAB8D50C15087CD3CC020B741D /* MJRefreshBackFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = D87D54EC77B8471C3A5271FC11A77451 /* MJRefreshBackFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95BA6CFA9011C75CB87ACB7783CCFA73 /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CCEA11C0685AAF55F9DEF68B105FA3 /* MJRefreshGifHeader.m */; };
 		95BAF07312EB464B1D194567139154D4 /* Pods-EnolaGay_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FFA159A99B3F1611D2AC9A82C5B6679 /* Pods-EnolaGay_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -240,7 +238,6 @@
 		B5C0C077C94A764E64E68ED197AFE7F7 /* SDImageGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B730F2BF2F3E9FA297D008FAC25F56B /* SDImageGraphics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B68F52944EEA474A53E93FB1FB73E495 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F596DA0950D62A487D4477E4CE7BEA8 /* UIView+MJExtension.m */; };
 		B6EF5D7AD9C54B2EA3397645DEF43F12 /* SDImageCachesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D30BD712D38EB36777A4A02BB7C1BDF /* SDImageCachesManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B6F90A526C04036A0547B52985CA7EF5 /* JudyBaseTableViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC5140F9DAF35FBA784A5559374AE16 /* JudyBaseTableViewCtrl.swift */; };
 		B7664C262F66CBA74ECC3B91E060A5BC /* JudyBasePageViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758F860235B0CA3D39875A28CDDF7286 /* JudyBasePageViewCtrl.swift */; };
 		B8B85355D26D45C51B069BC841867565 /* SyncStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD43E7BABFAC3122BD282EE7B208667B /* SyncStorage.swift */; };
 		B9C3EC2411C23B4DC6E3472AF90726BF /* SDAsyncBlockOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5E8CDC853077AB62B982678FC56E8A /* SDAsyncBlockOperation.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -306,7 +303,6 @@
 		F012BEF703DF27D554E2AB36493BED7E /* SDAsyncBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F63FF0967D6DC86E6B24AF4EC6833EA /* SDAsyncBlockOperation.m */; };
 		F0A7CE3CE249C98545FAFB440BF87BC2 /* SDAnimatedImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BD438D5965099FCB63B238614DE6E7 /* SDAnimatedImageView+WebCache.m */; };
 		F0C3CB07FE84D11FB92C5CB56F9783D7 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BFFE5799DC19C96C2D62E30DDE79B /* Result.swift */; };
-		F0F628F94525EC365F1E9DFFC6CBFF6D /* JudyBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD2C04885078D035B1AC59F55ABED12 /* JudyBaseCollectionViewCell.swift */; };
 		F13F2AA7F2E6D95A181CAB99B900D531 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F1B3F9548C5477B7F94B9113B80FF /* ServerTrustPolicy.swift */; };
 		F184B66F52466BD8636D665D5E778385 /* EnolaGay-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 31506465613FA250DB06E1D934D5A903 /* EnolaGay-dummy.m */; };
 		F1ABDD46A4AB84E505F3CC5C2F601192 /* SDAnimatedImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 97CAEC1BBC904B065DD70A79971ECCEE /* SDAnimatedImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -463,7 +459,6 @@
 		1915D021DEEC89651C484B289867592C /* Pods-EnolaGay_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		1998D1506BAC8FA0EFFBD9AE3BF8610C /* SDImageAPNGCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageAPNGCoder.m; path = SDWebImage/Core/SDImageAPNGCoder.m; sourceTree = "<group>"; };
 		19F6A2F2D91E6547E18A4882CE532C5B /* SDmetamacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDmetamacros.h; path = SDWebImage/Private/SDmetamacros.h; sourceTree = "<group>"; };
-		1A6A840C28817D746EB8CC44351CACF9 /* JudyCollectionViewLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyCollectionViewLayout.swift; sourceTree = "<group>"; };
 		1BC5657F6D1A3D5C0ED68FB8A0124634 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
 		1BDA8BD3C07BDC8E331F4866E84C611C /* DiskConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiskConfig.swift; path = Source/Shared/Configuration/DiskConfig.swift; sourceTree = "<group>"; };
 		1C5DD230C4A89FD8680F9A6A12A9D81A /* UIColor+SDHexString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+SDHexString.m"; path = "SDWebImage/Private/UIColor+SDHexString.m"; sourceTree = "<group>"; };
@@ -507,7 +502,7 @@
 		3439948AB9DA4C63B86F4CD4100787CE /* JudySegmentedCtrl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JudySegmentedCtrl.m; sourceTree = "<group>"; };
 		358809D4E0855DB78074E64AAB877154 /* SDWebImageCacheSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCacheSerializer.m; path = SDWebImage/Core/SDWebImageCacheSerializer.m; sourceTree = "<group>"; };
 		37531E878D14C9261508BBA8668EC238 /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/Core/SDWebImageCompat.h; sourceTree = "<group>"; };
-		38B7BE27BA4B2DA8B746146F0B478062 /* Pods_EnolaGay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnolaGay_Example.framework; path = "Pods-EnolaGay_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		38B7BE27BA4B2DA8B746146F0B478062 /* Pods_EnolaGay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39BD3D9A0C6D1EA68801CC7228DB2AFE /* Transformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transformer.swift; path = Source/Shared/Library/Transformer.swift; sourceTree = "<group>"; };
 		3B097FBAA4B8335AAA3C10B4AD98C9C9 /* JudyBaseNavigationCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyBaseNavigationCtrl.swift; sourceTree = "<group>"; };
 		3B2BEF5DAC97C59F495C53914B1EDAEF /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -548,7 +543,7 @@
 		5257D6B7EF83EA247C5063F5B5269CE1 /* SDMemoryCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDMemoryCache.h; path = SDWebImage/Core/SDMemoryCache.h; sourceTree = "<group>"; };
 		53AE0035E79CCE1F43D74B3CAF33D981 /* SDWebImageCacheKeyFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCacheKeyFilter.h; path = SDWebImage/Core/SDWebImageCacheKeyFilter.h; sourceTree = "<group>"; };
 		549024730544B9FD1D19CC525F41CBB0 /* Alamofire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.debug.xcconfig; sourceTree = "<group>"; };
-		563167838B88E00C15931F0168D532C3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		563167838B88E00C15931F0168D532C3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		56C624BE9915253C7C8473D5EE64C90D /* MJRefreshFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshFooter.h; path = MJRefresh/Base/MJRefreshFooter.h; sourceTree = "<group>"; };
 		56DEB9DC61A9517F226C0DCF7E2026D1 /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackNormalFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
 		572FA7A007E261D82539202C77C2BAA9 /* SDImageIOAnimatedCoderInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageIOAnimatedCoderInternal.h; path = SDWebImage/Private/SDImageIOAnimatedCoderInternal.h; sourceTree = "<group>"; };
@@ -563,7 +558,7 @@
 		5CBBAE54D884CBF5BE819D21CF3CB340 /* Pods-EnolaGay_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5CC685DB18CD2E5DF56FB60BBE729392 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/Core/UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		5CD8B6607C99E91FF1F97175F61B44A3 /* DataSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataSerializer.swift; path = Source/Shared/Library/DataSerializer.swift; sourceTree = "<group>"; };
-		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D95499EFDBD06F680678C1FF57FBFAE /* EnolaGay-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EnolaGay-prefix.pch"; sourceTree = "<group>"; };
 		5E81D222F49BE4DEF42CF0C338405F20 /* SDFileAttributeHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDFileAttributeHelper.h; path = SDWebImage/Private/SDFileAttributeHelper.h; sourceTree = "<group>"; };
 		5EE0A60DE7B9D0F4ED8F4022AA738903 /* Alamofire-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Alamofire-Info.plist"; sourceTree = "<group>"; };
@@ -574,7 +569,6 @@
 		62BE99B308593419FC9709466C91BD6A /* EnolaGay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EnolaGay.release.xcconfig; sourceTree = "<group>"; };
 		6300C0CD4F68052F62B6F1FF669B9FD2 /* MJRefreshBackStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackStateFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.h; sourceTree = "<group>"; };
 		6409128E6A6B5C940753716C46934DFA /* MJRefreshStateTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateTrailer.m; path = MJRefresh/Custom/Trailer/MJRefreshStateTrailer.m; sourceTree = "<group>"; };
-		6441961DA8FE16B7D231C649B9B632A4 /* JudyBaseCollectionViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyBaseCollectionViewCtrl.swift; sourceTree = "<group>"; };
 		64E269B4003D7B613CEBA2447CDCB1A9 /* SDAnimatedImagePlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDAnimatedImagePlayer.h; path = SDWebImage/Core/SDAnimatedImagePlayer.h; sourceTree = "<group>"; };
 		64E332B8BC88FD87740E77AA3437EB15 /* MJRefreshHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshHeader.m; path = MJRefresh/Base/MJRefreshHeader.m; sourceTree = "<group>"; };
 		652B6734478F378D886B3E547B64BC9E /* JudyBaseSearchViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyBaseSearchViewCtrl.swift; sourceTree = "<group>"; };
@@ -597,7 +591,7 @@
 		714651B0D66B1479C1565A5AC81742A3 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
 		72F622EE3356AE4F58E79B3D3CE9EF4D /* SDImageCacheConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCacheConfig.h; path = SDWebImage/Core/SDImageCacheConfig.h; sourceTree = "<group>"; };
 		7335AA769621225A92B44A81F3D3FBD7 /* EnolaGay-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "EnolaGay-Info.plist"; sourceTree = "<group>"; };
-		736B64357A6C420C3A7062C6D479AC7F /* Cache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cache.framework; path = Cache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		736B64357A6C420C3A7062C6D479AC7F /* Cache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		737A85C4AAEC115DF5DC8FED3C31E15C /* MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefresh.h; path = MJRefresh/MJRefresh.h; sourceTree = "<group>"; };
 		74A677FBC34C47EF1992063695A308BF /* SDAssociatedObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDAssociatedObject.h; path = SDWebImage/Private/SDAssociatedObject.h; sourceTree = "<group>"; };
 		751BF914EFD384D34AC7CD4E8C9AB616 /* SDImageIOCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageIOCoder.h; path = SDWebImage/Core/SDImageIOCoder.h; sourceTree = "<group>"; };
@@ -617,7 +611,6 @@
 		7CFCB4315D6C4667C839AB43FDFAA7C6 /* SDImageHEICCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageHEICCoder.h; path = SDWebImage/Core/SDImageHEICCoder.h; sourceTree = "<group>"; };
 		7E4424EF8B96C3DE99F6ADF5A29D914F /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/Core/SDWebImageManager.m; sourceTree = "<group>"; };
 		7E9E19A2C92D17FC38C0A019850CD358 /* UIView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCache.m"; path = "SDWebImage/Core/UIView+WebCache.m"; sourceTree = "<group>"; };
-		7FD2C04885078D035B1AC59F55ABED12 /* JudyBaseCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyBaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		7FD91D4A6B910BC3B8998FCB07D57AF2 /* SDWebImageDownloaderRequestModifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderRequestModifier.h; path = SDWebImage/Core/SDWebImageDownloaderRequestModifier.h; sourceTree = "<group>"; };
 		80F51514B4921173BD03F63170C0C244 /* Types.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Types.swift; path = Source/Shared/Library/Types.swift; sourceTree = "<group>"; };
 		8146A1F10E62CF471B2FFFDC79B9EE1D /* SDWebImage-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SDWebImage-Info.plist"; sourceTree = "<group>"; };
@@ -635,7 +628,9 @@
 		89E6DC2B64832FFB1B778F5C6AC6DF29 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoFooter.h; path = MJRefresh/Base/MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		8ABB3DA281F6600186450C3ADA7E43BD /* NSBundle+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+MJRefresh.m"; path = "MJRefresh/NSBundle+MJRefresh.m"; sourceTree = "<group>"; };
 		8B654D14B88F05330B621A2487097B71 /* SDWebImageError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageError.h; path = SDWebImage/Core/SDWebImageError.h; sourceTree = "<group>"; };
-		8B8FAB0D627B17EDE1366984278705D9 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MBProgressHUD.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B8FAB0D627B17EDE1366984278705D9 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B9E846325F07E67009EAAAB /* CollectionViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCtrl.swift; path = EnolaGay/Classes/CollectionViewCtrl.swift; sourceTree = "<group>"; };
+		8B9E848B25F07F09009EAAAB /* TableViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCtrl.swift; path = EnolaGay/Classes/TableViewCtrl.swift; sourceTree = "<group>"; };
 		8CFB6E496C1453BF75A98F535E2E3C38 /* Pods-EnolaGay_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-Info.plist"; sourceTree = "<group>"; };
 		8EA343E15FA9A575E7F8B2AE7CE5287F /* Cache.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cache.release.xcconfig; sourceTree = "<group>"; };
 		8F63FF0967D6DC86E6B24AF4EC6833EA /* SDAsyncBlockOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDAsyncBlockOperation.m; path = SDWebImage/Private/SDAsyncBlockOperation.m; sourceTree = "<group>"; };
@@ -649,7 +644,7 @@
 		956ABC58C12BF064AF8EDB1CF13A3BC2 /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/Core/SDWebImageOperation.h; sourceTree = "<group>"; };
 		95B485122AAAFECACDC483F489885E63 /* ExpirationMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpirationMode.swift; path = Source/Shared/Library/ExpirationMode.swift; sourceTree = "<group>"; };
 		95CA22D37D9BA7D7144A9D5DF77E8F2C /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
-		9666F8FC9A8BE18C377CA0B3D7C2C417 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		9666F8FC9A8BE18C377CA0B3D7C2C417 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		96D63122C8ABD50F85FCAD672ADCF5F2 /* SDWebImageOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageOperation.m; path = SDWebImage/Core/SDWebImageOperation.m; sourceTree = "<group>"; };
 		97CAEC1BBC904B065DD70A79971ECCEE /* SDAnimatedImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SDAnimatedImageView+WebCache.h"; path = "SDWebImage/Core/SDAnimatedImageView+WebCache.h"; sourceTree = "<group>"; };
 		98AEBC35508218821386BD43A02811CA /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
@@ -659,7 +654,7 @@
 		9D3CD41A4D7864834B9B3D08664C248C /* MJRefreshConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
 		9D452686415E2E14B952C050A22284E7 /* AsyncStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsyncStorage.swift; path = Source/Shared/Storage/AsyncStorage.swift; sourceTree = "<group>"; };
 		9D64A94FD1CB77C221BCC8D02C25A7F3 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DC94ED62BC417BFEC60CE8F0BDB690A /* Pods-EnolaGay_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9E161CAE6680D00F4DBF1260F857809C /* MJRefresh.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MJRefresh.modulemap; sourceTree = "<group>"; };
 		9E8E3B20B2D7232871AD2A20EC067863 /* DiskStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiskStorage.swift; path = Source/Shared/Storage/DiskStorage.swift; sourceTree = "<group>"; };
@@ -678,7 +673,7 @@
 		A7C02BC8532A38F1B851BA1CB4DB14EA /* SDImageHEICCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageHEICCoder.m; path = SDWebImage/Core/SDImageHEICCoder.m; sourceTree = "<group>"; };
 		A874A0D9E01CC4751D87818B9E62F5CB /* Pods-EnolaGay_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-frameworks.sh"; sourceTree = "<group>"; };
 		A882B81D94C7D69D9617CE9821D652C3 /* NSButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSButton+WebCache.m"; path = "SDWebImage/Core/NSButton+WebCache.m"; sourceTree = "<group>"; };
-		A98C0B69550D43E9A24ACD029F7F91F5 /* Pods_EnolaGay_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnolaGay_Tests.framework; path = "Pods-EnolaGay_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A98C0B69550D43E9A24ACD029F7F91F5 /* Pods_EnolaGay_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0F176EED7F7283E0C6483236F1C52C /* MarqueeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarqueeView.swift; sourceTree = "<group>"; };
 		AB43DC51553F1170ADAB57E457475DA9 /* SDWebImageTransitionInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageTransitionInternal.h; path = SDWebImage/Private/SDWebImageTransitionInternal.h; sourceTree = "<group>"; };
 		ABB6D16112EA7D91A4A5BF1135AD00A7 /* SDWebImageDefine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDefine.m; path = SDWebImage/Core/SDWebImageDefine.m; sourceTree = "<group>"; };
@@ -688,7 +683,7 @@
 		AD52823E07F38FDDC2963CCEC4A468EE /* SDImageCoderHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCoderHelper.h; path = SDWebImage/Core/SDImageCoderHelper.h; sourceTree = "<group>"; };
 		AE8DBF7763ED67FB8015D5FD479931D7 /* JudyMadokaTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyMadokaTextField.swift; sourceTree = "<group>"; };
 		AF22EA97F7DE9634F2A6ED2D1FD13527 /* UIImage+Transform.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Transform.m"; path = "SDWebImage/Core/UIImage+Transform.m"; sourceTree = "<group>"; };
-		B0B214D775196BA7CA8E17E53048A493 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImage.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B214D775196BA7CA8E17E53048A493 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16E6B143514028C47628B1145AD8414 /* StorageAware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StorageAware.swift; path = Source/Shared/Storage/StorageAware.swift; sourceTree = "<group>"; };
 		B26FD42C7FFDD54C3D21265455B26092 /* MJRefreshTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshTrailer.m; path = MJRefresh/Base/MJRefreshTrailer.m; sourceTree = "<group>"; };
 		B2B09B4E979C83678DFA6D729618DA60 /* Cache-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cache-dummy.m"; sourceTree = "<group>"; };
@@ -706,7 +701,6 @@
 		BCC79714CE0EADEB568A06FA8760416A /* SDDeviceHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDDeviceHelper.m; path = SDWebImage/Private/SDDeviceHelper.m; sourceTree = "<group>"; };
 		BD43E7BABFAC3122BD282EE7B208667B /* SyncStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SyncStorage.swift; path = Source/Shared/Storage/SyncStorage.swift; sourceTree = "<group>"; };
 		BD8F715597A0B13ADA9FD4D8EF9B091C /* SDAnimatedImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDAnimatedImage.h; path = SDWebImage/Core/SDAnimatedImage.h; sourceTree = "<group>"; };
-		BE147D3EE6234141503D3261DED86AD8 /* JudyBaseTableRefreshViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyBaseTableRefreshViewCtrl.swift; sourceTree = "<group>"; };
 		BE42BE9D25E575E1ED1610BFD161B5ED /* SDWebImageDownloaderDecryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderDecryptor.h; path = SDWebImage/Core/SDWebImageDownloaderDecryptor.h; sourceTree = "<group>"; };
 		BE470702B60368329F89F428A5FA7372 /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJExtension.h"; path = "MJRefresh/UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
 		BF5DE0D8A0EF4B532F21D037D5F4D4BF /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
@@ -738,7 +732,6 @@
 		D2DFF98A4ED65303AEB567F888EAFB0E /* MJRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.release.xcconfig; sourceTree = "<group>"; };
 		D3A9936D7324491356AB55A25782F6B1 /* JudySearchView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudySearchView.swift; sourceTree = "<group>"; };
 		D4FB6270148D94EA223D337AF1E66903 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
-		D674B7072998A6B81CCC3BF22557EF92 /* JudyBaseCollectionRefreshViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyBaseCollectionRefreshViewCtrl.swift; sourceTree = "<group>"; };
 		D689A5EBAFC891AF26FCDF13EE481EFB /* SDImageFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageFrame.h; path = SDWebImage/Core/SDImageFrame.h; sourceTree = "<group>"; };
 		D6AB5947A38A1FBAE6183132389230F8 /* MJRefreshNormalHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshNormalHeader.m; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.m; sourceTree = "<group>"; };
 		D6F9E0CF8237D51407A43A6359B228D9 /* MemoryCapsule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MemoryCapsule.swift; path = Source/Shared/Library/MemoryCapsule.swift; sourceTree = "<group>"; };
@@ -755,17 +748,16 @@
 		DDF7B8E9A35A810A9843EF1F61723714 /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/Core/SDImageCache.h; sourceTree = "<group>"; };
 		DEE65C3DE36F3DB0B6A18C6951A85277 /* Pods-EnolaGay_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-dummy.m"; sourceTree = "<group>"; };
 		DF939723BDF623653756260B24117815 /* SDImageCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCoder.h; path = SDWebImage/Core/SDImageCoder.h; sourceTree = "<group>"; };
-		DFC5140F9DAF35FBA784A5559374AE16 /* JudyBaseTableViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyBaseTableViewCtrl.swift; sourceTree = "<group>"; };
 		E097A4FF305CAF8BC77E03E0CF56C572 /* UIImage+MemoryCacheCost.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MemoryCacheCost.h"; path = "SDWebImage/Core/UIImage+MemoryCacheCost.h"; sourceTree = "<group>"; };
 		E0B9DCAA76EA9E5F065237F34EE5B5D2 /* UIImage+ExtendedCacheData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ExtendedCacheData.m"; path = "SDWebImage/Core/UIImage+ExtendedCacheData.m"; sourceTree = "<group>"; };
-		E0C507B4CF2D526AF35885F2260607B6 /* EnolaGay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = EnolaGay.framework; path = EnolaGay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0C507B4CF2D526AF35885F2260607B6 /* EnolaGay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EnolaGay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1722BA0AFBD76FBF77AB06EAC550158 /* JudyHoshiTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyHoshiTextField.swift; sourceTree = "<group>"; };
-		E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2D3411F77C2DDC3B1FDF81198E4933B /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/Core/SDWebImageCompat.m; sourceTree = "<group>"; };
 		E308FEB653915B8BF096DA40F38A3F1A /* UIColor+SDHexString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+SDHexString.h"; path = "SDWebImage/Private/UIColor+SDHexString.h"; sourceTree = "<group>"; };
 		E339D2B63B22AFD1189B422A8B3D7C18 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		E3FFFF1A15F92F193D7CDE52DC15EF47 /* SDImageIOAnimatedCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageIOAnimatedCoder.m; path = SDWebImage/Core/SDImageIOAnimatedCoder.m; sourceTree = "<group>"; };
-		E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MJRefresh.framework; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D65B7B27D72CC64B5D8ED422070F1D /* JudyBaseLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyBaseLabel.swift; sourceTree = "<group>"; };
 		E508880CD8523988E7B44A9E078D0F0B /* Storage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = Source/Shared/Storage/Storage.swift; sourceTree = "<group>"; };
 		E5E2F3A1CC21CBD4C7F77A845F15DF9A /* JudySearchView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = JudySearchView.xib; sourceTree = "<group>"; };
@@ -790,7 +782,7 @@
 		FB5E8CDC853077AB62B982678FC56E8A /* SDAsyncBlockOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDAsyncBlockOperation.h; path = SDWebImage/Private/SDAsyncBlockOperation.h; sourceTree = "<group>"; };
 		FB69FFB91D4E31BF5B6332EC9D8B2D80 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		FC0D6E52CA4474C49AC43DB7A19BBA85 /* JudyBaseViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyBaseViewCtrl.swift; sourceTree = "<group>"; };
-		FD0C803F498AD76A43297254BB136EAC /* EnolaGay.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = EnolaGay.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		FD0C803F498AD76A43297254BB136EAC /* EnolaGay.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = EnolaGay.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FD97DA954DFC9517A52FC0FBA81AF139 /* SDWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImage.h; path = WebImage/SDWebImage.h; sourceTree = "<group>"; };
 		FE85177B599BB11D4D42687B5D54E73C /* JudyNavigationCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyNavigationCtrl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1099,17 +1091,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		3494DEC78AF996365B5F9FCA8D81FAD6 /* CollectionViewCtrl */ = {
-			isa = PBXGroup;
-			children = (
-				D674B7072998A6B81CCC3BF22557EF92 /* JudyBaseCollectionRefreshViewCtrl.swift */,
-				6441961DA8FE16B7D231C649B9B632A4 /* JudyBaseCollectionViewCtrl.swift */,
-				1A6A840C28817D746EB8CC44351CACF9 /* JudyCollectionViewLayout.swift */,
-			);
-			name = CollectionViewCtrl;
-			path = EnolaGay/Classes/EMERANA/CollectionViewCtrl;
-			sourceTree = "<group>";
-		};
 		362A56FFCB25CF1DC01557C26778024F /* Pods-EnolaGay_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -1203,7 +1184,6 @@
 				EBE90D2D31A1D489ABDC6D17A756E864 /* SwiftyJSON.swift */,
 				13CC7E23D6C42D03843884BE6273AF7D /* Support Files */,
 			);
-			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -1214,7 +1194,6 @@
 				10DDED850BFD32D55947C7100634A532 /* MBProgressHUD.m */,
 				4E347AB7CE623374ED0CEFFA97F1FC7B /* Support Files */,
 			);
-			name = MBProgressHUD;
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -1243,15 +1222,6 @@
 			path = EnolaGay/Classes/EMERANA/View;
 			sourceTree = "<group>";
 		};
-		7163C2DBE6B05ADD2E15BFCE597BC0B9 /* CollectionCell */ = {
-			isa = PBXGroup;
-			children = (
-				7FD2C04885078D035B1AC59F55ABED12 /* JudyBaseCollectionViewCell.swift */,
-			);
-			name = CollectionCell;
-			path = EnolaGay/Classes/EMERANA/CollectionCell;
-			sourceTree = "<group>";
-		};
 		73E0BCB2E504643E4693D2C221789C2C /* Alamofire */ = {
 			isa = PBXGroup;
 			children = (
@@ -1274,7 +1244,6 @@
 				C3992A962655D18A6C9AB4A91D7D7F99 /* Validation.swift */,
 				206F06481219C31534318493E6220BEB /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1326,7 +1295,6 @@
 				CD750860ED1E06721C4F4B548B404A84 /* UIImage+Extensions.swift */,
 				4B4653743C4397B1D210CB556BAC7B6F /* Support Files */,
 			);
-			name = Cache;
 			path = Cache;
 			sourceTree = "<group>";
 		};
@@ -1398,7 +1366,6 @@
 				32A6A687FBF26907391FFD17CDE9AB06 /* Resources */,
 				6CA1D5D287E822C9B77583C9A0176F48 /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -1425,7 +1392,6 @@
 				D3A9936D7324491356AB55A25782F6B1 /* JudySearchView.swift */,
 				E5E2F3A1CC21CBD4C7F77A845F15DF9A /* JudySearchView.xib */,
 			);
-			name = SearchViewCtrl;
 			path = SearchViewCtrl;
 			sourceTree = "<group>";
 		};
@@ -1435,7 +1401,6 @@
 				1BCE4A030D9B26C75AC5AB029474E3D6 /* Core */,
 				C4546AC894E3F44F0340DEC5F9A23BDF /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -1506,9 +1471,9 @@
 		BD1A35D428868A3223808C24B60B05BD /* EnolaGay */ = {
 			isa = PBXGroup;
 			children = (
+				8B9E846325F07E67009EAAAB /* CollectionViewCtrl.swift */,
+				8B9E848B25F07F09009EAAAB /* TableViewCtrl.swift */,
 				41037B9ABE2D56FEA9233CFF9137B2C2 /* Button */,
-				7163C2DBE6B05ADD2E15BFCE597BC0B9 /* CollectionCell */,
-				3494DEC78AF996365B5F9FCA8D81FAD6 /* CollectionViewCtrl */,
 				AE84A4D2FDA1B9047BCF725587E0D496 /* Control */,
 				D7B19B3DEB58A0F78ED33868EC8B994D /* Judy */,
 				5AB4526197351D81E8364F1CB21D5271 /* Label */,
@@ -1517,7 +1482,6 @@
 				7DE544AD4D27D9A430C800F2A605A364 /* Support Files */,
 				A437BE2AB185280BDB1A14AE6D60E02C /* Tab */,
 				78EEEEA59EB12A1B9F36552BA763E976 /* TableCell */,
-				ECED690F6D0A93E6589ECCFCA51C325C /* TableViewCtrl */,
 				4EBA3BDC98C9091BD89CBD2E1C1F0DCF /* TextField */,
 				6CA1E3D5798FD9C491D1DBF0B1C6F3EF /* View */,
 				3C5FDB421602242F094B6E8A36DC4415 /* ViewCtrl */,
@@ -1592,18 +1556,7 @@
 				2061250B3EFA4325F5AB8D6303D63FD0 /* JudyYokoTextField.swift */,
 				4B9529C6A850066DA177E3D7E94AB054 /* JudyYoshikoTextField.swift */,
 			);
-			name = JudyTextFieldEffects;
 			path = JudyTextFieldEffects;
-			sourceTree = "<group>";
-		};
-		ECED690F6D0A93E6589ECCFCA51C325C /* TableViewCtrl */ = {
-			isa = PBXGroup;
-			children = (
-				BE147D3EE6234141503D3261DED86AD8 /* JudyBaseTableRefreshViewCtrl.swift */,
-				DFC5140F9DAF35FBA784A5559374AE16 /* JudyBaseTableViewCtrl.swift */,
-			);
-			name = TableViewCtrl;
-			path = EnolaGay/Classes/EMERANA/TableViewCtrl;
 			sourceTree = "<group>";
 		};
 		F2B71E606CA4B871C1F75CDF9097EF85 /* JudySegmentedCtrl */ = {
@@ -1612,7 +1565,6 @@
 				BAF54C61AE58C3A62AC61F5B7DB1375A /* JudySegmentedCtrl.h */,
 				3439948AB9DA4C63B86F4CD4100787CE /* JudySegmentedCtrl.m */,
 			);
-			name = JudySegmentedCtrl;
 			path = JudySegmentedCtrl;
 			sourceTree = "<group>";
 		};
@@ -2289,20 +2241,16 @@
 				B2138E678D16349B82A2C18AA8D54C56 /* JudyAkiraTextField.swift in Sources */,
 				0C16457065251BCA2C5361E459C97719 /* JudyApi.swift in Sources */,
 				41D99C87FBAE18470CA2797AB8C612C0 /* JudyBaseButton.swift in Sources */,
-				949354E6EA34486E64EA7DBFF266EE2B /* JudyBaseCollectionRefreshViewCtrl.swift in Sources */,
-				F0F628F94525EC365F1E9DFFC6CBFF6D /* JudyBaseCollectionViewCell.swift in Sources */,
-				5CDDF0C0868074163EA8B6F7FFA0EBF6 /* JudyBaseCollectionViewCtrl.swift in Sources */,
+				8B9E846425F07E67009EAAAB /* CollectionViewCtrl.swift in Sources */,
 				24CF31FA7BF22145F26EA412370AC9F9 /* JudyBaseLabel.swift in Sources */,
 				362A0000D3F5D9D16CFFC74C39282489 /* JudyBaseNavigationCtrl.swift in Sources */,
 				B7664C262F66CBA74ECC3B91E060A5BC /* JudyBasePageViewCtrl.swift in Sources */,
 				AA2CD2756BFAAD096B51BB83C5EA315F /* JudyBaseSearchViewCtrl.swift in Sources */,
 				C7BE6177F1AAD9D142151211240B1426 /* JudyBaseTabBarCtrl.swift in Sources */,
 				5B2098701E959C9E04C99F3D3B4C5021 /* JudyBaseTableCell.swift in Sources */,
-				3601D9E0949336527242436F946644A1 /* JudyBaseTableRefreshViewCtrl.swift in Sources */,
-				B6F90A526C04036A0547B52985CA7EF5 /* JudyBaseTableViewCtrl.swift in Sources */,
+				8B9E848C25F07F09009EAAAB /* TableViewCtrl.swift in Sources */,
 				36229A8250C85693D64569F08B23A6D8 /* JudyBaseTextField.swift in Sources */,
 				25FF06B7E9746660D734A04B8945AD93 /* JudyBaseViewCtrl.swift in Sources */,
-				7112F9CD994DC19D2CAF296119184E4D /* JudyCollectionViewLayout.swift in Sources */,
 				1DC0F0830131BEF08DBB1AC321788BF7 /* JudyFile.swift in Sources */,
 				DB26E132FAE91556734CF37DF37B6C8B /* JudyFileManage.swift in Sources */,
 				B3ED8CC144A764401920748D398B3231 /* JudyHoshiTextField.swift in Sources */,
@@ -2815,8 +2763,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
