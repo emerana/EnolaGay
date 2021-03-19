@@ -591,7 +591,6 @@ open class IndicatorView: UIView, IndicatorProtocol {
         }
     }
 
-    
 }
 
 /// 样式为一条线的指示器
