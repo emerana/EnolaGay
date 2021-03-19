@@ -106,7 +106,7 @@ public extension SegmentedViewDelegate {
 
 // MARK: 内置可用的数据源
 
-/// 可直接使用的适用于 SegmentedItemTitleModel 类型的数据源
+/// 可直接使用的适用于 SegmentedItemTitleModel 、SegmentedTitleCell 类型的数据源
 open class SegmentedTitleDataSource: SegmentedViewDataSource {
     
     // MARK: - 协议属性
