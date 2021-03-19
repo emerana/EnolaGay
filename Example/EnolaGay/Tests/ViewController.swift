@@ -78,9 +78,9 @@ extension SegmentedTestSource: SegmentedViewDataSource {
     var selectedAnimationDuration: TimeInterval { 0.25 }
 
 
-    func segmentedView(registerCellForCollectionViewAt collectionView: UICollectionView) -> Bool {
+    func segmentedView(registerCellForCollectionViewAt collectionView: UICollectionView) -> String {
         collectionView.register(SegmentedTitleCell.self, forCellWithReuseIdentifier: "Cell")
-        return true
+        return "Cell"
     }
 
     func numberOfItems(in segmentedView: SegmentedView) -> Int { titles.count }
@@ -142,7 +142,7 @@ extension SegmentedTestSource: SegmentedViewDataSource {
     }
     
     func segmentedView(_ segmentedView: SegmentedView, cellForItemAt index: Int) -> SegmentedCell {
-        return segmentedView.dequeueReusableCell(withReuseIdentifier: "Cell", at: index)
+        return segmentedView.dequeueReusableCell(at: index)
     }
 
 }

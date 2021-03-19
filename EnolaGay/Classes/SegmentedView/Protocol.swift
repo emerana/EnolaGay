@@ -23,12 +23,12 @@ public protocol SegmentedViewDataSource: AnyObject {
     var selectedAnimationDuration: TimeInterval { get }
 
     
-    /// 此函数要求对指定 collectionView 注册重用 Cell。
+    /// 此函数要求对指定 collectionView 注册重用 Cell，并返回其重用标识符。
     ///
     /// 参考 UICollectionView.register 函数。
     /// - Parameter collectionView: 需要注册重用 Cell 的目标 collectionView。
-    /// - Returns: 请返回 true 表示已经完成注册。
-    func segmentedView(registerCellForCollectionViewAt collectionView: UICollectionView) -> Bool
+    /// - Returns: 注册 Cell 用到的唯一重用标识符。
+    func segmentedView(registerCellForCollectionViewAt collectionView: UICollectionView) -> String
 
     /// 询问用于展示的 entity 数量。
     func numberOfItems(in segmentedView: SegmentedView) -> Int

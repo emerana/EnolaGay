@@ -30,6 +30,9 @@ public class SegmentedView: UIView {
     /// 在 collectionView 中展示的数据源，该值取决于 dataSource.itemDataSource
     private var items = [SegmentedItemModel]()
     
+    /// 用于存储 collectionView 注册 Cell 的重用标识符。
+    private var cellReuseIdentifier: String?
+
     /// Cell 内边距，该值取决于 dataSource.itemSpacing，且该值直接决定了 item 之间的最小间距
     private var innerItemSpacing: CGFloat = 0
     
@@ -102,12 +105,13 @@ public extension SegmentedView {
     /// 出列一个可重用的 SegmentedCell
     ///
     /// - Parameters:
-    ///   - identifier: Cell 重用标识符
     ///   - index: 对应 CollectionView 的 indexPath.item
     /// - Returns: SegmentedCell 及其之类
-    final func dequeueReusableCell(withReuseIdentifier identifier: String, at index: Int) -> SegmentedCell {
+    final func dequeueReusableCell(at index: Int) -> SegmentedCell {
+        guard cellReuseIdentifier != nil else { return SegmentedCell() }
+
         let indexPath = IndexPath(item: index, section: 0)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier!, for: indexPath)
         // 只允许 SegmentedCell 类型
         guard cell.isKind(of: SegmentedCell.self) else {
             fatalError("Cell 必须为 SegmentedCell 的子类！")
@@ -133,14 +137,16 @@ public extension SegmentedView {
     /// 此函数为 SegmentedView 的关键函数，其规范了所有相关的数据、流程、并管理内部所有的关键信息
     final func reloadData() {
         guard dataSource != nil else {
-            print("warning: 请设置 SegmentedView.dataSource!!!")
+            Judy.logWarning("warning: 请设置 SegmentedView.dataSource!!!")
             return
         }
         // 确定注册的 Cell
-        guard dataSource!.segmentedView(registerCellForCollectionViewAt: collectionView) != false else {
-            print("warning: 请 dataSource 完成 registerCellForCollectionViewAt 函数!!!")
+        cellReuseIdentifier = dataSource!.segmentedView(registerCellForCollectionViewAt: collectionView)
+        guard cellReuseIdentifier != "" else {
+            Judy.logWarning("为 SegmentedView 注册 Cell 的 identifier 不能为空！")
             return
         }
+
         
         /// item 总数
         let itemCount = dataSource!.numberOfItems(in: self)
