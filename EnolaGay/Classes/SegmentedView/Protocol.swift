@@ -73,7 +73,11 @@ public protocol SegmentedViewDataSource: AnyObject {
 }
 
 /// 提供 SegmentedViewDataSource 的默认实现，这样对于遵从 SegmentedViewDataSource 的类来说，所有代理方法都是可选实现的。
-public extension SegmentedViewDataSource { }
+public extension SegmentedViewDataSource {
+
+    func refreshItemModel(_ segmentedView: SegmentedView, currentSelectedItemModel: SegmentedItemModel, willSelectedItemModel: SegmentedItemModel) { }
+
+}
 
 
 // MARK: - SegmentedViewDelegate

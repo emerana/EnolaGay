@@ -144,24 +144,6 @@ extension SegmentedTestSource: SegmentedViewDataSource {
     func segmentedView(_ segmentedView: SegmentedView, cellForItemAt index: Int) -> SegmentedCell {
         return segmentedView.dequeueReusableCell(withReuseIdentifier: "Cell", at: index)
     }
-    
-    func refreshItemModel(_ segmentedView: SegmentedView, currentSelectedItemModel: SegmentedItemModel, willSelectedItemModel: SegmentedItemModel) {
-
-        guard let myCurrentSelectedItemModel = currentSelectedItemModel as? SegmentedItemTitleModel,
-              let myWillSelectedItemModel = willSelectedItemModel as? SegmentedItemTitleModel else {
-            return
-        }
-
-        myCurrentSelectedItemModel.titleCurrentColor = myCurrentSelectedItemModel.titleNormalColor
-        myCurrentSelectedItemModel.titleCurrentZoomScale = myCurrentSelectedItemModel.titleNormalZoomScale
-        myCurrentSelectedItemModel.titleCurrentStrokeWidth = myCurrentSelectedItemModel.titleNormalStrokeWidth
-        myCurrentSelectedItemModel.indicatorConvertToItemFrame = CGRect.zero
-
-        myWillSelectedItemModel.titleCurrentColor = myWillSelectedItemModel.titleSelectedColor
-        myWillSelectedItemModel.titleCurrentZoomScale = myWillSelectedItemModel.titleSelectedZoomScale
-        myWillSelectedItemModel.titleCurrentStrokeWidth = myWillSelectedItemModel.titleSelectedStrokeWidth
-
-    }
 
 }
 

@@ -283,7 +283,6 @@ public extension SegmentedView {
 
             updateSelectedEntitys(currentSelected: scrollingTargetItemModel, willSelected: willSelectedItemModel)
 
-            
             let scrollingTargetCell = collectionView.cellForItem(at: IndexPath(item: scrollingTargetIndex, section: 0)) as? SegmentedCell
             scrollingTargetCell?.reloadData(itemModel: scrollingTargetItemModel)
         }
@@ -327,8 +326,6 @@ public extension SegmentedView {
         delegate?.segmentedView(self, didSelectedItemAt: index)
         
     }
-
-
 }
 
 
@@ -376,6 +373,20 @@ private extension SegmentedView {
         guard dataSource != nil else { return }
         
         dataSource!.refreshItemModel(self, currentSelectedItemModel: currentSelected, willSelectedItemModel: willSelected)
+        
+        // 针对 SegmentedItemTitleModel 处理
+        if let currentModel =  currentSelected as? SegmentedItemTitleModel {
+            currentModel.titleCurrentColor = currentModel.titleNormalColor
+            currentModel.titleCurrentZoomScale = currentModel.titleNormalZoomScale
+            currentModel.titleCurrentStrokeWidth = currentModel.titleNormalStrokeWidth
+            currentModel.indicatorConvertToItemFrame = CGRect.zero
+        }
+        if let willModel =  willSelected as? SegmentedItemTitleModel {
+            willModel.titleCurrentColor = willModel.titleSelectedColor
+            willModel.titleCurrentZoomScale = willModel.titleSelectedZoomScale
+            willModel.titleCurrentStrokeWidth = willModel.titleSelectedStrokeWidth
+        }
+
         
         // 处理 Cell 宽度缩放
         if dataSource!.isItemWidthZoomEnabled {
