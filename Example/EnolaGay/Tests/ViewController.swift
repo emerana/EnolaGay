@@ -13,6 +13,9 @@ import SwiftyJSON
 class ViewController: UIViewController {
 
     @IBOutlet weak var theButton: JudyBaseButton!
+    @IBOutlet weak var segmentedView: SegmentedView!
+    private let segmentedCtrlDataSoruce = SegmentedTitleDataSource()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +23,13 @@ class ViewController: UIViewController {
 //        let color = UIColor.judy(.navigationBarTint)
 
         Judy.log("太爽了")
+        
+        segmentedView.dataSource = segmentedCtrlDataSoruce
+        segmentedView.delegate = self
 
+        let indicator = IndicatorLineView()
+        // 配置指示器
+        segmentedView.indicators = [indicator]
     }
 
 
@@ -33,5 +42,21 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func selectedAction(_ sender: Any) {
+        segmentedView.selectItem(at: 6)
+    }
+    
+}
+
+
+// MARK: - SegmentedViewDelegate
+extension ViewController: SegmentedViewDelegate {
+    
+    func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int) {
+        print("当前选中:\(index)")
+
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = (segmentedView.selectedIndex == 0)
+    }
 }
 
