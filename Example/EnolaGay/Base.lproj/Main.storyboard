@@ -38,11 +38,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2O-0F-SrD" customClass="SegmentedView" customModule="EnolaGay">
-                                <rect key="frame" x="0.0" y="88" width="390" height="68"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="28"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="58" id="5Ch-hE-r1L"/>
-                                    <constraint firstAttribute="height" constant="68" id="k9v-X3-lEb"/>
+                                    <constraint firstAttribute="height" constant="28" id="5Ch-hE-r1L"/>
                                 </constraints>
                             </view>
                         </subviews>
