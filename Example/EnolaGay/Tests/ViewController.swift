@@ -140,10 +140,6 @@ extension SegmentedTestSource: SegmentedViewDataSource {
             return model.textWidth
         }
     }
-    
-    func segmentedView(_ segmentedView: SegmentedView, cellForItemAt index: Int) -> SegmentedCell {
-        return segmentedView.dequeueReusableCell(at: index)
-    }
 
 }
 

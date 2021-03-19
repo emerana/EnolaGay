@@ -55,9 +55,6 @@ public protocol SegmentedViewDataSource: AnyObject {
     /// 询问指定 index 对应实体的 content 宽度，等同于 Cell 上面内容的宽度。
     /// - Warning: 与代理方法 widthForItem 不同，需要注意辨别，部分使用场景下，cell。 的宽度比较大，但是内容的宽度比较小。这个时候指示器又需要和实体的 content 等宽。所以添加了此代理方法。
     func segmentedView(_ segmentedView: SegmentedView, widthForItemContent entity: SegmentedItemModel) -> CGFloat
-
-    /// 询问指定 index 的 SegmentedCell，通过 segmentedView.dequeueReusableCell 函数获取指定 Cell。
-    func segmentedView(_ segmentedView: SegmentedView, cellForItemAt index: Int) -> SegmentedCell
     
     /// 更新选中事件的相关实体。
     ///

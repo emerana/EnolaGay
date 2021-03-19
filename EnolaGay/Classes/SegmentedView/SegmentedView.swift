@@ -102,23 +102,6 @@ public class SegmentedView: UIView {
 // MARK: 公开函数
 public extension SegmentedView {
     
-    /// 出列一个可重用的 SegmentedCell
-    ///
-    /// - Parameters:
-    ///   - index: 对应 CollectionView 的 indexPath.item
-    /// - Returns: SegmentedCell 及其之类
-    final func dequeueReusableCell(at index: Int) -> SegmentedCell {
-        guard cellReuseIdentifier != nil else { return SegmentedCell() }
-
-        let indexPath = IndexPath(item: index, section: 0)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier!, for: indexPath)
-        // 只允许 SegmentedCell 类型
-        guard cell.isKind(of: SegmentedCell.self) else {
-            fatalError("Cell 必须为 SegmentedCell 的子类！")
-        }
-        return cell as! SegmentedCell
-    }
-    
     /// 更新目标 item
     ///
     /// 在每次做出选择后都会触发此函数以更新该 Cell 中的数据
@@ -359,7 +342,18 @@ private extension SegmentedView {
         addSubview(collectionView)
     }
     
+    /// 出列一个可重用的 SegmentedCell
+    func dequeueReusableCell(at index: Int) -> SegmentedCell {
+        let indexPath = IndexPath(item: index, section: 0)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier!, for: indexPath)
+        // 只允许 SegmentedCell 类型
+        guard cell.isKind(of: SegmentedCell.self) else {
+            fatalError("Cell 必须为 SegmentedCell 的子类，请确认 registerCellForCollectionViewAt 代理函数！")
+        }
+        return cell as! SegmentedCell
+    }
     
+
     /// 确定 collectionView 内容左侧的嵌入边距
     func getContentEdgeInsetLeft() -> CGFloat {
         contentEdgeInsetLeft == SegmentedAutomaticDimension ?
@@ -455,15 +449,12 @@ extension SegmentedView: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { items.count }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // 此处将 Cell 初始化函数抛给 segmented dataSource 以返回指定类型的 Cell
-        if let cell = dataSource?.segmentedView(self, cellForItemAt: indexPath.item) {
-            // segmentCell 重新载入数据
-            cell.reloadData(itemModel: items[indexPath.item])
-            return cell
-        }else {
-            return UICollectionViewCell(frame: .zero)
-        }
 
+        let cell = dequeueReusableCell(at: indexPath.item)
+        // segmentCell 重新载入数据
+        cell.reloadData(itemModel: items[indexPath.item])
+        
+        return cell
     }
 }
 
