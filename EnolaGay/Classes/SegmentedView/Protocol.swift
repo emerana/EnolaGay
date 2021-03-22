@@ -104,96 +104,58 @@ public extension SegmentedViewDelegate {
 }
 
 
-// MARK: 内置可用的数据源
 
-/// 可直接使用的适用于 SegmentedItemTitleModel 、SegmentedTitleCell 类型的数据源
-open class SegmentedTitleDataSource: SegmentedViewDataSource {
+// MARK: 指示器专用协议
+
+
+/// 指示器专用协议
+public protocol IndicatorProtocol {
     
-    // MARK: - 协议属性
-    public var itemSpacing: CGFloat = 8
-    public var isItemSpacingAverageEnabled: Bool = true
-    public var isItemWidthZoomEnabled: Bool = false
-    public var selectedAnimationDuration: TimeInterval = 0.25
-
-    // MARK: - 自有属性
+    /// 是否需要将当前的 indicator 的 frame 转换到 Cell。辅助 SegmentedTitleDataSourced 的 isTitleMaskEnabled 属性使用。
+    /// 如果添加了多个 indicator，仅能有一个 indicator 的 isIndicatorConvertToItemFrameEnabled 为 true。
+    /// 如果有多个 indicator 的 isIndicatorConvertToItemFrameEnabled 为 true，则以最后一个 isIndicatorConvertToItemFrameEnabled 为 true 的 indicator 为准。
+    var isIndicatorConvertToItemFrameEnabled: Bool { get }
     
-    /// 该 title 数组用于确定 dataSource
-    open var titles = ["猴哥", "青蛙王子", "旺财", "大家好我是王仁洁", "粉红猪", "喜羊羊", "黄焖鸡", "小马哥", "牛魔王", "大象先生", "神龙"]
+    /// 视图重置状态时调用，已当前选中的 index 更新状态
+    /// param selectedIndex 当前选中的 index
+    /// param selectedCellFrame 当前选中的 cellFrame
+    /// param contentSize collectionView 的 contentSize
+    /// - Parameter model: model description
+    func refreshIndicatorState(model: IndicatorSelectedParams)
 
-    /// 真实的 item 宽度 = itemWidth + itemWidthIncrement。
-    open var itemWidthIncrement: CGFloat = 0
-    /// 如果将 SegmentedView 嵌套进 UITableView 的 cell，每次重用的时候，SegmentedView 进行 reloadData 时，会重新计算所有的 title 宽度。所以该应用场景，需要 UITableView 的 cellModel 缓存 titles 的文字宽度，再通过该闭包方法返回给 SegmentedView。
-    open var widthForTitleClosure: ((String)->(CGFloat))?
+    /// contentScrollView 在进行手势滑动时，处理指示器跟随手势变化 UI 逻辑；
+    /// param selectedIndex 当前选中的 index
+    /// param leftIndex 正在过渡中的两个 Cell，相对位置在左边的 Cell 的 index
+    /// param leftCellFrame 正在过渡中的两个 Cell，相对位置在左边的 Cell 的 frame
+    /// param rightIndex 正在过渡中的两个 Cell，相对位置在右边的 Cell 的 index
+    /// param rightCellFrame 正在过渡中的两个 Cell，相对位置在右边的 Cell 的 frame
+    /// param percent 过渡百分比
+    /// - Parameter model: model description
+    func contentScrollViewDidScroll(model: IndicatorTransitionParams)
 
-    /// title普通状态时的字体
-    open var titleNormalFont: UIFont = UIFont.systemFont(ofSize: 15)
+    /// 点击选中了某一个item
+    /// param selectedIndex 选中的 index
+    /// param selectedCellFrame 选中的 cellFrame
+    /// param selectedType 选中的类型
+    /// - Parameter model: model description
+    func selectItem(model: IndicatorSelectedParams)
+}
 
-    public init() {}
+/// 指示器的位置
+public enum IndicatorLocation {
+    /// 指示器显示在 segmentedView 顶部
+    case top
+    /// 指示器显示在 segmentedView 底部
+    case bottom
+    /// 指示器显示在 segmentedView 垂直方向中心位置
+    case center
+}
 
-
-    public func segmentedView(registerCellForCollectionViewAt collectionView: UICollectionView) -> String {
-        collectionView.register(SegmentedTitleCell.self, forCellWithReuseIdentifier: "Cell")
-        return "Cell"
-    }
-    
-    public func numberOfItems(in segmentedView: SegmentedView) -> Int { titles.count }
-    
-    public func segmentedView(_ segmentedView: SegmentedView, entityForItem entity: SegmentedItemModel?, entityForItemAt index: Int, selectedIndex: Int) -> SegmentedItemModel {
-        
-        var model = SegmentedItemTitleModel()
-        if entity as? SegmentedItemTitleModel != nil {
-            model = entity as! SegmentedItemTitleModel
-        }
-        
-        
-        model.isItemTransitionEnabled = true
-        model.isSelectedAnimable = false
-        
-        model.title = titles[index]
-        
-        model.titleNumberOfLines = 1
-        model.titleNormalColor = .black
-        model.titleSelectedColor = .red
-        model.titleNormalFont = titleNormalFont
-        model.titleSelectedFont = titleNormalFont
-        
-        model.isTitleZoomEnabled = false
-        
-        model.isTitleStrokeWidthEnabled = false
-        model.isTitleMaskEnabled = false
-        
-        model.titleNormalZoomScale = 1
-        model.titleSelectedZoomScale = 1.2
-        model.titleSelectedStrokeWidth = -2
-        model.titleNormalStrokeWidth = 0
-        // 确定选中的模型
-        if index == selectedIndex {
-            model.titleCurrentColor = .red
-            model.titleCurrentZoomScale = 1.2
-            model.titleCurrentStrokeWidth = -2
-        }else {
-            model.titleCurrentColor = .black
-            model.titleCurrentZoomScale = 1
-            model.titleCurrentStrokeWidth = 0
-        }
-        
-        return model
-    }
-    
-    public func segmentedView(_ segmentedView: SegmentedView, widthForItem entity: SegmentedItemModel) -> CGFloat {
-        
-        return itemWidthIncrement + (entity as! SegmentedItemTitleModel).textWidth
-    }
-    
-    public func segmentedView(_ segmentedView: SegmentedView, widthForItemContent item: SegmentedItemModel) -> CGFloat {
-        let model = item as! SegmentedItemTitleModel
-        if model.isTitleZoomEnabled {
-            return model.textWidth*model.titleCurrentZoomScale
-        } else {
-            return model.textWidth
-        }
-    }
-
+/// 指示器外观样式
+public enum IndicatorStyle {
+    case normal
+    case lengthen
+    case lengthenOffset
 }
 
 

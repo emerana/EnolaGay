@@ -38,8 +38,9 @@ public class SegmentedView: UIView {
     
     /// 整体内容两侧的边距，默认值为 SegmentedAutomaticDimension
     ///
-    /// - warning: 通常情况下该值会等于 dataSource 中的 itemSpacing
-    private var contentEdgeInsetLeft: CGFloat = SegmentedAutomaticDimension, contentEdgeInsetRight: CGFloat = SegmentedAutomaticDimension
+    /// - Warning: 通常情况下该值会等于 dataSource 中的 itemSpacing
+    private var contentEdgeInsetLeft: CGFloat = SegmentedAutomaticDimension,
+                contentEdgeInsetRight: CGFloat = SegmentedAutomaticDimension
     
     /// 该值标识当前选中的的 index
     public private(set) var selectedIndex: Int = 0
@@ -87,7 +88,6 @@ public class SegmentedView: UIView {
             isFirstLayoutSubviews = false
             collectionView.frame = targetFrame
             reloadData()
-
         } else {
             if collectionView.frame != targetFrame {
                 collectionView.frame = targetFrame
