@@ -14,47 +14,47 @@ public let SegmentedAutomaticDimension: CGFloat = -1
 /// SegmentedView 核心 View
 public class SegmentedView: UIView {
     
-    /// 数据源协议
+    /// 数据源协议对象，设置该对象即重载所有 SegmentedView 相关数据。
     open weak var dataSource: SegmentedViewDataSource? {
         didSet { reloadData() }
     }
     
-    /// 代理协议
+    /// 代理协议。
     open weak var delegate: SegmentedViewDelegate?
 
     // MARK: collectionView 相关
     
-    /// 核心 collectionView
+    /// 核心 collectionView。
     public private(set) var collectionView: SegmentedCollectionView!
     
-    /// 在 collectionView 中展示的数据源，该值取决于 dataSource.itemDataSource
+    /// 在 collectionView 中展示的数据源，该值取决于 dataSource.itemDataSource。
     private var items = [SegmentedItemModel]()
     
     /// 用于存储 collectionView 注册 Cell 的重用标识符。
     private var cellReuseIdentifier: String?
 
-    /// Cell 内边距，该值取决于 dataSource.itemSpacing，且该值直接决定了 item 之间的最小间距
+    /// Cell 内边距，该值取决于 dataSource.itemSpacing，且该值直接决定了 item 之间的最小间距。
     private var innerItemSpacing: CGFloat = 0
     
-    /// 整体内容两侧的边距，默认值为 SegmentedAutomaticDimension
+    /// 整体内容两侧的边距，默认值为 SegmentedAutomaticDimension。
     ///
-    /// - Warning: 通常情况下该值会等于 dataSource 中的 itemSpacing
+    /// - Warning: 通常情况下该值会等于 dataSource 中的 itemSpacing。
     private var contentEdgeInsetLeft: CGFloat = SegmentedAutomaticDimension,
                 contentEdgeInsetRight: CGFloat = SegmentedAutomaticDimension
     
-    /// 该值标识当前选中的的 index
+    /// 该值标识当前选中的的 index。
     public private(set) var selectedIndex: Int = 0
-    /// 初始化或者 reloadData 之前设置，用于指定默认的 index
+    /// 初始化或者 reloadData 之前设置，用于指定默认的 index。
     open var defaultSelectedIndex: Int = 0 {
         didSet { selectedIndex = defaultSelectedIndex }
     }
     
     /// 正在滚动中的目标 index。用于处理正在滚动列表的时候，立即点击 item，会导致界面显示异常。
     private var scrollingTargetIndex: Int = -1
-    /// 是否第一次触发 LayoutSubviews 函数的标识，默认 true
+    /// 是否第一次触发 LayoutSubviews 函数的标识，默认 true。
     private var isFirstLayoutSubviews = true
 
-    /// indicators 的元素必须是遵从 JXSegmentedIndicatorProtocol 协议的 UIView 及其子类
+    /// indicators 的元素必须是遵从 JXSegmentedIndicatorProtocol 协议的 UIView 及其子类。
     open var indicators = [IndicatorView]() {
         didSet {
             collectionView.indicators = indicators
@@ -115,7 +115,7 @@ public extension SegmentedView {
         }
     }
 
-    /// 要求重新载入数据，该函数会在首次 layoutSubviews 时触发
+    /// 要求重新载入所有 SegmentedView 数据，该函数会在首次 layoutSubviews 时触发
     ///
     /// 此函数为 SegmentedView 的关键函数，其规范了所有相关的数据、流程、并管理内部所有的关键信息
     final func reloadData() {
@@ -131,7 +131,7 @@ public extension SegmentedView {
         }
 
         
-        /// item 总数
+        /// 询问 item 总数
         let itemCount = dataSource!.numberOfItems(in: self)
         // 确定当前选中的索引
         if selectedIndex < 0 || selectedIndex >= itemCount {
@@ -157,7 +157,7 @@ public extension SegmentedView {
         
         /// 所有 item 的累计宽度，该宽度将用于确定指示器的宽度
         var totalItemWidth: CGFloat = 0
-        /// 确定整体内容宽度
+        /// 确定整体内容宽度，该宽度即整个 collectionView 的宽度。
         var totalContentWidth: CGFloat = getContentEdgeInsetLeft()
         for (index, itemModel) in items.enumerated() {
             totalItemWidth += itemModel.itemWidth
@@ -172,15 +172,15 @@ public extension SegmentedView {
         if dataSource!.isItemSpacingAverageEnabled && totalContentWidth < bounds.size.width {
             var itemSpacingCount = items.count - 1
             var totalItemSpacingWidth = bounds.size.width - totalItemWidth
-
+            
             if contentEdgeInsetLeft == SegmentedAutomaticDimension {
                 itemSpacingCount += 1
-            }else {
+            } else {
                 totalItemSpacingWidth -= contentEdgeInsetLeft
             }
             if contentEdgeInsetRight == SegmentedAutomaticDimension {
                 itemSpacingCount += 1
-            }else {
+            } else {
                 totalItemSpacingWidth -= contentEdgeInsetRight
             }
             if itemSpacingCount > 0 {
@@ -194,12 +194,12 @@ public extension SegmentedView {
         for (index, itemModel) in items.enumerated() {
             if index < selectedIndex {
                 selectedItemFrameX += itemModel.itemWidth + innerItemSpacing
-            }else if index == selectedIndex {
+            } else if index == selectedIndex {
                 selectedItemWidth = itemModel.itemWidth
             }
             if index == items.count - 1 {
                 totalContentWidth += itemModel.itemWidth + getContentEdgeInsetRight()
-            }else {
+            } else {
                 totalContentWidth += itemModel.itemWidth + innerItemSpacing
             }
         }
@@ -209,19 +209,18 @@ public extension SegmentedView {
         let targetX = selectedItemFrameX - bounds.size.width/2 + selectedItemWidth/2
         collectionView.setContentOffset(CGPoint(x: max(min(maxX, targetX), minX), y: 0), animated: false)
         
-        // 确定 indicator 显示
+        // 确定 indicator
         for indicator in indicators {
             if items.isEmpty {
                 indicator.isHidden = true
             } else {
                 indicator.isHidden = false
-
+                // 确定选中 item 的大小
                 let selectedItemFrame = getItemFrameAt(index: selectedIndex)
                 let indicatorParams = IndicatorSelectedParams(currentSelectedIndex: selectedIndex,
-                                                                       currentSelectedItemFrame: selectedItemFrame,
-//                                                                       selectedType: .unknown,
-                                                                       currentItemContentWidth: dataSource!.segmentedView(self, widthForItemContent: items[selectedIndex]),
-                                                                       collectionViewContentSize: CGSize(width: totalContentWidth, height: bounds.size.height))
+                                                              currentSelectedItemFrame: selectedItemFrame,
+                                                              currentItemContentWidth: dataSource!.segmentedView(self, widthForItemContent: items[selectedIndex]),
+                                                              collectionViewContentSize: CGSize(width: totalContentWidth, height: bounds.size.height))
                 indicator.refreshIndicatorState(model: indicatorParams)
                 
                 if indicator.isIndicatorConvertToItemFrameEnabled {
@@ -296,9 +295,9 @@ public extension SegmentedView {
         
         for indicator in indicators {
             let indicatorParams = IndicatorSelectedParams(currentSelectedIndex: selectedIndex,
-                                                                   currentSelectedItemFrame: currentSelectedItemFrame,
-                                                                   currentItemContentWidth: dataSource!.segmentedView(self, widthForItemContent: items[selectedIndex]),
-                                                                   collectionViewContentSize: nil)
+                                                          currentSelectedItemFrame: currentSelectedItemFrame,
+                                                          currentItemContentWidth: dataSource!.segmentedView(self, widthForItemContent: items[selectedIndex]),
+                                                          collectionViewContentSize: nil)
             indicator.selectItem(model: indicatorParams)
             
             if indicator.isIndicatorConvertToItemFrameEnabled {
@@ -313,7 +312,6 @@ public extension SegmentedView {
         
         // 执行代理事件
         delegate?.segmentedView(self, didSelectedItemAt: index)
-        
     }
 }
 

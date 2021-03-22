@@ -215,9 +215,20 @@ open class SegmentedTitleCell: SegmentedCell {
 
 }
 
+
+/// 指示器外观样式
+public enum IndicatorStyle {
+    case normal
+    case lengthen
+    case lengthenOffset
+}
+
+
 /// 样式为一条线的指示器
 open class IndicatorLineView: IndicatorView {
     
+    open var lineStyle: IndicatorStyle = .normal
+
     /// lineStyle 为 lengthenOffset 时使用，滚动时x的偏移量
     open var lineScrollOffsetX: CGFloat = 10
 

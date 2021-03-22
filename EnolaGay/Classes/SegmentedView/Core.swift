@@ -137,20 +137,23 @@ open class SegmentedCollectionView: UICollectionView {
 为什么会通过model传递数据，因为指示器处理逻辑以后会扩展不同的使用场景，会新增参数。如果不通过model传递，就会在api新增参数，一旦修改api修改的地方就特别多了，而且会影响到之前自定义实现的开发者。
 */
 public struct IndicatorSelectedParams {
-   public let currentSelectedIndex: Int
-   public let currentSelectedItemFrame: CGRect
-//   public let selectedType: SegmentedItemSelectedType
-   public let currentItemContentWidth: CGFloat
-   /// collectionView的contentSize
-   public var collectionViewContentSize: CGSize?
-
-   public init(currentSelectedIndex: Int, currentSelectedItemFrame: CGRect, currentItemContentWidth: CGFloat, collectionViewContentSize: CGSize?) {
-       self.currentSelectedIndex = currentSelectedIndex
-       self.currentSelectedItemFrame = currentSelectedItemFrame
-//       self.selectedType = selectedType
-       self.currentItemContentWidth = currentItemContentWidth
-       self.collectionViewContentSize = collectionViewContentSize
-   }
+    /// 选中的索引。
+    public let currentSelectedIndex: Int
+    /// 选中项的矩形。
+    public let currentSelectedItemFrame: CGRect
+    //   public let selectedType: SegmentedItemSelectedType
+    /// 内容大小。
+    public let currentItemContentWidth: CGFloat
+    /// collectionView 的 contentSize
+    public var collectionViewContentSize: CGSize?
+    
+    public init(currentSelectedIndex: Int, currentSelectedItemFrame: CGRect, currentItemContentWidth: CGFloat, collectionViewContentSize: CGSize?) {
+        self.currentSelectedIndex = currentSelectedIndex
+        self.currentSelectedItemFrame = currentSelectedItemFrame
+        //       self.selectedType = selectedType
+        self.currentItemContentWidth = currentItemContentWidth
+        self.collectionViewContentSize = collectionViewContentSize
+    }
 }
 
 public struct IndicatorTransitionParams {
@@ -180,8 +183,6 @@ open class IndicatorView: UIView, IndicatorProtocol {
         
     /// 指示器的位置，默认显示在 Cell 底部。
     open var indicatorPosition: IndicatorLocation = .bottom
-    
-    open var lineStyle: IndicatorStyle = .normal
     
     /// 指示器的颜色
     open var indicatorColor: UIColor = .red
@@ -279,7 +280,7 @@ open class IndicatorView: UIView, IndicatorProtocol {
 
     public func canSelectedWithAnimation(model: IndicatorSelectedParams) -> Bool {
         if isScrollEnabled {
-            //允许滚动且选中类型是点击或代码选中，才进行动画过渡
+            // 允许滚动且选中类型是点击或代码选中，才进行动画过渡。
             return true
         }
         return false
@@ -310,7 +311,8 @@ open class IndicatorView: UIView, IndicatorProtocol {
     
     public func contentScrollViewDidScroll(model: IndicatorTransitionParams) { }
     
-
+    
+    /// 确定指示器对应实际选中的 item 。
     public func selectItem(model: IndicatorSelectedParams) {
 
         let targetWidth = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)
