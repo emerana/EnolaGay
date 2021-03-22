@@ -49,13 +49,13 @@ class SegmentedTestViewCtrl: UIViewController {
         
         segmentCtrl.judy_configSegmentedCtrl(withIndicatorHeight: 4)
         segmentCtrl.judy_configNormolStyle(color: .judy(.colorStyle1), font: UIFont(style: .XL))
-        segmentCtrl.judy_configSelectedStyle(color: .judy(.selected), font: UIFont(style: .XL_B))
+        segmentCtrl.judy_configSelectedStyle(color: .judy(.selected), font: UIFont(style: .xxxl_B))
         segmentCtrl.addTarget(self, action: #selector(segmentedCtrlValueChangeAction(segmentedCtrl:)), for: .valueChanged)
 
         segmentCtrl.segmentWidthStyle = .fixed
         segmentCtrl.selectionIndicatorColor = .judy(.colorStyle2)
         segmentCtrl.sectionTitles = ["作欢品", "喜欢欢欢欢欢欢", "收藏",]
-        segmentCtrl.selectionIndicatorEdgeInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 48)
+//        segmentCtrl.selectionIndicatorEdgeInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 48)
         segmentCtrl.backgroundColor = .white
 
     }

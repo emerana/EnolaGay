@@ -86,10 +86,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDI-LX-mTY" customClass="SegmentedView" customModule="EnolaGay">
-                                <rect key="frame" x="0.0" y="232" width="390" height="68"/>
+                                <rect key="frame" x="0.0" y="232" width="390" height="48"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="68" id="b4M-N1-Xmv"/>
+                                    <constraint firstAttribute="height" constant="48" id="b4M-N1-Xmv"/>
                                 </constraints>
                             </view>
                         </subviews>

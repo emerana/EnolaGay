@@ -1302,8 +1302,6 @@ public extension JudySegmentedCtrl {
         judy_configNormolStyle()
         judy_configSelectedStyle()
 
-        // 添加事件
-        //        judySegmentedCtrl.addTarget(self, action: #selector(emerana_segmentedCtrlValueChangeAction(segmentedCtrl:)), for: .valueChanged)
     }
     
     
