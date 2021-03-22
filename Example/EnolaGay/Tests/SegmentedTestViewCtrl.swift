@@ -15,7 +15,7 @@ class SegmentedTestViewCtrl: UIViewController {
 
     @IBOutlet weak private(set) var segmentedView: SegmentedView!
     
-    private(set) var segmentedViewDataSource =  SegmentedTitleDataSource()
+    private(set) var segmentedViewDataSource =  SegmentedViewTitleDataSource()
 
     
     override func viewDidLoad() {
@@ -26,7 +26,22 @@ class SegmentedTestViewCtrl: UIViewController {
     }
     
     private func setSegmentedView() {
+        segmentedViewDataSource.titles = ["作品", "喜欢", "收藏",]
+        segmentedViewDataSource.titleSelectedFont = UIFont(style: .XL_B)
+        segmentedViewDataSource.titleNormalFont = UIFont(style: .XL)
+
         segmentedView.dataSource = segmentedViewDataSource
+        segmentedView.delegate = self
+        
+        let indicatorTop = IndicatorView()
+        indicatorTop.indicatorPosition = .top
+        indicatorTop.indicatorHeight = 4
+        indicatorTop.indicatorColor = .red
+        let indicatorBottom = IndicatorLineView()
+        indicatorBottom.indicatorPosition = .bottom
+        indicatorBottom.indicatorColor = .blue
+
+        segmentedView.indicators = [indicatorTop, indicatorBottom]
     }
     
     /// 设置 segmentedCtrl
@@ -51,4 +66,10 @@ class SegmentedTestViewCtrl: UIViewController {
         Judy.log(segmentedCtrl.selectedSegmentIndex)
     }
 
+}
+
+extension SegmentedTestViewCtrl: SegmentedViewDelegate {
+    func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int) {
+        Judy.log("segmentedView:\(index)")
+    }
 }
