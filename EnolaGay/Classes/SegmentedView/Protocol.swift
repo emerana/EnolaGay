@@ -17,7 +17,7 @@ public protocol SegmentedViewDataSource: AnyObject {
     var itemSpacing: CGFloat { get }
     /// 当 collectionView.contentSize.width 小于 SegmentedView 的宽度时，是否将 itemSpacing 均分。
     var isItemSpacingAverageEnabled: Bool { get }
-    /// 该值用于表示 item（ cell ） 是否允许宽度缩放，对应 SegmentedItemModel.isItemWidthZoomEnabled 。
+    /// 该值用于表示 item（ cell ） 是否允许宽度缩放，该值直接对应 SegmentedItemModel.isItemWidthZoomEnabled。
     var isItemWidthZoomEnabled: Bool { get }
     /// 选中动画的时长。
     var selectedAnimationDuration: TimeInterval { get }
