@@ -8,8 +8,6 @@ import Foundation
 import UIKit
 
 
-// MARK: - SegmentedItemModel
-
 /// SegmentedCell 中的基础数据模型。
 open class SegmentedItemModel {
 
@@ -62,72 +60,10 @@ open class SegmentedItemModel {
 }
 
 
-/// 适用于以标题为主的模型。
-open class SegmentedItemTitleModel: SegmentedItemModel {
-    
-    /// 标题文本。
-    open var title: String?
-    /// label的numberOfLines。
-    open var titleNumberOfLines: Int = 0
-    
-    /// title 普通状态的 textColor。
-    open var titleNormalColor: UIColor = .black
-    /// 当前显示的颜色。
-    open var titleCurrentColor: UIColor = .black
-    /// title 选中状态的 textColor。
-    open var titleSelectedColor: UIColor = .red
-    
-    /// title 普通状态时的字体。
-    open var titleNormalFont: UIFont = UIFont.systemFont(ofSize: 15)
-    /// 选中状态下的字体。
-    open var titleSelectedFont: UIFont = UIFont.systemFont(ofSize: 15)
-    
-    /// title 是否缩放。使用该效果时，务必保证 titleNormalFont 和 titleSelectedFont 值相同。
-    open var isTitleZoomEnabled: Bool = false
-    open var titleNormalZoomScale: CGFloat = 0
-    open var titleCurrentZoomScale: CGFloat = 0
-    
-    /// isTitleZoomEnabled 为 true 才生效。是对字号的缩放，比如 titleNormalFont 的 pointSize 为10，放大之后字号就是10*1.2=12。
-    open var titleSelectedZoomScale: CGFloat = 0
-    /// title 的线宽是否允许粗细。使用该效果时，务必保证 titleNormalFont 和 titleSelectedFont 值相同。
-    open var isTitleStrokeWidthEnabled: Bool = false
-    open var titleNormalStrokeWidth: CGFloat = 0
-    
-    /// 用于控制字体的粗细（底层通过NSStrokeWidthAttributeName实现），负数越小字体越粗。
-    open var titleCurrentStrokeWidth: CGFloat = 0
-    /// 选中状态下字体的粗细。
-    open var titleSelectedStrokeWidth: CGFloat = 0
-    
-    /// title 是否使用遮罩过渡。
-    open var isTitleMaskEnabled: Bool = false
-    /// title 文本的宽度。
-    open var textWidth: CGFloat {
-        get{ return widthForTitle() }
-    }
-    
-    /// item 左右滚动过渡时，是否允许渐变。比如 titleZoom、titleNormalColor、titleStrokeWidth 等渐变。
-    open var isItemTransitionEnabled: Bool = true
-
-    /// 计算 title 的宽度
-    private func widthForTitle() -> CGFloat {
-//        if widthForTitleClosure != nil {
-//            return widthForTitleClosure!(title)
-//        }else {
-            let textWidth = NSString(string: title ?? "").boundingRect(with: CGSize(width: CGFloat.infinity, height: CGFloat.infinity), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : titleNormalFont], context: nil).size.width
-            return CGFloat(ceilf(Float(textWidth)))
-//        }
-    }
-
-}
-
-
-// MARK: - CollectionView、SegmentedCell
-
-
 /// SegmentedView 中的基础 Cell，此 Cell 模拟 JXSegmentedTitleCell
 open class SegmentedCell: UICollectionViewCell {
     
-    /// 持有的实体。
+    /// Cell 中持有的实体。
     open var itemModel: SegmentedItemModel?
 
     
@@ -149,7 +85,7 @@ open class SegmentedCell: UICollectionViewCell {
         // backgroundColor = .green
     }
 
-    /// 通过此函数设置 Cell 中的实体
+    /// 通过此函数设置 Cell 中的实体详细信息。
     ///
     /// - Parameters:
     ///   - itemModel: SegmentedItemModel 数据模型。
@@ -159,160 +95,11 @@ open class SegmentedCell: UICollectionViewCell {
     
 }
 
-/// 适用于以标题为主的 Cell。
-open class SegmentedTitleCell: SegmentedCell {
-    
-    /// 主要 label
-    public let titleLabel = UILabel()
-    public let maskTitleLabel = UILabel()
-    public let titleMaskLayer = CALayer()
-    public let maskTitleMaskLayer = CALayer()
-    
-    
-    open override func commonInit() {
-        super.commonInit()
-        
-        titleLabel.textAlignment = .center
-        contentView.addSubview(titleLabel)
-        // FIXME: titleLabel 背景色
-        // titleLabel.backgroundColor = .gray
-    }
-
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-
-        // 在 numberOfLines 大于 0 的时候，cell 进行重用的时候通过`sizeToFit`，label 设置成错误的 size，用`sizeThatFits`可以规避掉这个问题。
-        let labelSize = titleLabel.sizeThatFits(self.contentView.bounds.size)
-        let labelBounds = CGRect(x: 0, y: 0, width: labelSize.width, height: labelSize.height)
-        titleLabel.bounds = labelBounds
-        titleLabel.center = contentView.center
-
-        maskTitleLabel.bounds = labelBounds
-        maskTitleLabel.center = contentView.center
-
-    }
-
-    open override func reloadData(itemModel: SegmentedItemModel) {
-        super.reloadData(itemModel: itemModel)
-
-        // 当前 Cell 需要确保 item 为 SegmentedItemModelByTitle
-        guard let myItemModel = itemModel as? SegmentedItemTitleModel else { return }
-        
-        titleLabel.numberOfLines = myItemModel.titleNumberOfLines
-        maskTitleLabel.numberOfLines = myItemModel.titleNumberOfLines
-        // 允许标题缩放
-        if myItemModel.isTitleZoomEnabled {
-            //先把font设置为缩放的最大值，再缩小到最小值，最后根据当前的 titleCurrentZoomScale 值，进行缩放更新。这样就能避免 transform 从小到大时字体模糊
-            let maxScaleFont = UIFont(descriptor: myItemModel.titleNormalFont.fontDescriptor, size: myItemModel.titleNormalFont.pointSize*CGFloat(myItemModel.titleSelectedZoomScale))
-            let baseScale = myItemModel.titleNormalFont.lineHeight/maxScaleFont.lineHeight
-
-//            if myItemModel.isSelectedAnimable && canStartSelectedAnimation(itemModel: itemModel, selectedType: selectedType) {
-//                //允许动画且当前是点击的
-//                let titleZoomClosure = preferredTitleZoomAnimateClosure(itemModel: myItemModel, baseScale: baseScale)
-//                appendSelectedAnimationClosure(closure: titleZoomClosure)
-//            }else {
-                titleLabel.font = maxScaleFont
-                maskTitleLabel.font = maxScaleFont
-//            UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
-                let currentTransform = CGAffineTransform(scaleX: baseScale*CGFloat(myItemModel.titleCurrentZoomScale), y: baseScale*CGFloat(myItemModel.titleCurrentZoomScale))
-                self.titleLabel.transform = currentTransform
-                self.maskTitleLabel.transform = currentTransform
-//            }, completion: { finished in
-//
-//            })
-//            }
-        } else {
-            if myItemModel.isSelected {
-                titleLabel.font = myItemModel.titleSelectedFont
-                maskTitleLabel.font = myItemModel.titleSelectedFont
-            } else {
-                titleLabel.font = myItemModel.titleNormalFont
-                maskTitleLabel.font = myItemModel.titleNormalFont
-            }
-        }
-
-        let title = myItemModel.title ?? ""
-        let attriText = NSMutableAttributedString(string: title)
-        if myItemModel.isTitleStrokeWidthEnabled {
-//            if myItemModel.isSelectedAnimable && canStartSelectedAnimation(itemModel: itemModel, selectedType: selectedType) {
-//                //允许动画且当前是点击的
-//                let titleStrokeWidthClosure = preferredTitleStrokeWidthAnimateClosure(itemModel: myItemModel, attriText: attriText)
-//                appendSelectedAnimationClosure(closure: titleStrokeWidthClosure)
-//            }else {
-                attriText.addAttributes([NSAttributedString.Key.strokeWidth: myItemModel.titleCurrentStrokeWidth], range: NSRange(location: 0, length: title.count))
-                titleLabel.attributedText = attriText
-                maskTitleLabel.attributedText = attriText
-//            }
-        }else {
-            titleLabel.attributedText = attriText
-            maskTitleLabel.attributedText = attriText
-        }
-
-        if myItemModel.isTitleMaskEnabled {
-            //允许mask，maskTitleLabel在titleLabel上面，maskTitleLabel设置为titleSelectedColor。titleLabel设置为titleNormalColor
-            //为了显示效果，使用了双遮罩。即titleMaskLayer遮罩titleLabel，maskTitleMaskLayer遮罩maskTitleLabel
-            maskTitleLabel.isHidden = false
-            titleLabel.textColor = myItemModel.titleNormalColor
-            maskTitleLabel.textColor = myItemModel.titleSelectedColor
-            let labelSize = maskTitleLabel.sizeThatFits(self.contentView.bounds.size)
-            let labelBounds = CGRect(x: 0, y: 0, width: labelSize.width, height: labelSize.height)
-            maskTitleLabel.bounds = labelBounds
-
-            var topMaskFrame = myItemModel.indicatorConvertToItemFrame
-            topMaskFrame.origin.y = 0
-            var bottomMaskFrame = topMaskFrame
-            var maskStartX: CGFloat = 0
-            if maskTitleLabel.bounds.size.width >= bounds.size.width {
-                topMaskFrame.origin.x -= (maskTitleLabel.bounds.size.width - bounds.size.width)/2
-                bottomMaskFrame.size.width = maskTitleLabel.bounds.size.width
-                maskStartX = -(maskTitleLabel.bounds.size.width - bounds.size.width)/2
-            }else {
-                topMaskFrame.origin.x -= (bounds.size.width - maskTitleLabel.bounds.size.width)/2
-                bottomMaskFrame.size.width = bounds.size.width
-                maskStartX = 0
-            }
-            bottomMaskFrame.origin.x = topMaskFrame.origin.x
-            if topMaskFrame.origin.x > maskStartX {
-                bottomMaskFrame.origin.x = topMaskFrame.origin.x - bottomMaskFrame.size.width
-            }else {
-                bottomMaskFrame.origin.x = topMaskFrame.maxX
-            }
-
-            CATransaction.begin()
-            CATransaction.setDisableActions(true)
-            if topMaskFrame.size.width > 0 && topMaskFrame.intersects(maskTitleLabel.frame) {
-                titleLabel.layer.mask = titleMaskLayer
-                titleMaskLayer.frame = bottomMaskFrame
-                maskTitleMaskLayer.frame = topMaskFrame
-            }else {
-                titleLabel.layer.mask = nil
-                maskTitleMaskLayer.frame = topMaskFrame
-            }
-            CATransaction.commit()
-        } else {
-            maskTitleLabel.isHidden = true
-            titleLabel.layer.mask = nil
-//            if myItemModel.isSelectedAnimable && canStartSelectedAnimation(itemModel: itemModel, selectedType: selectedType) {
-//                //允许动画且当前是点击的
-//                let titleColorClosure = preferredTitleColorAnimateClosure(itemModel: myItemModel)
-//                appendSelectedAnimationClosure(closure: titleColorClosure)
-//            }else {
-                titleLabel.textColor = myItemModel.titleCurrentColor
-//            }
-        }
-
-//        startSelectedAnimationIfNeeded(itemModel: itemModel, selectedType: selectedType)
-
-        setNeedsLayout()
-    }
-
-}
-
 
 /// SegmentedView 中的基础 CollectionView
 open class SegmentedCollectionView: UICollectionView {
 
-    open var indicators = [IndicatorView]() {
+    open var indicators = [UIView & IndicatorProtocol]() {
         willSet {
             for indicator in indicators {
                 indicator.removeFromSuperview()
@@ -329,8 +116,8 @@ open class SegmentedCollectionView: UICollectionView {
         super.layoutSubviews()
 
         for indicator in indicators {
-//            sendSubviewToBack()
-            bringSubviewToFront(indicator)
+            sendSubviewToBack(indicator)
+            //bringSubviewToFront(indicator)
 
             if let backgroundView = backgroundView {
                 sendSubviewToBack(backgroundView)
@@ -345,28 +132,26 @@ open class SegmentedCollectionView: UICollectionView {
 // MARK: - Indicator
 
 
-/**
-指示器传递的数据模型，不同情况会对不同的属性赋值，根据不同情况的api说明确认。
-为什么会通过model传递数据，因为指示器处理逻辑以后会扩展不同的使用场景，会新增参数。如果不通过model传递，就会在api新增参数，一旦修改api修改的地方就特别多了，而且会影响到之前自定义实现的开发者。
-*/
+/// 指示器传递的数据模型。
 public struct IndicatorSelectedParams {
-   public let currentSelectedIndex: Int
-   public let currentSelectedItemFrame: CGRect
-//   public let selectedType: SegmentedItemSelectedType
-   public let currentItemContentWidth: CGFloat
-   /// collectionView的contentSize
-   public var collectionViewContentSize: CGSize?
-
-   public init(currentSelectedIndex: Int, currentSelectedItemFrame: CGRect, currentItemContentWidth: CGFloat, collectionViewContentSize: CGSize?) {
-       self.currentSelectedIndex = currentSelectedIndex
-       self.currentSelectedItemFrame = currentSelectedItemFrame
-//       self.selectedType = selectedType
-       self.currentItemContentWidth = currentItemContentWidth
-       self.collectionViewContentSize = collectionViewContentSize
-   }
+    /// 选中的索引。
+    public let index: Int
+    /// 选中项的窗体(Cell)矩形。
+    public let itemFrame: CGRect
+    /// 该值表示指示器的宽度。
+    public let contentWidth: CGFloat
+    /// collectionView 的 contentSize。
+    public var collectionViewContentSize: CGSize?
+    
+    public init(index: Int, itemFrame: CGRect, contentWidth: CGFloat, collectionViewContentSize: CGSize?) {
+        self.index = index
+        self.itemFrame = itemFrame
+        self.contentWidth = contentWidth
+        self.collectionViewContentSize = collectionViewContentSize
+    }
 }
 
-public struct SegmentedIndicatorTransitionParams {
+public struct IndicatorTransitionParams {
    public let currentSelectedIndex: Int
    public let leftIndex: Int
    public let leftItemFrame: CGRect
@@ -388,84 +173,31 @@ public struct SegmentedIndicatorTransitionParams {
    }
 }
 
-/// 指示器专用协议
-public protocol IndicatorProtocol {
-    
-    /// 是否需要将当前的 indicator 的 frame 转换到 Cell。辅助 SegmentedTitleDataSourced 的 isTitleMaskEnabled 属性使用。
-    /// 如果添加了多个 indicator，仅能有一个 indicator 的 isIndicatorConvertToItemFrameEnabled 为 true。
-    /// 如果有多个 indicator 的 isIndicatorConvertToItemFrameEnabled 为 true，则以最后一个 isIndicatorConvertToItemFrameEnabled 为 true 的 indicator 为准。
-    var isIndicatorConvertToItemFrameEnabled: Bool { get }
-    
-    /// 视图重置状态时调用，已当前选中的 index 更新状态
-    /// param selectedIndex 当前选中的 index
-    /// param selectedCellFrame 当前选中的 cellFrame
-    /// param contentSize collectionView 的 contentSize
-    /// - Parameter model: model description
-    func refreshIndicatorState(model: IndicatorSelectedParams)
-
-    /// contentScrollView 在进行手势滑动时，处理指示器跟随手势变化 UI 逻辑；
-    /// param selectedIndex 当前选中的 index
-    /// param leftIndex 正在过渡中的两个 Cell，相对位置在左边的 Cell 的 index
-    /// param leftCellFrame 正在过渡中的两个 Cell，相对位置在左边的 Cell 的 frame
-    /// param rightIndex 正在过渡中的两个 Cell，相对位置在右边的 Cell 的 index
-    /// param rightCellFrame 正在过渡中的两个 Cell，相对位置在右边的 Cell 的 frame
-    /// param percent 过渡百分比
-    /// - Parameter model: model description
-    func contentScrollViewDidScroll(model: SegmentedIndicatorTransitionParams)
-
-    /// 点击选中了某一个item
-    /// param selectedIndex 选中的 index
-    /// param selectedCellFrame 选中的 cellFrame
-    /// param selectedType 选中的类型
-    /// - Parameter model: model description
-    func selectItem(model: IndicatorSelectedParams)
-}
-
-/// 指示器的位置
-public enum IndicatorLocation {
-    /// 指示器显示在 segmentedView 顶部
-    case top
-    /// 指示器显示在 segmentedView 底部
-    case bottom
-    /// 指示器显示在 segmentedView 垂直方向中心位置
-    case center
-}
-
-/// 指示器外观样式
-public enum IndicatorStyle {
-    case normal
-    case lengthen
-    case lengthenOffset
-}
-
-
-/// 指示器 View
+/// 一个普通的标准指示器 View，如果需要自定义指示器可参考本类实现方式。
 open class IndicatorView: UIView, IndicatorProtocol {
-        
+    
+    public var isIndicatorConvertToItemFrameEnabled: Bool { true }
+
+    // MARK: 自有属性
+    
     /// 指示器的位置，默认显示在 Cell 底部。
     open var indicatorPosition: IndicatorLocation = .bottom
     
-    open var lineStyle: IndicatorStyle = .normal
+    /// 指示器的颜色，默认为 gray。
+    open var indicatorColor: UIColor = .gray
     
-    /// 指示器的颜色
-    open var indicatorColor: UIColor = .red
-    
-    /// 指示器的高度，默认 SegmentedViewAutomaticDimension（与cell的高度相等）。内部通过 getIndicatorHeight 方法获取实际的值。
+    /// 指示器的高度，默认 SegmentedAutomaticDimension。
     open var indicatorHeight: CGFloat = SegmentedAutomaticDimension
-    
-    /// 默认 SegmentedViewAutomaticDimension （等于indicatorHeight/2）。内部通过 getIndicatorCornerRadius 方法获取实际的值。
+    /// 指示器的宽度，默认 SegmentedViewAutomaticDimension。
+    private(set) var indicatorWidth: CGFloat = SegmentedAutomaticDimension
+
+    /// 圆角程度，默认为 SegmentedAutomaticDimension。
     open var indicatorCornerRadius: CGFloat = SegmentedAutomaticDimension
 
-    /// 默认 SegmentedViewAutomaticDimension（与cell的宽度相等）。内部通过getIndicatorWidth方法获取实际的值。
-    open var indicatorWidth: CGFloat = SegmentedAutomaticDimension
-
-    ///  指示器的宽度是否跟随item的内容变化（而不是跟着cell的宽度变化）。indicatorWidth=JXSegmentedViewAutomaticDimension才能生效
-    open var isIndicatorWidthSameAsItemContent = false
-
-    /// 指示器的宽度增量。比如需求是指示器宽度比cell宽度多10 point。就可以将该属性赋值为10。最终指示器的宽度=indicatorWidth+indicatorWidthIncrement
+    /// 指示器的宽度增量。比如需求是指示器宽度比 Cell 宽度多 10 point，就可以将该属性赋值为10。最终指示器的宽度为 indicatorWidth + indicatorWidthIncrement。
     open var indicatorWidthIncrement: CGFloat = 0
     
-    /// 垂直方向偏移，指示器默认贴着底部或者顶部，verticalOffset越大越靠近中心。
+    /// 垂直方向偏移，指示器默认贴着底部或者顶部，verticalOffset 越大越靠近中心。
     open var verticalOffset: CGFloat = 0
 
     /// 手势滚动、点击切换的时候，是否允许滚动。
@@ -474,9 +206,6 @@ open class IndicatorView: UIView, IndicatorProtocol {
     /// 点击选中时的滚动动画时长
     open var scrollAnimationDuration: TimeInterval = 0.25
 
-    // MARK: 协议属性
-    
-    public var isIndicatorConvertToItemFrameEnabled: Bool { true }
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -500,42 +229,15 @@ open class IndicatorView: UIView, IndicatorProtocol {
     
     open func commonInit() {
 
-        backgroundColor = .red
+        backgroundColor = indicatorColor
         frame = CGRect(origin: CGPoint(x: 0, y: 0), size: .zero)
     
-        indicatorHeight = 3
-
     }
 
-    public func getIndicatorCornerRadius(itemFrame: CGRect) -> CGFloat {
-        if indicatorCornerRadius == SegmentedAutomaticDimension {
-            return getIndicatorHeight(itemFrame: itemFrame)/2
-        }
-        return indicatorCornerRadius
-    }
-
-    public func getIndicatorWidth(itemFrame: CGRect, itemContentWidth: CGFloat) -> CGFloat {
-        if indicatorWidth == SegmentedAutomaticDimension {
-            if isIndicatorWidthSameAsItemContent {
-                return itemContentWidth + indicatorWidthIncrement
-            }else {
-                return itemFrame.size.width + indicatorWidthIncrement
-            }
-        }
-        return indicatorWidth + indicatorWidthIncrement
-    }
-
-    public func getIndicatorHeight(itemFrame: CGRect) -> CGFloat {
-        if indicatorHeight == SegmentedAutomaticDimension {
-            return itemFrame.size.height
-        }
-        return indicatorHeight
-    }
-
-    public func canHandleTransition(model: SegmentedIndicatorTransitionParams) -> Bool {
+    public func canHandleTransition(model: IndicatorTransitionParams) -> Bool {
         if model.percent == 0 || !isScrollEnabled {
-            //model.percent等于0时不需要处理，会调用selectItem(model: JXSegmentedIndicatorParamsModel)方法处理
-            //isScrollEnabled为false不需要处理
+            // model.percent 等于0时不需要处理，会调用 selectItem(model: SegmentedIndicatorParamsModel) 方法处理
+            // isScrollEnabled 为 false 不需要处理
             return false
         }
         return true
@@ -543,7 +245,7 @@ open class IndicatorView: UIView, IndicatorProtocol {
 
     public func canSelectedWithAnimation(model: IndicatorSelectedParams) -> Bool {
         if isScrollEnabled {
-            //允许滚动且选中类型是点击或代码选中，才进行动画过渡
+            // 允许滚动且选中类型是点击或代码选中，才进行动画过渡。
             return true
         }
         return false
@@ -554,137 +256,51 @@ open class IndicatorView: UIView, IndicatorProtocol {
 
     
     public func refreshIndicatorState(model: IndicatorSelectedParams) {
+        // 确定背景色。
         backgroundColor = indicatorColor
-        layer.cornerRadius = getIndicatorCornerRadius(itemFrame: model.currentSelectedItemFrame)
+        // 确定圆角。
+        layer.cornerRadius = indicatorCornerRadius == SegmentedAutomaticDimension ? 2:indicatorCornerRadius
 
-        let width = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)
-        let height = getIndicatorHeight(itemFrame: model.currentSelectedItemFrame)
-        let x = model.currentSelectedItemFrame.origin.x + (model.currentSelectedItemFrame.size.width - width)/2
+        // 确定 frame。
+        let width = indicatorWidth == SegmentedAutomaticDimension ?
+            model.contentWidth + indicatorWidthIncrement:indicatorWidth
+        
+        // 高度默认为 Cell 高度
+        let height: CGFloat = (indicatorHeight == SegmentedAutomaticDimension) ?
+            model.itemFrame.size.height:indicatorHeight
+
+        let x = model.itemFrame.origin.x + (model.itemFrame.size.width - width)/2
         var y: CGFloat = 0
         switch indicatorPosition {
         case .top:
             y = verticalOffset
         case .bottom:
-            y = model.currentSelectedItemFrame.size.height - height - verticalOffset
+            y = model.itemFrame.size.height - height - verticalOffset
         case .center:
-            y = (model.currentSelectedItemFrame.size.height - height)/2 + verticalOffset
+            y = (model.itemFrame.size.height - height)/2 + verticalOffset
         }
         frame = CGRect(x: x, y: y, width: width, height: height)
     }
     
-    public func contentScrollViewDidScroll(model: SegmentedIndicatorTransitionParams) { }
-    
-
     public func selectItem(model: IndicatorSelectedParams) {
 
-        let targetWidth = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)
+        let width = indicatorWidth == SegmentedAutomaticDimension ?
+            model.contentWidth + indicatorWidthIncrement:indicatorWidth
         var toFrame = self.frame
-        toFrame.origin.x = model.currentSelectedItemFrame.origin.x + (model.currentSelectedItemFrame.size.width - targetWidth)/2
-        toFrame.size.width = targetWidth
+        toFrame.origin.x = model.itemFrame.origin.x + (model.itemFrame.size.width - width)/2
+        toFrame.size.width = width
         if canSelectedWithAnimation(model: model) {
-            UIView.animate(withDuration: scrollAnimationDuration, delay: 0, options: .curveEaseOut, animations: {
+            // 动画过渡改变窗体
+            UIView.animate(withDuration: scrollAnimationDuration, delay: 0, options: .curveEaseOut) {
                 self.frame = toFrame
-            }) { (_) in
             }
-        }else {
-            frame = toFrame
-        }
-    }
-
-}
-
-/// 样式为一条线的指示器
-open class IndicatorLineView: IndicatorView {
-    
-    /// lineStyle为lengthenOffset时使用，滚动时x的偏移量
-    open var lineScrollOffsetX: CGFloat = 10
-
-    public override func refreshIndicatorState(model: IndicatorSelectedParams) {
-        backgroundColor = indicatorColor
-        layer.cornerRadius = getIndicatorCornerRadius(itemFrame: model.currentSelectedItemFrame)
-
-        let width = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)
-        let height = getIndicatorHeight(itemFrame: model.currentSelectedItemFrame)
-        let x = model.currentSelectedItemFrame.origin.x + (model.currentSelectedItemFrame.size.width - width)/2
-        var y: CGFloat = 0
-        switch indicatorPosition {
-        case .top:
-            y = verticalOffset
-        case .bottom:
-            y = model.currentSelectedItemFrame.size.height - height - verticalOffset
-        case .center:
-            y = (model.currentSelectedItemFrame.size.height - height)/2 + verticalOffset
-        }
-        frame = CGRect(x: x, y: y, width: width, height: height)
-    }
-
-    open override func contentScrollViewDidScroll(model: SegmentedIndicatorTransitionParams) {
-
-        guard canHandleTransition(model: model) else { return }
-
-        let rightItemFrame = model.rightItemFrame
-        let leftItemFrame = model.leftItemFrame
-        let percent = model.percent
-        var targetX: CGFloat = leftItemFrame.origin.x
-        var targetWidth = getIndicatorWidth(itemFrame: leftItemFrame, itemContentWidth: model.leftItemContentWidth)
-
-        let leftWidth = targetWidth
-        let rightWidth = getIndicatorWidth(itemFrame: rightItemFrame, itemContentWidth: model.rightItemContentWidth)
-        let leftX = leftItemFrame.origin.x + (leftItemFrame.size.width - leftWidth)/2
-        let rightX = rightItemFrame.origin.x + (rightItemFrame.size.width - rightWidth)/2
-
-        switch lineStyle {
-        case .normal:
-            targetX = SegmentedViewTool.interpolate(from: leftX, to: rightX, percent: CGFloat(percent))
-            if indicatorWidth == SegmentedAutomaticDimension {
-                targetWidth = SegmentedViewTool.interpolate(from: leftWidth, to: rightWidth, percent: CGFloat(percent))
-            }
-        case .lengthen:
-            //前50%，只增加width；后50%，移动x并减小width
-            let maxWidth = rightX - leftX + rightWidth
-            if percent <= 0.5 {
-                targetX = leftX
-                targetWidth = SegmentedViewTool.interpolate(from: leftWidth, to: maxWidth, percent: CGFloat(percent*2))
-            }else {
-                targetX = SegmentedViewTool.interpolate(from: leftX, to: rightX, percent: CGFloat((percent - 0.5)*2))
-                targetWidth = SegmentedViewTool.interpolate(from: maxWidth, to: rightWidth, percent: CGFloat((percent - 0.5)*2))
-            }
-        case .lengthenOffset:
-            // 前50%，增加width，并少量移动x；后50%，少量移动x并减小width
-            let maxWidth = rightX - leftX + rightWidth - lineScrollOffsetX*2
-            if percent <= 0.5 {
-                targetX = SegmentedViewTool.interpolate(from: leftX, to: leftX + lineScrollOffsetX, percent: CGFloat(percent*2))
-                targetWidth = SegmentedViewTool.interpolate(from: leftWidth, to: maxWidth, percent: CGFloat(percent*2))
-            }else {
-                targetX = SegmentedViewTool.interpolate(from:leftX + lineScrollOffsetX, to: rightX, percent: CGFloat((percent - 0.5)*2))
-                targetWidth = SegmentedViewTool.interpolate(from: maxWidth, to: rightWidth, percent: CGFloat((percent - 0.5)*2))
-            }
-        }
-
-        self.frame.origin.x = targetX
-        self.frame.size.width = targetWidth
-    }
-
-    
-    public override func selectItem(model: IndicatorSelectedParams) {
-        
-        let targetWidth = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)
-        
-        var toFrame = self.frame
-        toFrame.origin.x = model.currentSelectedItemFrame.origin.x + (model.currentSelectedItemFrame.size.width - targetWidth)/2
-        toFrame.size.width = targetWidth
-        
-        if canSelectedWithAnimation(model: model) {
-            
-            UIView.animate(withDuration: scrollAnimationDuration, delay: 0, options: .curveEaseOut, animations: {
-                self.frame = toFrame
-            }) {_ in }
-            
         } else {
             frame = toFrame
         }
     }
     
+    public func contentScrollViewDidScroll(model: IndicatorTransitionParams) { }
+
 }
 
 

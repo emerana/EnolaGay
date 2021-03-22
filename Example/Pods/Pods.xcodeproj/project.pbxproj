@@ -193,6 +193,7 @@
 		8B486B6426048530001EEEB5 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B486B6126048530001EEEB5 /* Protocol.swift */; };
 		8B486B6526048530001EEEB5 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B486B6226048530001EEEB5 /* SegmentedView.swift */; };
 		8B486B6626048530001EEEB5 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B486B6326048530001EEEB5 /* Core.swift */; };
+		8B486BA2260823FB001EEEB5 /* DataSourceWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B486BA1260823FB001EEEB5 /* DataSourceWithTitle.swift */; };
 		8E7275D4B7959636452BCB124F949A4A /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C693714F1E38DC4105AB46E5C3650F4C /* SwiftyJSON-dummy.m */; };
 		8F7C84A5E6CA951DAB43143ECD09DA2B /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C0BB741F5EF7445599B491170FA902 /* MemoryStorage.swift */; };
 		908A71E8366531EFC1D68E0A4364E5DC /* MJRefreshAutoNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 406FDCA75188B766686D9E479BF9FF6F /* MJRefreshAutoNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -630,6 +631,7 @@
 		8B486B6126048530001EEEB5 /* Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		8B486B6226048530001EEEB5 /* SegmentedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
 		8B486B6326048530001EEEB5 /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		8B486BA1260823FB001EEEB5 /* DataSourceWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceWithTitle.swift; sourceTree = "<group>"; };
 		8B654D14B88F05330B621A2487097B71 /* SDWebImageError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageError.h; path = SDWebImage/Core/SDWebImageError.h; sourceTree = "<group>"; };
 		8B8FAB0D627B17EDE1366984278705D9 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CFB6E496C1453BF75A98F535E2E3C38 /* Pods-EnolaGay_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-Info.plist"; sourceTree = "<group>"; };
@@ -1382,6 +1384,7 @@
 				8B486B6126048530001EEEB5 /* Protocol.swift */,
 				8B486B6226048530001EEEB5 /* SegmentedView.swift */,
 				8B486B6326048530001EEEB5 /* Core.swift */,
+				8B486BA1260823FB001EEEB5 /* DataSourceWithTitle.swift */,
 			);
 			name = SegmentedView;
 			path = EnolaGay/Classes/SegmentedView;
@@ -2192,6 +2195,7 @@
 				C0055FA84F06E0E8BD9CFDC4339C1268 /* Label.swift in Sources */,
 				4D38F9F4422236A8E698683A63E9409F /* NavigationCtrl.swift in Sources */,
 				D18BCA6746431EB4B9040BA6155A6440 /* PageViewCtrl.swift in Sources */,
+				8B486BA2260823FB001EEEB5 /* DataSourceWithTitle.swift in Sources */,
 				7C4EB3F6BC5E25C02CD6FFC6095C4936 /* TabBarCtrl.swift in Sources */,
 				91029750B026AF7ACB0CDB0C2887521C /* TableCell.swift in Sources */,
 				99CAE5A118828713F6719B2F5D618430 /* TableViewCtrl.swift in Sources */,
