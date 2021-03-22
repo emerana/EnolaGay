@@ -45,19 +45,19 @@ open class SegmentedItemTitleModel: SegmentedItemModel {
     
     /// title 是否使用遮罩过渡。
     open var isTitleMaskEnabled: Bool = false
-    /// title 文本的宽度。
+    /// title 普通状态下文本的宽度。
     open var textWidth: CGFloat {
-        get{ return widthForTitle() }
+        let textWidth = NSString(string: title ?? "")
+            .boundingRect(with: CGSize(width: CGFloat.infinity, height: CGFloat.infinity),
+                          options: [.usesFontLeading, .usesLineFragmentOrigin],
+                          attributes: [.font: titleNormalFont],
+                          context: nil).size.width
+        return CGFloat(ceilf(Float(textWidth)))
     }
     
     /// item 左右滚动过渡时，是否允许渐变。比如 titleZoom、titleNormalColor、titleStrokeWidth 等渐变。
     open var isItemTransitionEnabled: Bool = true
 
-    /// 计算 title 的宽度。
-    private func widthForTitle() -> CGFloat {
-        let textWidth = NSString(string: title ?? "").boundingRect(with: CGSize(width: CGFloat.infinity, height: CGFloat.infinity), options: [.usesFontLeading, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : titleNormalFont], context: nil).size.width
-        return CGFloat(ceilf(Float(textWidth)))
-    }
 
 }
 
