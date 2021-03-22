@@ -276,23 +276,20 @@ public extension SegmentedView {
         }
         // 处理缩放情况
         if dataSource?.isItemWidthZoomEnabled == true {
-
             // 延时为了解决 cellwidth 变化，点击最后几个 cell，scrollToItem 会出现位置偏移 bug。需要等 cellWidth 动画渐变结束后再滚动到 index 的 cell 位置。
             let selectedAnimationDurationInMilliseconds = Int((dataSource?.selectedAnimationDuration ?? 0)*1000)
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(selectedAnimationDurationInMilliseconds)) {
                 self.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
             }
-
         } else {
             collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
-            selectedIndex = index
-            
-            // 切换 indicator
         }
-
-        let currentSelectedItemFrame = getItemFrameAt(index: selectedIndex)
         
+        selectedIndex = index
+        
+        // 更新 indicator
+        let currentSelectedItemFrame = getItemFrameAt(index: selectedIndex)
         for indicator in indicators {
             let indicatorParams = IndicatorSelectedParams(index: selectedIndex,
                                                           itemFrame: currentSelectedItemFrame,
