@@ -27,9 +27,14 @@ class ViewController: UIViewController {
         segmentedView.dataSource = segmentedCtrlDataSoruce
         segmentedView.delegate = self
 
-        let indicator = IndicatorLineView()
+        let indicator1 = IndicatorView()
+        indicator1.indicatorPosition = .top
+        indicator1.indicatorHeight = 2
+        let indicator2 = IndicatorLineView()
+        indicator2.indicatorHeight = 6
+
         // 配置指示器
-        segmentedView.indicators = [indicator]
+        segmentedView.indicators = [indicator1, indicator2]
     }
 
 

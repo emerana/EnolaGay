@@ -234,11 +234,14 @@ open class IndicatorLineView: IndicatorView {
 
     
     open override func refreshIndicatorState(model: IndicatorSelectedParams) {
+        // 确定背景色
         backgroundColor = indicatorColor
-        layer.cornerRadius = indicatorCornerRadius
+        // 确定 frame。
+        let width = indicatorWidth == SegmentedAutomaticDimension ?
+            model.contentWidth + indicatorWidthIncrement:indicatorWidth
 
-        let width = getIndicatorWidth(itemFrame: model.itemFrame, itemContentWidth: model.contentWidth)
         let height: CGFloat = (indicatorHeight == SegmentedAutomaticDimension) ?3:indicatorHeight
+        layer.cornerRadius = height/2
 
         let x = model.itemFrame.origin.x + (model.itemFrame.size.width - width)/2
         var y: CGFloat = 0
@@ -261,10 +264,12 @@ open class IndicatorLineView: IndicatorView {
         let leftItemFrame = model.leftItemFrame
         let percent = model.percent
         var targetX: CGFloat = leftItemFrame.origin.x
-        var targetWidth = getIndicatorWidth(itemFrame: leftItemFrame, itemContentWidth: model.leftItemContentWidth)
+        //        var targetWidth = getIndicatorWidth(itemFrame: leftItemFrame, itemContentWidth: model.leftItemContentWidth)
+        var targetWidth = indicatorWidth == SegmentedAutomaticDimension ?
+            model.leftItemContentWidth + indicatorWidthIncrement:indicatorWidth
 
         let leftWidth = targetWidth
-        let rightWidth = getIndicatorWidth(itemFrame: rightItemFrame, itemContentWidth: model.rightItemContentWidth)
+        let rightWidth = model.rightItemContentWidth
         let leftX = leftItemFrame.origin.x + (leftItemFrame.size.width - leftWidth)/2
         let rightX = rightItemFrame.origin.x + (rightItemFrame.size.width - rightWidth)/2
 
@@ -295,15 +300,16 @@ open class IndicatorLineView: IndicatorView {
                 targetWidth = SegmentedViewTool.interpolate(from: maxWidth, to: rightWidth, percent: CGFloat((percent - 0.5)*2))
             }
         }
-
+        
         self.frame.origin.x = targetX
         self.frame.size.width = targetWidth
     }
-
+    
     
     public override func selectItem(model: IndicatorSelectedParams) {
         
-        let targetWidth = getIndicatorWidth(itemFrame: model.itemFrame, itemContentWidth: model.contentWidth)
+        let targetWidth =  indicatorWidth == SegmentedAutomaticDimension ?
+            model.contentWidth + indicatorWidthIncrement:indicatorWidth        
         
         var toFrame = self.frame
         toFrame.origin.x = model.itemFrame.origin.x + (model.itemFrame.size.width - targetWidth)/2

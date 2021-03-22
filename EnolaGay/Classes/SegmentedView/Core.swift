@@ -191,11 +191,11 @@ open class IndicatorView: UIView, IndicatorProtocol {
     /// 指示器的宽度，默认 SegmentedViewAutomaticDimension。
     private(set) var indicatorWidth: CGFloat = SegmentedAutomaticDimension
 
-    /// 圆角程度，默认为 2。
-    open var indicatorCornerRadius: CGFloat = 2
+    /// 圆角程度，默认为 SegmentedAutomaticDimension。
+    open var indicatorCornerRadius: CGFloat = SegmentedAutomaticDimension
 
     ///  指示器的宽度是否跟随item的内容变化（而不是跟着cell的宽度变化）。indicatorWidth=SegmentedViewAutomaticDimension才能生效
-    open var isIndicatorWidthSameAsItemContent = false
+    //    open var isIndicatorWidthSameAsItemContent = false
 
     /// 指示器的宽度增量。比如需求是指示器宽度比 Cell 宽度多 10 point，就可以将该属性赋值为10。最终指示器的宽度为 indicatorWidth + indicatorWidthIncrement
     open var indicatorWidthIncrement: CGFloat = 0
@@ -237,16 +237,16 @@ open class IndicatorView: UIView, IndicatorProtocol {
     
     }
 
-    public func getIndicatorWidth(itemFrame: CGRect, itemContentWidth: CGFloat) -> CGFloat {
-        if indicatorWidth == SegmentedAutomaticDimension {
-            if isIndicatorWidthSameAsItemContent {
-                return itemContentWidth + indicatorWidthIncrement
-            } else {
-                return itemFrame.size.width + indicatorWidthIncrement
-            }
-        }
-        return indicatorWidth + indicatorWidthIncrement
-    }
+//    public func getIndicatorWidth(itemFrame: CGRect, itemContentWidth: CGFloat) -> CGFloat {
+//        if indicatorWidth == SegmentedAutomaticDimension {
+//            if isIndicatorWidthSameAsItemContent {
+//                return itemContentWidth + indicatorWidthIncrement
+//            } else {
+//                return itemFrame.size.width + indicatorWidthIncrement
+//            }
+//        }
+//        return indicatorWidth + indicatorWidthIncrement
+//    }
 
 
     public func canHandleTransition(model: IndicatorTransitionParams) -> Bool {
@@ -274,9 +274,12 @@ open class IndicatorView: UIView, IndicatorProtocol {
         // 确定背景色。
         backgroundColor = indicatorColor
         // 确定圆角。
-        layer.cornerRadius = indicatorCornerRadius
+        layer.cornerRadius = indicatorCornerRadius == SegmentedAutomaticDimension ? 2:indicatorCornerRadius
+
         // 确定 frame。
-        let width = getIndicatorWidth(itemFrame: model.itemFrame, itemContentWidth: model.contentWidth)
+        let width = indicatorWidth == SegmentedAutomaticDimension ?
+            model.contentWidth + indicatorWidthIncrement:indicatorWidth
+        
         // 高度默认为 Cell 高度
         let height: CGFloat = (indicatorHeight == SegmentedAutomaticDimension) ?
             model.itemFrame.size.height:indicatorHeight
@@ -296,10 +299,11 @@ open class IndicatorView: UIView, IndicatorProtocol {
     
     public func selectItem(model: IndicatorSelectedParams) {
 
-        let targetWidth = getIndicatorWidth(itemFrame: model.itemFrame, itemContentWidth: model.contentWidth)
+        let width = indicatorWidth == SegmentedAutomaticDimension ?
+            model.contentWidth + indicatorWidthIncrement:indicatorWidth
         var toFrame = self.frame
-        toFrame.origin.x = model.itemFrame.origin.x + (model.itemFrame.size.width - targetWidth)/2
-        toFrame.size.width = targetWidth
+        toFrame.origin.x = model.itemFrame.origin.x + (model.itemFrame.size.width - width)/2
+        toFrame.size.width = width
         if canSelectedWithAnimation(model: model) {
             // 动画过渡改变窗体
             UIView.animate(withDuration: scrollAnimationDuration, delay: 0, options: .curveEaseOut) {
