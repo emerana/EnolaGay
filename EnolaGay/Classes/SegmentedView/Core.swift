@@ -194,10 +194,7 @@ open class IndicatorView: UIView, IndicatorProtocol {
     /// 圆角程度，默认为 SegmentedAutomaticDimension。
     open var indicatorCornerRadius: CGFloat = SegmentedAutomaticDimension
 
-    ///  指示器的宽度是否跟随item的内容变化（而不是跟着cell的宽度变化）。indicatorWidth=SegmentedViewAutomaticDimension才能生效
-    //    open var isIndicatorWidthSameAsItemContent = false
-
-    /// 指示器的宽度增量。比如需求是指示器宽度比 Cell 宽度多 10 point，就可以将该属性赋值为10。最终指示器的宽度为 indicatorWidth + indicatorWidthIncrement
+    /// 指示器的宽度增量。比如需求是指示器宽度比 Cell 宽度多 10 point，就可以将该属性赋值为10。最终指示器的宽度为 indicatorWidth + indicatorWidthIncrement。
     open var indicatorWidthIncrement: CGFloat = 0
     
     /// 垂直方向偏移，指示器默认贴着底部或者顶部，verticalOffset 越大越靠近中心。
@@ -236,18 +233,6 @@ open class IndicatorView: UIView, IndicatorProtocol {
         frame = CGRect(origin: CGPoint(x: 0, y: 0), size: .zero)
     
     }
-
-//    public func getIndicatorWidth(itemFrame: CGRect, itemContentWidth: CGFloat) -> CGFloat {
-//        if indicatorWidth == SegmentedAutomaticDimension {
-//            if isIndicatorWidthSameAsItemContent {
-//                return itemContentWidth + indicatorWidthIncrement
-//            } else {
-//                return itemFrame.size.width + indicatorWidthIncrement
-//            }
-//        }
-//        return indicatorWidth + indicatorWidthIncrement
-//    }
-
 
     public func canHandleTransition(model: IndicatorTransitionParams) -> Bool {
         if model.percent == 0 || !isScrollEnabled {

@@ -309,7 +309,7 @@ open class IndicatorLineView: IndicatorView {
     public override func selectItem(model: IndicatorSelectedParams) {
         
         let targetWidth =  indicatorWidth == SegmentedAutomaticDimension ?
-            model.contentWidth + indicatorWidthIncrement:indicatorWidth        
+            model.contentWidth + indicatorWidthIncrement:indicatorWidth
         
         var toFrame = self.frame
         toFrame.origin.x = model.itemFrame.origin.x + (model.itemFrame.size.width - targetWidth)/2
