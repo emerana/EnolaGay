@@ -186,9 +186,9 @@ open class IndicatorView: UIView, IndicatorProtocol {
     /// 指示器的颜色，默认为 gray。
     open var indicatorColor: UIColor = .gray
     
-    /// 指示器的高度，默认 SegmentedAutomaticDimension（与 Cell 的高度相等）。
+    /// 指示器的高度，默认 SegmentedAutomaticDimension。
     open var indicatorHeight: CGFloat = SegmentedAutomaticDimension
-    /// 指示器的宽度，默认 SegmentedViewAutomaticDimension（与 Cell 的宽度相等）。
+    /// 指示器的宽度，默认 SegmentedViewAutomaticDimension。
     private(set) var indicatorWidth: CGFloat = SegmentedAutomaticDimension
 
     /// 圆角程度，默认为 2。
@@ -277,14 +277,10 @@ open class IndicatorView: UIView, IndicatorProtocol {
         layer.cornerRadius = indicatorCornerRadius
         // 确定 frame。
         let width = getIndicatorWidth(itemFrame: model.itemFrame, itemContentWidth: model.contentWidth)
-        var height: CGFloat = 8
+        // 高度默认为 Cell 高度
+        let height: CGFloat = (indicatorHeight == SegmentedAutomaticDimension) ?
+            model.itemFrame.size.height:indicatorHeight
 
-        if indicatorHeight == SegmentedAutomaticDimension {
-            height = model.itemFrame.height
-        } else {
-            height = indicatorHeight
-        }
-        
         let x = model.itemFrame.origin.x + (model.itemFrame.size.width - width)/2
         var y: CGFloat = 0
         switch indicatorPosition {
