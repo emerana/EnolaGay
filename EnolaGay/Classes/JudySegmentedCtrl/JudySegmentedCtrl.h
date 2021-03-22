@@ -87,6 +87,7 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlImagePosition) {
  }
  ```
  */
+__attribute__((deprecated("此控件已弃用，请使用 SegmentedView!")))
 @interface JudySegmentedCtrl : UIControl
 
 @property (nonatomic, strong) NSArray<NSString *> *sectionTitles;

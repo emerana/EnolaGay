@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PMi-JC-I0v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JEb-Qz-RLH">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -66,6 +66,53 @@
             </objects>
             <point key="canvasLocation" x="854" y="133"/>
         </scene>
+        <!--Segmented Test View Ctrl-->
+        <scene sceneID="rQp-xN-lGG">
+            <objects>
+                <viewController id="S6E-aT-GQ2" customClass="SegmentedTestViewCtrl" customModule="EnolaGay_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FO7-K6-CfG"/>
+                        <viewControllerLayoutGuide type="bottom" id="CXX-tN-vDt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w8b-j7-eQ0">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gC9-CJ-Aja" customClass="JudySegmentedCtrl">
+                                <rect key="frame" x="0.0" y="96" width="390" height="68"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="nhe-Mc-HQ9"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDI-LX-mTY" customClass="SegmentedView" customModule="EnolaGay">
+                                <rect key="frame" x="0.0" y="232" width="390" height="48"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="b4M-N1-Xmv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MDI-LX-mTY" firstAttribute="leading" secondItem="w8b-j7-eQ0" secondAttribute="leading" id="4CQ-Aq-gNT"/>
+                            <constraint firstAttribute="trailing" secondItem="MDI-LX-mTY" secondAttribute="trailing" id="4aq-ak-EHY"/>
+                            <constraint firstItem="gC9-CJ-Aja" firstAttribute="leading" secondItem="w8b-j7-eQ0" secondAttribute="leading" id="Kau-ME-Lp0"/>
+                            <constraint firstItem="gC9-CJ-Aja" firstAttribute="top" secondItem="FO7-K6-CfG" secondAttribute="bottom" constant="8" id="Rew-Mu-CQR"/>
+                            <constraint firstAttribute="trailing" secondItem="gC9-CJ-Aja" secondAttribute="trailing" id="TKZ-km-1EN"/>
+                            <constraint firstItem="MDI-LX-mTY" firstAttribute="top" secondItem="gC9-CJ-Aja" secondAttribute="bottom" constant="68" id="i06-i4-JCF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2Re-rg-PXo"/>
+                    <connections>
+                        <outlet property="segmentCtrl" destination="gC9-CJ-Aja" id="ok6-ht-g9F"/>
+                        <outlet property="segmentedView" destination="MDI-LX-mTY" id="kfT-fb-GX4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DgY-yi-8eA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1783.0769230769231" y="858.05687203791467"/>
+        </scene>
         <!--Judy Base Navigation Ctrl-->
         <scene sceneID="d30-5f-bW5">
             <objects>
@@ -84,6 +131,24 @@
             </objects>
             <point key="canvasLocation" x="29.600000000000001" y="133.5832083958021"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="G1W-ek-aMP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JEb-Qz-RLH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MK9-qw-80l">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="S6E-aT-GQ2" kind="relationship" relationship="rootViewController" id="lP2-1u-3aZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CJi-An-u0a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="853.84615384615381" y="857.34597156398104"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="igN-hf-jGL">
@@ -91,11 +156,20 @@
         </designable>
     </designables>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -1195,7 +1195,6 @@ public extension NSMutableAttributedString {
     /// - Parameter isReset: 是否重置窗口？默认 flase
     /// - Parameter offset: 偏移距离，默认 88
     func updateWindowFrame(isReset: Bool = false, offset: CGFloat = 88){
-        
         //滑动效果
         UIView.beginAnimations("ResizeKeyboard", context: nil)
         UIView.setAnimationDuration(0.30)
@@ -1207,7 +1206,6 @@ public extension NSMutableAttributedString {
             window?.frame.origin.y = -offset
         }
         UIView.commitAnimations()
-        
     }
 
     
@@ -1304,8 +1302,6 @@ public extension JudySegmentedCtrl {
         judy_configNormolStyle()
         judy_configSelectedStyle()
 
-        // 添加事件
-        //        judySegmentedCtrl.addTarget(self, action: #selector(emerana_segmentedCtrlValueChangeAction(segmentedCtrl:)), for: .valueChanged)
     }
     
     
@@ -1441,12 +1437,10 @@ public extension String {
 
     }
 
-    /// 清除字符串中的所有空格
+    /// 清除字符串中的所有空格。
     ///
     /// - Returns: "strabc"
-    func clean() -> String {
-        return self.replacingOccurrences(of: " ", with: "")
-    }
+    func clean() -> String { replacingOccurrences(of: " ", with: "") }
     
 
     /// 计算文本的 size

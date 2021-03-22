@@ -14,7 +14,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var theButton: JudyBaseButton!
     @IBOutlet weak var segmentedView: SegmentedView!
-    private let segmentedCtrlDataSoruce = SegmentedTitleDataSource()
+    private let segmentedCtrlDataSoruce = SegmentedViewTitleDataSource()
 
     
     override func viewDidLoad() {
