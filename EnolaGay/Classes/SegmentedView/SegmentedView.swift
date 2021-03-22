@@ -168,11 +168,11 @@ public extension SegmentedView {
                 totalContentWidth += itemModel.itemWidth + innerItemSpacing
             }
         }
-        // 当累计宽度小于显示宽度且 item 宽度需要平均分配，再次更新 innerItemSpacing
+        // 当累计宽度小于显示宽度且 item 宽度需要平均分配，应该更新间距而不是使 Cell 等宽。
         if dataSource!.isItemSpacingAverageEnabled && totalContentWidth < bounds.size.width {
             var itemSpacingCount = items.count - 1
             var totalItemSpacingWidth = bounds.size.width - totalItemWidth
-            
+
             if contentEdgeInsetLeft == SegmentedAutomaticDimension {
                 itemSpacingCount += 1
             } else {
@@ -276,23 +276,20 @@ public extension SegmentedView {
         }
         // 处理缩放情况
         if dataSource?.isItemWidthZoomEnabled == true {
-
             // 延时为了解决 cellwidth 变化，点击最后几个 cell，scrollToItem 会出现位置偏移 bug。需要等 cellWidth 动画渐变结束后再滚动到 index 的 cell 位置。
             let selectedAnimationDurationInMilliseconds = Int((dataSource?.selectedAnimationDuration ?? 0)*1000)
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(selectedAnimationDurationInMilliseconds)) {
                 self.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
             }
-
         } else {
             collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
-            selectedIndex = index
-            
-            // 切换 indicator
         }
-
-        let currentSelectedItemFrame = getItemFrameAt(index: selectedIndex)
         
+        selectedIndex = index
+        
+        // 更新 indicator
+        let currentSelectedItemFrame = getItemFrameAt(index: selectedIndex)
         for indicator in indicators {
             let indicatorParams = IndicatorSelectedParams(index: selectedIndex,
                                                           itemFrame: currentSelectedItemFrame,
@@ -321,6 +318,9 @@ private extension SegmentedView {
     
     /// 初始化函数
     func commonInit() {
+        // 清除用户在故事板/xib 中设置的背景色。
+        backgroundColor = .clear
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         collectionView = SegmentedCollectionView(frame: .zero, collectionViewLayout: layout)
