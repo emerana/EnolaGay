@@ -99,7 +99,7 @@ open class SegmentedCell: UICollectionViewCell {
 /// SegmentedView 中的基础 CollectionView
 open class SegmentedCollectionView: UICollectionView {
 
-    open var indicators = [IndicatorView]() {
+    open var indicators = [UIView & IndicatorProtocol]() {
         willSet {
             for indicator in indicators {
                 indicator.removeFromSuperview()
@@ -137,20 +137,18 @@ open class SegmentedCollectionView: UICollectionView {
 为什么会通过model传递数据，因为指示器处理逻辑以后会扩展不同的使用场景，会新增参数。如果不通过model传递，就会在api新增参数，一旦修改api修改的地方就特别多了，而且会影响到之前自定义实现的开发者。
 */
 public struct IndicatorSelectedParams {
-    /// 选中的索引。
+    /// 该值标识保存选中的索引。
     public let currentSelectedIndex: Int
-    /// 选中项的矩形。
+    /// 该值标识保存选中项的矩形。
     public let currentSelectedItemFrame: CGRect
-    //   public let selectedType: SegmentedItemSelectedType
-    /// 内容大小。
+    /// 该值表示内容总宽度，即指示器的宽度。
     public let currentItemContentWidth: CGFloat
-    /// collectionView 的 contentSize
+    /// collectionView 的 contentSize。
     public var collectionViewContentSize: CGSize?
     
     public init(currentSelectedIndex: Int, currentSelectedItemFrame: CGRect, currentItemContentWidth: CGFloat, collectionViewContentSize: CGSize?) {
         self.currentSelectedIndex = currentSelectedIndex
         self.currentSelectedItemFrame = currentSelectedItemFrame
-        //       self.selectedType = selectedType
         self.currentItemContentWidth = currentItemContentWidth
         self.collectionViewContentSize = collectionViewContentSize
     }
@@ -178,9 +176,13 @@ public struct IndicatorTransitionParams {
    }
 }
 
-/// 指示器 View
+/// 一个普通的标准指示器 View，如果需要自定义指示器可参考本类实现方式。
 open class IndicatorView: UIView, IndicatorProtocol {
-        
+    
+    public var isIndicatorConvertToItemFrameEnabled: Bool { true }
+
+    // MARK: 自有属性
+    
     /// 指示器的位置，默认显示在 Cell 底部。
     open var indicatorPosition: IndicatorLocation = .bottom
     
@@ -193,13 +195,13 @@ open class IndicatorView: UIView, IndicatorProtocol {
     /// 默认 SegmentedViewAutomaticDimension （等于indicatorHeight/2）。内部通过 getIndicatorCornerRadius 方法获取实际的值。
     open var indicatorCornerRadius: CGFloat = SegmentedAutomaticDimension
 
-    /// 默认 SegmentedViewAutomaticDimension（与cell的宽度相等）。内部通过getIndicatorWidth方法获取实际的值。
-    open var indicatorWidth: CGFloat = SegmentedAutomaticDimension
+    /// 默认 SegmentedViewAutomaticDimension（与 Cell 的宽度相等）。内部通过 getIndicatorWidth 方法获取实际的值。
+    private(set) var indicatorWidth: CGFloat = SegmentedAutomaticDimension
 
-    ///  指示器的宽度是否跟随item的内容变化（而不是跟着cell的宽度变化）。indicatorWidth=JXSegmentedViewAutomaticDimension才能生效
+    ///  指示器的宽度是否跟随item的内容变化（而不是跟着cell的宽度变化）。indicatorWidth=SegmentedViewAutomaticDimension才能生效
     open var isIndicatorWidthSameAsItemContent = false
 
-    /// 指示器的宽度增量。比如需求是指示器宽度比cell宽度多10 point。就可以将该属性赋值为10。最终指示器的宽度=indicatorWidth+indicatorWidthIncrement
+    /// 指示器的宽度增量。比如需求是指示器宽度比 Cell 宽度多 10 point，就可以将该属性赋值为10。最终指示器的宽度为 indicatorWidth + indicatorWidthIncrement
     open var indicatorWidthIncrement: CGFloat = 0
     
     /// 垂直方向偏移，指示器默认贴着底部或者顶部，verticalOffset越大越靠近中心。
@@ -211,9 +213,6 @@ open class IndicatorView: UIView, IndicatorProtocol {
     /// 点击选中时的滚动动画时长
     open var scrollAnimationDuration: TimeInterval = 0.25
 
-    // MARK: 协议属性
-    
-    public var isIndicatorConvertToItemFrameEnabled: Bool { true }
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -255,7 +254,7 @@ open class IndicatorView: UIView, IndicatorProtocol {
         if indicatorWidth == SegmentedAutomaticDimension {
             if isIndicatorWidthSameAsItemContent {
                 return itemContentWidth + indicatorWidthIncrement
-            }else {
+            } else {
                 return itemFrame.size.width + indicatorWidthIncrement
             }
         }
@@ -271,8 +270,8 @@ open class IndicatorView: UIView, IndicatorProtocol {
 
     public func canHandleTransition(model: IndicatorTransitionParams) -> Bool {
         if model.percent == 0 || !isScrollEnabled {
-            //model.percent等于0时不需要处理，会调用selectItem(model: JXSegmentedIndicatorParamsModel)方法处理
-            //isScrollEnabled为false不需要处理
+            // model.percent 等于0时不需要处理，会调用 selectItem(model: SegmentedIndicatorParamsModel) 方法处理
+            // isScrollEnabled 为 false 不需要处理
             return false
         }
         return true
@@ -309,10 +308,6 @@ open class IndicatorView: UIView, IndicatorProtocol {
         frame = CGRect(x: x, y: y, width: width, height: height)
     }
     
-    public func contentScrollViewDidScroll(model: IndicatorTransitionParams) { }
-    
-    
-    /// 确定指示器对应实际选中的 item 。
     public func selectItem(model: IndicatorSelectedParams) {
 
         let targetWidth = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)
@@ -320,14 +315,16 @@ open class IndicatorView: UIView, IndicatorProtocol {
         toFrame.origin.x = model.currentSelectedItemFrame.origin.x + (model.currentSelectedItemFrame.size.width - targetWidth)/2
         toFrame.size.width = targetWidth
         if canSelectedWithAnimation(model: model) {
-            UIView.animate(withDuration: scrollAnimationDuration, delay: 0, options: .curveEaseOut, animations: {
+            // 动画过渡改变窗体
+            UIView.animate(withDuration: scrollAnimationDuration, delay: 0, options: .curveEaseOut) {
                 self.frame = toFrame
-            }) { (_) in
             }
-        }else {
+        } else {
             frame = toFrame
         }
     }
+    
+    public func contentScrollViewDidScroll(model: IndicatorTransitionParams) { }
 
 }
 

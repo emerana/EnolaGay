@@ -55,7 +55,7 @@ public class SegmentedView: UIView {
     private var isFirstLayoutSubviews = true
 
     /// indicators 的元素必须是遵从 JXSegmentedIndicatorProtocol 协议的 UIView 及其子类。
-    open var indicators = [IndicatorView]() {
+    open var indicators = [UIView & IndicatorProtocol]() {
         didSet {
             collectionView.indicators = indicators
         }
@@ -286,11 +286,11 @@ public extension SegmentedView {
 
         } else {
             collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
+            selectedIndex = index
+            
+            // 切换 indicator
         }
 
-        selectedIndex = index
-        
-        // 切换 indicator
         let currentSelectedItemFrame = getItemFrameAt(index: selectedIndex)
         
         for indicator in indicators {

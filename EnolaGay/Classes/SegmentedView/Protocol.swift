@@ -111,16 +111,17 @@ public extension SegmentedViewDelegate {
 /// 指示器专用协议
 public protocol IndicatorProtocol {
     
-    /// 指示器视图重置状态时调用，以当前选中的 index 更新状态。
-    func refreshIndicatorState(model: IndicatorSelectedParams)
-
-    /// 点击选中了某一个 item 通过此函数更新指示器。
-    func selectItem(model: IndicatorSelectedParams)
-
     /// 是否需要将当前的 indicator 的 frame 转换到 Cell。辅助 SegmentedTitleDataSourced 的 isTitleMaskEnabled 属性使用。
     /// 如果添加了多个 indicator，仅能有一个 indicator 的 isIndicatorConvertToItemFrameEnabled 为 true。
     /// 如果有多个 indicator 的 isIndicatorConvertToItemFrameEnabled 为 true，则以最后一个 isIndicatorConvertToItemFrameEnabled 为 true 的 indicator 为准。
     var isIndicatorConvertToItemFrameEnabled: Bool { get }
+    
+    
+    /// 重置指示器状态，以当前选中的 index 更新状态。
+    func refreshIndicatorState(model: IndicatorSelectedParams)
+
+    /// 点击选中了某一个 item 通过此函数更新指示器。
+    func selectItem(model: IndicatorSelectedParams)
 
     /// contentScrollView 在进行手势滑动时，处理指示器跟随手势变化 UI 逻辑；
     /// param selectedIndex 当前选中的 index
