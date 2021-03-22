@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EnolaGay'
-  s.version          = '1.7.0'
-  s.summary          = 'EnolaGay，奇迹型 EMERANA！'
+  s.version          = '1.7.1'
+  s.summary          = 'EnolaGay，奇迹型 EMERANA。'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
