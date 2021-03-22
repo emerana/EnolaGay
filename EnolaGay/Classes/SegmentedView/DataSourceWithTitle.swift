@@ -327,10 +327,12 @@ open class IndicatorLineView: IndicatorView {
 
 // MARK: 内置可直接使用的数据源
 
-/// 可直接使用的适用于 SegmentedItemTitleModel 、SegmentedTitleCell 类型的数据源
+/// 可直接使用的适用于 SegmentedItemTitleModel 、SegmentedTitleCell 类型的数据源。
+/// - 自定义数据源可参考本类实现。
 open class SegmentedViewTitleDataSource: SegmentedViewDataSource {
     
     // MARK: - 协议属性
+    
     public var itemSpacing: CGFloat = 8
     public var isItemSpacingAverageEnabled: Bool = true
     public var isItemWidthZoomEnabled: Bool = false
@@ -338,7 +340,7 @@ open class SegmentedViewTitleDataSource: SegmentedViewDataSource {
 
     // MARK: - 自有属性
     
-    /// 该 title 数组用于确定 dataSource
+    /// 该 title 数组用于确定 dataSource。
     open var titles = ["大家好", "我是", "VAE", "，", "这是我即将发表的首张独创专辑", "自定义", "里面的一首", "推荐曲目", "词曲编曲都是我自己", "-->", "有何不可"]
 
     /// 真实的 item 宽度 = itemWidth + itemWidthIncrement。
