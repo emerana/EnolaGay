@@ -321,6 +321,9 @@ private extension SegmentedView {
     
     /// 初始化函数
     func commonInit() {
+        // 清除用户在故事板/xib 中设置的背景色。
+        backgroundColor = .clear
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         collectionView = SegmentedCollectionView(frame: .zero, collectionViewLayout: layout)
