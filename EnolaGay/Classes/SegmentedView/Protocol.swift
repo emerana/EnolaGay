@@ -117,10 +117,16 @@ public protocol IndicatorProtocol {
     var isIndicatorConvertToItemFrameEnabled: Bool { get }
     
     
-    /// 重置指示器状态，以当前选中的 index 更新状态。
+    /// 重置指示器，以当前选中的 index 更新状态，使其所有信息恢复至默认值。
+    ///
+    /// 通常情况下，需要在此函数中更新背景色、圆角、frame 等关键属性。
+    /// - Parameter model: 指示器详细参数。
     func refreshIndicatorState(model: IndicatorSelectedParams)
 
-    /// 点击选中了某一个 item 通过此函数更新指示器。
+    /// 点击选中了某一个 item 通过此函数更新指示器信息。
+    ///
+    /// 通常情况下，主要在此函数中更新 frame 属性。
+    /// - Parameter model: 指示器详细参数
     func selectItem(model: IndicatorSelectedParams)
 
     /// contentScrollView 在进行手势滑动时，处理指示器跟随手势变化 UI 逻辑；

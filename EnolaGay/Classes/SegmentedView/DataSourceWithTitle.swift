@@ -232,23 +232,32 @@ open class IndicatorLineView: IndicatorView {
     /// lineStyle 为 lengthenOffset 时使用，滚动时x的偏移量
     open var lineScrollOffsetX: CGFloat = 10
 
-    public override func refreshIndicatorState(model: IndicatorSelectedParams) {
-        backgroundColor = indicatorColor
-        layer.cornerRadius = getIndicatorCornerRadius(itemFrame: model.currentSelectedItemFrame)
+    private func getIndicatorHeight(itemFrame: CGRect) -> CGFloat {
+        if indicatorHeight == SegmentedAutomaticDimension {
+            return itemFrame.size.height
+        }
+        return indicatorHeight
+    }
 
-        let width = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)
-        let height = getIndicatorHeight(itemFrame: model.currentSelectedItemFrame)
-        let x = model.currentSelectedItemFrame.origin.x + (model.currentSelectedItemFrame.size.width - width)/2
+    
+    open override func refreshIndicatorState(model: IndicatorSelectedParams) {
+        backgroundColor = indicatorColor
+        layer.cornerRadius = indicatorCornerRadius
+
+        let width = getIndicatorWidth(itemFrame: model.itemFrame, itemContentWidth: model.contentWidth)
+        indicatorHeight = getIndicatorHeight(itemFrame: model.itemFrame)
+
+        let x = model.itemFrame.origin.x + (model.itemFrame.size.width - width)/2
         var y: CGFloat = 0
         switch indicatorPosition {
         case .top:
             y = verticalOffset
         case .bottom:
-            y = model.currentSelectedItemFrame.size.height - height - verticalOffset
+            y = model.itemFrame.size.height - indicatorHeight - verticalOffset
         case .center:
-            y = (model.currentSelectedItemFrame.size.height - height)/2 + verticalOffset
+            y = (model.itemFrame.size.height - indicatorHeight)/2 + verticalOffset
         }
-        frame = CGRect(x: x, y: y, width: width, height: height)
+        frame = CGRect(x: x, y: y, width: width, height: indicatorHeight)
     }
 
     open override func contentScrollViewDidScroll(model: IndicatorTransitionParams) {
@@ -301,10 +310,10 @@ open class IndicatorLineView: IndicatorView {
     
     public override func selectItem(model: IndicatorSelectedParams) {
         
-        let targetWidth = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)
+        let targetWidth = getIndicatorWidth(itemFrame: model.itemFrame, itemContentWidth: model.contentWidth)
         
         var toFrame = self.frame
-        toFrame.origin.x = model.currentSelectedItemFrame.origin.x + (model.currentSelectedItemFrame.size.width - targetWidth)/2
+        toFrame.origin.x = model.itemFrame.origin.x + (model.itemFrame.size.width - targetWidth)/2
         toFrame.size.width = targetWidth
         
         if canSelectedWithAnimation(model: model) {

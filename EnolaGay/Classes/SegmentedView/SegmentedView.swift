@@ -217,9 +217,9 @@ public extension SegmentedView {
                 indicator.isHidden = false
                 // 确定选中 item 的大小
                 let selectedItemFrame = getItemFrameAt(index: selectedIndex)
-                let indicatorParams = IndicatorSelectedParams(currentSelectedIndex: selectedIndex,
-                                                              currentSelectedItemFrame: selectedItemFrame,
-                                                              currentItemContentWidth: dataSource!.segmentedView(self, widthForItemContent: items[selectedIndex]),
+                let indicatorParams = IndicatorSelectedParams(index: selectedIndex,
+                                                              itemFrame: selectedItemFrame,
+                                                              contentWidth: dataSource!.segmentedView(self, widthForItemContent: items[selectedIndex]),
                                                               collectionViewContentSize: CGSize(width: totalContentWidth, height: bounds.size.height))
                 indicator.refreshIndicatorState(model: indicatorParams)
                 
@@ -294,9 +294,9 @@ public extension SegmentedView {
         let currentSelectedItemFrame = getItemFrameAt(index: selectedIndex)
         
         for indicator in indicators {
-            let indicatorParams = IndicatorSelectedParams(currentSelectedIndex: selectedIndex,
-                                                          currentSelectedItemFrame: currentSelectedItemFrame,
-                                                          currentItemContentWidth: dataSource!.segmentedView(self, widthForItemContent: items[selectedIndex]),
+            let indicatorParams = IndicatorSelectedParams(index: selectedIndex,
+                                                          itemFrame: currentSelectedItemFrame,
+                                                          contentWidth: dataSource!.segmentedView(self, widthForItemContent: items[selectedIndex]),
                                                           collectionViewContentSize: nil)
             indicator.selectItem(model: indicatorParams)
             

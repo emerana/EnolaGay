@@ -116,8 +116,8 @@ open class SegmentedCollectionView: UICollectionView {
         super.layoutSubviews()
 
         for indicator in indicators {
-//            sendSubviewToBack()
-            bringSubviewToFront(indicator)
+            sendSubviewToBack(indicator)
+            //bringSubviewToFront(indicator)
 
             if let backgroundView = backgroundView {
                 sendSubviewToBack(backgroundView)
@@ -132,24 +132,21 @@ open class SegmentedCollectionView: UICollectionView {
 // MARK: - Indicator
 
 
-/**
-指示器传递的数据模型，不同情况会对不同的属性赋值，根据不同情况的api说明确认。
-为什么会通过model传递数据，因为指示器处理逻辑以后会扩展不同的使用场景，会新增参数。如果不通过model传递，就会在api新增参数，一旦修改api修改的地方就特别多了，而且会影响到之前自定义实现的开发者。
-*/
+/// 指示器传递的数据模型。
 public struct IndicatorSelectedParams {
-    /// 该值标识保存选中的索引。
-    public let currentSelectedIndex: Int
-    /// 该值标识保存选中项的矩形。
-    public let currentSelectedItemFrame: CGRect
-    /// 该值表示内容总宽度，即指示器的宽度。
-    public let currentItemContentWidth: CGFloat
+    /// 选中的索引。
+    public let index: Int
+    /// 选中项的窗体(Cell)矩形。
+    public let itemFrame: CGRect
+    /// 该值表示指示器的宽度。
+    public let contentWidth: CGFloat
     /// collectionView 的 contentSize。
     public var collectionViewContentSize: CGSize?
     
-    public init(currentSelectedIndex: Int, currentSelectedItemFrame: CGRect, currentItemContentWidth: CGFloat, collectionViewContentSize: CGSize?) {
-        self.currentSelectedIndex = currentSelectedIndex
-        self.currentSelectedItemFrame = currentSelectedItemFrame
-        self.currentItemContentWidth = currentItemContentWidth
+    public init(index: Int, itemFrame: CGRect, contentWidth: CGFloat, collectionViewContentSize: CGSize?) {
+        self.index = index
+        self.itemFrame = itemFrame
+        self.contentWidth = contentWidth
         self.collectionViewContentSize = collectionViewContentSize
     }
 }
@@ -186,17 +183,16 @@ open class IndicatorView: UIView, IndicatorProtocol {
     /// 指示器的位置，默认显示在 Cell 底部。
     open var indicatorPosition: IndicatorLocation = .bottom
     
-    /// 指示器的颜色
-    open var indicatorColor: UIColor = .red
+    /// 指示器的颜色，默认为 gray。
+    open var indicatorColor: UIColor = .gray
     
-    /// 指示器的高度，默认 SegmentedViewAutomaticDimension（与cell的高度相等）。内部通过 getIndicatorHeight 方法获取实际的值。
+    /// 指示器的高度，默认 SegmentedAutomaticDimension（与 Cell 的高度相等）。
     open var indicatorHeight: CGFloat = SegmentedAutomaticDimension
-    
-    /// 默认 SegmentedViewAutomaticDimension （等于indicatorHeight/2）。内部通过 getIndicatorCornerRadius 方法获取实际的值。
-    open var indicatorCornerRadius: CGFloat = SegmentedAutomaticDimension
-
-    /// 默认 SegmentedViewAutomaticDimension（与 Cell 的宽度相等）。内部通过 getIndicatorWidth 方法获取实际的值。
+    /// 指示器的宽度，默认 SegmentedViewAutomaticDimension（与 Cell 的宽度相等）。
     private(set) var indicatorWidth: CGFloat = SegmentedAutomaticDimension
+
+    /// 圆角程度，默认为 2。
+    open var indicatorCornerRadius: CGFloat = 2
 
     ///  指示器的宽度是否跟随item的内容变化（而不是跟着cell的宽度变化）。indicatorWidth=SegmentedViewAutomaticDimension才能生效
     open var isIndicatorWidthSameAsItemContent = false
@@ -204,7 +200,7 @@ open class IndicatorView: UIView, IndicatorProtocol {
     /// 指示器的宽度增量。比如需求是指示器宽度比 Cell 宽度多 10 point，就可以将该属性赋值为10。最终指示器的宽度为 indicatorWidth + indicatorWidthIncrement
     open var indicatorWidthIncrement: CGFloat = 0
     
-    /// 垂直方向偏移，指示器默认贴着底部或者顶部，verticalOffset越大越靠近中心。
+    /// 垂直方向偏移，指示器默认贴着底部或者顶部，verticalOffset 越大越靠近中心。
     open var verticalOffset: CGFloat = 0
 
     /// 手势滚动、点击切换的时候，是否允许滚动。
@@ -236,18 +232,9 @@ open class IndicatorView: UIView, IndicatorProtocol {
     
     open func commonInit() {
 
-        backgroundColor = .red
+        backgroundColor = indicatorColor
         frame = CGRect(origin: CGPoint(x: 0, y: 0), size: .zero)
     
-        indicatorHeight = 3
-
-    }
-
-    public func getIndicatorCornerRadius(itemFrame: CGRect) -> CGFloat {
-        if indicatorCornerRadius == SegmentedAutomaticDimension {
-            return getIndicatorHeight(itemFrame: itemFrame)/2
-        }
-        return indicatorCornerRadius
     }
 
     public func getIndicatorWidth(itemFrame: CGRect, itemContentWidth: CGFloat) -> CGFloat {
@@ -261,12 +248,6 @@ open class IndicatorView: UIView, IndicatorProtocol {
         return indicatorWidth + indicatorWidthIncrement
     }
 
-    public func getIndicatorHeight(itemFrame: CGRect) -> CGFloat {
-        if indicatorHeight == SegmentedAutomaticDimension {
-            return itemFrame.size.height
-        }
-        return indicatorHeight
-    }
 
     public func canHandleTransition(model: IndicatorTransitionParams) -> Bool {
         if model.percent == 0 || !isScrollEnabled {
@@ -290,29 +271,38 @@ open class IndicatorView: UIView, IndicatorProtocol {
 
     
     public func refreshIndicatorState(model: IndicatorSelectedParams) {
+        // 确定背景色。
         backgroundColor = indicatorColor
-        layer.cornerRadius = getIndicatorCornerRadius(itemFrame: model.currentSelectedItemFrame)
+        // 确定圆角。
+        layer.cornerRadius = indicatorCornerRadius
+        // 确定 frame。
+        let width = getIndicatorWidth(itemFrame: model.itemFrame, itemContentWidth: model.contentWidth)
+        var height: CGFloat = 8
 
-        let width = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)
-        let height = getIndicatorHeight(itemFrame: model.currentSelectedItemFrame)
-        let x = model.currentSelectedItemFrame.origin.x + (model.currentSelectedItemFrame.size.width - width)/2
+        if indicatorHeight == SegmentedAutomaticDimension {
+            height = model.itemFrame.height
+        } else {
+            height = indicatorHeight
+        }
+        
+        let x = model.itemFrame.origin.x + (model.itemFrame.size.width - width)/2
         var y: CGFloat = 0
         switch indicatorPosition {
         case .top:
             y = verticalOffset
         case .bottom:
-            y = model.currentSelectedItemFrame.size.height - height - verticalOffset
+            y = model.itemFrame.size.height - height - verticalOffset
         case .center:
-            y = (model.currentSelectedItemFrame.size.height - height)/2 + verticalOffset
+            y = (model.itemFrame.size.height - height)/2 + verticalOffset
         }
         frame = CGRect(x: x, y: y, width: width, height: height)
     }
     
     public func selectItem(model: IndicatorSelectedParams) {
 
-        let targetWidth = getIndicatorWidth(itemFrame: model.currentSelectedItemFrame, itemContentWidth: model.currentItemContentWidth)
+        let targetWidth = getIndicatorWidth(itemFrame: model.itemFrame, itemContentWidth: model.contentWidth)
         var toFrame = self.frame
-        toFrame.origin.x = model.currentSelectedItemFrame.origin.x + (model.currentSelectedItemFrame.size.width - targetWidth)/2
+        toFrame.origin.x = model.itemFrame.origin.x + (model.itemFrame.size.width - targetWidth)/2
         toFrame.size.width = targetWidth
         if canSelectedWithAnimation(model: model) {
             // 动画过渡改变窗体
