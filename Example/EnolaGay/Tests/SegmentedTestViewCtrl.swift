@@ -26,7 +26,7 @@ class SegmentedTestViewCtrl: UIViewController {
     }
     
     private func setSegmentedView() {
-        segmentedViewDataSource.titles = ["作品", "喜欢", "收藏",]
+        segmentedViewDataSource.titles = ["作欢品", "喜欢欢欢欢", "收藏","收",]
         segmentedViewDataSource.titleSelectedFont = UIFont(style: .XL_B)
         segmentedViewDataSource.titleNormalFont = UIFont(style: .XL)
 
@@ -54,7 +54,7 @@ class SegmentedTestViewCtrl: UIViewController {
 
         segmentCtrl.segmentWidthStyle = .fixed
         segmentCtrl.selectionIndicatorColor = .judy(.colorStyle2)
-        segmentCtrl.sectionTitles = ["作品", "喜欢", "收藏",]
+        segmentCtrl.sectionTitles = ["作欢品", "喜欢欢欢欢欢欢", "收藏",]
         segmentCtrl.selectionIndicatorEdgeInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 48)
         segmentCtrl.backgroundColor = .white
 

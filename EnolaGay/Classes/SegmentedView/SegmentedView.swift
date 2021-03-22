@@ -168,11 +168,11 @@ public extension SegmentedView {
                 totalContentWidth += itemModel.itemWidth + innerItemSpacing
             }
         }
-        // 当累计宽度小于显示宽度且 item 宽度需要平均分配，再次更新 innerItemSpacing
+        // 当累计宽度小于显示宽度且 item 宽度需要平均分配，应该更新间距而不是使 Cell 等宽。
         if dataSource!.isItemSpacingAverageEnabled && totalContentWidth < bounds.size.width {
             var itemSpacingCount = items.count - 1
             var totalItemSpacingWidth = bounds.size.width - totalItemWidth
-            
+
             if contentEdgeInsetLeft == SegmentedAutomaticDimension {
                 itemSpacingCount += 1
             } else {

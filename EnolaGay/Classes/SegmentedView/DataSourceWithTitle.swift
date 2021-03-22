@@ -236,7 +236,7 @@ open class IndicatorLineView: IndicatorView {
         let width = indicatorWidth == SegmentedAutomaticDimension ?
             model.contentWidth + indicatorWidthIncrement:indicatorWidth
 
-        let height: CGFloat = (indicatorHeight == SegmentedAutomaticDimension) ?3:indicatorHeight
+        let height: CGFloat = (indicatorHeight == SegmentedAutomaticDimension) ?4:indicatorHeight
         layer.cornerRadius = height/2
 
         let x = model.itemFrame.origin.x + (model.itemFrame.size.width - width)/2

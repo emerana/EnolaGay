@@ -259,7 +259,7 @@ open class IndicatorView: UIView, IndicatorProtocol {
         // 确定背景色。
         backgroundColor = indicatorColor
         // 确定圆角。
-        layer.cornerRadius = indicatorCornerRadius == SegmentedAutomaticDimension ? 2:indicatorCornerRadius
+        layer.cornerRadius = indicatorCornerRadius == SegmentedAutomaticDimension ? 0:indicatorCornerRadius
 
         // 确定 frame。
         let width = indicatorWidth == SegmentedAutomaticDimension ?
