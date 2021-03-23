@@ -1035,6 +1035,41 @@ public extension NSMutableAttributedString {
 
     }
 
+    
+    /// 生成一个高配版 NSMutableAttributedString。
+    /// - warning: addAttribute() 或 addAttributes() 均需要指定一个 range，如需扩展，可模拟此函数创建新的自定义函数。
+    /// - Parameters:
+    ///   - text: 要显示的文本信息。
+    ///   - textColor: 文本颜色，若不指定该值，该颜色默认为白色。
+    ///   - textFont: 文本的字体，默认为 systemFont(ofSize: 15)。
+    ///   - highlightText: 高亮的文本，该文本应该是 text 的一部分。
+    ///   - highlightTextColor: 高亮文本的颜色，若不指定，该值默认为 nil，即使用函数内部的随机颜色。
+    ///   - highlightTextFont: 高亮状态文本的字体，默认为 systemFont(ofSize: 15)。
+    /// - Returns: attributedString。
+    convenience init(text: String, textColor: UIColor = .blue, textFont: UIFont = UIFont.systemFont(ofSize: 15), highlightText: String? = nil, highlightTextColor: UIColor? = nil, highlightTextFont: UIFont = UIFont.systemFont(ofSize: 15)) {
+        
+        self.init(string: text,
+                  attributes: [.foregroundColor: textColor, .font: textFont]
+        )
+
+        if highlightText != nil {
+            var highlightColor = #colorLiteral(red: 1, green: 0.368627451, blue: 0.6509803922, alpha: 1)
+            if highlightTextColor == nil {
+                let colors = [ #colorLiteral(red: 0.1294117647, green: 0.9098039216, blue: 1, alpha: 1), #colorLiteral(red: 0.4549019608, green: 0.6941176471, blue: 0.7843137255, alpha: 1), #colorLiteral(red: 0.1294117647, green: 0.9098039216, blue: 0.2941176471, alpha: 1), #colorLiteral(red: 0.262745098, green: 1, blue: 0.8352941176, alpha: 1), #colorLiteral(red: 1, green: 0.368627451, blue: 0.6509803922, alpha: 1), #colorLiteral(red: 0.2352941176, green: 0.8235294118, blue: 0.4784313725, alpha: 1), #colorLiteral(red: 1, green: 0.3098039216, blue: 0.4784313725, alpha: 1),]
+                //返回 0 到 N-1 范围内的一个随机数
+                highlightColor = colors[Int( arc4random_uniform(UInt32(colors.count-1))) ]
+            } else {
+                highlightColor = highlightTextColor!
+            }
+            
+            // 指定范围添加 attribute
+            addAttributes([.font: highlightTextFont,
+                           .foregroundColor: highlightColor],
+                          range: mutableString.range(of: highlightText!))
+        }
+
+    }
+
 }
 
 
