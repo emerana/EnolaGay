@@ -21,7 +21,6 @@
 		8B1AA67A25A74B600063BE04 /* JudyLivePageViewCtrl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */; };
 		8B1AA68025A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */; };
 		8B1AA68125A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */; };
-		8B486BF826087A8A001EEEB5 /* SegmentedTestViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */; };
 		8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76428F25A702C400A418F8 /* AppConfigs.swift */; };
 		8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */; };
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
@@ -413,7 +412,6 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */,
-				8B486BF826087A8A001EEEB5 /* SegmentedTestViewCtrl.swift in Sources */,
 				8B1AA67325A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */,
 				8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

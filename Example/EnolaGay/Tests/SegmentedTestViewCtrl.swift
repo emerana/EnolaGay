@@ -27,7 +27,9 @@ class SegmentedTestViewCtrl: UIViewController {
     
     private func setSegmentedView() {
         segmentedViewDataSource.titles = ["作欢品", "喜欢欢欢欢", "收藏","收",]
-        segmentedViewDataSource.isItemWidthZoomEnabled = true
+//        segmentedViewDataSource.isItemWidthZoomEnabled = true
+        segmentedViewDataSource.isItemSpacingAverageEnabled = false
+        segmentedViewDataSource.itemSpacing = 12
 
         segmentedViewDataSource.titleSelectedFont = UIFont(style: .xxxl_B)
         segmentedViewDataSource.titleNormalFont = UIFont(style: .XL)

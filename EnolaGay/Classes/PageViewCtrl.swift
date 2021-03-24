@@ -278,15 +278,13 @@ extension JudyBasePageViewCtrl: UIScrollViewDelegate {
 
 /// 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl
 ///  - warning: 本类中的 segmentedCtrl 已经和 pageViewCtrl 互相关联，无需手动配置二者关系
-open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl {
+open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDelegate {
     
     /// 分段控制器，如果有设置 pageViewCtrlToSegmentDelegate 对象，navigationSegmentedCtrl 将不会生效
-    private(set) lazy public var segmentedCtrl: JudySegmentedCtrl = {
-        let judySegmentedCtrl = JudySegmentedCtrl()
-
-        judySegmentedCtrl.judy_configSegmentedCtrl()
-
-        return judySegmentedCtrl
+    private(set) lazy public var segmentedCtrl: SegmentedView = {
+        let segmentedView = SegmentedView()
+        segmentedView.delegate = self
+        return segmentedView
     }()
 
 
@@ -294,7 +292,7 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl {
 
         super.pageViewController(pageViewController, didFinishAnimating: finished, previousViewControllers: previousViewControllers, transitionCompleted: completed)
         
-        segmentedCtrl.setSelectedSegmentIndex(UInt(lastSelectIndex), animated: true)
+        segmentedCtrl.selectItem(at: lastSelectIndex)
 
     }
     
@@ -307,11 +305,10 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl {
     /// * backgroundColor = .clear
     /// * 配置 configSegmentedStyle 函数
     /// - Parameter isLesser: 是否较少内容，默认false，若需要使 segmentedCtrl 宽度适应内容宽度传入 true
-    public func setSegmentedCtrl(isLesser: Bool = false) {
+    open func setSegmentedCtrl(isLesser: Bool = false) {
         
         //  segmentedCtrl.frame = judy_navigationCtrller().navigationBar.frame
         //  设置 title 数据源
-        segmentedCtrl.sectionTitles = viewCtrlTitleArray
         segmentedCtrl.backgroundColor = .clear
         
         if isLesser {
@@ -324,18 +321,13 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl {
         
         //  替换 titleView
         //  navigationItem.titleView = segmentedCtrl
-        segmentedCtrl.judy_configNormolStyle(color: .judy(.text))
-        segmentedCtrl.judy_configSelectedStyle(color: .judy(.text))
-        
-        segmentedCtrl.addTarget(self, action: #selector(emerana_segmentedCtrlValueChangeAction(segmentedCtrl:)), for: .valueChanged)
     }
     
-    // segmentCtrl 改变当前显示的界面
-    @objc public func emerana_segmentedCtrlValueChangeAction(segmentedCtrl: JudySegmentedCtrl) {
+    open func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int) {
         
         isScrollByViewCtrl = false
         // segmentedCtrl 改变 viewControllers
-        let index = segmentedCtrl.selectedSegmentIndex
+        let index = index
         if index >= viewCtrlArray.count {
             Judy.log("切换目标 index 不在 viewCtrlArray 范围")
             return
@@ -346,12 +338,13 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl {
         lastSelectIndex = index
         
     }
-
+    
 
 }
 
 @available(*, unavailable, message: "该协议已变更命名，请更新", renamed: "EMERANA_JudyLivePageViewCtrl")
 public protocol EMERANA_JudyBasePageViewCtrlLiveModel {}
+
 /// 在 JudyLivePageViewCtrl 中，适用创建 UIViewCtrl 模型的协议
 public protocol EMERANA_JudyLivePageViewCtrl: UIViewController {
     

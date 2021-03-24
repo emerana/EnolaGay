@@ -175,8 +175,10 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     var mj_header: MJRefreshNormalHeader? { get }
     /// 底部刷新控件，可通过该属性设置上拉加载时的样式
     var mj_footer: MJRefreshBackNormalFooter? { get }
-
     
+    /// 询问分页请求中的当前页码字段，通常为 "page"，否则请重写此函数以配置正确的字段名。
+    func pageParameterString() -> String
+
     /// 初始化上下拉刷新控件，一般应该在 viewDidLoad() 执行。
     ///
     /// 该函数应该由包含集合视图的 ViewCtrl 实现并 final，子类也无需再次调用该函数。
@@ -1035,6 +1037,45 @@ public extension NSMutableAttributedString {
 
     }
 
+    
+    /// 生成一个高配版 NSMutableAttributedString。
+    /// - warning: addAttribute() 或 addAttributes() 均需要指定一个 range，如需扩展，可模拟此函数创建新的自定义函数。
+    /// - Parameters:
+    ///   - text: 要显示的文本信息。
+    ///   - textColor: 文本颜色，若不指定该值，该颜色默认为白色。
+    ///   - textFont: 文本的字体，默认为 systemFont(ofSize: 15)。
+    ///   - highlightText: 高亮的文本，该文本应该是 text 的一部分。
+    ///   - highlightTextColor: 高亮文本的颜色，若不指定，该值默认为 nil，即使用函数内部的随机颜色。
+    ///   - highlightTextFont: 高亮状态文本的字体，默认为 systemFont(ofSize: 15)。
+    /// - Returns: attributedString。
+    convenience init(text: String, textColor: UIColor = .blue, textFont: UIFont = UIFont.systemFont(ofSize: 15), highlightText: String? = nil, highlightTextColor: UIColor? = nil, highlightTextFont: UIFont = UIFont.systemFont(ofSize: 15)) {
+        
+        self.init(string: text,
+                  attributes: [.foregroundColor: textColor,
+                               .font: textFont]
+        )
+        //        NSBaselineOffsetAttributeName:@(([UIFont systemFontOfSize:30].lineHeight - [UIFont systemFontOfSize:15].lineHeight)/2 + (([UIFont systemFontOfSize:30].descender - [UIFont systemFontOfSize:15].descender))),
+        //                                  NSParagraphStyleAttributeName
+        
+        if highlightText != nil {
+            var highlightColor = #colorLiteral(red: 1, green: 0.368627451, blue: 0.6509803922, alpha: 1)
+            if highlightTextColor == nil {
+                let colors = [ #colorLiteral(red: 0.1294117647, green: 0.9098039216, blue: 1, alpha: 1), #colorLiteral(red: 0.4549019608, green: 0.6941176471, blue: 0.7843137255, alpha: 1), #colorLiteral(red: 0.1294117647, green: 0.9098039216, blue: 0.2941176471, alpha: 1), #colorLiteral(red: 0.262745098, green: 1, blue: 0.8352941176, alpha: 1), #colorLiteral(red: 1, green: 0.368627451, blue: 0.6509803922, alpha: 1), #colorLiteral(red: 0.2352941176, green: 0.8235294118, blue: 0.4784313725, alpha: 1), #colorLiteral(red: 1, green: 0.3098039216, blue: 0.4784313725, alpha: 1),]
+                //返回 0 到 N-1 范围内的一个随机数
+                highlightColor = colors[Int( arc4random_uniform(UInt32(colors.count-1))) ]
+            } else {
+                highlightColor = highlightTextColor!
+            }
+            
+            // 指定范围添加 attribute
+            addAttributes([.font: highlightTextFont,
+                           .foregroundColor: highlightColor],
+                          range: mutableString.range(of: highlightText!))
+        }
+        
+    }
+
+
 }
 
 
@@ -1264,72 +1305,6 @@ public extension NSMutableAttributedString {
 
 // MARK: - JudySegmentCtrl 扩展
 
-public extension JudySegmentedCtrl {
-
-    /// 快速配置 JudySegmentedCtrl
-    ///
-    /// 此函数将快速设置 JudySegmentedCtrl 一些基础属性以便直接调用或设置
-    /// - warning:该函数应该在 JudySegmentedCtrl 创建的最初时机调用，其他属性的配置均应该在此函数之后调用
-    /// - Parameters:
-    ///   - indicatorHeight: JudySegmentedCtrl 指示器的高度，若将该值设为0，则为 none (没有指示器)
-    final func judy_configSegmentedCtrl(withIndicatorHeight indicatorHeight: CGFloat = 2) {
-        
-        //  标题数组
-        sectionTitles = ["请设置-->", "sectionTitles"]
-        //  segmentedCtrl默认选中的下标
-        selectedSegmentIndex = 0
-        //  指定段宽度的样式，布局样式，fixed为固定平摊，dynamic为根据文字内容来决定大小
-        segmentWidthStyle = .fixed //.dynamic
-        //  segmentedCtrl.segmentEdgeInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        //  segmentedCtrl.autoresizingMask =
-        //UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
-        
-        // 选中指示器
-        if indicatorHeight == 0 {
-            selectionIndicatorLocation = .none
-        } else {
-            // 指定选择指示器的样式。
-            selectionStyle = .textWidthStripe
-            //  指定选择指示器的位置。
-            selectionIndicatorLocation = .down
-            // 不透明度
-            selectionIndicatorBoxOpacity = 1
-            selectionIndicatorHeight = indicatorHeight
-            // 选中指示器线条的宽度通过偏移量设置，右边 = 左边 *2
-            selectionIndicatorEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 16)
-        }
-        
-        judy_configNormolStyle()
-        judy_configSelectedStyle()
-
-    }
-    
-    
-    /// 设置 JudySegmentedCtrl 普通状态下的字体及颜色
-    final func judy_configNormolStyle(color newColor: UIColor = .judy(.text), font newFont: UIFont = UIFont(style: .M)) {
-        
-        //  普通状态下的字体及颜色
-        titleTextAttributes = [
-            NSAttributedString.Key.font: newFont,
-            NSAttributedString.Key.foregroundColor: newColor
-        ]
-    }
-    
-    
-    /// 设置 JudySegmentedCtrl 选中（高亮）状态下的字体及颜色，包含指示器的颜色
-    final func judy_configSelectedStyle(color newColor: UIColor = .judy(.text), font newFont: UIFont = UIFont(style: .M)) {
-        // 选中（高亮）状态下的字体及颜色
-        selectedTitleTextAttributes = [
-            NSAttributedString.Key.font: newFont,
-            NSAttributedString.Key.foregroundColor: newColor
-        ]
-        
-        // 选中指示器线条颜色，默认和选中状态下的文本颜色一致
-        selectionIndicatorColor = newColor
-    }
-    
-    
-}
 
 
 // MARK: - UIAlertController 扩展
