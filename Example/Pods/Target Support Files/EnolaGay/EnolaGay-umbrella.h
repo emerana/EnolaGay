@@ -10,7 +10,6 @@
 #endif
 #endif
 
-#import "JudySegmentedCtrl.h"
 
 FOUNDATION_EXPORT double EnolaGayVersionNumber;
 FOUNDATION_EXPORT const unsigned char EnolaGayVersionString[];

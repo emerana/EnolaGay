@@ -16,7 +16,6 @@
 		03DE67DB6413495762941B62DC219BEC /* SDAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C131A6F7E818B44BC0960EFEB08727F /* SDAnimatedImageView.m */; };
 		0517C2ABB76CD6ACFC9E2DE9B7FEAE32 /* UIImage+MemoryCacheCost.h in Headers */ = {isa = PBXBuildFile; fileRef = E097A4FF305CAF8BC77E03E0CF56C572 /* UIImage+MemoryCacheCost.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0575A16906FB67C91284BCB090B76FEB /* MJRefreshStateTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6409128E6A6B5C940753716C46934DFA /* MJRefreshStateTrailer.m */; };
-		065417061C3949D2DD1AD85DCC8F1969 /* JudySegmentedCtrl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1895B14D5589E022D1894AE493A522EC /* JudySegmentedCtrl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		08FE680DE1D040D9B1D8DA54DBB50B3E /* SDWebImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC68CACD012C5A9883A21866F799194 /* SDWebImage-dummy.m */; };
 		0A5F224C27B4D20DB90B2C6C7FB2F888 /* SDAnimatedImageRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C026743A63C00F4AE29554C9308E49 /* SDAnimatedImageRep.m */; };
 		0B0278427518F7B5276C45603A91A9F3 /* MemoryCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F9E0CF8237D51407A43A6359B228D9 /* MemoryCapsule.swift */; };
@@ -100,7 +99,6 @@
 		47B5133398AF1CB7A039146A2D6F19CD /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB24AC856385B5983AFB03519E7E965 /* UIView+WebCacheOperation.m */; };
 		4A34932D4DA80F7707F837CB8B15E775 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F8EE5D26851B954D3D4E1A6F57E652 /* TextField.swift */; };
 		4AA5AB8383761D4BFE7416C12E7CCF25 /* SDFileAttributeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D237252072B26E2D65BC1AC22D82BF9E /* SDFileAttributeHelper.m */; };
-		4BFB6D13934A9C406772191F4F4113D3 /* JudySegmentedCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C574A461FAFF227DB5B850823CFABE2 /* JudySegmentedCtrl.m */; };
 		4D38F9F4422236A8E698683A63E9409F /* NavigationCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715A1BD09BF4CD9F54CCB4909245A9B9 /* NavigationCtrl.swift */; };
 		4D3A389FCB91D043CA3AC9B4015455E8 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA70B51DF38AD54CA8CCF14E8BDDBFFA /* MJRefreshFooter.m */; };
 		4DA84828909936C6DA068A5FEDE0D484 /* SDImageCachesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D30BD712D38EB36777A4A02BB7C1BDF /* SDImageCachesManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -433,7 +431,6 @@
 		0865490EBF61451C7050698BEA2732F0 /* SDImageCacheDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCacheDefine.h; path = SDWebImage/Core/SDImageCacheDefine.h; sourceTree = "<group>"; };
 		0A34F357D4611F88452A339244F7BAC6 /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		0AC3717348B4EB3ED45ECBB0A458C941 /* MJRefreshAutoStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoStateFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.m; sourceTree = "<group>"; };
-		0C574A461FAFF227DB5B850823CFABE2 /* JudySegmentedCtrl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JudySegmentedCtrl.m; sourceTree = "<group>"; };
 		0C75D8FABFA07BBEC927003546928A2D /* JudyBaseSearchViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyBaseSearchViewCtrl.swift; sourceTree = "<group>"; };
 		0C8ABBDF8B333EE269FD3EDDFEFC75DF /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CEFDD9A66B37C1F1766D6E113DCD5F8 /* EnolaGay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EnolaGay.debug.xcconfig; sourceTree = "<group>"; };
@@ -462,7 +459,6 @@
 		16D6F075D26E0686B4DF1A19966C4A1E /* EnolaGay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EnolaGay.release.xcconfig; sourceTree = "<group>"; };
 		177E2AB7BA2F2A33AE68604EA08CA787 /* MJRefreshAutoGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoGifFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.h; sourceTree = "<group>"; };
 		179710D2CE0D539EF921F9AA9DECD6A8 /* SDAnimatedImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDAnimatedImage.m; path = SDWebImage/Core/SDAnimatedImage.m; sourceTree = "<group>"; };
-		1895B14D5589E022D1894AE493A522EC /* JudySegmentedCtrl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JudySegmentedCtrl.h; sourceTree = "<group>"; };
 		189DD8280559FD49BD16B3CAB2113B0A /* Alamofire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.release.xcconfig; sourceTree = "<group>"; };
 		18FD1869758DE8443B11A20ABED33137 /* MemoryConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MemoryConfig.swift; path = Source/Shared/Configuration/MemoryConfig.swift; sourceTree = "<group>"; };
 		1915D021DEEC89651C484B289867592C /* Pods-EnolaGay_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -900,7 +896,6 @@
 				F1944B51F6AF054C217C276D24C28265 /* ViewCtrl.swift */,
 				8B486B6026048530001EEEB5 /* SegmentedView */,
 				7669AFCE33460F98882099D82E5F9943 /* Judy */,
-				7CC62BBC6BE27BABC253343F34BF32CB /* JudySegmentedCtrl */,
 				459C85BC2BE4CC472264E05E37B71781 /* JudyTextFieldEffects */,
 				DC5E28D764338A509789CA168A65418F /* Pod */,
 				6D6ADAAD116195E68B19D5112DB411AD /* SearchViewCtrl */,
@@ -1287,16 +1282,6 @@
 			path = Cache;
 			sourceTree = "<group>";
 		};
-		7CC62BBC6BE27BABC253343F34BF32CB /* JudySegmentedCtrl */ = {
-			isa = PBXGroup;
-			children = (
-				1895B14D5589E022D1894AE493A522EC /* JudySegmentedCtrl.h */,
-				0C574A461FAFF227DB5B850823CFABE2 /* JudySegmentedCtrl.m */,
-			);
-			name = JudySegmentedCtrl;
-			path = EnolaGay/Classes/JudySegmentedCtrl;
-			sourceTree = "<group>";
-		};
 		804CE5F7DE52B48C537F18B6A9867AB0 /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -1620,7 +1605,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				80893317D77413AAF2A8B34812886894 /* EnolaGay-umbrella.h in Headers */,
-				065417061C3949D2DD1AD85DCC8F1969 /* JudySegmentedCtrl.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2187,7 +2171,6 @@
 				9C2E8ECC9AD962B591804486207F83F5 /* JudySearchView.swift in Sources */,
 				8B486B6426048530001EEEB5 /* Protocol.swift in Sources */,
 				26EED3D36E2AA9B3BB554A844B42E1AB /* JudySearchView.xib in Sources */,
-				4BFB6D13934A9C406772191F4F4113D3 /* JudySegmentedCtrl.m in Sources */,
 				7182A99B417B9BA55167C47616C6B733 /* JudyTextFieldsEffects.swift in Sources */,
 				DEC2C294C600EBBB0186F7CB0BF02C8F /* JudyTip.swift in Sources */,
 				BD9AFFDD32B4F29498A9AF76DAE7ADBF /* JudyYokoTextField.swift in Sources */,
