@@ -454,21 +454,6 @@ public extension UIViewController {
 }
 
 
-
-public extension UIViewController {
-
-    @available(*, unavailable, message: "请使用 JudySegmentedCtrl 对象调用 judy_configSegmentedCtrl 函数，并重新绑定目标事件")
-    final func judy_configSegmentedCtrl(withSegmentedCtrl judySegmentedCtrl: JudySegmentedCtrl, withIndicatorHeight indicatorHeight: CGFloat = 2) {}
-    
-    @available(*, unavailable, message: "请使用 JudySegmentedCtrl 对象调用 judy_configNormolStyle 函数")
-    final func judy_configSegmentedNormolStyle(withSegmentedCtrl judySegmentedCtrl: JudySegmentedCtrl, color newColor: UIColor = .judy(.text), font newFont: UIFont = UIFont(style: .M)) {}
-    
-    @available(*, unavailable, message: "请使用 JudySegmentedCtrl 对象调用 judy_configSelectedStyle 函数")
-    final func judy_configSegmentedSelectedStyle(withSegmentedCtrl judySegmentedCtrl: JudySegmentedCtrl, color newColor: UIColor = .judy(.text), font newFont: UIFont = UIFont(style: .M)) {}
-
-}
-
-
 // MARK: - UIViewController 其他扩展函数
 
 public extension UIViewController {

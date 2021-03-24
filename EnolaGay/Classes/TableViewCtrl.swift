@@ -222,6 +222,8 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
 
     // MARK: - override - 重写重载父类的方法
     
+    open func pageParameterString() -> String { "page" }
+
     
     // MARK: Api相关
 
@@ -234,7 +236,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     ///requestConfig.parameters?["userName"] = "Judy"
     ///```
     /// - warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage，子类请 super
-    open override func setApi() { requestConfig.parameters?["page"] = currentPage }
+    open override func setApi() { requestConfig.parameters?[pageParameterString()] = currentPage }
     
     open override func reqNotApi() {
         if isAddMore {
