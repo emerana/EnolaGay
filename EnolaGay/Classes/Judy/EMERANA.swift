@@ -175,8 +175,10 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     var mj_header: MJRefreshNormalHeader? { get }
     /// 底部刷新控件，可通过该属性设置上拉加载时的样式
     var mj_footer: MJRefreshBackNormalFooter? { get }
-
     
+    /// 询问分页请求中的当前页码字段，通常为 "page"，否则请重写此函数以配置正确的字段名。
+    func pageParameterString() -> String
+
     /// 初始化上下拉刷新控件，一般应该在 viewDidLoad() 执行。
     ///
     /// 该函数应该由包含集合视图的 ViewCtrl 实现并 final，子类也无需再次调用该函数。

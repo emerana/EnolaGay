@@ -270,7 +270,9 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     
     // MARK: - override - 重写重载父类的方法
     
+    open func pageParameterString() -> String { "page" }
     
+
     // MARK: Api相关
         
     /// 设置 api、param.
@@ -280,9 +282,9 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     ///requestConfig.api = .???
     ///requestConfig.parameters?["userName"] = "Judy"
     ///```
-    /// - warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage
+    /// - Warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage
     /// - since: V1.1 2020年11月06日13:33:18
-    open override func setApi() { requestConfig.parameters?["page"] = currentPage }
+    open override func setApi() { requestConfig.parameters?[pageParameterString()] = currentPage }
     
     open override func reqNotApi() {
         if isAddMore {
