@@ -1051,9 +1051,12 @@ public extension NSMutableAttributedString {
     convenience init(text: String, textColor: UIColor = .blue, textFont: UIFont = UIFont.systemFont(ofSize: 15), highlightText: String? = nil, highlightTextColor: UIColor? = nil, highlightTextFont: UIFont = UIFont.systemFont(ofSize: 15)) {
         
         self.init(string: text,
-                  attributes: [.foregroundColor: textColor, .font: textFont]
+                  attributes: [.foregroundColor: textColor,
+                               .font: textFont]
         )
-
+        //        NSBaselineOffsetAttributeName:@(([UIFont systemFontOfSize:30].lineHeight - [UIFont systemFontOfSize:15].lineHeight)/2 + (([UIFont systemFontOfSize:30].descender - [UIFont systemFontOfSize:15].descender))),
+        //                                  NSParagraphStyleAttributeName
+        
         if highlightText != nil {
             var highlightColor = #colorLiteral(red: 1, green: 0.368627451, blue: 0.6509803922, alpha: 1)
             if highlightTextColor == nil {
@@ -1069,8 +1072,9 @@ public extension NSMutableAttributedString {
                            .foregroundColor: highlightColor],
                           range: mutableString.range(of: highlightText!))
         }
-
+        
     }
+
 
 }
 
