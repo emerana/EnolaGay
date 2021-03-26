@@ -942,38 +942,44 @@ public extension UILabel {
     
     // MARK: NSMutableAttributedString 函数
     
-    /// 设置部分文字高亮
-    /// - warning: label 的 attributedText 不能直接添加属性，需先转换成 NSMutableAttributedString。
+    /// 为当前 Label 显示的文本中设置部分文字高亮。
     /// - Parameters:
-    ///   - highlightedText: label 中需要要高亮的文本
-    ///   - highlightedColor: 高亮颜色，默认红色
-    func judy_setHighlighted(text highlightedText: String, color highlightedColor: UIColor = .red) {
+    ///   - highlightedText: label 中需要要高亮的文本。
+    ///   - highlightedColor: 高亮部分文本颜色，默认 nil，即使用原有字体。
+    ///   - highlightedFont: 高亮部分文本字体，默认为 nil，即使用原有字体。
+    /// - Warning: 在调用此函数前 label.text 不能为 nil。
+    func judy_setHighlighted(text highlightedText: String, color highlightedColor: UIColor? = nil, font highlightedFont: UIFont? = nil) {
+        // attributedText 即 label.text，所以直接判断 attributedText 不为 nil 即可。
         guard attributedText != nil else { return }
+        //  attributedText: 为该属性分配新值也会将 text 属性的值替换为相同的字符串数据，但不包含任何格式化信息。此外，分配一个新值将更新字体、textColor 和其他与样式相关的属性中的值，以便它们反映从带属性字符串的位置 0 开始的样式信息。
         
-        // 将 label 的 NSAttributedString 转换成 NSMutableAttributedString
+        // 将 label 的 NSAttributedString 转换成 NSMutableAttributedString。
         let attributedString = NSMutableAttributedString(attributedString: attributedText!)
         
-        //        attributedString.addAttributes(
-        //            [.foregroundColor: highlightedColor],
-        //            // 指定范围
-        //            range: attributedString.mutableString.range(of: highlightedText)
-        //        )
+        // 添加多个属性。
+        attributedString.addAttributes(
+            [
+                .foregroundColor: (highlightedColor ?? textColor) as Any,
+                .font: (highlightedFont ?? font) as Any],
+            // 指定范围
+            range: attributedString.mutableString.range(of: highlightedText)
+        )
         
-        // 指定范围的文字高亮
-        attributedString.addAttribute(.foregroundColor, value: highlightedColor, range: attributedString.mutableString.range(of: highlightedText))
-        
-        // 重新赋值
+        // 添加单个属性
+        // attributedString.addAttribute(.foregroundColor, value: highlightedColor as Any, range: attributedString.mutableString.range(of: highlightedText))
+
+        // 重新给 label 的 attributedText 赋值。
         attributedText  = attributedString
     }
     
     
     /// 给 label 设置一个全新的 attributedText
-    /// - warning: 此函数将覆盖 label 的 text/attributedText。
     /// - Parameters:
     ///   - text: 显示的完整文本
     ///   - textColor: 显示的文本颜色，默认蓝色
     ///   - highlightText: 在 text 中要高亮的文本，默认为 nil
     ///   - highlightTextColor: 要高亮的文本颜色，默认为红色
+    /// - Warning: 此函数将覆盖 label 的 text/attributedText。
     func judy_attributedText(text: String, textColor: UIColor = .blue, highlightText: String? = nil, highlightTextColor: UIColor = .red) {
         
         // 创建 NSMutableAttributedString
