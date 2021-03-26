@@ -956,7 +956,7 @@ public extension UILabel {
         // 将 label 的 NSAttributedString 转换成 NSMutableAttributedString。
         let attributedString = NSMutableAttributedString(attributedString: attributedText!)
         
-        // 添加多个属性。
+        // 一次性添加多个属性。
         attributedString.addAttributes(
             [
                 .foregroundColor: (highlightedColor ?? textColor) as Any,
@@ -965,87 +965,50 @@ public extension UILabel {
             range: attributedString.mutableString.range(of: highlightedText)
         )
         
-        // 添加单个属性
-        // attributedString.addAttribute(.foregroundColor, value: highlightedColor as Any, range: attributedString.mutableString.range(of: highlightedText))
+        // 指定范围单个添加 addAttribute。
+        /*
+         attributedString.addAttribute(.foregroundColor, value: highlightedColor, range: attributedString.mutableString.range(of: highlightedText))
+         attributedString.addAttribute(.foregroundColor, value: highlightTextColor, range: attributedString.mutableString.range(of: highlightText!))
+         attributedString.addAttribute(.link, value: "https://www.baidu.com", range: attributed.mutableString.range(of: "《直播主播入驻协议》"))
+         attributedString.addAttribute(.underlineColor, value: UIColor.clear, range: attributed.mutableString.range(of: "《直播主播入驻协议》"))
+         attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: attributed.mutableString.range(of: "《直播主播入驻协议》"))
+         attributedString.mutableString.range(of: "《直播主播入驻协议》")
+         attributedText = attributed
+        */
 
         // 重新给 label 的 attributedText 赋值。
         attributedText  = attributedString
     }
     
     
-    /// 给 label 设置一个全新的 attributedText
-    /// - Parameters:
-    ///   - text: 显示的完整文本
-    ///   - textColor: 显示的文本颜色，默认蓝色
-    ///   - highlightText: 在 text 中要高亮的文本，默认为 nil
-    ///   - highlightTextColor: 要高亮的文本颜色，默认为红色
-    /// - Warning: 此函数将覆盖 label 的 text/attributedText。
-    func judy_attributedText(text: String, textColor: UIColor = .blue, highlightText: String? = nil, highlightTextColor: UIColor = .red) {
-        
-        // 创建 NSMutableAttributedString
-        let attributedString = NSMutableAttributedString(string: text,
-                                                         attributes: [ .foregroundColor: textColor ]
-        )
-        
-        if highlightText != nil {
-            
-            // 指定范围添加 attribute
-            attributedString.addAttribute(.foregroundColor, value: highlightTextColor, range: attributedString.mutableString.range(of: highlightText!))
-        }
-        
-        // 单个添加 addAttribute
-        // let attributed = EMERANA.judy.judy_highlightAttributedString(text: "我已阅读并同意《直播主播入驻协议》", textColor: .judy(.colorStyle4), highlightText: "《直播主播入驻协议》", highlightTextColor: .judy(.colorStyle2))
-        //        attributed.addAttribute(.link, value: "https://www.baidu.com", range: attributed.mutableString.range(of: "《直播主播入驻协议》"))
-        //        attributed.addAttribute(.underlineColor, value: UIColor.clear, range: attributed.mutableString.range(of: "《直播主播入驻协议》"))
-        //        attributed.addAttribute(.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: attributed.mutableString.range(of: "《直播主播入驻协议》"))
-        //        attributed.mutableString.range(of: "《直播主播入驻协议》")
-        // label.attributedText = attributed
-
-        // 给属性赋值
-        attributedText  = attributedString
-
-    }
-    
-    
+    @available(*, unavailable, message: "此函数以废弃，请参考 judy_setHighlighted 函数")
+    func judy_attributedText(text: String, textColor: UIColor = .blue, highlightText: String? = nil, highlightTextColor: UIColor = .red) {}
 }
 
 
 // MARK: - NSAttributedString 扩展函数
 public extension NSMutableAttributedString {
     
-    /// 生成一个 NSMutableAttributedString
-    /// - warning: addAttribute() 或 addAttributes() 均需要指定一个 range，如需扩展，可模拟此函数创建新的自定义函数。
+    /// 生成一个 NSMutableAttributedString。
     /// - Parameters:
-    ///   - text: 要显示的文本信息
-    ///   - textColor: 文本颜色，若不指定该值，该颜色默认为白色
-    ///   - highlightText: 高亮的文本，该文本应该是 text 的一部分
-    ///   - highlightTextColor: 高亮文本的颜色，若不指定，该值默认为 nil，即使用函数内部的随机颜色
-    /// - Returns: attributedString
+    ///   - text: 要显示的文本信息。
+    ///   - textColor: 文本颜色，若不指定该值，该颜色默认为白色。
+    ///   - highlightText: 高亮的文本，该文本应该是 text 的一部分。
+    ///   - highlightTextColor: 高亮文本的颜色，若不指定，该值默认为 nil，即使用函数内部的随机颜色。
+    /// - Returns: attributedString。
+    /// - Warning: addAttribute() 或 addAttributes() 均需要指定一个。 range，如需扩展，可模拟此函数创建新的自定义函数。
     convenience init(text: String, textColor: UIColor = .blue, highlightText: String? = nil, highlightTextColor: UIColor? = nil) {
-        
-        self.init(string: text,
-                  attributes: [.foregroundColor: textColor ]
-        )
-
+        self.init(string: text, attributes: [.foregroundColor: textColor])
+        // self.init(string: text)
+    
         if highlightText != nil {
-            var highlightColor = #colorLiteral(red: 1, green: 0.368627451, blue: 0.6509803922, alpha: 1)
-            if highlightTextColor == nil {
-                let colors = [ #colorLiteral(red: 0.1294117647, green: 0.9098039216, blue: 1, alpha: 1), #colorLiteral(red: 0.4549019608, green: 0.6941176471, blue: 0.7843137255, alpha: 1), #colorLiteral(red: 0.1294117647, green: 0.9098039216, blue: 0.2941176471, alpha: 1), #colorLiteral(red: 0.262745098, green: 1, blue: 0.8352941176, alpha: 1), #colorLiteral(red: 1, green: 0.368627451, blue: 0.6509803922, alpha: 1), #colorLiteral(red: 0.2352941176, green: 0.8235294118, blue: 0.4784313725, alpha: 1), #colorLiteral(red: 1, green: 0.3098039216, blue: 0.4784313725, alpha: 1),]
-                //返回 0 到 N-1 范围内的一个随机数
-                highlightColor = colors[Int( arc4random_uniform(UInt32(colors.count-1))) ]
-            } else {
-                highlightColor = highlightTextColor!
-            }
-            
             // 指定范围添加 attribute
-            addAttribute(.foregroundColor, value: highlightColor, range: mutableString.range(of: highlightText!))
+            addAttribute(.foregroundColor, value: highlightTextColor ?? textColor, range: mutableString.range(of: highlightText!))
         }
 
     }
 
-    
     /// 生成一个高配版 NSMutableAttributedString。
-    /// - warning: addAttribute() 或 addAttributes() 均需要指定一个 range，如需扩展，可模拟此函数创建新的自定义函数。
     /// - Parameters:
     ///   - text: 要显示的文本信息。
     ///   - textColor: 文本颜色，若不指定该值，该颜色默认为白色。
@@ -1054,29 +1017,25 @@ public extension NSMutableAttributedString {
     ///   - highlightTextColor: 高亮文本的颜色，若不指定，该值默认为 nil，即使用函数内部的随机颜色。
     ///   - highlightTextFont: 高亮状态文本的字体，默认为 systemFont(ofSize: 15)。
     /// - Returns: attributedString。
+    /// - Warning: addAttribute() 或 addAttributes() 均需要指定一个。 range，如需扩展，可模拟此函数创建新的自定义函数。
     convenience init(text: String, textColor: UIColor = .blue, textFont: UIFont = UIFont.systemFont(ofSize: 15), highlightText: String? = nil, highlightTextColor: UIColor? = nil, highlightTextFont: UIFont = UIFont.systemFont(ofSize: 15)) {
+
+        self.init(text: text, textColor: textColor, highlightText: highlightText, highlightTextColor: highlightTextColor)
         
-        self.init(string: text,
-                  attributes: [.foregroundColor: textColor,
-                               .font: textFont]
-        )
-        //        NSBaselineOffsetAttributeName:@(([UIFont systemFontOfSize:30].lineHeight - [UIFont systemFontOfSize:15].lineHeight)/2 + (([UIFont systemFontOfSize:30].descender - [UIFont systemFontOfSize:15].descender))),
+        // 基线对齐方式。
+        // NSBaselineOffsetAttributeName:@(([UIFont systemFontOfSize:30].lineHeight - [UIFont systemFontOfSize:15].lineHeight)/2 + (([UIFont systemFontOfSize:30].descender - [UIFont systemFontOfSize:15].descender))),
         //                                  NSParagraphStyleAttributeName
         
+        // 文本字体。
+        addAttribute(.font, value: textFont, range: mutableString.range(of: text))
+
         if highlightText != nil {
-            var highlightColor = #colorLiteral(red: 1, green: 0.368627451, blue: 0.6509803922, alpha: 1)
-            if highlightTextColor == nil {
-                let colors = [ #colorLiteral(red: 0.1294117647, green: 0.9098039216, blue: 1, alpha: 1), #colorLiteral(red: 0.4549019608, green: 0.6941176471, blue: 0.7843137255, alpha: 1), #colorLiteral(red: 0.1294117647, green: 0.9098039216, blue: 0.2941176471, alpha: 1), #colorLiteral(red: 0.262745098, green: 1, blue: 0.8352941176, alpha: 1), #colorLiteral(red: 1, green: 0.368627451, blue: 0.6509803922, alpha: 1), #colorLiteral(red: 0.2352941176, green: 0.8235294118, blue: 0.4784313725, alpha: 1), #colorLiteral(red: 1, green: 0.3098039216, blue: 0.4784313725, alpha: 1),]
-                //返回 0 到 N-1 范围内的一个随机数
-                highlightColor = colors[Int( arc4random_uniform(UInt32(colors.count-1))) ]
-            } else {
-                highlightColor = highlightTextColor!
+            // 高亮文本字体。
+            addAttribute(.font, value: highlightTextFont, range: mutableString.range(of: highlightText!))
+            // 高亮文本颜色。
+            if highlightTextColor != nil {
+                addAttribute(.foregroundColor, value: highlightTextColor!, range: mutableString.range(of: highlightText!))
             }
-            
-            // 指定范围添加 attribute
-            addAttributes([.font: highlightTextFont,
-                           .foregroundColor: highlightColor],
-                          range: mutableString.range(of: highlightText!))
         }
         
     }
