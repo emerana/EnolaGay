@@ -23,6 +23,8 @@
 		8B1AA68125A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */; };
 		8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76428F25A702C400A418F8 /* AppConfigs.swift */; };
 		8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */; };
+		8BA9AA01260EDAAC008B1803 /* AttributedStringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */; };
+		8BA9AA05260EDAB8008B1803 /* AttributedString.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA9AA04260EDAB8008B1803 /* AttributedString.storyboard */; };
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
 		9DC7BC7100ED3705BDB81B72 /* Pods_EnolaGay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC7CAC302FF14B8C947237A0 /* Pods_EnolaGay_Example.framework */; };
@@ -62,6 +64,8 @@
 		8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTestViewCtrl.swift; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
+		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
+		8BA9AA04260EDAB8008B1803 /* AttributedString.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AttributedString.storyboard; sourceTree = "<group>"; };
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerticalScrollView.storyboard; sourceTree = "<group>"; };
 		BC7CAC302FF14B8C947237A0 /* Pods_EnolaGay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +131,7 @@
 				8BFCC83125E385F9000B1611 /* 垂直轮播图 */,
 				8B1A498E25C8353100FDA57A /* LangRenSha */,
 				8B1AA67725A74B350063BE04 /* JudyLivePageViewCtrl */,
+				8BA9A9FF260EDA8E008B1803 /* AttributedString */,
 				8B76428E25A702C400A418F8 /* Tests */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				8B76428F25A702C400A418F8 /* AppConfigs.swift */,
@@ -200,6 +205,15 @@
 				8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		8BA9A9FF260EDA8E008B1803 /* AttributedString */ = {
+			isa = PBXGroup;
+			children = (
+				8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */,
+				8BA9AA04260EDAB8008B1803 /* AttributedString.storyboard */,
+			);
+			path = AttributedString;
 			sourceTree = "<group>";
 		};
 		8BFCC83125E385F9000B1611 /* 垂直轮播图 */ = {
@@ -313,6 +327,7 @@
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				8BA9AA05260EDAB8008B1803 /* AttributedString.storyboard in Resources */,
 				8B1A499025C8354700FDA57A /* LangRenSha.storyboard in Resources */,
 				8B1AA67925A74B600063BE04 /* JudyLivePageViewCtrl.storyboard in Resources */,
 			);
@@ -415,6 +430,7 @@
 				8B1AA67325A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */,
 				8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				8BA9AA01260EDAAC008B1803 /* AttributedStringViewController.swift in Sources */,
 				8B1AA68025A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */,
 				8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */,
 			);
