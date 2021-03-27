@@ -538,7 +538,6 @@ public extension UIColor {
 
 /// UIFont EMERANA 配置协议，此协议已经默认实现
 /// - version: 1.0
-/// - since: 2021年01月16日14:43:00
 /// - warning: 使用注意事项
 ///     * 如需自定义请 public extension UIFont 覆盖 judy() 函数
 ///     * 此协仅对 UIFont 类型提供
@@ -554,7 +553,7 @@ public protocol EMERANA_UIFont { // where Self: UIFont
     func configFontStyle(_ style: UIFont.FontStyle) -> (UIFont.FontName, CGFloat)
 }
 
-// EMERANA_UIFont 协议默认实现
+// EMERANA_UIFont 协议默认实现，使其变成可选函数。
 public extension EMERANA_UIFont where Self: UIFont {
     
     func configFontStyle(_ style: UIFont.FontStyle) -> (UIFont.FontName, CGFloat) {
@@ -690,6 +689,31 @@ public extension UIFont {
     
     
 }
+
+// MARK: 字体、颜色管理类
+/// 全局配置协议，该协议只允许 UIApplication 继承。
+public protocol GlobalConfig where Self: UIApplication {
+    
+    /// 询问管理全局外观的实体，该实例为 Appearance 及其子类。
+    func appearanceForApplication() -> Appearance
+    
+    /// 校验服务器响应消息。
+    ///
+    /// 此函数仅在 Alamofire response.result.success 时执行
+    /// - warning: 此方法中将对服务器返回的消息（请求成功响应的消息）进行进一步校验，排查是否有错误
+    /// - Parameter json: 服务器返回的原始 JSON 数据
+    /// - Returns: (Bool：是否有错误, Int：错误码，String: 消息体)
+    /// - since: V1.2 2020年11月20日14:05:22
+    func responseErrorValidation(json: JSON) -> (isError: Bool, errorCode: Int, message: String)
+
+}
+/// 外观配置基类。
+open class Appearance {
+    
+}
+
+
+
 
 // MARK: - UIImage 扩展
 
@@ -968,16 +992,14 @@ public extension UILabel {
         attributedText = attributedString
     }
     
-    
 }
 
 
 // MARK: - NSAttributedString 扩展函数
 public extension NSAttributedString {
     
-
-    
 }
+
 
 // MARK: - NSMutableAttributedString 扩展函数
 public extension NSMutableAttributedString {
@@ -991,7 +1013,7 @@ public extension NSMutableAttributedString {
     ///   - highlightTextColor: 高亮文本的颜色，该值默认为 nil，。
     ///   - highlightTextFont: 高亮状态文本的字体，默认为 nil。
     /// - Returns: attributedString。
-    /// - Warning: addAttribute() 或 addAttributes() 均需要指定一个。 range，如需扩展，可模拟此函数创建新的自定义函数。
+    /// - Warning: addAttribute() 或 addAttributes() 均需要指定一个 range，如需扩展，可模拟此函数创建新的自定义函数。
     convenience init(text: String, textColor: UIColor? = nil, textFont: UIFont? = nil, highlightText: String? = nil, highlightTextColor: UIColor? = nil, highlightTextFont: UIFont? = nil) {
         // 默认配置。
         var defaultAttrs = [NSAttributedString.Key : Any]()
@@ -1477,25 +1499,24 @@ public extension UITableView {
 import UIKit
 
 
-/// EMERANA 结构体，项目中所有辅助性功能应该基于 EMERANA 模块化，可以通过 public extension 新增模块
-/// - warning: 该结构体已禁用 init() 函数，请使用 judy 单例对象
-/// - since: 1.2
+/// EMERANA 结构体，项目中所有辅助性功能应该基于 EMERANA 模块化，可以通过 public extension 新增模块。
+/// - Warning: 该结构体已禁用 init() 函数，请使用 judy 单例对象
 public struct EMERANA {
     
     /// EMERANA 结构体的唯一实例。在单例模式下，只有该实例被首次访问时才会创建该对象（触发 init() ）。
     public static let judy = EMERANA()
 
     
+    /// 全局配置对象。
+    static let globalConfig: GlobalConfig? = UIApplication.shared as? GlobalConfig
+
     /// 颜色配置代理对象
     static let colorStyleConfigDelegate: EMERANA_UIColor? = UIApplication.shared as? EMERANA_UIColor
     
     /// 字体样式配置代理
     static let fontStyleConfigDelegate: EMERANA_UIFont? = UIApplication.shared as? EMERANA_UIFont
-
-    /// api 数据校验配置代理
-    static let dataValidationConfigDelegate: EMERANA_ApiDataValidation? = UIApplication.shared as? EMERANA_ApiDataValidation
-
-    /// api 配置代理
+    
+    /// api 配置代理。
     static let apiConfigDelegate: EMERANA_ApiRequestConfig? = UIApplication.shared as? EMERANA_ApiRequestConfig
 
     // 私有化构造器。在单例模式下，只有该单例被首次访问时才会创建该对象。

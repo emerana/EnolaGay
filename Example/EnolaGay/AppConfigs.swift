@@ -37,10 +37,9 @@ extension UIApplication: EMERANA_UIColor {
 }
 
 // ApiRequestConfig
-extension UIApplication: EMERANA_ApiRequestConfig {
+extension UIApplication: EMERANA_ApiRequestConfig {    
     
     public func domain() -> String { "https://www.baidu.com" }
-    
     
 }
 
