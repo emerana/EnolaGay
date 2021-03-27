@@ -21,7 +21,7 @@ class AttributedStringViewController: UIViewController {
         super.viewDidLoad()
 
 
-        judy_mutableAttributedStringInitTest()
+        bljudy_setHighlightedTest()
     }
 
 }
@@ -56,6 +56,22 @@ private extension AttributedStringViewController {
         label2.judy_setHighlighted(text: "￥", color: .red, font: UIFont(style: .S_B))
         label3.judy_setHighlighted(text: "￥", color: .red)
 
+    }
+    
+    func bljudy_setHighlightedTest() {
+        let labelTest = "￥9.9"
+        label1.text = labelTest
+
+        
+
+        let attrs = NSMutableAttributedString(text: labelTest, highlightText: "￥", highlightTextFont: UIFont(style: .S_B))
+//            judy_setHighlighted(text: "￥", font: UIFont(style: .S_B))
+        
+        label1.attributedText = attrs
+//        for _ in 0...100 {
+//            label1.judy_setHighlighted(text: "￥", font: UIFont(style: .S_B))
+//        }
+        
     }
 
 

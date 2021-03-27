@@ -949,17 +949,17 @@ public extension UILabel {
     /// - Warning: 在调用此函数前 label.text 不能为 nil。
     func judy_setHighlighted(text highlightedText: String, color highlightedColor: UIColor? = nil, font highlightedFont: UIFont? = nil) {
         // attributedText 即 label.text，所以直接判断 attributedText 不为 nil 即可。
-        guard attributedText != nil else { return }
+        guard text != nil, attributedText != nil else { return }
         //  attributedText: 为该属性分配新值也会将 text 属性的值替换为相同的字符串数据，但不包含任何格式化信息。此外，分配一个新值将更新字体、textColor 和其他与样式相关的属性中的值，以便它们反映从带属性字符串的位置 0 开始的样式信息。
-        
-        // 将 label 的 NSAttributedString 转换成 NSMutableAttributedString。
-        let attributedString = NSMutableAttributedString(attributedString: attributedText!)
         
         var attrs = [NSAttributedString.Key : Any]()
         // 高亮文本颜色。
         attrs[.foregroundColor] = highlightedColor
         // 高亮文本字体。
         attrs[.font] = highlightedFont
+        // 将 label 的 NSAttributedString 转换成 NSMutableAttributedString。
+         let attributedString = NSMutableAttributedString(attributedString: attributedText!)
+        //  let attributedString = NSMutableAttributedString(text: text!, textColor: textColor, textFont: font, highlightText: highlightedText, highlightTextColor: highlightedColor, highlightTextFont: highlightedFont)
         // 添加到指定范围。
         let highlightedRange = attributedString.mutableString.range(of: highlightedText)
         attributedString.addAttributes(attrs, range: highlightedRange)
@@ -985,8 +985,8 @@ public extension NSMutableAttributedString {
     /// 生成一个高配版 NSMutableAttributedString。
     /// - Parameters:
     ///   - text: 要显示的文本信息。
-    ///   - textColor: 文本颜色，若不指定该值，该颜色默认为黑色。
-    ///   - textFont: 文本的字体，默认为 systemFont(ofSize: 15)。
+    ///   - textColor: 文本颜色，默认为 nil。
+    ///   - textFont: 文本的字体，默认为 nil。
     ///   - highlightText: 高亮的文本，该文本应该是 text 的一部分。
     ///   - highlightTextColor: 高亮文本的颜色，该值默认为 nil，。
     ///   - highlightTextFont: 高亮状态文本的字体，默认为 nil。
