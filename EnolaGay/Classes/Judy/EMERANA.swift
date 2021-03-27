@@ -936,16 +936,15 @@ public extension UIScrollView {
 }
 
 
-// MARK: - UILabel 扩展
+// MARK: - UILabel 扩展 NSMutableAttributedString 函数
 
 public extension UILabel {
     
-    // MARK: NSMutableAttributedString 函数
-    
     /// 为当前 Label 显示的文本中设置部分文字高亮。
     /// - Parameters:
+    ///   - textColor: 默认文本颜色。
     ///   - highlightedText: label 中需要要高亮的文本。
-    ///   - highlightedColor: 高亮部分文本颜色，默认 nil，即使用原有字体。
+    ///   - highlightedColor: 高亮部分文本颜色，默认 nil，即使用原有颜色。
     ///   - highlightedFont: 高亮部分文本字体，默认为 nil，即使用原有字体。
     /// - Warning: 在调用此函数前 label.text 不能为 nil。
     func judy_setHighlighted(text highlightedText: String, color highlightedColor: UIColor? = nil, font highlightedFont: UIFont? = nil) {
@@ -956,88 +955,77 @@ public extension UILabel {
         // 将 label 的 NSAttributedString 转换成 NSMutableAttributedString。
         let attributedString = NSMutableAttributedString(attributedString: attributedText!)
         
-        // 一次性添加多个属性。
-        attributedString.addAttributes(
-            [
-                .foregroundColor: (highlightedColor ?? textColor) as Any,
-                .font: (highlightedFont ?? font) as Any],
-            // 指定范围
-            range: attributedString.mutableString.range(of: highlightedText)
-        )
+        var attrs = [NSAttributedString.Key : Any]()
+        // 高亮文本颜色。
+        attrs[.foregroundColor] = highlightedColor
+        // 高亮文本字体。
+        attrs[.font] = highlightedFont
+        // 添加到指定范围。
+        let highlightedRange = attributedString.mutableString.range(of: highlightedText)
+        attributedString.addAttributes(attrs, range: highlightedRange)
         
-        // 指定范围单个添加 addAttribute。
-        /*
-         attributedString.addAttribute(.foregroundColor, value: highlightedColor, range: attributedString.mutableString.range(of: highlightedText))
-         attributedString.addAttribute(.foregroundColor, value: highlightTextColor, range: attributedString.mutableString.range(of: highlightText!))
-         attributedString.addAttribute(.link, value: "https://www.baidu.com", range: attributed.mutableString.range(of: "《直播主播入驻协议》"))
-         attributedString.addAttribute(.underlineColor, value: UIColor.clear, range: attributed.mutableString.range(of: "《直播主播入驻协议》"))
-         attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: attributed.mutableString.range(of: "《直播主播入驻协议》"))
-         attributedString.mutableString.range(of: "《直播主播入驻协议》")
-         attributedText = attributed
-        */
-
         // 重新给 label 的 attributedText 赋值。
-        attributedText  = attributedString
+        attributedText = attributedString
     }
     
     
-    @available(*, unavailable, message: "此函数以废弃，请参考 judy_setHighlighted 函数")
-    func judy_attributedText(text: String, textColor: UIColor = .blue, highlightText: String? = nil, highlightTextColor: UIColor = .red) {}
 }
 
 
 // MARK: - NSAttributedString 扩展函数
-public extension NSMutableAttributedString {
+public extension NSAttributedString {
     
-    /// 生成一个 NSMutableAttributedString。
-    /// - Parameters:
-    ///   - text: 要显示的文本信息。
-    ///   - textColor: 文本颜色，若不指定该值，该颜色默认为白色。
-    ///   - highlightText: 高亮的文本，该文本应该是 text 的一部分。
-    ///   - highlightTextColor: 高亮文本的颜色，若不指定，该值默认为 nil，即使用函数内部的随机颜色。
-    /// - Returns: attributedString。
-    /// - Warning: addAttribute() 或 addAttributes() 均需要指定一个。 range，如需扩展，可模拟此函数创建新的自定义函数。
-    convenience init(text: String, textColor: UIColor = .blue, highlightText: String? = nil, highlightTextColor: UIColor? = nil) {
-        self.init(string: text, attributes: [.foregroundColor: textColor])
-        // self.init(string: text)
-    
-        if highlightText != nil {
-            // 指定范围添加 attribute
-            addAttribute(.foregroundColor, value: highlightTextColor ?? textColor, range: mutableString.range(of: highlightText!))
-        }
 
-    }
+    
+}
+
+// MARK: - NSMutableAttributedString 扩展函数
+public extension NSMutableAttributedString {
 
     /// 生成一个高配版 NSMutableAttributedString。
     /// - Parameters:
     ///   - text: 要显示的文本信息。
-    ///   - textColor: 文本颜色，若不指定该值，该颜色默认为白色。
+    ///   - textColor: 文本颜色，若不指定该值，该颜色默认为黑色。
     ///   - textFont: 文本的字体，默认为 systemFont(ofSize: 15)。
     ///   - highlightText: 高亮的文本，该文本应该是 text 的一部分。
-    ///   - highlightTextColor: 高亮文本的颜色，若不指定，该值默认为 nil，即使用函数内部的随机颜色。
-    ///   - highlightTextFont: 高亮状态文本的字体，默认为 systemFont(ofSize: 15)。
+    ///   - highlightTextColor: 高亮文本的颜色，该值默认为 nil，。
+    ///   - highlightTextFont: 高亮状态文本的字体，默认为 nil。
     /// - Returns: attributedString。
     /// - Warning: addAttribute() 或 addAttributes() 均需要指定一个。 range，如需扩展，可模拟此函数创建新的自定义函数。
-    convenience init(text: String, textColor: UIColor = .blue, textFont: UIFont = UIFont.systemFont(ofSize: 15), highlightText: String? = nil, highlightTextColor: UIColor? = nil, highlightTextFont: UIFont = UIFont.systemFont(ofSize: 15)) {
-
-        self.init(text: text, textColor: textColor, highlightText: highlightText, highlightTextColor: highlightTextColor)
+    convenience init(text: String, textColor: UIColor? = nil, textFont: UIFont? = nil, highlightText: String? = nil, highlightTextColor: UIColor? = nil, highlightTextFont: UIFont? = nil) {
+        // 默认配置。
+        var defaultAttrs = [NSAttributedString.Key : Any]()
+        // 高亮文本颜色。
+        defaultAttrs[.foregroundColor] = textColor
+        // 高亮文本字体。
+        defaultAttrs[.font] = textFont
+        
+        self.init(string: text, attributes: defaultAttrs)
+        
+        // 指定范围添加 attributes。
+        if highlightText != nil {
+            var attrs = [NSAttributedString.Key : Any]()
+            // 高亮文本颜色。
+            attrs[.foregroundColor] = highlightTextColor
+            // 高亮文本字体。
+            attrs[.font] = highlightTextFont
+            // 添加到指定范围。
+            addAttributes(attrs, range: mutableString.range(of: highlightText!))
+        }
         
         // 基线对齐方式。
         // NSBaselineOffsetAttributeName:@(([UIFont systemFontOfSize:30].lineHeight - [UIFont systemFontOfSize:15].lineHeight)/2 + (([UIFont systemFontOfSize:30].descender - [UIFont systemFontOfSize:15].descender))),
         //                                  NSParagraphStyleAttributeName
         
-        // 文本字体。
-        addAttribute(.font, value: textFont, range: mutableString.range(of: text))
-
-        if highlightText != nil {
-            // 高亮文本字体。
-            addAttribute(.font, value: highlightTextFont, range: mutableString.range(of: highlightText!))
-            // 高亮文本颜色。
-            if highlightTextColor != nil {
-                addAttribute(.foregroundColor, value: highlightTextColor!, range: mutableString.range(of: highlightText!))
-            }
-        }
-        
+        // 指定范围单个添加 addAttribute。
+        /*
+         attributed.addAttribute(.foregroundColor, value: highlightedColor, range: attributedString.mutableString.range(of: highlightedText))
+         attributed.addAttribute(.foregroundColor, value: highlightTextColor, range: attributedString.mutableString.range(of: highlightText!))
+         attributed.addAttribute(.link, value: "https://www.baidu.com", range: attributed.mutableString.range(of: "《直播主播入驻协议》"))
+         attributed.addAttribute(.underlineColor, value: UIColor.clear, range: attributed.mutableString.range(of: "《直播主播入驻协议》"))
+         attributed.addAttribute(.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: attributed.mutableString.range(of: "《直播主播入驻协议》"))
+         attributedText = attributed
+         */
     }
 
 
