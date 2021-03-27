@@ -46,33 +46,6 @@ public typealias JudyApiHeader = HTTPHeaders
 
 // MARK: - Api 协议
 
-//  where Self: JudyApi
-/// JudyApi 响应数据验证协议
-/// * author: 王仁洁
-/// - warning: 请实现该协议中的函数 responseErrorValidation
-/// - since: V2.0 2020年12月31日13:27:18
-public protocol EMERANA_ApiDataValidation where Self: UIApplication {
-    
-    /// 校验服务器响应消息
-    ///
-    /// 此函数仅在 Alamofire response.result.success 时执行
-    /// - warning: 此方法中将对服务器返回的消息（请求成功响应的消息）进行进一步校验，排查是否有错误
-    /// - Parameter json: 服务器返回的原始 JSON 数据
-    /// - Returns: (Bool：是否有错误, Int：错误码，String: 消息体)
-    /// - since: V1.2 2020年11月20日14:05:22
-    func responseErrorValidation(json: JSON) -> (isError: Bool, errorCode: Int, message: String)
-}
-/*
- // 默认实现 where Self: JudyApi
-public extension EMERANA_ApiDataValidation  {
-
-    func responseErrorValidation(json: JSON) -> (isError: Bool, errorCode: Int, message: String) {
-        return (isError: false, errorCode: 0, message: "尚未发现错误")
-    }
-    
-}
-*/
-
 /// Api 管理层
 ///
 /// public extension JudyApi 并覆盖 EMERANA_ApiDataValidation 中的函数以配置数据校验
@@ -150,10 +123,11 @@ public final class JudyApi {
                     json = JSON(value)
                 }
                 
-                // 数据校验
-                if EMERANA.dataValidationConfigDelegate != nil {
-                    let result = EMERANA.dataValidationConfigDelegate!.responseErrorValidation(json: json)
-                    if result.isError {   // 配置错误信息
+                // 数据校验。
+                if EMERANA.apiConfigDelegate != nil {
+                    let result = EMERANA.apiConfigDelegate!.responseErrorValidation(json: json)
+                    // 配置错误信息。
+                    if result.error {
                         json[EMERANA.Key.Api.error] = [EMERANA.Key.Api.code: result.1, EMERANA.Key.Api.msg: result.2]
                     }
                 } else {
@@ -261,24 +235,36 @@ public protocol EMERANA_ApiRequestConfig where Self: UIApplication {
     /// - Parameter apiConfig: 当前 apiConfig 对象
     func apiRequestConfig_end(apiConfig: ApiRequestConfig)
     
+    /// 校验服务器响应的消息。
+    ///
+    /// 此函数仅在 Alamofire response.result.success 时执行。
+    /// - Parameter json: 服务器返回的原始 JSON 数据。
+    /// - Returns: (Bool：是否有错误, Int：错误码，String: 消息体)。
+    /// - Warning: 此方法中将对服务器返回的消息（请求成功响应的消息）进行进一步校验，排查是否有错误。
+    func responseErrorValidation(json: JSON) -> (error: Bool, code: Int, message: String)
+    
 }
 
-// 默认实现 EMERANA_ApiRequestConfig，当代理对象没有实现对应函数时使用此处已实现
+// 默认实现 EMERANA_ApiRequestConfig，使其变成可选协议函数。
 public extension EMERANA_ApiRequestConfig {
-
+    
     func domain() -> String {
         Judy.logWarning(" 默认域名未配置，将使用 www.baidu.com，请确认 extension UIApplication: EMERANA_ApiRequestConfig 中 domain 函数的实现")
         return "https://www.baidu.com"
     }
-
+    
     func globalMethodPOST() -> Bool { true }
-
+    
     func responseJSON() -> Bool { true }
-
+    
     func apiRequestConfig_init(apiConfig: ApiRequestConfig) { }
-
+    
     func apiRequestConfig_end(apiConfig: ApiRequestConfig) { }
 
+    func responseErrorValidation(json: JSON) -> (error: Bool, code: Int, message: String) {
+        return (false, 0, "校验协议函数未覆盖。")
+    }
+    
 }
 
 /// api 协议，该协议规定了 api 的定义过程
