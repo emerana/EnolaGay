@@ -692,21 +692,14 @@ public extension UIFont {
 
 // MARK: 字体、颜色管理类
 /// 全局配置协议，该协议只允许 UIApplication 继承。
-public protocol GlobalConfig where Self: UIApplication {
+public protocol EnolaGayGlobalConfig where Self: UIApplication {
     
     /// 询问管理全局外观的实体，该实例为 Appearance 及其子类。
     func appearanceForApplication() -> Appearance
-    
-    /// 校验服务器响应消息。
-    ///
-    /// 此函数仅在 Alamofire response.result.success 时执行
-    /// - warning: 此方法中将对服务器返回的消息（请求成功响应的消息）进行进一步校验，排查是否有错误
-    /// - Parameter json: 服务器返回的原始 JSON 数据
-    /// - Returns: (Bool：是否有错误, Int：错误码，String: 消息体)
-    /// - since: V1.2 2020年11月20日14:05:22
-    func responseErrorValidation(json: JSON) -> (isError: Bool, errorCode: Int, message: String)
 
 }
+
+
 /// 外观配置基类。
 open class Appearance {
     
@@ -1505,10 +1498,9 @@ public struct EMERANA {
     
     /// EMERANA 结构体的唯一实例。在单例模式下，只有该实例被首次访问时才会创建该对象（触发 init() ）。
     public static let judy = EMERANA()
-
     
     /// 全局配置对象。
-    static let globalConfig: GlobalConfig? = UIApplication.shared as? GlobalConfig
+    let globalConfig: EnolaGayGlobalConfig? = UIApplication.shared as? EnolaGayGlobalConfig
 
     /// 颜色配置代理对象
     static let colorStyleConfigDelegate: EMERANA_UIColor? = UIApplication.shared as? EMERANA_UIColor
@@ -1518,9 +1510,16 @@ public struct EMERANA {
     
     /// api 配置代理。
     static let apiConfigDelegate: EMERANA_ApiRequestConfig? = UIApplication.shared as? EMERANA_ApiRequestConfig
-
-    // 私有化构造器。在单例模式下，只有该单例被首次访问时才会创建该对象。
-    private init() { }
+    
+    /// 全局外观配置管理元。
+    private var appearanceManager: Appearance?
+    
+    
+    // 私有化构造器；在单例模式下，只有该单例被首次访问时才会创建该对象。
+    private init() {
+        // TODO: 获取 Appearance 实例
+        appearanceManager = globalConfig?.appearanceForApplication()
+    }
     
     /// 该数据结构的主要用来封装少量相关简单数据值
     /// - warning: 注意
