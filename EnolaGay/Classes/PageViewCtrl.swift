@@ -348,50 +348,47 @@ public protocol EMERANA_JudyBasePageViewCtrlLiveModel {}
 /// 在 JudyLivePageViewCtrl 中，适用创建 UIViewCtrl 模型的协议
 public protocol EMERANA_JudyLivePageViewCtrl: UIViewController {
     
-    /// 询问初始页、上一页、下一页的 ViewCtrl
+    /// 询问初始页、上一页、下一页的 ViewCtrl。
     ///
     /// 所有需要显示的 ViewCtrl 均通过此代理函数实现，实现可参考如下代码：
     ///
     /// ```
     /// let modelViewCtrl = storyboard?.instantiateViewController(withIdentifier: "LiveModelViewCtrl") as? ModelViewCtrl
     ///
-    /// // 配置初始页
-    /// guard viewCtrl != nil else {
-    ///     modelViewCtrl?.tagDataSource = dataSource[0]
-    ///     return modelViewCtrl
-    /// }
-    ///
-    /// // 配置上一页或下一页
-    /// guard let current = dataSource.firstIndex(of: (viewCtrl as! ModelViewCtrl).tagDataSource) else { return nil }
-    ///
-    /// if forward { // 下一个界面
-    ///     if current >= dataSource.count - 1 { return nil }
-    ///     modelViewCtrl?.tagDataSource = dataSource[current+1]
-    /// } else { // 上一个界面
-    ///     if current <= 0 { return nil }
-    ///     modelViewCtrl?.tagDataSource = dataSource[current-1]
+    /// if viewCtrl == nil { // 配置初始页。
+    ///     if let videoInfo = videoInfos.first {
+    ///         modelViewCtrl?.json = videoInfo
+    ///     } else {
+    ///         return nil
+    ///     }
+    /// } else { // 配置上一页或下一页。
+    ///     guard let current = videoInfos.firstIndex(of: (viewCtrl as! ModelViewCtrl).json) else { return nil }
+    ///     if forward {
+    ///         if current >= videoInfos.count - 1 { return nil }
+    ///         modelViewCtrl?.json = videoInfos[current+1]
+    ///     } else {
+    ///         if current <= 0 { return nil }
+    ///         modelViewCtrl?.json = videoInfos[current-1]
+    ///     }
     /// }
     ///
     /// return modelViewCtrl
     /// ```
-    /// - version: 1.2
-    /// - since: 2021年01月07日22:17:51
     /// - Parameters:
-    ///   - forward: 是否为询问下一个界面，需要根据该值做出对应的界面显示
-    ///   - viewCtrl: 在转换之前的视图控制器，当前正显示且即将离开的 viewCtrl。该值为 nil 时，请配置初始页（第一页）
-    /// - Returns: 通常情况下，建议返回的 viewCtrl 包含一个用于对应外部数据源的标识
+    ///   - forward: 是否为询问下一个界面，需要根据该值做出对应的界面显示。
+    ///   - viewCtrl: 在转换之前的视图控制器，当前正显示且即将离开的 viewCtrl。该值为 nil 时，请配置初始页（第一页）。
+    /// - Returns: 通常情况下，建议返回的 viewCtrl 包含一个用于对应外部数据源的标识。
     func viewController(isForward forward: Bool, previousViewControllers viewCtrl: UIViewController?) -> UIViewController?
     
 }
 
-/// 适用于直播、短视频类型的 pageViewCtrl
+
+/// 适用于直播、短视频类型的 pageViewCtrl。
 ///
-/// 别忘了设置滚动方向 pageViewCtrl.navigationOrientation，根据需要设置为水平方向滑动还是垂直方向滑动
-/// - version: 1.3
-/// - since: 2021年01月15日12:35:45
-/// - warning: 请记得设置 transitionStyle 为 scroll；
+/// 别忘了设置滚动方向 pageViewCtrl.navigationOrientation，根据需要设置为水平方向滑动还是垂直方向滑动。
+/// - Warning: 请记得设置 transitionStyle 为 scroll；
 /// * 请通过调用 onStart() 函数使 pageViewCtrl 正常工作，通常情况下在数据源被确定时调用此函数;
-/// * JudyLivePageViewCtrl 无需支持下拉刷新;
+/// * JudyLivePageViewCtrl 支持下拉刷新请通过 scrollViewClosure 获取 scrollView;
 open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate {
 
     /// viewCtrl 数据源配置代理对象，所有要显示的 ViewCtrl 均通过此协议配置
@@ -430,12 +427,10 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     }
     
 
-    /// 通过此函数以设置 pageViewCtrl 的起始页
+    /// 通过此函数以设置 pageViewCtrl 的起始页。
     ///
-    /// 只有通过此函数才能使 pageViewCtrl 正常工作
-    /// - version: 1.0
-    /// - since: 2021年01月15日12:29:40
-    /// - warning: 此函数已经做好校验，只要初始页配置成功，即使重复调用此函数，也不会重新配置，请放心调用
+    /// 只有通过此函数才能使 pageViewCtrl 正常工作。
+    /// - Warning: 此函数已经做好校验，只要初始页配置成功，即使重复调用此函数，也不会重新配置，请放心调用。
     public final func onStart() {
        
         // 确保往下执行配置第一页的条件
@@ -443,8 +438,9 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
             Judy.log("已经配置过第一页啦")
             return
         }
-        /// 配置第一页及代理
+        /// 配置第一页及代理。
         if let initViewCtrl = enolagay.viewController(isForward: true, previousViewControllers: nil) {
+            // 设置初始页。
             setViewControllers([initViewCtrl], direction: .forward, animated: true)
             
             if isLoadedFirstPage == false {
@@ -460,7 +456,6 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
             isLoadedFirstPage = false
             Judy.logWarning("初始页不能配置为 nil !，请重新配置")
         }
-        
         
     }
     
@@ -492,14 +487,13 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
         scrollView.bounces = true
         // 判断是上拉还是下拉。
         /*
-        let pan = scrollView.panGestureRecognizer
-        let velocity = pan.velocity(in: scrollView).y
-        Judy.log( velocity < -5 ? "上拉":"下拉")
-        Judy.log("contentOffset: \(scrollView.contentOffset)")
+         let pan = scrollView.panGestureRecognizer
+         let velocity = pan.velocity(in: scrollView).y
+         Judy.log( velocity < -5 ? "上拉":"下拉")
+         Judy.log("contentOffset: \(scrollView.contentOffset)")
          */
-
+        
     }
-    
     
 }
 
