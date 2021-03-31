@@ -397,6 +397,18 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     /// viewCtrl 数据源配置代理对象，所有要显示的 ViewCtrl 均通过此协议配置
     weak public var enolagay: EMERANA_JudyLivePageViewCtrl!
     
+    /// 在 UIPageViewController 中的核心 ScrollView，请通过 scrollViewClosure 获取有效的 scrollView。
+    public private(set) var scrollView: UIScrollView? {
+        didSet{
+            if scrollView != nil {
+                scrollViewClosure?(scrollView!)
+            }
+        }
+    }
+    
+    /// 当 scrollView 有值后触发此闭包以便外部设置 scrollView。
+    public var scrollViewClosure:((UIScrollView) -> Void)?
+    
     /// 是否已经配置了首页，默认 false
     private var isLoadedFirstPage = false
         
@@ -412,8 +424,8 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
         view.backgroundColor = .judy(.scrollView)
         
         
-        let scrollView = view.subviews.filter { $0 is UIScrollView }.first as! UIScrollView
-        scrollView.delegate = self
+        scrollView = view.subviews.filter { $0 is UIScrollView }.first as? UIScrollView
+        scrollView?.delegate = self
         
     }
     
@@ -478,6 +490,14 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.bounces = true
+        // 判断是上拉还是下拉。
+        /*
+        let pan = scrollView.panGestureRecognizer
+        let velocity = pan.velocity(in: scrollView).y
+        Judy.log( velocity < -5 ? "上拉":"下拉")
+        Judy.log("contentOffset: \(scrollView.contentOffset)")
+         */
+
     }
     
     
