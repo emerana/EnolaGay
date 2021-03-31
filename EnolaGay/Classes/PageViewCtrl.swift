@@ -378,8 +378,15 @@ public protocol EMERANA_JudyLivePageViewCtrl: UIViewController {
     ///   - forward: 是否为询问下一个界面，需要根据该值做出对应的界面显示。
     ///   - viewCtrl: 在转换之前的视图控制器，当前正显示且即将离开的 viewCtrl。该值为 nil 时，请配置初始页（第一页）。
     /// - Returns: 通常情况下，建议返回的 viewCtrl 包含一个用于对应外部数据源的标识。
-    func viewController(isForward forward: Bool, previousViewControllers viewCtrl: UIViewController?) -> UIViewController?
+    //    func viewController(isForward forward: Bool, previousViewControllers viewCtrl: UIViewController?) -> UIViewController?
     
+    /// 询问 pageViewCtrl 中所有 viewCtrl 对应的数据源实体。
+    func entitys(for pageViewCtrl: UIPageViewController) -> [Any]
+    /// 询问 viewCtrl 在 entitys 数据源中的索引。
+    func index(for viewCtrl: UIViewController, at entitys: [Any] ) -> Int
+    /// 询问目标实体对应的 viewCtrl。
+    func viewCtrl(for entity: Any) -> UIViewController
+
 }
 
 
@@ -394,6 +401,8 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     /// viewCtrl 数据源配置代理对象，所有要显示的 ViewCtrl 均通过此协议配置
     weak public var enolagay: EMERANA_JudyLivePageViewCtrl!
     
+    /// 当 scrollView 有值后触发此闭包以便外部设置 scrollView。
+    public var scrollViewClosure:((UIScrollView) -> Void)?
     /// 在 UIPageViewController 中的核心 ScrollView，请通过 scrollViewClosure 获取有效的 scrollView。
     public private(set) var scrollView: UIScrollView? {
         didSet{
@@ -403,58 +412,41 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
         }
     }
     
-    /// 当 scrollView 有值后触发此闭包以便外部设置 scrollView。
-    public var scrollViewClosure:((UIScrollView) -> Void)?
+    /// 用于控制所有显示的 ViewCtrl 实体数据。
+    private var entitys: [Any] { enolagay.entitys(for: self) }
     
-    /// 是否已经配置了首页，默认 false
-    private var isLoadedFirstPage = false
+    
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
         
-    
-    open override func viewDidLoad() {
         guard transitionStyle == .scroll else {
             fatalError("请设置 pageViewCtrl.transitionStyle 为 scroll")
         }
+
+    }
+
+    open override func viewDidLoad() {
         guard enolagay != nil else { fatalError("请设置 enolagay 代理！") }
-        
         super.viewDidLoad()
-        
-        view.backgroundColor = .judy(.scrollView)
-        
-        
+
         scrollView = view.subviews.filter { $0 is UIScrollView }.first as? UIScrollView
         scrollView?.delegate = self
-        
     }
     
-
-    /// 通过此函数以设置 pageViewCtrl 的起始页。
-    ///
-    /// 只有通过此函数才能使 pageViewCtrl 正常工作。
-    /// - Warning: 此函数已经做好校验，只要初始页配置成功，即使重复调用此函数，也不会重新配置，请放心调用。
-    public final func onStart() {
-       
-        // 确保往下执行配置第一页的条件
-        guard isLoadedFirstPage == false else {
-            Judy.log("已经配置过第一页啦")
-            return
-        }
+    /// 重载所有数据配置及逻辑，并通过代理函数确认数据源中的初始页。
+    public final func reload() {
+        
         /// 配置第一页及代理。
-        if let initViewCtrl = enolagay.viewController(isForward: true, previousViewControllers: nil) {
+        if entitys.first != nil {
+            let firstViewCtrl = enolagay.viewCtrl(for: entitys.first!)
             // 设置初始页。
-            setViewControllers([initViewCtrl], direction: .forward, animated: true)
-            
-            if isLoadedFirstPage == false {
-                dataSource = self
-                delegate = self
-            }
-            
-            isLoadedFirstPage = true
-            
+            setViewControllers([firstViewCtrl], direction: .forward, animated: true)
+            dataSource = self
+            delegate = self
         } else {
+            setViewControllers(nil, direction: .forward, animated: true)
             dataSource = nil
             delegate = nil
-            isLoadedFirstPage = false
-            Judy.logWarning("初始页不能配置为 nil !，请重新配置")
         }
         
     }
@@ -462,16 +454,22 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     
     // MARK: - UIPageViewControllerDataSource
     
-    /// 显示前一页
+    /// 显示前一页。
     public final func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
 
-        return enolagay.viewController(isForward: false, previousViewControllers: viewController)
+        let index = enolagay.index(for: viewController, at: entitys)
+        if index <= 0 { return nil } // 已经是第一页了。
+
+        return enolagay.viewCtrl(for: entitys[index-1])
     }
     
-    /// 显示下一页
+    /// 显示下一页。
     public final func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+
+        let index = enolagay.index(for: viewController, at: entitys)
+        if index >= entitys.count - 1 { return nil } // 已经是最后一页了。
         
-        return enolagay.viewController(isForward: true, previousViewControllers: viewController)
+        return enolagay.viewCtrl(for: entitys[index+1])
     }
     
     // MARK: - UIPageViewControllerDelegate
