@@ -345,46 +345,22 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
 @available(*, unavailable, message: "该协议已变更命名，请更新", renamed: "EMERANA_JudyLivePageViewCtrl")
 public protocol EMERANA_JudyBasePageViewCtrlLiveModel {}
 
-/// 在 JudyLivePageViewCtrl 中，适用创建 UIViewCtrl 模型的协议
-public protocol EMERANA_JudyLivePageViewCtrl: UIViewController {
+/// 适用于比如 JudyLivePageViewCtrl 等 UIPageViewController 子类管理 viewCtrl 的协议。
+///
+/// 该协议中定义了如何确定具体的 viewCtrl，以及确定该 viewCtrl 所需要的唯一数据。
+public protocol JudyPageViewCtrlDelegate: UIViewController {
     
-    /// 询问初始页、上一页、下一页的 ViewCtrl。
-    ///
-    /// 所有需要显示的 ViewCtrl 均通过此代理函数实现，实现可参考如下代码：
-    ///
-    /// ```
-    /// let modelViewCtrl = storyboard?.instantiateViewController(withIdentifier: "LiveModelViewCtrl") as? ModelViewCtrl
-    ///
-    /// if viewCtrl == nil { // 配置初始页。
-    ///     if let videoInfo = videoInfos.first {
-    ///         modelViewCtrl?.json = videoInfo
-    ///     } else {
-    ///         return nil
-    ///     }
-    /// } else { // 配置上一页或下一页。
-    ///     guard let current = videoInfos.firstIndex(of: (viewCtrl as! ModelViewCtrl).json) else { return nil }
-    ///     if forward {
-    ///         if current >= videoInfos.count - 1 { return nil }
-    ///         modelViewCtrl?.json = videoInfos[current+1]
-    ///     } else {
-    ///         if current <= 0 { return nil }
-    ///         modelViewCtrl?.json = videoInfos[current-1]
-    ///     }
-    /// }
-    ///
-    /// return modelViewCtrl
-    /// ```
-    /// - Parameters:
-    ///   - forward: 是否为询问下一个界面，需要根据该值做出对应的界面显示。
-    ///   - viewCtrl: 在转换之前的视图控制器，当前正显示且即将离开的 viewCtrl。该值为 nil 时，请配置初始页（第一页）。
-    /// - Returns: 通常情况下，建议返回的 viewCtrl 包含一个用于对应外部数据源的标识。
-    //    func viewController(isForward forward: Bool, previousViewControllers viewCtrl: UIViewController?) -> UIViewController?
-    
-    /// 询问 pageViewCtrl 中所有 viewCtrl 对应的数据源实体。
+    /// 询问 pageViewCtrl 中所有 viewCtrl 对应的数据源实体，该实体为一个数组。
     func entitys(for pageViewCtrl: UIPageViewController) -> [Any]
+    
     /// 询问 viewCtrl 在 entitys 数据源中的索引。
+    ///
+    /// 通常每个 viewCtrl 都有一个 entity 作为其唯一标识符，通过该 entity 确定在 entitys 的索引。
     func index(for viewCtrl: UIViewController, at entitys: [Any] ) -> Int
-    /// 询问目标实体对应的 viewCtrl。
+    
+    /// 询问目标实体 entity 对应的 viewCtrl。
+    ///
+    /// 每个 viewCtrl 都应该有一个 entity，同时该 entity 作为该 viewCtrl 的唯一标识符。
     func viewCtrl(for entity: Any) -> UIViewController
 
 }
@@ -399,7 +375,7 @@ public protocol EMERANA_JudyLivePageViewCtrl: UIViewController {
 open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate {
 
     /// viewCtrl 数据源配置代理对象，所有要显示的 ViewCtrl 均通过此协议配置
-    weak public var enolagay: EMERANA_JudyLivePageViewCtrl!
+    weak public var enolagay: JudyPageViewCtrlDelegate!
     
     /// 当 scrollView 有值后触发此闭包以便外部设置 scrollView。
     public var scrollViewClosure:((UIScrollView) -> Void)?
@@ -420,23 +396,25 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
         super.init(coder: coder)
         
         guard transitionStyle == .scroll else {
-            fatalError("请设置 pageViewCtrl.transitionStyle 为 scroll")
+            fatalError("请设置 pageViewCtrl.transitionStyle 为 scroll。")
         }
 
     }
-
+    
     open override func viewDidLoad() {
-        guard enolagay != nil else { fatalError("请设置 enolagay 代理！") }
+        guard enolagay != nil else {
+            fatalError("在 JudyLivePageViewCtrl 中必须设置 enolagay 代理！")
+        }
         super.viewDidLoad()
-
+        
         scrollView = view.subviews.filter { $0 is UIScrollView }.first as? UIScrollView
         scrollView?.delegate = self
     }
     
-    /// 重载所有数据配置及逻辑，并通过代理函数确认数据源中的初始页。
+    /// 重载所有数据配置及逻辑。
+    ///
+    /// 该函数将根据 enolagay 询问数据源并重置到初始页。
     public final func reload() {
-        
-        /// 配置第一页及代理。
         if entitys.first != nil {
             let firstViewCtrl = enolagay.viewCtrl(for: entitys.first!)
             // 设置初始页。
@@ -448,9 +426,7 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
             dataSource = nil
             delegate = nil
         }
-        
     }
-    
     
     // MARK: - UIPageViewControllerDataSource
     
@@ -465,7 +441,7 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     
     /// 显示下一页。
     public final func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-
+        
         let index = enolagay.index(for: viewController, at: entitys)
         if index >= entitys.count - 1 { return nil } // 已经是最后一页了。
         
@@ -483,6 +459,7 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.bounces = true
+        
         // 判断是上拉还是下拉。
         /*
          let pan = scrollView.panGestureRecognizer
@@ -490,8 +467,6 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
          Judy.log( velocity < -5 ? "上拉":"下拉")
          Judy.log("contentOffset: \(scrollView.contentOffset)")
          */
-        
     }
     
 }
-

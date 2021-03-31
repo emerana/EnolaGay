@@ -32,7 +32,7 @@ class JudyLivePageViewTest: UIViewController {
         if segue.identifier == "loadJudyLivePageViewCtrl" {
             livePageViewCtrl = segue.destination as? JudyLivePageViewCtrl
             livePageViewCtrl.enolagay = self
-            livePageViewCtrl.onStart()
+            livePageViewCtrl.reload()
 
         }
 
@@ -40,7 +40,27 @@ class JudyLivePageViewTest: UIViewController {
 
 }
 
-extension JudyLivePageViewTest: EMERANA_JudyLivePageViewCtrl {
+extension JudyLivePageViewTest: JudyPageViewCtrlDelegate {
+    
+    func entitys(for pageViewCtrl: UIPageViewController) -> [Any] { dataSource }
+    
+    func index(for viewCtrl: UIViewController, at entitys: [Any]) -> Int {
+        var rs = 0
+        entitys.enumerated().forEach { (index, entity) in
+            if (viewCtrl as! LiveModelViewCtrl).tagDataSource == (entity as! Int) {
+                rs = index
+                return
+            }
+        }
+        return rs
+    }
+    
+    func viewCtrl(for entity: Any) -> UIViewController {
+        let modelViewCtrl = storyboard?.instantiateViewController(withIdentifier: "LiveModelViewCtrl") as! LiveModelViewCtrl
+        modelViewCtrl.tagDataSource = entity as! Int
+        return modelViewCtrl
+    }
+    
     
     func viewController(isForward forward: Bool, previousViewControllers viewCtrl: UIViewController?) -> UIViewController? {
         
