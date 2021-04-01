@@ -25,106 +25,65 @@ public protocol EMERANA_JudyPageViewCtrlAnimating: UIViewController {
 }
 
 
-/// JudyBasePageViewCtrl 专用协议，仅限于 JudyBasePageViewCtrl
-public protocol EMERANA_PageViewCtrl where Self: JudyBasePageViewCtrl {
-    
-    /// 当最左边的 ViewCtrl 继续向右拖动达到指定位置时执行 Pop()，默认值应该为 false
-    /// * 只有当前导航条为 JudyNavigationCtrl 时该属性才起作用
-    /// # 实现协议参考如下:
-    /// ```
-    /// @IBInspectable lazy var isAutoPop: Bool = false
-    /// ```
-    var isAutoPop: Bool { get }
-    
-    /// 是否支持弹簧效果，默认为 true
-    /// * 将该值设为 false 则 pageViewCtrl 首位界面没有向外部滚动的弹簧效果
-    var isBounces: Bool { get }
-
-    /// 该值用于记录是否通过拖拽 viewCtrl 触发的切换，默认值应该为 true。
-    /// * 若当前导航条为 JudyNavigationCtrl 时才需要该属性
-    /// * 若该值为 false（如 segmentCtrl 触发切换函数），则不应该响应 Pop()函数
-    /// # 实现协议参考如下：
-    /// ```
-    /// lazy var isScrollByViewCtrl = true
-    /// ```
-    var isScrollByViewCtrl: Bool { get }
-    
-    /// 当前记录的选中索引，默认值应该为 0
-    /// * # 实现协议参考如下：
-    /// ```
-    /// lazy var lastSelectIndex = 0
-    /// ```
-    var lastSelectIndex: Int { get }
-     
-    /// 所有在 pageViewCtrl 中出现的 viewCtrls
-    /// # 实现协议参考如下：
-    /// ```
-    /// var viewCtrlArray = [UIViewController]()
-    /// ```
-    var viewCtrlArray: [UIViewController] { get }
-    
-    /// viewCtrlArray 对应的 titles
-    var viewCtrlTitleArray: [String] { get }
-    
-    
-    /// emerana 代理，此代理负责处理 pageViewCtrl 切换事件
-    /// # 实现协议参考如下：
-    /// ```
-    /// weak var emerana: EMERANA_PageViewCtrlDelegate?
-    /// ```
-    var emerana: EMERANA_JudyPageViewCtrlAnimating? { get set }
-    
-    /// 模型驱动代理，在使用模型驱动时必须实现该代理，并通过此代理设置 viewCtrl 模型
-    /// # 实现协议参考如下：
-    /// ```
-    /// weak var enolagay: EMERANA_ModelPageViewCtrlDelegate?
-    /// ```
-    var enolagay: EMERANA_JudyBasePageViewCtrlModel? { get set }
-
-}
-
-
 import UIKit
 
-/// 支持模型驱动和数据驱动的标准 JudyBasePageViewCtrl
+/// 支持模型驱动和数据驱动的标准 JudyBasePageViewCtrl。
 ///
-/// 通过 setPageViewDataSource 函数设置数据及界面
-/// - version: 2.3.0
+/// 通过 setPageViewDataSource 函数设置数据及界面，此类适用于切换的页面较少的场景。
 /// - warning: setPageViewDataSource 函数中直接明确了所有需要出现的 viewCtrls 及对应的 titles。
 /// - warning: 如果是模型驱动，则必须实现 enolagay 代理对象。
-open class JudyBasePageViewCtrl: UIPageViewController, EMERANA_PageViewCtrl {
+open class JudyBasePageViewCtrl: UIPageViewController {
     
+    /// emerana 代理，此代理负责处理 pageViewCtrl 切换事件。
+    weak public var emerana: EMERANA_JudyPageViewCtrlAnimating?
+    
+    /// 模型驱动代理，在使用模型驱动时必须实现该代理，并通过此代理设置 viewCtrl 模型。
+    weak public var enolagay: EMERANA_JudyBasePageViewCtrlModel?
+
+    /// 记录当前选中的索引。
+    lazy public var lastSelectIndex = 0
+
+    
+    /// 当最左边的 ViewCtrl 继续向右拖动达到指定位置时执行 Pop()，默认值应该为 false。
+    /// - Warning: 只有当前导航条为 JudyNavigationCtrl 时该属性才起作用。
     @IBInspectable lazy public var isAutoPop: Bool = false
     
+    /// 是否支持弹簧效果，默认为 true。
+    /// - Warning: 将该值设为 false 则 pageViewCtrl 首位界面没有向外部滚动的弹簧效果。
     @IBInspectable lazy public var isBounces: Bool = true
 
+    /// 该值用于记录是否通过拖拽 viewCtrl 触发的切换，默认值应该为 true。
+    ///
+    /// 若该值为 false（如点击 segmentCtrl 触发切换函数），则不应该响应导航条 Pop() 函数。
+    /// - Warning: 若当前导航条为 JudyNavigationCtrl 时才需要该属性。
     lazy public var isScrollByViewCtrl = true
 
-    lazy public var lastSelectIndex = 0
-    
+    /// pageViewCtrl 中出现的所有 viewCtrl 数组。
     private(set) public var viewCtrlArray = [UIViewController](){
         didSet{
-            // 配置默认显示的界面
+            // 配置默认显示的界面。
             setViewControllers([viewCtrlArray[0]], direction: .forward, animated: true)
         }
     }
     
+    /// viewCtrlArray 对应的 titles。
     private(set) lazy public var viewCtrlTitleArray = [String]()
-
-    weak public var emerana: EMERANA_JudyPageViewCtrlAnimating?
     
-    weak public var enolagay: EMERANA_JudyBasePageViewCtrlModel?
 
     
-    
-    open override func viewDidLoad() {
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
         guard transitionStyle == .scroll else {
-            fatalError("请设置 pageViewCtrl.transitionStyle 为 scroll")
+            fatalError("请设置 pageViewCtrl.transitionStyle 为 scroll。")
         }
+
+    }
+
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .judy(.scrollView)
-        // 通过手势拖动时要设置的数据源，若不需要手势控制，将其设为 nil 即可
+        // 通过手势拖动时要设置的数据源，若不需要手势控制，将其设为 nil 即可。
         dataSource = self
         delegate = self
 
@@ -133,15 +92,12 @@ open class JudyBasePageViewCtrl: UIPageViewController, EMERANA_PageViewCtrl {
 
     }
     
-    /// 设置数据源，默认会显示第一项
-    /// - Parameter dataSource: 在以模型为驱动时，传入 titles，该 titles 会对应 viewCtrl 的 title；在以界面为驱动时，传入viewControllers
-    final public func setPageViewDataSource<DataSource>(dataSource: [DataSource]) {
-        guard !dataSource.isEmpty else {
-            Judy.log("dataSource 不能为空！- \(classForCoder)")
-            return
-        }
+    /// 设置数据源，默认会显示第一项。
+    /// - Parameter dataSource: 在以模型为驱动时，传入 titles，该 titles 会对应 viewCtrl 的 title；在以界面为驱动时，传入viewControllers。
+    final public func onStart<DataSource>(dataSource: [DataSource]) {
+        guard !dataSource.isEmpty else { return }
         
-        if dataSource is [String] { // 模型驱动
+        if dataSource is [String] { // 传入的标题，以模型驱动。
             guard enolagay != nil else { fatalError("模型驱动必须实现 enolagay！") }
             
             viewCtrlTitleArray = dataSource as! [String]
@@ -152,9 +108,9 @@ open class JudyBasePageViewCtrl: UIPageViewController, EMERANA_PageViewCtrl {
                 return viewCtrl
             })
             
-        } else if dataSource is [UIViewController] {  // viewCtrl 驱动
+        } else if dataSource is [UIViewController] {  // 传入的 viewCtrl，以 viewCtrl 驱动。
             viewCtrlArray = dataSource as! [UIViewController]
-            // 根据 viewCtrlArray 设置 viewCtrlTitleArray
+            // 根据 viewCtrlArray 设置 viewCtrlTitleArray。
             viewCtrlTitleArray = viewCtrlArray.map({ (item) -> String in
                 let viewController = item
                 var theViewTitle: String?
@@ -179,8 +135,11 @@ open class JudyBasePageViewCtrl: UIPageViewController, EMERANA_PageViewCtrl {
         }
     }
     
-    
-    deinit { Judy.log("🚙 <\(title ?? "未命名界面")> 已经释放 - \(classForCoder)") }
+    deinit { Judy.log("🚙 <\(title ?? "JudyBasePageViewCtrl")> 已经释放 - \(classForCoder)") }
+
+    @available(*, unavailable, message: "该函数已更新，请通过 onStart 函数启动。", renamed: "onStart")
+    final public func setPageViewDataSource<DataSource>(dataSource: [DataSource]) {}
+
 }
 
 
@@ -238,8 +197,11 @@ extension JudyBasePageViewCtrl: UIPageViewControllerDataSource {
 // MARK: - UIPageViewControllerDelegate
 extension JudyBasePageViewCtrl: UIPageViewControllerDelegate {
     
-    // 只有通过拖动 pageViewCtrl 才会触发此函数
+    // 在手势驱动转换完成后调用。也就是说只有通过拖动 viewCtrl 完成切换才会触发此函数。
     public func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed {
+            Judy.log("用户已完成翻页手势")
+        }
         isScrollByViewCtrl = true
         lastSelectIndex = indexOfViewController(viewCtrl: pageViewController.viewControllers!.last!)
         
@@ -252,17 +214,17 @@ extension JudyBasePageViewCtrl: UIPageViewControllerDelegate {
 // MARK: - UIScrollViewDelegate
 extension JudyBasePageViewCtrl: UIScrollViewDelegate {
     
-    /// 滚动视图发生向右滚动超过指定范围时执行特定事件
-    /// 如果重写此方法方法，需要覆盖父类方法，否则将不能实现手势返回
+    /// 滚动视图发生向右滚动超过指定范围时执行特定事件。
+    /// 如果重写此方法方法，需要覆盖父类方法，否则将不能实现手势返回。
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         scrollView.bounces = isBounces
 
         guard isAutoPop, isScrollByViewCtrl,
-            navigationController is JudyNavigationCtrl,
-            navigationController!.children.count > 1, // 守护 JudyNavigationCtrl 不是最底层，最底层无法 pop
-            lastSelectIndex == 0 else {
-                return
+              navigationController is JudyNavigationCtrl,
+              navigationController!.children.count > 1, // 守护 JudyNavigationCtrl 不是最底层，最底层无法 pop
+              lastSelectIndex == 0 else {
+            return
         }
         
         if view.frame.width - scrollView.contentOffset.x > 68 {
@@ -277,7 +239,7 @@ extension JudyBasePageViewCtrl: UIScrollViewDelegate {
 // MARK: - 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl
 
 /// 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl
-///  - warning: 本类中的 segmentedCtrl 已经和 pageViewCtrl 互相关联，无需手动配置二者关系
+///  - warning: 本类中的 segmentedCtrl 已经和 pageViewCtrl 互相关联，无需手动配置二者关系。
 open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDelegate {
     
     /// 分段控制器，如果有设置 pageViewCtrlToSegmentDelegate 对象，navigationSegmentedCtrl 将不会生效
@@ -333,7 +295,7 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
             return
         }
         let viewCtrls = [viewCtrlArray[index]]
-        // 不应该在 completion 里设置 lastSelectIndexAtSegmentedCtrl，这样不及时
+        // 不应该在 completion 里设置 lastSelectIndex，这样不及时
         setViewControllers(viewCtrls, direction: ((lastSelectIndex < index) ? .forward : .reverse), animated: true)
         lastSelectIndex = index
         
@@ -342,13 +304,11 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
 
 }
 
-@available(*, unavailable, message: "该协议已变更命名，请更新", renamed: "EMERANA_JudyLivePageViewCtrl")
-public protocol EMERANA_JudyBasePageViewCtrlLiveModel {}
 
 /// 适用于比如 JudyLivePageViewCtrl 等 UIPageViewController 子类管理 viewCtrl 的协议。
 ///
 /// 该协议中定义了如何确定具体的 viewCtrl，以及确定该 viewCtrl 所需要的唯一数据。
-public protocol JudyPageViewCtrlDelegate: UIViewController {
+public protocol JudyPageViewCtrlDelegate: AnyObject {
     
     /// 询问 pageViewCtrl 中所有 viewCtrl 对应的数据源实体，该实体为一个数组。
     func entitys(for pageViewCtrl: UIPageViewController) -> [Any]
@@ -366,7 +326,7 @@ public protocol JudyPageViewCtrlDelegate: UIViewController {
 }
 
 
-/// 适用于直播、短视频类型的 pageViewCtrl。
+/// 适用于直播、短视频类型的（ viewCtrl 数量庞大） pageViewCtrl。
 ///
 /// 别忘了设置滚动方向 pageViewCtrl.navigationOrientation，根据需要设置为水平方向滑动还是垂直方向滑动。
 /// - Warning: 请记得设置 transitionStyle 为 scroll；
@@ -428,6 +388,8 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
         }
     }
     
+    deinit { Judy.log("🚙 <\(title ?? "JudyLivePageViewCtrl")> 已经释放 - \(classForCoder)") }
+
     // MARK: - UIPageViewControllerDataSource
     
     /// 显示前一页。
