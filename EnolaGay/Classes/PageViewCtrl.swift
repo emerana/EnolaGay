@@ -29,10 +29,10 @@ import UIKit
 
 /// 支持模型驱动和数据驱动的标准 JudyBasePageViewCtrl。
 ///
-/// 通过 setPageViewDataSource 函数设置数据及界面，此类适用于切换的页面较少的场景。
+/// 通过 setPageViewDataSource 函数设置数据及界面，此类适用于切换的页面较少的场景，会保留所有出现的 viewCtrl。
 /// - warning: setPageViewDataSource 函数中直接明确了所有需要出现的 viewCtrls 及对应的 titles。
 /// - warning: 如果是模型驱动，则必须实现 enolagay 代理对象。
-open class JudyBasePageViewCtrl: UIPageViewController {
+open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDelegate, UIScrollViewDelegate {
     
     /// emerana 代理，此代理负责处理 pageViewCtrl 切换事件。
     weak public var emerana: EMERANA_JudyPageViewCtrlAnimating?
@@ -52,7 +52,7 @@ open class JudyBasePageViewCtrl: UIPageViewController {
     /// - Warning: 将该值设为 false 则 pageViewCtrl 首位界面没有向外部滚动的弹簧效果。
     @IBInspectable lazy public var isBounces: Bool = true
 
-    /// 该值用于记录是否通过拖拽 viewCtrl 触发的切换，默认值应该为 true。
+    /// 该值用于记录是否通过拖拽 viewCtrl 触发的切换。
     ///
     /// 若该值为 false（如点击 segmentCtrl 触发切换函数），则不应该响应导航条 Pop() 函数。
     /// - Warning: 若当前导航条为 JudyNavigationCtrl 时才需要该属性。
@@ -140,6 +140,42 @@ open class JudyBasePageViewCtrl: UIPageViewController {
     @available(*, unavailable, message: "该函数已更新，请通过 onStart 函数启动。", renamed: "onStart")
     final public func setPageViewDataSource<DataSource>(dataSource: [DataSource]) {}
 
+    
+    // MARK: - UIPageViewControllerDelegate
+
+    // 在手势驱动转换完成后调用。也就是说只有通过拖动 viewCtrl 完成切换（用户已完成翻页手势）才会触发此函数。
+    public func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+
+        isScrollByViewCtrl = true
+        lastSelectIndex = indexOfViewController(viewCtrl: pageViewController.viewControllers!.last!)
+        
+        emerana?.pageViewCtrlDidFinishAnimating(atIndex: lastSelectIndex)
+        Judy.log("当前切换到：\(UInt(lastSelectIndex))")
+    }
+
+    
+    // MARK: - UIScrollViewDelegate
+
+    /// 滚动视图发生向右滚动超过指定范围时执行特定事件。
+    /// 如果重写此方法方法，需要覆盖父类方法，否则将不能实现手势返回。
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        scrollView.bounces = isBounces
+
+        guard isAutoPop, isScrollByViewCtrl,
+              navigationController is JudyNavigationCtrl,
+              navigationController!.children.count > 1, // 守护 JudyNavigationCtrl 不是最底层，最底层无法 pop。
+              lastSelectIndex == 0 else {
+            return
+        }
+        
+        if view.frame.width - scrollView.contentOffset.x > 68 {
+            (navigationController as! JudyNavigationCtrl).doPopAction()
+            scrollView.delegate = nil
+        }
+        
+    }
+
 }
 
 
@@ -194,46 +230,6 @@ extension JudyBasePageViewCtrl: UIPageViewControllerDataSource {
     }
 }
 
-// MARK: - UIPageViewControllerDelegate
-extension JudyBasePageViewCtrl: UIPageViewControllerDelegate {
-    
-    // 在手势驱动转换完成后调用。也就是说只有通过拖动 viewCtrl 完成切换才会触发此函数。
-    public func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        if completed {
-            Judy.log("用户已完成翻页手势")
-        }
-        isScrollByViewCtrl = true
-        lastSelectIndex = indexOfViewController(viewCtrl: pageViewController.viewControllers!.last!)
-        
-        emerana?.pageViewCtrlDidFinishAnimating(atIndex: lastSelectIndex)
-        Judy.log("当前切换到：\(UInt(lastSelectIndex))")
-    }
-    
-}
-
-// MARK: - UIScrollViewDelegate
-extension JudyBasePageViewCtrl: UIScrollViewDelegate {
-    
-    /// 滚动视图发生向右滚动超过指定范围时执行特定事件。
-    /// 如果重写此方法方法，需要覆盖父类方法，否则将不能实现手势返回。
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        scrollView.bounces = isBounces
-
-        guard isAutoPop, isScrollByViewCtrl,
-              navigationController is JudyNavigationCtrl,
-              navigationController!.children.count > 1, // 守护 JudyNavigationCtrl 不是最底层，最底层无法 pop
-              lastSelectIndex == 0 else {
-            return
-        }
-        
-        if view.frame.width - scrollView.contentOffset.x > 68 {
-            (navigationController as! JudyNavigationCtrl).doPopAction()
-            scrollView.delegate = nil
-        }
-        
-    }
-}
 
 
 // MARK: - 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl
@@ -249,6 +245,7 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
         return segmentedView
     }()
 
+    // MARK: - UIPageViewControllerDelegate
 
     open override func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
 
@@ -260,19 +257,10 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
     
     // MARK: - segmentedCtrl 相关函数
     
-    /// 设置 SegmentedCtrl 基本信息
-    /// - warning: 此函数将会设置以下行为
-    /// * sectionTitles 与 viewCtrlTitleArray 同步
-    /// * segmentedCtrl.frame.size.width 被设为所有 title 宽度之和
-    /// * backgroundColor = .clear
-    /// * 配置 configSegmentedStyle 函数
+    /// 设置 SegmentedCtrl 基本信息。
     /// - Parameter isLesser: 是否较少内容，默认false，若需要使 segmentedCtrl 宽度适应内容宽度传入 true
     open func setSegmentedCtrl(isLesser: Bool = false) {
-        
-        //  segmentedCtrl.frame = judy_navigationCtrller().navigationBar.frame
-        //  设置 title 数据源
-        segmentedCtrl.backgroundColor = .clear
-        
+                
         if isLesser {
             var width = "".textSize().width
             viewCtrlTitleArray.forEach { (title) in
@@ -285,10 +273,12 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
         //  navigationItem.titleView = segmentedCtrl
     }
     
+    // MARK: - SegmentedViewDelegate
+
     open func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int) {
         
         isScrollByViewCtrl = false
-        // segmentedCtrl 改变 viewControllers
+        // segmentedCtrl 改变 viewControllers。
         let index = index
         if index >= viewCtrlArray.count {
             Judy.log("切换目标 index 不在 viewCtrlArray 范围")
