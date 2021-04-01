@@ -34,6 +34,16 @@ import UIKit
 /// - warning: 如果是模型驱动，则必须实现 enolagay 代理对象。
 open class JudyBasePageViewCtrl: UIPageViewController {
     
+    /// emerana 代理，此代理负责处理 pageViewCtrl 切换事件。
+    weak public var emerana: EMERANA_JudyPageViewCtrlAnimating?
+    
+    /// 模型驱动代理，在使用模型驱动时必须实现该代理，并通过此代理设置 viewCtrl 模型。
+    weak public var enolagay: EMERANA_JudyBasePageViewCtrlModel?
+
+    /// 记录当前选中的索引。
+    lazy public var lastSelectIndex = 0
+
+    
     /// 当最左边的 ViewCtrl 继续向右拖动达到指定位置时执行 Pop()，默认值应该为 false。
     /// - Warning: 只有当前导航条为 JudyNavigationCtrl 时该属性才起作用。
     @IBInspectable lazy public var isAutoPop: Bool = false
@@ -48,9 +58,6 @@ open class JudyBasePageViewCtrl: UIPageViewController {
     /// - Warning: 若当前导航条为 JudyNavigationCtrl 时才需要该属性。
     lazy public var isScrollByViewCtrl = true
 
-    /// 记录当前选中的索引。
-    lazy public var lastSelectIndex = 0
-    
     /// pageViewCtrl 中出现的所有 viewCtrl 数组。
     private(set) public var viewCtrlArray = [UIViewController](){
         didSet{
@@ -62,11 +69,6 @@ open class JudyBasePageViewCtrl: UIPageViewController {
     /// viewCtrlArray 对应的 titles。
     private(set) lazy public var viewCtrlTitleArray = [String]()
     
-    /// emerana 代理，此代理负责处理 pageViewCtrl 切换事件。
-    weak public var emerana: EMERANA_JudyPageViewCtrlAnimating?
-    
-    /// 模型驱动代理，在使用模型驱动时必须实现该代理，并通过此代理设置 viewCtrl 模型。
-    weak public var enolagay: EMERANA_JudyBasePageViewCtrlModel?
 
     
     required public init?(coder: NSCoder) {
@@ -90,9 +92,6 @@ open class JudyBasePageViewCtrl: UIPageViewController {
 
     }
     
-    @available(*, unavailable, message: "该函数已更新，请通过 onStart 函数启动。", renamed: "onStart")
-    final public func setPageViewDataSource<DataSource>(dataSource: [DataSource]) {}
-
     /// 设置数据源，默认会显示第一项。
     /// - Parameter dataSource: 在以模型为驱动时，传入 titles，该 titles 会对应 viewCtrl 的 title；在以界面为驱动时，传入viewControllers。
     final public func onStart<DataSource>(dataSource: [DataSource]) {
@@ -136,7 +135,11 @@ open class JudyBasePageViewCtrl: UIPageViewController {
         }
     }
     
-    deinit { Judy.log("🚙 <\(title ?? "未命名界面")> 已经释放 - \(classForCoder)") }
+    deinit { Judy.log("🚙 <\(title ?? "JudyBasePageViewCtrl")> 已经释放 - \(classForCoder)") }
+
+    @available(*, unavailable, message: "该函数已更新，请通过 onStart 函数启动。", renamed: "onStart")
+    final public func setPageViewDataSource<DataSource>(dataSource: [DataSource]) {}
+
 }
 
 
@@ -194,8 +197,11 @@ extension JudyBasePageViewCtrl: UIPageViewControllerDataSource {
 // MARK: - UIPageViewControllerDelegate
 extension JudyBasePageViewCtrl: UIPageViewControllerDelegate {
     
-    // 只有通过拖动 pageViewCtrl 才会触发此函数。
+    // 在手势驱动转换完成后调用。也就是说只有通过拖动 viewCtrl 完成切换才会触发此函数。
     public func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed {
+            Judy.log("用户已完成翻页手势")
+        }
         isScrollByViewCtrl = true
         lastSelectIndex = indexOfViewController(viewCtrl: pageViewController.viewControllers!.last!)
         
@@ -289,7 +295,7 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
             return
         }
         let viewCtrls = [viewCtrlArray[index]]
-        // 不应该在 completion 里设置 lastSelectIndexAtSegmentedCtrl，这样不及时
+        // 不应该在 completion 里设置 lastSelectIndex，这样不及时
         setViewControllers(viewCtrls, direction: ((lastSelectIndex < index) ? .forward : .reverse), animated: true)
         lastSelectIndex = index
         
@@ -302,7 +308,7 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
 /// 适用于比如 JudyLivePageViewCtrl 等 UIPageViewController 子类管理 viewCtrl 的协议。
 ///
 /// 该协议中定义了如何确定具体的 viewCtrl，以及确定该 viewCtrl 所需要的唯一数据。
-public protocol JudyPageViewCtrlDelegate: UIViewController {
+public protocol JudyPageViewCtrlDelegate: AnyObject {
     
     /// 询问 pageViewCtrl 中所有 viewCtrl 对应的数据源实体，该实体为一个数组。
     func entitys(for pageViewCtrl: UIPageViewController) -> [Any]
