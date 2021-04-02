@@ -303,9 +303,10 @@ public protocol JudyPageViewCtrlDelegate: AnyObject {
     /// 询问 pageViewCtrl 中所有 viewCtrl 对应的数据源实体，该实体为一个数组。
     func entitys(for pageViewCtrl: UIPageViewController) -> [Any]
     
-    /// 询问 viewCtrl 在 entitys 数据源中的索引。
+    /// 询问 viewCtrl 在 entitys 中对应的索引。
     ///
-    /// 通常每个 viewCtrl 都有一个 entity 作为其唯一标识符，通过该 entity 确定在 entitys 的索引。
+    /// 该 viewCtrl 为发生转换之前的视图控制器，通常每个 viewCtrl 都有一个 entity 作为其唯一标识符，通过该 entity 确定在 entitys 中的索引。若该 viewCtrl 不存在 entitys 中请返回 0。
+    /// - Warning: 该 viewCtrl 可能为 emptyViewCtrl，请注意与 emptyViewCtrl(for pageViewCtrl: UIPageViewController) 函数返回的 viewCtrl 正确区分。
     func index(for viewCtrl: UIViewController, at entitys: [Any] ) -> Int
     
     /// 询问目标实体 entity 对应的 viewCtrl。
@@ -315,7 +316,7 @@ public protocol JudyPageViewCtrlDelegate: AnyObject {
     
     /// 询问 pageViewCtrl 中没有可显示的 viewCtrl 时用于显示的视图。
     ///
-    /// 由于不允许传入 nil，setViewControllers(nil, direction: .forward, animated: true) 将直接崩溃，此函数默认返回 UIViewController()。
+    /// 由于不允许传入 nil，setViewControllers(nil, direction: .forward, animated: true) 将直接崩溃。如果能够保证永远不需要空白界面则可不实现此函数，该函数默认返回 UIViewController()。
     func emptyViewCtrl(for pageViewCtrl: UIPageViewController) -> UIViewController
 
 }
@@ -376,15 +377,15 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     /// 该函数将根据 enolagay 询问数据源并重置到初始页。
     public final func reload() {
         if entitys.first != nil {
-            let firstViewCtrl = enolagay.viewCtrl(for: entitys.first!)
+            let homePage = enolagay.viewCtrl(for: entitys.first!)
             // 设置初始页。
-            setViewControllers([firstViewCtrl], direction: .forward, animated: true)
+            setViewControllers([homePage], direction: .forward, animated: false)
             dataSource = self
             delegate = self
         } else {
             // 询问无视图可显示的情况。
             let emptyViewCtrl = enolagay.emptyViewCtrl(for: self)
-            setViewControllers([emptyViewCtrl], direction: .forward, animated: true)
+            setViewControllers([emptyViewCtrl], direction: .forward, animated: false)
             dataSource = nil
             delegate = nil
         }
