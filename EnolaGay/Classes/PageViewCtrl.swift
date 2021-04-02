@@ -327,7 +327,7 @@ public extension JudyPageViewCtrlDelegate {
     }
 }
 
-/// 适用于直播、短视频类型的（ viewCtrl 数量庞大） pageViewCtrl。
+/// 适用于直播、短视频类型的（ viewCtrl 数量庞大）轻量级 pageViewCtrl。
 ///
 /// 别忘了设置滚动方向 pageViewCtrl.navigationOrientation，根据需要设置为水平方向滑动还是垂直方向滑动。
 /// - Warning: 请记得设置 transitionStyle 为 scroll；
