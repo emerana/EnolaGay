@@ -312,9 +312,19 @@ public protocol JudyPageViewCtrlDelegate: AnyObject {
     ///
     /// 每个 viewCtrl 都应该有一个 entity，同时该 entity 作为该 viewCtrl 的唯一标识符。
     func viewCtrl(for entity: Any) -> UIViewController
+    
+    /// 询问 pageViewCtrl 中没有可显示的 viewCtrl 时用于显示的视图。
+    ///
+    /// 由于不允许传入 nil，setViewControllers(nil, direction: .forward, animated: true) 将直接崩溃，此函数默认返回 UIViewController()。
+    func emptyViewCtrl(for pageViewCtrl: UIPageViewController) -> UIViewController
 
 }
-
+// 默认实现函数，使其变成可选协议函数。
+public extension JudyPageViewCtrlDelegate {
+    func emptyViewCtrl(for pageViewCtrl: UIPageViewController) -> UIViewController {
+        return UIViewController()
+    }
+}
 
 /// 适用于直播、短视频类型的（ viewCtrl 数量庞大） pageViewCtrl。
 ///
@@ -372,7 +382,9 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
             dataSource = self
             delegate = self
         } else {
-            setViewControllers(nil, direction: .forward, animated: true)
+            // 询问无视图可显示的情况。
+            let emptyViewCtrl = enolagay.emptyViewCtrl(for: self)
+            setViewControllers([emptyViewCtrl], direction: .forward, animated: true)
             dataSource = nil
             delegate = nil
         }
