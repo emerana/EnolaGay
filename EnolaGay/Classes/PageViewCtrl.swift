@@ -8,16 +8,16 @@
 
 /// JudyBasePageViewCtrl 模型驱动专用协议，该协议只有继承 class 类型才能定义成 weak 代理对象。
 ///
-/// 此协议主要包含生成 viewCtrl 模型的函数
-public protocol EMERANA_JudyBasePageViewCtrlModel: UIViewController {
+/// 此协议主要包含生成 viewCtrl 模型的函数。
+public protocol EMERANA_JudyBasePageViewCtrlModel: class {
     
     /// 询问对应 index 的 viewCtrl。
-    func viewCtrl(for index: Int, at title: String?) -> UIViewController
+    func viewCtrl(for index: Int, at title: String) -> UIViewController
 }
 
 /// PageViewCtrl 切换协议，该协议只有继承 class 类型才能定义成 weak 代理对象。
 ///
-/// 代理需要定义成 weak 形式才能避免强引用
+/// 代理需要定义成 weak 形式才能避免强引用。
 public protocol EMERANA_JudyPageViewCtrlAnimating: UIViewController {
     
     /// pageViewCtrl 切换事件，此函数在手动切换 pageViewCtrl 时触发。
