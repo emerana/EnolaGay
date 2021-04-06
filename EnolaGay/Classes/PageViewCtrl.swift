@@ -6,22 +6,22 @@
 //  Copyright © 2019 指尖躁动. All rights reserved.
 //
 
-/// JudyBasePageViewCtrl 模型驱动专用协议，该协议只有继承 class 类型才能定义成 weak 代理对象
-/// * 此协议主要包含生成 viewCtrl 模型的函数
-public protocol EMERANA_JudyBasePageViewCtrlModel: UIViewController {
+/// JudyBasePageViewCtrl 模型驱动专用协议，该协议只有继承 class 类型才能定义成 weak 代理对象。
+///
+/// 此协议主要包含生成 viewCtrl 模型的函数。
+public protocol EMERANA_JudyBasePageViewCtrlModel: class {
     
-    /// 初始化对应 index 的 viewCtrl，一般地，此处应返回一个 viewCtrl 模板对象
-    /// - Parameter index: 目标 index
-    func viewController(forIndex index: Int) -> UIViewController
+    /// 询问对应 index 的 viewCtrl。
+    func viewCtrl(for index: Int, at title: String) -> UIViewController
 }
 
-/// PageViewCtrl 切换协议，该协议只有继承 class 类型才能定义成 weak 代理对象
-/// # 代理需要定义成 weak 形式才能避免强引用
+/// PageViewCtrl 切换协议，该协议只有继承 class 类型才能定义成 weak 代理对象。
+///
+/// 代理需要定义成 weak 形式才能避免强引用。
 public protocol EMERANA_JudyPageViewCtrlAnimating: UIViewController {
     
-    /// pageViewCtrl 切换事件，此函数在手动切换 pageViewCtrl 时触发
-    /// - Parameter index: 对应界面的目标 index
-    func pageViewCtrlDidFinishAnimating(atIndex index: Int)
+    /// pageViewCtrl 切换事件，此函数在手动切换 pageViewCtrl 时触发。
+    func pageViewCtrlDidFinishAnimating(at index: Int)
 }
 
 
@@ -103,7 +103,7 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
             viewCtrlTitleArray = dataSource as! [String]
             // 根据 viewCtrlTitleArray 设置 viewCtrlArray
             viewCtrlArray = viewCtrlTitleArray.enumerated().map({ (index, title) -> UIViewController in
-                let viewCtrl = enolagay!.viewController(forIndex: index)
+                let viewCtrl = enolagay!.viewCtrl(for: index, at: title)
                 viewCtrl.title = title
                 return viewCtrl
             })
@@ -149,7 +149,7 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
         isScrollByViewCtrl = true
         lastSelectIndex = indexOfViewController(viewCtrl: pageViewController.viewControllers!.last!)
         
-        emerana?.pageViewCtrlDidFinishAnimating(atIndex: lastSelectIndex)
+        emerana?.pageViewCtrlDidFinishAnimating(at: lastSelectIndex)
         Judy.log("当前切换到：\(UInt(lastSelectIndex))")
     }
 
