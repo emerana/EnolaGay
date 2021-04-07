@@ -305,8 +305,10 @@ public protocol JudyPageViewCtrlDelegate: AnyObject {
     
     /// 询问 viewCtrl 在 entitys 中对应的索引。
     ///
-    /// 该 viewCtrl 为发生转换之前的视图控制器，通常每个 viewCtrl 都有一个 entity 作为其唯一标识符，通过该 entity 确定在 entitys 中的索引。若该 viewCtrl 不存在 entitys 中请返回 0。
-    /// - Warning: 该 viewCtrl 可能为 emptyViewCtrl，请注意与 emptyViewCtrl(for pageViewCtrl: UIPageViewController) 函数返回的 viewCtrl 正确区分。
+    /// - Parameters:
+    ///   - viewCtrl: 发生转换之前的视图控制器，通常每个 viewCtrl 都有一个 entity 作为其唯一标识符，通过该 entity 确定在 entitys 中的索引。若该 viewCtrl 不存在 entitys 中请返回 0。
+    ///   - entitys: viewCtrl 所在的数据源实体数组，viewCtrl 应该对应该数组中的某个元素。
+    /// - Warning: viewCtrl 可能为 emptyViewCtrl，请注意与 emptyViewCtrl(for pageViewCtrl: UIPageViewController) 函数返回的 viewCtrl 正确区分。
     func index(for viewCtrl: UIViewController, at entitys: [Any] ) -> Int
     
     /// 询问目标实体 entity 对应的 viewCtrl。
@@ -314,7 +316,7 @@ public protocol JudyPageViewCtrlDelegate: AnyObject {
     /// 每个 viewCtrl 都应该有一个 entity，同时该 entity 作为该 viewCtrl 的唯一标识符。
     func viewCtrl(for entity: Any) -> UIViewController
     
-    /// 询问 pageViewCtrl 中没有可显示的 viewCtrl 时用于显示的视图。
+    /// 询问当 pageViewCtrl 中没有可显示的 viewCtrl 时用于显示的界面，应该在该界面做好重载数据及初始化工作。
     ///
     /// 由于不允许传入 nil，setViewControllers(nil, direction: .forward, animated: true) 将直接崩溃。如果能够保证永远不需要空白界面则可不实现此函数，该函数默认返回 UIViewController()。
     func emptyViewCtrl(for pageViewCtrl: UIPageViewController) -> UIViewController
@@ -327,18 +329,20 @@ public extension JudyPageViewCtrlDelegate {
     }
 }
 
-/// 适用于直播、短视频类型的（ viewCtrl 数量庞大）轻量级 pageViewCtrl。
+/// 适用于直播、短视频类型的（viewCtrl 数量不限）轻量级 pageViewCtrl。
 ///
 /// 别忘了设置滚动方向 pageViewCtrl.navigationOrientation，根据需要设置为水平方向滑动还是垂直方向滑动。
-/// - Warning: 请记得设置 transitionStyle 为 scroll；
-/// * 请通过调用 onStart() 函数使 pageViewCtrl 正常工作，通常情况下在数据源被确定时调用此函数;
-/// * JudyLivePageViewCtrl 支持下拉刷新请通过 scrollViewClosure 获取 scrollView;
+/// - Warning: 注意事项：
+/// * 请记得设置 transitionStyle 为 scroll；
+/// * 支持下拉刷新请通过 scrollViewClosure 获取 scrollView;
+/// * 当确定 enolagay.entitys 后请调用 onStart() 使 pageViewCtrl 开始工作;
 open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate {
 
-    /// viewCtrl 数据源配置代理对象，所有要显示的 ViewCtrl 均通过此协议配置
+    /// viewCtrl 数据源配置代理对象，所有要显示的 ViewCtrl 均通过此协议配置。
     weak public var enolagay: JudyPageViewCtrlDelegate!
     
-    /// 当 scrollView 有值后触发此闭包以便外部设置 scrollView。
+    /// 当 scrollView 有值后触发此闭包以便外部设置下拉刷新。
+    /// - Warning: scrollView 仅支持下拉刷新。
     public var scrollViewClosure:((UIScrollView) -> Void)?
     /// 在 UIPageViewController 中的核心 ScrollView，请通过 scrollViewClosure 获取有效的 scrollView。
     public private(set) var scrollView: UIScrollView? {
@@ -372,10 +376,10 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
         scrollView?.delegate = self
     }
     
-    /// 重载所有数据配置及逻辑。
+    /// 初始化所有数据配置及逻辑。
     ///
-    /// 该函数将根据 enolagay 询问数据源并重置到初始页。
-    public final func reload() {
+    /// 该函数将询问数据源并重置到数据源中的第一页，，若 enolagay.entitys 为空，则询问一个空视图界面，且需在 enolagay.entitys 首次不为空时重新调用此函数以初始化。
+    public final func onStart() {
         if entitys.first != nil {
             let homePage = enolagay.viewCtrl(for: entitys.first!)
             // 设置初始页。
