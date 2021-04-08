@@ -31,9 +31,10 @@ class KeyBoardPopUpViewCtrl: UIViewController {
         
     @objc func keyBoardShowHideAction(notification: NSNotification) {
         
+        let userInfo  = notification.userInfo! as NSDictionary
+        let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+
         if notification.name == UIResponder.keyboardWillShowNotification {
-            let userInfo  = notification.userInfo! as NSDictionary
-            let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
             
             let keyBoardBounds = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
             _ = self.view.convert(keyBoardBounds, to:nil)
@@ -54,8 +55,6 @@ class KeyBoardPopUpViewCtrl: UIViewController {
         }
 
         if notification.name == UIResponder.keyboardWillHideNotification {
-            let userInfo  = notification.userInfo! as NSDictionary
-            let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
             
             let animations:(() -> Void) = {
                 self.keyBaordView.transform = CGAffineTransform.identity
