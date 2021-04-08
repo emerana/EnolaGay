@@ -39,14 +39,15 @@ class KeyBoardPopUpViewCtrl: UIViewController {
               let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
         else { return }
         
+        /// 改变目标 View 的执行过程事件。
         let animations: (() -> Void) = { [weak self] in
-            // 键盘弹出过程。
+            // 键盘弹出事件。
             if notification.name == UIResponder.keyboardWillShowNotification {
                 // 得到键盘高度。
                 self?.keyBoardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect).size.height
                 self?.keyBaordView.transform = CGAffineTransform(translationX: 0,y: -self!.keyBoardHeight)
             }
-            // 键盘收起过程。
+            // 键盘收起事件。
             if notification.name == UIResponder.keyboardWillHideNotification {
                 self?.keyBaordView.transform = CGAffineTransform.identity
             }
