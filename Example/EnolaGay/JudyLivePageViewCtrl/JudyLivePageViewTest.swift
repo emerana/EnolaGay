@@ -32,7 +32,7 @@ class JudyLivePageViewTest: UIViewController {
         if segue.identifier == "loadJudyLivePageViewCtrl" {
             livePageViewCtrl = segue.destination as? JudyLivePageViewCtrl
             livePageViewCtrl.enolagay = self
-            livePageViewCtrl.reload()
+            livePageViewCtrl.onStart()
 
         }
 
