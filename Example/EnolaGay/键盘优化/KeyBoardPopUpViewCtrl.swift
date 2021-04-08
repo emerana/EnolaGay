@@ -24,52 +24,52 @@ class KeyBoardPopUpViewCtrl: UIViewController {
         tapGestureRecognizer.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGestureRecognizer)
         
-        NotificationCenter.default.addObserver(self, selector:#selector(keyBoardWillShow(note:)), name:UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector:#selector(keyBoardWillHide(note:)), name:UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+    }
+        
+    @objc func keyBoardShowHideAction(notification: NSNotification) {
+        
+        if notification.name == UIResponder.keyboardWillShowNotification {
+            let userInfo  = notification.userInfo! as NSDictionary
+            let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+            
+            let keyBoardBounds = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            _ = self.view.convert(keyBoardBounds, to:nil)
+            _ = keyBaordView.frame
+            
+            let deltaY = keyBoardBounds.size.height
+            
+            let animations:(() -> Void) = {
+                self.keyBaordView.transform = CGAffineTransform(translationX: 0,y: -deltaY)
+            }
+            
+            if duration > 0 {
+                let options = UIView.AnimationOptions(rawValue: userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt)
+                UIView.animate(withDuration: duration, delay: 0, options: options, animations: animations, completion: nil)
+            } else {
+                animations()
+            }
+        }
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            let userInfo  = notification.userInfo! as NSDictionary
+            let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+            
+            let animations:(() -> Void) = {
+                self.keyBaordView.transform = CGAffineTransform.identity
+            }
+            
+            if duration > 0 {
+                let options = UIView.AnimationOptions(rawValue: userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt)
+                UIView.animate(withDuration: duration, delay: 0, options:options, animations: animations, completion: nil)
+            } else {
+                animations()
+            }
+        }
     }
     
-    @objc func keyBoardWillShow(note: NSNotification) {
-        
-        let userInfo  = note.userInfo! as NSDictionary
-        let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
-        
-        let keyBoardBounds = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        _ = self.view.convert(keyBoardBounds, to:nil)
-        _ = keyBaordView.frame
-        
-        let deltaY = keyBoardBounds.size.height
-        
-        let animations:(() -> Void) = {
-            self.keyBaordView.transform = CGAffineTransform(translationX: 0,y: -deltaY)
-        }
-        
-        if duration > 0 {
-            let options = UIView.AnimationOptions(rawValue: userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt)
-            UIView.animate(withDuration: duration, delay: 0, options: options, animations: animations, completion: nil)
-        } else {
-            animations()
-        }
-        
-    }
-    
-    @objc func keyBoardWillHide(note: NSNotification) {
-        
-        let userInfo  = note.userInfo! as NSDictionary
-        let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
-        
-        let animations:(() -> Void) = {
-            self.keyBaordView.transform = CGAffineTransform.identity
-        }
-        
-        if duration > 0 {
-            let options = UIView.AnimationOptions(rawValue: userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt)
-            UIView.animate(withDuration: duration, delay: 0, options:options, animations: animations, completion: nil)
-        } else {
-            animations()
-        }
-        
-    }
     
     @objc func handleTouches(sender: UITapGestureRecognizer) {
         
