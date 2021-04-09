@@ -39,7 +39,6 @@ class VerticalScrollViewCtrl: UIViewController {
         print("已经完全释放")
     }
 
-
 }
 
 
@@ -57,7 +56,6 @@ public class JudyVerticalScrollView: UIView {
     private var timer: Timer?
     /// 当前展示的索引，一般用于数据源中
     private var index: Int = 0
-    
     
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -111,7 +109,6 @@ public class JudyVerticalScrollView: UIView {
             }
             
         }
-        
     }
         
     deinit { Judy.log("JudyVerticalScrollView 已释放") }

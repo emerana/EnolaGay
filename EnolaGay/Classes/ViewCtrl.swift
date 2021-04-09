@@ -572,7 +572,7 @@ public extension UIViewController {
     }
     
     /// 需要跟随键盘移动的目标 View，通常为输入框的父视图。
-    private(set) weak var keyBoardView: UIView? {
+    private(set) weak var quoteKeyBoardView: UIView? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKey.keyBoardView) as? UIView
         }
@@ -581,12 +581,12 @@ public extension UIViewController {
         }
     }
     
-    /// 注册监听键盘弹出收起事件。
-    /// - Parameter keyBoardView: 该输入框所在的 View，该 View 将跟随键盘的出现而移动。
-    func registerKeyBoardListener(keyBoardView: UIView) {
+    /// 注册监听键盘弹出收起事件，该函数可使 quoteKeyBoardView 跟随键盘弹出收起。
+    /// - Parameter keyBoardView: 需要跟随键盘移动的 view，一般为输入框所在的父 View。
+    func registerKeyBoardListener(forView keyBoardView: UIView) {
         NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        self.keyBoardView = keyBoardView
+        self.quoteKeyBoardView = keyBoardView
 
     }
     
@@ -602,11 +602,11 @@ public extension UIViewController {
             if notification.name == UIResponder.keyboardWillShowNotification {
                 // 得到键盘高度。
                 self?.keyBoardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect).size.height
-                self?.keyBoardView?.transform = CGAffineTransform(translationX: 0,y: -self!.keyBoardHeight)
+                self?.quoteKeyBoardView?.transform = CGAffineTransform(translationX: 0,y: -self!.keyBoardHeight)
             }
             // 键盘收起事件。
             if notification.name == UIResponder.keyboardWillHideNotification {
-                self?.keyBoardView?.transform = CGAffineTransform.identity
+                self?.quoteKeyBoardView?.transform = CGAffineTransform.identity
             }
         }
         
@@ -615,7 +615,7 @@ public extension UIViewController {
             let options = UIView.AnimationOptions(rawValue: userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt)
             UIView.animate(withDuration: duration, delay: 0, options: options, animations: animations, completion: nil)
         } else {
-            // 键盘已经弹出，只是切换键盘。
+            // 键盘已经弹出，只是切换键盘，直接更新 keyBoardView frame。
             animations()
         }
 

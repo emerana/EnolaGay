@@ -28,13 +28,13 @@ class KeyBoardPopUpViewCtrl: UIViewController {
         tapGestureRecognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGestureRecognizer)
         
-        registerKeyBoardListener(keyBoardView: keyBaordView)
+        registerKeyBoardListener(forView: keyBaordView)
         
     }
         
     
     @objc func handleTouches(sender: UITapGestureRecognizer) {
-        // 只要点击区域不再键盘范围即收起键盘。
+        // 只要点击区域不在键盘范围即收起键盘。
         if sender.location(in: view).y < view.bounds.height - keyBoardHeight {
             textFeild.resignFirstResponder()
         }
