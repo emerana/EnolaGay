@@ -485,21 +485,19 @@ public extension UIViewController {
     
     // MARK: 将导航栏移出屏幕外
     
-    /// 移动导航条的方法
-    /// # * 该方法一般要调用两次（移动之后需要恢复）
+    /// 移动导航条，将导航栏移出屏幕外（或恢复原位置）。
+    ///
     /// - Parameter isHihe: 是否隐藏。默认值应该为 false
+    /// - Warning: 该方法一般要调用两次（移动之后需要恢复）。
     func judy_moveNavigationBar(isHihe: Bool = false) {
-        guard navigationController != nil else {
-            Judy.log("navigationController 为 nil！")
-            return
-        }
+        guard navigationController != nil else { return }
         
         UIView.animate(withDuration: 0.2) {
             // 获取状态栏高度
             let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
 
             let yDiff = isHihe ? self.navigationController!.navigationBar.frame.origin.y - self.navigationController!.navigationBar.frame.size.height - statusBarHeight :self.navigationController!.navigationBar.frame.origin.y + self.navigationController!.navigationBar.frame.size.height + statusBarHeight
-            // 重设 navigationBar.frame
+            // 重设 navigationBar.frame。
             self.navigationController!.navigationBar.frame =
                 CGRect(x: 0, y: yDiff,
                        width: self.navigationController!.navigationBar.frame.size.width,
@@ -508,13 +506,14 @@ public extension UIViewController {
     }
 
     
-    /// 弹出一个系统警告框，只包含一个确定按钮，没有任何按钮的操作事件
-    /// * 通常用于临时性提醒、警告作用
+    /// 弹出一个系统警告框，只包含一个确定按钮，没有任何按钮的操作事件。
     ///
-    /// - Parameter title: alert的标题，默认为"提示"
-    /// - Parameter msg: 消息文字
-    /// - Parameter cancelButtonTitle: 取消按钮的标题，默认为"确定"
-    /// - Parameter completionAction: 取消按钮点击事件，默认为 nil
+    /// 通常用于临时性提醒、警告作用。
+    ///
+    /// - Parameter title: alert的标题，默认为"提示"。
+    /// - Parameter msg: 消息文字。
+    /// - Parameter cancelButtonTitle: 取消按钮的标题，默认为"确定"。
+    /// - Parameter completionAction: 取消按钮点击事件，默认为 nil。
     func judy_alert(title: String = "提示", msg: String? = nil, cancelButtonTitle: String = "确定", completionAction: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         // 创建 UIAlertAction 控件
@@ -527,10 +526,9 @@ public extension UIViewController {
 
     
     
-    /// 获取当前 UIViewController 的导航控制器
+    /// 获取当前 UIViewController 的导航控制器。
     ///
-    /// - Returns: UIViewController的导航控制器对象
-    //    @available(*, deprecated, message: "反正是在 viewCtrl 当前对象中，请使用 navigationController")
+    /// - Returns: UIViewController的导航控制器对象。
     final func judy_navigationCtrller() -> UINavigationController {
         var navigationController: UINavigationController!
         
@@ -551,4 +549,76 @@ public extension UIViewController {
         return navigationController
     }
 
+}
+
+// MARK: - 正确地处理键盘遮挡输入框
+
+public extension UIViewController {
+    
+    /// 在 extension 中新增存储属性相关的key。
+    private struct AssociatedKey {
+        static var keyBoardHeight: CGFloat = 0
+        static var keyBoardView: UIView?
+    }
+    
+    /// 键盘的高度（如果有弹出键盘）。
+    private(set) var keyBoardHeight: CGFloat {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKey.keyBoardHeight) as? CGFloat ?? 0
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKey.keyBoardHeight, newValue, .OBJC_ASSOCIATION_ASSIGN)
+        }
+    }
+    
+    /// 需要跟随键盘移动的目标 View，通常为输入框的父视图。
+    private(set) weak var keyBoardView: UIView? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKey.keyBoardView) as? UIView
+        }
+        set { // OBJC_ASSOCIATION_RETAIN_NONATOMIC 也可以
+            objc_setAssociatedObject(self, &AssociatedKey.keyBoardView, newValue, .OBJC_ASSOCIATION_ASSIGN)
+        }
+    }
+    
+    /// 注册监听键盘弹出收起事件。
+    /// - Parameter keyBoardView: 该输入框所在的 View，该 View 将跟随键盘的出现而移动。
+    func registerKeyBoardListener(keyBoardView: UIView) {
+        NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        self.keyBoardView = keyBoardView
+
+    }
+    
+    /// 监听事件，键盘弹出或收起时均会触发此函数。
+    @objc private func keyBoardShowHideAction(notification: NSNotification) {
+        guard let userInfo = notification.userInfo,
+              let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
+        else { return }
+        
+        /// 改变目标 View 的执行过程事件。
+        let animations: (() -> Void) = { [weak self] in
+            // 键盘弹出事件。
+            if notification.name == UIResponder.keyboardWillShowNotification {
+                // 得到键盘高度。
+                self?.keyBoardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect).size.height
+                self?.keyBoardView?.transform = CGAffineTransform(translationX: 0,y: -self!.keyBoardHeight)
+            }
+            // 键盘收起事件。
+            if notification.name == UIResponder.keyboardWillHideNotification {
+                self?.keyBoardView?.transform = CGAffineTransform.identity
+            }
+        }
+        
+        // 键盘弹出过程时长。
+        if duration > 0 {
+            let options = UIView.AnimationOptions(rawValue: userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt)
+            UIView.animate(withDuration: duration, delay: 0, options: options, animations: animations, completion: nil)
+        } else {
+            // 键盘已经弹出，只是切换键盘。
+            animations()
+        }
+
+    }
+    
 }

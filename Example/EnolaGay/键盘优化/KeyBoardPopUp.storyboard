@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -91,14 +92,14 @@
                                         <textInputTraits key="textInputTraits"/>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="uWj-5F-lcc"/>
                                                 <exclude reference="bvt-pS-Hqt"/>
+                                                <exclude reference="uWj-5F-lcc"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
-                                                <include reference="uWj-5F-lcc"/>
                                                 <include reference="bvt-pS-Hqt"/>
+                                                <include reference="uWj-5F-lcc"/>
                                             </mask>
                                         </variation>
                                     </textField>
@@ -166,7 +167,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvF-xK-KJM" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="951" y="-241"/>
+            <point key="canvasLocation" x="1906" y="-241"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qdu-KQ-kKG">
+            <objects>
+                <viewController id="GRY-FH-IJG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="veM-95-hip">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muu-Pk-KVs">
+                                <rect key="frame" x="184" y="433" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="76K-T7-w22" kind="show" id="RcD-Lx-ZfM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JY9-fe-418"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="muu-Pk-KVs" firstAttribute="centerY" secondItem="veM-95-hip" secondAttribute="centerY" id="BvT-ut-xJX"/>
+                            <constraint firstItem="muu-Pk-KVs" firstAttribute="centerX" secondItem="veM-95-hip" secondAttribute="centerX" id="TSS-I8-mIx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="HA2-tV-lSq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ecz-LF-ezl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="996" y="-241"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YZb-xM-h4A">
@@ -179,7 +209,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="76K-T7-w22" kind="relationship" relationship="rootViewController" id="smU-Yh-c1x"/>
+                        <segue destination="GRY-FH-IJG" kind="relationship" relationship="rootViewController" id="v4V-II-njc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4V-Il-kt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -192,5 +222,8 @@
         <image name="chat_bottom_up_nor" width="34" height="34"/>
         <image name="chat_bottom_voice_nor" width="34" height="34"/>
         <image name="toolbar_bottom_bar" width="10" height="50"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
