@@ -559,6 +559,7 @@ public extension UIViewController {
     private struct AssociatedKey {
         static var keyBoardHeight: CGFloat = 0
         static var keyBoardView: UIView?
+        static var isSafeAreaInsetsBottom = false
     }
     
     /// 键盘的高度（如果有弹出键盘）。
@@ -581,13 +582,25 @@ public extension UIViewController {
         }
     }
     
+    /// keyBoardView 是否有保留安全区域底部内边距。
+    private var isSafeAreaInsetsBottom: Bool {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKey.isSafeAreaInsetsBottom) as? Bool ?? false
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKey.isSafeAreaInsetsBottom, newValue, .OBJC_ASSOCIATION_ASSIGN)
+        }
+    }
+
+    
     /// 注册监听键盘弹出收起事件，该函数可使 quoteKeyBoardView 跟随键盘弹出收起。
     /// - Parameter keyBoardView: 需要跟随键盘移动的 view，一般为输入框所在的父 View。
-    func registerKeyBoardListener(forView keyBoardView: UIView) {
+    /// - Parameter isSafeAreaInsetsBottom: keyBoardView 是否保留安全区域底部内边距，默认 true，keyBoardView 在跟随键盘弹出时会自动扣除安全区域的高度距离，反之亦然。
+    func registerKeyBoardListener(forView keyBoardView: UIView, isSafeAreaInsetsBottom: Bool = true) {
         NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         self.quoteKeyBoardView = keyBoardView
-
+        self.isSafeAreaInsetsBottom = isSafeAreaInsetsBottom
     }
     
     /// 监听事件，键盘弹出或收起时均会触发此函数。
@@ -596,13 +609,22 @@ public extension UIViewController {
               let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
         else { return }
         
-        /// 改变目标 View 的执行过程事件。
+        /// 改变目标 keyBoardView 的执行过程事件，更新其 2D 仿射变换矩阵。
         let animations: (() -> Void) = { [weak self] in
             // 键盘弹出事件。
             if notification.name == UIResponder.keyboardWillShowNotification {
                 // 得到键盘高度。
                 self?.keyBoardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect).size.height
-                self?.quoteKeyBoardView?.transform = CGAffineTransform(translationX: 0,y: -self!.keyBoardHeight)
+                
+                /// quoteKeyBoardView y 轴需要移动的距离。
+                var yDiff = -self!.keyBoardHeight
+                // 判断是否有底部安全区域。
+                if self!.isSafeAreaInsetsBottom {
+                    let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+                    let bottomPadding = window?.safeAreaInsets.bottom ?? 0
+                    yDiff += bottomPadding
+                }
+                self?.quoteKeyBoardView?.transform = CGAffineTransform(translationX: 0,y: yDiff)
             }
             // 键盘收起事件。
             if notification.name == UIResponder.keyboardWillHideNotification {
@@ -615,7 +637,7 @@ public extension UIViewController {
             let options = UIView.AnimationOptions(rawValue: userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt)
             UIView.animate(withDuration: duration, delay: 0, options: options, animations: animations, completion: nil)
         } else {
-            // 键盘已经弹出，只是切换键盘，直接更新 keyBoardView frame。
+            // 键盘已经弹出，只是切换键盘，直接更新 keyBoardView 2D仿射变换矩阵。
             animations()
         }
 
