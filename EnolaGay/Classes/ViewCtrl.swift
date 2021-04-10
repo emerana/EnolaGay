@@ -567,8 +567,8 @@ public extension UIViewController {
         get {
             return objc_getAssociatedObject(self, &AssociatedKey.keyBoardHeight) as? CGFloat ?? 0
         }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKey.keyBoardHeight, newValue, .OBJC_ASSOCIATION_ASSIGN)
+        set {   // Bugfix: OBJC_ASSOCIATION_ASSIGN 会崩溃，用 OBJC_ASSOCIATION_COPY 就可以。
+            objc_setAssociatedObject(self, &AssociatedKey.keyBoardHeight, newValue, .OBJC_ASSOCIATION_COPY)
         }
     }
     
