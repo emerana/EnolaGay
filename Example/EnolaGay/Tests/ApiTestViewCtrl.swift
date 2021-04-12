@@ -12,17 +12,6 @@ import EnolaGay
 class ApiTestViewCtrl: JudyBaseViewCtrl {
     
     override var viewTitle: String? { return "Api测试" }
-
-    // MARK: - let property and IBOutlet
-
-    
-    // MARK: - public var property
-    
-
-    // MARK: - private var property
-    
-    
-    // MARK: - life cycle
     
 
     override func viewDidLoad() {
@@ -30,10 +19,6 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
         
     }
 
-    
-    // MARK: - override
-    
-    // MARK: Api 相关
     
     override func setApi() {
         super.setApi()

@@ -36,17 +36,99 @@ extension UIApplication: EMERANA_UIColor {
 
 }
 
+import Alamofire
+
 // ApiRequestConfig。
-extension UIApplication: EMERANA_ApiRequestConfig {
+extension UIApplication: ApiDelegate {
     
-    public func request(withRequestConfig requestConfig: ApiRequestConfig, callBack: @escaping ((JSON) -> Void)) {
-        JudyApi.req(requestConfig: requestConfig, closure: callBack)
-    }
     
     public func domain() -> String { "https://livepretest.jingmaiwang.com" }
 
     public func globalMethodPOST() -> Bool { false }
     
+    public func request(withRequestConfig requestConfig: ApiRequestConfig, callBack: @escaping ((JSON) -> Void)) {
+
+        var method = HTTPMethod.get
+        switch requestConfig.method {
+        case .get:
+            method = .get
+        default:
+            method = .post
+        }
+        
+        var encoding: ParameterEncoding = JSONEncoding.default
+        switch requestConfig.encoding {
+        case .JSONEncoding:
+            encoding = JSONEncoding.default
+        case .URLEncodingHttpBody:
+            encoding = URLEncoding.httpBody
+        default:
+            encoding = URLEncoding.default
+        }
+            
+        /// 请求对象
+        let alamofire = Alamofire.request(requestConfig.reqURL,
+                                          method: method,
+                                          parameters: requestConfig.parameters,
+                                          encoding: encoding,
+                                          headers: requestConfig.headers)
+
+        // 设置请求等待响应时间。
+        // 这招已经没用了Modifying a URLSession's properties after it has been assigned to a URLSession isn't supported
+        alamofire.session.configuration.timeoutIntervalForRequest = 10
+        // alamofire.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        /// 响应适配函数
+        /// - Parameter response: DataResponse
+        func responseAdapter<T>(response: DataResponse<T>) {
+//
+//            guard emeranaResponseDelegate == nil else {
+//                closure(emeranaResponseDelegate!.responseMap(action: requestConfig.api!, param: requestConfig.parameters))
+//                return
+//            }
+
+            var json = JSON([EMERANA.Key.JSON.error:[EMERANA.Key.JSON.msg: "系统错误!", EMERANA.Key.JSON.code: 250]])
+            //  Judy.log("收到 \(T.self) 类型响应")
+            switch response.result {
+            case .success(let value):   // 请求成功
+                if value is String {
+                    // string 先转成 Data 再转成 JSON
+                    let data = (value as! String).data(using: .utf8)!
+                    json = JSON(data)
+                } else {
+                    json = JSON(value)
+                }
+                
+                // 数据校验。
+                if EMERANA.apiConfigDelegate != nil {
+                    let result = EMERANA.apiConfigDelegate!.responseErrorValidation(json: json)
+                    // 配置错误信息。
+                    if result.error {
+                        json[EMERANA.Key.JSON.error] = [EMERANA.Key.JSON.code: result.1, EMERANA.Key.JSON.msg: result.2]
+                    }
+                } else {
+                    Judy.logWarning("未实现 extension UIApplication: EMERANA_ApiDataValidation，服务器响应的数据将不会进行校验！")
+                }
+            case .failure(let error):   // 请求失败
+                Judy.log("请求失败:\(error)\n请求地址：\(String(describing: response.request))")
+                
+                json[EMERANA.Key.JSON.error] = [
+                    EMERANA.Key.JSON.code: response.response?.statusCode ?? 250,
+                    EMERANA.Key.JSON.msg: error.localizedDescription,
+                ]
+            }
+            
+            callBack(json)
+        }
+
+         // 服务器响应格式，String 或 JSON。
+        if requestConfig.isResponseJSON {
+            alamofire.responseJSON {(response: DataResponse<Any>) in responseAdapter(response: response) }
+        } else {
+            alamofire.responseString { (response: DataResponse<String>) in responseAdapter(response: response) }
+        }
+
+    }
+
 }
 
 

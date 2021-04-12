@@ -1454,8 +1454,8 @@ public struct EMERANA {
     /// 字体样式配置代理
     static let fontStyleConfigDelegate: EMERANA_UIFont? = UIApplication.shared as? EMERANA_UIFont
     
-    /// api 配置代理。
-    static let apiConfigDelegate: EMERANA_ApiRequestConfig? = UIApplication.shared as? EMERANA_ApiRequestConfig
+    /// API 代理，请 extension UIApplication: ApiDelegate 实现指定函数。
+    public static let apiConfigDelegate: ApiDelegate? = UIApplication.shared as? ApiDelegate
     
     /// 全局外观配置管理元。
     private var appearanceManager: Appearance?
@@ -1467,14 +1467,14 @@ public struct EMERANA {
         appearanceManager = globalConfig?.appearanceForApplication()
     }
     
-    /// 该数据结构的主要用来封装少量相关简单数据值
-    /// - warning: 注意
+    /// 该数据结构的主要用来封装少量相关简单数据值。
+    /// - Warning: 注意
     ///     * 项目中所有固定的可访问性字符都应该封装在此结构体内，在此结构体中定义所有可访问性数据（字符）
     ///     * 希望数据结构的实例被赋值给另一个实例时是拷贝而不是引用，封装的数据及其中存储的值也是拷贝而不是引用
     ///     * 该数据结构不需要使用继承
     public struct Key { }
     
-    
+
     public enum Info: String {
         case 新增Api请求代理管理
         case 新增全局Cell代理管理
@@ -1486,8 +1486,11 @@ public struct EMERANA {
 public extension EMERANA.Key {
     
     /// Api 层中的 JSON 常用 Key
-    /// - since: 1.0
-    struct Api {
+    @available(*, deprecated, message: "该可访问性元素已弃用", renamed: "JSON")
+    struct Api {}
+
+    /// 用于 JSON 中的常用的可访问性 KEY。
+    struct JSON {
         /// 一般通过此字段判断 ERROR 是否为空，如果不为空则存在错误信息
         ///
         /// 此 Key 的 Value 应该是一个字典，msg、code 均作为 Key 存在 error 层级下

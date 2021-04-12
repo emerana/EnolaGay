@@ -169,8 +169,8 @@ open class JudyBaseViewCtrl: UIViewController {
             strongSelf.apiData = json
             strongSelf.reqResult()
             
-            //  存在 EMERANA.Key.Api.error 即失败
-            if json[EMERANA.Key.Api.error].isEmpty {
+            //  存在 EMERANA.Key.JSON.error 即失败
+            if json[EMERANA.Key.JSON.error].isEmpty {
                 strongSelf.isReqSuccess = true
                 strongSelf.reqSuccess()
             } else {
@@ -219,7 +219,7 @@ open class JudyBaseViewCtrl: UIViewController {
     /// 请求失败或服务器响应失败时的消息处理。
     open func reqFailed() {
         
-        if let msg = apiData[EMERANA.Key.Api.error, EMERANA.Key.Api.msg].string, msg.clean() != "" {
+        if let msg = apiData[EMERANA.Key.JSON.error, EMERANA.Key.JSON.msg].string, msg.clean() != "" {
             JudyTip.message(text: msg)
         } else {
             Judy.log("不知名的错误消息")
