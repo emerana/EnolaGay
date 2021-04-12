@@ -80,11 +80,7 @@ extension UIApplication: ApiDelegate {
         /// 响应适配函数
         /// - Parameter response: DataResponse
         func responseAdapter<T>(response: DataResponse<T>) {
-//
-//            guard emeranaResponseDelegate == nil else {
-//                closure(emeranaResponseDelegate!.responseMap(action: requestConfig.api!, param: requestConfig.parameters))
-//                return
-//            }
+
 
             var json = JSON([EMERANA.Key.JSON.error:[EMERANA.Key.JSON.msg: "系统错误!", EMERANA.Key.JSON.code: 250]])
             //  Judy.log("收到 \(T.self) 类型响应")
@@ -99,14 +95,11 @@ extension UIApplication: ApiDelegate {
                 }
                 
                 // 数据校验。
-                if EMERANA.apiConfigDelegate != nil {
-                    let result = EMERANA.apiConfigDelegate!.responseErrorValidation(json: json)
-                    // 配置错误信息。
-                    if result.error {
-                        json[EMERANA.Key.JSON.error] = [EMERANA.Key.JSON.code: result.1, EMERANA.Key.JSON.msg: result.2]
-                    }
-                } else {
-                    Judy.logWarning("未实现 extension UIApplication: EMERANA_ApiDataValidation，服务器响应的数据将不会进行校验！")
+                
+                let result = EMERANA.apiConfigDelegate!.responseErrorValidation(json: json)
+                // 配置错误信息。
+                if result.error {
+                    json[EMERANA.Key.JSON.error] = [EMERANA.Key.JSON.code: result.1, EMERANA.Key.JSON.msg: result.2]
                 }
             case .failure(let error):   // 请求失败
                 Judy.log("请求失败:\(error)\n请求地址：\(String(describing: response.request))")

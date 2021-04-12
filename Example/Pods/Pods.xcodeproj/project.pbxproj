@@ -116,7 +116,6 @@
 		5325A40B94A8C3D45E26CC64B18BA69C /* UIImage+ForceDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE0C1F26586E29EC3491A7D34011958 /* UIImage+ForceDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		536BA6CDD9D740E91465F267AF1D741B /* SDAnimatedImagePlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 64E269B4003D7B613CEBA2447CDCB1A9 /* SDAnimatedImagePlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53791F5E5F07400F92CFDFC89A432305 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3992A962655D18A6C9AB4A91D7D7F99 /* Validation.swift */; };
-		53A911AB7CEDA5119F46BAEF6FC273F9 /* JudyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68A3B8B6858E8799278221209BCD94 /* JudyApi.swift */; };
 		53EFED5E7C5E76BF53FD4798B689A593 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBED86F5E3073627AC81D0820E6E264A /* Foundation.framework */; };
 		540465A1B451953B8EA129732BE70727 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6C869117BC8C28EB41389B7437B9EC /* SDWebImage.framework */; };
 		563119797F8C9086252E73E6E9F31731 /* MJRefreshNormalTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = B7253C807638C80DC0DC1326E20214D4 /* MJRefreshNormalTrailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -192,6 +191,7 @@
 		8B486B6526048530001EEEB5 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B486B6226048530001EEEB5 /* SegmentedView.swift */; };
 		8B486B6626048530001EEEB5 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B486B6326048530001EEEB5 /* Core.swift */; };
 		8B486BA2260823FB001EEEB5 /* DataSourceWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B486BA1260823FB001EEEB5 /* DataSourceWithTitle.swift */; };
+		8B9AEFEF26243EE90012E7A9 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9AEFEE26243EE90012E7A9 /* Api.swift */; };
 		8E7275D4B7959636452BCB124F949A4A /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C693714F1E38DC4105AB46E5C3650F4C /* SwiftyJSON-dummy.m */; };
 		8F7C84A5E6CA951DAB43143ECD09DA2B /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C0BB741F5EF7445599B491170FA902 /* MemoryStorage.swift */; };
 		908A71E8366531EFC1D68E0A4364E5DC /* MJRefreshAutoNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 406FDCA75188B766686D9E479BF9FF6F /* MJRefreshAutoNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -630,6 +630,7 @@
 		8B486BA1260823FB001EEEB5 /* DataSourceWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceWithTitle.swift; sourceTree = "<group>"; };
 		8B654D14B88F05330B621A2487097B71 /* SDWebImageError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageError.h; path = SDWebImage/Core/SDWebImageError.h; sourceTree = "<group>"; };
 		8B8FAB0D627B17EDE1366984278705D9 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B9AEFEE26243EE90012E7A9 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Api.swift; path = EnolaGay/Classes/Api.swift; sourceTree = "<group>"; };
 		8CFB6E496C1453BF75A98F535E2E3C38 /* Pods-EnolaGay_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-Info.plist"; sourceTree = "<group>"; };
 		8EA343E15FA9A575E7F8B2AE7CE5287F /* Cache.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cache.release.xcconfig; sourceTree = "<group>"; };
 		8F63FF0967D6DC86E6B24AF4EC6833EA /* SDAsyncBlockOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDAsyncBlockOperation.m; path = SDWebImage/Private/SDAsyncBlockOperation.m; sourceTree = "<group>"; };
@@ -779,7 +780,6 @@
 		F75E73E5588D7D51E2A194E33D3AEF48 /* SDWeakProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWeakProxy.m; path = SDWebImage/Private/SDWeakProxy.m; sourceTree = "<group>"; };
 		FB5E8CDC853077AB62B982678FC56E8A /* SDAsyncBlockOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDAsyncBlockOperation.h; path = SDWebImage/Private/SDAsyncBlockOperation.h; sourceTree = "<group>"; };
 		FB69FFB91D4E31BF5B6332EC9D8B2D80 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
-		FD68A3B8B6858E8799278221209BCD94 /* JudyApi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyApi.swift; sourceTree = "<group>"; };
 		FD97DA954DFC9517A52FC0FBA81AF139 /* SDWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImage.h; path = WebImage/SDWebImage.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -883,6 +883,7 @@
 		134C9B5479D3A226023F3DA68B6A1B6A /* EnolaGay */ = {
 			isa = PBXGroup;
 			children = (
+				8B9AEFEE26243EE90012E7A9 /* Api.swift */,
 				A4966B0E1B575E3915B568328EB22C5D /* Button.swift */,
 				02E6A9605E011176674BA6D30C4C997B /* CollectionViewCtrl.swift */,
 				4F4A02335D174F248CEE72AF183FC75E /* Label.swift */,
@@ -1232,7 +1233,6 @@
 			children = (
 				A9716D577AAE49068638CE10429BA6B8 /* EMERANA.swift */,
 				D6E41D5FFD231027F332EB2508025908 /* Judy.swift */,
-				FD68A3B8B6858E8799278221209BCD94 /* JudyApi.swift */,
 				82C6826931AF32315E41FF972A000F6E /* JudyFile.swift */,
 				48D0D0A5EE041C501D95C93033A51237 /* JudyFileManage.swift */,
 				3BC7E8CF7CD171DF78C57E1E59CA4D05 /* JudyTip.swift */,
@@ -2158,7 +2158,6 @@
 				84535F541C4E80A3E8E1D61171AFB1B8 /* EnolaGay-dummy.m in Sources */,
 				CFEAD7B5CCF29C19D59820827CD87FE2 /* Judy.swift in Sources */,
 				B9B22042A707D2349CA6F1921658C9EB /* JudyAkiraTextField.swift in Sources */,
-				53A911AB7CEDA5119F46BAEF6FC273F9 /* JudyApi.swift in Sources */,
 				EFF3DDBC156B788A589AD89751E5A2C8 /* JudyBaseSearchViewCtrl.swift in Sources */,
 				D5EA49FE6246A6E7441173FDED2501B7 /* JudyFile.swift in Sources */,
 				966D0A7D6B15750B08C1983AC9F26C89 /* JudyFileManage.swift in Sources */,
@@ -2184,6 +2183,7 @@
 				99CAE5A118828713F6719B2F5D618430 /* TableViewCtrl.swift in Sources */,
 				4A34932D4DA80F7707F837CB8B15E775 /* TextField.swift in Sources */,
 				D2AE4AF977CD50796ACC701593B7FB41 /* View.swift in Sources */,
+				8B9AEFEF26243EE90012E7A9 /* Api.swift in Sources */,
 				D8687CCDF29D5D1802E7F375C73F8B95 /* ViewCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,73 +1,26 @@
 //
 //  Api.swift
 //
-//  Api层
+//  Api 管理层。
+//
 //  Created by Judy-王仁洁 on 2017/7/29.
 //  Copyright © 2017年 8891.com.tw. All rights reserved.
 //
 
 
-/// Api层网络请求协议。**请求阶段的映射，需要将 emeranaRequestDelegate 实例化。**
-public protocol EMERANA_Api_Request {
-    
-    /// 网络请求映射，实现此方法以替换原有请求。
-    ///
-    /// - Parameters:
-    ///   - action: 请求接口
-    ///   - param: 请求参数消息体
-    /// - Returns: 返回一个标准的JSON
-//    func requestMap(action: ApiRequestConfig.ApiAction, param: JudyApiParam?) -> JSON
-    
-}
-
-/// Api层进行网络请求后的响应协议。*响应阶段的映射，需要将 emeranaResponseDelegate 实例化。*
-public protocol EMERANA_Api_Response {
-    
-    /// 网络请求后的响应映射，实现此方法以替换服务器返回的数据。
-    ///
-    /// - Parameters:
-    ///   - action: 请求接口
-    ///   - param: 请求参数消息体
-    /// - Returns: 返回一个标准的JSON.默认值 JSON(["ERROR":["msg": "系统错误!"]])
-//    func responseMap(action: ApiRequestConfig.ApiAction, param: JudyApiParam?) -> JSON
-    
-}
-
-
 import SwiftyJSON
-
-// MARK: - typealias
-
-/// 参数类型别名
-// public typealias JudyApiParam = Parameters
-/// 请求头类型别名
-// public typealias JudyApiHeader = HTTPHeaders
-
-// MARK: - Api 协议
 
 /// Api 管理层
 ///
 /// public extension JudyApi 并覆盖 EMERANA_ApiDataValidation 中的函数以配置数据校验
 /// - warning: 此类依赖 Alamofire
 /// - since: V1.1 2020年11月20日14:03:12
+@available(*, unavailable, message: "此类以弃用！")
 public final class JudyApi {
 
     // 私有化init()，禁止构建对象
     private init() {}
-            
-    /// 请求映射代理
-    /// 此代理将替换所有使用JudyApi的请求，需自行实现模拟服务器返回数据
-    /// # 实现此代理后 emeranaResponseDelegate 将无效
-    public static var emeranaRequestDelegate: EMERANA_Api_Request? = nil
     
-    /// 响应映射代理
-    /// 此代理将会替换所有使用JudyApi的响应消息体，需自行实现模拟服务器返回数据
-    /// # 如果实现了 emeranaRequestDelegate，此代理将无效
-    public static var emeranaResponseDelegate: EMERANA_Api_Response? = nil
-    
-    /// Api 配置相关代理
-    @available(*, unavailable, message: "该代理已弃用！")
-    private static let emeranaApiConfigDelegate: EMERANA_Api? = Judy.app as? EMERANA_Api
     
     // MARK: 公开的网络请求方法
     
@@ -262,6 +215,7 @@ public extension ApiDelegate {
     func apiRequestConfig_init(apiConfig: ApiRequestConfig) { }
     
     func apiRequestConfig_end(apiConfig: ApiRequestConfig) { }
+    
     /// 校验服务器响应的消息。
     func responseErrorValidation(json: JSON) -> (error: Bool, code: Int, message: String) {
         return (false, 0, "校验协议函数未覆盖。")
