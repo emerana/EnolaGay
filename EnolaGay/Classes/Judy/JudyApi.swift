@@ -243,6 +243,11 @@ public protocol EMERANA_ApiRequestConfig where Self: UIApplication {
     /// - Warning: 此方法中将对服务器返回的消息（请求成功响应的消息）进行进一步校验，排查是否有错误。
     func responseErrorValidation(json: JSON) -> (error: Bool, code: Int, message: String)
     
+    /// 由 ApiRequestConfig 对象向 Api 层发起请求。
+    /// - Parameter requestConfig: 配置好的 ApiRequestConfig 对象。
+    /// - Parameter callBack: 请求的回调函数。
+    func request(withRequestConfig requestConfig: ApiRequestConfig, callBack: @escaping ((JSON)->Void))
+
 }
 
 // 默认实现 EMERANA_ApiRequestConfig，使其变成可选协议函数。
@@ -284,18 +289,16 @@ public extension EMERANA_ApiActionEnums {
     }
 }
 
-/// JudyApi 中的请求配置类
+/// JudyApi 中的请求配置类。
 ///
-/// ApiRequestConfig 对象在初始化时就已经通过 EMERANA_ApiRequestConfig 协议中的函数配置好了必须属性，关于 domain 和 api 属性的使用请参考其自身说明
-/// - warning: 请 public extension ApiRequestConfig 并覆盖 EMERANA_ApiRequestConfig 中指定函数以配置属性的初始值
-/// - since: V1.3 2020年11月20日10:39:58
+/// ApiRequestConfig 对象在初始化时就已经通过 EMERANA_ApiRequestConfig 协议中的函数配置好了必须属性，关于 domain 和 api 属性的使用请参考其自身说明。
+/// - Warning: 请 extension UIApplication: EMERANA_ApiRequestConfig 并覆盖指定函数以配置属性的初始值。
 final public class ApiRequestConfig {
 
-    
-    /// 当前界面请求的 api (action)
+    /// 当前界面请求的 api (action)。
     ///
-    /// 该值为用于与 domain 拼接的部分，初值 nil，一般每次请求都有一个 api
-    /// - warning: 配置 api 请通过创建实现 EMERANA_ApiActionEnums 协议的 public enum，参考如下代码：
+    /// 该值为用于与 domain 拼接的部分，初值 nil，一般每次请求都有一个 api。
+    /// - Warning: 配置 api 请通过创建实现 EMERANA_ApiActionEnums 协议的 public enum，参考如下代码：
     /// ```
     /// enum Api: String, EMERANA_ApiActionEnums {
     ///     var value: String { rawValue }
@@ -305,18 +308,17 @@ final public class ApiRequestConfig {
     /// - since: V1.1 2021年01月07日16:59:28
     public lazy var api: EMERANA_ApiActionEnums? = nil
 
-    /// 请求域名，如: https://www.baidu.com，默认值为静态函数 domain()
+    /// 请求域名，如: https://www.baidu.com，默认值为静态函数 domain()。
     ///
     /// 通常为项目中使用频率最高的域名。若需要多个域名，请 public extension ApiRequestConfig.Domain 新增
-    /// - warning: 扩展并覆盖 static func domain() 以配置全局域名，该值将与 api 拼接成最终请求的完整 URL
-    /// - since: V1.0 2020年11月19日16:51:59
+    /// - Warning: 扩展并覆盖 static func domain() 以配置全局域名，该值将与 api 拼接成最终请求的完整 URL
     public var domain: Domain = .default
         
-    /// 请求方式，默认 POST。通过覆盖 globalMethodPOST() 以配置全局通用值
+    /// 请求方式，默认 POST。通过覆盖 globalMethodPOST() 以配置全局通用值。
     public var method: HTTPMethod = ((EMERANA.apiConfigDelegate?.globalMethodPOST() ?? true) ? .post : .get)
 
     
-    /// 请求参数，初值是一个空数组
+    /// 请求参数，初值是一个空数组。
     public var parameters: JudyApiParam? = JudyApiParam()
 
     /// 请求参数的编码方式，默认值为 URLEncoding
@@ -367,10 +369,17 @@ final public class ApiRequestConfig {
         EMERANA.apiConfigDelegate?.apiRequestConfig_init(apiConfig: self)
     }
 
+    /// 由当前对象向 Api 层发起请求。
+    /// - Parameter callback: 请求的回调函数。
+    public func request(withCallBack callback: @escaping ((JSON) -> Void)) {
+        EMERANA.apiConfigDelegate?.request(withRequestConfig: self, callBack: callback)
+    }
+
+    
     /// ApiRequestConfig 中的域名模块
     ///
-    /// ApiRequestConfig 中所有域名均通过此 structure 配置，通常扩展并覆盖 static func domain() 即为项目配置了主要域名，若需要多个域名，请 public extension ApiRequestConfig.Domain 新增即可
-    /// - warning: 通过 public extension 的方式新增域名，请务必参考如下代码
+    /// ApiRequestConfig 中所有域名均通过此 structure 配置，通常扩展并覆盖 static func domain() 即为项目配置了主要域名，若需要多个域名，请 extension ApiRequestConfig.Domain 新增即可。
+    /// - Warning: 新增域名请务必参考如下代码:
     /// ```
     /// static let masterDomain = ApiRequestConfig.Domain(rawValue: "https://www.baidu.com")
     /// ```
@@ -392,7 +401,7 @@ final public class ApiRequestConfig {
         /// 项目中默认使用的主要域名，值为 domain() 函数
         static let `default` = Domain(rawValue: EMERANA.apiConfigDelegate?.domain() ?? "https://www.baidu.com")
     }
-
+    
     
     @available(*, unavailable, message: "通过该值标记使用备用域名的方式已废弃，请直接修改 domain 属性", renamed: "domain")
     var isUseStandbyURL: Bool? = nil
@@ -408,3 +417,9 @@ typealias EMERANA_Action = String
 @available(*, unavailable, message: "请更新属性名", renamed: "EMERANA_Action")
 typealias EMERANAAction = String
 
+extension ApiRequestConfig {
+    
+    static func test() {
+        
+    }
+}

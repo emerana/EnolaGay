@@ -179,9 +179,11 @@ open class JudyBaseViewCtrl: UIViewController {
             }
             strongSelf.reqOver()
         }
-        
+
+        requestConfig.request(withCallBack: responseClosure)
+        #warning("此处应该由 ApiRequestConfig 负责发起请求。")
         // 发起请求。
-        JudyApi.req(requestConfig: requestConfig, closure: responseClosure)
+        // JudyApi.req(requestConfig: requestConfig, closure: responseClosure)
 
     }
     

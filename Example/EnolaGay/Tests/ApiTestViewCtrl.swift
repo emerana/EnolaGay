@@ -28,7 +28,6 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
     }
 
     
@@ -39,46 +38,25 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
     override func setApi() {
         super.setApi()
 
-        requestConfig.api = Actions.testAction
-        
+        requestConfig.api = Actions.createUserChatToken
+        requestConfig.parameters?["userid"] = 323430
+                
     }
     
-    override func reqSuccess() {
-        super.reqSuccess()
-        
-        Judy.log("请求成功-\(apiData)")
-        /*
-         if isAddMore {
-         dataSource += apiData["data", "<#rows#>"].arrayValue
-         } else {
-         dataSource = apiData["data", "<#rows#>"].arrayValue
-         }
-         tableView?.reloadSections(IndexSet(integer: <#0#>), with: .fade)
-         或
-         tableView?.reloadData()
-         
-         */
+    @IBAction func reqApiAction(_ sender: Any) {
+        reqApi()
     }
-
-
-    // MARK: - event response
-        
-
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destinationViewController.
-         // Pass the selected object to the new view controller.
-     }
-     */
+    
+    override func reqOver() {
+        Judy.log("请求完毕：\n\(apiData)")
+    }
     
 }
 
-
-// MARK: - private methods
-
-private extension ApiTestViewCtrl {
-
+enum Actions: String, EMERANA_ApiActionEnums {
+    var value: String { rawValue }
+    
+    /// 生成融云token get
+    case createUserChatToken = "/api/liveapp/GetToken"
 }
+    

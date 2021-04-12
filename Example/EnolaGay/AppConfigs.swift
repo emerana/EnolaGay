@@ -7,7 +7,7 @@
 //
 
 import EnolaGay
-
+import SwiftyJSON
 
 // 颜色配置
 extension UIApplication: EMERANA_UIColor {
@@ -36,10 +36,16 @@ extension UIApplication: EMERANA_UIColor {
 
 }
 
-// ApiRequestConfig
-extension UIApplication: EMERANA_ApiRequestConfig {    
+// ApiRequestConfig。
+extension UIApplication: EMERANA_ApiRequestConfig {
     
-    public func domain() -> String { "https://www.baidu.com" }
+    public func request(withRequestConfig requestConfig: ApiRequestConfig, callBack: @escaping ((JSON) -> Void)) {
+        JudyApi.req(requestConfig: requestConfig, closure: callBack)
+    }
+    
+    public func domain() -> String { "https://livepretest.jingmaiwang.com" }
+
+    public func globalMethodPOST() -> Bool { false }
     
 }
 
@@ -97,10 +103,3 @@ extension UIApplication: EMERANA_UIFont {
 }
 
     
-enum Actions: String, EMERANA_ApiActionEnums {
-    var value: String { rawValue }
-    
-    case testAction = "/test"
-}
-    
-
