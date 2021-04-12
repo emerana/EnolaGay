@@ -1,6 +1,6 @@
 //
-//  Created by Judy-王仁洁 on 2017/8/4.
-//  Copyright © 2017年 8891.com.tw. All rights reserved.
+//  Created by 王仁洁 on 2017/8/4.
+//  Copyright © 2017年 数睿科技 8891.com.tw. All rights reserved.
 //
 
 /*
@@ -16,28 +16,43 @@ import SwiftyJSON
 /// - warning: **该 viewController 遵循以下标准**
 /// * 重写 viewTitle 以设置标题
 /// * 设置 requestConfig 对象以配置请求信息
-open class JudyBaseViewCtrl: UIViewController, EMERANA_Api {
+open class JudyBaseViewCtrl: UIViewController {
 
     
     // MARK: - public var property
 
+    /// navigationItem.title，该 viewTitle 优先于 self.title 显示，且将覆盖 self.title。
+    ///
+    /// 如需更改该值请在 viewDidLoad 之后 navigationItem.title = 新 title 即可。
+    /// - Warning: 重写读写属性方式为实现 get、set，且里面最好全调用 super，尤其是 set。
     open var viewTitle: String? { return nil }
-
+    /// 当前界面包含的 json 数据，设置该值将触发 jsonDidSet() 函数，初值为 JSON()。
     open var json = JSON() { didSet{ jsonDidSet() } }
 
     
     // MARK: Api 相关属性
     
+    /// 请求配置对象。
     open lazy var requestConfig = ApiRequestConfig()
-    
+    /// 服务器响应的 JSON 数据。
     final lazy private(set) public var apiData = JSON()
-
+    
+    /// 当前界面网络请求成功的标识，默认 false。
+    ///
+    /// 该值为 false 时会在 viewWillAppear() 中触发 reqApi()；若需要取消该请求，重写父类 viewWillAppear() 参考如下代码：
+    /// ```
+    /// isReqSuccess = true
+    /// super.viewWillAppear(animated)
+    /// ```
+    /// - Warning: 注意生命周期 viewWillAppear() ，每次都会调用；
+    /// * 当 requestConfig.api = nil，reqApi() 中会将该值设为 true;
+    /// * 若需要界面每次出现都发送请求，请在 super.viewWillAppear() 之前或 reqApi() 响应后（如 reqOver()）将该值设为 false。
     final lazy public var isReqSuccess: Bool = false
-
+    /// 未设置 requestConfig.api 时是否隐藏 HUD，默认 false。
     @IBInspectable lazy private(set) public var isHideNotApiHUD: Bool = false
 
-    /// 是否由当前 viewCtrl 决定 statusBarStyle，默认 false
-    /// # 如果该值为 true，则重写 preferredStatusBarStyle 以设置当前 viewCtrl 的 statusBarStyle
+    /// 是否由当前 viewCtrl 决定 statusBarStyle，默认 false。
+    /// - Warning: 如果该值为 true，则重写 preferredStatusBarStyle 以设置当前 viewCtrl 的 statusBarStyle。
     open var isCustomStatusBarStyle: Bool? { return nil }
 
     
@@ -50,7 +65,7 @@ open class JudyBaseViewCtrl: UIViewController, EMERANA_Api {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 优化 title 显示方式，如果 viewTitle 为 nil，则使用该 viewCtrl 的 title
+        // 优化 title 显示方式，如果 viewTitle 为 nil，则使用该 viewCtrl 的 title。
         if viewTitle == nil {
             navigationItem.title = title
         } else {
@@ -58,7 +73,7 @@ open class JudyBaseViewCtrl: UIViewController, EMERANA_Api {
             title = viewTitle
         }
         
-        // 在 viewCtrl 中 view 的背景色默认是 systemBackground
+        // 在 viewCtrl 中 view 的背景色默认是 systemBackground。
         if #available(iOS 13.0, *) {
             if view.backgroundColor == UIColor.systemBackground {
                 view.backgroundColor = .judy(.view)
@@ -74,10 +89,10 @@ open class JudyBaseViewCtrl: UIViewController, EMERANA_Api {
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // 若请求失败，则需在每次视图出现时重新发起请求
+        // 若请求失败，则需在每次视图出现时重新发起请求。
         if !isReqSuccess { reqApi() }
         
-        // Judy-mark: 正确的修改导航条方式        
+        // Judy-mark: 正确的修改导航条方式。
         /*
          navigationController?.navigationBar.barTintColor = .white
          navigationController?.navigationBar.tintColor = .black
@@ -93,7 +108,7 @@ open class JudyBaseViewCtrl: UIViewController, EMERANA_Api {
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        // 在界面即将消失（包含所有界面跳转）时关闭所有键盘
+        // 在界面即将消失（包含所有界面跳转）时关闭所有键盘。
         UIApplication.shared.keyWindow?.endEditing(true)
         
         // 2020年09月01日16:33:47 注释原因：不具备通用性
@@ -105,7 +120,7 @@ open class JudyBaseViewCtrl: UIViewController, EMERANA_Api {
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
-        // 在界面即将消失（包含所有界面跳转）时关闭所有键盘
+        // 在界面即将消失（包含所有界面跳转）时关闭所有键盘。
         UIApplication.shared.keyWindow?.endEditing(true)
     }
     
@@ -115,6 +130,13 @@ open class JudyBaseViewCtrl: UIViewController, EMERANA_Api {
 
     // MARK: Api 相关函数
     
+    /// 发起网络请求。
+    ///
+    /// 通过调用此函数发起一个完整的请求流，此方法中将更新 apiData。
+    /// 请求结果在此函数中分流，此函数内部将依次执行 setApi() -> { reqResult() -> reqSuccess() / reqFailed() } / reqNotApi()，请重写相关函数以实现对应操作。
+    /// - Warning: 此方法中会更改 isReqSuccess 对应状态。
+    /// - Parameters:
+    ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi()
     public final func reqApi(isSetApi: Bool = true){
         if !Self.isGlobalHideWaitingHUD() { JudyTip.wait(to: view) }
 
@@ -147,8 +169,8 @@ open class JudyBaseViewCtrl: UIViewController, EMERANA_Api {
             strongSelf.apiData = json
             strongSelf.reqResult()
             
-            //  存在 EMERANA.Key.Api.error 即失败
-            if json[EMERANA.Key.Api.error].isEmpty {
+            //  存在 EMERANA.Key.JSON.error 即失败
+            if json[EMERANA.Key.JSON.error].isEmpty {
                 strongSelf.isReqSuccess = true
                 strongSelf.reqSuccess()
             } else {
@@ -157,30 +179,55 @@ open class JudyBaseViewCtrl: UIViewController, EMERANA_Api {
             }
             strongSelf.reqOver()
         }
-        
-        // 发起请求
-        JudyApi.req(requestConfig: requestConfig, closure: responseClosure)
+
+        requestConfig.request(withCallBack: responseClosure)
+        #warning("此处应该由 ApiRequestConfig 负责发起请求。")
+        // 发起请求。
+        // JudyApi.req(requestConfig: requestConfig, closure: responseClosure)
 
     }
     
+    /// 设置 requestConfig 及其它任何需要在发起请求前处理的事情。
+    ///
+    /// 在整个 reqApi() 请求流程中最先执行的方法。
+    /// - Warning: 在此方法中配置好 requestConfig 对象，一般情况子类可以不调用 super.setApi()。
+    ///
+    /// ```
+    /// requestConfig.domain = "http://www.baidu.com/Api"
+    /// ```
+    /// 设置请求api的字段
+    /// ```
+    /// requestConfig.api = .???
+    /// ```
+    /// 设置请求参数体
+    /// ```
+    /// requestConfig.parameters?["userName"] = "Judy"
+    /// ```
     open func setApi() {}
     
+    /// 当 api 为 nil 时调用了 reqApi() ，请求流将终止在此方法中，不会进行网络请求，且 isReqSuccess 将被设为 true。
+    ///
+    /// - Warning: 此方法应主要执行在上下拉刷新界面时需要中断 header、footer 刷新状态，更改 isReqSuccess 等操作。
     open func reqNotApi() {}
-    
+    /// 当服务器有响应时，最先执行此方法，无论请求是否成功。**此时 apiData 为服务器返回的元数据**。
     open func reqResult() {}
-    
+    /// 请求成功的消息处理
+    ///
+    /// - Warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则
     open func reqSuccess() {}
     
-    /// 请求失败则弹出失败消息体
+    /// 请求失败或服务器响应失败时的消息处理。
     open func reqFailed() {
         
-        if let msg = apiData[EMERANA.Key.Api.error, EMERANA.Key.Api.msg].string, msg.clean() != "" {
+        if let msg = apiData[EMERANA.Key.JSON.error, EMERANA.Key.JSON.msg].string, msg.clean() != "" {
             JudyTip.message(text: msg)
         } else {
             Judy.log("不知名的错误消息")
         }
     }
-    
+    /// 在整个请求流程中最后执行的方法。
+    ///
+    /// - warning: 执行到此方法时，setApi() -> reqNotApi() / [ reqResult() -> reqFailed() / reqSuccess() ] 整个流程已经全部执行完毕
     open func reqOver() {}
     
     deinit {

@@ -37,18 +37,13 @@ public typealias ClosureString = ((String) -> Void)
 /// - version: 1.0
 /// - since: 2020年10月22日16:50
 /// - warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
+@available(*, unavailable, message: "此协议已弃用")
 public protocol EMERANA_ViewCtrl where Self: JudyBaseViewCtrl {
 
-    /// navigationItem.title，该 viewTitle 优先于 self.title 显示，且将覆盖 self.title 值
-    ///
-    /// * 如需更改该值请在 viewDidLoad 之后 navigationItem.title = 新 title 即可
-    /// * 重写读写属性方式为实现 get、set，且里面最好全调用 super，尤其是 set
     var viewTitle: String? { get }
 
-    /// 当前界面包含的 json 数据，设置该值将触发 jsonDidSet() 函数，初值为 JSON()
     var json: JSON { get set }
     
-    /// 当 json 被赋值将执行此函数，重写此函数以配置对应 json 变化
     func jsonDidSet()
 
 }
@@ -58,87 +53,38 @@ public protocol EMERANA_ViewCtrl where Self: JudyBaseViewCtrl {
 /// ViewCtrl 专用 Api 协议，此协议中规定了一个viewCtrl中必须的属性及函数
 /// - warning: 此协议限制为 JudyBaseViewCtrl 及其派生类使用
 /// - since: 1.2
+@available(*, unavailable, message: "此协议已弃用")
 public protocol EMERANA_Api: EMERANA_ViewCtrl {
     
-    /// 请求配置对象
     var requestConfig: ApiRequestConfig { get set }
 
-    /// 服务器响应的 JSON 数据
     var apiData: JSON { get }
 
-    /// 当前界面网络请求成功的标识，默认 false。
-    ///
-    /// 该值为 false 时会在 viewWillAppear() 中触发 reqApi()；若需要取消该请求，重写父类 viewWillAppear() 参考如下代码：
-    /// ```
-    /// isReqSuccess = true
-    /// super.viewWillAppear(animated)
-    /// ```
-    /// - warning: 注意生命周期 viewWillAppear() ，每次都会调用；
-    /// * 当 requestConfig.api = nil，reqApi() 中会将该值设为 true;
-    /// * 若需要界面每次出现都发送请求，请在 super.viewWillAppear() 之前或 reqApi() 响应后（如 reqOver()）将该值设为 false。
     var isReqSuccess: Bool { get set }
     
-    /// 未设置 requestConfig.api 时是否隐藏 HUD，默认 false
     var isHideNotApiHUD: Bool { get }
     
-    /// 是否隐藏所有界面 reqApi() 时显示等待的 HUD，此函数已默认实现返回 false，通过 public extension JudyBaseViewCtrl 重写此函数以改变默认值
     static func isGlobalHideWaitingHUD() -> Bool
     
-    
-    /// 发起网络请求。
-    ///
-    /// 通过调用此函数发起一个完整的请求流，此方法中将更新 apiData。
-    /// 请求结果在此函数中分流，此函数内部将依次执行 setApi() -> { reqResult() -> reqSuccess() / reqFailed() } / reqNotApi()，请重写相关函数以实现对应操作
-    /// - warning: 此方法中会更改 isReqSuccess 对应状态
-    /// - Parameters:
-    ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi()
     func reqApi(isSetApi: Bool)
     
-
-    /// 设置 requestConfig 及其它任何需要在发起请求前处理的事情
-    ///
-    /// 在整个 reqApi() 请求流程中最先执行的方法
-    /// - warning: 在此方法中配置好 requestConfig 对象，一般情况子类可以不调用 super.setApi()
-    ///
-    /// ```
-    /// requestConfig.domain = "http://www.baidu.com/Api"
-    /// ```
-    /// 设置请求api的字段
-    /// ```
-    /// requestConfig.api = .???
-    /// ```
-    /// 设置请求参数体
-    /// ```
-    /// requestConfig.parameters?["userName"] = "Judy"
-    /// ```
     func setApi()
 
-    /// 当 api 为 nil 时调用了 reqApi() ，请求流将终止在此方法中，不会进行网络请求，且 isReqSuccess 将被设为 true。
-    ///
-    /// - warning: 此方法应主要执行在上下拉刷新界面时需要中断 header、footer 刷新状态，更改 isReqSuccess 等操作。
     func reqNotApi()
     
-    /// 当服务器有响应时，最先执行此方法，无论请求是否成功。**此时 apiData 为服务器返回的元数据**。
     func reqResult()
     
-    /// 请求成功的消息处理
-    ///
-    /// - warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则
     func reqSuccess()
     
-    /// 请求失败或服务器响应失败时的消息处理
     func reqFailed()
 
-    /// 在整个请求流程中最后执行的方法。
-    ///
-    /// - warning: 执行到此方法时，setApi() -> reqNotApi() / [ reqResult() -> reqFailed() / reqSuccess() ] 整个流程已经全部执行完毕
     func reqOver()
 
 }
 
 // 默认实现
-public extension EMERANA_Api where Self: JudyBaseViewCtrl {
-    
+public extension JudyBaseViewCtrl {
+    /// 是否隐藏所有界面 reqApi() 时显示等待的 HUD，此函数已默认实现返回 false，通过 public extension JudyBaseViewCtrl 重写此函数以改变默认值
     static func isGlobalHideWaitingHUD() -> Bool { false }
 }
 
@@ -1508,8 +1454,8 @@ public struct EMERANA {
     /// 字体样式配置代理
     static let fontStyleConfigDelegate: EMERANA_UIFont? = UIApplication.shared as? EMERANA_UIFont
     
-    /// api 配置代理。
-    static let apiConfigDelegate: EMERANA_ApiRequestConfig? = UIApplication.shared as? EMERANA_ApiRequestConfig
+    /// API 代理，请 extension UIApplication: ApiDelegate 实现指定函数。
+    public static let apiConfigDelegate: ApiDelegate? = UIApplication.shared as? ApiDelegate
     
     /// 全局外观配置管理元。
     private var appearanceManager: Appearance?
@@ -1521,14 +1467,14 @@ public struct EMERANA {
         appearanceManager = globalConfig?.appearanceForApplication()
     }
     
-    /// 该数据结构的主要用来封装少量相关简单数据值
-    /// - warning: 注意
+    /// 该数据结构的主要用来封装少量相关简单数据值。
+    /// - Warning: 注意
     ///     * 项目中所有固定的可访问性字符都应该封装在此结构体内，在此结构体中定义所有可访问性数据（字符）
     ///     * 希望数据结构的实例被赋值给另一个实例时是拷贝而不是引用，封装的数据及其中存储的值也是拷贝而不是引用
     ///     * 该数据结构不需要使用继承
     public struct Key { }
     
-    
+
     public enum Info: String {
         case 新增Api请求代理管理
         case 新增全局Cell代理管理
@@ -1540,8 +1486,11 @@ public struct EMERANA {
 public extension EMERANA.Key {
     
     /// Api 层中的 JSON 常用 Key
-    /// - since: 1.0
-    struct Api {
+    @available(*, deprecated, message: "该可访问性元素已弃用", renamed: "JSON")
+    struct Api {}
+
+    /// 用于 JSON 中的常用的可访问性 KEY。
+    struct JSON {
         /// 一般通过此字段判断 ERROR 是否为空，如果不为空则存在错误信息
         ///
         /// 此 Key 的 Value 应该是一个字典，msg、code 均作为 Key 存在 error 层级下

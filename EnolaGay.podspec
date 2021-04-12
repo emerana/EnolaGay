@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EnolaGay'
-  s.version          = '1.8.2'
+  s.version          = '1.9.0'
   s.summary          = 'EnolaGay，奇迹型 EMERANA。'
 
 # This description is used to generate tags and improve search results.
@@ -38,7 +38,6 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   
-  s.dependency 'Alamofire', '~> 4.9.0'
   s.dependency 'MJRefresh'
   s.dependency 'SDWebImage'
   s.dependency 'MBProgressHUD'
