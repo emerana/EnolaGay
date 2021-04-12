@@ -44,15 +44,15 @@ open class JudyBaseViewCtrl: UIViewController {
     /// isReqSuccess = true
     /// super.viewWillAppear(animated)
     /// ```
-    /// - warning: 注意生命周期 viewWillAppear() ，每次都会调用；
+    /// - Warning: 注意生命周期 viewWillAppear() ，每次都会调用；
     /// * 当 requestConfig.api = nil，reqApi() 中会将该值设为 true;
     /// * 若需要界面每次出现都发送请求，请在 super.viewWillAppear() 之前或 reqApi() 响应后（如 reqOver()）将该值设为 false。
     final lazy public var isReqSuccess: Bool = false
-    /// 未设置 requestConfig.api 时是否隐藏 HUD，默认 false
+    /// 未设置 requestConfig.api 时是否隐藏 HUD，默认 false。
     @IBInspectable lazy private(set) public var isHideNotApiHUD: Bool = false
 
     /// 是否由当前 viewCtrl 决定 statusBarStyle，默认 false。
-    /// - Warning: 如果该值为 true，则重写 preferredStatusBarStyle 以设置当前 viewCtrl 的 statusBarStyle.
+    /// - Warning: 如果该值为 true，则重写 preferredStatusBarStyle 以设置当前 viewCtrl 的 statusBarStyle。
     open var isCustomStatusBarStyle: Bool? { return nil }
 
     
@@ -65,7 +65,7 @@ open class JudyBaseViewCtrl: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 优化 title 显示方式，如果 viewTitle 为 nil，则使用该 viewCtrl 的 title
+        // 优化 title 显示方式，如果 viewTitle 为 nil，则使用该 viewCtrl 的 title。
         if viewTitle == nil {
             navigationItem.title = title
         } else {
@@ -73,7 +73,7 @@ open class JudyBaseViewCtrl: UIViewController {
             title = viewTitle
         }
         
-        // 在 viewCtrl 中 view 的背景色默认是 systemBackground
+        // 在 viewCtrl 中 view 的背景色默认是 systemBackground。
         if #available(iOS 13.0, *) {
             if view.backgroundColor == UIColor.systemBackground {
                 view.backgroundColor = .judy(.view)
@@ -89,10 +89,10 @@ open class JudyBaseViewCtrl: UIViewController {
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // 若请求失败，则需在每次视图出现时重新发起请求
+        // 若请求失败，则需在每次视图出现时重新发起请求。
         if !isReqSuccess { reqApi() }
         
-        // Judy-mark: 正确的修改导航条方式        
+        // Judy-mark: 正确的修改导航条方式。
         /*
          navigationController?.navigationBar.barTintColor = .white
          navigationController?.navigationBar.tintColor = .black
@@ -108,7 +108,7 @@ open class JudyBaseViewCtrl: UIViewController {
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        // 在界面即将消失（包含所有界面跳转）时关闭所有键盘
+        // 在界面即将消失（包含所有界面跳转）时关闭所有键盘。
         UIApplication.shared.keyWindow?.endEditing(true)
         
         // 2020年09月01日16:33:47 注释原因：不具备通用性
@@ -120,7 +120,7 @@ open class JudyBaseViewCtrl: UIViewController {
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
-        // 在界面即将消失（包含所有界面跳转）时关闭所有键盘
+        // 在界面即将消失（包含所有界面跳转）时关闭所有键盘。
         UIApplication.shared.keyWindow?.endEditing(true)
     }
     
@@ -133,8 +133,8 @@ open class JudyBaseViewCtrl: UIViewController {
     /// 发起网络请求。
     ///
     /// 通过调用此函数发起一个完整的请求流，此方法中将更新 apiData。
-    /// 请求结果在此函数中分流，此函数内部将依次执行 setApi() -> { reqResult() -> reqSuccess() / reqFailed() } / reqNotApi()，请重写相关函数以实现对应操作
-    /// - warning: 此方法中会更改 isReqSuccess 对应状态
+    /// 请求结果在此函数中分流，此函数内部将依次执行 setApi() -> { reqResult() -> reqSuccess() / reqFailed() } / reqNotApi()，请重写相关函数以实现对应操作。
+    /// - Warning: 此方法中会更改 isReqSuccess 对应状态。
     /// - Parameters:
     ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi()
     public final func reqApi(isSetApi: Bool = true){
@@ -180,15 +180,15 @@ open class JudyBaseViewCtrl: UIViewController {
             strongSelf.reqOver()
         }
         
-        // 发起请求
+        // 发起请求。
         JudyApi.req(requestConfig: requestConfig, closure: responseClosure)
 
     }
     
-    /// 设置 requestConfig 及其它任何需要在发起请求前处理的事情
+    /// 设置 requestConfig 及其它任何需要在发起请求前处理的事情。
     ///
-    /// 在整个 reqApi() 请求流程中最先执行的方法
-    /// - warning: 在此方法中配置好 requestConfig 对象，一般情况子类可以不调用 super.setApi()
+    /// 在整个 reqApi() 请求流程中最先执行的方法。
+    /// - Warning: 在此方法中配置好 requestConfig 对象，一般情况子类可以不调用 super.setApi()。
     ///
     /// ```
     /// requestConfig.domain = "http://www.baidu.com/Api"
@@ -214,7 +214,7 @@ open class JudyBaseViewCtrl: UIViewController {
     /// - Warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则
     open func reqSuccess() {}
     
-    /// 请求失败或服务器响应失败时的消息处理
+    /// 请求失败或服务器响应失败时的消息处理。
     open func reqFailed() {
         
         if let msg = apiData[EMERANA.Key.Api.error, EMERANA.Key.Api.msg].string, msg.clean() != "" {
