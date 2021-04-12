@@ -223,21 +223,21 @@ public extension ApiDelegate {
     
 }
 
-/// api 协议，该协议规定了 api 的定义过程
-public protocol EMERANA_ApiActionEnums {
+@available(*, unavailable, message: "请更新命名", renamed: "ApiActions")
+public protocol EMERANA_ApiActionEnums {}
+
+/// api 接口规范协议，该协议规定了 api 的定义过程，如 enum Actions: String, ApiActions。
+public protocol ApiActions {
     /// 该 api 接口的原始值，通常为 public enum 的 rawValue
     var value: String { get }
 }
 
-public extension EMERANA_ApiActionEnums {
+public extension ApiActions {
     
-    /// 判断 Api 对象是否为指定的 public enum 中的成员
-    /// - Parameter apiEnum: 用于比较的 public enum 成员
+    /// 判断 Api 对象是否为指定的 enum 中的成员。
+    /// - Parameter apiEnum: 用于比较的 ApiActions。
     /// - Returns: 若为相同，返回 true，反之 false
-    func `is`(_ apiEnum: EMERANA_ApiActionEnums) -> Bool {
-        
-        return apiEnum.value == value
-    }
+    func `is`(_ apiEnum: ApiActions) -> Bool { apiEnum.value == value }
 }
 
 /// JudyApi 中的请求配置类。
@@ -257,7 +257,7 @@ final public class ApiRequestConfig {
     /// }
     /// ```
     /// - since: V1.1 2021年01月07日16:59:28
-    public lazy var api: EMERANA_ApiActionEnums? = nil
+    public lazy var api: ApiActions? = nil
 
     /// 请求域名，如: https://www.baidu.com，默认值为静态函数 domain()。
     ///
@@ -351,24 +351,4 @@ final public class ApiRequestConfig {
         static let `default` = Domain(rawValue: EMERANA.apiConfigDelegate?.domain() ?? "https://www.baidu.com")
     }
     
-    
-    @available(*, unavailable, message: "通过该值标记使用备用域名的方式已废弃，请直接修改 domain 属性", renamed: "domain")
-    var isUseStandbyURL: Bool? = nil
-    @available(*, unavailable, message: "该属性已废弃！", renamed: "reqURL")
-    var requestURL: String {return ""}
-}
-
-
-@available(*, deprecated, message: "该 public enum 已更新，请使用 struct", renamed: "EMERANA.Key.Api")
-public enum ApiKey {}
-@available(*, unavailable , message: "请更新属性名", renamed: "ApiAction")
-typealias EMERANA_Action = String
-@available(*, unavailable, message: "请更新属性名", renamed: "EMERANA_Action")
-typealias EMERANAAction = String
-
-extension ApiRequestConfig {
-    
-    static func test() {
-        
-    }
 }

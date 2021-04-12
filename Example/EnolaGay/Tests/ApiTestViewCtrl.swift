@@ -38,7 +38,7 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
     
 }
 
-enum Actions: String, EMERANA_ApiActionEnums {
+enum Actions: String, ApiActions {
     var value: String { rawValue }
     
     /// 生成融云token get
