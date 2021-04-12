@@ -139,17 +139,16 @@ public final class JudyApi {
 }
 
 
-// MARK: - ApiRequestConfig
+// MARK: - Api 层
 
-/// API 层代理协议 (where Self: ApiRequestConfig)。
+/// API 层代理协议。
 ///
 /// ApiRequestConfig 专用初始化协议，该协议定义了 ApiRequestConfig 部分属性的初值，及通用的请求接口。
 /// - Warning: 该协议主要针对 ApiRequestConfig 进行全局性的配置，可单独设置其属性。
 public protocol ApiDelegate where Self: UIApplication {
         
-    /// 询问请求的主要（默认）域名
-    /// - warning: 该函数主要针对全局配置，如需变更请单独设置 apiConfig.domain
-    /// - since: V1.3 2020年12月31日13:27:18
+    /// 询问请求的主要（默认）域名。
+    /// - Warning: 该函数主要针对全局配置，如需变更请单独设置 apiConfig.domain。
     func domain() -> String
     
     /// 询问请求方法是否为 POST 请求？默认实现为 true。
@@ -262,7 +261,7 @@ final public class ApiRequestConfig {
     /// 请求域名，如: https://www.baidu.com，默认值为静态函数 domain()。
     ///
     /// 通常为项目中使用频率最高的域名。若需要多个域名，请 public extension ApiRequestConfig.Domain 新增
-    /// - Warning: 扩展并覆盖 static func domain() 以配置全局域名，该值将与 api 拼接成最终请求的完整 URL
+    /// - Warning: 扩展并覆盖 static func domain() 以配置全局域名，该值将与 api 拼接成最终请求的完整 URL。
     public var domain: Domain = .default
         
     /// 请求方式 HTTPMethod，默认 post。通过覆盖 globalMethodPOST() 以配置全局通用值。
@@ -279,10 +278,11 @@ final public class ApiRequestConfig {
     /// - Warning: 该值可以设置为 nil，但初值非 nil。
     public lazy var headers: [String: String]? = [String: String]()
     
-    /// 请求的响应数据格式是否为 responseJSON，默认 true，反之响应为 responseString。通过覆盖 responseJSON() 以配置全局通用值
+    /// 请求的响应数据格式是否为 responseJSON，默认 true，反之响应为 responseString。
+    /// 通过覆盖 responseJSON() 以配置全局通用值。
     public var isResponseJSON: Bool = EMERANA.apiConfigDelegate?.responseJSON() ?? true
 
-    /// 发生请求时的最终完整 URL，访问该属性即触发 apiRequestConfig_end() 函数
+    /// 发生请求时的最终完整 URL，访问该属性即触发 apiRequestConfig_end() 函数。
     public var reqURL: String {
         EMERANA.apiConfigDelegate?.apiRequestConfig_end(apiConfig: self)
         guard api != nil else {
@@ -291,6 +291,7 @@ final public class ApiRequestConfig {
         }
         return domain.rawValue + api!.value
     }
+
     /// HTTPMethod。
     public enum Method {
         case options
