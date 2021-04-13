@@ -161,7 +161,6 @@ public protocol ApiDelegate where Self: UIApplication {
     /// apiRequestConfig 对象初始化扩展。
     ///
     /// 一般在此函数中设置全局 headers、parameters 的初值或其它通用信息。
-    /// - Warning: token 需要注意是否存在变更，如登录新用户变更了 token，则应在 apiRequestConfig_last() 配置。
     ///
     /// # 部分参考代码
     /// * 请求头设置
@@ -172,15 +171,16 @@ public protocol ApiDelegate where Self: UIApplication {
     /// ```
     /// parameters?["userName"] = "Judy"
     /// ```
-    /// - Parameter apiConfig: 当前 apiConfig 对象
-    func apiRequestConfig_init(apiConfig: ApiRequestConfig)
+    /// - Parameter requestConfig: 当前 apiConfig 对象。
+    /// - Warning: token 需要注意是否存在变更，如登录新用户变更了 token，则应在 apiRequestConfig_last() 配置。
+    func apiRequestConfig_init(requestConfig: ApiRequestConfig)
     
     /// apiRequestConfig 最终阶段配置。
     ///
-    /// 该函数为触发请求前的最后操作，发生在访问 reqURL 属性时。
-    /// - Warning: 发生请求时，若请求头/请求参数的初值发生改变应该在此函数中更新/覆盖对应信息，如用户登录的 token
-    /// - Parameter apiConfig: 当前 apiConfig 对象
-    func apiRequestConfig_end(apiConfig: ApiRequestConfig)
+    /// 该函数为触发请求前的最后操作。
+    /// - Parameter requestConfig: 当前 apiConfig 对象。
+    /// - Warning: 发生请求时，若请求头/请求参数的初值发生改变应该在此函数中更新/覆盖对应信息，如用户登录的 token。
+    func apiRequestConfig_end(requestConfig: ApiRequestConfig)
     
     /// 实现向 Api 层发起请求。
     /// - Parameters:
@@ -199,7 +199,7 @@ public protocol ApiDelegate where Self: UIApplication {
 
 }
 
-// 默认实现 EMERANA_ApiRequestConfig，使其变成可选协议函数。
+// 默认实现 ApiDelegate，使其变成可选协议函数。
 public extension ApiDelegate {
     
     func domain() -> String {
@@ -211,15 +211,16 @@ public extension ApiDelegate {
     
     func responseJSON() -> Bool { true }
     
-    func apiRequestConfig_init(apiConfig: ApiRequestConfig) { }
+    func apiRequestConfig_init(requestConfig: ApiRequestConfig) { }
     
-    func apiRequestConfig_end(apiConfig: ApiRequestConfig) { }
-    
-    /// 校验服务器响应的消息。
+    func apiRequestConfig_end(requestConfig: ApiRequestConfig) { }
+}
+
+public extension ApiDelegate {
+    /// 校验服务器响应消息的默认函数，请重写此扩展函数以自定义校验服务器响应的消息。
     func responseErrorValidation(json: JSON) -> (error: Bool, code: Int, message: String) {
         return (false, 0, "校验协议函数未覆盖。")
     }
-    
 }
 
 @available(*, unavailable, message: "请更新命名", renamed: "ApiAction")
@@ -282,11 +283,10 @@ final public class ApiRequestConfig {
     /// 通过覆盖 responseJSON() 以配置全局通用值。
     public var isResponseJSON: Bool = EMERANA.apiConfigDelegate?.responseJSON() ?? true
 
-    /// 发生请求时的最终完整 URL，访问该属性即触发 apiRequestConfig_end() 函数。
+    /// 发生请求时的完整 URL。
     public var reqURL: String {
-        EMERANA.apiConfigDelegate?.apiRequestConfig_end(apiConfig: self)
         guard api != nil else {
-            Judy.logWarning("ApiRequestConfig 的 api 为 nil!")
+            Judy.logWarning("ApiRequestConfig 对象 api 属性未配置！")
             return domain.rawValue
         }
         return domain.rawValue + api!.value
@@ -316,12 +316,14 @@ final public class ApiRequestConfig {
     }
 
     public init() {
-        EMERANA.apiConfigDelegate?.apiRequestConfig_init(apiConfig: self)
+        EMERANA.apiConfigDelegate?.apiRequestConfig_init(requestConfig: self)
     }
 
-    /// 由当前对象向 Api 层发起请求。
+    /// 由当前对象向 Api 层发起请求，该函数中将触发 apiRequestConfig_end() 确认函数。
     /// - Parameter callback: 请求的回调函数。
     public func request(withCallBack callback: @escaping ((JSON) -> Void)) {
+        // 确认配置信息。
+        EMERANA.apiConfigDelegate?.apiRequestConfig_end(requestConfig: self)
         
         guard EMERANA.apiConfigDelegate != nil else {
             let msg = "未实现 extension UIApplication: ApiDelegate，ApiRequestConfig 无法工作！"
@@ -330,6 +332,15 @@ final public class ApiRequestConfig {
             callback(json)
             return
         }
+
+        guard api != nil else {
+            let msg = "api 为空，取消请求!"
+            let json = JSON([EMERANA.Key.JSON.error:[EMERANA.Key.JSON.msg: msg, EMERANA.Key.JSON.code: 250]])
+            Judy.logWarning(msg)
+            callback(json)
+            return
+        }
+
 
         EMERANA.apiConfigDelegate!.request(withRequestConfig: self, callback: callback)
     }
