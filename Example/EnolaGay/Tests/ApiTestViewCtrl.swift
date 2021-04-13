@@ -38,7 +38,7 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
     
 }
 
-enum Actions: String, ApiActions {
+enum Actions: String, ApiAction {
     var value: String { rawValue }
     
     /// 生成融云token get
