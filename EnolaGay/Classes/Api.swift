@@ -225,18 +225,18 @@ public extension ApiDelegate {
 @available(*, unavailable, message: "请更新命名", renamed: "ApiActions")
 public protocol EMERANA_ApiActionEnums {}
 
-/// api 接口规范协议，该协议规定了 api 的定义过程，如 enum Actions: String, ApiActions。
-public protocol ApiActions {
+/// api 接口规范协议，该协议规定了 api 的定义过程，如 enum Actions: String, ApiAction。
+public protocol ApiAction {
     /// 该 api 接口的原始值，通常为 public enum 的 rawValue
     var value: String { get }
 }
 
-public extension ApiActions {
+public extension ApiAction {
     
     /// 判断 Api 对象是否为指定的 enum 中的成员。
-    /// - Parameter apiEnum: 用于比较的 ApiActions。
+    /// - Parameter apiEnum: 用于比较的 ApiAction。
     /// - Returns: 若为相同，返回 true，反之 false
-    func `is`(_ apiEnum: ApiActions) -> Bool { apiEnum.value == value }
+    func `is`(_ apiEnum: ApiAction) -> Bool { apiEnum.value == value }
 }
 
 /// JudyApi 中的请求配置类。
@@ -256,7 +256,7 @@ final public class ApiRequestConfig {
     /// }
     /// ```
     /// - since: V1.1 2021年01月07日16:59:28
-    public lazy var api: ApiActions? = nil
+    public lazy var api: ApiAction? = nil
 
     /// 请求域名，如: https://www.baidu.com，默认值为静态函数 domain()。
     ///
