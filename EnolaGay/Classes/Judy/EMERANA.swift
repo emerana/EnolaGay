@@ -1414,11 +1414,11 @@ public extension String {
 // MARK: - 为 tableView 增加滚动到底部函数
 public extension UITableView {
     
-    /// 将 tableView 滚动到最底部
-    /// 
-    /// 在此之前的方法可能会引起数组越界问题，此函数针对该问题修复
-    /// - warning: 在调用该函数之前请先调用 reloadData()
-    /// - Parameter animated: 是否需要动画效果？默认为 true
+    /// 将 tableView 滚动到最底部。
+    ///
+    /// 在此之前的方法可能会引起数组越界问题，此函数针对该问题修复。
+    /// - Parameter animated: 是否需要动画效果？默认为 true。
+    /// - warning: 在调用该函数之前请先调用 reloadData()。
     func scrollToBottom(animated: Bool = true) {
         
         if numberOfSections > 0 {
