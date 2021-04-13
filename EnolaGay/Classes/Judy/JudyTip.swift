@@ -179,8 +179,8 @@ public struct JudyTip {
 extension JudyTip {
     
     
-    /// 生成一个等待转圈的 HUD 并加载到目标 View 显示，常用于等待耗时操作的过程
-    /// - Parameter view: 要加载该 HUD 的目标视图，默认值为 UIApplication.shared.keyWindow
+    /// 生成一个等待转圈的 HUD 并加载到目标 View 显示，常用于等待耗时操作的过程。
+    /// - Parameter view: 要加载该 HUD 的目标视图，默认值为 UIApplication.shared.中显式在最上面的窗口。
     /// # 一般，目标视图 view 可以为：
     /// - Parameter isIgnoreInteraction: 是否忽略用户的交互行为，默认为 true
     /// * self.view
@@ -188,11 +188,14 @@ extension JudyTip {
     /// * self.navigationController!.view
     /// - Returns: 配置好基本信息的目标 HUD 对象，可以直接用来展示，通过该对象调用其 hide() 函数来移除 HUD
     @discardableResult
-    public static func wait(to view: UIView = UIApplication.shared.keyWindow!, isIgnoreInteraction: Bool = true) -> MBProgressHUD {
+    public static func wait(to view: UIView? = UIApplication.shared.windows.last, isIgnoreInteraction: Bool = true) -> MBProgressHUD {
         
         hide(for: view)// 必须手动隐藏，否则会产生叠加效果
-        
-        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        guard view != nil else {
+            return MBProgressHUD()
+        }
+
+        let hud = MBProgressHUD.showAdded(to: view!, animated: true)
         // 设置 HUD 的背景样式
         hud.bezelView.style = .solidColor
         // 设置 HUD 的背景色
@@ -209,17 +212,20 @@ extension JudyTip {
     }
     
     
-    /// 弹出消息提示HUD
+    /// 弹出消息提示 HUD。
     /// - Parameters:
     ///   - text: 消息体
-    ///   - parentView: 要加载该 HUD 的目标视图，默认值为 UIApplication.shared.keyWindow
-    ///   - duration: 持续时长，默认值为 2秒
-    ///   - font: 指定显示的字体，该值默认为 UIFont(name: "Helvetica-Bold", size: 14)
-    ///   - isBottom: 是否显示在底部？默认值为 false，显示在中央
-    /// - Returns: 配置好基本信息的目标 HUD 对象，可以直接用来展示，通过该对象调用其 hide() 函数来移除 HUD
-    /// - warning: 此方法需要再 viewDidAppear 之后调用
+    ///   - parentView: 要加载该 HUD 的目标视图，默认值为 UIApplication.shared.中显式在最上面的窗口。
+    ///   - duration: 持续时长，默认值为 2秒。
+    ///   - font: 指定显示的字体，该值默认为 UIFont(name: "Helvetica-Bold", size: 14)。
+    ///   - isBottom: 是否显示在底部？默认值为 false，显示在中央。
+    /// - Returns: 配置好基本信息的目标 HUD 对象，可以直接用来展示，通过该对象调用其 hide() 函数来移除 HUD。
     @discardableResult
-    public static func message(text: String, parentView: UIView = UIApplication.shared.keyWindow!, duration: Double = 2, font: UIFont? = UIFont(name: "Helvetica-Bold", size: 14), isBottom: Bool = false) -> MBProgressHUD {
+    public static func message(text: String, parentView: UIView? = UIApplication.shared.windows.last, duration: Double = 2, font: UIFont? = UIFont(name: "Helvetica-Bold", size: 14), isBottom: Bool = false) -> MBProgressHUD {
+        
+        guard parentView != nil else {
+            return MBProgressHUD()
+        }
         
         let hud = wait(to: parentView)
         hud.mode = .text
@@ -246,11 +252,12 @@ extension JudyTip {
         return hud
     }
     
-    /// 移除指定目标视图上面的 HUD
+    /// 移除指定目标视图上面的 HUD。
     /// - Parameters:
     ///   - parentView: 显示 HUD 的父 View，默认 keyWindow，对应 wait 函数
-    public static func hide(for parentView: UIView = UIApplication.shared.keyWindow!) {
-        MBProgressHUD.hide(for: parentView, animated: true)
+    public static func hide(for parentView: UIView? = UIApplication.shared.windows.last) {
+        guard parentView != nil else { return }
+        MBProgressHUD.hide(for: parentView!, animated: true)
     }
     
 }

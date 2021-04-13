@@ -182,10 +182,10 @@ public protocol ApiDelegate where Self: UIApplication {
     /// - Parameter apiConfig: 当前 apiConfig 对象
     func apiRequestConfig_end(apiConfig: ApiRequestConfig)
     
-    /// 由 requestConfig 对象向 Api 层发起请求。
+    /// 实现向 Api 层发起请求。
     /// - Parameters:
     ///   - requestConfig: 配置好的 ApiRequestConfig 对象。
-    ///   - callBack: 请求的回调函数。
+    ///   - callback: 发起请求后的回调函数。
     /// - Warning: callBack 中的 json 必须遵守如下层级关系：
     /// ```
     ///  [
@@ -195,7 +195,7 @@ public protocol ApiDelegate where Self: UIApplication {
     ///     ],
     ///  ]
     ///  ```
-    func request(withRequestConfig requestConfig: ApiRequestConfig, callBack: @escaping ((JSON)->Void))
+    func request(withRequestConfig requestConfig: ApiRequestConfig, callback: @escaping ((JSON)->Void))
 
 }
 
@@ -322,18 +322,26 @@ final public class ApiRequestConfig {
     /// 由当前对象向 Api 层发起请求。
     /// - Parameter callback: 请求的回调函数。
     public func request(withCallBack callback: @escaping ((JSON) -> Void)) {
-        EMERANA.apiConfigDelegate?.request(withRequestConfig: self, callBack: callback)
+        
+        guard EMERANA.apiConfigDelegate != nil else {
+            let msg = "未实现 extension UIApplication: ApiDelegate，ApiRequestConfig 无法工作！"
+            let json = JSON([EMERANA.Key.JSON.error:[EMERANA.Key.JSON.msg: msg, EMERANA.Key.JSON.code: 250]])
+            Judy.logWarning(msg)
+            callback(json)
+            return
+        }
+
+        EMERANA.apiConfigDelegate!.request(withRequestConfig: self, callback: callback)
     }
 
     
-    /// ApiRequestConfig 中的域名模块
+    /// ApiRequestConfig 中的域名模块。
     ///
     /// ApiRequestConfig 中所有域名均通过此 structure 配置，通常扩展并覆盖 static func domain() 即为项目配置了主要域名，若需要多个域名，请 extension ApiRequestConfig.Domain 新增即可。
     /// - Warning: 新增域名请务必参考如下代码:
     /// ```
     /// static let masterDomain = ApiRequestConfig.Domain(rawValue: "https://www.baidu.com")
     /// ```
-    /// - since: V1.0 2020年11月19日16:51:59
     public struct Domain: Hashable, Equatable, RawRepresentable {
         
         private(set) public var rawValue: String
@@ -342,13 +350,11 @@ final public class ApiRequestConfig {
             self.rawValue = rawValue
             
             if EMERANA.apiConfigDelegate == nil {
-
-                Judy.logWarning("未实现 extension UIApplication: EMERANA_ApiRequestConfig，所有请求将使用默认值！")
-                
+                Judy.logWarning("未实现 extension UIApplication: ApiDelegate，所有请求将使用默认值！")
             }
         }
         
-        /// 项目中默认使用的主要域名，值为 domain() 函数
+        /// 项目中默认使用的主要域名，值为 domain() 函数。
         static let `default` = Domain(rawValue: EMERANA.apiConfigDelegate?.domain() ?? "https://www.baidu.com")
     }
     
