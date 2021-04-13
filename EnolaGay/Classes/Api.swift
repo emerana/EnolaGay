@@ -222,7 +222,7 @@ public extension ApiDelegate {
     
 }
 
-@available(*, unavailable, message: "请更新命名", renamed: "ApiActions")
+@available(*, unavailable, message: "请更新命名", renamed: "ApiAction")
 public protocol EMERANA_ApiActionEnums {}
 
 /// api 接口规范协议，该协议规定了 api 的定义过程，如 enum Actions: String, ApiAction。
