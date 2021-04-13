@@ -15,21 +15,58 @@
 /// 对 ProgressHUD 的封装，常用于活动指示器的管理工具类。
 public struct JudyTip {
     
-
-
+    
+    /// HUD 消息类型。
+    public enum MessageType {
+        case success
+        case failed
+        case error
+    }
+    
+    
     // 私有化 init()，禁止构建对象。
     private init() { }
+    
     
     /// 弹出一个等待的转圈 HUD。
     public static func wait() { showAnimation() }
     
-    public static func message(text: String) {
+    /// 弹出一个消息体。
+    /// - Parameters:
+    ///   - messageType: 该 HUD 类型，默认为 failed，只有失败类型是动效，其余的为静态效果。
+    ///   - text: 消息内容，默认为 nil。
+    public static func message(messageType: MessageType = .failed, text: String? = nil) {
         
-//        ProgressHUD.animationType = .
-        ProgressHUD.showError(text)
+        switch messageType {
+        case .success:
+            ProgressHUD.showSuccess(text)
+        case .failed:
+            ProgressHUD.showFailed(text)
+        case .error:
+            ProgressHUD.showError(text)
+        }
 
     }
-
+    
+    /// 弹出显示一个进度条的等待指示器，该函数支持暴力调用。
+    /// - Parameters:
+    ///   - text: 要显示的文本，默认为 nil。
+    ///   - fractionCompleted: 当前完成的进度，该值大于或等于1时即代表完成了。
+    ///   - completed: 事件完成的回调，默认为 nil。
+    public static func progress(text: String? = nil, fractionCompleted: CGFloat, completed: ()? = nil) {
+        
+        ProgressHUD.showProgress(text, fractionCompleted)
+        if (fractionCompleted >= 1) {
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                if completed == nil {
+                    ProgressHUD.showSucceed(interaction: false)
+                } else {
+                    completed
+                }
+            }
+        }
+    }
 
     public static func showAnimation(animationType: AnimationType = .systemActivityIndicator ) {
 
@@ -49,7 +86,7 @@ import MBProgressHUD
 
 // MARK: - 进阶版
 extension JudyTip {
-    
+    /*
     
     /// 生成一个等待转圈的 HUD 并加载到目标 View 显示，常用于等待耗时操作的过程。
     /// - Parameter view: 要加载该 HUD 的目标视图，默认值为 UIApplication.shared.中显式在最上面的窗口。
@@ -123,7 +160,8 @@ extension JudyTip {
         
         return hud
     }
-    
+     */
+
     /// 移除指定目标视图上面的 HUD。
     /// - Parameters:
     ///   - parentView: 显示 HUD 的父 View，默认 keyWindow，对应 wait 函数
@@ -131,7 +169,6 @@ extension JudyTip {
         guard parentView != nil else { return }
         MBProgressHUD.hide(for: parentView!, animated: true)
     }
-    
 }
 
 // OUT
