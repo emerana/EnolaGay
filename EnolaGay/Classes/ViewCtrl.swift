@@ -48,8 +48,9 @@ open class JudyBaseViewCtrl: UIViewController {
     /// * 当 requestConfig.api = nil，reqApi() 中会将该值设为 true;
     /// * 若需要界面每次出现都发送请求，请在 super.viewWillAppear() 之前或 reqApi() 响应后（如 reqOver()）将该值设为 false。
     final lazy public var isReqSuccess: Bool = false
+    
     /// 未设置 requestConfig.api 时是否隐藏 HUD，默认 false。
-    @IBInspectable lazy private(set) public var isHideNotApiHUD: Bool = false
+    // @IBInspectable lazy private(set) public var isHideNotApiHUD: Bool = false
 
     /// 是否由当前 viewCtrl 决定 statusBarStyle，默认 false。
     /// - Warning: 如果该值为 true，则重写 preferredStatusBarStyle 以设置当前 viewCtrl 的 statusBarStyle。
@@ -133,31 +134,18 @@ open class JudyBaseViewCtrl: UIViewController {
     /// 发起网络请求。
     ///
     /// 通过调用此函数发起一个完整的请求流，此方法中将更新 apiData。
-    /// 请求结果在此函数中分流，此函数内部将依次执行 setApi() -> { reqResult() -> reqSuccess() / reqFailed() } / reqNotApi()，请重写相关函数以实现对应操作。
     /// - Warning: 此方法中会更改 isReqSuccess 对应状态。
+    /// - 请求结果在此函数中分流，此函数内部将依次执行以下函数，请重写相关函数以实现对应操作
+    ///     - setApi()
+    ///     - reqResult()
+    ///     - reqSuccess() / reqFailed()
+    ///     - reqOver()
     /// - Parameters:
-    ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi()
+    ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi()。
     public final func reqApi(isSetApi: Bool = true){
         if !Self.isGlobalHideWaitingHUD() { JudyTip.wait(to: view) }
 
         if isSetApi { setApi() }
-        
-        guard requestConfig.api != nil else {
-            isReqSuccess = true
-            reqNotApi()
-
-            JudyTip.hide(for: view)
-            
-            if isHideNotApiHUD {
-                Judy.log("\(viewTitle ?? (title ?? ""))->requestConfig.api未赋值，取消请求!")
-            } else {
-                #if DEBUG
-                JudyTip.message(text: "\(viewTitle ?? (title ?? ""))->requestConfig.api未赋值，取消请求!")
-                #endif
-            }
-
-            return
-        }
         
         /// 响应闭包
         let responseClosure: ((JSON) -> Void) = { [weak self] json in
@@ -169,7 +157,7 @@ open class JudyBaseViewCtrl: UIViewController {
             strongSelf.apiData = json
             strongSelf.reqResult()
             
-            //  存在 EMERANA.Key.JSON.error 即失败
+            //  存在 EMERANA.Key.JSON.error 即失败。
             if json[EMERANA.Key.JSON.error].isEmpty {
                 strongSelf.isReqSuccess = true
                 strongSelf.reqSuccess()
@@ -207,14 +195,16 @@ open class JudyBaseViewCtrl: UIViewController {
     ///
     /// - Warning: 此方法应主要执行在上下拉刷新界面时需要中断 header、footer 刷新状态，更改 isReqSuccess 等操作。
     open func reqNotApi() {}
+    
     /// 当服务器有响应时，最先执行此方法，无论请求是否成功。**此时 apiData 为服务器返回的元数据**。
     open func reqResult() {}
+    
     /// 请求成功的消息处理
     ///
     /// - Warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则
     open func reqSuccess() {}
     
-    /// 请求失败或服务器响应失败时的消息处理。
+    /// 请求失败或服务器响应失败时的消息处理，还函数默认弹出失败消息体。
     open func reqFailed() {
         
         if let msg = apiData[EMERANA.Key.JSON.error, EMERANA.Key.JSON.msg].string, msg.clean() != "" {
@@ -223,9 +213,10 @@ open class JudyBaseViewCtrl: UIViewController {
             Judy.log("不知名的错误消息")
         }
     }
+    
     /// 在整个请求流程中最后执行的方法。
     ///
-    /// - warning: 执行到此方法时，setApi() -> reqNotApi() / [ reqResult() -> reqFailed() / reqSuccess() ] 整个流程已经全部执行完毕
+    /// - Warning: 执行到此方法时，setApi() -> [ reqResult() -> reqFailed() / reqSuccess() ] 整个流程已经全部执行完毕
     open func reqOver() {}
     
     deinit {
