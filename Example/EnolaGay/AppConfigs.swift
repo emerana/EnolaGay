@@ -39,6 +39,7 @@ extension UIApplication: EMERANA_UIColor {
 import Alamofire
 
 // ApiRequestConfig。
+
 extension UIApplication: ApiDelegate {
     
     
@@ -46,7 +47,7 @@ extension UIApplication: ApiDelegate {
 
     public func globalMethodPOST() -> Bool { false }
     
-    public func request(withRequestConfig requestConfig: ApiRequestConfig, callBack: @escaping ((JSON) -> Void)) {
+    public func request(withRequestConfig requestConfig: ApiRequestConfig, callback: @escaping ((JSON) -> Void)) {
 
         var method = HTTPMethod.get
         switch requestConfig.method {
@@ -110,7 +111,7 @@ extension UIApplication: ApiDelegate {
                 ]
             }
             
-            callBack(json)
+            callback(json)
         }
 
          // 服务器响应格式，String 或 JSON。
@@ -123,7 +124,6 @@ extension UIApplication: ApiDelegate {
     }
 
 }
-
 
 extension UIApplication: EMERANA_UIFont {
     
