@@ -283,14 +283,8 @@ final public class ApiRequestConfig {
     /// 通过覆盖 responseJSON() 以配置全局通用值。
     public var isResponseJSON: Bool = EMERANA.apiConfigDelegate?.responseJSON() ?? true
 
-    /// 发生请求时的完整 URL。
-    public var reqURL: String {
-        guard api != nil else {
-            Judy.logWarning("ApiRequestConfig 对象 api 属性未配置！")
-            return domain.rawValue
-        }
-        return domain.rawValue + api!.value
-    }
+    /// 完整的请求 URL。
+    public var reqURL: String { domain.rawValue + (api?.value ?? "") }
 
     /// HTTPMethod。
     public enum Method {
@@ -334,7 +328,7 @@ final public class ApiRequestConfig {
         }
 
         guard api != nil else {
-            let msg = "api 为空，取消请求!"
+            let msg = "api 为空，取消已请求!"
             let json = JSON([EMERANA.Key.JSON.error:[EMERANA.Key.JSON.msg: msg, EMERANA.Key.JSON.code: 250]])
             Judy.logWarning(msg)
             callback(json)
