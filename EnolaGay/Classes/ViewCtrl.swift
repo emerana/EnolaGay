@@ -312,7 +312,7 @@ public extension UIViewController {
     final func judyGenerateImageWithNav(targetScrollView: UIScrollView, transparent: Bool = false, savedPhotosAlbum: Bool = false ) -> UIImage? {
         
         UIGraphicsBeginImageContextWithOptions(CGSize(width: targetScrollView.contentSize.width, height: 280) , false, 0.0)
-        let topView = Judy.keyWindow!.rootViewController!.view!
+        let topView = UIApplication.shared.keyWindow!.rootViewController!.view!
 
         // 将完整视图层次结构的快照以在屏幕上可见的形式呈现到当前上下文中.此方法可以将状态栏也包含
         topView.drawHierarchy(in: topView.frame, afterScreenUpdates: true)
@@ -513,10 +513,10 @@ public extension UIViewController {
         
     /// 解决 push 时右上角出现可恶的黑影，给 keyWindow 设置背景色即可，一般为白色或 EMERANA 配置的通用背景色
     @available(*,unavailable,message: "此函数太过于简单，弃用之！")
-    func judy_setWindowBackgroundColor() { Judy.keyWindow!.backgroundColor = .judy(.view) }
+    func judy_setWindowBackgroundColor() {  }
     /// 将 window 背景色重置为 nil
     @available(*,unavailable,message: "此函数太过于简单，弃用之！")
-    func judy_resetWindowBackgroundColor() { Judy.keyWindow!.backgroundColor = nil }
+    func judy_resetWindowBackgroundColor() {  }
     
     
     // MARK: 将导航栏移出屏幕外
@@ -530,8 +530,8 @@ public extension UIViewController {
         
         UIView.animate(withDuration: 0.2) {
             // 获取状态栏高度
-            let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
-
+            let statusBarHeight = UIApplication.shared.statusBarView?.frame.size.height ?? 0
+            
             let yDiff = isHihe ? self.navigationController!.navigationBar.frame.origin.y - self.navigationController!.navigationBar.frame.size.height - statusBarHeight :self.navigationController!.navigationBar.frame.origin.y + self.navigationController!.navigationBar.frame.size.height + statusBarHeight
             // 重设 navigationBar.frame。
             self.navigationController!.navigationBar.frame =

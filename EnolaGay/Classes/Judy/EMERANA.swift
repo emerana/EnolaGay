@@ -361,7 +361,7 @@ public extension EMERANA_UIColor where Self: UIColor {
         case .view, .scrollView:
             if #available(iOS 13, *) {
                 return UIColor { (trainCollection) -> UIColor in
-                    return trainCollection.userInterfaceStyle == .dark ? .darkGray:.groupTableViewBackground
+                    return trainCollection.userInterfaceStyle == .dark ? .darkGray:.opaqueSeparator
                 }
             } else {
                 return .white
@@ -651,8 +651,44 @@ open class Appearance {
     
 }
 
+// MARK: UIApplication 扩展
 
+public extension UIApplication {
 
+    /// 获取当前活跃的 window，如 alertview、键盘等关键的 Window。
+    var keyWindow: UIWindow? {
+        return UIApplication.shared.connectedScenes
+            .map({$0 as? UIWindowScene})
+            .compactMap({$0})
+            .first?.windows.first
+    }
+
+    /// 获取状态栏 View。
+    var statusBarView: UIView? {
+        
+        if #available(iOS 13.0, *) {
+            let tag = 3848245
+            
+            if let statusBar = keyWindow?.viewWithTag(tag) {
+                return statusBar
+            } else {
+                let height = keyWindow?.windowScene?.statusBarManager?.statusBarFrame ?? .zero
+                let statusBarView = UIView(frame: height)
+                statusBarView.tag = tag
+                statusBarView.layer.zPosition = 999999
+                
+                keyWindow?.addSubview(statusBarView)
+                return statusBarView
+            }
+        } else {
+            if responds(to: Selector(("statusBar"))) {
+                return value(forKey: "statusBar") as? UIView
+            }
+        }
+        return nil
+    }
+    
+}
 
 // MARK: - UIImage 扩展
 
@@ -1151,16 +1187,16 @@ public extension NSMutableAttributedString {
     /// - Parameter offset: 偏移距离，默认 88
     func updateWindowFrame(isReset: Bool = false, offset: CGFloat = 88){
         //滑动效果
-        UIView.beginAnimations("ResizeKeyboard", context: nil)
-        UIView.setAnimationDuration(0.30)
-        
-        //恢复屏幕
-        if isReset {
-            window?.frame.origin.y = 0
-        } else {
-            window?.frame.origin.y = -offset
+        UIView.animate(withDuration: 0.3) { [self] in
+            //恢复屏幕
+            if isReset {
+                window?.frame.origin.y = 0
+            } else {
+                window?.frame.origin.y = -offset
+            }
+            window?.layoutIfNeeded()
         }
-        UIView.commitAnimations()
+        
     }
 
     

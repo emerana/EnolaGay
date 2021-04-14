@@ -110,7 +110,7 @@ open class JudyBaseNavigationCtrl: UINavigationController {
         if children.count > 0 {
             
             // 解决 push 时右上角出现可恶的黑影，给 keyWindow 设置背景色即可，一般为白色或 EMERANA 配置的通用背景色
-            Judy.keyWindow!.backgroundColor = .judy(.view)
+            UIApplication.shared.keyWindow!.backgroundColor = .judy(.view)
 
             // 将底部TabBar隐藏
             viewController.hidesBottomBarWhenPushed = true
@@ -313,7 +313,7 @@ extension JudyBaseNavigationCtrl: UINavigationBarDelegate {
     
     public func navigationBar(_ navigationBar: UINavigationBar, didPop item: UINavigationItem) {
 
-        Judy.keyWindow!.backgroundColor = nil
+        UIApplication.shared.keyWindow?.backgroundColor = nil
     }
 
     
@@ -447,10 +447,9 @@ extension JudyNavigationCtrl {
 
 // MARK: - 私有事件
 private extension JudyNavigationCtrl {
-    
-    var keyWindow: UIWindow { return Judy.keyWindow! }
-    var topView: UIView { return Judy.keyWindow!.rootViewController!.view }
-    
+
+    var keyWindow: UIWindow { return UIApplication.shared.keyWindow! }
+    var topView: UIView { return UIApplication.shared.keyWindow!.rootViewController!.view }
     
     /// 移动 topView 的位置
     ///
@@ -461,7 +460,7 @@ private extension JudyNavigationCtrl {
         x = x > view.frame.width ? view.frame.width:x
         x = x < 0 ? 0:x
         
-        //        Judy.log("当前移动X:\(x)")
+        // Judy.log("当前移动X:\(x)")
         
         // 移动顶层 View 的 X
         topView.frame.origin.x = x

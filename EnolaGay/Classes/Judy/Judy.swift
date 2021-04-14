@@ -30,11 +30,11 @@ public struct Judy {
     /// - warning: 调用时请注意在 App 启动后再调用，否则有可能出现 keyWindow 为空，就会返回一个新的 UIViewController
     public static var topViewCtrl: UIViewController {
         //  UIApplication.shared.windows.last!.rootViewController
-        guard keyWindow?.rootViewController != nil else {
+        guard UIApplication.shared.keyWindow?.rootViewController != nil else {
             logWarning("topViewCtrl 调用太早，此时 keyWindow 为 nil，只能返回一个 UIViewController()")
             return UIViewController()
         }
-        return getTopViewCtrl(rootVC: keyWindow!.rootViewController!)
+        return getTopViewCtrl(rootVC: UIApplication.shared.keyWindow!.rootViewController!)
     }
     
     /// 获取 App 中最开始使用的 tabBarController
@@ -46,20 +46,18 @@ public struct Judy {
             return appWindow.rootViewController as? UITabBarController
         }
         logWarning("appWindow.rootViewController 为 nil！")
-        return keyWindow?.rootViewController as? UITabBarController
+        return UIApplication.shared.keyWindow?.rootViewController as? UITabBarController
     }
     
-    /// 获取 App 的 window 而不是 keyWindow,也就是呈现故事板时用到的 window
+    /// 获取 App 的 window 而不是 keyWindow，也就是呈现故事板时用到的 window。
     ///
-    /// 在呈现故事板时使用的Window。该属性包含用于在设备主屏幕上显示应用程序的可视内容的窗口。（UIApplication.shared.delegate!.window!!）
-    /// - version: 1.1
-    /// - since: 2021年01月08日21:19:23
-    /// - warning: 如果调用太早（如程序刚启动）这个 window 可能正被隐藏中，并不活跃。
+    /// 在呈现故事板时使用的 Window。该属性包含用于在设备主屏幕上显示应用程序的可视内容的窗口。（UIApplication.shared.delegate!.window!!）
+    /// - Warning: 如果调用太早（如程序刚启动）这个 window 可能正被隐藏中，并不活跃。
     public static var appWindow: UIWindow {
         guard app.window! != nil else {
             logWarning("app?.window 为 nil，调用太早！")
-            if keyWindow != nil {
-                return keyWindow!
+            if UIApplication.shared.keyWindow != nil {
+                return UIApplication.shared.keyWindow!
             } else {
                 logWarning("keyWindow 为 nil")
             }
@@ -69,12 +67,8 @@ public struct Judy {
     }
     
     /// 获取当前活跃的 window，如 alertview、键盘等关键的 Window。
-    ///
-    /// 该属性保存 windows 数组中的 UIWindow 对象，该对象最近发送了 makeKeyAndVisible 消息。
-    /// - version: 1.1
-    /// - since: 2021年01月08日21:21:31
-    /// - warning: 注意要在视图加载到视图树后在调用以免为 nil，一般是在 viewDidAppear 后使用
-    public static var keyWindow: UIWindow? { UIApplication.shared.keyWindow }
+    @available(*, unavailable, message: "该属性已废弃，请使用新的获取方式。", renamed: "UIApplication.shared.keyWindow")
+    public static var keyWindow: UIWindow? { nil }
     
     /// 获取 App 代理对象。即 UIApplication.shared.delegate
     public static var app: UIApplicationDelegate {
