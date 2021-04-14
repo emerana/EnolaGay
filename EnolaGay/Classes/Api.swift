@@ -321,7 +321,11 @@ final public class ApiRequestConfig {
         
         guard EMERANA.apiConfigDelegate != nil else {
             let msg = "未实现 extension UIApplication: ApiDelegate，ApiRequestConfig 无法工作！"
-            let json = JSON([EMERANA.Key.JSON.error:[EMERANA.Key.JSON.msg: msg, EMERANA.Key.JSON.code: 250]])
+            let json = JSON(
+                [EMERANA.Key.JSON.error:
+                    [EMERANA.Key.JSON.msg: msg,
+                     EMERANA.Key.JSON.code: EMERANA.ErrorCode.default]
+                ])
             Judy.logWarning(msg)
             callback(json)
             return
@@ -329,12 +333,15 @@ final public class ApiRequestConfig {
 
         guard api != nil else {
             let msg = "api 为空，取消已请求!"
-            let json = JSON([EMERANA.Key.JSON.error:[EMERANA.Key.JSON.msg: msg, EMERANA.Key.JSON.code: 250]])
+            let json = JSON(
+                [EMERANA.Key.JSON.error:
+                    [EMERANA.Key.JSON.msg: msg,
+                     EMERANA.Key.JSON.code: EMERANA.ErrorCode.notSetApi]
+                ])
             Judy.logWarning(msg)
             callback(json)
             return
         }
-
 
         EMERANA.apiConfigDelegate!.request(withRequestConfig: self, callback: callback)
     }

@@ -12,7 +12,7 @@
 import UIKit
 import SwiftyJSON
 
-/// 遵循统一标准的 ViewController
+/// 遵循统一标准的 ViewController。
 /// - warning: **该 viewController 遵循以下标准**
 /// * 重写 viewTitle 以设置标题
 /// * 设置 requestConfig 对象以配置请求信息
@@ -48,9 +48,6 @@ open class JudyBaseViewCtrl: UIViewController {
     /// * 当 requestConfig.api = nil，reqApi() 中会将该值设为 true;
     /// * 若需要界面每次出现都发送请求，请在 super.viewWillAppear() 之前或 reqApi() 响应后（如 reqOver()）将该值设为 false。
     final lazy public var isReqSuccess: Bool = false
-    
-    /// 未设置 requestConfig.api 时是否隐藏 HUD，默认 false。
-    // @IBInspectable lazy private(set) public var isHideNotApiHUD: Bool = false
 
     /// 是否由当前 viewCtrl 决定 statusBarStyle，默认 false。
     /// - Warning: 如果该值为 true，则重写 preferredStatusBarStyle 以设置当前 viewCtrl 的 statusBarStyle。
@@ -125,8 +122,9 @@ open class JudyBaseViewCtrl: UIViewController {
         UIApplication.shared.windows.last?.endEditing(true)
     }
     
-
-    open func jsonDidSet() { }
+    
+    /// 重写此函数以配置当 json 被设置的事件。
+    open func jsonDidSet() {}
     
 
     // MARK: Api 相关函数
@@ -142,27 +140,33 @@ open class JudyBaseViewCtrl: UIViewController {
     ///     - reqOver()
     /// - Parameters:
     ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi()。
-    public final func reqApi(isSetApi: Bool = true){
-        if !Self.isGlobalHideWaitingHUD() { JudyTip.wait() }
-
+    public final func reqApi(isSetApi: Bool = true) {
         if isSetApi { setApi() }
+        // 为设置 api 直接不发起请求。
+        guard requestConfig.api != nil else {
+            isReqSuccess = true
+            return
+        }
         
-        /// 响应闭包
+        if !Self.isGlobalHideWaitingHUD() { JudyTip.wait() }
+        
+        /// 接收响应的闭包。
         let responseClosure: ((JSON) -> Void) = { [weak self] json in
             guard let strongSelf = self else {
-                Judy.log("self 为 nil，请检查！")
+                JudyTip.message(messageType: .error, text: "发现逃逸对象！")
                 return
             }
-            JudyTip.dismiss()
             strongSelf.apiData = json
             strongSelf.reqResult()
             
             //  存在 EMERANA.Key.JSON.error 即失败。
             if json[EMERANA.Key.JSON.error].isEmpty {
+                JudyTip.dismiss()
                 strongSelf.isReqSuccess = true
                 strongSelf.reqSuccess()
             } else {
-                strongSelf.isReqSuccess = false
+                // 确保错误代码不是未设置 api。
+                strongSelf.isReqSuccess = json[EMERANA.Key.JSON.error, EMERANA.Key.JSON.code].intValue == EMERANA.ErrorCode.notSetApi
                 strongSelf.reqFailed()
             }
             strongSelf.reqOver()
@@ -170,7 +174,6 @@ open class JudyBaseViewCtrl: UIViewController {
 
         // 发起请求。
         requestConfig.request(withCallBack: responseClosure)
-
     }
     
     /// 设置 requestConfig 及其它任何需要在发起请求前处理的事情。
@@ -204,26 +207,21 @@ open class JudyBaseViewCtrl: UIViewController {
     /// - Warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则
     open func reqSuccess() {}
     
-    /// 请求失败或服务器响应失败时的消息处理，还函数默认弹出失败消息体。
+    /// 请求失败或服务器响应失败时的消息处理，该函数默认弹出失败消息体。
     open func reqFailed() {
-        
-        if let msg = apiData[EMERANA.Key.JSON.error, EMERANA.Key.JSON.msg].string, msg.clean() != "" {
-            JudyTip.message(text: msg)
-        } else {
-            Judy.log("不知名的错误消息")
-        }
+        let msg = apiData[EMERANA.Key.JSON.error, EMERANA.Key.JSON.msg].string
+        JudyTip.message(text: msg)
     }
     
     /// 在整个请求流程中最后执行的方法。
     ///
-    /// - Warning: 执行到此方法时，setApi() -> [ reqResult() -> reqFailed() / reqSuccess() ] 整个流程已经全部执行完毕
+    /// - Warning: 执行到此方法时，setApi() -> [ reqResult() -> reqFailed() / reqSuccess() ] 整个流程已经全部执行完毕。
     open func reqOver() {}
     
     deinit {
         Judy.log("🚙 <\(viewTitle ?? (title ?? "未命名界面"))> 已经释放 - \(classForCoder)")
     }
     
-
 }
 
 
