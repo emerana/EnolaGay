@@ -122,7 +122,8 @@ open class JudyBaseViewCtrl: UIViewController {
         UIApplication.shared.windows.last?.endEditing(true)
     }
     
-
+    
+    /// json 被设置的事件。
     open func jsonDidSet() { }
     
 
@@ -144,13 +145,14 @@ open class JudyBaseViewCtrl: UIViewController {
 
         if isSetApi { setApi() }
         
-        /// 响应闭包
+        /// 接收响应的闭包。
         let responseClosure: ((JSON) -> Void) = { [weak self] json in
+            // 只要有响应先关闭等待弹窗再说。
+            JudyTip.dismiss()
             guard let strongSelf = self else {
                 Judy.log("self 为 nil，请检查！")
                 return
             }
-            JudyTip.dismiss()
             strongSelf.apiData = json
             strongSelf.reqResult()
             

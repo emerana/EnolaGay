@@ -28,7 +28,7 @@ public struct JudyTip {
     private init() { }
     
     
-    /// 弹出一个等待的转圈 HUD。
+    /// 弹出一个等待的转圈 HUD，请配对调用 dismiss() 使其消失。
     public static func wait() { showAnimation() }
     
     /// 弹出一个消息体。
@@ -77,7 +77,7 @@ public struct JudyTip {
 
 
     /// 隐藏界面上的 HUD。
-    public static func dismiss() { }//ProgressHUD.dismiss() }
+    public static func dismiss() { ProgressHUD.dismiss() }
     
 }
 
