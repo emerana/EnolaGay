@@ -203,9 +203,8 @@ open class JudyBaseViewCtrl: UIViewController {
     /// - Warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则
     open func reqSuccess() {}
     
-    /// 请求失败或服务器响应失败时的消息处理，还函数默认弹出失败消息体。
+    /// 请求失败或服务器响应失败时的消息处理，该函数默认弹出失败消息体。
     open func reqFailed() {
-        
         if let msg = apiData[EMERANA.Key.JSON.error, EMERANA.Key.JSON.msg].string, msg.clean() != "" {
             JudyTip.message(text: msg)
         } else {
