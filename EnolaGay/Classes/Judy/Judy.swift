@@ -30,11 +30,11 @@ public struct Judy {
     /// - warning: 调用时请注意在 App 启动后再调用，否则有可能出现 keyWindow 为空，就会返回一个新的 UIViewController
     public static var topViewCtrl: UIViewController {
         //  UIApplication.shared.windows.last!.rootViewController
-        guard UIApplication.shared.keyWindow?.rootViewController != nil else {
+        guard Judy.keyWindow?.rootViewController != nil else {
             logWarning("topViewCtrl 调用太早，此时 keyWindow 为 nil，只能返回一个 UIViewController()")
             return UIViewController()
         }
-        return getTopViewCtrl(rootVC: UIApplication.shared.keyWindow!.rootViewController!)
+        return getTopViewCtrl(rootVC: Judy.keyWindow!.rootViewController!)
     }
     
     /// 获取 App 中最开始使用的 tabBarController
@@ -46,7 +46,7 @@ public struct Judy {
             return appWindow.rootViewController as? UITabBarController
         }
         logWarning("appWindow.rootViewController 为 nil！")
-        return UIApplication.shared.keyWindow?.rootViewController as? UITabBarController
+        return Judy.keyWindow?.rootViewController as? UITabBarController
     }
     
     /// 获取 App 的 window 而不是 keyWindow，也就是呈现故事板时用到的 window。
@@ -56,8 +56,8 @@ public struct Judy {
     public static var appWindow: UIWindow {
         guard app.window! != nil else {
             logWarning("app?.window 为 nil，调用太早！")
-            if UIApplication.shared.keyWindow != nil {
-                return UIApplication.shared.keyWindow!
+            if Judy.keyWindow != nil {
+                return Judy.keyWindow!
             } else {
                 logWarning("keyWindow 为 nil")
             }
@@ -67,8 +67,12 @@ public struct Judy {
     }
     
     /// 获取当前活跃的 window，如 alertview、键盘等关键的 Window。
-    @available(*, unavailable, message: "该属性已废弃，请使用新的获取方式。", renamed: "UIApplication.shared.keyWindow")
-    public static var keyWindow: UIWindow? { nil }
+    public static var keyWindow: UIWindow? {
+        return UIApplication.shared.connectedScenes
+            .map({$0 as? UIWindowScene})
+            .compactMap({$0})
+            .first?.windows.first
+    }
     
     /// 获取 App 代理对象。即 UIApplication.shared.delegate
     public static var app: UIApplicationDelegate {
@@ -767,7 +771,7 @@ fileprivate extension Judy {
     }
     
     static func getTabBarController() -> UITabBarController? {
-        return UIApplication.shared.keyWindow?.rootViewController as? UITabBarController
+        return Judy.keyWindow?.rootViewController as? UITabBarController
     }
     
 }
