@@ -124,7 +124,7 @@ open class JudyBaseViewCtrl: UIViewController {
     
     
     /// json 被设置的事件。
-    open func jsonDidSet() { }
+    open func jsonDidSet() {}
     
 
     // MARK: Api 相关函数
@@ -221,7 +221,6 @@ open class JudyBaseViewCtrl: UIViewController {
         Judy.log("🚙 <\(viewTitle ?? (title ?? "未命名界面"))> 已经释放 - \(classForCoder)")
     }
     
-
 }
 
 
