@@ -312,7 +312,7 @@ public extension UIViewController {
     final func judyGenerateImageWithNav(targetScrollView: UIScrollView, transparent: Bool = false, savedPhotosAlbum: Bool = false ) -> UIImage? {
         
         UIGraphicsBeginImageContextWithOptions(CGSize(width: targetScrollView.contentSize.width, height: 280) , false, 0.0)
-        let topView = UIApplication.shared.keyWindow!.rootViewController!.view!
+        let topView = Judy.keyWindow!.rootViewController!.view!
 
         // 将完整视图层次结构的快照以在屏幕上可见的形式呈现到当前上下文中.此方法可以将状态栏也包含
         topView.drawHierarchy(in: topView.frame, afterScreenUpdates: true)

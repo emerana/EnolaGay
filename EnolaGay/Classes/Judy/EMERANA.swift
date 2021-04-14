@@ -654,30 +654,22 @@ open class Appearance {
 // MARK: UIApplication 扩展
 
 public extension UIApplication {
-
-    /// 获取当前活跃的 window，如 alertview、键盘等关键的 Window。
-    var keyWindow: UIWindow? {
-        return UIApplication.shared.connectedScenes
-            .map({$0 as? UIWindowScene})
-            .compactMap({$0})
-            .first?.windows.first
-    }
-
+    
     /// 获取状态栏 View。
     var statusBarView: UIView? {
         
         if #available(iOS 13.0, *) {
             let tag = 3848245
             
-            if let statusBar = keyWindow?.viewWithTag(tag) {
+            if let statusBar = Judy.keyWindow?.viewWithTag(tag) {
                 return statusBar
             } else {
-                let height = keyWindow?.windowScene?.statusBarManager?.statusBarFrame ?? .zero
+                let height = Judy.keyWindow?.windowScene?.statusBarManager?.statusBarFrame ?? .zero
                 let statusBarView = UIView(frame: height)
                 statusBarView.tag = tag
                 statusBarView.layer.zPosition = 999999
                 
-                keyWindow?.addSubview(statusBarView)
+                Judy.keyWindow?.addSubview(statusBarView)
                 return statusBarView
             }
         } else {
