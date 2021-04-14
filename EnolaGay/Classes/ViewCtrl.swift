@@ -48,9 +48,6 @@ open class JudyBaseViewCtrl: UIViewController {
     /// * 当 requestConfig.api = nil，reqApi() 中会将该值设为 true;
     /// * 若需要界面每次出现都发送请求，请在 super.viewWillAppear() 之前或 reqApi() 响应后（如 reqOver()）将该值设为 false。
     final lazy public var isReqSuccess: Bool = false
-    
-    /// 未设置 requestConfig.api 时是否隐藏 HUD，默认 false。
-    // @IBInspectable lazy private(set) public var isHideNotApiHUD: Bool = false
 
     /// 是否由当前 viewCtrl 决定 statusBarStyle，默认 false。
     /// - Warning: 如果该值为 true，则重写 preferredStatusBarStyle 以设置当前 viewCtrl 的 statusBarStyle。
