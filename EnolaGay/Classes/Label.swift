@@ -126,9 +126,8 @@ import UIKit
         becomeFirstResponder()
         
         UIMenuController.shared.menuItems = [UIMenuItem(title: (altTitle == "") ? "复制":altTitle, action: #selector(customCopy(sender:)))]
-        UIMenuController.shared.setTargetRect(frame, in: superview!)
-        UIMenuController.shared.setMenuVisible(true, animated: true)
-        
+        UIMenuController.shared.showMenu(from: superview!, rect: frame)
+                
     }
     
     // 复制事件
