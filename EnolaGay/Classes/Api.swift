@@ -158,9 +158,7 @@ public protocol ApiDelegate where Self: UIApplication {
     /// 询问 apiRequestConfig 请求的响应方式是否为 responseJSON？默认实现为 true，否则为 responseString。
     func responseJSON() -> Bool
     
-    /// 确认 apiRequestConfig 最终配置。
-    ///
-    /// 在访问 requestConfig.reqURL 属性时会通过此函数确认配置信息，同时也是触发请求（request）前的最后操作。
+    /// 确认 apiRequestConfig 最终配置，此函数为触发请求（调用 request() ）前的最后操作。
     /// - Parameter requestConfig: 当前 apiConfig 对象。
     /// - Warning: 发生请求时，若请求头/请求参数的初值发生改变应该在此函数中更新/覆盖对应信息，如用户登录的 token。
     func apiRequestConfigAffirm(requestConfig: ApiRequestConfig)
@@ -263,11 +261,8 @@ final public class ApiRequestConfig {
     /// 通过覆盖 responseJSON() 以配置全局通用值。
     public var isResponseJSON: Bool = EMERANA.apiConfigDelegate?.responseJSON() ?? true
 
-    /// 完整的请求 URL，获取该属性同时会确认 apiRequestConfig_end 函数。
-    public var reqURL: String {
-        EMERANA.apiConfigDelegate?.apiRequestConfigAffirm(requestConfig: self)
-        return domain.rawValue + (api?.value ?? "")
-    }
+    /// 完整的请求 URL。
+    public var reqURL: String { domain.rawValue + (api?.value ?? "") }
 
     /// HTTPMethod。
     public enum Method {
@@ -293,12 +288,19 @@ final public class ApiRequestConfig {
     }
 
     public init() {}
-
+    
+    /// 主动确认配置信息，此函数将触发 ApiDelegate 的 apiRequestConfigAffirm 函数。
+    ///
+    /// - Warning: 在 apiRequestConfig 为通过 request 函数发起请求时请务必手动调用此函数以便确认配置信息的正确性。
+    public func configAffirm() {
+        EMERANA.apiConfigDelegate?.apiRequestConfigAffirm(requestConfig: self)
+    }
+    
     /// 由当前对象向 Api 层发起请求，该函数中将触发 apiRequestConfigAffirm() 确认函数。
     /// - Parameter callback: 请求的回调函数。
     public func request(withCallBack callback: @escaping ((JSON) -> Void)) {
         // 确认配置信息。
-        EMERANA.apiConfigDelegate?.apiRequestConfigAffirm(requestConfig: self)
+        configAffirm()
         
         guard EMERANA.apiConfigDelegate != nil else {
             let msg = "未实现 extension UIApplication: ApiDelegate，ApiRequestConfig 无法工作！"
