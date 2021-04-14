@@ -157,30 +157,11 @@ public protocol ApiDelegate where Self: UIApplication {
 
     /// 询问 apiRequestConfig 请求的响应方式是否为 responseJSON？默认实现为 true，否则为 responseString。
     func responseJSON() -> Bool
-
-    /// apiRequestConfig 对象初始化扩展。
-    ///
-    /// 一般在此函数中设置全局 headers、parameters 的初值或其它通用信息。
-    ///
-    /// # 部分参考代码
-    /// * 请求头设置
-    /// ```
-    /// headers?["token"] = Defaults.token
-    /// ```
-    /// * 请求参数设置
-    /// ```
-    /// parameters?["userName"] = "Judy"
-    /// ```
-    /// - Parameter requestConfig: 当前 apiConfig 对象。
-    /// - Warning: token 需要注意是否存在变更，如登录新用户变更了 token，则应在 apiRequestConfig_last() 配置。
-    func apiRequestConfig_init(requestConfig: ApiRequestConfig)
     
-    /// apiRequestConfig 最终阶段配置。
-    ///
-    /// 该函数为触发请求前的最后操作。
+    /// 确认 apiRequestConfig 最终配置，此函数为触发请求（调用 request() ）前的最后操作。
     /// - Parameter requestConfig: 当前 apiConfig 对象。
     /// - Warning: 发生请求时，若请求头/请求参数的初值发生改变应该在此函数中更新/覆盖对应信息，如用户登录的 token。
-    func apiRequestConfig_end(requestConfig: ApiRequestConfig)
+    func apiRequestConfigAffirm(requestConfig: ApiRequestConfig)
     
     /// 实现向 Api 层发起请求。
     /// - Parameters:
@@ -211,9 +192,7 @@ public extension ApiDelegate {
     
     func responseJSON() -> Bool { true }
     
-    func apiRequestConfig_init(requestConfig: ApiRequestConfig) { }
-    
-    func apiRequestConfig_end(requestConfig: ApiRequestConfig) { }
+    func apiRequestConfigAffirm(requestConfig: ApiRequestConfig) { }
 }
 
 public extension ApiDelegate {
@@ -268,7 +247,6 @@ final public class ApiRequestConfig {
     /// 请求方式 HTTPMethod，默认 post。通过覆盖 globalMethodPOST() 以配置全局通用值。
     public var method: Method = ((EMERANA.apiConfigDelegate?.globalMethodPOST() ?? true) ? .post : .get)
 
-    
     /// 请求参数，初值是一个空数组。
     public var parameters: [String: Any]? = [String: Any]()
 
@@ -309,15 +287,20 @@ final public class ApiRequestConfig {
         case URLEncodingHttpBody
     }
 
-    public init() {
-        EMERANA.apiConfigDelegate?.apiRequestConfig_init(requestConfig: self)
+    public init() {}
+    
+    /// 主动确认配置信息，此函数将触发 ApiDelegate 的 apiRequestConfigAffirm 函数。
+    ///
+    /// - Warning: 在 apiRequestConfig 不通过 request 函数发起请求时请务必调用此函数以便确认配置信息的正确性。
+    public func configAffirm() {
+        EMERANA.apiConfigDelegate?.apiRequestConfigAffirm(requestConfig: self)
     }
-
-    /// 由当前对象向 Api 层发起请求，该函数中将触发 apiRequestConfig_end() 确认函数。
+    
+    /// 由当前对象向 Api 层发起请求，该函数中将触发 apiRequestConfigAffirm() 确认函数。
     /// - Parameter callback: 请求的回调函数。
     public func request(withCallBack callback: @escaping ((JSON) -> Void)) {
         // 确认配置信息。
-        EMERANA.apiConfigDelegate?.apiRequestConfig_end(requestConfig: self)
+        configAffirm()
         
         guard EMERANA.apiConfigDelegate != nil else {
             let msg = "未实现 extension UIApplication: ApiDelegate，ApiRequestConfig 无法工作！"
