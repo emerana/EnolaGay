@@ -1,6 +1,6 @@
 //
 //  JudyBaseTabBarCtrl.swift
-//  建议作为所有 UITabBarController 的基类
+//  建议作为所有 UITabBarController 的基类。
 //
 //  Created by 王仁洁 on 2017/6/21.
 //  Copyright © 2017年 数睿科技（深圳）. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// TabBarCtrl 基类
+/// TabBarCtrl 基类。
 /// * 支持 tabBar.items 小 icon 使用原图功能，该功能默认为 false，需要手动在 Storyboard 中开启。
 open class JudyBaseTabBarCtrl: UITabBarController {
     
@@ -44,9 +44,7 @@ open class JudyBaseTabBarCtrl: UITabBarController {
         
     }
     
-    
 }
-
 
 
 // MARK: - UITabBarControllerDelegate

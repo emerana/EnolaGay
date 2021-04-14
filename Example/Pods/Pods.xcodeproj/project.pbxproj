@@ -169,7 +169,6 @@
 		889847E0741D019236E2E242705DF1CB /* DataSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8B6607C99E91FF1F97175F61B44A3 /* DataSerializer.swift */; };
 		88FD71EEBC9C89C078E40C28AC5F4D23 /* Judy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCD12B76C96D513854CC5BD12E1C7B3 /* Judy.swift */; };
 		89D56858A19FE3DACC8DFD186D8FE40F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD750860ED1E06721C4F4B548B404A84 /* UIImage+Extensions.swift */; };
-		8A1706684C185A2BC49F0178AEADA103 /* JudyFileManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D410BD4E95C7FD874D8519D1721BFE /* JudyFileManage.swift */; };
 		8B43A7DF9FB181A23E465C8C28D8E9EC /* UIImage+ExtendedCacheData.m in Sources */ = {isa = PBXBuildFile; fileRef = E0B9DCAA76EA9E5F065237F34EE5B5D2 /* UIImage+ExtendedCacheData.m */; };
 		8B43F4350BC82738102433D112D5B1B7 /* NSBezierPath+SDRoundedCorners.m in Sources */ = {isa = PBXBuildFile; fileRef = D27D40C79899F786ED5898F0B6DD7F0D /* NSBezierPath+SDRoundedCorners.m */; };
 		8B9AF210262582400012E7A9 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9AF20F262582400012E7A9 /* ProgressHUD.swift */; };
@@ -463,7 +462,6 @@
 		21249B6DB7F852D6955E551214FF9543 /* JSONArrayWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONArrayWrapper.swift; path = Source/Shared/Library/JSONArrayWrapper.swift; sourceTree = "<group>"; };
 		21290F78BB365E03F2871B251CADC6E4 /* SDImageLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageLoader.h; path = SDWebImage/Core/SDImageLoader.h; sourceTree = "<group>"; };
 		214E0A8F486F9B855A2F41FA9E0386A7 /* MJRefreshGifHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshGifHeader.h; path = MJRefresh/Custom/Header/MJRefreshGifHeader.h; sourceTree = "<group>"; };
-		21D410BD4E95C7FD874D8519D1721BFE /* JudyFileManage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JudyFileManage.swift; sourceTree = "<group>"; };
 		239F943B406DD80DD92CD26884E76B2A /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/Core/SDImageCache.m; sourceTree = "<group>"; };
 		24819F3B7C7CCEBB3752F71CE7811B94 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImagePrefetcher.h; path = SDWebImage/Core/SDWebImagePrefetcher.h; sourceTree = "<group>"; };
 		25950E2362DA0A9165A5243F66E15A20 /* Pods-EnolaGay_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Tests-Info.plist"; sourceTree = "<group>"; };
@@ -1327,7 +1325,6 @@
 				C4355B15643D9F62F39CFAB79ED42AD1 /* EMERANA.swift */,
 				2DCD12B76C96D513854CC5BD12E1C7B3 /* Judy.swift */,
 				84C47DDB3C264722D09C6BE80A4A33E3 /* JudyFile.swift */,
-				21D410BD4E95C7FD874D8519D1721BFE /* JudyFileManage.swift */,
 			);
 			name = Judy;
 			path = EnolaGay/Classes/Judy;
@@ -2084,7 +2081,6 @@
 				D615299FC80F084D04799C5914B383C6 /* JudyAkiraTextField.swift in Sources */,
 				DF651C3F2CA27D3ED8C0810D053427DB /* JudyBaseSearchViewCtrl.swift in Sources */,
 				9A6505F33EF1C7B272A6CEAA6625E59D /* JudyFile.swift in Sources */,
-				8A1706684C185A2BC49F0178AEADA103 /* JudyFileManage.swift in Sources */,
 				843FC903A430E61FAB885CB98512F6CC /* JudyHoshiTextField.swift in Sources */,
 				28852BAA70A769AAAAA640CCE3655FD2 /* JudyIsaoTextField.swift in Sources */,
 				044794E6F87467B1BFD5FBE1553AA6EB /* JudyJiroTextField.swift in Sources */,
