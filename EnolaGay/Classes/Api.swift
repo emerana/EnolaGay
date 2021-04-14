@@ -291,7 +291,7 @@ final public class ApiRequestConfig {
     
     /// 主动确认配置信息，此函数将触发 ApiDelegate 的 apiRequestConfigAffirm 函数。
     ///
-    /// - Warning: 在 apiRequestConfig 为通过 request 函数发起请求时请务必手动调用此函数以便确认配置信息的正确性。
+    /// - Warning: 在 apiRequestConfig 不通过 request 函数发起请求时请务必调用此函数以便确认配置信息的正确性。
     public func configAffirm() {
         EMERANA.apiConfigDelegate?.apiRequestConfigAffirm(requestConfig: self)
     }
