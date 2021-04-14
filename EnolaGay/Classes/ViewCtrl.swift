@@ -110,7 +110,7 @@ open class JudyBaseViewCtrl: UIViewController {
         super.viewWillDisappear(animated)
         
         // 在界面即将消失（包含所有界面跳转）时关闭所有键盘。
-        UIApplication.shared.keyWindow?.endEditing(true)
+        UIApplication.shared.windows.last?.endEditing(true)
         
         // 2020年09月01日16:33:47 注释原因：不具备通用性
         // navigationController?.setNavigationBarHidden(false, animated: true)
@@ -122,7 +122,7 @@ open class JudyBaseViewCtrl: UIViewController {
         super.touchesBegan(touches, with: event)
         
         // 在界面即将消失（包含所有界面跳转）时关闭所有键盘。
-        UIApplication.shared.keyWindow?.endEditing(true)
+        UIApplication.shared.windows.last?.endEditing(true)
     }
     
 
@@ -143,7 +143,7 @@ open class JudyBaseViewCtrl: UIViewController {
     /// - Parameters:
     ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi()。
     public final func reqApi(isSetApi: Bool = true){
-        if !Self.isGlobalHideWaitingHUD() { JudyTip.wait(to: view) }
+        if !Self.isGlobalHideWaitingHUD() { JudyTip.wait() }
 
         if isSetApi { setApi() }
         
@@ -153,7 +153,7 @@ open class JudyBaseViewCtrl: UIViewController {
                 Judy.log("self 为 nil，请检查！")
                 return
             }
-            JudyTip.hide(for: strongSelf.view)
+            JudyTip.dismiss()
             strongSelf.apiData = json
             strongSelf.reqResult()
             
