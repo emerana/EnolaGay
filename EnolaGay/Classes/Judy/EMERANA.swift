@@ -31,58 +31,18 @@ public typealias ClosureJSON = ((JSON) -> Void)
 public typealias ClosureString = ((String) -> Void)
 
 
-// MARK: - 为 ViewCtrl 新增部分协议
-
-/// viewCtrl 基础协议
-/// - version: 1.0
-/// - since: 2020年10月22日16:50
+/// viewCtrl 基础协议。
 /// - warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
 @available(*, unavailable, message: "此协议已弃用")
-public protocol EMERANA_ViewCtrl where Self: JudyBaseViewCtrl {
-
-    var viewTitle: String? { get }
-
-    var json: JSON { get set }
-    
-    func jsonDidSet()
-
-}
-
-// MARK: - Api专用协议，仅适用于 JudyBaseViewCtrl 规范 Api 流程。
+public protocol EMERANA_ViewCtrl where Self: JudyBaseViewCtrl {}
 
 /// ViewCtrl 专用 Api 协议，此协议中规定了一个viewCtrl中必须的属性及函数
-/// - warning: 此协议限制为 JudyBaseViewCtrl 及其派生类使用
-/// - since: 1.2
 @available(*, unavailable, message: "此协议已弃用")
-public protocol EMERANA_Api: EMERANA_ViewCtrl {
-    
-    var requestConfig: ApiRequestConfig { get set }
+public protocol EMERANA_Api: EMERANA_ViewCtrl {}
 
-    var apiData: JSON { get }
+// MARK: - 为 ViewCtrl 新增部分协议
 
-    var isReqSuccess: Bool { get set }
-    
-    var isHideNotApiHUD: Bool { get }
-    
-    static func isGlobalHideWaitingHUD() -> Bool
-    
-    func reqApi(isSetApi: Bool)
-    
-    func setApi()
-
-    func reqNotApi()
-    
-    func reqResult()
-    
-    func reqSuccess()
-    
-    func reqFailed()
-
-    func reqOver()
-
-}
-
-// 默认实现
+// 为 JudyBaseViewCtrl 扩展函数实现。
 public extension JudyBaseViewCtrl {
     /// 是否隐藏所有界面 reqApi() 时显示等待的 HUD，此函数已默认实现返回 false，通过 public extension JudyBaseViewCtrl 重写此函数以改变默认值
     static func isGlobalHideWaitingHUD() -> Bool { false }
@@ -93,10 +53,8 @@ public extension JudyBaseViewCtrl {
 
 import MJRefresh
 
-/// tableView、collectionView 专用刷新协议
-/// - version: 1.0
-/// - since: 2021年01月23日10:02:30
-/// - warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
+/// tableView、collectionView 专用刷新协议。
+/// - Warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
 public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     
     /// 初始页数，默认为1，该值决定了 currentPage 的初始值，下拉刷新时 currentPage 会重置为该值。一般建议定义为计算属性
@@ -160,6 +118,7 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     func resetCurrentStatusForReqApi()
     
 }
+
 /*
  # 注意：协议扩展是针对抽象类的，而协议本身是针对具体对象的。
  */
@@ -171,7 +130,6 @@ public extension EMERANA_Refresh {
     func hideFooterStateLabel() -> Bool { false }
 
 }
-
 
 
 /// tableViewCtrl、collectionViewCtrl 基础协议
@@ -1483,9 +1441,9 @@ public struct EMERANA {
     static let fontStyleConfigDelegate: EMERANA_UIFont? = UIApplication.shared as? EMERANA_UIFont
     
     /// API 代理，请 extension UIApplication: ApiDelegate 实现指定函数。
-    public static let apiConfigDelegate: ApiDelegate? = UIApplication.shared as? ApiDelegate
+    static let apiConfigDelegate: ApiDelegate? = UIApplication.shared as? ApiDelegate
     
-    /// 全局外观配置管理元。
+    /// 全局外观配置管理员。
     private var appearanceManager: Appearance?
     
     
@@ -1507,7 +1465,14 @@ public struct EMERANA {
         case 新增Api请求代理管理
         case 新增全局Cell代理管理
     }
-
+    
+    /// 常用错误代码。
+    public struct ErrorCode {
+        /// 默认错误，代码 250。
+        static let `default` = 250
+        /// 在 ApiRequestConfig 中发起请求时没有设置 Api。
+        static let notSetApi = 2500
+    }
 }
 
 
