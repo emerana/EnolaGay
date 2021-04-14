@@ -97,7 +97,7 @@ extension UIApplication: ApiDelegate {
                 
                 // 数据校验。
                 
-                let result = EMERANA.apiConfigDelegate!.responseErrorValidation(json: json)
+                let result = responseErrorValidation(json: json)
                 // 配置错误信息。
                 if result.error {
                     json[EMERANA.Key.JSON.error] = [EMERANA.Key.JSON.code: result.1, EMERANA.Key.JSON.msg: result.2]

@@ -40,7 +40,6 @@ Pod::Spec.new do |s|
   
   s.dependency 'MJRefresh'
   s.dependency 'SDWebImage'
-  s.dependency 'MBProgressHUD'
   s.dependency 'SwiftyJSON'
 
 end
