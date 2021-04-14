@@ -1,6 +1,6 @@
 //
 //  Judy.swift
-//  通用文件。常用但又繁琐的方法，在这里做了一些简化
+//  通用文件。常用但又繁琐的方法，在这里做了一些简化。
 //
 //  Created by Judy-王仁洁 on 2017/6/6.
 //  Copyright © 2017年 Judy.ICBC All rights reserved.
@@ -24,10 +24,9 @@ public struct Judy {
     /// 私有init,不允许构建对象
     private init() {}
     
-    /// 获取最顶层的 ViewController，不包含 navigationCtrl
+    /// 获取最顶层的 ViewController，不包含 navigationCtrl。
     ///
-    /// - version: 1.2
-    /// - warning: 调用时请注意在 App 启动后再调用，否则有可能出现 keyWindow 为空，就会返回一个新的 UIViewController
+    /// - Warning: 调用时请注意在 App 启动后再调用，否则有可能出现 keyWindow 为空，就会返回一个新的 UIViewController。
     public static var topViewCtrl: UIViewController {
         //  UIApplication.shared.windows.last!.rootViewController
         guard Judy.keyWindow?.rootViewController != nil else {
@@ -37,9 +36,8 @@ public struct Judy {
         return getTopViewCtrl(rootVC: Judy.keyWindow!.rootViewController!)
     }
     
-    /// 获取 App 中最开始使用的 tabBarController
+    /// 获取 App 中最开始使用的 tabBarController。
     ///
-    /// - version: 1.2
     /// - warning: 请在 App 启动后再调用，否则可能出现 keyWindow 为空并返回 UITabBarController()
     public static var tabBarCtrl: UITabBarController? {
         if appWindow.rootViewController != nil {
@@ -777,6 +775,80 @@ fileprivate extension Judy {
 }
 
 
+/*
+ 既然静态方法和实例化方式的区分是为了解决模式的问题，如果我们考虑不需要继承和多态的时候，就可以使用静态方法，但就算不考虑继承和多态，就一概使用静态方法也不是好的编程思想。
+ 从另一个角度考虑，如果一个方法和他所在类的实例对象无关，那么它就应该是静态的，否则就应该是非静态。因此像工具类，一般都是静态的。
+ */
+
+/// 对 ProgressHUD 的封装，常用于活动指示器的管理工具类。
+public struct JudyTip {
+    
+    /// HUD 消息类型。
+    public enum MessageType {
+        case success,error
+        /// 支持动画显示。
+        case successed, failed
+    }
+    
+    
+    // 私有化 init()，禁止构建对象。
+    private init() {}
+    
+    /// 设置 HUD 的颜色，此函数已经调用将该改变所有 HUD 的颜色。
+    public static func setColorForHUD(color: UIColor) {
+        ProgressHUD.colorAnimation = color
+        ProgressHUD.colorProgress = color
+    }
+    
+    /// 弹出一个等待的转圈 HUD，通常用于执行某个耗时过程，请配对调用 dismiss() 使其消失。
+    /// - Parameter animationType: 等待指示器类型，默认为常见的系统转圈。
+    public static func wait(animationType: AnimationType = .systemActivityIndicator) {
+        ProgressHUD.animationType = animationType
+        ProgressHUD.show()
+    }
+    
+    /// 弹出一个消息体。
+    /// - Parameters:
+    ///   - messageType: 该 HUD 类型，默认为 failed，只有失败类型是动效，其余的为静态效果。
+    ///   - text: 消息内容，默认为 nil。
+    public static func message(messageType: MessageType = .failed, text: String? = nil) {
+        
+        switch messageType {
+        case .success:
+            ProgressHUD.showSuccess(text)
+        case .error:
+            ProgressHUD.showError(text)
+        case .successed:
+            ProgressHUD.showSucceed(text)
+        case .failed:
+            ProgressHUD.showFailed(text)
+        }
+
+    }
+    
+    /// 弹出显示一个进度条的等待指示器，该函数支持暴力调用。
+    /// - Parameters:
+    ///   - text: 要显示的文本，默认为 nil。
+    ///   - fractionCompleted: 当前完成的进度，该值大于或等于1时即代表完成了。
+    ///   - completed: 事件完成的回调，默认为 nil，在该回调中请注意需要在 DispatchQueue.main UI 线程处理。
+    public static func progress(text: String? = nil, fractionCompleted: CGFloat, completed: ()? = nil) {
+        
+        ProgressHUD.showProgress(text, fractionCompleted)
+        if (fractionCompleted >= 1) {
+            if completed == nil {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    ProgressHUD.showSucceed(interaction: false)
+                }
+            } else {
+                completed
+            }
+        }
+    }
+
+    /// 使 HUD 消失。
+    public static func dismiss() { ProgressHUD.dismiss() }
+    
+}
 
 /*
 

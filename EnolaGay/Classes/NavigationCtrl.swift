@@ -101,7 +101,7 @@ open class JudyBaseNavigationCtrl: UINavigationController {
         
     }
         
-    /// push事件
+    /// 覆盖 push 事件，实现在 push 过程中自定义部分操作。
     ///
     /// - Parameters:
     ///   - viewController: 当前ViewCtrl
@@ -119,26 +119,22 @@ open class JudyBaseNavigationCtrl: UINavigationController {
             children.last?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         }
 
-        // Judy-mark: 完全清空左侧返回按钮。此方法会使右划手势失效，无法 pop.
+        // Judy-mark: 完全清空左侧返回按钮。此方法会使右划手势失效，无法 pop。
         // viewController.navigationItem.setLeftBarButton(UIBarButtonItem(), animated: false)
         
         if topViewController != nil {
-            // , topViewController!.responds(to: #selector(topViewController!.pushAction))，是通过 public extension 新增的函数，所以该函数一定有响应
+            // topViewController!.responds(to: #selector(topViewController!.pushAction))，是通过 public extension 新增的函数，所以该函数一定有响应。
             topViewController!.pushAction(current: topViewController!, pushTo: viewController)
 
         }
         
         super.pushViewController(viewController, animated: animated)
-
     }
-    
-    
     
 }
 
 // MARK: - EMERANA_NavigationBar 协议实现
 extension JudyBaseNavigationCtrl: EMERANA_NavigationBar {
-    
     
     public func setBackIndicatorImage() -> (UIImage?, Bool) {
         return (nil, false)
@@ -328,7 +324,7 @@ extension JudyBaseNavigationCtrl: UINavigationBarDelegate {
 // MARK: 为 UIViewController 新增 push 函数，并配合 JudyBaseNavigationCtrl 控制器
 extension UIViewController {
 
-    /// 当前界面 push 事件，该函数只在导航控制器为 JudyBaseNavigationCtrl 下才有效
+    /// 当前界面 push 事件，该函数只在导航控制器为 JudyBaseNavigationCtrl 下才有效。
     /// * 常用于当前界面 push 新界面之后无需返回此界面场景，参考如下代码：
     /// ```
     ///    if viewCtrl === self {

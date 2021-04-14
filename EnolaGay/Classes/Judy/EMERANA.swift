@@ -1441,9 +1441,9 @@ public struct EMERANA {
     static let fontStyleConfigDelegate: EMERANA_UIFont? = UIApplication.shared as? EMERANA_UIFont
     
     /// API 代理，请 extension UIApplication: ApiDelegate 实现指定函数。
-    public static let apiConfigDelegate: ApiDelegate? = UIApplication.shared as? ApiDelegate
+    static let apiConfigDelegate: ApiDelegate? = UIApplication.shared as? ApiDelegate
     
-    /// 全局外观配置管理元。
+    /// 全局外观配置管理员。
     private var appearanceManager: Appearance?
     
     
@@ -1465,7 +1465,14 @@ public struct EMERANA {
         case 新增Api请求代理管理
         case 新增全局Cell代理管理
     }
-
+    
+    /// 常用错误代码。
+    public struct ErrorCode {
+        /// 默认错误，代码 250。
+        static let `default` = 250
+        /// 在 ApiRequestConfig 中发起请求时没有设置 Api。
+        static let notSetApi = 2500
+    }
 }
 
 
