@@ -17,7 +17,6 @@
  #endif /* Bridging_Header_h */
  */
 
-
 import SwiftyJSON
 
 
@@ -40,6 +39,7 @@ public protocol EMERANA_ViewCtrl where Self: JudyBaseViewCtrl {}
 @available(*, unavailable, message: "此协议已弃用")
 public protocol EMERANA_Api: EMERANA_ViewCtrl {}
 
+
 // MARK: - 为 ViewCtrl 新增部分协议
 
 // 为 JudyBaseViewCtrl 扩展函数实现。
@@ -51,78 +51,98 @@ public extension JudyBaseViewCtrl {
 
 // MARK: - 刷新视图专用协议，主要用于 tableView、collectionView
 
-import MJRefresh
+/// 刷新控件适配器协议。
+public protocol RefreshAdapter where Self: UIApplication {
+
+    /// 配置头部刷新控件（即下拉刷新）。
+    func initHeaderRefresh(scrollView: UIScrollView?, callback: @escaping (()->Void))
+    /// 配置底部刷新控件（即上拉加载）。
+    func initFooterRefresh(scrollView: UIScrollView?, callback: @escaping (()->Void))
+    
+    /// 结束所有上拉、下拉状态。
+    func endRefresh(scrollView: UIScrollView?)
+    /// 结束没有更多数据的函数。
+    func endRefreshingWithNoMoreData(scrollView: UIScrollView?)
+    
+    /// 重置没有更多数据。
+    func resetNoMoreData(scrollView: UIScrollView?)
+    
+}
 
 /// tableView、collectionView 专用刷新协议。
-/// - Warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
+/// - Warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供。
 public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     
-    /// 初始页数，默认为1，该值决定了 currentPage 的初始值，下拉刷新时 currentPage 会重置为该值。一般建议定义为计算属性
-    var initialPage: Int { get }
-    
-    /// 当前请求的页数。初始化、下拉刷新时会被 initialPage 赋值
+    /// 缺省请求页码，通常第一页码为1，但油的情况可能为0。
+    var defaultPageIndex: Int { get }
+    /// 请求页码。初始化、下拉刷新时因重置到默认值。
     var currentPage: Int { get }
     
-    /// 是否上拉加载更多？默认否
-    /// - warning: 此变量标识当前是上拉还是下拉，以便在 reqSuccess 处理数据源是重新赋值还是在原有基础上添加。
+    /// 每页的数据大小。
+    var pageSize: Int { get }
+
+    /// 该属性标识最后操作是否为上拉加载，通常在获取到服务器数据后需要判断该值进行数据的处理。
     var isAddMore: Bool { get }
     
-    /// 是否不需要下拉加载，默认 false。
-    /// - warning: 当不需要下拉加载时将此属性设为 true 即可，集合视图将不会初始化下拉刷新
-    var isNoHeader: Bool { get }
+    /// 询问是否不需要下拉刷新功能，默认实现为 false。
+    func isNoHeader() -> Bool
+    /// 询问是否不需要上拉加载功能，默认实现为 false。
+    func isNoFooter() -> Bool
     
-    /// 是否不需要上拉加载，默认 false
-    /// - warning: 当不需要上拉加载时将此属性设为 true 即可，集合视图将不会初始化上拉刷新
-    var isNoFooter: Bool { get }
-    
-    /// 头部刷新控件，可通过该属性设置下拉刷新时的样式
-    var mj_header: MJRefreshNormalHeader? { get }
-    /// 底部刷新控件，可通过该属性设置上拉加载时的样式
-    var mj_footer: MJRefreshBackNormalFooter? { get }
-    
-    /// 询问分页请求中的当前页码字段，通常为 "page"，否则请重写此函数以配置正确的字段名。
+    /// 询问分页请求中的当前页码字段名，默认实现为 "pageIndex"，否则请重写此函数以配置正确的字段名。
     func pageParameterString() -> String
-
-    /// 初始化上下拉刷新控件，一般应该在 viewDidLoad() 执行。
-    ///
-    /// 该函数应该由包含集合视图的 ViewCtrl 实现并 final，子类也无需再次调用该函数。
-    /// - warning: 注意初始化控件时闭包中使用 [weak self]，否则会引发循环引用
-    func initRefresh()
+    /// 询问分页请求中的每页大小的字段名，默认实现为 "pageSize"，否则请重写此函数以配置正确的字段名。
+    func pageSizeParameterString() -> String
     
-    /// 当 currentPage 发生变化的事件
+    /// 当 currentPage 发生变化的操作。
     func didSetCurrentPage()
 
-    /// 下拉刷新之前的事件补充
-    /// - warning: 此函数在下拉刷新触发之前执行
+    /// 下拉刷新之前的事件补充。
     func refreshHeader()
-    
-    /// 上拉加载之前的事件补充
-    /// - warning: 此函数在上拉加载事件触发之前执行
+    /// 上拉加载之前的事件补充。
     func refreshFooter()
 
-    /// 结束所有上拉、下拉状态。
-    func endRefresh()
-
-    /// 询问当前分页数据的总页数
+    /// 询问当前分页数据的总页数。
     ///
     /// 通过服务器响应的数据量来判断是否还有更多数据，通常以请求数据大小为条件，只要没有达到目标数据大小即视为没有更多数据，参考代码：
     /// ```
     /// return apiData["data"].arrayValue.count != 10 ? currentPage:currentPage+1
     /// ```
-    /// - warning: 若未覆盖此函数，默认值为 1。该函数只有在 reqSuccess() 时才会被执行，请确保 super.reqSuccess() 正确响应。
+    /// - Warning: 若未覆盖此函数，默认值为 1。
     func setSumPage() -> Int
     
     /// 重置当前页面请求页数及上下拉状态。
-    /// # 用于 segmentCtrl 切换并请求 Api 时重置当前界面状态。
-    /// * 此方法将会重置 currentPage 和 isAddMore 为最初状态
-    func resetCurrentStatusForReqApi()
+    ///
+    /// 在此函数中请将 `currentPage`、`isAddMore` 设置为初始值。
+    /// - Warning: 此函数一般用于 segmentCtrl 发生切换并需要重新请求 Api 时重置当前刷新状态。
+    func resetStatus()
+}
+
+/// 默认实现。
+public extension EMERANA_Refresh {
+
+    func isNoHeader() -> Bool { false }
+
+    func isNoFooter() -> Bool { false }
     
+    func pageParameterString() -> String { "pageIndex" }
+
+    func pageSizeParameterString() -> String { "pageSize" }
+    
+    func setSumPage() -> Int { 1 }
+
+    func didSetCurrentPage() {}
+    
+    func refreshHeader() {}
+    
+    func refreshFooter() {}
+
 }
 
 /*
  # 注意：协议扩展是针对抽象类的，而协议本身是针对具体对象的。
  */
-public extension EMERANA_Refresh {
+extension EMERANA_Refresh {
     
     /// 是否隐藏上拉刷新控件？默认 false
     /// - warning: 所有实现 EMERANA_Refresh 协议的对象均能触发此扩展函数
@@ -132,10 +152,8 @@ public extension EMERANA_Refresh {
 }
 
 
-/// tableViewCtrl、collectionViewCtrl 基础协议
-/// - warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
-/// - since: 1.0
-public protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
+/// 此协议仅适用于包含基础集合视图的 tableViewCtrl、collectionViewCtrl。
+protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
 
     /// 主要数据源，需要手动赋值，默认为空数组。
     var dataSource: [JSON] { get set }
@@ -153,7 +171,7 @@ public protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
     /// ```
     /// let cell = tableView.dequeueReusableCell(withIdentifier: "<#Cell#>", for: indexPath)
     /// ```
-    /// - warning: 一个 Nib 里面只放一个 Cell，且里面的 Cell 不能自带 identifier，如果有则必须用自带的 identifier 进行注册
+    /// - Warning: 一个 Nib 里面只放一个 Cell，且里面的 Cell 不能自带 identifier，如果有则必须用自带的 identifier 进行注册
     func registerReuseComponents()
 }
 
@@ -1439,6 +1457,9 @@ public struct EMERANA {
     
     /// API 代理，请 extension UIApplication: ApiDelegate 实现指定函数。
     static let apiConfigDelegate: ApiDelegate? = UIApplication.shared as? ApiDelegate
+    
+    /// 刷新视图代理。
+    static let refreshAdapter: RefreshAdapter? = UIApplication.shared as? RefreshAdapter
     
     /// 全局外观配置管理员。
     private var appearanceManager: Appearance?

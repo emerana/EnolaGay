@@ -18,7 +18,6 @@ import SwiftyJSON
 /// * 设置 requestConfig 对象以配置请求信息
 open class JudyBaseViewCtrl: UIViewController {
 
-    
     // MARK: - public var property
 
     /// navigationItem.title，该 viewTitle 优先于 self.title 显示，且将覆盖 self.title。
@@ -29,7 +28,6 @@ open class JudyBaseViewCtrl: UIViewController {
     /// 当前界面包含的 json 数据，设置该值将触发 jsonDidSet() 函数，初值为 JSON()。
     open var json = JSON() { didSet{ jsonDidSet() } }
 
-    
     // MARK: Api 相关属性
     
     /// 请求配置对象。
@@ -53,12 +51,9 @@ open class JudyBaseViewCtrl: UIViewController {
     /// - Warning: 如果该值为 true，则重写 preferredStatusBarStyle 以设置当前 viewCtrl 的 statusBarStyle。
     open var isCustomStatusBarStyle: Bool? { return nil }
 
-    
     // MARK: - private var property
-    
-    
+        
     // MARK: - Life Cycle
-    
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,9 +103,6 @@ open class JudyBaseViewCtrl: UIViewController {
         
         // 在界面即将消失（包含所有界面跳转）时关闭所有键盘。
         UIApplication.shared.windows.last?.endEditing(true)
-        
-        // 2020年09月01日16:33:47 注释原因：不具备通用性
-        // navigationController?.setNavigationBarHidden(false, animated: true)
     }
         
     // MARK: - override
@@ -122,10 +114,8 @@ open class JudyBaseViewCtrl: UIViewController {
         UIApplication.shared.windows.last?.endEditing(true)
     }
     
-    
     /// 重写此函数以配置当 json 被设置的事件。
     open func jsonDidSet() {}
-    
 
     // MARK: Api 相关函数
     
@@ -145,6 +135,7 @@ open class JudyBaseViewCtrl: UIViewController {
         // 为设置 api 直接不发起请求。
         guard requestConfig.api != nil else {
             isReqSuccess = true
+            reqNotApi()
             return
         }
         
@@ -196,7 +187,7 @@ open class JudyBaseViewCtrl: UIViewController {
     
     /// 当 api 为 nil 时调用了 reqApi() ，请求流将终止在此方法中，不会进行网络请求，且 isReqSuccess 将被设为 true。
     ///
-    /// - Warning: 此方法应主要执行在上下拉刷新界面时需要中断 header、footer 刷新状态，更改 isReqSuccess 等操作。
+    /// 此方法应主要执行在上下拉刷新界面时需要中断 header、footer 刷新状态，更改 isReqSuccess 等操作。
     open func reqNotApi() {}
     
     /// 当服务器有响应时，最先执行此方法，无论请求是否成功。**此时 apiData 为服务器返回的元数据**。

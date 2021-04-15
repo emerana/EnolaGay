@@ -27,7 +27,7 @@ open class JudyBaseSearchViewCtrl: JudyBaseTableRefreshViewCtrl {
     // MARK: - var property
     
     /// 禁用下拉刷新
-    open override var isNoHeader: Bool { true }
+    // open override var isNoHeader: Bool { true }
     
     /// 搜索图标，重写此属性以设置searchBar上面的搜索图标，如果为nil则显示系统默认的图标
     @IBInspectable lazy public var searchIcon: UIImage? = nil
