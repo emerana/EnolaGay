@@ -275,12 +275,26 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
         reqNotApi()
     }
     
+
+    // MARK: - EMERANA_Refresh
+
+    open func isNoHeader() -> Bool { false }
+    open func isNoFooter() -> Bool { false }
+    
+    open func pageParameterString() -> String { "pageIndex" }
+    open func pageSizeParameterString() -> String { "pageSize" }
+    
+    open func didSetCurrentPage() {}
+    
+    open func refreshHeader() {}
+    open func refreshFooter() {}
+
+    /// 测试将总页数设置为 3 页，请覆盖此函数已配置正确的总页数。
+    open func setSumPage() -> Int { 3 }
+
     open func resetStatus() {
         currentPage = defaultPageIndex
         isAddMore = false
     }
 
-    /// 测试将总页数设置为 3 页，请覆盖此函数已配置正确的总页数。
-    public func setSumPage() -> Int { 3 }
-    
 }
