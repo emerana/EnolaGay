@@ -48,54 +48,24 @@ public extension JudyBaseViewCtrl {
     static func isGlobalHideWaitingHUD() -> Bool { false }
 }
 
-/// 刷新视图适配器。
-//class RefreshAdapter: EMERANA_Refresh {
-//
-//    enum BaseViewCtrl {
-//        case tableRefreshViewCtrl
-//        case collectionRefreshViewCtrl
-//    }
-//
-//    var defaultPageIndex: Int = 1
-//
-//    var currentPage: Int = 0 { didSet{ didSetCurrentPage() } }
-//
-//    var pageSize: Int = 10
-//
-//    var isAddMore: Bool = false
-//
-//    var isNoHeader: Bool = false
-//
-//    var isNoFooter: Bool = false
-//
-//    private let viewCtrlType: BaseViewCtrl
-//
-//    init(viewCtrl: BaseViewCtrl) {
-//        viewCtrlType = viewCtrl
-//    }
-//
-//    func pageParameterString() -> String { "" }
-//
-//    func pageSizeParameterString() -> String { "" }
-//
-//    func initRefresh() {}
-//
-//    func didSetCurrentPage() {}
-//
-//    func refreshHeader() {}
-//
-//    func refreshFooter() {}
-//
-//    func endRefresh() {}
-//
-//    func setSumPage() -> Int { 10 }
-//
-//    func resetCurrentStatusForReqApi() {}
-//
-//}
-
-
 // MARK: - 刷新视图专用协议，主要用于 tableView、collectionView
+
+/// 刷新控件适配器协议。
+public protocol RefreshAdapter where Self: UIApplication {
+
+    /// 配置头部刷新控件（即下拉刷新）。
+    func initHeaderRefresh(scrollView: UIScrollView?, callback: @escaping (()->Void))
+    /// 配置底部刷新控件（即上拉加载）。
+    func initFooterRefresh(scrollView: UIScrollView?, callback: @escaping (()->Void))
+    
+    /// 结束所有上拉、下拉状态。
+    func endRefresh(scrollView: UIScrollView?)
+    /// 结束没有更多数据的函数。
+    func endRefreshingWithNoMoreData(scrollView: UIScrollView?)
+    /// 重置没有更多数据。
+    func resetNoMoreData(scrollView: UIScrollView?)
+    
+}
 
 /// tableView、collectionView 专用刷新协议。
 /// - Warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供。
@@ -115,13 +85,9 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     
     /// 是否不需要下拉加载，默认 false。当不需要下拉加载时将此属性设为 true 即可，集合视图将不会初始化下拉刷新。
     func isNoHeader() -> Bool
-    /// 配置头部刷新控件（即下拉刷新）
-    func initHeaderRefresh(scrollView: UIScrollView?)
 
     /// 是否不需要上拉加载，默认 false。当不需要上拉加载时将此属性设为 true 即可，集合视图将不会初始化上拉刷新
     func isNoFooter() -> Bool
-    /// 配置底部刷新控件（即上拉加载）
-    func initFooterRefresh(scrollView: UIScrollView?)
     
     /// 询问分页请求中的当前页码字段，通常为 "page"，否则请重写此函数以配置正确的字段名。
     func pageParameterString() -> String
@@ -136,12 +102,6 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     
     /// 上拉加载之前的事件补充。
     func refreshFooter()
-
-    /// 结束所有上拉、下拉状态。
-    func endRefresh(scrollView: UIScrollView?)
-    
-    /// 结束没有更多数据的函数。
-    func endRefreshingWithNoMoreData(scrollView: UIScrollView?)
 
     /// 询问当前分页数据的总页数。
     ///
@@ -1501,6 +1461,9 @@ public struct EMERANA {
     
     /// API 代理，请 extension UIApplication: ApiDelegate 实现指定函数。
     static let apiConfigDelegate: ApiDelegate? = UIApplication.shared as? ApiDelegate
+    
+    /// 刷新视图代理。
+    static let refreshAdapter: RefreshAdapter? = UIApplication.shared as? RefreshAdapter
     
     /// 全局外观配置管理员。
     private var appearanceManager: Appearance?

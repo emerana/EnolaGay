@@ -7,6 +7,7 @@ target 'EnolaGay_Example' do
   pod 'EnolaGay', :path => '../'
   pod 'Cache'
   pod 'Alamofire', '~> 4.9.0'
+  pod 'MJRefresh'
 
   target 'EnolaGay_Tests' do
     inherit! :search_paths

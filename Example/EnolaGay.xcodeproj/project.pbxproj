@@ -14,6 +14,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		6F337C824DB7574EEDA8C564 /* Pods_EnolaGay_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E3731438F1EBC192427EC6 /* Pods_EnolaGay_Tests.framework */; };
+		8B0B90AB262832830059B992 /* TestTableRefreshTableViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0B90AA262832830059B992 /* TestTableRefreshTableViewCtrl.swift */; };
+		8B0B90B12628328E0059B992 /* Refresh.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B0B90B02628328E0059B992 /* Refresh.storyboard */; };
 		8B1A499025C8354700FDA57A /* LangRenSha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1A498F25C8354700FDA57A /* LangRenSha.storyboard */; };
 		8B1AA67325A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */; };
 		8B1AA67425A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */; };
@@ -59,6 +61,8 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7747A34155239783B6CF9842 /* EnolaGay.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = EnolaGay.podspec; path = ../EnolaGay.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8B0B90AA262832830059B992 /* TestTableRefreshTableViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableRefreshTableViewCtrl.swift; sourceTree = "<group>"; };
+		8B0B90B02628328E0059B992 /* Refresh.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Refresh.storyboard; sourceTree = "<group>"; };
 		8B1A498F25C8354700FDA57A /* LangRenSha.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LangRenSha.storyboard; sourceTree = "<group>"; };
 		8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudyLivePageViewTest.swift; sourceTree = "<group>"; };
 		8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JudyLivePageViewCtrl.storyboard; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 		607FACD21AFB9204008FA782 /* Example for EnolaGay */ = {
 			isa = PBXGroup;
 			children = (
+				8B0B90A9262832650059B992 /* RefreshTest */,
 				8B81AA19261EEF63003A194B /* 键盘优化 */,
 				8BFCC83125E385F9000B1611 /* 垂直轮播图 */,
 				8B1A498E25C8353100FDA57A /* LangRenSha */,
@@ -182,6 +187,15 @@
 				5D849979F9CC82D37AB0E47D /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		8B0B90A9262832650059B992 /* RefreshTest */ = {
+			isa = PBXGroup;
+			children = (
+				8B0B90AA262832830059B992 /* TestTableRefreshTableViewCtrl.swift */,
+				8B0B90B02628328E0059B992 /* Refresh.storyboard */,
+			);
+			path = RefreshTest;
 			sourceTree = "<group>";
 		};
 		8B1A498E25C8353100FDA57A /* LangRenSha */ = {
@@ -342,6 +356,7 @@
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				8B81AA1B261EEF74003A194B /* KeyBoardPopUp.storyboard in Resources */,
 				8BA9AA05260EDAB8008B1803 /* AttributedString.storyboard in Resources */,
+				8B0B90B12628328E0059B992 /* Refresh.storyboard in Resources */,
 				8B1A499025C8354700FDA57A /* LangRenSha.storyboard in Resources */,
 				8B1AA67925A74B600063BE04 /* JudyLivePageViewCtrl.storyboard in Resources */,
 			);
@@ -444,6 +459,7 @@
 				8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */,
 				8B1AA67325A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */,
 				8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */,
+				8B0B90AB262832830059B992 /* TestTableRefreshTableViewCtrl.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				8BA9AA01260EDAAC008B1803 /* AttributedStringViewController.swift in Sources */,
 				8B1AA68025A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */,

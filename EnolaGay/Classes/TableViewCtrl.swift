@@ -190,7 +190,6 @@ extension JudyBaseTableViewCtrl: UITableViewDataSource {
 ///```
 open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh {
     
-    
     open var pageSize: Int { 10 }
 
     open var defaultPageIndex: Int { 1 }
@@ -209,10 +208,31 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
         resetCurrentStatusForReqApi()
         // 配置刷新控件。
         if !isNoHeader() {
-            initHeaderRefresh(scrollView: tableView)
+            EMERANA.refreshAdapter?.initHeaderRefresh(scrollView: tableView, callback: {
+                [weak self] in
+                
+                self?.refreshHeader()
+
+                self?.isAddMore = false
+                self?.currentPage = self!.defaultPageIndex
+               
+                EMERANA.refreshAdapter?.resetNoMoreData(scrollView: self?.tableView)
+                
+                self?.reqApi()
+                
+            })
         }
         if !isNoFooter() {
-            initFooterRefresh(scrollView: tableView)
+            
+            EMERANA.refreshAdapter?.initFooterRefresh(scrollView: tableView, callback: {
+                [weak self] in
+                
+                self?.refreshFooter()
+
+                self?.isAddMore = true
+                self?.currentPage += 1
+                self?.reqApi()
+            })
         }
     }
 
@@ -237,7 +257,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
             // 如果是因为没有设置 api 导致请求结束需要将当前页减1
             currentPage -= 1
         }
-        endRefresh()
+        EMERANA.refreshAdapter?.endRefresh(scrollView: tableView)
     }
     
     /// 当服务器响应时首先执行此函数
@@ -249,14 +269,12 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     ///     super.reqResult()
     /// }
     /// ```
-    open override func reqResult() { endRefresh() }
+    open override func reqResult() { EMERANA.refreshAdapter?.endRefresh(scrollView: tableView) }
     
     /// 请求成功的消息处理
     ///
     /// 此函数已经处理是否有更多数据，需自行根据服务器响应数据更改数据源及刷新 tableView
-    /// - version: 1.1
-    /// - since: 2020年11月06日11:27:24
-    /// - warning: 此函数中影响设置总页数函数 setSumPage(), 无关的逻辑应该在此排除
+    /// - Warning: 此函数中影响设置总页数函数 setSumPage(), 无关的逻辑应该在此排除
     open override func reqSuccess() {
         // 设置总页数
         let sumPage = setSumPage()
@@ -264,82 +282,18 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
         if sumPage <= currentPage {    // 最后一页了，没有更多
             // 当没有更多数据的时候要将当前页设置为总页数或默认页数
             currentPage = sumPage <= defaultPageIndex ? defaultPageIndex:sumPage
-            // 当没有开启 mj_footer 时这里可能为nil
-            // 当没有开启 mj_footer 时这里可能为nil
-            endRefreshingWithNoMoreData(scrollView: tableView)
-            // tableView?.mj_footer?.endRefreshingWithNoMoreData()
+            EMERANA.refreshAdapter?.endRefreshingWithNoMoreData(scrollView: tableView)
         }
     }
     
     /// 请求失败的消息处理
     ///
     /// 重写此方法务必调用父类方法
-    /// - warning:当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1
-    /// - since: V1.1 2020年11月06日13:23:36
+    /// - Warning:当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1
     open override func reqFailed() {
         super.reqFailed()
         
         if isAddMore { currentPage -= 1 }
     }
-    
-    // MARK: - EMERANA_Refresh
-    
-    public func initHeaderRefresh(scrollView: UIScrollView?) {
-        
-    }
-    
-    public func initFooterRefresh(scrollView: UIScrollView?) {
-        
-    }
-    
-    public func endRefresh(scrollView: UIScrollView?) {
-        
-    }
-    
-    public func endRefreshingWithNoMoreData(scrollView: UIScrollView?) {
-        
-    }
-
-    /*
-    public final func initRefresh() {
-        if !isNoHeader {
-            mj_header = MJRefreshNormalHeader(refreshingBlock: {
-                [weak self] in
-
-                self?.refreshHeader()
-
-                self?.isAddMore = false
-                self?.currentPage = self!.initialPage
-                self?.tableView?.mj_footer?.resetNoMoreData()
-                self?.reqApi()
-            })
-            tableView?.mj_header = mj_header!
-        }
-        
-        if !isNoFooter {
-            mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
-                [weak self] in
-
-                guard self?.requestConfig.api != nil else {
-                    self?.tableView?.mj_footer?.endRefreshingWithNoMoreData()
-                    return
-                }
-                
-                self?.refreshFooter()
-
-                self?.isAddMore = true
-                self?.currentPage += 1
-                self?.reqApi()
-            })
-            mj_footer?.stateLabel?.isHidden = hideFooterStateLabel()
-            tableView?.mj_footer = mj_footer!
-        }
-    }
-    */
-    
-    public final func endRefresh() {
-//        tableView?.mj_header?.endRefreshing()
-//        tableView?.mj_footer?.endRefreshing()
-    }
-    
+            
 }

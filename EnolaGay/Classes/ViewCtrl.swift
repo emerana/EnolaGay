@@ -145,6 +145,7 @@ open class JudyBaseViewCtrl: UIViewController {
         // 为设置 api 直接不发起请求。
         guard requestConfig.api != nil else {
             isReqSuccess = true
+            reqNotApi()
             return
         }
         
@@ -196,7 +197,7 @@ open class JudyBaseViewCtrl: UIViewController {
     
     /// 当 api 为 nil 时调用了 reqApi() ，请求流将终止在此方法中，不会进行网络请求，且 isReqSuccess 将被设为 true。
     ///
-    /// - Warning: 此方法应主要执行在上下拉刷新界面时需要中断 header、footer 刷新状态，更改 isReqSuccess 等操作。
+    /// 此方法应主要执行在上下拉刷新界面时需要中断 header、footer 刷新状态，更改 isReqSuccess 等操作。
     open func reqNotApi() {}
     
     /// 当服务器有响应时，最先执行此方法，无论请求是否成功。**此时 apiData 为服务器返回的元数据**。
