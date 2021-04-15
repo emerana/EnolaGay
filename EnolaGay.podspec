@@ -39,7 +39,6 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'MapKit'
   
   s.dependency 'MJRefresh'
-  s.dependency 'SDWebImage'
   s.dependency 'SwiftyJSON'
 
 end
