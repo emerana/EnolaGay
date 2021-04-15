@@ -239,31 +239,25 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
 open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERANA_Refresh {
     
     open var pageSize: Int { 10 }
-
     open var defaultPageIndex: Int { 1 }
-
     final public private(set) var currentPage = 0 { didSet{ didSetCurrentPage() } }
-
     final lazy public private(set) var isAddMore = false
 
-    // MARK: - Life Cycle
     
+    // MARK: - Life Cycle
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 要求重置刷新相关数据。
         resetStatus()
         // 配置刷新控件。
         if !isNoHeader() {
             EMERANA.refreshAdapter?.initHeaderRefresh(scrollView: collectionView, callback: {
                 [weak self] in
-                
                 self?.refreshHeader()
-
+                
                 self?.isAddMore = false
                 self?.currentPage = self!.defaultPageIndex
-               
                 EMERANA.refreshAdapter?.resetNoMoreData(scrollView: self?.collectionView)
                 
                 self?.reqApi()
@@ -272,15 +266,16 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
         if !isNoFooter() {
             EMERANA.refreshAdapter?.initFooterRefresh(scrollView: collectionView, callback: {
                 [weak self] in
-                
                 self?.refreshFooter()
-
+                
                 self?.isAddMore = true
                 self?.currentPage += 1
+                
                 self?.reqApi()
             })
         }
     }
+
 
     // MARK: Api相关
         
@@ -299,7 +294,7 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     
     open override func reqNotApi() {
         if isAddMore { currentPage -= 1 }
-        EMERANA.refreshAdapter?.endRefresh(scrollView: collectionView)
+        reqResult()
     }
     
     /// 当服务器响应时首先执行此函数。
@@ -330,9 +325,9 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
         }
     }
     
-    /// 请求失败的消息处理
+    /// 请求失败的消息处理。
     ///
-    /// 重写此方法务必调用父类方法
+    /// 重写此方法务必调用父类方法。
     /// - Warning: 当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1
     open override func reqFailed() {
         super.reqFailed()
@@ -350,9 +345,7 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     public func setSumPage() -> Int { 3 }
 }
 
-
 // MARK: - JudyCollectionViewLayout
-
 
 public extension UICollectionViewLayoutAttributes {
     
@@ -363,7 +356,6 @@ public extension UICollectionViewLayoutAttributes {
     }
 
 }
-
 
 /// UICollectionViewFlowLayout 自定义版
 public class JudyCollectionViewLayout: UICollectionViewFlowLayout {

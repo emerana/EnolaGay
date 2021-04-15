@@ -34,7 +34,6 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
     
     // MARK: - Life Cycle
     
-    
     open override func viewDidLoad() {
         super.viewDidLoad()
                 
@@ -169,7 +168,6 @@ extension JudyBaseTableViewCtrl: UITableViewDataSource {
 
 // MARK: - JudyBaseTableRefreshViewCtrl
 
-
 /// 在 JudyBaseTableViewCtrl 的基础上加上刷新控件，以支持分页加载数据。
 ///
 /// 需要重写 setSumPage() 函数以设置总页数
@@ -191,30 +189,25 @@ extension JudyBaseTableViewCtrl: UITableViewDataSource {
 open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh {
     
     open var pageSize: Int { 10 }
-
     open var defaultPageIndex: Int { 1 }
-
     final public private(set) var currentPage = 0 { didSet{ didSetCurrentPage() } }
-
     final lazy public private(set) var isAddMore = false
 
+    
     // MARK: - Life Cycle
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 要求重置刷新相关数据。
         resetStatus()
         // 配置刷新控件。
         if !isNoHeader() {
             EMERANA.refreshAdapter?.initHeaderRefresh(scrollView: tableView, callback: {
                 [weak self] in
-                
                 self?.refreshHeader()
-
+                
                 self?.isAddMore = false
                 self?.currentPage = self!.defaultPageIndex
-               
                 EMERANA.refreshAdapter?.resetNoMoreData(scrollView: self?.tableView)
                 
                 self?.reqApi()
@@ -223,18 +216,18 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
         if !isNoFooter() {
             EMERANA.refreshAdapter?.initFooterRefresh(scrollView: tableView, callback: {
                 [weak self] in
-                
                 self?.refreshFooter()
-
+                
                 self?.isAddMore = true
                 self?.currentPage += 1
+                
                 self?.reqApi()
             })
         }
     }
 
-    // MARK: Api相关
 
+    // MARK: Api相关
 
     /// 在此函数中设置 api、param。
     /// - Warning: 此函数中已经设置好页码和页大小，子类请调用父类函数。
@@ -245,7 +238,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     
     open override func reqNotApi() {
         if isAddMore { currentPage -= 1 }
-        EMERANA.refreshAdapter?.endRefresh(scrollView: tableView)
+        reqResult()
     }
     
     /// 当服务器响应时首先执行此函数。

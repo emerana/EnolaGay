@@ -17,7 +17,6 @@
  #endif /* Bridging_Header_h */
  */
 
-
 import SwiftyJSON
 
 
@@ -40,6 +39,7 @@ public protocol EMERANA_ViewCtrl where Self: JudyBaseViewCtrl {}
 @available(*, unavailable, message: "此协议已弃用")
 public protocol EMERANA_Api: EMERANA_ViewCtrl {}
 
+
 // MARK: - 为 ViewCtrl 新增部分协议
 
 // 为 JudyBaseViewCtrl 扩展函数实现。
@@ -47,6 +47,7 @@ public extension JudyBaseViewCtrl {
     /// 是否隐藏所有界面 reqApi() 时显示等待的 HUD，此函数已默认实现返回 false，通过 public extension JudyBaseViewCtrl 重写此函数以改变默认值
     static func isGlobalHideWaitingHUD() -> Bool { false }
 }
+
 
 // MARK: - 刷新视图专用协议，主要用于 tableView、collectionView
 
@@ -72,35 +73,32 @@ public protocol RefreshAdapter where Self: UIApplication {
 /// - Warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供。
 public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     
-    /// 缺省页码，该值决定了 currentPage 的初始值，下拉刷新时 currentPage 会重置为该值，建议定义为计算属性。
+    /// 缺省请求页码，通常第一页码为1，但油的情况可能为0。
     var defaultPageIndex: Int { get }
-    
     /// 请求页码。初始化、下拉刷新时因重置到默认值。
     var currentPage: Int { get }
     
     /// 每页的数据大小。
     var pageSize: Int { get }
 
-    /// 该属性标识最后的操作是否为上拉加载更多，默认值为否。通常用于获取到服务器数据后的处理。
+    /// 该属性标识最后操作是否为上拉加载，通常在获取到服务器数据后需要判断该值进行数据的处理。
     var isAddMore: Bool { get }
     
-    /// 是否不需要下拉加载，默认 false。当不需要下拉加载时将此属性设为 true 即可，集合视图将不会初始化下拉刷新。
+    /// 询问是否不需要下拉刷新功能，默认实现为 false。
     func isNoHeader() -> Bool
-
-    /// 是否不需要上拉加载，默认 false。当不需要上拉加载时将此属性设为 true 即可，集合视图将不会初始化上拉刷新
+    /// 询问是否不需要上拉加载功能，默认实现为 false。
     func isNoFooter() -> Bool
     
-    /// 询问分页请求中的当前页码字段，通常为 "page"，否则请重写此函数以配置正确的字段名。
+    /// 询问分页请求中的当前页码字段名，默认实现为 "pageIndex"，否则请重写此函数以配置正确的字段名。
     func pageParameterString() -> String
-    /// 询问分页请求中的每页大小的字段，通常为 "pageSize"，否则请重写此函数以配置正确的字段名。
+    /// 询问分页请求中的每页大小的字段名，默认实现为 "pageSize"，否则请重写此函数以配置正确的字段名。
     func pageSizeParameterString() -> String
     
-    /// 当 currentPage 发生变化的事件
+    /// 当 currentPage 发生变化的操作。
     func didSetCurrentPage()
 
     /// 下拉刷新之前的事件补充。
     func refreshHeader()
-    
     /// 上拉加载之前的事件补充。
     func refreshFooter()
 
@@ -110,15 +108,16 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     /// ```
     /// return apiData["data"].arrayValue.count != 10 ? currentPage:currentPage+1
     /// ```
-    /// - warning: 若未覆盖此函数，默认值为 1。该函数只有在 reqSuccess() 时才会被执行，请确保 super.reqSuccess() 正确响应。
+    /// - Warning: 若未覆盖此函数，默认值为 1。
     func setSumPage() -> Int
     
-    /// 重置当前页面请求页数及上下拉状态，此函数已默认实现，非必要无需覆盖。
-    /// # 用于 segmentCtrl 切换并请求 Api 时重置当前界面状态。
-    /// * 此方法将会重置 currentPage 和 isAddMore 为最初状态
+    /// 重置当前页面请求页数及上下拉状态。
+    ///
+    /// 在此函数中请将 `currentPage`、`isAddMore` 设置为初始值。
+    /// - Warning: 此函数一般用于 segmentCtrl 发生切换并需要重新请求 Api 时重置当前刷新状态。
     func resetStatus()
-
 }
+
 /// 默认实现。
 public extension EMERANA_Refresh {
 
