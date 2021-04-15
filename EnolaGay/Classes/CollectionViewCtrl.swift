@@ -1,6 +1,6 @@
 //
 //  BaseCollectionViewCtrl.swift
-//  与 UICollectionView 相关的文件
+//  与 UICollectionView 相关的文件。
 //
 //  Created by 醉翁之意 on 2018/4/23.
 //  Copyright © 2018年 吾诺翰卓. All rights reserved.
@@ -529,8 +529,6 @@ private extension JudyCollectionViewLayout {
 // MARK: - JudyBaseCollectionViewCell
 
 
-import SDWebImage
-
 /// collectionView 通用 cell，包含一张主要图片、副标题以及默认数据源 json。
 /// * labelsForColor 中的 labels 会配置颜色 foreground
 open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
@@ -553,13 +551,13 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
     // MARK: - life cycle
 
     
-    // Judy-mark: cell准备重用时会先执行此方法.
+    // Judy-mark: Cell 准备重用时会先执行此方法。
     open override func prepareForReuse() {
         super.prepareForReuse()
         
-        // 此处应重置cell状态，清除在重用池里面设置的值
+        // 此处应重置 Cell 状态，清除在重用池里面设置的值。
     }
-
+    
     /// 重写了此方法必须调用 super.awakeFromNib()，里面实现了配置。
     open override func awakeFromNib() {
         super.awakeFromNib()
@@ -567,10 +565,10 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
         labelsForColor?.forEach { label in
             label.textColor = .judy(.text)
         }
-
+        
     }
     
-    /// 布局子视图。创建对象顺序一定是先有frame，再awakeFromNib，再调整布局
+    /// 布局子视图。创建对象顺序一定是先有 frame，再 awakeFromNib，再调整布局。
     open override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -603,15 +601,11 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
 
     }
     
-    
     open func jsonDidSetAction() {
         titleLabel?.text = json[EMERANA.Key.Cell.title].stringValue
         subTitleLabel?.text = json[EMERANA.Key.Cell.subtitle].stringValue
         if let imageName = json[EMERANA.Key.Cell.icon].string {
             masterImageView?.image = UIImage(named: imageName)
-        }
-        if let imageURL = json[EMERANA.Key.Cell.image].string {
-            masterImageView?.sd_setImage(with: URL(string: imageURL), completed: nil)
         }
     }
 

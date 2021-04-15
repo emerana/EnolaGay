@@ -785,6 +785,7 @@ public struct JudyTip {
     
     /// HUD 消息类型。
     public enum MessageType {
+        /// 静态效果显示。
         case success,error
         /// 支持动画显示。
         case successed, failed
@@ -809,7 +810,7 @@ public struct JudyTip {
     
     /// 弹出一个消息体。
     /// - Parameters:
-    ///   - messageType: 该 HUD 类型，默认为 failed，只有失败类型是动效，其余的为静态效果。
+    ///   - messageType: 该 HUD 类型，默认为 failed。
     ///   - text: 消息内容，默认为 nil。
     public static func message(messageType: MessageType = .failed, text: String? = nil) {
         

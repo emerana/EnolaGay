@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EnolaGay'
-  s.version          = '1.10.4'
+  s.version          = '1.11.0'
   s.summary          = 'EnolaGay，奇迹型 EMERANA。'
 
 # This description is used to generate tags and improve search results.
@@ -39,7 +39,6 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'MapKit'
   
   s.dependency 'MJRefresh'
-  s.dependency 'SDWebImage'
   s.dependency 'SwiftyJSON'
 
 end
