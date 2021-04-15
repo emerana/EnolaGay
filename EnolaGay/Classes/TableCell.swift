@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import SDWebImage
 import SwiftyJSON
 
 /// tableVie 通用 cell，包含一张主要图片、副标题以及默认数据源 json。
 /// * labelsForColor 中的 labels 会配置颜色 foreground
 open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     
-    /// 是否需要解决 UITableView 有 footerView 时最后一个 cell 不显示分割线问题，默认 false
+    /// 是否需要解决 UITableView 有 footerView 时最后一个 cell 不显示分割线问题，默认 false。
     @IBInspectable lazy var isShowSeparatorAtFooter: Bool = false
     
     // MARK: - let property and IBOutlet
@@ -46,14 +45,13 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     
     // MARK: - Life Cycle
     
-    // Cell 准备重用时执行的方法
+    // Cell 准备重用时执行的方法。
     open override func prepareForReuse() {
         super.prepareForReuse()
         
-        // 此处应重置cell状态，清除在重用池里面设置的值
+        // 此处应重置 Cell 状态，清除在重用池里面设置的值。
     }
     
-    /// 从 xib 或故事板创建对象将会执行此初始函数
     /// 重写了此方法必须调用 super.awakeFromNib()，里面实现了配置。
     open override func awakeFromNib() {
         super.awakeFromNib()
@@ -64,13 +62,13 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
         
     }
     
-    /// 布局子视图，创建对象顺序一定是先有 frame，再 awakeFromNib，再调整布局
+    /// 布局子视图。创建对象顺序一定是先有 frame，再 awakeFromNib，再调整布局。
     open override func layoutSubviews() {
         super.layoutSubviews()
 
-        // 此处涉及到布局，因此必须放在 layoutSubviews() 中
+        // 此处涉及到布局，因此必须放在 layoutSubviews() 中。
         if isShowSeparatorAtFooter {
-            // 解决 UITableView 有 footerView 时最后一个 cell 不显示分割线问题
+            // 解决 UITableView 有 footerView 时最后一个 Cell 不显示分割线问题。
             for separatorView in self.contentView.superview!.subviews {
                 if NSStringFromClass(separatorView.classForCoder).hasSuffix("SeparatorView") {
                     separatorView.alpha = 1
@@ -89,7 +87,7 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     open override func layoutIfNeeded() {
         super.layoutIfNeeded()
         
-        // 设置正圆
+        // 设置正圆.
         if masterImageView?.isRound ?? false {
             masterImageView?.viewRound()
         }
@@ -108,9 +106,6 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
         subTitleLabel?.text = json[EMERANA.Key.Cell.subtitle].stringValue
         if let imageName = json[EMERANA.Key.Cell.icon].string {
             masterImageView?.image = UIImage(named: imageName)
-        }
-        if let imageURL = json[EMERANA.Key.Cell.image].string {
-            masterImageView?.sd_setImage(with: URL(string: imageURL), completed: nil)
         }
     }
 
@@ -151,7 +146,7 @@ open class JudyInputCell: JudyBaseTableCell {
 }
 
 /// 包含一个 indexPath 的 UITextField，该 UITextField 通常嵌于 TableViewCell 里，为此在里面指定一个 indexPath。
-/// * 此类必须独立出来
+/// - Warning: 此类必须独立出来。
 final public class JudyCellTextField: JudyBaseTextField {
     /// 对应 cell 中的 indexPath
     public var indexPath: IndexPath!

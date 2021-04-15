@@ -159,60 +159,57 @@ public protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
 
 // MARK: - tableViewCell 和 collectionViewCell 专用协议
 
-/// Cell 基础协议
-/// - warning: 此协议针对 tableViewCell、collectionViewCell 类定制
-/// - since: 1.0
+/// Cell 基础协议。
+/// - Warning: 此协议针对 tableViewCell、collectionViewCell 类定制。
 public protocol EMERANA_CellBasic {
     
-    /// 标题
+    /// 标题。
     var titleLabel: UILabel? { get set }
     
-    /// 副标题
+    /// 副标题。
     var subTitleLabel: UILabel? { get set }
     
-    /// 主图片
+    /// 主图片。
     var masterImageView: UIImageView? { get set }
-    
-    /// 该集合中的 label 将会统一设置颜色为 .judy(.text)
-    var labelsForColor: [UILabel]? { get set }
-    
-    /// 本 cell 中的 json 数据源
-    /// # didSet 将触发 jsonDidSetAction()，函数中的默认对应:
+        
+    /// Cell 中的数据源。
+    ///
+    /// 设置该值的时候将触发 jsonDidSetAction()，函数中的默认对应:
     /// * titleLabel -> EMERANA.Key.Cell.title
     /// * subTitleLabel -> EMERANA.Key.Cell.subtitle
-    /// * masterImageView -> EMERANA.Key.Cell.icon
     var json: JSON { get set }
     
-    /// 设置数据源事件
+    /// 设置 json 数据源事件。
     func jsonDidSetAction()
 
 }
 /*
  // MARK: 默认实现的注意点
+ 
  # 注意：协议扩展是针对抽象类的，而协议本身是针对具体对象的。
  # 当声明协议时没有进行限定则须注意一下：
  # 重写协议的默认实现函数调用权重为 子类>实现类>默认实现，若没有在实现类实现函数则直接调用默认实现函数，此时子类的重写无效。
  */
+/// 为 EMERANA_CellBasic 协议新增的扩展函数（非默认实现函数）。
 public extension EMERANA_CellBasic {
     
-    /// 所有实现 EMERANA_CellBasic 协议的对象在初始函数中均会先触发此扩展函数，在此函数中补充所需操作
-    /// # 扩展对应的类并重写此函数
+    /// 所有实现 EMERANA_CellBasic 协议的对象在初始函数中均会先触发此扩展函数，在此函数中补充所需操作。
+    ///
+    /// 扩展对应的类并重写此函数即可使该类执行重写后的函数。
     func globalAwakeFromNib() {
-        Judy.log("Cell 触发了全局函数，相关信息：\(self)，若有需要请扩展类并重写此函数")
+        // Judy.log("Cell 触发了全局函数，相关信息：\(self)，若有需要请扩展类并重写此函数")
     }
     
     func selectedDidSet(isSelected: Bool) {
-        Judy.log("默认实现的 selectedDidSet")
+        // Judy.log("默认实现的 selectedDidSet")
     }
 
 }
 
 // MARK: - 字体样式协议。目前用于 button、label、textField
 
-/// 字体专用协议
-/// - version: 1.0
-/// - since: 2020年10月
-/// - warning: 此协仅对 class 类型提供
+/// 字体专用协议。
+/// - Warning: 此协仅对 class 类型提供。
 public protocol EMERANA_FontStyle: class {
     
     /// 配置 EMERANA 字体大小及样式，默认值为 m
