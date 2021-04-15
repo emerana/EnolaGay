@@ -236,6 +236,9 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
         }
     }
 
+    public func setSumPage() -> Int {
+        return 10
+    }
     
     // MARK: Api相关
 
@@ -250,6 +253,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     /// - Warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage，子类请 super
     open override func setApi() {
         requestConfig.parameters?[pageParameterString()] = currentPage
+        requestConfig.parameters?[pageSizeParameterString()] = pageSize
     }
     
     open override func reqNotApi() {
@@ -286,14 +290,14 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
         }
     }
     
-    /// 请求失败的消息处理
+    /// 请求失败的消息处理。
     ///
-    /// 重写此方法务必调用父类方法
+    /// 重写此方法务必调用父类方法。
     /// - Warning:当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1
     open override func reqFailed() {
         super.reqFailed()
         
-        if isAddMore { currentPage -= 1 }
+        reqNotApi()
     }
             
 }

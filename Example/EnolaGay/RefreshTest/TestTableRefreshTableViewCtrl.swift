@@ -29,7 +29,7 @@ class TestTableRefreshTableViewCtrl: JudyBaseTableRefreshViewCtrl {
     override func setApi() {
         super.setApi()
         
-        // requestConfig.api = Actions.createUserChatToken
+        requestConfig.api = Actions.createUserChatToken
         requestConfig.parameters?["userid"] = 323430
 
     }
