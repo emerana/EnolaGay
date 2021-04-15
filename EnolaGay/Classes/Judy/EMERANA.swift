@@ -118,27 +118,6 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     func resetStatus()
 }
 
-/// 默认实现。
-public extension EMERANA_Refresh {
-
-    func isNoHeader() -> Bool { false }
-
-    func isNoFooter() -> Bool { false }
-    
-    func pageParameterString() -> String { "pageIndex" }
-
-    func pageSizeParameterString() -> String { "pageSize" }
-    
-    func setSumPage() -> Int { 1 }
-
-    func didSetCurrentPage() {}
-    
-    func refreshHeader() {}
-    
-    func refreshFooter() {}
-
-}
-
 /*
  # 注意：协议扩展是针对抽象类的，而协议本身是针对具体对象的。
  */
