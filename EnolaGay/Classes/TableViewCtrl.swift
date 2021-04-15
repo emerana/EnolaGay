@@ -169,7 +169,6 @@ extension JudyBaseTableViewCtrl: UITableViewDataSource {
 
 // MARK: - JudyBaseTableRefreshViewCtrl
 
-import MJRefresh
 
 /// 在 JudyBaseTableViewCtrl 的基础上加上刷新控件，以支持分页加载数据
 ///
@@ -189,40 +188,33 @@ import MJRefresh
 ///    }
 ///}
 ///```
-/// - since: V1.1 2020年11月06日11:12:05
 open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh {
     
-    // MARK: - let property and IBOutlet
     
-    // MARK: - var property
-    
-    open var initialPage: Int { return 1 }
-    
-    final private(set) public var currentPage: Int = 0 { didSet{ didSetCurrentPage() } }
+    open var pageSize: Int { 10 }
 
-    final private(set) lazy public var isAddMore = false
-    
-    @IBInspectable private(set) lazy public var isNoHeader: Bool = false
-    
-    @IBInspectable private(set) lazy public var isNoFooter: Bool = false
+    open var defaultPageIndex: Int { 1 }
 
-    private(set) lazy public var mj_header: MJRefreshNormalHeader? = nil
+    final public var currentPage = 0 { didSet{ didSetCurrentPage() } }
 
-    private(set) lazy public var mj_footer: MJRefreshBackNormalFooter? = nil
+    final lazy public var isAddMore = false
+
 
     // MARK: - Life Cycle
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentPage = initialPage
-        initRefresh()
+        // 要求重置刷新相关数据。
+        resetCurrentStatusForReqApi()
+        // 配置刷新控件。
+        if !isNoHeader() {
+            initHeaderRefresh(scrollView: tableView)
+        }
+        if !isNoFooter() {
+            initFooterRefresh(scrollView: tableView)
+        }
     }
-    
-
-    // MARK: - override - 重写重载父类的方法
-    
-    open func pageParameterString() -> String { "page" }
 
     
     // MARK: Api相关
@@ -235,8 +227,10 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     ///requestConfig.api = .???
     ///requestConfig.parameters?["userName"] = "Judy"
     ///```
-    /// - warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage，子类请 super
-    open override func setApi() { requestConfig.parameters?[pageParameterString()] = currentPage }
+    /// - Warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage，子类请 super
+    open override func setApi() {
+        requestConfig.parameters?[pageParameterString()] = currentPage
+    }
     
     open override func reqNotApi() {
         if isAddMore {
@@ -269,9 +263,11 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
         // 在此判断是否有更多数据。结束刷新已经在 reqResult() 中完成。
         if sumPage <= currentPage {    // 最后一页了，没有更多
             // 当没有更多数据的时候要将当前页设置为总页数或默认页数
-            currentPage = sumPage <= initialPage ? initialPage:sumPage
+            currentPage = sumPage <= defaultPageIndex ? defaultPageIndex:sumPage
             // 当没有开启 mj_footer 时这里可能为nil
-            tableView?.mj_footer?.endRefreshingWithNoMoreData()
+            // 当没有开启 mj_footer 时这里可能为nil
+            endRefreshingWithNoMoreData(scrollView: tableView)
+            // tableView?.mj_footer?.endRefreshingWithNoMoreData()
         }
     }
     
@@ -286,18 +282,25 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
         if isAddMore { currentPage -= 1 }
     }
     
-    // MARK: - Intial Methods - 初始化的方法
+    // MARK: - EMERANA_Refresh
     
-    // MARK: - Target Methods - 点击事件或通知事件
+    public func initHeaderRefresh(scrollView: UIScrollView?) {
+        
+    }
     
-    // MARK: - event response - 响应事件
+    public func initFooterRefresh(scrollView: UIScrollView?) {
+        
+    }
     
-    // MARK: - Delegate - 代理事件，将所有的delegate放在同一个pragma下
+    public func endRefresh(scrollView: UIScrollView?) {
+        
+    }
     
-    // MARK: - private method - 私有方法的代码尽量抽取创建公共class。
-    
-    // 主要方法
-    
+    public func endRefreshingWithNoMoreData(scrollView: UIScrollView?) {
+        
+    }
+
+    /*
     public final func initRefresh() {
         if !isNoHeader {
             mj_header = MJRefreshNormalHeader(refreshingBlock: {
@@ -332,23 +335,11 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
             tableView?.mj_footer = mj_footer!
         }
     }
-    
-    open func didSetCurrentPage() {}
-    open func refreshHeader() {}
-    open func refreshFooter() {}
+    */
     
     public final func endRefresh() {
-        tableView?.mj_header?.endRefreshing()
-        tableView?.mj_footer?.endRefreshing()
-    }
-    
-    
-    open func setSumPage() -> Int { return 1 }
-    
-    
-    final public func resetCurrentStatusForReqApi() {
-        currentPage = initialPage
-        isAddMore = false
+//        tableView?.mj_header?.endRefreshing()
+//        tableView?.mj_footer?.endRefreshing()
     }
     
 }

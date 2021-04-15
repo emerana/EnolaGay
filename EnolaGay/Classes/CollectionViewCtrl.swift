@@ -217,7 +217,6 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
 
 // MARK: - JudyBaseCollectionRefreshViewCtrl
 
-import MJRefresh
 
 /// 在 JudyBaseCollectionViewCtrl 的基础上加上刷新控件，以支持分页加载数据
 ///
@@ -237,26 +236,21 @@ import MJRefresh
 ///    }
 ///}
 ///```
-/// - since: V1.1 2020年11月06日13:32:02
 open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERANA_Refresh {
     
-    // MARK: - let property and IBOutlet
-    
+    /// 刷新视图适配器协议对象。
+    // private(set) weak var refreshAdapter: EMERANA_Refresh?
+
+
     // MARK: - var property
-    
-    open var initialPage: Int { return 1 }
 
-    final private(set) public var currentPage = 0 { didSet{ didSetCurrentPage() } }
-    
-    final private(set) lazy public var isAddMore = false
-    
-    @IBInspectable private(set) lazy public var isNoHeader: Bool = false
-    
-    @IBInspectable private(set) lazy public var isNoFooter: Bool = false
-    
-    private(set) lazy public var mj_header: MJRefreshNormalHeader? = nil
+    open var pageSize: Int { 10 }
 
-    private(set) lazy public var mj_footer: MJRefreshBackNormalFooter? = nil
+    open var defaultPageIndex: Int { 1 }
+
+    final public var currentPage = 0 { didSet{ didSetCurrentPage() } }
+    
+    final lazy public var isAddMore = false
 
     
     // MARK: - Life Cycle
@@ -264,14 +258,16 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentPage = initialPage
-        initRefresh()
+        // 要求重置刷新相关数据。
+        resetCurrentStatusForReqApi()
+        // 配置刷新控件。
+        if !isNoHeader() {
+            initHeaderRefresh(scrollView: collectionView)
+        }
+        if !isNoFooter() {
+            initFooterRefresh(scrollView: collectionView)
+        }
     }
-    
-    // MARK: - override - 重写重载父类的方法
-    
-    open func pageParameterString() -> String { "page" }
-    
 
     // MARK: Api相关
         
@@ -283,15 +279,16 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     ///requestConfig.parameters?["userName"] = "Judy"
     ///```
     /// - Warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage
-    /// - since: V1.1 2020年11月06日13:33:18
-    open override func setApi() { requestConfig.parameters?[pageParameterString()] = currentPage }
+    open override func setApi() {
+        requestConfig.parameters?[pageParameterString()] = currentPage
+    }
     
     open override func reqNotApi() {
         if isAddMore {
             // 如果是因为没有设置 api 导致请求结束需要将当前页减1
             currentPage -= 1
         }
-        endRefresh()
+        endRefresh(scrollView: collectionView)
     }
     
     /// 当服务器响应时首先执行此函数
@@ -303,49 +300,51 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     ///     super.reqResult()
     /// }
     /// ```
-    open override func reqResult() { endRefresh() }
+    open override func reqResult() { endRefresh(scrollView: collectionView) }
     
     /// 请求成功的消息处理
     ///
     /// 此函数已经处理是否有更多数据，需自行根据服务器响应数据更改数据源及刷新 tableView
-    /// - version: 1.1
-    /// - since: 2020年11月06日11:27:24
-    /// - warning: 此函数中影响设置总页数函数 setSumPage(), 无关的逻辑应该在此排除
+    /// - Warning: 此函数中影响设置总页数函数 setSumPage(), 无关的逻辑应该在此排除
     open override func reqSuccess() {
         // 设置总页数
         let sumPage = setSumPage()
         // 在此判断是否有更多数据。结束刷新已经在 reqResult() 中完成。
         if sumPage <= currentPage {    // 最后一页了，没有更多
             // 当没有更多数据的时候要将当前页设置为总页数或默认页数
-            currentPage = sumPage <= initialPage ? initialPage:sumPage
+            currentPage = sumPage <= defaultPageIndex ? defaultPageIndex:sumPage
+
             // 当没有开启 mj_footer 时这里可能为nil
-            collectionView?.mj_footer?.endRefreshingWithNoMoreData()
+            endRefreshingWithNoMoreData(scrollView: collectionView)
+            // collectionView?.mj_footer?.endRefreshingWithNoMoreData()
         }
     }
     
     /// 请求失败的消息处理
     ///
     /// 重写此方法务必调用父类方法
-    /// - warning:当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1
-    /// - since: V1.1 2020年11月06日13:23:36
+    /// - Warning: 当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1
     open override func reqFailed() {
         super.reqFailed()
         
         if isAddMore { currentPage -= 1 }
     }
+    
+    // MARK: - EMERANA_Refresh
+    
+    public func initHeaderRefresh(scrollView: UIScrollView?) {
+        
+    }
+    
+    public func initFooterRefresh(scrollView: UIScrollView?) {
+        
+    }
+    
+    public func endRefreshingWithNoMoreData(scrollView: UIScrollView?) {
+        
+    }
 
-    // MARK: - Intial Methods - 初始化的方法
-    
-    // MARK: - Target Methods - 点击事件或通知事件
-    
-    // MARK: - event response - 响应事件
-    
-    // MARK: - Delegate - 代理事件，将所有的delegate放在同一个pragma下
-    
-    // MARK: - private method - 私有方法的代码尽量抽取创建公共class。
-    
-    // 主要方法
-    
+/*
     public final func initRefresh() {
         if !isNoHeader {
             mj_header = MJRefreshNormalHeader(refreshingBlock: {
@@ -381,26 +380,13 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
             collectionView?.mj_footer = mj_footer!
         }
     }
+    */
     
-    open func didSetCurrentPage() {}
-    open func refreshHeader() {}
-    open func refreshFooter() {}
-    
-
-    public final func endRefresh() {
-        collectionView?.mj_header?.endRefreshing()
-        collectionView?.mj_footer?.endRefreshing()
+    public func endRefresh(scrollView: UIScrollView?) {
+        // collectionView?.mj_header?.endRefreshing()
+        // collectionView?.mj_footer?.endRefreshing()
     }
-    
-    
-    open func setSumPage() -> Int { return 1 }
-    
-
-    final public func resetCurrentStatusForReqApi() {
-        currentPage = initialPage
-        isAddMore = false
-    }
-    
+        
 }
 
 
