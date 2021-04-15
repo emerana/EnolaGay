@@ -194,9 +194,9 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
 
     open var defaultPageIndex: Int { 1 }
 
-    final public var currentPage = 0 { didSet{ didSetCurrentPage() } }
+    final public private(set) var currentPage = 0 { didSet{ didSetCurrentPage() } }
 
-    final lazy public var isAddMore = false
+    final lazy public private(set) var isAddMore = false
 
 
     // MARK: - Life Cycle
@@ -205,7 +205,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
         super.viewDidLoad()
         
         // 要求重置刷新相关数据。
-        resetCurrentStatusForReqApi()
+        resetStatus()
         // 配置刷新控件。
         if !isNoHeader() {
             EMERANA.refreshAdapter?.initHeaderRefresh(scrollView: tableView, callback: {
@@ -288,6 +288,11 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
         reqNotApi()
     }
     
+    open func resetStatus() {
+        currentPage = defaultPageIndex
+        isAddMore = false
+    }
+
     /// 测试将总页数设置为 3 页，请覆盖此函数已配置正确的总页数。
     public func setSumPage() -> Int { 3 }
     

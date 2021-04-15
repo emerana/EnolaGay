@@ -62,6 +62,7 @@ public protocol RefreshAdapter where Self: UIApplication {
     func endRefresh(scrollView: UIScrollView?)
     /// 结束没有更多数据的函数。
     func endRefreshingWithNoMoreData(scrollView: UIScrollView?)
+    
     /// 重置没有更多数据。
     func resetNoMoreData(scrollView: UIScrollView?)
     
@@ -75,13 +76,13 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     var defaultPageIndex: Int { get }
     
     /// 请求页码。初始化、下拉刷新时因重置到默认值。
-    var currentPage: Int { get set }
+    var currentPage: Int { get }
     
     /// 每页的数据大小。
     var pageSize: Int { get }
 
     /// 该属性标识最后的操作是否为上拉加载更多，默认值为否。通常用于获取到服务器数据后的处理。
-    var isAddMore: Bool { get set }
+    var isAddMore: Bool { get }
     
     /// 是否不需要下拉加载，默认 false。当不需要下拉加载时将此属性设为 true 即可，集合视图将不会初始化下拉刷新。
     func isNoHeader() -> Bool
@@ -115,7 +116,7 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     /// 重置当前页面请求页数及上下拉状态，此函数已默认实现，非必要无需覆盖。
     /// # 用于 segmentCtrl 切换并请求 Api 时重置当前界面状态。
     /// * 此方法将会重置 currentPage 和 isAddMore 为最初状态
-    func resetCurrentStatusForReqApi()
+    func resetStatus()
 
 }
 /// 默认实现。
@@ -137,10 +138,6 @@ public extension EMERANA_Refresh {
     
     func refreshFooter() {}
 
-    func resetCurrentStatusForReqApi() {
-        currentPage = defaultPageIndex
-        isAddMore = false
-    }
 }
 
 /*

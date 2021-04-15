@@ -259,7 +259,7 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
         super.viewDidLoad()
         
         // 要求重置刷新相关数据。
-        resetCurrentStatusForReqApi()
+        resetStatus()
         // 配置刷新控件。
         if !isNoHeader() {
             initHeaderRefresh(scrollView: collectionView)
@@ -332,18 +332,10 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     
     // MARK: - EMERANA_Refresh
     
-    public func initHeaderRefresh(scrollView: UIScrollView?) {
+    public func resetStatus() {
         
     }
     
-    public func initFooterRefresh(scrollView: UIScrollView?) {
-        
-    }
-    
-    public func endRefreshingWithNoMoreData(scrollView: UIScrollView?) {
-        
-    }
-
 /*
     public final func initRefresh() {
         if !isNoHeader {
