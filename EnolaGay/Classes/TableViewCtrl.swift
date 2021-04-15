@@ -198,7 +198,6 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
 
     final lazy public private(set) var isAddMore = false
 
-
     // MARK: - Life Cycle
     
     open override func viewDidLoad() {
@@ -219,11 +218,9 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
                 EMERANA.refreshAdapter?.resetNoMoreData(scrollView: self?.tableView)
                 
                 self?.reqApi()
-                
             })
         }
         if !isNoFooter() {
-            
             EMERANA.refreshAdapter?.initFooterRefresh(scrollView: tableView, callback: {
                 [weak self] in
                 
@@ -247,17 +244,14 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     }
     
     open override func reqNotApi() {
-        if isAddMore {
-            // 如果是因为没有设置 api 导致请求结束需要将当前页减1
-            currentPage -= 1
-        }
+        if isAddMore { currentPage -= 1 }
         EMERANA.refreshAdapter?.endRefresh(scrollView: tableView)
     }
     
     /// 当服务器响应时首先执行此函数。
     ///
     /// 此函数中会调用 endRefresh()，即结束 header、footer 的刷新状态。
-    /// - warning: 此函数中影响上下拉状态，请确认正确条件下调用 super.reqResult()
+    /// - warning: 此函数中影响上下拉状态，请确认正确条件下调用 super.reqResult()。
     /// ```
     /// if  requestConfig.api?.value == ApiActions.Live.getAnchorLibraries.rawValue {
     ///     super.reqResult()
@@ -270,11 +264,11 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     /// 此函数已经处理是否有更多数据，需自行根据服务器响应数据更改数据源及刷新 tableView。
     /// - Warning: 此函数中影响设置总页数函数 setSumPage(), 无关的逻辑应该在此排除。
     open override func reqSuccess() {
-        // 设置总页数
+        // 设置总页数。
         let sumPage = setSumPage()
         // 在此判断是否有更多数据。结束刷新已经在 reqResult() 中完成。
-        if sumPage <= currentPage {    // 最后一页了，没有更多
-            // 当没有更多数据的时候要将当前页设置为总页数或默认页数
+        if sumPage <= currentPage {    // 最后一页了，没有更多。
+            // 当没有更多数据的时候要将当前页设置为总页数或默认页数。
             currentPage = sumPage <= defaultPageIndex ? defaultPageIndex:sumPage
             EMERANA.refreshAdapter?.endRefreshingWithNoMoreData(scrollView: tableView)
         }

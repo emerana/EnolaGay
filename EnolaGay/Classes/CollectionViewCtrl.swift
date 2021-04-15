@@ -218,7 +218,7 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
 // MARK: - JudyBaseCollectionRefreshViewCtrl
 
 
-/// 在 JudyBaseCollectionViewCtrl 的基础上加上刷新控件，以支持分页加载数据
+/// 在 JudyBaseCollectionViewCtrl 的基础上加上刷新控件，以支持分页加载数据。
 ///
 /// 需要重写 setSumPage() 函数以设置总页数
 /// - warning: reqApi() 周期主要匹配分页加载功能，若存在多种用途请注意参考重写以下函数：
@@ -238,22 +238,16 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
 ///```
 open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERANA_Refresh {
     
-    /// 刷新视图适配器协议对象。
-    // private(set) weak var refreshAdapter: EMERANA_Refresh?
-
-
-    // MARK: - var property
-
     open var pageSize: Int { 10 }
 
     open var defaultPageIndex: Int { 1 }
 
-    final public var currentPage = 0 { didSet{ didSetCurrentPage() } }
-    
-    final lazy public var isAddMore = false
+    final public private(set) var currentPage = 0 { didSet{ didSetCurrentPage() } }
 
-    
+    final lazy public private(set) var isAddMore = false
+
     // MARK: - Life Cycle
+    
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -262,10 +256,29 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
         resetStatus()
         // 配置刷新控件。
         if !isNoHeader() {
-            initHeaderRefresh(scrollView: collectionView)
+            EMERANA.refreshAdapter?.initHeaderRefresh(scrollView: collectionView, callback: {
+                [weak self] in
+                
+                self?.refreshHeader()
+
+                self?.isAddMore = false
+                self?.currentPage = self!.defaultPageIndex
+               
+                EMERANA.refreshAdapter?.resetNoMoreData(scrollView: self?.collectionView)
+                
+                self?.reqApi()
+            })
         }
         if !isNoFooter() {
-            initFooterRefresh(scrollView: collectionView)
+            EMERANA.refreshAdapter?.initFooterRefresh(scrollView: collectionView, callback: {
+                [weak self] in
+                
+                self?.refreshFooter()
+
+                self?.isAddMore = true
+                self?.currentPage += 1
+                self?.reqApi()
+            })
         }
     }
 
@@ -281,42 +294,39 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     /// - Warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage
     open override func setApi() {
         requestConfig.parameters?[pageParameterString()] = currentPage
+        requestConfig.parameters?[pageSizeParameterString()] = pageSize
     }
     
     open override func reqNotApi() {
-        if isAddMore {
-            // 如果是因为没有设置 api 导致请求结束需要将当前页减1
-            currentPage -= 1
-        }
-        endRefresh(scrollView: collectionView)
+        if isAddMore { currentPage -= 1 }
+        EMERANA.refreshAdapter?.endRefresh(scrollView: collectionView)
     }
     
-    /// 当服务器响应时首先执行此函数
+    /// 当服务器响应时首先执行此函数。
     ///
     /// 此函数中会调用 endRefresh()，即结束 header、footer 的刷新状态。
-    /// - warning: 此函数中影响上下拉状态，请确认正确条件下调用 super.reqResult()
+    /// - warning: 此函数中影响上下拉状态，请确认正确条件下调用 super.reqResult()。
     /// ```
     /// if  requestConfig.api?.value == ApiActions.Live.getAnchorLibraries.rawValue {
     ///     super.reqResult()
     /// }
     /// ```
-    open override func reqResult() { endRefresh(scrollView: collectionView) }
+    open override func reqResult() {
+        EMERANA.refreshAdapter?.endRefresh(scrollView: collectionView)
+    }
     
-    /// 请求成功的消息处理
+    /// 请求成功的消息处理，子类请务必调用父类函数。
     ///
-    /// 此函数已经处理是否有更多数据，需自行根据服务器响应数据更改数据源及刷新 tableView
-    /// - Warning: 此函数中影响设置总页数函数 setSumPage(), 无关的逻辑应该在此排除
+    /// 此函数已经处理是否有更多数据，需自行根据服务器响应数据更改数据源及刷新 collectionView。
+    /// - Warning: 此函数中影响设置总页数函数 setSumPage(), 无关的逻辑应该在此排除。
     open override func reqSuccess() {
-        // 设置总页数
+        // 设置总页数。
         let sumPage = setSumPage()
         // 在此判断是否有更多数据。结束刷新已经在 reqResult() 中完成。
-        if sumPage <= currentPage {    // 最后一页了，没有更多
-            // 当没有更多数据的时候要将当前页设置为总页数或默认页数
+        if sumPage <= currentPage {    // 最后一页了，没有更多。
+            // 当没有更多数据的时候要将当前页设置为总页数或默认页数。
             currentPage = sumPage <= defaultPageIndex ? defaultPageIndex:sumPage
-
-            // 当没有开启 mj_footer 时这里可能为nil
-            endRefreshingWithNoMoreData(scrollView: collectionView)
-            // collectionView?.mj_footer?.endRefreshingWithNoMoreData()
+            EMERANA.refreshAdapter?.endRefreshingWithNoMoreData(scrollView: collectionView)
         }
     }
     
@@ -326,59 +336,18 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     /// - Warning: 当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1
     open override func reqFailed() {
         super.reqFailed()
-        
-        if isAddMore { currentPage -= 1 }
+        reqNotApi()
     }
     
     // MARK: - EMERANA_Refresh
     
     public func resetStatus() {
-        
+        currentPage = defaultPageIndex
+        isAddMore = false
     }
     
-/*
-    public final func initRefresh() {
-        if !isNoHeader {
-            mj_header = MJRefreshNormalHeader(refreshingBlock: {
-                [weak self] in
-
-                self?.refreshHeader()
-
-                self?.isAddMore = false
-                self?.currentPage = self!.initialPage
-                self?.collectionView?.mj_footer?.resetNoMoreData()
-                self?.reqApi()
-            })
-            collectionView?.mj_header = mj_header!
-        }
-        
-        if !isNoFooter {
-            mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
-                [weak self] in
-
-                guard self?.requestConfig.api != nil else {
-                    self?.collectionView?.mj_footer?.endRefreshingWithNoMoreData()
-                    return
-                }
-                
-                self?.refreshFooter()
-
-                self?.isAddMore = true
-                self?.currentPage += 1
-                self?.reqApi()
-                
-            })
-            mj_footer?.stateLabel?.isHidden = hideFooterStateLabel()
-            collectionView?.mj_footer = mj_footer!
-        }
-    }
-    */
-    
-    public func endRefresh(scrollView: UIScrollView?) {
-        // collectionView?.mj_header?.endRefreshing()
-        // collectionView?.mj_footer?.endRefreshing()
-    }
-        
+    /// 测试将总页数设置为 3 页，请覆盖此函数已配置正确的总页数。
+    public func setSumPage() -> Int { 3 }
 }
 
 
