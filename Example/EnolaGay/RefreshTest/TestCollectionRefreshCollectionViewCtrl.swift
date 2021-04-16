@@ -34,6 +34,7 @@ class TestCollectionRefreshCollectionViewCtrl: JudyBaseCollectionRefreshViewCtrl
         
         Judy.log("请求成功-\(apiData)")
     }
+    
 }
 
 
