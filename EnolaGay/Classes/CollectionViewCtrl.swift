@@ -220,8 +220,8 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
 
 /// 在 JudyBaseCollectionViewCtrl 的基础上加上刷新控件，以支持分页加载数据。
 ///
-/// 需要重写 setSumPage() 函数以设置总页数
-/// - warning: reqApi() 周期主要匹配分页加载功能，若存在多种用途请注意参考重写以下函数：
+/// 请实现刷新控件适配器 extension UIApplication: RefreshAdapter ；重写 setSumPage() 函数以设置总页数。
+/// - Warning: reqApi() 周期主要匹配分页加载功能，若存在无关分页请求需重写以下函数：
 ///     * reqResult()，此函数中影响上下拉状态，无需控制 UI 状态时需要在此函数中排除
 ///     * reqSuccess()，此函数中影响设置总页数函数 setSumPage(), 无关的逻辑应该在此排除
 ///```
@@ -300,7 +300,7 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     /// 当服务器响应时首先执行此函数。
     ///
     /// 此函数中会调用 endRefresh()，即结束 header、footer 的刷新状态。
-    /// - warning: 此函数中影响上下拉状态，请确认正确条件下调用 super.reqResult()。
+    /// - Warning: 此函数影响上下拉状态，请确认只有在分页相关请求条件下调用 super.reqResult()。
     /// ```
     /// if  requestConfig.api?.value == ApiActions.Live.getAnchorLibraries.rawValue {
     ///     super.reqResult()
@@ -313,7 +313,7 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     /// 请求成功的消息处理，子类请务必调用父类函数。
     ///
     /// 此函数已经处理是否有更多数据，需自行根据服务器响应数据更改数据源及刷新 collectionView。
-    /// - Warning: 此函数中影响设置总页数函数 setSumPage(), 无关的逻辑应该在此排除。
+    /// - Warning: 此函数中影响设置总页数函数 setSumPage(), 与分页无关的逻辑应该在此排除。
     open override func reqSuccess() {
         // 设置总页数。
         let sumPage = setSumPage()
@@ -340,8 +340,12 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     open func isNoHeader() -> Bool { false }
     open func isNoFooter() -> Bool { false }
     
-    open func pageParameterString() -> String { "pageIndex" }
-    open func pageSizeParameterString() -> String { "pageSize" }
+    open func pageParameterString() -> String {
+        EMERANA.refreshAdapter?.pageParameterStrings().0 ?? "pageIndex"
+    }
+    open func pageSizeParameterString() -> String {
+        EMERANA.refreshAdapter?.pageParameterStrings().1 ?? "pageSize"
+    }
     
     open func didSetCurrentPage() {}
     

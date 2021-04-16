@@ -116,7 +116,6 @@
 		6078C504516D8A7BE601ECF5F15FD397 /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D818F4AB547C0E30E43EF753F18DD4 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6124628377A4986784467BB72FAC82DD /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA70B51DF38AD54CA8CCF14E8BDDBFFA /* MJRefreshFooter.m */; };
 		616F00004F2D42AE1B4DF3730BE03377 /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD3D9A0C6D1EA68801CC7228DB2AFE /* Transformer.swift */; };
-		6369F278E73DCC883BC8EF40F8DBEBC7 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E5BABF1F087D7F7A1C5B61684BEB0 /* TableCell.swift */; };
 		6443D10C3ED8BB6CB1E920E1F659E903 /* PageViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C4F811C63E0D5078C83041C9B56A11 /* PageViewCtrl.swift */; };
 		64744C911253C3E01461FAD7C935C8D7 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D435ED8A55BE9FBF9DFEC412B5E01D2 /* Result.swift */; };
 		64928D1DC49AAC2BF714D661C250E797 /* SDMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 5257D6B7EF83EA247C5063F5B5269CE1 /* SDMemoryCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -655,7 +654,6 @@
 		A7C02BC8532A38F1B851BA1CB4DB14EA /* SDImageHEICCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageHEICCoder.m; path = SDWebImage/Core/SDImageHEICCoder.m; sourceTree = "<group>"; };
 		A874A0D9E01CC4751D87818B9E62F5CB /* Pods-EnolaGay_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-frameworks.sh"; sourceTree = "<group>"; };
 		A882B81D94C7D69D9617CE9821D652C3 /* NSButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSButton+WebCache.m"; path = "SDWebImage/Core/NSButton+WebCache.m"; sourceTree = "<group>"; };
-		A95E5BABF1F087D7F7A1C5B61684BEB0 /* TableCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableCell.swift; path = EnolaGay/Classes/TableCell.swift; sourceTree = "<group>"; };
 		A98C0B69550D43E9A24ACD029F7F91F5 /* Pods_EnolaGay_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E4FB247196B14A331A5A0D39674EB6 /* EnolaGay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EnolaGay.release.xcconfig; sourceTree = "<group>"; };
 		AA7359CF9820AB0235F5EF136C9F75F2 /* NavigationCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigationCtrl.swift; path = EnolaGay/Classes/NavigationCtrl.swift; sourceTree = "<group>"; };
@@ -1391,7 +1389,6 @@
 				AA7359CF9820AB0235F5EF136C9F75F2 /* NavigationCtrl.swift */,
 				B7C4F811C63E0D5078C83041C9B56A11 /* PageViewCtrl.swift */,
 				1213479777A940A40BEAFB52403D2B72 /* TabBarCtrl.swift */,
-				A95E5BABF1F087D7F7A1C5B61684BEB0 /* TableCell.swift */,
 				1E0F5115D2AE3E32A0822E8C9C755EE9 /* TableViewCtrl.swift */,
 				AB772221C17022FCF0C0432B30B330D6 /* TextField.swift */,
 				5D7AB133AFA7A5BFBC7B1B924327C83B /* View.swift */,
@@ -2099,7 +2096,6 @@
 				DAF81EAA4499E85B7C7476B3B271D1BD /* Protocol.swift in Sources */,
 				F5F9D09DB16DD7A61E313269F1CB5284 /* SegmentedView.swift in Sources */,
 				940FCCCC54AC6DC2746D26ED870B6A7B /* TabBarCtrl.swift in Sources */,
-				6369F278E73DCC883BC8EF40F8DBEBC7 /* TableCell.swift in Sources */,
 				7C13304EEDB776B7180A9EAA22EECC72 /* TableViewCtrl.swift in Sources */,
 				8C1577C5D710CFA243FAE738F69EBC4F /* TextField.swift in Sources */,
 				AFEC06625DE983A16810CDA838945121 /* View.swift in Sources */,
