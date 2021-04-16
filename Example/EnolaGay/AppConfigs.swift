@@ -203,4 +203,5 @@ extension UIApplication: RefreshAdapter {
         scrollView?.mj_footer?.resetNoMoreData()
     }
     
+    public func pageParameterStrings() -> (String, String) { ("pageIndexAOO","pageSizeAOO") }
 }

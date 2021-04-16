@@ -67,7 +67,17 @@ public protocol RefreshAdapter where Self: UIApplication {
     /// 重置没有更多数据。
     func resetNoMoreData(scrollView: UIScrollView?)
     
+    /// 询问分页请求中页码和页大小字段名，默认实现为 "pageIndex","pageSize"。
+    /// - Warning: 第一个元素为页码，第二个元素为页大小。
+    func pageParameterStrings() -> (String, String)
+
 }
+
+/// 默认实现。
+public extension RefreshAdapter {
+    func pageParameterStrings() -> (String, String) { ("pageIndex","pageSize") }
+}
+
 
 /// tableView、collectionView 专用刷新协议。
 /// - Warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供。
