@@ -13,14 +13,14 @@ import SwiftyJSON
 
 /// 该类包含一个 collectionView，请将 collectionView 与故事板关联
 /// * 该类已经实现了三个代理，UICollectionReusableView 在 dataSource 里
-/// * delegateFlowLayout 里面定义了布局系统
+/// * delegateFlowLayout 里面定义了布局系统。
 /// * 默认 collectionViewCellidentitier 为 "Cell"
 open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
     
     
     // MARK: - let property and IBOutlet
     
-    /// 主要的 CollectionView,该 CollectionView 默认将 dataSource、dataSource 设置为 self
+    /// 主要的 CollectionView,该 CollectionView 默认将 dataSource、dataSource 设置为 self。
     @IBOutlet public weak var collectionView: UICollectionView?
 
     
@@ -28,12 +28,11 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
     
     open lazy var dataSource = [JSON]()
     
-    /// 同一 line 中 item（cell）之间的最小间隙
+    /// 同一 line 中 item（cell）之间的最小间隙。
     open var itemSpacing: CGFloat { return 6 }
 
     
     // MARK: - Life Cycle
-    
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +47,10 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
         
         registerReuseComponents()
         
-        // 滑动时关闭键盘
+        // 滑动时关闭键盘。
         collectionView?.keyboardDismissMode = .onDrag
 
-        // 配置 collectionView 的背景色
+        // 配置 collectionView 的背景色。
         if #available(iOS 13.0, *) {
             if collectionView?.backgroundColor == UIColor.systemBackground {
                 collectionView?.backgroundColor = .judy(.scrollView)
@@ -69,7 +68,7 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
          // Judy-mark: 这样注册 cell 代替 Storyboard 里添加 cell
          let nib = UINib.init(nibName: "<#xibName#>", bundle: nil)
          tableView?.register(nib, forCellReuseIdentifier: "<#Cell#>")
-         // 获取Cell
+         // 获取 Cell
          let cell = tableView.dequeueReusableCell(withIdentifier: "<#Cell#>", for: indexPath)
          */
     }
@@ -79,26 +78,22 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
 
 // MARK: - UICollectionViewDataSource
 extension JudyBaseCollectionViewCtrl: UICollectionViewDataSource {
+    /*
+     /// 询问 collectionView 中的 section 数量。
+     func numberOfSections(in collectionView: UICollectionView) -> Int{ 1 }
+     */
     
-    // cell数量
+    /// 询问指定 section 中的 cell 数量，默认为 dataSource.count。
     open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return dataSource.count
     }
     
-    // section数量
-    //    func numberOfSections(in collectionView: UICollectionView) -> Int{
-    //        return 1
-    //    }
-    
-    // MARK: Cell初始化
+    /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例。
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        
-        return cell
+        return collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
     }
     
-    // 生成 HeaderView 和 FooterView
+    // 生成 HeaderView 和 FooterView。
     /*
      func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
      
@@ -145,16 +140,14 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegate {
     }
     */
     
-    
     // MARK: collectionView delegate
     
-    
-    // 选中事件
+    /// 选中事件。
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         Judy.log("点击-\(indexPath)")
     }
     
-    // Judy-mark: 完美解决 collectionView 滚动条被 Header 遮挡问题
+    // 完美解决 collectionView 滚动条被 Header 遮挡问题。
     open func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
         view.layer.zPosition = 0.0
     }
@@ -175,31 +168,34 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
      
      */
     
-    // cell大小
+    /// 询问 Cell 大小，在此函数中计算好对应的 Size。
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
-        
-        var widthForCell: CGFloat = collectionView.frame.width
-        let heightForCell: CGFloat = 88
-        // 在同一个 Line 中需要显示的 Cell 数量
-        let numForCellInRow: CGFloat = 3
-        
+        /// 在一个 Line 中需要显示的 Cell 数量。
+        let countOfCells: CGFloat = 3
+        /// Cell 参与计算的边长，初值为 Line 的长度（包含间距）。
+        ///
+        /// 一个 Line 中需要显示的所有 Cell 宽度（或高度）及他们之间所有间距的总和，以此来确定单个 Cell 的边长。
+        /// - Warning: 请注意在此处减去不参与计算 Cell 边长的部分，比如整个 collectionView 的内边距。
+        var lineWidthOfCell: CGFloat = collectionView.frame.width
         // 正确地计算 cellWidth 公式，若发现实际显示不正确，请确认是否关闭 CollectionView 的 Estimate Size，将其设置为 None.
-        widthForCell = (widthForCell + itemSpacing)/numForCellInRow - itemSpacing
-        if let cellHeight = dataSource[indexPath.section][EMERANA.Key.Cell.height].float {
-            return CGSize(width: widthForCell, height: CGFloat(cellHeight))
-        }
+        lineWidthOfCell = (lineWidthOfCell + itemSpacing)/countOfCells - itemSpacing
         
-        return CGSize(width: widthForCell, height: heightForCell)
+        /*
+        // 或者用此种方法计算边长均可。
+        lineWidthOfCell = (lineWidthOfCell - itemSpacing * (countOfCells - 1))/countOfCells
+         */
+        
+        let heightForCell: CGFloat = 88
+        
+        return CGSize(width: lineWidthOfCell, height: heightForCell)
     }
 
     /* 针对 Section 进行偏移。可直接在 Storyboard 中设置，必要的情况下重写此函数即可。
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
-        return UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
-    }
-    */
-    
-    
+     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+     return UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+     }
+     */
+
     // 一个 section 中连续的行或列之间的最小间距，默认为0。实际值可能大于该值，但不会比其小。
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
@@ -286,12 +282,16 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     ///requestConfig.api = .???
     ///requestConfig.parameters?["userName"] = "Judy"
     ///```
-    /// - Warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage
+    /// - Warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage，子类请务必调用父类方法。
     open override func setApi() {
         requestConfig.parameters?[pageParameterString()] = currentPage
         requestConfig.parameters?[pageSizeParameterString()] = pageSize
     }
     
+    /// 未设置 requestConfig.api 却发起了请求时的消息处理。
+    ///
+    /// 当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1。
+    /// - Warning: 重写此方法务必调用父类方法。
     open override func reqNotApi() {
         if isAddMore { currentPage -= 1 }
         reqResult()
@@ -325,10 +325,10 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
         }
     }
     
-    /// 请求失败的消息处理。
+    /// 请求失败的消息处理，此函数中会触发 reqNotApi 函数。
     ///
     /// 重写此方法务必调用父类方法。
-    /// - Warning: 当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1
+    /// - Warning:
     open override func reqFailed() {
         super.reqFailed()
         reqNotApi()
@@ -352,14 +352,20 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     open func refreshHeader() {}
     open func refreshFooter() {}
 
-    /// 测试将总页数设置为 3 页，请覆盖此函数已配置正确的总页数。
-    open func setSumPage() -> Int { 3 }
-    
+    /// 询问分页接口数据总页数，该函数已实现自动计算总页数。
+    ///
+    /// 一般用当前页返回到数量与 pageSize 作比较来判断是否还有下一页。
+    /// - Warning: 若 apiData["data"].arrayValue 字段不同请覆盖此函数配置正确的总页数。
+    open func setSumPage() -> Int {
+        apiData["data"].arrayValue.count != pageSize ? currentPage:currentPage+1
+    }
+
     open func resetStatus() {
         currentPage = defaultPageIndex
         isAddMore = false
     }
 }
+
 
 // MARK: - JudyCollectionViewLayout
 

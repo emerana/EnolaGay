@@ -21,12 +21,12 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
     
     // MARK: - let property and IBOutlet
     
-    /// 视图中的主要 tableView，该 tableView 默认将 dataSource、dataSource 设置为 self
+    /// 视图中的主要 tableView，该 tableView 默认将 dataSource、dataSource 设置为 self。
     @IBOutlet weak public var tableView: UITableView?
     
     // MARK: - var property
     
-    /// 是否隐藏 tableFooterView，默认 false，将该值调为 true 即可隐藏多余的 cell
+    /// 是否隐藏 tableFooterView，默认 false，将该值调为 true 即可隐藏多余的 cell。
     @IBInspectable private(set) lazy public var isHideFooter: Bool = false
 
     lazy public var dataSource = [JSON]()
@@ -36,7 +36,7 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         guard tableView != nil else {
             Judy.log("🚔 tableView 没有关联 IBOutlet！")
             return
@@ -46,12 +46,11 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
         tableView?.delegate = self
         
         registerReuseComponents()
-
+        
         if isHideFooter { tableView?.tableFooterView = UIView() }
         
         // 滑动时关闭键盘
         tableView?.keyboardDismissMode = .onDrag
-        
         
         // 配置 tableView 的背景色
         if #available(iOS 13.0, *) {
@@ -63,7 +62,6 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
                 tableView?.backgroundColor = .judy(.scrollView)
             }
         }
-
     }
     
     open func registerReuseComponents() {
@@ -95,7 +93,6 @@ extension JudyBaseTableViewCtrl: UITableViewDelegate {
             navigationController?.setNavigationBarHidden(false, animated: true)
         }
         
-        
         // MARK: Judy-mark:scrollView的代理方法，取消tableViewHeader悬停的办法 取消悬停
         let sectionHeaderHeight:CGFloat = 8   // 这里的高度一定要>=heightForHeaderInSection的高度
         if (scrollView.contentOffset.y <= sectionHeaderHeight&&scrollView.contentOffset.y >= 0) {
@@ -107,18 +104,15 @@ extension JudyBaseTableViewCtrl: UITableViewDelegate {
     }
     */
     
-    
-    /// 默认在父类里 deselectRow，实现此函数覆盖 super 即可
+    /// 选中事件。默认在父类里 deselectRow，实现此函数覆盖 super 即可。
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if !tableView.isEditing {
             tableView.deselectRow(at: indexPath, animated: true)
         }
-        
     }
     
     /*
-     
      其他代理方法
 
      heightForRowAt -> UITableView.automaticDimension
@@ -143,24 +137,24 @@ extension JudyBaseTableViewCtrl: UITableViewDelegate {
     
 }
 
+
 // MARK: - UITableViewDataSource
+
 extension JudyBaseTableViewCtrl: UITableViewDataSource {
-    
     /*
-     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-     }
+     /// 询问 tableView 中的 section 数量。
+     func numberOfSections(in tableView: UITableView) -> Int { 2 }
      */
     
+    /// 询问指定 section 中的 cell 数量，默认为 dataSource.count。
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
     
+    /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例。
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // 此方法可以不判断 Cell 是否为 nil
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-                
-        return cell
+        // 此方法可以不判断 Cell 是否为 nil。
+        return tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
     }
     
 }
@@ -229,13 +223,23 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
 
     // MARK: Api相关
 
-    /// 在此函数中设置 api、param。
-    /// - Warning: 此函数中已经设置好页码和页大小，子类请调用父类函数。
+    /// 设置 api、param.
+    ///
+    /// 参考如下代码：
+    ///```
+    ///requestConfig.api = .???
+    ///requestConfig.parameters?["userName"] = "Judy"
+    ///```
+    /// - Warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage，子类请务必调用父类方法。
     open override func setApi() {
         requestConfig.parameters?[pageParameterString()] = currentPage
         requestConfig.parameters?[pageSizeParameterString()] = pageSize
     }
-    
+
+    /// 未设置 requestConfig.api 却发起了请求时的消息处理。
+    ///
+    /// 当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1。
+    /// - Warning: 重写此方法务必调用父类方法。
     open override func reqNotApi() {
         if isAddMore { currentPage -= 1 }
         reqResult()
@@ -267,7 +271,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
         }
     }
     
-    /// 请求失败的消息处理。
+    /// 请求失败的消息处理，此函数中会触发 reqNotApi 函数。
     ///
     /// - Warning: 重写此方法务必调用父类方法。
     open override func reqFailed() {
@@ -293,8 +297,13 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     open func refreshHeader() {}
     open func refreshFooter() {}
 
-    /// 测试将总页数设置为 3 页，请覆盖此函数已配置正确的总页数。
-    open func setSumPage() -> Int { 3 }
+    /// 询问分页接口数据总页数，该函数已实现自动计算总页数。
+    ///
+    /// 一般用当前页返回到数量与 pageSize 作比较来判断是否还有下一页。
+    /// - Warning: 若 apiData["data"].arrayValue 字段不同请覆盖此函数配置正确的总页数。
+    open func setSumPage() -> Int {
+        apiData["data"].arrayValue.count != pageSize ? currentPage:currentPage+1
+    }
 
     open func resetStatus() {
         currentPage = defaultPageIndex
@@ -305,7 +314,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
 
 
 /// tableVie 通用 cell，包含一张主要图片、副标题以及默认数据源 json。
-/// * labelsForColor 中的 labels 会配置颜色 foreground
+/// * labelsForColor 中的 labels 会配置颜色 foreground。
 open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     
     /// 是否需要解决 UITableView 有 footerView 时最后一个 cell 不显示分割线问题，默认 false。
@@ -326,7 +335,7 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
 
     /**
      didSet 时重新定义 super.frame
-     # 切记是要更改 super.frame，而不是 self，否则会进入死循环
+     # 切记是要更改 super.frame，而不是 self，否则会进入死循环。
      */
     open override var frame: CGRect {
         didSet{
@@ -354,7 +363,6 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
         labelsForColor?.forEach { label in
             label.textColor = .judy(.text)
         }
-        
     }
     
     /// 布局子视图。创建对象顺序一定是先有 frame，再 awakeFromNib，再调整布局。
