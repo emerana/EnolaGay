@@ -104,13 +104,12 @@ extension JudyBaseTableViewCtrl: UITableViewDelegate {
     }
     */
     
-    /// 默认在父类里 deselectRow，实现此函数覆盖 super 即可
+    /// 选中事件。默认在父类里 deselectRow，实现此函数覆盖 super 即可。
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if !tableView.isEditing {
             tableView.deselectRow(at: indexPath, animated: true)
         }
-        
     }
     
     /*
@@ -142,20 +141,20 @@ extension JudyBaseTableViewCtrl: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 
 extension JudyBaseTableViewCtrl: UITableViewDataSource {
-    
     /*
+     /// 询问 tableView 中的 section 数量。
      func numberOfSections(in tableView: UITableView) -> Int { 2 }
      */
     
+    /// 询问指定 section 中的 cell 数量，默认为 dataSource.count。
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
     
+    /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例。
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 此方法可以不判断 Cell 是否为 nil。
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-                
-        return cell
+        return tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
     }
     
 }
@@ -315,7 +314,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
 
 
 /// tableVie 通用 cell，包含一张主要图片、副标题以及默认数据源 json。
-/// * labelsForColor 中的 labels 会配置颜色 foreground
+/// * labelsForColor 中的 labels 会配置颜色 foreground。
 open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     
     /// 是否需要解决 UITableView 有 footerView 时最后一个 cell 不显示分割线问题，默认 false。
@@ -336,7 +335,7 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
 
     /**
      didSet 时重新定义 super.frame
-     # 切记是要更改 super.frame，而不是 self，否则会进入死循环
+     # 切记是要更改 super.frame，而不是 self，否则会进入死循环。
      */
     open override var frame: CGRect {
         didSet{
@@ -364,7 +363,6 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
         labelsForColor?.forEach { label in
             label.textColor = .judy(.text)
         }
-        
     }
     
     /// 布局子视图。创建对象顺序一定是先有 frame，再 awakeFromNib，再调整布局。

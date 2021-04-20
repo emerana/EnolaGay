@@ -78,16 +78,15 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
 
 // MARK: - UICollectionViewDataSource
 extension JudyBaseCollectionViewCtrl: UICollectionViewDataSource {
+    /*
+     /// 询问 collectionView 中的 section 数量。
+     func numberOfSections(in collectionView: UICollectionView) -> Int{ 1 }
+     */
     
     /// 询问指定 section 中的 cell 数量，默认为 dataSource.count。
     open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return dataSource.count
     }
-    
-    /*
-     /// 询问 collectionView 中的 section 数量。
-     func numberOfSections(in collectionView: UICollectionView) -> Int{ 1 }
-     */
     
     /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例。
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
@@ -143,12 +142,12 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegate {
     
     // MARK: collectionView delegate
     
-    // 选中事件
+    /// 选中事件。
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         Judy.log("点击-\(indexPath)")
     }
     
-    // Judy-mark: 完美解决 collectionView 滚动条被 Header 遮挡问题
+    // 完美解决 collectionView 滚动条被 Header 遮挡问题。
     open func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
         view.layer.zPosition = 0.0
     }
