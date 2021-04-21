@@ -244,24 +244,36 @@ public extension Judy {
         #endif
     }
 
-    /// 详细的 Log 控制台输出，此函数只在 DEBUG 下执行，请放心随处使用
-    ///
-    /// 若需要关闭此函数所有打印，在 Swift Compiler - Custom Flags 中 Active Compilation Conditions 下增加 NOLOG 即可禁用此函数打印。
-    ///
-    /// - warning: 使用此函数时只需要传入要输出的 msg 即可，系统会自动传入除 msg 以外的参数
-    /// - Parameters:
-    ///   - message: 要输出的消息体
-    ///   - file: 调用此函数所在的文件名
-    ///   - method: 调用此函数所在的方法
-    ///   - line: 调用此函数所在的行
-    static func log<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
+    /// 该打印函数将输出包含文件名、函数名信息。
+    static func log<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function) {
+        #if DEBUG
+        print("🚅 \((file as NSString).lastPathComponent) 🚚 \(method) 📝 \(message())")
+        #endif
+    }
+    
+    /// 该打印函数将输出包含文件名及所在行信息。
+    static func logl<msg>(_ message: @autoclosure () -> msg, file: String = #file, line: Int = #line) {
+        #if DEBUG
+        print("🚅 \((file as NSString).lastPathComponent)[\(line)] 📝 \(message())")
+        #endif
+    }
+
+    /// 该打印函数只输出要打印的消息体。
+    static func logs<msg>(_ message: @autoclosure () -> msg) {
+        #if DEBUG
+        print("🚅 \(message())")
+        #endif
+    }
+
+    /// 该打印函数将打印包含文件名、所在行及函数名的消息。
+    static func logDetail<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
         // 🚥❤️🧡💛💚💙💜💟🎇♒️🚦🚖🚘🚔🚙
         print("🚘 \((file as NSString).lastPathComponent)[\(line)] 💟 \(method)\n\(message())\n🚥")
         #endif
     }
-    
-    /// 在输出函数 log 的基础上增加警告标识符输出
+
+    /// 在输出函数 log 的基础上增加警告标识符输出。
     static func logWarning<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
         // 🚥❤️🧡💛💚💙💜💟🎇♒️🚦🚖🚘🚔🚙⚠️
