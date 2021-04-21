@@ -244,10 +244,11 @@ public extension Judy {
         #endif
     }
 
-    /// 该打印函数将输出包含文件名、函数名信息。
-    static func log<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function) {
+    /// 该打印函数将打印包含文件名、所在行及函数名的消息。
+    static func log<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
-        print("🚅 \((file as NSString).lastPathComponent) 🚚 \(method) 📝 \(message())")
+        print("🚅 \((file as NSString).lastPathComponent)[\(line)] 🚚 \(method)\n\(message())\n🚥")
+
         #endif
     }
     
@@ -261,15 +262,7 @@ public extension Judy {
     /// 该打印函数只输出要打印的消息体。
     static func logs<msg>(_ message: @autoclosure () -> msg) {
         #if DEBUG
-        print("🚅 \(message())")
-        #endif
-    }
-
-    /// 该打印函数将打印包含文件名、所在行及函数名的消息。
-    static func logDetail<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
-        #if DEBUG
-        // 🚥❤️🧡💛💚💙💜💟🎇♒️🚦🚖🚘🚔🚙
-        print("🚘 \((file as NSString).lastPathComponent)[\(line)] 💟 \(method)\n\(message())\n🚥")
+        print("📝 \(message())")
         #endif
     }
 
