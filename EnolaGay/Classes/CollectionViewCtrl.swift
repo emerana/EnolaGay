@@ -11,12 +11,11 @@
 import UIKit
 import SwiftyJSON
 
-/// 该类包含一个 collectionView，请将 collectionView 与故事板关联
+/// 该类包含一个 collectionView，请将 collectionView 与故事板关联。
 /// * 该类已经实现了三个代理，UICollectionReusableView 在 dataSource 里
 /// * delegateFlowLayout 里面定义了布局系统。
 /// * 默认 collectionViewCellidentitier 为 "Cell"
 open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
-    
     
     // MARK: - let property and IBOutlet
     
@@ -80,16 +79,16 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
 extension JudyBaseCollectionViewCtrl: UICollectionViewDataSource {
     /*
      /// 询问 collectionView 中的 section 数量。
-     func numberOfSections(in collectionView: UICollectionView) -> Int{ 1 }
+     func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
      */
     
     /// 询问指定 section 中的 cell 数量，默认为 dataSource.count。
-    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.count
     }
     
     /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例。
-    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
     }
     
@@ -104,7 +103,6 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDataSource {
      
      return footerView
      }
-     
      
      return headerView
      }
@@ -158,31 +156,29 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegate {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
         
-    // 设置headerView的Size。一般用不上这个方法，在生成HeaderView中就可以设置高度或者在xib中设置高度即可。
+    // 设置 headerView 的 Size。一般用不上这个方法，在生成 HeaderView 中就可以设置高度或者在 xib 中设置高度即可。
     /*
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
      
      // 这里设置宽度不起作用
-     return CGSize.init(width: 0, height: <#58#>)
+     return CGSize(width: 0, height: <#58#>)
      }
-     
      */
     
     /// 询问 Cell 大小，在此函数中计算好对应的 Size。
-    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         /// 在一个 Line 中需要显示的 Cell 数量。
         let countOfCells: CGFloat = 3
         /// Cell 参与计算的边长，初值为 Line 的长度（包含间距）。
         ///
         /// 一个 Line 中需要显示的所有 Cell 宽度（或高度）及他们之间所有间距的总和，以此来确定单个 Cell 的边长。
-        /// - Warning: 请注意在此处减去不参与计算 Cell 边长的部分，比如整个 collectionView 的内边距。
+        /// - Warning: 请注意在此处减去不参与计算 Cell 边长的部分，比如：collectionView.contentInset.left.
         var lineWidthOfCell: CGFloat = collectionView.frame.width
         // 正确地计算 cellWidth 公式，若发现实际显示不正确，请确认是否关闭 CollectionView 的 Estimate Size，将其设置为 None.
         lineWidthOfCell = (lineWidthOfCell + itemSpacing)/countOfCells - itemSpacing
         
-        /*
-        // 或者用此种方法计算边长均可。
-        lineWidthOfCell = (lineWidthOfCell - itemSpacing * (countOfCells - 1))/countOfCells
+        /* 或者用此种方法计算边长均可。
+         lineWidthOfCell = (lineWidthOfCell - itemSpacing * (countOfCells - 1))/countOfCells
          */
         
         let heightForCell: CGFloat = 88
@@ -192,11 +188,11 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
 
     /* 针对 Section 进行偏移。可直接在 Storyboard 中设置，必要的情况下重写此函数即可。
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-     return UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+     return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
      }
      */
 
-    // 一个 section 中连续的行或列之间的最小间距，默认为0。实际值可能大于该值，但不会比其小。
+    // 一个 section 中连续的行或列之间的最小间距，默认为 0。实际值可能大于该值，但不会比其小。
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
         return itemSpacing
@@ -459,7 +455,7 @@ public class JudyCollectionViewLayout: UICollectionViewFlowLayout {
 
 private extension JudyCollectionViewLayout {
     
-    /// 计算 Cell 间最小项间距
+    /// 计算 Cell 间最小项间距。
     func evaluatedMinimumInteritemSpacingForSectionAtIndex(sectionIndex: NSInteger) -> CGFloat {
 
         if collectionView?.delegate?.responds(to: #selector((collectionView!.delegate as! UICollectionViewDelegateFlowLayout).collectionView(_:layout:minimumInteritemSpacingForSectionAt:))) ?? false {
@@ -483,15 +479,12 @@ private extension JudyCollectionViewLayout {
         }
     }
     
-    
 }
 
 
 // MARK: - JudyBaseCollectionViewCell
 
-
-/// collectionView 通用 cell，包含一张主要图片、副标题以及默认数据源 json。
-/// * labelsForColor 中的 labels 会配置颜色 foreground
+/// collectionView 中的通用 cell，包含一张主要图片、副标题以及默认数据源 json。
 open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
 
     // MARK: - let property and IBOutlet
@@ -504,6 +497,7 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
     
     @IBOutlet lazy public var labelsForColor: [UILabel]? = nil
 
+
     // MARK: - var property
     
     public var json = JSON() { didSet{ jsonDidSetAction() } }
@@ -511,8 +505,7 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
     
     // MARK: - life cycle
 
-    
-    // Judy-mark: Cell 准备重用时会先执行此方法。
+    /// Cell 准备重用时会先执行此方法。
     open override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -526,7 +519,6 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
         labelsForColor?.forEach { label in
             label.textColor = .judy(.text)
         }
-        
     }
     
     /// 布局子视图。创建对象顺序一定是先有 frame，再 awakeFromNib，再调整布局。
@@ -569,6 +561,5 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
             masterImageView?.image = UIImage(named: imageName)
         }
     }
-
 
 }
