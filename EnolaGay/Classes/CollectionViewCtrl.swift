@@ -172,7 +172,7 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
         /// Cell 参与计算的边长，初值为 Line 的长度（包含间距）。
         ///
         /// 一个 Line 中需要显示的所有 Cell 宽度（或高度）及他们之间所有间距的总和，以此来确定单个 Cell 的边长。
-        /// - Warning: 请注意在此处减去不参与计算 Cell 边长的部分，比如：collectionView.contentInset.left.
+        /// - Warning: 请注意在此处减去不参与计算 Cell 边长的部分，比如：collectionView.contentInset.left。
         var lineWidthOfCell: CGFloat = collectionView.frame.width
         // 正确地计算 cellWidth 公式，若发现实际显示不正确，请确认是否关闭 CollectionView 的 Estimate Size，将其设置为 None.
         lineWidthOfCell = (lineWidthOfCell + itemSpacing)/countOfCells - itemSpacing
