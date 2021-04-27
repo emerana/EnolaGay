@@ -806,13 +806,23 @@ public struct JudyTip {
         ProgressHUD.colorProgress = color
     }
     
-    /// 弹出一个等待的转圈 HUD，通常用于执行某个耗时过程，请配对调用 dismiss() 使其消失。
+    /// 弹出一个等待的转圈 HUD，通常用于执行某个耗时过程，请调用 dismiss() 或弹出其他 HUD 使其消失。
     /// - Parameter animationType: 等待指示器类型，默认为常见的系统转圈。
     public static func wait(animationType: AnimationType = .systemActivityIndicator) {
         ProgressHUD.animationType = animationType
         ProgressHUD.show()
     }
     
+    /// 等待的消息提示 HUD。
+    /// - Parameters:
+    ///   - animationType: 等待类型，默认为常见的系统转圈等待。
+    ///   - text: 消息体。
+    ///   - interaction: 是否允许用户交互，默认 true。
+    public static func wait(animationType: AnimationType = .systemActivityIndicator, text: String, interaction: Bool = true) {
+        ProgressHUD.animationType = animationType
+        ProgressHUD.show(text, interaction: interaction)
+    }
+
     /// 弹出一个消息体。
     /// - Parameters:
     ///   - messageType: 该 HUD 类型，默认为 failed。
