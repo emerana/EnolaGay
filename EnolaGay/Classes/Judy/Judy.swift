@@ -108,22 +108,21 @@ public struct Judy {
     
     // MARK: 系统、常用事件
     
-    /// 打开路由
+    /// 打开路由。
     ///
     /// - Parameters:
     ///   - urlStr: 要转成 URL 的 String,如果该 String 无法转成 URL 将不会打开
     ///   - closure: 闭包,(success: Bool)
     public static func openURL(_ urlStr: String, completionHandler closure: @escaping ((Bool) -> Void)) {
-        guard NSURL.init(string: urlStr) != nil  else {
-            logWarning("无效URL--->\(urlStr)")
+        guard NSURL(string: urlStr) != nil  else {
+            logWarning("无效 URL ->\(urlStr)")
             return
         }
-        let url: URL = NSURL.init(string: urlStr)! as URL
-        
+        let url: URL = NSURL(string: urlStr)! as URL
         openURL(url: url, completionHandler: closure)
     }
     
-    /// 打开路由
+    /// 打开路由。
     ///
     /// - Parameters:
     ///   - url: 一个正确的URL链接
@@ -143,6 +142,19 @@ public struct Judy {
             logWarning("未安装路由->\(url)或没有在plist文件中添加LSApplicationQueriesSchemes白名单(出口失败)")
             closure(false)
         }
+    }
+    
+    /// 在浏览器中打开该地址。
+    /// - Parameter urlStr: 目标 url。
+    public static func openSafari(urlStr: String) {
+        
+        guard let url = URL(string: urlStr) else {
+            logWarning("无效 URL ->\(urlStr)")
+            return
+        }
+        logHappy("正在打开：\(url)")
+
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
     /// 拨打电话
