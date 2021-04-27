@@ -83,7 +83,7 @@ public struct Judy {
     /// 当前是否有alert弹出，主要是提醒更新版本的Alert。
     fileprivate static var isAlerting = false {
         didSet{
-            judyLog("哎呀，isAlerting 被设置为\(isAlerting)")
+            logWarning("哎呀，isAlerting 被设置为\(isAlerting)")
         }
     }
     
@@ -216,76 +216,56 @@ public extension Judy {
     /**
      - 如果发现不能正常打印，请在Build Settings -> Active Compilation Conditions 的 Debug 项中添加一个 DEBUG 即可。
      */
-    
-    /// 自定义打印,如果有"，"分隔，则打印出来的东西是["abc","abc"]
-    ///
-    /// - Parameter items: 允许传入多个要打印的对象
-    static func judyLog(_ items: Any...) {
-        #if DEBUG
-        print("Judy:\(items)")
-        #endif
-    }
-    
-    /// 简单输出
-    ///
-    /// - Parameter item: 只能传入一个字符
-    static func judyLog(item: @autoclosure () -> Any) {
-        #if DEBUG
-        print("Judy:\(item())")
-        #endif
-    }
-    
-    /// 打印TODO。此方法用于在控制台输入提醒需要做的事。如：TODO: 实现 JudyConfigDelegate.
-    ///
-    /// - Parameter item: 只能传入一个字符
-    static func judyLogTODO(_ item: Any) {
-        #if DEBUG
-        print("TODO:\n\(item)\n")
-        #endif
-    }
 
-    /// 该打印函数将打印包含文件名、所在行及函数名的消息。
+    /// 该打印函数将打印包含文件名、所在行及函数名的消息，通常用于日志式的信息输出。
     static func log<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
-        print("🚅 \((file as NSString).lastPathComponent)[\(line)] 🚚 \(method)\n\(message())\n🚥")
-
+        print("🟡 \(message()) 📢 \((file as NSString).lastPathComponent)[\(line)] 🔈 \(method)")
         #endif
     }
     
+    /// 以换行的方式将消息体打印，该打印函数将打印包含文件名、所在行及函数名的消息，通常用于日志式的信息输出。
+    static func logn<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
+        #if DEBUG
+        print("🟡 \((file as NSString).lastPathComponent)[\(line)] 🔈 \(method) \n \(message())\n")
+        #endif
+    }
+
     /// 该打印函数将输出包含文件名及所在行信息。
     static func logl<msg>(_ message: @autoclosure () -> msg, file: String = #file, line: Int = #line) {
         #if DEBUG
-        print("🚅 \((file as NSString).lastPathComponent)[\(line)] 📝 \(message())")
+        print("🟡 \((file as NSString).lastPathComponent)[\(line)] 🔊 \(message())\n")
         #endif
     }
 
     /// 该打印函数只输出要打印的消息体。
     static func logs<msg>(_ message: @autoclosure () -> msg) {
         #if DEBUG
-        print("📝 \(message())")
+        print("🟡 \(message())")
+        #endif
+    }
+    
+    /// 该打印函数将打印包含文件名、所在行及函数名的消息，一般用于好消息类型的输出，比如 deinit 函数。
+    static func logHappy<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
+        #if DEBUG
+        print("🟢 \(message()) 📢 \((file as NSString).lastPathComponent)[\(line)] 🔈 \(method)")
         #endif
     }
 
-    /// 在输出函数 log 的基础上增加警告标识符输出。
-    static func logWarning<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
-        #if DEBUG
-        // 🚥❤️🧡💛💚💙💜💟🎇♒️🚦🚖🚘🚔🚙⚠️
-        print("🚔 \((file as NSString).lastPathComponent)[\(line)] 🔎 \(method)\n⚠️\(message())\n🚥")
-        #endif
-    }
-    
-    
-    
-    /// 输出包含线程相关信息的日志
-    ///
-    /// 此函数基于 log() 函数同时在控制台打印线程相关信息
-    /// * date: 2020年12月04日09:40:08
+    /// 输出包含线程相关信息的日志。
     static func logt<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
-        // 🚥❤️🧡💛💚💙💜💟🎇♒️🚦🚖🚘🚔🚙
-        print("🚘 Thread\(Thread.current) \((file as NSString).lastPathComponent)[\(line)] 💟 \(method)\n\(message())\n🚥")
+        print("🟣 \(Thread.current) 🔈 \((file as NSString).lastPathComponent)[\(line)] 🔉 \(method) 🔊 \(message())")
         #endif
     }
+    
+    /// 打印警告或错误级别的标识符输出。
+    static func logWarning<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
+        #if DEBUG
+        print("🔴 \((file as NSString).lastPathComponent)[\(line)] 🔈 \(method) 🔊 \(message())\n")
+        #endif
+    }
+    
 
     // MARK: 自定义方法输入
     
@@ -309,7 +289,7 @@ public extension Judy {
         if prefix != 0 && NSNotFound == nDotLoc && string != "" && string != "." {
             // 小数点前面位数验证
             if textFieldText.length >= prefix {
-                judyLog("小数点前只能输入\(prefix)位")
+                logWarning("小数点前只能输入\(prefix)位")
                 return false
             }
         }
@@ -323,12 +303,12 @@ public extension Judy {
         let filtered: String = (string.components(separatedBy: cs!) as NSArray).componentsJoined(by: "")
         
         if string as String != filtered {
-            judyLog("请输入正确的小数")
+            logWarning("请输入正确的小数")
             return false
         }
         
         if num != 0 && NSNotFound != nDotLoc && range.location > nDotLoc + num {
-            judyLog("小数点后只能保留\(num)位")
+            logWarning("小数点后只能保留\(num)位")
             return false
         }
         return true
@@ -350,13 +330,13 @@ public extension Judy {
         // Step1：输入数值校验，仅允许输入指定的字符
         let cs: CharacterSet = CharacterSet.init(charactersIn: "0123456789\n").inverted
         let filtered: String = (string.components(separatedBy: cs) as NSArray).componentsJoined(by: "")
-        guard string as String == filtered  else { judyLog("请输入正确的数值"); return false }
+        guard string as String == filtered  else { logWarning("请输入正确的数值"); return false }
         
         // Step2：位数校验，验证小数点前所允许的位数
         let textFieldText = textField.text! as NSString
         if num != 0 && string != ""  {
             // 小数点前面位数验证
-            guard textFieldText.length < num else { judyLog("只能输入\(num)位"); return false }
+            guard textFieldText.length < num else { logWarning("只能输入\(num)位"); return false }
         }
 
         // Step3：数值校验，验证最终输入框中的字符是否符合要求
@@ -364,12 +344,12 @@ public extension Judy {
         let numberValue = Int(textFieldString) ?? 0
         // 最大值校验
         if maxNumber != 0 && numberValue > maxNumber && string != "" {
-            judyLog("只能输入小于\(maxNumber)的值")
+            logWarning("只能输入小于\(maxNumber)的值")
             return false
         }
         // 最小值校验
         if minNumber != 0 && numberValue < minNumber && string != "" {
-            judyLog("只能输入>=\(minNumber)的值")
+            logWarning("只能输入>=\(minNumber)的值")
             return false
         }
         
@@ -391,7 +371,7 @@ public extension Judy {
         let cs: CharacterSet = CharacterSet.init(charactersIn: "0123456789\n").inverted
         let filtered: String = (string.components(separatedBy: cs) as NSArray).componentsJoined(by: "")
         guard string as String == filtered  else {
-            judyLog("仅限输入数值")
+            logWarning("仅限输入数值")
             return false
         }
 
@@ -738,17 +718,17 @@ public extension Judy {
 extension Judy {
 
     public static func test(){
-        judyLog("这是来自测试类的打印")
+        logWarning("这是来自测试类的打印")
         testPrivate()
     }
     
     fileprivate static func testPrivate(){
-        judyLog("这是私有打印")
+        logWarning("这是私有打印")
     }
     
     public static func testStaticVar(){
         isAlerting = !isAlerting
-        judyLog("此时，temp=\(isAlerting)")
+        logWarning("此时，temp=\(isAlerting)")
     }
 }
 
