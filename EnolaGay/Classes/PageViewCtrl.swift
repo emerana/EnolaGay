@@ -337,8 +337,8 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     weak public var enolagay: JudyPageViewCtrlDelegate!
     
     /// 当 scrollView 有值后触发此闭包以便外部设置下拉刷新。
-    /// - Warning: scrollView 仅支持下拉刷新。
-    public var scrollViewClosure:((UIScrollView) -> Void)?
+    /// - Warning: scrollView 仅支持下拉刷新，在使用该闭包时应弱引用调用者。
+    public var scrollViewClosure: ((UIScrollView) -> Void)?
     /// 在 UIPageViewController 中的核心 ScrollView，请通过 scrollViewClosure 获取有效的 scrollView。
     public private(set) var scrollView: UIScrollView? {
         didSet{
