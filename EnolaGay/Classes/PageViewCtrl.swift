@@ -69,7 +69,6 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
     /// viewCtrlArray 对应的 titles。
     private(set) lazy public var viewCtrlTitleArray = [String]()
     
-
     
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -77,7 +76,6 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
         guard transitionStyle == .scroll else {
             fatalError("请设置 pageViewCtrl.transitionStyle 为 scroll。")
         }
-
     }
 
     open override func viewDidLoad() {
@@ -135,7 +133,7 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
         }
     }
     
-    deinit { Judy.log("🚙 <\(title ?? "JudyBasePageViewCtrl")> 已经释放 - \(classForCoder)") }
+    deinit { Judy.logHappy("<\(title ?? "JudyBasePageViewCtrl")> 已经释放 - \(classForCoder)") }
 
     @available(*, unavailable, message: "该函数已更新，请通过 onStart 函数启动。", renamed: "onStart")
     final public func setPageViewDataSource<DataSource>(dataSource: [DataSource]) {}
@@ -158,8 +156,7 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
 
     /// 滚动视图发生向右滚动超过指定范围时执行特定事件。
     /// 如果重写此方法方法，需要覆盖父类方法，否则将不能实现手势返回。
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.bounces = isBounces
 
         guard isAutoPop, isScrollByViewCtrl,
@@ -231,7 +228,6 @@ extension JudyBasePageViewCtrl: UIPageViewControllerDataSource {
 }
 
 
-
 // MARK: - 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl
 
 /// 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl
@@ -291,7 +287,6 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
         
     }
     
-
 }
 
 
