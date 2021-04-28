@@ -160,7 +160,7 @@ protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
     /// ```
     /// let cell = tableView.dequeueReusableCell(withIdentifier: "<#Cell#>", for: indexPath)
     /// ```
-    /// - Warning: 一个 Nib 里面只放一个 Cell，且里面的 Cell 不能自带 identifier，如果有则必须用自带的 identifier 进行注册
+    /// - Warning: 一个 Nib 里面只放一个 Cell，且里面的 Cell 不能自带 identifier，否则必须用自带的 identifier 进行注册。
     func registerReuseComponents()
 }
 
@@ -203,15 +203,12 @@ public extension EMERANA_CellBasic {
     /// 所有实现 EMERANA_CellBasic 协议的对象在初始函数中均会先触发此扩展函数，在此函数中补充所需操作。
     ///
     /// 扩展对应的类并重写此函数即可使该类执行重写后的函数。
-    func globalAwakeFromNib() {
-        // Judy.log("Cell 触发了全局函数，相关信息：\(self)，若有需要请扩展类并重写此函数")
-    }
+    func globalAwakeFromNib() { }
     
-    func selectedDidSet(isSelected: Bool) {
-        // Judy.log("默认实现的 selectedDidSet")
-    }
+    func selectedDidSet(isSelected: Bool) { }
 
 }
+
 
 // MARK: - 字体样式协议。目前用于 button、label、textField
 
@@ -272,17 +269,21 @@ public protocol EMERANA_FontStyle: class {
 
 // MARK: - UIColor 配置
 
-/// UIColor EMERANA 配置协议，此协议已经默认实现
-/// - version: 1.0
-/// - since: 2021年01月06日11:02:33
-/// - warning: 使用注意事项
-///     * 如需自定义请 extension UIColor 覆盖 judy() 函数
-///     * 此协仅对 UIColor 类型提供
-public protocol EMERANA_UIColor {
+public extension UIColor {
+
     /*
-     # static 定义的属性和func 没办法被子类 override.
-     # class 定义的属性和func 可以被子类 override.
+     * static 定义的属性和func 没办法被子类 override.
+     * class 定义的属性和func 可以被子类 override.
      */
+    
+    static let scrollView: UIColor = .white
+
+}
+
+
+/// UIColor EMERANA 配置协议，此协议已经默认实现
+@available(*, unavailable, message: "此协议已废弃，请自行 extension UIColor 管理即可。")
+public protocol EMERANA_UIColor {
     
     /// 使用 EMERANA 配置获取颜色
     /// - warning: 自定义配置请 public extension UIColor 并覆盖此函数
@@ -292,6 +293,7 @@ public protocol EMERANA_UIColor {
 }
 
 // EMERANA_UIColor 协议默认实现
+/*
 public extension EMERANA_UIColor where Self: UIColor {
     
     func configColorStyle(_ style: UIColor.ColorStyle) -> UIColor {
@@ -355,9 +357,9 @@ public extension EMERANA_UIColor where Self: UIColor {
         }
     }
 }
-
+*/
 // MARK: UIColor 扩展
-
+@available(*, unavailable, message: "此协议已废弃，请自行 extension UIColor 管理即可。")
 public extension UIColor {
     
     /// EMERANA 对 App 中所使用的的 UIColor 集中管理
@@ -400,17 +402,8 @@ public extension UIColor {
     // MARK: 构造函数
     
     /// 通过 ColorStyle 配置一个颜色
-    /// - Parameter style: ColorStyle 样式，请通过
-    /// - since: 1.0 2021年01月06日11:02:33
-    static func judy(_ style: UIColor.ColorStyle) -> UIColor {
-        
-        guard EMERANA.colorStyleConfigDelegate != nil else {
-            Judy.logWarning("未实现 extension UIApplication: EMERANA_UIColor，该颜色将返回一个 red")
-            return .red
-        }
-
-        return EMERANA.colorStyleConfigDelegate!.configColorStyle(style)
-    }
+    @available(*, unavailable, message: "已废弃")
+    static func judy(_ style: UIColor.ColorStyle) -> UIColor { .red }
     
     
     /// 通过16进制转换成 UIColor
@@ -1439,6 +1432,7 @@ public struct EMERANA {
     let globalConfig: EnolaGayGlobalConfig? = UIApplication.shared as? EnolaGayGlobalConfig
 
     /// 颜色配置代理对象
+    @available(*, unavailable, message: "该配置代理对象已废弃，请自行")
     static let colorStyleConfigDelegate: EMERANA_UIColor? = UIApplication.shared as? EMERANA_UIColor
     
     /// 字体样式配置代理

@@ -50,6 +50,7 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
         collectionView?.keyboardDismissMode = .onDrag
 
         // 配置 collectionView 的背景色。
+        /*
         if #available(iOS 13.0, *) {
             if collectionView?.backgroundColor == UIColor.systemBackground {
                 collectionView?.backgroundColor = .judy(.scrollView)
@@ -59,6 +60,7 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
                 collectionView?.backgroundColor = .judy(.scrollView)
             }
         }
+         */
         
     }
     
@@ -156,7 +158,7 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegate {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
         
-    // 设置 headerView 的 Size。一般用不上这个方法，在生成 HeaderView 中就可以设置高度或者在 xib 中设置高度即可。
+    // 设置 headerView 的 size。一般用不上这个方法，在生成 headerView 中就可以设置高度或者在 xib 中设置高度即可。
     /*
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
      
@@ -165,14 +167,14 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
      }
      */
     
-    /// 询问 Cell 大小，在此函数中计算好对应的 Size。
+    /// 询问 cell 大小，在此函数中计算好对应的 size。
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        /// 在一个 Line 中需要显示的 Cell 数量。
+        /// 在一个 line 中需要显示的 Cell 数量。
         let countOfCells: CGFloat = 3
-        /// Cell 参与计算的边长，初值为 Line 的长度（包含间距）。
+        /// cell 参与计算的边长，初值为 line 的长度（包含间距）。
         ///
-        /// 一个 Line 中需要显示的所有 Cell 宽度（或高度）及他们之间所有间距的总和，以此来确定单个 Cell 的边长。
-        /// - Warning: 请注意在此处减去不参与计算 Cell 边长的部分，比如：collectionView.contentInset.left。
+        /// 一个 line 中需要显示的所有 cell 宽度（或高度）及他们之间所有间距的总和，以此来确定单个 cell 的边长。
+        /// - Warning: 请注意在此处减去不参与计算 cell 边长的部分，比如：collectionView.contentInset.left。
         var lineWidthOfCell: CGFloat = collectionView.frame.width
         // 正确地计算 cellWidth 公式，若发现实际显示不正确，请确认是否关闭 CollectionView 的 Estimate Size，将其设置为 None.
         lineWidthOfCell = (lineWidthOfCell + itemSpacing)/countOfCells - itemSpacing
@@ -186,7 +188,7 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
         return CGSize(width: lineWidthOfCell, height: heightForCell)
     }
 
-    /* 针对 Section 进行偏移。可直接在 Storyboard 中设置，必要的情况下重写此函数即可。
+    /* 针对 section 进行偏移。可直接在 Storyboard 中设置，必要的情况下重写此函数即可。
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
      return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
      }
@@ -198,7 +200,7 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
         return itemSpacing
     }
     
-    // 同一行中连续的 Cell 间的最小间距，该间距决定了一行内有多少个 Cell，Cell 数量确定后，实际的间距可能会比该值大。
+    // 同一行中连续的 cell 间的最小间距，该间距决定了一行内有多少个 cell，数量确定后，实际的间距可能会比该值大。
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         
         return itemSpacing
@@ -208,7 +210,6 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
 
 
 // MARK: - JudyBaseCollectionRefreshViewCtrl
-
 
 /// 在 JudyBaseCollectionViewCtrl 的基础上加上刷新控件，以支持分页加载数据。
 ///
@@ -495,8 +496,6 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
     
     @IBOutlet weak public var masterImageView: UIImageView?
     
-    @IBOutlet lazy public var labelsForColor: [UILabel]? = nil
-
 
     // MARK: - var property
     
@@ -516,9 +515,6 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
     open override func awakeFromNib() {
         super.awakeFromNib()
         globalAwakeFromNib()
-        labelsForColor?.forEach { label in
-            label.textColor = .judy(.text)
-        }
     }
     
     /// 布局子视图。创建对象顺序一定是先有 frame，再 awakeFromNib，再调整布局。
