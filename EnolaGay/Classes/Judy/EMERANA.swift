@@ -213,8 +213,8 @@ public extension EMERANA_CellBasic {
 // MARK: - 字体样式协议。目前用于 button、label、textField
 
 /// 字体专用协议。
-/// - Warning: 此协仅对 class 类型提供。
-public protocol EMERANA_FontStyle: class {
+/// - Warning: 此协仅支持对象类型。
+public protocol EMERANA_FontStyle: AnyObject {
     
     /// 配置 EMERANA 字体大小及样式，默认值为 m
     ///

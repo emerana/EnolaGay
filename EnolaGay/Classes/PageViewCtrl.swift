@@ -6,10 +6,10 @@
 //  Copyright © 2019 指尖躁动. All rights reserved.
 //
 
-/// JudyBasePageViewCtrl 模型驱动专用协议，该协议只有继承 class 类型才能定义成 weak 代理对象。
+/// JudyBasePageViewCtrl 模型驱动专用协议，该协议只有 AnyObject 类型才能定义成 weak 代理对象。
 ///
 /// 此协议主要包含生成 viewCtrl 模型的函数。
-public protocol EMERANA_JudyBasePageViewCtrlModel: class {
+public protocol EMERANA_JudyBasePageViewCtrlModel: AnyObject {
     
     /// 询问对应 index 的 viewCtrl。
     func viewCtrl(for index: Int, at title: String) -> UIViewController
