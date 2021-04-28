@@ -359,10 +359,10 @@ public extension EMERANA_UIColor where Self: UIColor {
 }
 */
 // MARK: UIColor 扩展
-@available(*, unavailable, message: "此协议已废弃，请自行 extension UIColor 管理即可。")
 public extension UIColor {
     
     /// EMERANA 对 App 中所使用的的 UIColor 集中管理
+    @available(*, unavailable, message: "此枚举已废弃")
     enum ColorStyle {
         /// App 主色调、通用前景色
         case appTint
