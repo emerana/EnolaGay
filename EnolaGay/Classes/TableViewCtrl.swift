@@ -18,12 +18,12 @@ import SwiftyJSON
  */
 open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
     
-    
     // MARK: - let property and IBOutlet
     
     /// 视图中的主要 tableView，该 tableView 默认将 dataSource、dataSource 设置为 self。
     @IBOutlet weak public var tableView: UITableView?
-    
+
+
     // MARK: - var property
     
     /// 是否隐藏 tableFooterView，默认 false，将该值调为 true 即可隐藏多余的 cell。
@@ -53,6 +53,7 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
         tableView?.keyboardDismissMode = .onDrag
         
         // 配置 tableView 的背景色
+        /*
         if #available(iOS 13.0, *) {
             if tableView?.backgroundColor == UIColor.systemBackground {
                 tableView?.backgroundColor = .judy(.scrollView)
@@ -62,6 +63,7 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
                 tableView?.backgroundColor = .judy(.scrollView)
             }
         }
+        */
     }
     
     open func registerReuseComponents() {
@@ -319,7 +321,8 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     
     /// 是否需要解决 UITableView 有 footerView 时最后一个 cell 不显示分割线问题，默认 false。
     @IBInspectable lazy var isShowSeparatorAtFooter: Bool = false
-    
+
+
     // MARK: - let property and IBOutlet
 
     @IBOutlet weak public var titleLabel: UILabel?
@@ -327,8 +330,6 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     @IBOutlet weak public var subTitleLabel: UILabel?
     
     @IBOutlet weak public var masterImageView: UIImageView?
-    
-    @IBOutlet lazy public var labelsForColor: [UILabel]? = nil
     
 
     // MARK: - var property
@@ -360,9 +361,6 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     open override func awakeFromNib() {
         super.awakeFromNib()
         globalAwakeFromNib()
-        labelsForColor?.forEach { label in
-            label.textColor = .judy(.text)
-        }
     }
     
     /// 布局子视图。创建对象顺序一定是先有 frame，再 awakeFromNib，再调整布局。
@@ -428,7 +426,7 @@ open class JudyInputCell: JudyBaseTableCell {
     /// 输入框，请确保该输入框的类型是 JudyCellTextField
     @IBOutlet weak public var inputTextField: JudyCellTextField?
     
-    /// 对应cell中的indexPath，请在设置 json 之前设置好该值
+    /// 对应 cell 中的 indexPath，请在设置 json 之前设置好该值
     public var indexPath: IndexPath! {
         didSet{ inputTextField?.indexPath = indexPath }
     }
@@ -448,10 +446,11 @@ open class JudyInputCell: JudyBaseTableCell {
     
 }
 
+
 /// 包含一个 indexPath 的 UITextField，该 UITextField 通常嵌于 TableViewCell 里，为此在里面指定一个 indexPath。
 /// - Warning: 此类必须独立出来。
 final public class JudyCellTextField: JudyBaseTextField {
-    /// 对应 cell 中的 indexPath
+    /// 对应 cell 中的 indexPath。
     public var indexPath: IndexPath!
 }
 
