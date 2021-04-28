@@ -110,7 +110,7 @@ open class JudyBaseNavigationCtrl: UINavigationController {
         if children.count > 0 {
             
             // 解决 push 时右上角出现可恶的黑影，给 keyWindow 设置背景色即可，一般为白色或 EMERANA 配置的通用背景色
-            Judy.keyWindow!.backgroundColor = .judy(.view)
+            Judy.keyWindow!.backgroundColor = .white
 
             // 将底部TabBar隐藏
             viewController.hidesBottomBarWhenPushed = true
@@ -142,7 +142,7 @@ extension JudyBaseNavigationCtrl: EMERANA_NavigationBar {
     
     
     final public func setBarTintColor(color: UIColor? = nil, isApplyBackground: Bool = false) {
-        var barTintColor = UIColor.judy(.navigationBarTint)
+        var barTintColor = UIColor.blue
         
         if color != nil { barTintColor = color! }
         
@@ -160,7 +160,7 @@ extension JudyBaseNavigationCtrl: EMERANA_NavigationBar {
     }
     
     final public func setItemsColor(color: UIColor? = nil) {
-        var barColor = UIColor.judy(.navigationBarItems)
+        var barColor = UIColor.white
         if color != nil { barColor = color! }
         // 设置 navigationBar 上所有 item(标题两侧按钮或返回箭头) 的色彩
         navigationBar.tintColor = barColor
@@ -168,7 +168,7 @@ extension JudyBaseNavigationCtrl: EMERANA_NavigationBar {
     
     
     final public func setTitleColor(color: UIColor? = nil, isApplyTint: Bool = false) {
-        var titleColor = UIColor.judy(.navigationBarTitle)
+        var titleColor = UIColor.white
         if color != nil { titleColor = color! }
         // 设置 navigationBar 上的 titleColor(foregroundColor)
         // 该属性的值是一个 UIColor 对象。使用此属性在呈现时指定文本的颜色。如果没有指定此属性，则将文本呈现为黑色。

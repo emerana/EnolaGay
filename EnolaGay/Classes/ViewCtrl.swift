@@ -69,11 +69,11 @@ open class JudyBaseViewCtrl: UIViewController {
         // 在 viewCtrl 中 view 的背景色默认是 systemBackground。
         if #available(iOS 13.0, *) {
             if view.backgroundColor == UIColor.systemBackground {
-                view.backgroundColor = .judy(.view)
+                view.backgroundColor = .white
             }
         } else {
             if view.backgroundColor == nil {
-                view.backgroundColor = .judy(.view)
+                view.backgroundColor = .white
             }
         }
 

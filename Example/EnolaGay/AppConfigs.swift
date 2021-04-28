@@ -10,30 +10,8 @@ import EnolaGay
 import SwiftyJSON
 
 // 颜色配置
-extension UIApplication: EMERANA_UIColor {
-
-    public func configColorStyle(_ style: UIColor.ColorStyle) -> UIColor {
-        var color = UIColor.red
-        switch style {
-
-        case .navigationBarTint:
-            color = #colorLiteral(red: 1, green: 0.2274509804, blue: 0.3725490196, alpha: 0)
-        case .navigationBarTitle, .navigationBarItems:
-            color = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1) // 0x333333
-        case .scrollView, .view:
-            color = .white
-        case .text:
-            if #available(iOS 13, *) {
-                color = .label
-            } else {
-                color = .black
-            }
-        default:
-            break
-        }
-        return color
-    }
-
+extension UIColor {
+    static let myColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
 }
 
 import Alamofire

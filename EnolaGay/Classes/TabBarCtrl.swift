@@ -88,8 +88,8 @@ extension JudyBaseTabBarCtrl: UITabBarControllerDelegate {
 /// ```
 /// func judyAction(sender: UIButton)
 /// ```
-/// * 协议名后面添加 class 关键字将协议采用限制为类类型,而不是结构体或枚举。
-public protocol JudyPlusButtonActionDelegate: class {
+/// * 协议名后面添加 AnyObject 关键字将协议采用限制为对象类型,而不是结构体或枚举。
+public protocol JudyPlusButtonActionDelegate: AnyObject {
     
     /// JudyPlusButtonTabBar 中间大按钮点击事件。
     ///
