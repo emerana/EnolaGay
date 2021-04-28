@@ -133,7 +133,7 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
         }
     }
     
-    deinit { Judy.logHappy("<\(title ?? "JudyBasePageViewCtrl")> 已经释放 - \(classForCoder)") }
+    deinit { Judy.logHappy("<\(title ?? "\(classForCoder)")> 已经释放。") }
 
     @available(*, unavailable, message: "该函数已更新，请通过 onStart 函数启动。", renamed: "onStart")
     final public func setPageViewDataSource<DataSource>(dataSource: [DataSource]) {}
@@ -390,7 +390,7 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
         }
     }
     
-    deinit { Judy.log("🚙 <\(title ?? "JudyLivePageViewCtrl")> 已经释放 - \(classForCoder)") }
+    deinit { Judy.logHappy("<\(title ?? "\(classForCoder)")> 已经释放。") }
 
     // MARK: - UIPageViewControllerDataSource
     
