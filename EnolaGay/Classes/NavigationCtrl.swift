@@ -6,55 +6,25 @@
 //  Copyright © 2018年 吾诺翰卓. All rights reserved.
 //
 
-
-/// JudyBaseNavigationCtrl navigationBar 相关协议，包括 barTintColor、backIndicatorImage、tintColor、titleColor
-public protocol EMERANA_NavigationBar where Self: JudyBaseNavigationCtrl {
-    
-    /// 为所有 JudyBaseNavigationCtrl 对象设置一个统一指示符图像
-    ///
-    /// - Returns: UIImage: 指定的返回图标，若为 nil 则使用 storyboard 设置的或系统自带的, Bool: 决定了是否使用图片原色彩
-    func setBackIndicatorImage() -> (UIImage?, Bool)
-    
-    /// 设置 navigationBar的 barTintColor(此操作可能会影响到毛玻璃效果)，若要使用此函数请确保 storyboard 中该属性为 Default
-    /// - Parameter color: 要设置的目标颜色，若该颜色的 alpha 为 0，则 barTintColor 为 nil。该值默认值 nil (judy(.navigationBarTint))
-    /// - Parameter isApplyBackground: 是否需要一块设置 navigationBar.backgroundColor，默认值 false
-    func setBarTintColor(color: UIColor?, isApplyBackground: Bool)
-
-    /// 设置 JudyBaseNavigationBar 上的所有 items 的颜色（两侧按钮、返回箭头)
-    /// - Parameter color: 要设置的目标颜色，默认值 nil (.judy(.text))
-    func setItemsColor(color: UIColor?)
-    
-    /// 设置标题颜色
-    /// - Parameters:
-    ///   - color: 要设置的目标颜色，默认值 nil(.judy(.navigationBarTitle))
-    ///   - isApplyTint: 是否需要同时设置 navigationBar 上的 tintColor，默认 false
-    func setTitleColor(color: UIColor?, isApplyTint: Bool)
-
-}
-
-
 // MARK: - JudyBaseNavigationCtrl
 
 import UIKit
 
-/// 所有导航条的根类
+/// EnolaGay 中导航条的根类。
 open class JudyBaseNavigationCtrl: UINavigationController {
 
     // MARK: var
     
-    /// 是否通过 EMERANA 配置获取 barTint、tint、titleTextAttributes 颜色？默认 true
-    /// * 如果需要在 storyboard 中设置颜色只需将该值关闭即可，否则 storyboard 中的设置将被 EMERANA 覆盖
-    @IBInspectable private var EMERANA: Bool = true
-    
-    /// 当前 navigationCtrl navigationBar 的返回指示符图像
+    /// 当前 navigationCtrl navigationBar 的返回指示符图像。
     @IBInspectable private lazy var backImage: UIImage? = nil
     
-    /// 是否使用深色的(.default)状态栏样式，默认 true, 反之为 lightContent
-    /// # 当 ViewCtrl 嵌入于 navigationCtrl 中，则由 navigationCtrl 负责 preferredStatusBarStyle。
-    /// # **如果通过代码改变还需要调用 setNeedsStatusBarAppearanceUpdate() 方法。**
+    /// 是否使用深色的(.default)状态栏样式，默认 true, 反之为 lightContent。
+    ///
+    /// 当 ViewCtrl 嵌入于 navigationCtrl 中，则由 navigationCtrl 负责 preferredStatusBarStyle。
+    /// - Warning: 如果通过代码改变还需要调用 setNeedsStatusBarAppearanceUpdate() 方法。
     @IBInspectable var isGaryStatusBar: Bool = true
 
-    // plist 文件中需要将 View controller-based status bar appearance 设置成 YES 才能设置状态栏颜色
+    // plist 文件中需要将 View controller-based status bar appearance 设置成 YES 才能设置状态栏颜色。
     open override var preferredStatusBarStyle : UIStatusBarStyle {
         var style = UIStatusBarStyle.default
         style = isGaryStatusBar ? .default : .lightContent
@@ -73,7 +43,6 @@ open class JudyBaseNavigationCtrl: UINavigationController {
     
     // MARK: life
     
-    
     open override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -89,16 +58,6 @@ open class JudyBaseNavigationCtrl: UINavigationController {
         // 如果要自定义反向指示符图像，还必须设置此图像
         navigationBar.backIndicatorTransitionMaskImage = backIndicatorImage?.withRenderingMode(isAlwaysOriginal ? .alwaysOriginal:.automatic)
         
-        // EMERANA 配色
-        if EMERANA {
-
-            setBarTintColor()
-            
-            setTitleColor()
-
-            setItemsColor()
-        }
-        
     }
         
     /// 覆盖 push 事件，实现在 push 过程中自定义部分操作。
@@ -108,18 +67,15 @@ open class JudyBaseNavigationCtrl: UINavigationController {
     ///   - animated: 动画
     open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if children.count > 0 {
-            
             // 解决 push 时右上角出现可恶的黑影，给 keyWindow 设置背景色即可，一般为白色或 EMERANA 配置的通用背景色
             Judy.keyWindow!.backgroundColor = .white
-
             // 将底部TabBar隐藏
             viewController.hidesBottomBarWhenPushed = true
-            
             // Judy-mark:在父级ViewCtrl中使用这句将左侧返回按钮标题清空，保留箭头
             children.last?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         }
 
-        // Judy-mark: 完全清空左侧返回按钮。此方法会使右划手势失效，无法 pop。
+        // 如果使用这行代码完全清空左侧返回按钮。此方法会使右划手势失效，无法 pop。
         // viewController.navigationItem.setLeftBarButton(UIBarButtonItem(), animated: false)
         
         if topViewController != nil {
@@ -133,41 +89,41 @@ open class JudyBaseNavigationCtrl: UINavigationController {
     
 }
 
-// MARK: - EMERANA_NavigationBar 协议实现
-extension JudyBaseNavigationCtrl: EMERANA_NavigationBar {
+extension JudyBaseNavigationCtrl {
     
-    public func setBackIndicatorImage() -> (UIImage?, Bool) {
+    /// 为 JudyBaseNavigationCtrl 对象设置一个统一返回指示符图像。
+    ///
+    /// - Returns: UIImage: 指定的返回图标，若为 nil 则使用 storyboard 设置的或系统自带的, Bool: 决定了是否使用图片原色彩。
+    open func setBackIndicatorImage() -> (UIImage?, Bool) {
         return (nil, false)
     }
-    
-    
-    final public func setBarTintColor(color: UIColor? = nil, isApplyBackground: Bool = false) {
-        var barTintColor = UIColor.blue
-        
-        if color != nil { barTintColor = color! }
-        
-        // 设置 navigationBarTint 颜色，对 barTint 设置颜色将会影响到毛玻璃效果
-        if barTintColor.cgColor.alpha == 0 {
+
+    /// 设置 navigationBar的 barTintColor(此操作可能会影响到毛玻璃效果)，若要使用此函数请确保 storyboard 中该属性为 Default。
+    /// - Parameters:
+    ///   - color: 要设置的目标颜色，若该颜色的 alpha 为 0，则 barTintColor 为 nil。该值默认值 nil。
+    ///   - isApplyBackground: 是否需要一块设置 navigationBar.backgroundColor，默认值 false。
+    public final func setBarTintColor(color: UIColor, isApplyBackground: Bool = false) {
+        // 设置 navigationBarTint 颜色，对 barTint 设置颜色将会影响到毛玻璃效果。
+        if color.cgColor.alpha == 0 {
             navigationBar.barTintColor = nil
         } else {
-            navigationBar.barTintColor = barTintColor
+            navigationBar.barTintColor = color
         }
         if isApplyBackground {
-            navigationBar.backgroundColor = barTintColor
+            navigationBar.backgroundColor = color
         } else {
             navigationBar.backgroundColor = nil
         }
     }
     
-    final public func setItemsColor(color: UIColor? = nil) {
-        var barColor = UIColor.white
-        if color != nil { barColor = color! }
-        // 设置 navigationBar 上所有 item(标题两侧按钮或返回箭头) 的色彩
-        navigationBar.tintColor = barColor
-    }
+    @available(*, unavailable, message: "该函数实现过于简单，请直接使用 navigationBar.tintColor！")
+    public func setItemsColor(color: UIColor?) {}
     
-    
-    final public func setTitleColor(color: UIColor? = nil, isApplyTint: Bool = false) {
+    /// 设置标题颜色
+    /// - Parameters:
+    ///   - color: 要设置的目标颜色，默认值 nil(.judy(.navigationBarTitle))。
+    ///   - isApplyTint: 是否需要同时设置 navigationBar 上的 tintColor，默认 false。
+    public final func setTitleColor(color: UIColor? = nil, isApplyTint: Bool = false) {
         var titleColor = UIColor.white
         if color != nil { titleColor = color! }
         // 设置 navigationBar 上的 titleColor(foregroundColor)
@@ -179,14 +135,9 @@ extension JudyBaseNavigationCtrl: EMERANA_NavigationBar {
             navigationBar.titleTextAttributes![.foregroundColor] = attributed[.foregroundColor]
         }
         
-        if isApplyTint {
-            setItemsColor(color: titleColor)
-        }
-
+        if isApplyTint { navigationBar.tintColor = titleColor }
     }
 
-    
-    
 }
 
 
