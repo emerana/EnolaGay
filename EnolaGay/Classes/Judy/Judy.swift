@@ -52,7 +52,7 @@ public struct Judy {
     /// 在呈现故事板时使用的 Window。该属性包含用于在设备主屏幕上显示应用程序的可视内容的窗口。（UIApplication.shared.delegate!.window!!）
     /// - Warning: 如果调用太早（如程序刚启动）这个 window 可能正被隐藏中，并不活跃。
     public static var appWindow: UIWindow {
-        guard app.window! != nil else {
+        guard UIApplication.shared.delegate?.window! != nil else {
             logWarning("app?.window 为 nil，调用太早！")
             if Judy.keyWindow != nil {
                 return Judy.keyWindow!
@@ -61,7 +61,7 @@ public struct Judy {
             }
             return UIWindow()
         }
-        return app.window!!
+        return UIApplication.shared.delegate!.window!!
     }
     
     /// 获取当前活跃的 window，如 alertview、键盘等关键的 Window。
@@ -72,13 +72,9 @@ public struct Judy {
             .first?.windows.first
     }
     
-    /// 获取 App 代理对象。即 UIApplication.shared.delegate
-    public static var app: UIApplicationDelegate {
-        //  if UIApplication.shared.delegate == nil {
-        //      judyLog("我操！UIApplication.shared.delegate 竟然为 nil !")
-        //  }
-        return UIApplication.shared.delegate!
-    }
+    /// 获取 App 代理对象。即 UIApplication.shared.delegate。
+    @available(*, unavailable, message: "此属性已废弃重命名", renamed: "UIApplication.shared.delegate")
+    public static var app: UIApplicationDelegate { UIApplication.shared.delegate! }
 
     /// 当前是否有alert弹出，主要是提醒更新版本的Alert。
     fileprivate static var isAlerting = false {
@@ -87,14 +83,12 @@ public struct Judy {
         }
     }
     
-    /// 从指定故事板中获取 ViewCtrl 实例
+    /// 从指定故事板中获取 ViewCtrl 实例。
     ///
     /// - Parameters:
-    ///   - storyboardName: 故事板 name
+    ///   - storyboardName: 故事板 name。
     ///   - ident: viewCtrl ident
     /// - Returns: UIViewController
-    /// - version: 1.1
-    /// - since: 2021年01月08日21:23:42
     public static func getViewCtrl(storyboardName: String, ident: String) -> UIViewController {
         return UIStoryboard(name: storyboardName, bundle: nil)
             .instantiateViewController(withIdentifier: ident)
@@ -108,7 +102,7 @@ public struct Judy {
     
     // MARK: 系统、常用事件
     
-    /// 打开路由/浏览器。
+    /// 打开路由/浏览器，若不需要闭包请使用 openSafari 函数。
     ///
     /// - Parameters:
     ///   - urlStr: 要转成 URL 的 String,如果该 String 无法转成 URL 将不会打开。
@@ -133,17 +127,10 @@ public struct Judy {
         }
     }
     
-    /// 在浏览器中打开该地址。
+    /// 在浏览器中打开该地址，此函数不带完成闭包，若有需要请使用 openURL 函数。
     /// - Parameter urlStr: 目标 url。
     public static func openSafari(urlStr: String) {
-        
-        guard let url = URL(string: urlStr) else {
-            logWarning("无效 URL ->\(urlStr)")
-            return
-        }
-        logHappy("正在打开：\(url)")
-
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        openURL(urlStr) { rs in }
     }
     
     /// 拨打电话
