@@ -108,34 +108,23 @@ public struct Judy {
     
     // MARK: 系统、常用事件
     
-    /// 打开路由。
+    /// 打开路由/浏览器。
     ///
     /// - Parameters:
-    ///   - urlStr: 要转成 URL 的 String,如果该 String 无法转成 URL 将不会打开
-    ///   - closure: 闭包,(success: Bool)
+    ///   - urlStr: 要转成 URL 的 String,如果该 String 无法转成 URL 将不会打开。
+    ///   - closure: 闭包,(success: Bool)。
     public static func openURL(_ urlStr: String, completionHandler closure: @escaping ((Bool) -> Void)) {
-        guard NSURL(string: urlStr) != nil  else {
+        guard let url = URL(string: urlStr) else {
             logWarning("无效 URL ->\(urlStr)")
             return
         }
-        let url: URL = NSURL(string: urlStr)! as URL
-        openURL(url: url, completionHandler: closure)
-    }
-    
-    /// 打开路由。
-    ///
-    /// - Parameters:
-    ///   - url: 一个正确的URL链接
-    ///   - closure: 闭包,(success: Bool)
-    public static func openURL(url: URL, completionHandler closure: @escaping ((Bool) -> Void)) {
+
         if UIApplication.shared.canOpenURL(url) {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(url, completionHandler: { (success: Bool) in
-                    closure(success)
-                })
-            } else {
-                UIApplication.shared.openURL(url)
-            }
+            logHappy("正在打开：\(url)")
+            // UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.shared.open(url, completionHandler: { (success: Bool) in
+                closure(success)
+            })
         } else {
             //  入口协议：从其他App跳转到当前App的协议。在配置文件的URL Types中URL Schemes设定，如：tc。
             //  出口协议：当前App跳转到其他App的协议。需要将目标App的入口协议添加到当前App中配置文件的LSApplicationQueriesSchemes白名单里。
