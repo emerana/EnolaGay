@@ -10,7 +10,6 @@
 ///
 /// 此协议主要包含生成 viewCtrl 模型的函数。
 public protocol EMERANA_JudyBasePageViewCtrlModel: AnyObject {
-    
     /// 询问对应 index 的 viewCtrl。
     func viewCtrl(for index: Int, at title: String) -> UIViewController
 }
@@ -19,7 +18,6 @@ public protocol EMERANA_JudyBasePageViewCtrlModel: AnyObject {
 ///
 /// 代理需要定义成 weak 形式才能避免强引用。
 public protocol EMERANA_JudyPageViewCtrlAnimating: UIViewController {
-    
     /// pageViewCtrl 切换事件，此函数在手动切换 pageViewCtrl 时触发。
     func pageViewCtrlDidFinishAnimating(at index: Int)
 }
@@ -170,7 +168,6 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
             (navigationController as! JudyNavigationCtrl).doPopAction()
             scrollView.delegate = nil
         }
-        
     }
 
 }
@@ -179,16 +176,16 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
 // MARK: 私有配置函数
 private extension JudyBasePageViewCtrl {
     
-    /// 通过当前 ViewCtrl 获取对应的在 viewCtrlArray 中的 index
-    /// - Parameter viewCtrl: 此 viewCtrl 必须是 viewCtrlArray 中的一员
+    /// 通过当前 viewCtrl 获取对应的在 viewCtrlArray 中的 index。
+    /// - Parameter viewCtrl: 此 viewCtrl 必须是 viewCtrlArray 中的一员。
     func indexOfViewController(viewCtrl: UIViewController) -> Int {
         return viewCtrlArray.firstIndex(of: viewCtrl) ?? NSNotFound
     }
     
-    /// 通过 index 在 viewCtrlArray 中获取一个 viewCtrl
+    /// 通过 index 在 viewCtrlArray 中获取一个 viewCtrl。
     ///
-    /// - Parameter index: 索引
-    /// - Returns: 目标 viewCtrl
+    /// - Parameter index: 索引。
+    /// - Returns: 目标 viewCtrl。
     func viewCtrlBySwitchAtIndex(index: Int) -> UIViewController? {
         if (viewCtrlArray.count == 0) || (index >= viewCtrlArray.count) {
             return nil
@@ -202,7 +199,7 @@ private extension JudyBasePageViewCtrl {
 // MARK: UIPageViewControllerDataSource
 extension JudyBasePageViewCtrl: UIPageViewControllerDataSource {
     
-    /// 显示上一页
+    /// 显示上一页。
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let index = indexOfViewController(viewCtrl: viewController)
         // 判断是否已经是第一页
@@ -214,7 +211,7 @@ extension JudyBasePageViewCtrl: UIPageViewControllerDataSource {
     }
     
     
-    /// 显示下一页
+    /// 显示下一页。
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         let index = indexOfViewController(viewCtrl: viewController)
@@ -358,7 +355,6 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
         guard transitionStyle == .scroll else {
             fatalError("请设置 pageViewCtrl.transitionStyle 为 scroll。")
         }
-
     }
     
     open override func viewDidLoad() {
@@ -414,7 +410,7 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     
     // MARK: - UIPageViewControllerDelegate
     
-    // 通过拖动 pageViewCtrl 才会触发此函数
+    // 通过拖动 pageViewCtrl 才会触发此函数。
     open func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         //  if completed { Judy.log("翻页完毕") }
     }
