@@ -208,21 +208,21 @@ public extension Judy {
     /// 该打印函数将打印包含文件名、所在行及函数名的消息，通常用于日志式的信息输出。
     static func log<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
-        print("🟡 \(message()) 📢 \((file as NSString).lastPathComponent) [\(line)] \(method)\n")
+        print("🟡 \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
         #endif
     }
     
     /// 以换行的方式将消息体打印，该打印函数将打印包含文件名、所在行及函数名的消息，通常用于日志式的信息输出。
     static func logn<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
-        print("🟡 \((file as NSString).lastPathComponent) [\(line)] \(method) \n \(message())\n")
+        print("🟡 \((file as NSString).lastPathComponent) [\(line)] \(method) \n \(message())")
         #endif
     }
 
     /// 该打印函数将输出包含文件名及所在行信息。
     static func logl<msg>(_ message: @autoclosure () -> msg, file: String = #file, line: Int = #line) {
         #if DEBUG
-        print("🟡 \((file as NSString).lastPathComponent)[\(line)] 🔊 \(message())\n")
+        print("🟡 \((file as NSString).lastPathComponent)[\(line)] ⚓️ \(message())")
         #endif
     }
 
@@ -236,21 +236,21 @@ public extension Judy {
     /// 该打印函数将打印包含文件名、所在行及函数名的消息，一般用于好消息类型的输出，比如 deinit 函数。
     static func logHappy<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
-        print("🟢 \(message()) 📢 \((file as NSString).lastPathComponent) [\(line)] \(method)\n")
+        print("🟢 \(message()) ⚓️ \((file as NSString).lastPathComponent) [\(line)] \(method)")
         #endif
     }
 
     /// 输出包含线程相关信息的日志。
     static func logt<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
-        print("🟣 \(Thread.current) 🔈 \((file as NSString).lastPathComponent)[\(line)] 🔉 \(method) 🔊 \(message())\n")
+        print("🟣 \(Thread.current) \((file as NSString).lastPathComponent)[\(line)] \(method) ⚓️ \(message())")
         #endif
     }
     
     /// 打印警告或错误级别的标识符输出。
     static func logWarning<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
-        print("🔴 \((file as NSString).lastPathComponent)[\(line)] 🔈 \(method) 🔊 \(message())\n")
+        print("🔴 \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
         #endif
     }
     

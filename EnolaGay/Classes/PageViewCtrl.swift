@@ -10,7 +10,6 @@
 ///
 /// 此协议主要包含生成 viewCtrl 模型的函数。
 public protocol EMERANA_JudyBasePageViewCtrlModel: AnyObject {
-    
     /// 询问对应 index 的 viewCtrl。
     func viewCtrl(for index: Int, at title: String) -> UIViewController
 }
@@ -19,7 +18,6 @@ public protocol EMERANA_JudyBasePageViewCtrlModel: AnyObject {
 ///
 /// 代理需要定义成 weak 形式才能避免强引用。
 public protocol EMERANA_JudyPageViewCtrlAnimating: UIViewController {
-    
     /// pageViewCtrl 切换事件，此函数在手动切换 pageViewCtrl 时触发。
     func pageViewCtrlDidFinishAnimating(at index: Int)
 }
@@ -170,7 +168,6 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
             (navigationController as! JudyNavigationCtrl).doPopAction()
             scrollView.delegate = nil
         }
-        
     }
 
 }
@@ -179,16 +176,16 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
 // MARK: 私有配置函数
 private extension JudyBasePageViewCtrl {
     
-    /// 通过当前 ViewCtrl 获取对应的在 viewCtrlArray 中的 index
-    /// - Parameter viewCtrl: 此 viewCtrl 必须是 viewCtrlArray 中的一员
+    /// 通过当前 viewCtrl 获取对应的在 viewCtrlArray 中的 index。
+    /// - Parameter viewCtrl: 此 viewCtrl 必须是 viewCtrlArray 中的一员。
     func indexOfViewController(viewCtrl: UIViewController) -> Int {
         return viewCtrlArray.firstIndex(of: viewCtrl) ?? NSNotFound
     }
     
-    /// 通过 index 在 viewCtrlArray 中获取一个 viewCtrl
+    /// 通过 index 在 viewCtrlArray 中获取一个 viewCtrl。
     ///
-    /// - Parameter index: 索引
-    /// - Returns: 目标 viewCtrl
+    /// - Parameter index: 索引。
+    /// - Returns: 目标 viewCtrl。
     func viewCtrlBySwitchAtIndex(index: Int) -> UIViewController? {
         if (viewCtrlArray.count == 0) || (index >= viewCtrlArray.count) {
             return nil
@@ -202,7 +199,7 @@ private extension JudyBasePageViewCtrl {
 // MARK: UIPageViewControllerDataSource
 extension JudyBasePageViewCtrl: UIPageViewControllerDataSource {
     
-    /// 显示上一页
+    /// 显示上一页。
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let index = indexOfViewController(viewCtrl: viewController)
         // 判断是否已经是第一页
@@ -214,7 +211,7 @@ extension JudyBasePageViewCtrl: UIPageViewControllerDataSource {
     }
     
     
-    /// 显示下一页
+    /// 显示下一页。
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         let index = indexOfViewController(viewCtrl: viewController)
@@ -297,7 +294,7 @@ public protocol JudyPageViewCtrlDelegate: AnyObject {
     
     /// 询问 pageViewCtrl 中所有 viewCtrl 对应的数据源实体，该实体为一个数组。
     func entitys(for pageViewCtrl: UIPageViewController) -> [Any]
-    
+
     /// 询问 viewCtrl 在 entitys 中对应的索引。
     ///
     /// - Parameters:
@@ -333,7 +330,7 @@ public extension JudyPageViewCtrlDelegate {
 /// * 当确定 enolagay.entitys 后请调用 onStart() 使 pageViewCtrl 开始工作;
 open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate {
 
-    /// viewCtrl 数据源配置代理对象，所有要显示的 ViewCtrl 均通过此协议配置。
+    /// viewCtrl 数据源配置代理对象，所有要显示的 viewCtrl 均通过此协议配置。
     weak public var enolagay: JudyPageViewCtrlDelegate!
     
     /// 当 scrollView 有值后触发此闭包以便外部设置下拉刷新。
@@ -348,8 +345,8 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
         }
     }
     
-    /// 用于控制所有显示的 ViewCtrl 实体数据。
-    private var entitys: [Any] { enolagay.entitys(for: self) }
+    /// 用于控制所有显示的 viewCtrl 的实体数据，该数据来源于 enolagay.entitys。
+    public var entitys: [Any] { enolagay.entitys(for: self) }
     
     
     required public init?(coder: NSCoder) {
@@ -358,7 +355,6 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
         guard transitionStyle == .scroll else {
             fatalError("请设置 pageViewCtrl.transitionStyle 为 scroll。")
         }
-
     }
     
     open override func viewDidLoad() {
@@ -414,7 +410,7 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     
     // MARK: - UIPageViewControllerDelegate
     
-    // 通过拖动 pageViewCtrl 才会触发此函数
+    // 通过拖动 pageViewCtrl 才会触发此函数。
     open func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         //  if completed { Judy.log("翻页完毕") }
     }
@@ -422,15 +418,8 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     // MARK: - UIScrollViewDelegate
     
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // 允许弹簧效果。
         scrollView.bounces = true
-        
-        // 判断是上拉还是下拉。
-        /*
-         let pan = scrollView.panGestureRecognizer
-         let velocity = pan.velocity(in: scrollView).y
-         Judy.log( velocity < -5 ? "上拉":"下拉")
-         Judy.log("contentOffset: \(scrollView.contentOffset)")
-         */
     }
     
 }
