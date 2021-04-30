@@ -297,7 +297,7 @@ public protocol JudyPageViewCtrlDelegate: AnyObject {
     
     /// 询问 pageViewCtrl 中所有 viewCtrl 对应的数据源实体，该实体为一个数组。
     func entitys(for pageViewCtrl: UIPageViewController) -> [Any]
-    
+
     /// 询问 viewCtrl 在 entitys 中对应的索引。
     ///
     /// - Parameters:
@@ -333,7 +333,7 @@ public extension JudyPageViewCtrlDelegate {
 /// * 当确定 enolagay.entitys 后请调用 onStart() 使 pageViewCtrl 开始工作;
 open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate {
 
-    /// viewCtrl 数据源配置代理对象，所有要显示的 ViewCtrl 均通过此协议配置。
+    /// viewCtrl 数据源配置代理对象，所有要显示的 viewCtrl 均通过此协议配置。
     weak public var enolagay: JudyPageViewCtrlDelegate!
     
     /// 当 scrollView 有值后触发此闭包以便外部设置下拉刷新。
@@ -348,8 +348,8 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
         }
     }
     
-    /// 用于控制所有显示的 ViewCtrl 实体数据。
-    private var entitys: [Any] { enolagay.entitys(for: self) }
+    /// 用于控制所有显示的 viewCtrl 的实体数据，该数据来源于 enolagay.entitys。
+    public var entitys: [Any] { enolagay.entitys(for: self) }
     
     
     required public init?(coder: NSCoder) {
@@ -422,15 +422,8 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     // MARK: - UIScrollViewDelegate
     
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // 允许弹簧效果。
         scrollView.bounces = true
-        
-        // 判断是上拉还是下拉。
-        /*
-         let pan = scrollView.panGestureRecognizer
-         let velocity = pan.velocity(in: scrollView).y
-         Judy.log( velocity < -5 ? "上拉":"下拉")
-         Judy.log("contentOffset: \(scrollView.contentOffset)")
-         */
     }
     
 }
