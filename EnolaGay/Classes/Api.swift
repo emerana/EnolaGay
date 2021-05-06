@@ -202,8 +202,6 @@ public extension ApiDelegate {
     }
 }
 
-@available(*, unavailable, message: "请更新命名", renamed: "ApiAction")
-public protocol EMERANA_ApiActionEnums {}
 
 /// api 接口规范协议，该协议规定了 api 的定义过程，如 enum Actions: String, ApiAction。
 public protocol ApiAction {
@@ -212,11 +210,10 @@ public protocol ApiAction {
 }
 
 public extension ApiAction {
-    
-    /// 判断 Api 对象是否为指定的 enum 中的成员。
-    /// - Parameter apiEnum: 用于比较的 ApiAction。
-    /// - Returns: 若为相同，返回 true，反之 false
-    func `is`(_ apiEnum: ApiAction) -> Bool { apiEnum.value == value }
+    /// 此函数用于验证当前 api 是否为指定目标 api。
+    /// - Parameter apiAction: 匹配目标 ApiAction。
+    /// - Returns: 比对结果。
+    func `is`(_ apiAction: ApiAction) -> Bool { apiAction.value == value }
 }
 
 /// JudyApi 中的请求配置类。
@@ -225,23 +222,21 @@ public extension ApiAction {
 /// - Warning: 请 extension UIApplication: ApiDelegate 并覆盖指定函数以配置属性的初始值。
 final public class ApiRequestConfig {
 
-    /// 当前界面请求的 api (action)。
+    /// 当前请求的 api。
     ///
-    /// 该值为用于与 domain 拼接的部分，初值 nil，一般每次请求都有一个 api。
-    /// - Warning: 配置 api 请通过创建实现 EMERANA_ApiActionEnums 协议的 public enum，参考如下代码：
+    /// 该值为用于与 domain 拼接的部分，初值 nil，每次请求都会有一个 api。
+    /// - Warning: 配置 api 请通过创建实现 ApiAction 协议的 public enum，参考如下代码：
     /// ```
-    /// enum Api: String, EMERANA_ApiActionEnums {
+    /// enum Apis: String, ApiAction {
     ///     var value: String { rawValue }
     ///     case testAction = "test"
     /// }
     /// ```
-    /// - since: V1.1 2021年01月07日16:59:28
     public lazy var api: ApiAction? = nil
 
-    /// 请求域名，如: https://www.baidu.com，默认值为静态函数 domain()。
+    /// 请求域名，请 extension UIApplication: ApiDelegate 重写 domain() 配置域名。
     ///
-    /// 通常为项目中使用频率最高的域名。若需要多个域名，请 public extension ApiRequestConfig.Domain 新增
-    /// - Warning: 扩展并覆盖 static func domain() 以配置全局域名，该值将与 api 拼接成最终请求的完整 URL。
+    /// 该值将与 api 属性拼接成最终请求的完整 URL。若存在多个域名，请通过 extension ApiRequestConfig.Domain 新增。
     public var domain: Domain = .default
         
     /// 请求方式 HTTPMethod，默认 post。通过覆盖 globalMethodPOST() 以配置全局通用值。
