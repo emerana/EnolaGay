@@ -205,7 +205,7 @@ public extension ApiDelegate {
 
 /// api 接口规范协议，该协议规定了 api 的定义过程，如 enum Actions: String, ApiAction。
 public protocol ApiAction {
-    /// 该 api 接口的原始值，通常为 public enum 的 rawValue
+    /// api 的原始值。
     var value: String { get }
 }
 
