@@ -22,7 +22,7 @@ public typealias ClosureString = ((String) -> Void)
 
 // 为 JudyBaseViewCtrl 扩展函数实现。
 public extension JudyBaseViewCtrl {
-    /// 是否隐藏所有界面 reqApi() 时显示等待的 HUD，此函数已默认实现返回 false，通过 public extension JudyBaseViewCtrl 重写此函数以改变默认值
+    /// 是否隐藏所有界面 reqApi() 时显示等待的 HUD，此函数已默认实现返回 false，通过 public extension JudyBaseViewCtrl 重写此函数以改变默认值。
     static func isGlobalHideWaitingHUD() -> Bool { false }
 }
 
@@ -45,7 +45,7 @@ public protocol RefreshAdapter where Self: UIApplication {
     /// 重置没有更多数据。
     func resetNoMoreData(scrollView: UIScrollView?)
     
-    /// 询问分页请求中页码和页大小字段名，默认实现为 "pageIndex","pageSize"。
+    /// 询问分页请求中页码和页大小字段名，默认实现为 "pageIndex","pageSize".
     /// - Warning: 第一个元素为页码，第二个元素为页大小。
     func pageParameterStrings() -> (String, String)
 
@@ -63,7 +63,7 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     
     /// 缺省请求页码，通常第一页码为1，但有的情况可能为0。
     var defaultPageIndex: Int { get }
-    /// 请求页码。初始化、下拉刷新时会重置到默认值 defaultPageIndex。
+    /// 请求页码。初始化、下拉刷新时会重置到默认值 defaultPageIndex.
     var currentPage: Int { get }
     
     /// 每页的数据大小。
@@ -96,7 +96,7 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     /// ```
     /// return apiData["data"].arrayValue.count != 10 ? currentPage:currentPage+1
     /// ```
-    /// - Warning: 若未覆盖此函数，默认值为 1。
+    /// - Warning: 若未覆盖此函数，默认值为 1.
     func setSumPage() -> Int
     
     /// 重置当前页面请求页数及上下拉状态。
