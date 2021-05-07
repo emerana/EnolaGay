@@ -826,7 +826,6 @@ public struct JudyTip {
 
 /*
 
- 
  func checkVersion() {
  var bFlg = true
  
@@ -890,40 +889,3 @@ public struct JudyTip {
  
  解码后得到的结果是：{urldecode}
  */
-
-
-// MARK: - 废弃的方法
-extension Judy {
-    @available(*, deprecated, message: "使用 UIColor.EMERANA 的扩展")
-    public static func colorByRGB(rgbValue: Int, alpha: CGFloat = 1) -> UIColor {return .red}
-    @available(*, deprecated, message: "使用 UIColor.EMERANA 的扩展")
-    public static func colorByRGB(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1) -> UIColor {return .red}
-    @available(*, deprecated, message: "使用 UIImage.EMERANA 的扩展")
-    public static func image(with color: UIColor) -> UIImage {return UIImage()}
-    @available(*, deprecated, message: "使用 UIImage.EMERANA 的扩展")
-    public static func image(fromLayer layer: CALayer) -> UIImage {return UIImage()}
-    @available(*, deprecated, message: "使用 UIView.EMERANA 的扩展")
-    public static func viewRound (view: UIView, border: CGFloat = 0, color: UIColor = .darkGray) {}
-    @available(*, deprecated, message: "使用 UIView.EMERANA 的扩展")
-    public static func viewRadiu (view: UIView, radiu: CGFloat = 10, border: CGFloat = 0, color: UIColor = .darkGray) {}
-    @available(*, deprecated, message: "该函数已废弃")
-    public static func saveUserDefault(value: Any, key: String) {}
-    @available(*, deprecated, message: "该函数已废弃")
-    public static func getUserDefault(key: String) -> Any {return ""}
-    @available(*, deprecated, message: "该函数已废弃")
-    public static func removeUserDefault(key: String) {}
-    /// 详细的输出 Log 方式，只有在 DeBug 模式下会打印
-    @available(*,deprecated, message: "该函数已支持重命名，请使用新的函数名。", renamed: "log")
-    public static func judy<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
-        #if DEBUG
-        // 🚥❤️🧡💛💚💙💜💟🎇♒️🚦🚖🚘🚔🚙
-        print("🚘\((file as NSString).lastPathComponent)[\(line)]💟\(method)\n\(message())\n🚥")
-        #endif
-    }
-    @available(*, unavailable, renamed: "numberInputRestriction", message: "此函数已重命名")
-    public static func number(textField: UITextField, range: NSRange, string: String, num: Int = 0, maxNumber: Int = 0, minNumber: Int = 0) -> Bool {
-        return false
-    }
-
-    
-}
