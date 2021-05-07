@@ -85,7 +85,6 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
 
         let scrollView = view.subviews.filter { $0 is UIScrollView }.first as! UIScrollView
         scrollView.delegate = self
-
     }
     
     /// 设置数据源，默认会显示第一项。
@@ -231,13 +230,14 @@ extension JudyBasePageViewCtrl: UIPageViewControllerDataSource {
 ///  - warning: 本类中的 segmentedCtrl 已经和 pageViewCtrl 互相关联，无需手动配置二者关系。
 open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDelegate {
     
-    /// 分段控制器，如果有设置 pageViewCtrlToSegmentDelegate 对象，navigationSegmentedCtrl 将不会生效
-    private(set) lazy public var segmentedCtrl: SegmentedView = {
+    /// 分段控制器，如果有设置 pageViewCtrlToSegmentDelegate 对象，navigationSegmentedCtrl 将不会生效。
+    public lazy private(set) var segmentedCtrl: SegmentedView = {
         let segmentedView = SegmentedView()
         segmentedView.delegate = self
         return segmentedView
     }()
 
+    
     // MARK: - UIPageViewControllerDelegate
 
     open override func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
@@ -245,7 +245,6 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
         super.pageViewController(pageViewController, didFinishAnimating: finished, previousViewControllers: previousViewControllers, transitionCompleted: completed)
         
         segmentedCtrl.selectItem(at: lastSelectIndex)
-
     }
     
     // MARK: - segmentedCtrl 相关函数
@@ -265,7 +264,8 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
         //  替换 titleView
         //  navigationItem.titleView = segmentedCtrl
     }
-    
+
+
     // MARK: - SegmentedViewDelegate
 
     open func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int) {
@@ -281,7 +281,6 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
         // 不应该在 completion 里设置 lastSelectIndex，这样不及时
         setViewControllers(viewCtrls, direction: ((lastSelectIndex < index) ? .forward : .reverse), animated: true)
         lastSelectIndex = index
-        
     }
     
 }
@@ -314,6 +313,7 @@ public protocol JudyPageViewCtrlDelegate: AnyObject {
     func emptyViewCtrl(for pageViewCtrl: UIPageViewController) -> UIViewController
 
 }
+
 // 默认实现函数，使其变成可选协议函数。
 public extension JudyPageViewCtrlDelegate {
     func emptyViewCtrl(for pageViewCtrl: UIPageViewController) -> UIViewController {
