@@ -61,9 +61,9 @@ public extension RefreshAdapter {
 /// - Warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供。
 public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     
-    /// 缺省请求页码，通常第一页码为1，但油的情况可能为0。
+    /// 缺省请求页码，通常第一页码为1，但有的情况可能为0。
     var defaultPageIndex: Int { get }
-    /// 请求页码。初始化、下拉刷新时因重置到默认值。
+    /// 请求页码。初始化、下拉刷新时会重置到默认值 defaultPageIndex。
     var currentPage: Int { get }
     
     /// 每页的数据大小。
