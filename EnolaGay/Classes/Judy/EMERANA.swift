@@ -1020,26 +1020,6 @@ public extension NSMutableAttributedString {
 }
 
 
-// MARK: - UIAlertController 扩展
-
-public extension UIAlertController {
-    /// 弹出一个普通的提示框，不带任何事件
-    /// - Parameters:
-    ///   - msg: 提示框的消息体
-    ///   - buttonText: 确认按钮的文本
-    /// - Returns: 该 UIAlertController 对象
-    @available(*, deprecated, message: "请直接使用 ViewCtrl 中的 alert()")
-    convenience init(msg: String, buttonText: String = "好") {
-
-        self.init(title: msg, message: nil, preferredStyle: .alert)
-        // 创建UIAlertAction空间， style: .destructive 红色字体
-        let okAction = UIAlertAction(title: buttonText, style: .destructive, handler: nil)
-        self.addAction(okAction)
-    }
-    
-}
-
-
 // MARK: - UIButton 扩展
 
 

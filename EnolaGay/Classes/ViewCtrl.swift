@@ -3,19 +3,13 @@
 //  Copyright © 2017年 数睿科技 8891.com.tw. All rights reserved.
 //
 
-/*
- 实现的功能描述：
- 1：实现统一的背景色，支持单独设置背景色，若未单独设置则使用统一的背景色。
- 2：界面出现即加载网络数据并正确展示，若加载失败，该界面每次出现需再次加载网络数据，直到加载成功。
- */
-
 import UIKit
 import SwiftyJSON
 
-/// 遵循统一标准的 ViewController。
-/// - warning: **该 viewController 遵循以下标准**
-/// * 重写 viewTitle 以设置标题
-/// * 设置 requestConfig 对象以配置请求信息
+/// 遵循统一标准的 ViewController.
+/// - Warning: 该 viewController 遵循以下标准：
+/// * 重写 viewTitle 以设置标题。
+/// * 设置 requestConfig 对象以配置请求信息。
 open class JudyBaseViewCtrl: UIViewController {
 
     // MARK: - public var property
@@ -121,7 +115,7 @@ open class JudyBaseViewCtrl: UIViewController {
     
     /// 发起网络请求。
     ///
-    /// 通过调用此函数发起一个完整的请求流，此方法中将更新 apiData。
+    /// 通过调用此函数发起一个完整的请求流，此方法中将更新 apiData.
     /// - Warning: 此方法中会更改 isReqSuccess 对应状态。
     /// - 请求结果在此函数中分流，此函数内部将依次执行以下函数，请重写相关函数以实现对应操作
     ///     - setApi()
@@ -261,7 +255,7 @@ public extension UIViewController {
 // MARK: - gradientLayer 渐变
 public extension UIViewController {
     
-    /// 获取一个CAGradientLayer渐变
+    /// 获取一个 CAGradientLayer 渐变。
     /// * 使用方式如下
     /// ```
     /// self.view.layer.insertSublayer(gradientLayer, at: 0)
@@ -269,10 +263,10 @@ public extension UIViewController {
     ///
     /// - Parameters:
     ///   - vertical: 是否垂直方向的渐变，默认是。否则为横向渐变。
-    ///   - frame: 默认为屏幕frame
-    ///   - startColor: 起始颜色，默认为red
-    ///   - endColor: 终止颜色，默认为green
-    /// - Returns: CAGradientLayer对象
+    ///   - frame: 默认为屏幕 frame.
+    ///   - startColor: 起始颜色，默认为 red.
+    ///   - endColor: 终止颜色，默认为 green.
+    /// - Returns: CAGradientLayer 对象。
     final func judy_getGradient(vertical: Bool = true, frame: CGRect = UIScreen.main.bounds, startColor: UIColor = .red, endColor: UIColor = .green) -> CAGradientLayer {
         //create gradientLayer
         let gradientLayer : CAGradientLayer = CAGradientLayer()
@@ -363,13 +357,14 @@ public extension UIViewController {
     }
     
     
-    /// 截取指定 UIScrollView 生成图片。 **调用此方法务必在 viewDidAppear 函数之后**
+    /// 截取指定 UIScrollView 生成图片。
     ///
     /// - Parameters:
-    ///   - targetScrollView: 要保存为图片的 UIScrollView
-    ///   - transparent: 是否透明，默认 false，如果背景颜色可能是部分透明我们必须用白色填充
-    ///   - savedPhotosAlbum: 是否保存到相册，默认 false
-    /// - Returns: 你要的图像
+    ///   - targetScrollView: 要保存为图片的 UIScrollView.
+    ///   - transparent: 是否透明，默认 false，如果背景颜色可能是部分透明我们必须用白色填充。
+    ///   - savedPhotosAlbum: 是否保存到相册，默认 false.
+    /// - Warning: 调用此方法务必在 viewDidAppear 函数之后。
+    /// - Returns: 你要的图像。
     final func judy_captureScreenImage(targetScrollView: UIScrollView, transparent: Bool = false, savedPhotosAlbum: Bool = false ) -> UIImage? {
         
         UIGraphicsBeginImageContextWithOptions(targetScrollView.contentSize, false, 0.0)
@@ -412,14 +407,14 @@ public extension UIViewController {
         return image
     }
 
-    
-    /// 截取指定 View 生成图片。 **调用此方法务必在 viewDidAppear 函数之后**
+    /// 截取指定 View 生成图片。
     ///
     /// - Parameters:
-    ///   - targetView: 要保存为图片的 View
-    ///   - transparent: 是否透明，默认 false，如果背景颜色可能是部分透明我们必须用白色填充
-    ///   - complete: 是否需要截取完整视图层次结构（包含状态栏），默认 false
-    /// - Returns: 你要的图像
+    ///   - targetView: 要保存为图片的 View.
+    ///   - transparent: 是否透明，默认 false，如果背景颜色可能是部分透明我们必须用白色填充。
+    ///   - complete: 是否需要截取完整视图层次结构（包含状态栏），默认 false.
+    /// - Warning: 调用此方法务必在 viewDidAppear 函数之后。
+    /// - Returns: 你要的图像。
     final func judy_captureScreenImage(targetView: UIView, transparent: Bool = false, complete: Bool = false) -> UIImage? {
         
         UIGraphicsBeginImageContextWithOptions(targetView.bounds.size, false, 0.0)
@@ -456,12 +451,13 @@ public extension UIViewController {
         return image
     }
     
-    /// 截取指定 View 生成图片，并保存到相册。 **调用此方法务必在 viewDidAppear 函数之后**
+    /// 截取指定 View 生成图片，并保存到相册。
     ///
     /// - Parameters:
-    ///   - targetView: 要保存为图片的 View
-    ///   - transparent: 是否透明
-    /// - Returns: 保存结果
+    ///   - targetView: 要保存为图片的 View.
+    ///   - transparent: 是否透明。
+    /// - Warning: 调用此方法务必在 viewDidAppear 函数之后。
+    /// - Returns: 保存结果。
     @discardableResult
     final func judy_captureImageSavedPhotosAlbum(targetView: UIView, transparent: Bool = false) -> Bool {
         
@@ -483,8 +479,8 @@ public extension UIViewController {
 
 public extension UIViewController {
     
-    /// 递归查找 UITextField
-    /// - Parameter view: UITextField 可能存在的父 View
+    /// 递归查找 UITextField.
+    /// - Parameter view: UITextField 可能存在的父 View.
     func judy_recursionUITextField(view: UIView) -> UIView? {
         
         var textField: UIView? = nil
@@ -512,7 +508,7 @@ public extension UIViewController {
     
     /// 移动导航条，将导航栏移出屏幕外（或恢复原位置）。
     ///
-    /// - Parameter isHihe: 是否隐藏。默认值应该为 false
+    /// - Parameter isHihe: 是否隐藏。默认值应该为 false.
     /// - Warning: 该方法一般要调用两次（移动之后需要恢复）。
     func judy_moveNavigationBar(isHihe: Bool = false) {
         guard navigationController != nil else { return }
@@ -529,7 +525,6 @@ public extension UIViewController {
                        height: self.navigationController!.navigationBar.frame.size.height)
         }
     }
-
     
     /// 弹出一个系统警告框，只包含一个确定按钮，没有任何按钮的操作事件。
     ///
@@ -548,8 +543,6 @@ public extension UIViewController {
             self?.present(alertController, animated: false, completion: completionAction)
         }
     }
-
-    
     
     /// 获取当前 UIViewController 的导航控制器。
     ///
@@ -575,6 +568,7 @@ public extension UIViewController {
     }
 
 }
+
 
 // MARK: - 正确地处理键盘遮挡输入框
 
@@ -617,9 +611,8 @@ public extension UIViewController {
         }
     }
 
-    
     /// 注册监听键盘弹出收起事件，该函数可使 quoteKeyBoardView 跟随键盘弹出收起。
-    /// - Parameter keyBoardView: 需要跟随键盘移动的 view，一般为输入框所在的父 View。
+    /// - Parameter keyBoardView: 需要跟随键盘移动的 view，一般为输入框所在的父 View.
     /// - Parameter isSafeAreaInsetsBottom: keyBoardView 是否保留安全区域底部内边距，默认 true，keyBoardView 在跟随键盘弹出时会自动扣除安全区域的高度距离，反之亦然。
     func registerKeyBoardListener(forView keyBoardView: UIView, isSafeAreaInsetsBottom: Bool = true) {
         NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
