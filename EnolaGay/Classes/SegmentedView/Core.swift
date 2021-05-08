@@ -1,5 +1,5 @@
 //
-//  SegmentedView 中核心组件相关内容
+//  SegmentedView 中核心组件相关内容。
 //
 //  Created by 王仁洁 on 2021/3/10.
 //
@@ -92,11 +92,10 @@ open class SegmentedCell: UICollectionViewCell {
     open func reloadData(itemModel: SegmentedItemModel) {
         self.itemModel = itemModel
     }
-    
 }
 
 
-/// SegmentedView 中的基础 CollectionView
+/// SegmentedView 中的基础 CollectionView.
 open class SegmentedCollectionView: UICollectionView {
 
     open var indicators = [UIView & IndicatorProtocol]() {
@@ -128,9 +127,7 @@ open class SegmentedCollectionView: UICollectionView {
 }
 
 
-
 // MARK: - Indicator
-
 
 /// 指示器传递的数据模型。
 public struct IndicatorSelectedParams {
@@ -150,6 +147,7 @@ public struct IndicatorSelectedParams {
         self.collectionViewContentSize = collectionViewContentSize
     }
 }
+
 
 public struct IndicatorTransitionParams {
    public let currentSelectedIndex: Int
@@ -172,6 +170,7 @@ public struct IndicatorTransitionParams {
        self.percent = percent
    }
 }
+
 
 /// 一个普通的标准指示器 View，如果需要自定义指示器可参考本类实现方式。
 open class IndicatorView: UIView, IndicatorProtocol {
@@ -306,8 +305,7 @@ open class IndicatorView: UIView, IndicatorProtocol {
 
 // MARK: Animator
 
-
-/// Segmented 专用动画控制类
+/// Segmented 专用动画控制类。
 open class Animator {
     
     /// 动画持续时间。

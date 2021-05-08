@@ -17,8 +17,6 @@ import SwiftyJSON
 /// 常用系统级相关工具类
 ///
 /// 在 EnolaGay 中最早的工具类，后演变成 struct，起源于 2017 年，在深圳数睿科技 8891 部门，极具收藏意义，非必要不移除任何成员。
-/// - version: 1.2
-/// - since: 2021年01月09日09:12:33
 public struct Judy {
     
     /// 私有init,不允许构建对象
@@ -148,8 +146,7 @@ public struct Judy {
         return false
     }
     
-    
-    /// 毫秒转时间
+    /// 毫秒转时间。
     ///
     /// - Parameters:
     ///   - time: 时间的毫秒数，如：1525653777000
@@ -166,12 +163,6 @@ public struct Judy {
     }
     
     /// dictionary 转成 String。服务器需要 String 类型的参数时使用此方法方便地转换数据。
-    /// ##在有 JSON 的时候直接使用json.rawString()即可。
-    /// - warning: 在有 JSON 的时候直接使用json.rawString()即可。
-    /// - Parameter withDictionary: 比如：["userName": "Judy", "age": 23]
-    /// - Returns: "{\"userName\": \"Judy\", \"age\": 23}"
-    /// - version: 1.0
-    /// - since: 2021年01月08日21:30:08
     @available(*, unavailable, message: "此函数已禁用，请使用 SwiftyJSON 的 json.rawString() ")
     public static func string(withDictionary: [String: Any]) -> String { "" }
 
@@ -194,7 +185,6 @@ public extension Judy {
         let decodedString = NSString(data: decodedData! as Data, encoding: String.Encoding.utf8.rawValue)! as String
         return decodedString
     }
-    
 }
 
 /****************************************  ****************************************/
@@ -836,7 +826,6 @@ public struct JudyTip {
 
 /*
 
- 
  func checkVersion() {
  var bFlg = true
  
@@ -900,40 +889,3 @@ public struct JudyTip {
  
  解码后得到的结果是：{urldecode}
  */
-
-
-// MARK: - 废弃的方法
-extension Judy {
-    @available(*, deprecated, message: "使用 UIColor.EMERANA 的扩展")
-    public static func colorByRGB(rgbValue: Int, alpha: CGFloat = 1) -> UIColor {return .red}
-    @available(*, deprecated, message: "使用 UIColor.EMERANA 的扩展")
-    public static func colorByRGB(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1) -> UIColor {return .red}
-    @available(*, deprecated, message: "使用 UIImage.EMERANA 的扩展")
-    public static func image(with color: UIColor) -> UIImage {return UIImage()}
-    @available(*, deprecated, message: "使用 UIImage.EMERANA 的扩展")
-    public static func image(fromLayer layer: CALayer) -> UIImage {return UIImage()}
-    @available(*, deprecated, message: "使用 UIView.EMERANA 的扩展")
-    public static func viewRound (view: UIView, border: CGFloat = 0, color: UIColor = .darkGray) {}
-    @available(*, deprecated, message: "使用 UIView.EMERANA 的扩展")
-    public static func viewRadiu (view: UIView, radiu: CGFloat = 10, border: CGFloat = 0, color: UIColor = .darkGray) {}
-    @available(*, deprecated, message: "该函数已废弃")
-    public static func saveUserDefault(value: Any, key: String) {}
-    @available(*, deprecated, message: "该函数已废弃")
-    public static func getUserDefault(key: String) -> Any {return ""}
-    @available(*, deprecated, message: "该函数已废弃")
-    public static func removeUserDefault(key: String) {}
-    /// 详细的输出 Log 方式，只有在 DeBug 模式下会打印
-    @available(*,deprecated, message: "该函数已支持重命名，请使用新的函数名。", renamed: "log")
-    public static func judy<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
-        #if DEBUG
-        // 🚥❤️🧡💛💚💙💜💟🎇♒️🚦🚖🚘🚔🚙
-        print("🚘\((file as NSString).lastPathComponent)[\(line)]💟\(method)\n\(message())\n🚥")
-        #endif
-    }
-    @available(*, unavailable, renamed: "numberInputRestriction", message: "此函数已重命名")
-    public static func number(textField: UITextField, range: NSRange, string: String, num: Int = 0, maxNumber: Int = 0, minNumber: Int = 0) -> Bool {
-        return false
-    }
-
-    
-}
