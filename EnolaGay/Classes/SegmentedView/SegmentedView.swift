@@ -1,6 +1,6 @@
 //
 //  SegmentedView.swift
-//  SegmentedView 中的主要 View
+//  SegmentedView 中的主要 View.
 //
 //  Created by 王仁洁 on 2021/3/9.
 //
@@ -10,7 +10,7 @@ import UIKit
 /// 自动数值：-1
 public let SegmentedAutomaticDimension: CGFloat = -1
 
-/// SegmentedView 核心 View
+/// SegmentedView 核心 View.
 public class SegmentedView: UIView {
     
     /// 数据源协议对象，设置该对象即重载所有 SegmentedView 相关数据。
@@ -23,10 +23,10 @@ public class SegmentedView: UIView {
 
     // MARK: collectionView 相关
     
-    /// 核心 collectionView。
+    /// 核心 collectionView.
     public private(set) var collectionView: SegmentedCollectionView!
     
-    /// 在 collectionView 中展示的数据源，该值取决于 dataSource.itemDataSource。
+    /// 在 collectionView 中展示的数据源，该值取决于 dataSource.itemDataSource.
     private var items = [SegmentedItemModel]()
     
     /// 用于存储 collectionView 注册 Cell 的重用标识符。
@@ -35,22 +35,22 @@ public class SegmentedView: UIView {
     /// Cell 内边距，该值取决于 dataSource.itemSpacing，且该值直接决定了 item 之间的最小间距。
     private var innerItemSpacing: CGFloat = 0
     
-    /// 整体内容两侧的边距，默认值为 SegmentedAutomaticDimension。
+    /// 整体内容两侧的边距，默认值为 SegmentedAutomaticDimension.
     ///
-    /// - Warning: 通常情况下该值会等于 dataSource 中的 itemSpacing。
+    /// - Warning: 通常情况下该值会等于 dataSource 中的 itemSpacing.
     private var contentEdgeInsetLeft: CGFloat = SegmentedAutomaticDimension,
                 contentEdgeInsetRight: CGFloat = SegmentedAutomaticDimension
     
-    /// 该值标识当前选中的的 index。
+    /// 该值标识当前选中的的 index.
     public private(set) var selectedIndex: Int = 0
-    /// 初始化或者 reloadData 之前设置，用于指定默认的 index。
+    /// 初始化或者 reloadData 之前设置，用于指定默认的 index.
     open var defaultSelectedIndex: Int = 0 {
         didSet { selectedIndex = defaultSelectedIndex }
     }
     
-    /// 正在滚动中的目标 index。用于处理正在滚动列表的时候，立即点击 item，会导致界面显示异常。
+    /// 正在滚动中的目标 index,用于处理正在滚动列表的时候，立即点击 item，会导致界面显示异常。
     private var scrollingTargetIndex: Int = -1
-    /// 是否第一次触发 LayoutSubviews 函数的标识，默认 true。
+    /// 是否第一次触发 LayoutSubviews 函数的标识，默认 true.
     private var isFirstLayoutSubviews = true
 
     /// indicators 的元素必须是遵从 JXSegmentedIndicatorProtocol 协议的 UIView 及其子类。
@@ -82,7 +82,7 @@ public class SegmentedView: UIView {
         // 如果向下取整导致了你的页面异常，请自己重新设置 SegmentedView 的高度，保证为整数即可。
         let targetFrame = CGRect(x: 0, y: 0, width: bounds.size.width, height: floor(bounds.size.height))
         
-        // 首次 layoutSubviews 函数时需要设置 CollectionView 的 frame 及载入数据
+        // 首次 layoutSubviews 函数时需要设置 CollectionView 的 frame 及载入数据。
         if isFirstLayoutSubviews {
             isFirstLayoutSubviews = false
             collectionView.frame = targetFrame
@@ -105,7 +105,7 @@ public extension SegmentedView {
     
     /// 更新目标 item.
     ///
-    /// 在每次做出选择后都会触发此函数以更新该 Cell 中的数据。
+    /// 在每次做出选择后都会触发此函数以更新该 cell 中的数据。
     final func reloadItem(at index: Int) {
         guard index >= 0 && index < items.count else { return }
         
