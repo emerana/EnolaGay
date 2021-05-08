@@ -301,7 +301,6 @@ open class IndicatorLineView: IndicatorView {
         self.frame.size.width = targetWidth
     }
     
-    
     public override func selectItem(model: IndicatorSelectedParams) {
         
         let targetWidth =  indicatorWidth == SegmentedAutomaticDimension ?
@@ -424,5 +423,3 @@ open class SegmentedViewTitleDataSource: SegmentedViewDataSource {
     }
 
 }
-
-

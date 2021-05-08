@@ -2,20 +2,8 @@
 //  EMERANA.swift
 //
 //  Created by 艾美拉娜 on 2018/10/5.
-//  Copyright © 2018 杭州拓垦网络科技. All rights reserved.
+//  Copyright © 2018. All rights reserved.
 //
-
-/*
- // MARK: - Objective-C 桥接文件模板
- 
- #ifndef Bridging_Header_h
- #define Bridging_Header_h
- 
- #import "JudySegmentedCtrl.h"
- #import "ChatViewCtrl.h"
- 
- #endif /* Bridging_Header_h */
- */
 
 import SwiftyJSON
 
@@ -30,21 +18,11 @@ public typealias ClosureJSON = ((JSON) -> Void)
 public typealias ClosureString = ((String) -> Void)
 
 
-/// viewCtrl 基础协议。
-/// - warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
-@available(*, unavailable, message: "此协议已弃用")
-public protocol EMERANA_ViewCtrl where Self: JudyBaseViewCtrl {}
-
-/// ViewCtrl 专用 Api 协议，此协议中规定了一个viewCtrl中必须的属性及函数
-@available(*, unavailable, message: "此协议已弃用")
-public protocol EMERANA_Api: EMERANA_ViewCtrl {}
-
-
 // MARK: - 为 ViewCtrl 新增部分协议
 
 // 为 JudyBaseViewCtrl 扩展函数实现。
 public extension JudyBaseViewCtrl {
-    /// 是否隐藏所有界面 reqApi() 时显示等待的 HUD，此函数已默认实现返回 false，通过 public extension JudyBaseViewCtrl 重写此函数以改变默认值
+    /// 是否隐藏所有界面 reqApi() 时显示等待的 HUD，此函数已默认实现返回 false，通过 public extension JudyBaseViewCtrl 重写此函数以改变默认值。
     static func isGlobalHideWaitingHUD() -> Bool { false }
 }
 
@@ -67,7 +45,7 @@ public protocol RefreshAdapter where Self: UIApplication {
     /// 重置没有更多数据。
     func resetNoMoreData(scrollView: UIScrollView?)
     
-    /// 询问分页请求中页码和页大小字段名，默认实现为 "pageIndex","pageSize"。
+    /// 询问分页请求中页码和页大小字段名，默认实现为 "pageIndex","pageSize".
     /// - Warning: 第一个元素为页码，第二个元素为页大小。
     func pageParameterStrings() -> (String, String)
 
@@ -83,9 +61,9 @@ public extension RefreshAdapter {
 /// - Warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供。
 public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     
-    /// 缺省请求页码，通常第一页码为1，但油的情况可能为0。
+    /// 缺省请求页码，通常第一页码为1，但有的情况可能为0。
     var defaultPageIndex: Int { get }
-    /// 请求页码。初始化、下拉刷新时因重置到默认值。
+    /// 请求页码。初始化、下拉刷新时会重置到默认值 defaultPageIndex.
     var currentPage: Int { get }
     
     /// 每页的数据大小。
@@ -118,7 +96,7 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     /// ```
     /// return apiData["data"].arrayValue.count != 10 ? currentPage:currentPage+1
     /// ```
-    /// - Warning: 若未覆盖此函数，默认值为 1。
+    /// - Warning: 若未覆盖此函数，默认值为 1.
     func setSumPage() -> Int
     
     /// 重置当前页面请求页数及上下拉状态。
@@ -137,13 +115,12 @@ extension EMERANA_Refresh {
     /// - warning: 所有实现 EMERANA_Refresh 协议的对象均能触发此扩展函数
     ///     * 在此函数中补充所需操作，扩展对应的类并重写此函数
     func hideFooterStateLabel() -> Bool { false }
-
 }
 
 
 /// 此协议仅适用于包含基础集合视图的 tableViewCtrl、collectionViewCtrl。
 protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
-
+    
     /// 主要数据源，需要手动赋值，默认为空数组。
     var dataSource: [JSON] { get set }
     
@@ -172,13 +149,10 @@ public protocol EMERANA_CellBasic {
     
     /// 标题。
     var titleLabel: UILabel? { get set }
-    
     /// 副标题。
     var subTitleLabel: UILabel? { get set }
-    
     /// 主图片。
     var masterImageView: UIImageView? { get set }
-        
     /// Cell 中的数据源。
     ///
     /// 设置该值的时候将触发 jsonDidSetAction()，函数中的默认对应:
@@ -188,7 +162,6 @@ public protocol EMERANA_CellBasic {
     
     /// 设置 json 数据源事件。
     func jsonDidSetAction()
-
 }
 /*
  // MARK: 默认实现的注意点
@@ -206,7 +179,6 @@ public extension EMERANA_CellBasic {
     func globalAwakeFromNib() { }
     
     func selectedDidSet(isSelected: Bool) { }
-
 }
 
 
@@ -242,7 +214,6 @@ public protocol EMERANA_FontStyle: AnyObject {
     /// ```
     /// - warning: 该值仅对初始化时有效
     var initFontStyle: Int { get }
-    
 }
 
 /*
@@ -267,175 +238,46 @@ public protocol EMERANA_FontStyle: AnyObject {
  */
 
 
-// MARK: - UIColor 配置
+// MARK: UIColor 配置扩展
 
 public extension UIColor {
-
+    
     /*
      * static 定义的属性和func 没办法被子类 override.
      * class 定义的属性和func 可以被子类 override.
      */
     
+    /// 此颜色为白色。
     static let scrollView: UIColor = .white
 
-}
-
-
-/// UIColor EMERANA 配置协议，此协议已经默认实现
-@available(*, unavailable, message: "此协议已废弃，请自行 extension UIColor 管理即可。")
-public protocol EMERANA_UIColor {
-    
-    /// 使用 EMERANA 配置获取颜色
-    /// - warning: 自定义配置请 public extension UIColor 并覆盖此函数
-    /// - Parameter style: 颜色样式，参阅 ColorStyle
-    func configColorStyle(_ style: UIColor.ColorStyle) -> UIColor
-
-}
-
-// EMERANA_UIColor 协议默认实现
-/*
-public extension EMERANA_UIColor where Self: UIColor {
-    
-    func configColorStyle(_ style: UIColor.ColorStyle) -> UIColor {
-        
-        switch style {
-        
-        case .appTint:
-            return #colorLiteral(red: 0.9363723993, green: 0.3479409218, blue: 0.03348073736, alpha: 0.9995727539)
-        case .navigationBarTint:
-            return .blue
-        case .navigationBarTitle, .navigationBarItems:
-            return .white
-        case .text:
-            if #available(iOS 13, *) {
-                return .label
-            } else {
-                return .black
-            }
-        case .darkText:
-            return #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        case .lightText:
-            return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        case .separate: // systemGray6
-            if #available(iOS 13, *) {
-                return .separator
-            } else {
-                return #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.09803921569)
-            }
-        case .view, .scrollView:
-            if #available(iOS 13, *) {
-                return UIColor { (trainCollection) -> UIColor in
-                    return trainCollection.userInterfaceStyle == .dark ? .darkGray:.opaqueSeparator
-                }
-            } else {
-                return .white
-            }
-        case .selected:
-            return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        case .colorStyle1:
-            return #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        case .colorStyle2:
-            return #colorLiteral(red: 1, green: 0.1764705882, blue: 0.3333333333, alpha: 1)
-        case .colorStyle3:
-            return #colorLiteral(red: 1, green: 0.231372549, blue: 0.1882352941, alpha: 1)
-        case .colorStyle4:
-            return #colorLiteral(red: 1, green: 0.3094263673, blue: 0.4742257595, alpha: 1)
-        case .colorStyle5:
-            return #colorLiteral(red: 0.9568627451, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
-            
-        case .gradientStyle1_start:
-            return .red
-        case .gradientStyle1_end:
-            return .green
-        case .gradientStyle2_start:
-            return .blue
-        case .gradientStyle2_end:
-            return .brown
-            
-        default:
-            return .red
-        }
-    }
-}
-*/
-// MARK: UIColor 扩展
-public extension UIColor {
-    
-    /// EMERANA 对 App 中所使用的的 UIColor 集中管理
-    @available(*, unavailable, message: "此枚举已废弃")
-    enum ColorStyle {
-        /// App 主色调、通用前景色
-        case appTint
-
-        /// 导航条色彩样式，这里的颜色透明度可以为 nil
-        case navigationBarTint
-        /// 导航条上 title 颜色
-        case navigationBarTitle
-        /// 导航条上所有 items 颜色(tintColor)
-        case navigationBarItems
-
-        /// 通用文本颜色
-        case text
-        /// 深色文本颜色
-        case darkText
-        /// 浅色文本颜色，一般与 text 对称，text 越深则越浅
-        case lightText
-        
-        /// 用于表示分割线的颜色
-        case separate
-        /// 所有普通 viewCtrl 背景颜色
-        case view
-        /// 所有 tableView/collectionView/scrollView/pageViewCtrl 背景颜色
-        case scrollView
-        /// 选中、高亮状态的颜色
-        case selected
-        /// 其他颜色样式，具体用途请自行 public extension
-        case colorStyle1, colorStyle2, colorStyle3, colorStyle4, colorStyle5
-        /// 渐变色可选样式
-        case gradientStyle1_start, gradientStyle1_end, gradientStyle2_start, gradientStyle2_end
-        
-        @available(*, deprecated, message: "请使用新命名 colorStyle1……", renamed: "colorStyle1")
-        case colorStyleA, colorStyleB, colorStyleC, colorStyleD, colorStyleE
-    }
-
-    
     // MARK: 构造函数
     
-    /// 通过 ColorStyle 配置一个颜色
-    @available(*, unavailable, message: "已废弃")
-    static func judy(_ style: UIColor.ColorStyle) -> UIColor { .red }
-    
-    
-    /// 通过16进制转换成 UIColor
+    /// 通过16进制转换成 UIColor。
     ///
     /// - Parameters:
-    ///   - rgbValue: 如:0x36c7b7（其实就是#36c7b7）
+    ///   - rgbValue: 如:0x36c7b7（其实就是#36c7b7）。
     ///   - alpha: 默认1。 可见度，0.0~1.0，值越高越不透明，越小越透明。
-    /// - Returns: UIColor
     convenience init(rgbValue: Int, alpha: CGFloat = 1) {
         self.init(red: CGFloat(Float((rgbValue & 0xff0000) >> 16)) / 255.0,
-                               green: CGFloat((Float((rgbValue & 0xff00) >> 8)) / 255.0),
-                               blue: CGFloat((Float(rgbValue & 0xff) / 255.0)),
-                               alpha: alpha)
+                  green: CGFloat((Float((rgbValue & 0xff00) >> 8)) / 255.0),
+                  blue: CGFloat((Float(rgbValue & 0xff) / 255.0)),
+                  alpha: alpha)
     }
     
     /// 通过指定 RGB 比值生成 UIColor，不需要2/255，只填入2即可。
-    /// # 传入的 RGB 值在 0~255 之间哈
     /// - Parameters:
-    ///   - r: 红色值
-    ///   - g: 绿色值
-    ///   - b: 蓝色值
+    ///   - r: 红色值。
+    ///   - g: 绿色值。
+    ///   - b: 蓝色值。
     ///   - a: 默认1。 透密昂度，0.0~1.0，值越高越不透明，越小越透明。
-    /// - Returns: UIColor
+    /// - Warning: 传入的 RGB 值在 0~255 之间哈。
     convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1) {
         self.init(red: CGFloat(r / 255.0), green: CGFloat(g / 255.0), blue: CGFloat(b / 255.0), alpha: a)
     }
-    
 }
 
 
 // MARK: - UIFont 配置
-
 
 /// UIFont EMERANA 配置协议，此协议已经默认实现
 /// - version: 1.0
@@ -503,16 +345,12 @@ public extension EMERANA_UIFont where Self: UIFont {
         return (fontName, fontSize)
     }
     
-    @available(*, unavailable, renamed: "UIFont(style:)", message: "此函数已废弃，请使用新的构造函数")
-    static func judy(_ style: UIFont.FontStyle) -> UIFont { return .systemFont(ofSize: 16) }
-    
 }
 
 
 // MARK: UIFont 扩展
 
 public extension UIFont {
-    
     
     /// 字体样式。**EMERANA 中默认使用 M 码**
     /// - warning: 使用注意事项
@@ -587,17 +425,16 @@ public extension UIFont {
         }
         
     }
-    
-    
 }
 
+
 // MARK: 字体、颜色管理类
+
 /// 全局配置协议，该协议只允许 UIApplication 继承。
 public protocol EnolaGayGlobalConfig where Self: UIApplication {
     
     /// 询问管理全局外观的实体，该实例为 Appearance 及其子类。
     func appearanceForApplication() -> Appearance
-
 }
 
 
@@ -605,6 +442,7 @@ public protocol EnolaGayGlobalConfig where Self: UIApplication {
 open class Appearance {
     
 }
+
 
 // MARK: UIApplication 扩展
 
@@ -637,95 +475,8 @@ public extension UIApplication {
     
 }
 
+
 // MARK: - UIImage 扩展
-
-public extension UIImage {
-    
-    /// 生成圆形图片
-    func imageCircle() -> UIImage {
-        //取最短边长
-        let shotest = min(size.width, size.height)
-        //输出尺寸
-        let outputRect = CGRect(x: 0, y: 0, width: shotest, height: shotest)
-        //开始图片处理上下文（由于输出的图不会进行缩放，所以缩放因子等于屏幕的scale即可）
-        UIGraphicsBeginImageContextWithOptions(outputRect.size, false, 0)
-        let context = UIGraphicsGetCurrentContext()!
-        //添加圆形裁剪区域
-        context.addEllipse(in: outputRect)
-        context.clip()
-        //绘制图片
-        draw(in: CGRect(x: (shotest-size.width)/2,
-                        y: (shotest-size.height)/2,
-                        width: size.width,
-                        height: size.height))
-        //获得处理后的图片
-        let maskedImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return maskedImage
-    }
-    
-    /// 通过颜色生成一张图片
-    @available(*, unavailable, message: "请使用init构造函数", renamed: "init(color:)")
-    static func image(with color: UIColor) -> UIImage { return UIImage() }
-    
-    /// 通过渐变颜色生成一张图片
-    @available(*, unavailable, message: "请使用init构造函数", renamed: "init(gradientColors:endColor:frame:)")
-    static func image(gradientColors startColor: UIColor = .red, endColor: UIColor = .blue, frame: CGRect) -> UIImage { return UIImage() }
-    
-    
-    /// 通过颜色生成一张图片
-    /// - Parameter color: 该颜色用于直接生成一张图像
-    convenience init(color: UIColor) {
-        
-        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
-        UIGraphicsBeginImageContext(rect.size)
-        let context = UIGraphicsGetCurrentContext()
-        context?.setFillColor(color.cgColor)
-        context?.fill(rect)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        guard image?.cgImage != nil else {
-            self.init()
-            Judy.logWarning("通过颜色生成图像时发生错误！")
-            return
-        }
-        self.init(cgImage: image!.cgImage!)
-    }
-    
-    
-    /// 通过渐变颜色生成一张图片
-    /// - Parameters:
-    ///   - startColor: 渐变起始颜色，默认red
-    ///   - endColor: 渐变结束颜色，默认blue
-    ///   - frame: 生成的图片 frame
-    convenience init(gradientColors startColor: UIColor = .red, endColor: UIColor = .blue, frame: CGRect) {
-        
-        let gradientLayer : CAGradientLayer = CAGradientLayer()
-        gradientLayer.frame = frame
-        //gradient colors
-        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
-        
-        UIGraphicsBeginImageContext(frame.size)
-        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
-        let outputImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        guard outputImage?.cgImage != nil else {
-            self.init()
-            Judy.logWarning("通过渐变颜色生成图像时发生错误！")
-            return
-        }
-        self.init(cgImage: outputImage!.cgImage!)
-
-    }
-
-    @available(*, unavailable, message: "此方法已不推荐使用，建议使用新函数 image(gradientColors …… )")
-    static func image(fromLayer layer: CALayer) -> UIImage {return UIImage()}
-
-}
 
 public extension UIImage {
     
@@ -742,7 +493,6 @@ public extension UIImage {
         return reSizeImage
     }
      
-
     /// 等比率缩放
     /// - Parameter scaleSize: 缩放倍数
     /// - Returns: 目标 image
@@ -802,6 +552,79 @@ public extension UIImage {
         return imageData!
     }
 
+    /// 生成圆形图片
+    func imageCircle() -> UIImage {
+        //取最短边长
+        let shotest = min(size.width, size.height)
+        //输出尺寸
+        let outputRect = CGRect(x: 0, y: 0, width: shotest, height: shotest)
+        //开始图片处理上下文（由于输出的图不会进行缩放，所以缩放因子等于屏幕的scale即可）
+        UIGraphicsBeginImageContextWithOptions(outputRect.size, false, 0)
+        let context = UIGraphicsGetCurrentContext()!
+        //添加圆形裁剪区域
+        context.addEllipse(in: outputRect)
+        context.clip()
+        //绘制图片
+        draw(in: CGRect(x: (shotest-size.width)/2,
+                        y: (shotest-size.height)/2,
+                        width: size.width,
+                        height: size.height))
+        //获得处理后的图片
+        let maskedImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return maskedImage
+    }
+    
+    /// 通过颜色生成一张图片。
+    /// - Parameter color: 该颜色用于直接生成一张图像。
+    convenience init(color: UIColor) {
+        
+        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        guard image?.cgImage != nil else {
+            self.init()
+            Judy.logWarning("通过颜色生成图像时发生错误！")
+            return
+        }
+        self.init(cgImage: image!.cgImage!)
+    }
+    
+    /// 通过渐变颜色生成一张图片。
+    /// - Parameters:
+    ///   - startColor: 渐变起始颜色，默认red。
+    ///   - endColor: 渐变结束颜色，默认blue。
+    ///   - frame: 生成的图片 frame。
+    convenience init(gradientColors startColor: UIColor = .red, endColor: UIColor = .blue, frame: CGRect) {
+        
+        let gradientLayer : CAGradientLayer = CAGradientLayer()
+        gradientLayer.frame = frame
+        //gradient colors
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        
+        UIGraphicsBeginImageContext(frame.size)
+        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+        let outputImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        guard outputImage?.cgImage != nil else {
+            self.init()
+            Judy.logWarning("通过渐变颜色生成图像时发生错误！")
+            return
+        }
+        self.init(cgImage: outputImage!.cgImage!)
+
+    }
+
+    @available(*, unavailable, message: "此方法已不推荐使用，建议使用新函数 image(gradientColors …… )")
+    static func image(fromLayer layer: CALayer) -> UIImage {return UIImage()}
 }
 
 
@@ -860,6 +683,7 @@ public extension UIImage {
     
 }
 
+
 // MARK: - 解决 UIScrollView 不响应 touches 事件
 
 public extension UIScrollView {
@@ -878,7 +702,6 @@ public extension UIScrollView {
         next?.touchesEnded(touches, with: event)
         super.touchesEnded(touches, with: event)
     }
-    
 }
 
 
@@ -974,7 +797,6 @@ public extension NSMutableAttributedString {
 
 
 }
-
 
 
 // MARK: - UIView IBDesignable 扩展
@@ -1127,11 +949,10 @@ public extension NSMutableAttributedString {
 
     // MARK: UIView 弹出键盘时调整窗体位置扩展
     
-    
-    /// 根据键盘调整 window origin
+    /// 根据键盘调整 window origin。
     ///
-    /// - Parameter isReset: 是否重置窗口？默认 flase
-    /// - Parameter offset: 偏移距离，默认 88
+    /// - Parameter isReset: 是否重置窗口？默认 flase。
+    /// - Parameter offset: 偏移距离，默认 88。
     func updateWindowFrame(isReset: Bool = false, offset: CGFloat = 88){
         //滑动效果
         UIView.animate(withDuration: 0.3) { [self] in
@@ -1146,12 +967,11 @@ public extension NSMutableAttributedString {
         
     }
 
-    
-    /// 执行一次发光效果
+    /// 执行一次发光效果。
     ///
-    /// 该函数以 View 为中心执行一个烟花爆炸动效
-    /// - warning: 如有必要可参考此函数创建新的扩展函数
-    /// - Parameter finishededAction: 动画完成后执行的事件，默认为 nil
+    /// 该函数以 View 为中心执行一个烟花爆炸动效。
+    /// - warning: 如有必要可参考此函数创建新的扩展函数。
+    /// - Parameter finishededAction: 动画完成后执行的事件，默认为 nil。
     func judy_blingBling(finishededAction: (()->Void)? = nil) {
         
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
@@ -1197,32 +1017,6 @@ public extension NSMutableAttributedString {
         
     }
     
-
-}
-
-// MARK: - JudySegmentCtrl 扩展
-
-
-
-// MARK: - UIAlertController 扩展
-
-public extension UIAlertController {
-    /// 弹出一个普通的提示框，不带任何事件
-    /// - Parameters:
-    ///   - msg: 提示框的消息体
-    ///   - buttonText: 确认按钮的文本
-    /// - Returns: 该 UIAlertController 对象
-    @available(*, deprecated, message: "请直接使用 ViewCtrl 中的 alert()")
-    convenience init(msg: String, buttonText: String = "好") {
-
-        self.init(title: msg, message: nil, preferredStyle: .alert)
-        // 创建UIAlertAction空间， style: .destructive 红色字体
-        let okAction = UIAlertAction(title: buttonText, style: .destructive, handler: nil)
-        self.addAction(okAction)
-        
-
-    }
-    
 }
 
 
@@ -1236,12 +1030,12 @@ public extension UIAlertController {
 
 public extension Double {
     
-    /// 将 double 四舍五入到指定小数位数并输出 String
+    /// 将 double 四舍五入到指定小数位数并输出 String。
     ///
-    /// - Parameter f: 要保留的小数位数，默认为 2
-    /// - Returns: 转换后的 String
+    /// - Parameter f: 要保留的小数位数，默认为 2。
+    /// - Returns: 转换后的 String。
     func format(f: Int = 2) -> String {
-        //String(format: "%.3f", 0.3030000000000000) ==> 0.303
+        // String(format: "%.3f", 0.3030000000000000) ==> 0.303
         return String(format: "%.\(f)f", self)
     }
     
@@ -1251,10 +1045,10 @@ public extension Double {
 
 public extension URL {
     
-    /// utf8 编码的 URL。适用于当URL地址中包含中文时无法正常加载等情况
+    /// utf8 编码的 URL。适用于当URL地址中包含中文时无法正常加载等情况。
     ///
-    /// - Parameter utf8StringURL: 带有中文的链接，比如：http://api.tuoken.pro/api/product/qrDode?address=渠道商ETH地址
-    /// - Returns: 对应的 URL 对象，如：http://api.tuoken.pro/api/product/qrDode?address=%E6%B8%A0%E9%81%93%E5%95%86ECH%E5%9C%B0%E5%9D%80
+    /// - Parameter utf8StringURL: 带有中文的链接，比如：http://api.tuoken.pro/api/product/qrDode?address=渠道商ETH地址。
+    /// - Returns: 对应的 URL 对象，如：http://api.tuoken.pro/api/product/qrDode?address=%E6%B8%A0%E9%81%93%E5%95%86ECH%E5%9C%B0%E5%9D%80。
     static func utf8URL(utf8StringURL: String) -> URL? {
         let data = utf8StringURL.data(using: String.Encoding.utf8)
         guard data != nil else {
@@ -1265,10 +1059,10 @@ public extension URL {
     
 }
 
+
 // MARK: - 针对 String 扩展的便携方法，这些方法尚未验证其准确性
 
 public extension String {
-    
     
     /// 通过一个时间戳获取视频的总时长
     /// - Parameter duration: 视频的 player.duration，如 1942.2760000000001
@@ -1281,7 +1075,6 @@ public extension String {
         let s = String(format: "%02d", timeStamp%60)
         
         return "\(h):\(m):\(s)"
-        
     }
     
     /// 将字符串转换成时间格式。如将"2016-08-19 16:23:09" 转成 "16:23:09"。
@@ -1314,22 +1107,20 @@ public extension String {
     /// - Returns: "strabc"
     func clean() -> String { replacingOccurrences(of: " ", with: "") }
     
-
-    /// 计算文本的 size
+    /// 计算文本的 size。
     ///
     /// - Parameters:
-    ///   - font: 字体，默认按照 M 码字体计算
+    ///   - font: 字体，默认按照 M 码字体计算。
     ///   - maxSize: 最大尺寸，默认为 CGSize(width: 320, height: 68)
     /// - Returns: 文本所需宽度
-    func textSize(maxSize: CGSize = CGSize(width: 320, height: 0), font: UIFont = UIFont(style: .M)) -> CGSize {
-        // Judy-mark: 根据文本内容获取尺寸，计算文字尺寸 UIFont.systemFont(ofSize: 14.0)
-        let size = self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: font], context: nil).size
-        
-        return size
+    func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(style: .M)) -> CGSize {
+        // 根据文本内容获取尺寸，计算文字尺寸 UIFont.systemFont(ofSize: 14.0)
+        return self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin],
+                                 attributes: [NSAttributedString.Key.font: font],
+                                 context: nil).size
     }
 
-    func sizeWith(font: UIFont = UIFont(style: .M) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) ->CGSize {
-        
+    func sizeWith(font: UIFont = UIFont(style: .M) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize {
         let options = NSStringDrawingOptions.usesLineFragmentOrigin
         
         let paragraphStyle : NSMutableParagraphStyle = NSMutableParagraphStyle()
@@ -1339,12 +1130,11 @@ public extension String {
         attributes[NSAttributedString.Key.font] = font
         attributes[NSAttributedString.Key.paragraphStyle] = paragraphStyle
         let textBouds = self.boundingRect(with: maxSize, options: options, attributes: attributes, context: nil)
-        return textBouds.size
         
+        return textBouds.size
     }
-
     
-    // 下标获取字符串
+    /// 下标获取字符串。
     subscript(i: Int) -> String {
         return String(self[index(startIndex, offsetBy: i)])
     }
@@ -1388,9 +1178,6 @@ public extension String {
     //    var dropLast: String {
     //        return dropLast()
     //    }
-
-    
-    
 }
 
 
@@ -1403,7 +1190,6 @@ public extension UITableView {
     /// - Parameter animated: 是否需要动画效果？默认为 true。
     /// - warning: 在调用该函数之前请先调用 reloadData()。
     func scrollToBottom(animated: Bool = true) {
-        
         if numberOfSections > 0 {
             let lastSectionIndex = numberOfSections-1
             let lastRowIndex = numberOfRows(inSection: lastSectionIndex)-1
@@ -1424,16 +1210,11 @@ import UIKit
 /// EMERANA 结构体，项目中所有辅助性功能应该基于 EMERANA 模块化，可以通过 public extension 新增模块。
 /// - Warning: 该结构体已禁用 init() 函数，请使用 judy 单例对象
 public struct EMERANA {
-    
     /// EMERANA 结构体的唯一实例。在单例模式下，只有该实例被首次访问时才会创建该对象（触发 init() ）。
     public static let judy = EMERANA()
     
     /// 全局配置对象。
     let globalConfig: EnolaGayGlobalConfig? = UIApplication.shared as? EnolaGayGlobalConfig
-
-    /// 颜色配置代理对象
-    @available(*, unavailable, message: "该配置代理对象已废弃，请自行")
-    static let colorStyleConfigDelegate: EMERANA_UIColor? = UIApplication.shared as? EMERANA_UIColor
     
     /// 字体样式配置代理
     static let fontStyleConfigDelegate: EMERANA_UIFont? = UIApplication.shared as? EMERANA_UIFont
@@ -1554,7 +1335,18 @@ public extension EMERANA.Key {
 }
 
 
-//MARK: Swift提供的许多功能强大的全局函数
+// MARK: 废弃的协议
+
+/// viewCtrl 基础协议。
+/// - warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
+@available(*, unavailable, message: "此协议已弃用")
+public protocol EMERANA_ViewCtrl where Self: JudyBaseViewCtrl {}
+
+/// ViewCtrl 专用 Api 协议，此协议中规定了一个viewCtrl中必须的属性及函数
+@available(*, unavailable, message: "此协议已弃用")
+public protocol EMERANA_Api: EMERANA_ViewCtrl {}
+
+// MARK: Swift提供的许多功能强大的全局函数
 
 /*
  

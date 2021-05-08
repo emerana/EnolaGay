@@ -66,14 +66,12 @@ public protocol SegmentedViewDataSource: AnyObject {
     /// - Warning: 此函数中修改实体的 isSelected 属性无效，其将被强制更改为对应的选中状态。
     func refreshItemModel(_ segmentedView: SegmentedView, currentSelectedItemModel: SegmentedItemModel, willSelectedItemModel: SegmentedItemModel)
 
-
 }
 
 /// 提供 SegmentedViewDataSource 的默认实现，这样对于遵从 SegmentedViewDataSource 的类来说，所有代理方法都是可选实现的。
 public extension SegmentedViewDataSource {
 
     func refreshItemModel(_ segmentedView: SegmentedView, currentSelectedItemModel: SegmentedItemModel, willSelectedItemModel: SegmentedItemModel) { }
-
 }
 
 
@@ -104,9 +102,7 @@ public extension SegmentedViewDelegate {
 }
 
 
-
 // MARK: 指示器专用协议
-
 
 /// 指示器专用协议
 public protocol IndicatorProtocol {
@@ -153,7 +149,6 @@ public enum IndicatorLocation {
 
 
 // MARK: extension
-
 
 public extension UIColor {
     
