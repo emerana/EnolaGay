@@ -258,7 +258,7 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
     
     /// 设置 SegmentedCtrl 基本信息。
     /// - Parameter isLesser: 是否较少内容，默认false，若需要使 segmentedCtrl 宽度适应内容宽度传入 true
-    @available(*,unavailable,message: "此函数已废弃")
+    @available(*, unavailable, message: "此函数已废弃")
     open func setSegmentedCtrl(isLesser: Bool = false) {
                 
         if isLesser {
@@ -268,9 +268,6 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
             }
             segmentedCtrl.frame.size.width = width
         }
-        
-        //  替换 titleView
-        //  navigationItem.titleView = segmentedCtrl
     }
 
 
