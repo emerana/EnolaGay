@@ -28,8 +28,8 @@ import UIKit
 /// 支持模型驱动和数据驱动的标准 JudyBasePageViewCtrl。
 ///
 /// 通过 setPageViewDataSource 函数设置数据及界面，此类适用于切换的页面较少的场景，会保留所有出现的 viewCtrl。
-/// - warning: setPageViewDataSource 函数中直接明确了所有需要出现的 viewCtrls 及对应的 titles。
-/// - warning: 如果是模型驱动，则必须实现 enolagay 代理对象。
+/// - Warning: setPageViewDataSource 函数中直接明确了所有需要出现的 viewCtrls 及对应的 titles。
+/// - Warning: 如果是模型驱动，则必须实现 enolagay 代理对象。
 open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDelegate, UIScrollViewDelegate {
     
     /// emerana 代理，此代理负责处理 pageViewCtrl 切换事件。
@@ -57,12 +57,7 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
     lazy public var isScrollByViewCtrl = true
 
     /// pageViewCtrl 中出现的所有 viewCtrl 数组。
-    private(set) public var viewCtrlArray = [UIViewController](){
-        didSet{
-            // 配置默认显示的界面。
-            setViewControllers([viewCtrlArray[0]], direction: .forward, animated: true)
-        }
-    }
+    private(set) public var viewCtrlArray = [UIViewController]()
     
     /// viewCtrlArray 对应的 titles。
     private(set) lazy public var viewCtrlTitleArray = [String]()
@@ -86,12 +81,20 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
         let scrollView = view.subviews.filter { $0 is UIScrollView }.first as! UIScrollView
         scrollView.delegate = self
     }
-    
-    /// 设置数据源，默认会显示第一项。
-    /// - Parameter dataSource: 在以模型为驱动时，传入 titles，该 titles 会对应 viewCtrl 的 title；在以界面为驱动时，传入viewControllers。
-    final public func onStart<DataSource>(dataSource: [DataSource]) {
+
+    /// 通过此函数启动 pageViewCtrl 以设置数据源，默认会显示数据源中的第一项。
+    ///
+    /// - Parameters:
+    ///   - dataSource: 在以模型为驱动时，传入 titles，该 titles 会自动设置 viewCtrl 的 title；在以界面为驱动时，传入 viewControllers.
+    ///   - index: dataSource 中用于显示首页的索引，默认为 0。
+    public final func onStart<DataSource>(dataSource: [DataSource], index: Int = 0) {
         guard !dataSource.isEmpty else { return }
-        
+        guard index < dataSource.count else {
+            lastSelectIndex = 0
+            return
+        }
+        lastSelectIndex = index
+
         if dataSource is [String] { // 传入的标题，以模型驱动。
             guard enolagay != nil else { fatalError("模型驱动必须实现 enolagay！") }
             
@@ -102,9 +105,14 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
                 viewCtrl.title = title
                 return viewCtrl
             })
-            
+            // 配置默认显示的界面。
+            setViewControllers([viewCtrlArray[lastSelectIndex]], direction: .forward, animated: true)
+
         } else if dataSource is [UIViewController] {  // 传入的 viewCtrl，以 viewCtrl 驱动。
             viewCtrlArray = dataSource as! [UIViewController]
+            // 配置默认显示的界面。
+            setViewControllers([viewCtrlArray[lastSelectIndex]], direction: .forward, animated: true)
+
             // 根据 viewCtrlArray 设置 viewCtrlTitleArray。
             viewCtrlTitleArray = viewCtrlArray.map({ (item) -> String in
                 let viewController = item
@@ -125,9 +133,7 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
                 return theViewTitle!
             })
 
-        } else {
-            Judy.log("未知数据源类型！")
-        }
+        } else { Judy.logWarning("未知数据源类型！") }
     }
     
     deinit { Judy.logHappy("<\(title ?? "\(classForCoder)")> 已经释放。") }
@@ -226,11 +232,11 @@ extension JudyBasePageViewCtrl: UIPageViewControllerDataSource {
 
 // MARK: - 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl
 
-/// 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl
+/// 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl.
 ///  - warning: 本类中的 segmentedCtrl 已经和 pageViewCtrl 互相关联，无需手动配置二者关系。
 open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDelegate {
     
-    /// 分段控制器，如果有设置 pageViewCtrlToSegmentDelegate 对象，navigationSegmentedCtrl 将不会生效。
+    /// 内置的分段控制器，请自行配置其 dataSource。
     public lazy private(set) var segmentedCtrl: SegmentedView = {
         let segmentedView = SegmentedView()
         segmentedView.delegate = self
@@ -247,10 +253,12 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
         segmentedCtrl.selectItem(at: lastSelectIndex)
     }
     
+    
     // MARK: - segmentedCtrl 相关函数
     
     /// 设置 SegmentedCtrl 基本信息。
     /// - Parameter isLesser: 是否较少内容，默认false，若需要使 segmentedCtrl 宽度适应内容宽度传入 true
+    @available(*,unavailable,message: "此函数已废弃")
     open func setSegmentedCtrl(isLesser: Bool = false) {
                 
         if isLesser {
@@ -278,7 +286,7 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
             return
         }
         let viewCtrls = [viewCtrlArray[index]]
-        // 不应该在 completion 里设置 lastSelectIndex，这样不及时
+        // 不应该在 completion 里设置 lastSelectIndex，这样不及时。
         setViewControllers(viewCtrls, direction: ((lastSelectIndex < index) ? .forward : .reverse), animated: true)
         lastSelectIndex = index
     }
