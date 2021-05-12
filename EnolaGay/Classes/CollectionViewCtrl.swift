@@ -244,29 +244,8 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
         
         resetStatus()
         // 配置刷新控件。
-        if !isNoHeader() {
-            EMERANA.refreshAdapter?.initHeaderRefresh(scrollView: collectionView, callback: {
-                [weak self] in
-                self?.refreshHeader()
-                
-                self?.isAddMore = false
-                self?.currentPage = self!.defaultPageIndex
-                EMERANA.refreshAdapter?.resetNoMoreData(scrollView: self?.collectionView)
-                
-                self?.reqApi()
-            })
-        }
-        if !isNoFooter() {
-            EMERANA.refreshAdapter?.initFooterRefresh(scrollView: collectionView, callback: {
-                [weak self] in
-                self?.refreshFooter()
-                
-                self?.isAddMore = true
-                self?.currentPage += 1
-                
-                self?.reqApi()
-            })
-        }
+        initHeaderRefresh()
+        initFooterRefresh()
     }
 
 
@@ -333,9 +312,31 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     
     
     // MARK: - EMERANA_Refresh
+
+    open func initHeaderRefresh() {
+        EMERANA.refreshAdapter?.initHeaderRefresh(scrollView: collectionView, callback: {
+            [weak self] in
+            self?.refreshHeader()
+            
+            self?.isAddMore = false
+            self?.currentPage = self!.defaultPageIndex
+            EMERANA.refreshAdapter?.resetNoMoreData(scrollView: self?.collectionView)
+            
+            self?.reqApi()
+        })
+    }
     
-    open func isNoHeader() -> Bool { false }
-    open func isNoFooter() -> Bool { false }
+    open func initFooterRefresh() {
+        EMERANA.refreshAdapter?.initFooterRefresh(scrollView: collectionView, callback: {
+            [weak self] in
+            self?.refreshFooter()
+            
+            self?.isAddMore = true
+            self?.currentPage += 1
+            
+            self?.reqApi()
+        })
+    }
     
     open func pageParameterString() -> String {
         EMERANA.refreshAdapter?.pageParameterStrings().0 ?? "pageIndex"
