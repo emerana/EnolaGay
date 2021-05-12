@@ -324,7 +324,6 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
             
             self?.reqApi()
         })
-
     }
     
     open func initFooterRefresh() {
