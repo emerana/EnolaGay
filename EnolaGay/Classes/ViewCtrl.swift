@@ -496,7 +496,7 @@ public extension UIViewController {
         return textField
     }
         
-    /// 解决 push 时右上角出现可恶的黑影，给 keyWindow 设置背景色即可，一般为白色或 EMERANA 配置的通用背景色
+    /// 解决 push 时右上角出现可恶的黑影，给 keyWindow 设置背景色即可，一般为白色或 EMERANA 配置的通用背景色。
     @available(*,unavailable,message: "此函数太过于简单，弃用之！")
     func judy_setWindowBackgroundColor() {  }
     /// 将 window 背景色重置为 nil
