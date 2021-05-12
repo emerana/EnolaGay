@@ -61,7 +61,7 @@ public extension RefreshAdapter {
 /// - Warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供。
 public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     
-    /// 缺省请求页码，通常第一页码为1，但有的情况可能为0。
+    /// 缺省请求页码，通常第一页码为1，但有的情况可能为 0.
     var defaultPageIndex: Int { get }
     /// 请求页码。初始化、下拉刷新时会重置到默认值 defaultPageIndex.
     var currentPage: Int { get }
@@ -72,10 +72,11 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     /// 该属性标识最后操作是否为上拉加载，通常在获取到服务器数据后需要判断该值进行数据的处理。
     var isAddMore: Bool { get }
     
-    /// 询问是否不需要下拉刷新功能，默认实现为 false。
-    func isNoHeader() -> Bool
-    /// 询问是否不需要上拉加载功能，默认实现为 false。
-    func isNoFooter() -> Bool
+    
+    /// 请在此函数中配置头部（下拉）刷新控件。
+    func initHeaderRefresh()
+    /// 请在此函数中配置底部（上拉）加加载控件。
+    func initFooterRefresh()
     
     /// 询问分页请求中的当前页码字段名，默认实现为 "pageIndex"，否则请重写此函数以配置正确的字段名。
     func pageParameterString() -> String
@@ -85,9 +86,9 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     /// 当 currentPage 发生变化的操作。
     func didSetCurrentPage()
 
-    /// 下拉刷新之前的事件补充。
+    /// 执行下拉刷新之前的事件补充。
     func refreshHeader()
-    /// 上拉加载之前的事件补充。
+    /// 执行上拉加载之前的事件补充。
     func refreshFooter()
 
     /// 询问当前分页数据的总页数。
@@ -1231,7 +1232,7 @@ public struct EMERANA {
     
     // 私有化构造器；在单例模式下，只有该单例被首次访问时才会创建该对象。
     private init() {
-        // TODO: 获取 Appearance 实例
+        // TODO: 获取 Appearance 实例。
         appearanceManager = globalConfig?.appearanceForApplication()
     }
     
