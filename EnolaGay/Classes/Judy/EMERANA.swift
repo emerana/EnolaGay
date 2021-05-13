@@ -887,13 +887,28 @@ public extension NSMutableAttributedString {
         layer.masksToBounds = true
     }
     
-    /// 给当前操作的 View 设置阴影效果
-    /// * 注意：该函数会将 layer.masksToBounds = false
+    /// 为指定的角设置圆角。
+    /// 
     /// - Parameters:
-    ///   - offset: 阴影偏移量，默认（0,0）
-    ///   - opacity: 阴影可见度，默认 0.6
-    ///   - color: 阴影颜色，默认黑色
-    ///   - radius: 阴影圆角，默认 3
+    ///   - rectCorner: 需要设置的圆角，若有多个可以为数组，如：[.topLeft, .topRight ]
+    ///   - cornerRadii: 圆角的大小。
+    func viewRadiu(rectCorner: UIRectCorner, cornerRadii: CGSize) {
+        let path = UIBezierPath(roundedRect: bounds,
+                                byRoundingCorners: rectCorner,
+                                cornerRadii: cornerRadii)
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = bounds
+        maskLayer.path = path.cgPath
+        layer.mask = maskLayer
+    }
+
+    /// 给当前操作的 View 设置阴影效果。
+    /// * 注意：该函数会将 layer.masksToBounds = false.
+    /// - Parameters:
+    ///   - offset: 阴影偏移量，默认（0,0）.
+    ///   - opacity: 阴影可见度，默认 0.6.
+    ///   - color: 阴影颜色，默认黑色。
+    ///   - radius: 阴影圆角，默认 3.
     func viewShadow(offset: CGSize = CGSize(width: 0, height: 0), opacity: Float = 0.6, color: UIColor = .black, radius: CGFloat = 3) {
         
         layer.masksToBounds = false
@@ -1017,7 +1032,7 @@ public extension NSMutableAttributedString {
         })
         
     }
-    
+        
 }
 
 
