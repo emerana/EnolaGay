@@ -14,14 +14,15 @@ open class JudyBaseViewCtrl: UIViewController {
 
     // MARK: - public var property
 
-    /// navigationItem.title，该 viewTitle 优先于 self.title 显示，且将覆盖 self.title。
+    /// navigationItem.title，该 viewTitle 优先于 self.title 显示，且将覆盖 self.title.
     ///
     /// 如需更改该值请在 viewDidLoad 之后 navigationItem.title = 新 title 即可。
-    /// - Warning: 重写读写属性方式为实现 get、set，且里面最好全调用 super，尤其是 set。
+    /// - Warning: 重写读写属性方式为实现 get、set，且里面最好全调用 super，尤其是 set.
     open var viewTitle: String? { return nil }
-    /// 当前界面包含的 json 数据，设置该值将触发 jsonDidSet() 函数，初值为 JSON()。
+    /// 当前界面包含的 json 数据，设置该值将触发 jsonDidSet() 函数，初值为 JSON().
     open var json = JSON() { didSet{ jsonDidSet() } }
 
+    
     // MARK: Api 相关属性
     
     /// 请求配置对象。
@@ -29,7 +30,7 @@ open class JudyBaseViewCtrl: UIViewController {
     /// 服务器响应的 JSON 数据。
     final lazy private(set) public var apiData = JSON()
     
-    /// 当前界面网络请求成功的标识，默认 false。
+    /// 当前界面网络请求成功的标识，默认 false.
     ///
     /// 该值为 false 时会在 viewWillAppear() 中触发 reqApi()；若需要取消该请求，重写父类 viewWillAppear() 参考如下代码：
     /// ```
@@ -38,29 +39,33 @@ open class JudyBaseViewCtrl: UIViewController {
     /// ```
     /// - Warning: 注意生命周期 viewWillAppear() ，每次都会调用；
     /// * 当 requestConfig.api = nil，reqApi() 中会将该值设为 true;
-    /// * 若需要界面每次出现都发送请求，请在 super.viewWillAppear() 之前或 reqApi() 响应后（如 reqOver()）将该值设为 false。
+    /// * 若需要界面每次出现都发送请求，请在 super.viewWillAppear() 之前或 reqApi() 响应后（如 reqOver()）将该值设为 false.
     final lazy public var isReqSuccess: Bool = false
 
-    /// 是否由当前 viewCtrl 决定 statusBarStyle，默认 false。
-    /// - Warning: 如果该值为 true，则重写 preferredStatusBarStyle 以设置当前 viewCtrl 的 statusBarStyle。
+    /// 是否由当前 viewCtrl 决定 statusBarStyle，默认 false.
+    /// - Warning: 如果该值为 true，则重写 preferredStatusBarStyle 以设置当前 viewCtrl 的 statusBarStyle.
     open var isCustomStatusBarStyle: Bool? { return nil }
 
+    
     // MARK: - private var property
         
+    
     // MARK: - Life Cycle
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 优化 title 显示方式，如果 viewTitle 为 nil，则使用该 viewCtrl 的 title。
+        // 优化 title 显示方式，如果 viewTitle 为 nil，则使用该 viewCtrl 的 title.
         if viewTitle == nil {
             navigationItem.title = title
         } else {
             navigationItem.title = viewTitle
             title = viewTitle
         }
-        
-        // 在 viewCtrl 中 view 的背景色默认是 systemBackground。
+        // 设置背景色。
+        view.backgroundColor = EMERANA.enolagayAdapter?.viewBackgroundColor() ?? .white
+/*
+        // 在 viewCtrl 中 view 的背景色默认是 systemBackground.
         if #available(iOS 13.0, *) {
             if view.backgroundColor == UIColor.systemBackground {
                 view.backgroundColor = .white
@@ -70,7 +75,7 @@ open class JudyBaseViewCtrl: UIViewController {
                 view.backgroundColor = .white
             }
         }
-
+*/
     }
     
     open override func viewWillAppear(_ animated: Bool) {

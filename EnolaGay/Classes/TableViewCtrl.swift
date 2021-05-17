@@ -49,9 +49,11 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
         
         if isHideFooter { tableView?.tableFooterView = UIView() }
         
-        // 滑动时关闭键盘
+        // 滑动时关闭键盘。
         tableView?.keyboardDismissMode = .onDrag
-        
+        // 设置 tableView 的背景色。
+        tableView?.backgroundColor = EMERANA.enolagayAdapter?.scrollViewBackGroundColor()
+
         // 配置 tableView 的背景色
         /*
         if #available(iOS 13.0, *) {

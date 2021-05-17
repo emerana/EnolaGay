@@ -76,8 +76,8 @@ public final class JudyApi {
                 }
                 
                 // 数据校验。
-                if EMERANA.apiConfigDelegate != nil {
-                    let result = EMERANA.apiConfigDelegate!.responseErrorValidation(json: json)
+                if EMERANA.apiAdapter != nil {
+                    let result = EMERANA.apiAdapter!.responseErrorValidation(json: json)
                     // 配置错误信息。
                     if result.error {
                         json[EMERANA.Key.Api.error] = [EMERANA.Key.Api.code: result.1, EMERANA.Key.Api.msg: result.2]
@@ -145,14 +145,14 @@ public final class JudyApi {
 ///
 /// ApiRequestConfig 专用初始化协议，该协议定义了 ApiRequestConfig 部分属性的初值，及通用的请求接口。
 /// - Warning: 该协议主要针对 ApiRequestConfig 进行全局性的配置，可单独设置其属性。
-public protocol ApiDelegate where Self: UIApplication {
+public protocol ApiAdapter where Self: UIApplication {
         
     /// 询问请求的主要（默认）域名。
-    /// - Warning: 该函数主要针对全局配置，如需变更请单独设置 apiConfig.domain。
+    /// - Warning: 该函数主要针对全局配置，如需变更请单独设置 apiConfig.domain.
     func domain() -> String
     
-    /// 询问请求方法是否为 POST 请求？默认实现为 true。
-    /// - Warning: 该函数主要针对全局配置，如需变更请单独设置 apiConfig.method。
+    /// 询问请求方法是否为 POST 请求？默认实现为 true.
+    /// - Warning: 该函数主要针对全局配置，如需变更请单独设置 apiConfig.method.
     func globalMethodPOST() -> Bool
 
     /// 询问 apiRequestConfig 请求的响应方式是否为 responseJSON？默认实现为 true，否则为 responseString。
@@ -181,10 +181,10 @@ public protocol ApiDelegate where Self: UIApplication {
 }
 
 // 默认实现 ApiDelegate，使其变成可选协议函数。
-public extension ApiDelegate {
+public extension ApiAdapter {
     
     func domain() -> String {
-        Judy.logWarning(" 默认域名未配置，将使用 www.baidu.com，请确认 extension UIApplication: ApiDelegate 中 domain 函数的实现")
+        Judy.logWarning(" 默认域名未配置，将使用 www.baidu.com，请确认 extension UIApplication: ApiAdapter 中 domain 函数的实现")
         return "https://www.baidu.com"
     }
     
@@ -195,7 +195,7 @@ public extension ApiDelegate {
     func apiRequestConfigAffirm(requestConfig: ApiRequestConfig) { }
 }
 
-public extension ApiDelegate {
+public extension ApiAdapter {
     /// 校验服务器响应消息的默认函数，请重写此扩展函数以自定义校验服务器响应的消息。
     func responseErrorValidation(json: JSON) -> (error: Bool, code: Int, message: String) {
         return (false, 0, "校验协议函数未覆盖。")
@@ -218,8 +218,8 @@ public extension ApiAction {
 
 /// JudyApi 中的请求配置类。
 ///
-/// ApiRequestConfig 对象在初始化时就已经通过 ApiDelegate 协议中的函数配置好了必须属性，关于 domain 和 api 属性的使用请参考其自身说明。
-/// - Warning: 请 extension UIApplication: ApiDelegate 并覆盖指定函数以配置属性的初始值。
+/// ApiRequestConfig 对象在初始化时就已经通过 ApiAdapter 协议中的函数配置好了必须属性，关于 domain 和 api 属性的使用请参考其自身说明。
+/// - Warning: 请 extension UIApplication: ApiAdapter 并覆盖指定函数以配置属性的初始值。
 final public class ApiRequestConfig {
 
     /// 当前请求的 api。
@@ -240,7 +240,7 @@ final public class ApiRequestConfig {
     public var domain: Domain = .default
         
     /// 请求方式 HTTPMethod，默认 post。通过覆盖 globalMethodPOST() 以配置全局通用值。
-    public var method: Method = ((EMERANA.apiConfigDelegate?.globalMethodPOST() ?? true) ? .post : .get)
+    public var method: Method = ((EMERANA.apiAdapter?.globalMethodPOST() ?? true) ? .post : .get)
 
     /// 请求参数，初值是一个空数组。
     public var parameters: [String: Any]? = [String: Any]()
@@ -254,7 +254,7 @@ final public class ApiRequestConfig {
     
     /// 请求的响应数据格式是否为 responseJSON，默认 true，反之响应为 responseString。
     /// 通过覆盖 responseJSON() 以配置全局通用值。
-    public var isResponseJSON: Bool = EMERANA.apiConfigDelegate?.responseJSON() ?? true
+    public var isResponseJSON: Bool = EMERANA.apiAdapter?.responseJSON() ?? true
 
     /// 完整的请求 URL。
     public var reqURL: String { domain.rawValue + (api?.value ?? "") }
@@ -284,11 +284,11 @@ final public class ApiRequestConfig {
 
     public init() {}
     
-    /// 主动确认配置信息，此函数将触发 ApiDelegate 的 apiRequestConfigAffirm 函数。
+    /// 主动确认配置信息，此函数将触发 ApiAdapter 的 apiRequestConfigAffirm 函数。
     ///
     /// - Warning: 在 apiRequestConfig 不通过 request 函数发起请求时请务必调用此函数以便确认配置信息的正确性。
     public func configAffirm() {
-        EMERANA.apiConfigDelegate?.apiRequestConfigAffirm(requestConfig: self)
+        EMERANA.apiAdapter?.apiRequestConfigAffirm(requestConfig: self)
     }
     
     /// 由当前对象向 Api 层发起请求，该函数中将触发 apiRequestConfigAffirm() 确认函数。
@@ -297,7 +297,7 @@ final public class ApiRequestConfig {
         // 确认配置信息。
         configAffirm()
         
-        guard EMERANA.apiConfigDelegate != nil else {
+        guard EMERANA.apiAdapter != nil else {
             let msg = "未实现 extension UIApplication: ApiDelegate，ApiRequestConfig 无法工作！"
             let json = JSON(
                 [EMERANA.Key.JSON.error:
@@ -321,7 +321,7 @@ final public class ApiRequestConfig {
             return
         }
 
-        EMERANA.apiConfigDelegate!.request(withRequestConfig: self, callback: callback)
+        EMERANA.apiAdapter!.request(withRequestConfig: self, callback: callback)
     }
 
     
@@ -339,13 +339,13 @@ final public class ApiRequestConfig {
         public init(rawValue: String) {
             self.rawValue = rawValue
             
-            if EMERANA.apiConfigDelegate == nil {
+            if EMERANA.apiAdapter == nil {
                 Judy.logWarning("未实现 extension UIApplication: ApiDelegate，所有请求将使用默认值！")
             }
         }
         
         /// 项目中默认使用的主要域名，值为 domain() 函数。
-        static let `default` = Domain(rawValue: EMERANA.apiConfigDelegate?.domain() ?? "https://www.baidu.com")
+        static let `default` = Domain(rawValue: EMERANA.apiAdapter?.domain() ?? "https://www.baidu.com")
     }
     
 }
