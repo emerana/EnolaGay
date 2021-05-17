@@ -281,8 +281,7 @@ public extension UIColor {
 // MARK: - UIFont 配置
 
 /// UIFont EMERANA 配置协议，此协议已经默认实现
-/// - version: 1.0
-/// - warning: 使用注意事项
+/// - Warning: 使用注意事项
 ///     * 如需自定义请 public extension UIFont 覆盖 judy() 函数
 ///     * 此协仅对 UIFont 类型提供
 public protocol EMERANA_UIFont { // where Self: UIFont
@@ -431,13 +430,24 @@ public extension UIFont {
 
 // MARK: 字体、颜色管理类
 
-/// 全局配置协议，该协议只允许 UIApplication 继承。
-public protocol EnolaGayGlobalConfig where Self: UIApplication {
+/// EnolaGay 框架全局适配协议，该协议只允许 UIApplication 继承。
+public protocol EnolaGayAdapter where Self: UIApplication {
     
     /// 询问管理全局外观的实体，该实例为 Appearance 及其子类。
-    func appearanceForApplication() -> Appearance
+    // func appearanceForApplication() -> Appearance
+    
+    /// 询问 JudyBaseViewCtrl 及其子类的背景色，该函数默认实现为 white.
+    func viewBackgroundColor() -> UIColor
+    /// 询问 JudyBaseCollectionViewCtrl、JudyBaseTableViewCtrl 容器 View 的背景色，该函数默认实现为 white.
+    func scrollViewBackGroundColor() -> UIColor
+
 }
 
+public extension EnolaGayAdapter {
+    func viewBackgroundColor() -> UIColor { .white }
+
+    func scrollViewBackGroundColor() -> UIColor { .white }
+}
 
 /// 外观配置基类。
 open class Appearance {
@@ -1229,26 +1239,26 @@ public struct EMERANA {
     /// EMERANA 结构体的唯一实例。在单例模式下，只有该实例被首次访问时才会创建该对象（触发 init() ）。
     public static let judy = EMERANA()
     
-    /// 全局配置对象。
-    let globalConfig: EnolaGayGlobalConfig? = UIApplication.shared as? EnolaGayGlobalConfig
-    
-    /// 字体样式配置代理
+    /// 字体样式配置代理。
     static let fontStyleConfigDelegate: EMERANA_UIFont? = UIApplication.shared as? EMERANA_UIFont
     
-    /// API 代理，请 extension UIApplication: ApiDelegate 实现指定函数。
-    static let apiConfigDelegate: ApiDelegate? = UIApplication.shared as? ApiDelegate
+    /// EnolaGay 框架全局适配器。
+    static let enolagayAdapter: EnolaGayAdapter? = UIApplication.shared as? EnolaGayAdapter
     
-    /// 刷新视图代理。
+    /// API 层适配器。
+    static let apiAdapter: ApiAdapter? = UIApplication.shared as? ApiAdapter
+    
+    /// 刷新视图适配器。
     static let refreshAdapter: RefreshAdapter? = UIApplication.shared as? RefreshAdapter
     
     /// 全局外观配置管理员。
-    private var appearanceManager: Appearance?
+    // private var appearanceManager: Appearance?
     
     
     // 私有化构造器；在单例模式下，只有该单例被首次访问时才会创建该对象。
     private init() {
         // TODO: 获取 Appearance 实例。
-        appearanceManager = globalConfig?.appearanceForApplication()
+        // appearanceManager = enolagayAdapter?.appearanceForApplication()
     }
     
     /// 该数据结构的主要用来封装少量相关简单数据值。
