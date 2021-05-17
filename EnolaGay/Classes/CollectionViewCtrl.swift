@@ -48,6 +48,8 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
         
         // 滑动时关闭键盘。
         collectionView?.keyboardDismissMode = .onDrag
+        // 设置 collectionView 的背景色。
+        collectionView?.backgroundColor = EMERANA.enolagayAdapter?.scrollViewBackGroundColor()
 
         // 配置 collectionView 的背景色。
         /*
