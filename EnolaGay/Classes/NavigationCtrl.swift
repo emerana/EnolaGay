@@ -18,9 +18,9 @@ open class JudyBaseNavigationCtrl: UINavigationController {
     /// 当前 navigationCtrl navigationBar 的返回指示符图像。
     @IBInspectable private lazy var backImage: UIImage? = nil
     
-    /// 是否使用深色的(.default)状态栏样式，默认 true, 反之为 lightContent。
+    /// 是否使用深色的(.default)状态栏样式，默认 true, 反之为 lightContent.
     ///
-    /// 当 ViewCtrl 嵌入于 navigationCtrl 中，则由 navigationCtrl 负责 preferredStatusBarStyle。
+    /// 当 ViewCtrl 嵌入于 navigationCtrl 中，则由 navigationCtrl 负责 preferredStatusBarStyle.
     /// - Warning: 如果通过代码改变还需要调用 setNeedsStatusBarAppearanceUpdate() 方法。
     @IBInspectable var isGaryStatusBar: Bool = true
 
@@ -31,9 +31,9 @@ open class JudyBaseNavigationCtrl: UINavigationController {
         guard let viewCtrl: JudyBaseViewCtrl = viewControllers.last as? JudyBaseViewCtrl else {
             return style
         }
-        // 如果该 JudyBaseViewCtrl 有设置 isCustomStatusBarStyle 则取它的 statusBatStyle
+        // 如果该 JudyBaseViewCtrl 有设置 isCustomStatusBarStyle 则取它的 statusBatStyle.
         if viewCtrl.isCustomStatusBarStyle != nil && viewCtrl.isCustomStatusBarStyle! {
-            //return the status property of each VC, look at step 2
+            //return the status property of each VC, look at step 2.
             style = viewCtrl.preferredStatusBarStyle
         }
         
@@ -58,6 +58,10 @@ open class JudyBaseNavigationCtrl: UINavigationController {
         // 如果要自定义反向指示符图像，还必须设置此图像
         navigationBar.backIndicatorTransitionMaskImage = backIndicatorImage?.withRenderingMode(isAlwaysOriginal ? .alwaysOriginal:.automatic)
         
+        if let itemsColor = EMERANA.enolagayAdapter?.navigationBarItemsColor() {
+            setItemsColor(color: itemsColor)
+        }
+
     }
         
     /// 覆盖 push 事件，实现在 push 过程中自定义部分操作。
@@ -116,26 +120,22 @@ extension JudyBaseNavigationCtrl {
         }
     }
     
-    @available(*, unavailable, message: "该函数实现过于简单，请直接使用 navigationBar.tintColor！")
-    public func setItemsColor(color: UIColor?) {}
-    
-    /// 设置标题颜色
+    /// 设置 navigationBar 上的 items (包含标题、标题两侧的 items)颜色。
     /// - Parameters:
-    ///   - color: 要设置的目标颜色，默认值 nil(.judy(.navigationBarTitle))。
-    ///   - isApplyTint: 是否需要同时设置 navigationBar 上的 tintColor，默认 false。
-    public final func setTitleColor(color: UIColor? = nil, isApplyTint: Bool = false) {
-        var titleColor = UIColor.white
-        if color != nil { titleColor = color! }
-        // 设置 navigationBar 上的 titleColor(foregroundColor)
+    ///   - color: 要设置的目标颜色。
+    ///   - isApplyTint: 是否需要同时设置 navigationBar 上的（标题两侧 items、返回箭头）tintColor，默认 true.
+    public final func setItemsColor(color: UIColor, isApplyTint: Bool = true) {
+
+        // 设置 navigationBar 上的 titleColor(foregroundColor).
         // 该属性的值是一个 UIColor 对象。使用此属性在呈现时指定文本的颜色。如果没有指定此属性，则将文本呈现为黑色。
-        let attributed: [NSAttributedString.Key: Any] = [.foregroundColor: titleColor]
+        let attributed: [NSAttributedString.Key: Any] = [.foregroundColor: color]
         if navigationBar.titleTextAttributes == nil {
             navigationBar.titleTextAttributes = attributed
         } else {
             navigationBar.titleTextAttributes![.foregroundColor] = attributed[.foregroundColor]
         }
-        
-        if isApplyTint { navigationBar.tintColor = titleColor }
+        // 同时设置 tintColor（标题两侧的按钮颜色及返回箭头的颜色）。
+        if isApplyTint { navigationBar.tintColor = color }
     }
 
 }
