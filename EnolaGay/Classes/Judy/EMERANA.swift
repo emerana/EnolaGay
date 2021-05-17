@@ -440,13 +440,17 @@ public protocol EnolaGayAdapter where Self: UIApplication {
     func viewBackgroundColor() -> UIColor
     /// 询问 JudyBaseCollectionViewCtrl、JudyBaseTableViewCtrl 容器 View 的背景色，该函数默认实现为 white.
     func scrollViewBackGroundColor() -> UIColor
-
+    
+    /// 询问 JudyBaseNavigationCtrl 中的 标题颜色及 tintColor（标题两侧 items），该函数默认实现为 systemBlue.
+    func navigationBarItemsColor() -> UIColor
 }
 
 public extension EnolaGayAdapter {
     func viewBackgroundColor() -> UIColor { .white }
 
     func scrollViewBackGroundColor() -> UIColor { .white }
+
+    func navigationBarItemsColor() -> UIColor { .systemBlue }
 }
 
 /// 外观配置基类。
