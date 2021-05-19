@@ -1095,8 +1095,8 @@ public extension URL {
 public extension String {
     
     /// 通过一个时间戳获取视频的总时长
-    /// - Parameter duration: 视频的 player.duration，如 1942.2760000000001
-    /// - Returns: 如：00:32:22
+    /// - Parameter duration: 视频的 player.duration，如 1942.2760000000001.
+    /// - Returns: 如：00:32:22.
     static func getVideoTime(duration: TimeInterval) -> String {
         let timeStamp: NSInteger = NSInteger(duration)
         
@@ -1107,10 +1107,10 @@ public extension String {
         return "\(h):\(m):\(s)"
     }
     
-    /// 将字符串转换成时间格式。如将"2016-08-19 16:23:09" 转成 "16:23:09"。
+    /// 将字符串转换成时间格式。如将"2016-08-19 16:23:09" 转成 "16:23:09".
     ///
     /// - Parameters:
-    ///   - formatterIn: 该字符串的原始时间格式。默认 "yyyy-MM-dd HH:mm:ss"
+    ///   - formatterIn: 该字符串的原始时间格式。默认 "yyyy-MM-dd HH:mm:ss".
     ///     - 可选
     ///        - yyyy-MM-dd'T'HH:mm:ssZ
     ///        - yyyy-MM-dd'T'HH:mm:ss.SSSXXX
