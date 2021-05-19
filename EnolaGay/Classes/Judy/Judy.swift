@@ -149,9 +149,9 @@ public struct Judy {
     /// 毫秒转时间。
     ///
     /// - Parameters:
-    ///   - time: 时间的毫秒数，如：1525653777000
-    ///   - format: 输出格式，默认为 "yyyy/MM/dd HH:mm:ss"
-    /// - Returns: 如："2018/05/07 08:42:57"
+    ///   - time: 时间的毫秒数，如：1525653777000.
+    ///   - format: 输出格式，默认为 "yyyy/MM/dd HH:mm:ss".
+    /// - Returns: 如："2018/05/07 08:42:57".
     public static func timer(time: Int, format: String = "yyyy/MM/dd HH:mm:ss") -> String {
         let time: Int64 = Int64(time)  //1525653777000
         let d = Date(timeIntervalSince1970: Double(time) / 1000.0)
@@ -162,6 +162,37 @@ public struct Judy {
         return timeString
     }
     
+    /// 时间长度单位转化，将毫秒数转换为具体时间长度的时分秒。
+    /// - Parameter ms: 具体秒数。
+    /// - Returns: 格式化后的 string, 如："01:01:38"
+    public static func timeMillisecond(secondValue: Int) -> String {
+        let format_time = String(format: "%@:%@:%@",
+                                 timeMilliseconds(secondValue: secondValue).0,
+                                 timeMilliseconds(secondValue: secondValue).1,
+                                 timeMilliseconds(secondValue: secondValue).2)
+        return format_time
+    }
+    
+    /// 时间长度单位转化，将毫秒数转换为具体时间长度的时分秒。
+    /// - Parameter secondValue: 具体秒数。
+    /// - Returns: 格式化后的单个 string, 如：("01", "01", "38")
+    public static func timeMilliseconds(secondValue: Int) -> (String, String, String) {
+        let str_hour = String(format: "%02d", timeCount(secondValue: secondValue).0)
+        let str_minute = String(format: "%02d", timeCount(secondValue: secondValue).1)
+        let str_second = String(format: "%02d", timeCount(secondValue: secondValue).2)
+        return (str_hour, str_minute, str_second)
+    }
+
+    /// 时间长度单位转化，将毫秒数转换为具体时间长度的时分秒。
+    /// - Parameter secondValue: 具体秒数。
+    /// - Returns: (时，分，秒)
+    public static func timeCount(secondValue: Int) -> (Int,Int,Int) {
+        let hour = secondValue/3600
+        let minute = secondValue%3600/60
+        let second = secondValue%60
+        return (hour, minute, second)
+    }
+
     /// dictionary 转成 String。服务器需要 String 类型的参数时使用此方法方便地转换数据。
     @available(*, unavailable, message: "此函数已禁用，请使用 SwiftyJSON 的 json.rawString() ")
     public static func string(withDictionary: [String: Any]) -> String { "" }
