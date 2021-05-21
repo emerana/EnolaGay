@@ -1079,6 +1079,7 @@ public extension URL {
     ///
     /// - Parameter utf8StringURL: 带有中文的链接，比如：http://api.tuoken.pro/api/product/qrDode?address=渠道商ETH地址。
     /// - Returns: 对应的 URL 对象，如：http://api.tuoken.pro/api/product/qrDode?address=%E6%B8%A0%E9%81%93%E5%95%86ECH%E5%9C%B0%E5%9D%80。
+    @available(*, unavailable, message: "请使用构造函数", renamed: "init(stringUTF8:)")
     static func utf8URL(utf8StringURL: String) -> URL? {
         let data = utf8StringURL.data(using: String.Encoding.utf8)
         guard data != nil else {
@@ -1087,6 +1088,18 @@ public extension URL {
         return URL(dataRepresentation: data!, relativeTo: nil)
     }
     
+    /// 构造一个经过 utf8 编码的 URL. 若链接中包含了中文，请使用此函数构建 URL 对象。
+    ///
+    /// 通常情况下使用默认的 URL 构造器无法直接将带中文的链接转换成 URL，会得到一个 nil. 使用此构造函数能够将带有中文的 urlString 转成正常的链接，如："https://www.%E7%8E%8B%E4%BB%81%E6%B4%81.com". 当然即使 stringUTF8 不包含中文也没关系。
+    /// - Parameter stringUTF8: 要转换成 URL 的字符串链接，该链接中可能包含中文。如：http://www.王仁洁.com.
+    init?(stringUTF8: String) {
+        guard let data = stringUTF8.data(using: String.Encoding.utf8) else {
+            self.init(string: stringUTF8)
+            return
+        }
+        self.init(dataRepresentation: data, relativeTo: nil)!
+    }
+
 }
 
 
