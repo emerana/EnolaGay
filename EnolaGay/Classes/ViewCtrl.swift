@@ -32,7 +32,7 @@ open class JudyBaseViewCtrl: UIViewController {
     
     /// 当前界面网络请求成功的标识，默认 false.
     ///
-    /// 该值为 false 时会在 viewWillAppear() 中触发 reqApi()；若需要取消该请求，重写父类 viewWillAppear() 参考如下代码：
+    /// 该值为 false 时会在 viewWillAppear() 中触发 reqApi()；若需要取消该请求，重写父类 viewWillAppear(). 参考如下代码：
     /// ```
     /// isReqSuccess = true
     /// super.viewWillAppear(animated)
@@ -184,7 +184,7 @@ open class JudyBaseViewCtrl: UIViewController {
     /// ```
     open func setApi() {}
     
-    /// 当 api 为 nil 时调用了 reqApi() ，请求流将终止在此方法中，不会进行网络请求，且 isReqSuccess 将被设为 true。
+    /// 当 api 为 nil 时调用了 reqApi() ，请求流将终止在此方法中，不会进行网络请求，且 isReqSuccess 将被设为 true.
     ///
     /// 此方法应主要执行在上下拉刷新界面时需要中断 header、footer 刷新状态，更改 isReqSuccess 等操作。
     open func reqNotApi() {}
@@ -192,9 +192,9 @@ open class JudyBaseViewCtrl: UIViewController {
     /// 当服务器有响应时，最先执行此方法，无论请求是否成功。**此时 apiData 为服务器返回的元数据**。
     open func reqResult() {}
     
-    /// 请求成功的消息处理
+    /// 请求成功的消息处理。
     ///
-    /// - Warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则
+    /// - Warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则。
     open func reqSuccess() {}
     
     /// 请求失败或服务器响应失败时的消息处理，该函数默认弹出失败消息体。
@@ -221,9 +221,9 @@ import WebKit
 public extension UIViewController {
     
     /**
-     生成一个WKWebView
-     - 此webView主要用来加载html，里面已经完美适配的屏幕宽度
-     ## 使用以下代码加载html字符
+     生成一个WKWebView.
+     - 此webView主要用来加载html，里面已经完美适配的屏幕宽度。
+     ## 使用以下代码加载html字符。
      ```
      webView.loadHTMLString(apiData["content"].stringValue, baseURL: nil)
      // 记得在viewDidLayoutSubviews调整webViewframe
@@ -261,7 +261,7 @@ public extension UIViewController {
 public extension UIViewController {
     
     /// 获取一个 CAGradientLayer 渐变。
-    /// * 使用方式如下
+    /// * 使用方式如下：
     /// ```
     /// self.view.layer.insertSublayer(gradientLayer, at: 0)
     /// ```
