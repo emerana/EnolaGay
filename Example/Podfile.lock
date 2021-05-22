@@ -1,30 +1,22 @@
 PODS:
   - Alamofire (4.9.1)
   - Cache (6.0.0)
-  - EnolaGay (1.8.2):
-    - MBProgressHUD
-    - MJRefresh
-    - SDWebImage
+  - EnolaGay (2.5.4):
     - SwiftyJSON
-  - MBProgressHUD (1.2.0)
   - MJRefresh (3.5.0)
-  - SDWebImage (5.10.4):
-    - SDWebImage/Core (= 5.10.4)
-  - SDWebImage/Core (5.10.4)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.9.0)
   - Cache
   - EnolaGay (from `../`)
+  - MJRefresh
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Cache
-    - MBProgressHUD
     - MJRefresh
-    - SDWebImage
     - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -34,12 +26,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
-  EnolaGay: 1176dbd344c0c639e642c98a0d195a4b22c5cdb5
-  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  EnolaGay: 82e07e264bb18bbc2da96ee64778a59725e1a73b
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
-  SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: d9ad944652b48c947838a09c6f5342c500fd0267
+PODFILE CHECKSUM: c02b159869eed012620f5843904d67168ab90cca
 
 COCOAPODS: 1.10.1

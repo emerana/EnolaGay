@@ -1,8 +1,8 @@
 {
   "name": "EnolaGay",
-  "version": "1.8.2",
-  "summary": "EnolaGay，奇迹型 EMERANA。",
-  "description": "历时30个月，EMERANA 已经不再是当年那个艾美拉娜公主了，现如今已经强化成足矣摧毁日本帝国的战士",
+  "version": "2.5.4",
+  "summary": "便携式 App 架构，由早期的 EMERANA 进化而成。",
+  "description": "EMERANA 不再是当年艾美拉娜公主了，现如今已强化成足矣摧毁日本帝国的战士",
   "homepage": "https://github.com/emerana/EnolaGay",
   "license": {
     "type": "MIT",
@@ -13,23 +13,14 @@
   },
   "source": {
     "git": "https://github.com/emerana/EnolaGay.git",
-    "tag": "1.8.2"
+    "tag": "2.5.4"
   },
   "platforms": {
-    "ios": "12.0"
+    "ios": "13.0"
   },
   "swift_versions": "5.0",
   "source_files": "EnolaGay/Classes/**/*",
   "dependencies": {
-    "MJRefresh": [
-
-    ],
-    "SDWebImage": [
-
-    ],
-    "MBProgressHUD": [
-
-    ],
     "SwiftyJSON": [
 
     ]
