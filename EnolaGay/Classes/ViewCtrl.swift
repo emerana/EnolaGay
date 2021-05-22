@@ -128,8 +128,9 @@ open class JudyBaseViewCtrl: UIViewController {
     ///     - reqSuccess() / reqFailed()
     ///     - reqOver()
     /// - Parameters:
-    ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi()。
-    public final func reqApi(isSetApi: Bool = true) {
+    ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi().
+    ///   - isSupportWaitingHUD: 该请求是否允许显示等待过程的 HUD，默认 true，若该值为 false，即使 isGlobalHideWaitingHUD 为 true 也将无效。
+    public final func reqApi(isSetApi: Bool = true, isSupportWaitingHUD: Bool = true) {
         if isSetApi { setApi() }
         // 为设置 api 直接不发起请求。
         guard requestConfig.api != nil else {
@@ -138,7 +139,9 @@ open class JudyBaseViewCtrl: UIViewController {
             return
         }
         
-        if !Self.isGlobalHideWaitingHUD() { JudyTip.wait() }
+        if isSupportWaitingHUD {
+            if !Self.isGlobalHideWaitingHUD() { JudyTip.wait() }
+        }
         
         /// 接收响应的闭包。
         let responseClosure: ((JSON) -> Void) = { [weak self] json in
@@ -155,7 +158,7 @@ open class JudyBaseViewCtrl: UIViewController {
                 strongSelf.isReqSuccess = true
                 strongSelf.reqSuccess()
             } else {
-                // 确保错误代码不是未设置 api。
+                // 确保错误代码不是未设置 api.
                 strongSelf.isReqSuccess = json[EMERANA.Key.JSON.error, EMERANA.Key.JSON.code].intValue == EMERANA.ErrorCode.notSetApi
                 strongSelf.reqFailed()
             }
@@ -169,7 +172,7 @@ open class JudyBaseViewCtrl: UIViewController {
     /// 设置 requestConfig 及其它任何需要在发起请求前处理的事情。
     ///
     /// 在整个 reqApi() 请求流程中最先执行的方法。
-    /// - Warning: 在此方法中配置好 requestConfig 对象，一般情况子类可以不调用 super.setApi()。
+    /// - Warning: 在此方法中配置好 requestConfig 对象，一般情况子类可以不调用 super.setApi().
     ///
     /// ```
     /// requestConfig.domain = "http://www.baidu.com/Api"
