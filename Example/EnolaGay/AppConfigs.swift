@@ -18,7 +18,7 @@ import Alamofire
 
 // ApiRequestConfig。
 
-extension UIApplication: ApiDelegate {
+extension UIApplication: ApiAdapter {
     
     
     public func domain() -> String { "https://livepretest.jingmaiwang.com" }
