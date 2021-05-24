@@ -272,6 +272,11 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
         UIView.animate(withDuration: 0.5) { [weak self] in
             self?.progressView.isHidden = true
         }
+        
+        // 禁止长按/选择 事件。
+        webView.evaluateJavaScript("document.documentElement.style.webkitTouchCallout='none';", completionHandler: nil)
+        webView.evaluateJavaScript("document.documentElement.style.webkitUserSelect='none';", completionHandler: nil)
+
     }
     
     // 页面加载失败时调用。
