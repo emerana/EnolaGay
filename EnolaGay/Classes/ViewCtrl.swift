@@ -200,7 +200,7 @@ open class JudyBaseViewCtrl: UIViewController {
 import WebKit
 
 /// 内置一个 WKWebView 的基础控制器。
-open class JudyBaseWebViewCtrl: UIViewController {
+open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
     
     /// 核心 webView.
     public private(set) lazy var  webView: WKWebView = {
@@ -219,12 +219,15 @@ open class JudyBaseWebViewCtrl: UIViewController {
     
     /// 目标 url,设置该属性使 webView 打开目标路径。
     public var url: String?
+    
+    /// 网页加载进度指示条。
+    public private(set) lazy var progressView = UIProgressView()
 
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         // webView 代理方法
-//        webView.navigationDelegate = self
+        webView.navigationDelegate = self
 //        webView.uiDelegate = self
         // js
 //        let controller = webView.configuration.userContentController
@@ -239,30 +242,50 @@ open class JudyBaseWebViewCtrl: UIViewController {
         view.addSubview(webView)
         webView.load(URLRequest(url: url))
 
-//        webView.snp.makeConstraints { (make) in
-//            make.edges.equalToSuperview()
-//        }
-//        if let urlStr = urlStr {
-//            guard let url = URL.init(string: urlStr) else { return }
-//            webView.load(URLRequest(url: url))
-//        } else if let html = contentHtml {
-//            let headerString : String = "<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'><style>img{max-width:100%}</style></header>"
-//            webView.loadHTMLString(headerString + html, baseURL: nil)
-//        }
-//
-//        view.addSubview(self.progressView)
-//        progressView.progressTintColor = UIColor.red
-//        progressView.trackTintColor = UIColor.clear
-//        progressView.snp.makeConstraints { (make) in
-//            make.left.top.right.equalToSuperview()
-//            make.height.equalTo(3)
-//        }
+        view.addSubview(progressView)
+        progressView.progressTintColor = .red
+        progressView.trackTintColor = .clear
+        progressView.frame = webView.frame
+        progressView.frame.size.height = 3
+        progressView.progress = 1
+
+        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+
+    }
+    
+    deinit {
+        Judy.logHappy("<\(classForCoder)> - \(title ?? "未命名的 WebViewCtrl") -> 已经释放。")
+    }
+    
+    // KVO.
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        // 监听网页加载进度。
+        progressView.progress = Float(webView.estimatedProgress)
+    }
+    
+    
+    // MARK: - WKNavigationDelegate
+    
+    // 网页内容加载完成之后触发。
+    open func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!){
         
+        // 获取网页 title.
+        if title == "" { title = webView.title }
+        
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.progressView.isHidden = true
+        }
+    }
+    
+    // 页面加载失败时调用。
+    open func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error){
+        
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.progressView.progress = 0.0
+            self?.progressView.isHidden = true
+        }
     }
 
-    deinit {
-        Judy.logHappy("<\(classForCoder)> - \(title ?? "未命名界面") -> 已经释放。")
-    }
 }
 
 
