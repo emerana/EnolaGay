@@ -18,7 +18,7 @@ open class JudyBaseViewCtrl: UIViewController {
     ///
     /// 如需更改该值请在 viewDidLoad 之后 navigationItem.title = 新 title 即可。
     /// - Warning: 重写读写属性方式为实现 get、set，且里面最好全调用 super，尤其是 set.
-    open var viewTitle: String? { return nil }
+    open var viewTitle: String? { nil }
     /// 当前界面包含的 json 数据，设置该值将触发 jsonDidSet() 函数，初值为 JSON().
     open var json = JSON() { didSet{ jsonDidSet() } }
 
@@ -197,10 +197,77 @@ open class JudyBaseViewCtrl: UIViewController {
 
 
 // MARK: - WKWebView
-
 import WebKit
-public extension UIViewController {
+
+/// 内置一个 WKWebView 的基础控制器。
+open class JudyBaseWebViewCtrl: UIViewController {
+    
+    /// 核心 webView.
+    public private(set) lazy var  webView: WKWebView = {
+        // 初始化偏好设置属性：preferences.
+        let preferences = WKPreferences()
+        // 是否支持 JavaScript.
+        preferences.javaScriptEnabled = true
+        // 不通过用户交互，是否可以打开窗口。
+        preferences.javaScriptCanOpenWindowsAutomatically = false
+
+        let myWebView = judy_webView()
+        myWebView.configuration.preferences = preferences
         
+        return myWebView
+    }()
+    
+    /// 目标 url,设置该属性使 webView 打开目标路径。
+    public var url: String?
+
+    
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        // webView 代理方法
+//        webView.navigationDelegate = self
+//        webView.uiDelegate = self
+        // js
+//        let controller = webView.configuration.userContentController
+        //show 是JS中对应的方法名
+//        controller.add(WeakScriptMessageDelegate(self), name: "JMWPay")
+        guard url != nil,
+              let url = URL(stringUTF8: url!) else {
+            Judy.logWarning("未设置 url.")
+            return
+        }
+        
+        view.addSubview(webView)
+        webView.load(URLRequest(url: url))
+
+//        webView.snp.makeConstraints { (make) in
+//            make.edges.equalToSuperview()
+//        }
+//        if let urlStr = urlStr {
+//            guard let url = URL.init(string: urlStr) else { return }
+//            webView.load(URLRequest(url: url))
+//        } else if let html = contentHtml {
+//            let headerString : String = "<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'><style>img{max-width:100%}</style></header>"
+//            webView.loadHTMLString(headerString + html, baseURL: nil)
+//        }
+//
+//        view.addSubview(self.progressView)
+//        progressView.progressTintColor = UIColor.red
+//        progressView.trackTintColor = UIColor.clear
+//        progressView.snp.makeConstraints { (make) in
+//            make.left.top.right.equalToSuperview()
+//            make.height.equalTo(3)
+//        }
+        
+    }
+
+    deinit {
+        Judy.logHappy("<\(classForCoder)> - \(title ?? "未命名界面") -> 已经释放。")
+    }
+}
+
+
+public extension UIViewController {
+    
     /// 生成一个 WKWebView，该 webView 主要用来加载本地 html，此函数已经完美适配的屏幕宽度。
     ///
     /// 参考以下代码加载 html 字符:
@@ -228,10 +295,8 @@ public extension UIViewController {
         userContent.addUserScript(wkUserScript)
         // 将 UserConttentController 设置到配置文件。
         config.userContentController = userContent
-        
-        let webView = WKWebView(frame: UIScreen.main.bounds, configuration: config)
 
-        return webView
+        return WKWebView(frame: view.bounds, configuration: config)
     }
     
 }
