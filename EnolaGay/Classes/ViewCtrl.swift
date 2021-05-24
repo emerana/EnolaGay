@@ -45,9 +45,6 @@ open class JudyBaseViewCtrl: UIViewController {
     /// 是否由当前 viewCtrl 决定 statusBarStyle，默认 false.
     /// - Warning: 如果该值为 true，则重写 preferredStatusBarStyle 以设置当前 viewCtrl 的 statusBarStyle.
     open var isCustomStatusBarStyle: Bool? { return nil }
-
-    
-    // MARK: - private var property
         
     
     // MARK: - Life Cycle
@@ -64,18 +61,6 @@ open class JudyBaseViewCtrl: UIViewController {
         }
         // 设置背景色。
         view.backgroundColor = EMERANA.enolagayAdapter?.viewBackgroundColor() ?? .white
-/*
-        // 在 viewCtrl 中 view 的背景色默认是 systemBackground.
-        if #available(iOS 13.0, *) {
-            if view.backgroundColor == UIColor.systemBackground {
-                view.backgroundColor = .white
-            }
-        } else {
-            if view.backgroundColor == nil {
-                view.backgroundColor = .white
-            }
-        }
-*/
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -92,14 +77,8 @@ open class JudyBaseViewCtrl: UIViewController {
          */
     }
     
-    open override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-    
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         // 在界面即将消失（包含所有界面跳转）时关闭所有键盘。
         UIApplication.shared.windows.last?.endEditing(true)
     }
