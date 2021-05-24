@@ -200,6 +200,11 @@ open class JudyBaseViewCtrl: UIViewController {
 import WebKit
 
 /// 内置一个 WKWebView 的基础控制器。
+///
+/// 内置的 WKWebView 已经具备以下功能：
+/// * 若未设置界面标题将默认使用网页附带的 title;
+/// * 网页内容自适应屏幕宽度；
+/// * 禁止长按/选择 网页内容；
 open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
 
     /// 目标 url,webView 将打开该路径。
@@ -220,7 +225,7 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
         return myWebView
     }()
     
-    /// 网页加载进度指示条。
+    /// 网页加载进度指示条，允许更改该 progressView 的外观。
     public private(set) lazy var progressView = UIProgressView()
 
     
@@ -292,7 +297,7 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
 
 public extension UIViewController {
     
-    /// 生成一个 WKWebView，该 webView 主要用来加载本地 html，此函数已经完美适配的屏幕宽度。
+    /// 生成一个 WKWebView，该 webView 的 frame 为 view.bounds，且已加载自适应屏幕宽度脚本。
     ///
     /// 参考以下代码加载 html 字符:
     /// ```
