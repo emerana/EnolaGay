@@ -842,10 +842,17 @@ public class JudyPopBubble {
 // MARK: - 直播间送礼物控制器
 
 /// 适用于直播间送礼物动画弹窗的消息视图控制器。
+///
+/// 请通过设置 containerView 来确定礼物视图显示的容器 view,若未设置，containerView 默认为 app 启动的窗口。
 open class GiftMessageViewCtrl {
     
     /// 礼物视图活动区域的容器 View，默认为当前窗口。
-    public var containerView: UIView!
+    /// - Warning: 设置该属性时会默认将 isUserInteractionEnabled 设置为 false，请知悉。
+    public var containerView: UIView! {
+        didSet {
+            containerView.isUserInteractionEnabled = false
+        }
+    }
 
     /// 同屏显示的礼物间距，默认 10.
     var giftViewSpace = 10
@@ -863,10 +870,10 @@ open class GiftMessageViewCtrl {
     private let semaphore = DispatchSemaphore(value: 3)
 
     
-    /// 实例化一个控制器。
+    /// 通过此唯一构造器实例化一个 GiftMessageViewCtrl.
     /// - Parameter parentView: 用于显示礼物消息动画的容器，将 giftMessageView 显示在该 View 里面。
     public init(parentView: UIView? = nil) {
-        containerView = parentView ?? Judy.keyWindow!
+        containerView = parentView ?? Judy.appWindow
     }
 
     /// 通过该函数送出一个礼物，即显示一个消息视图。
