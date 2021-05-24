@@ -22,7 +22,6 @@ open class JudyBaseViewCtrl: UIViewController {
     /// 当前界面包含的 json 数据，设置该值将触发 jsonDidSet() 函数，初值为 JSON().
     open var json = JSON() { didSet{ jsonDidSet() } }
 
-    
     // MARK: Api 相关属性
     
     /// 请求配置对象。
@@ -201,39 +200,37 @@ open class JudyBaseViewCtrl: UIViewController {
 
 import WebKit
 public extension UIViewController {
-    
-    /**
-     生成一个WKWebView.
-     - 此webView主要用来加载html，里面已经完美适配的屏幕宽度。
-     ## 使用以下代码加载html字符。
-     ```
-     webView.loadHTMLString(apiData["content"].stringValue, baseURL: nil)
-     // 记得在viewDidLayoutSubviews调整webViewframe
-     webView?.frame = CGRect(x: 0, y: 0, width: webViewParentView!.frame.size.width, height: webViewParentView!.frame.size.height)
-     ```
-     - Returns: WKWebView
-     */
+        
+    /// 生成一个 WKWebView，该 webView 主要用来加载本地 html，此函数已经完美适配的屏幕宽度。
+    ///
+    /// 参考以下代码加载 html 字符:
+    /// ```
+    /// webView.loadHTMLString(apiData["content"].stringValue, baseURL: nil)
+    /// // 记得在 viewDidLayoutSubviews 调整 webViewframe.
+    /// webView?.frame = CGRect(x: 0, y: 0, width: webViewParentView!.frame.size.width, height: webViewParentView!.frame.size.height)
+    /// ```
+    /// - Returns: WKWebView.
     final func judy_webView() -> WKWebView {
         let config = WKWebViewConfiguration()
-        // 创建UserContentController（提供JavaScript向webView发送消息的方法）
+        // 创建 UserContentController（提供 JavaScript 向 webView 发送消息的方法）。
         let userContent = WKUserContentController()
-        // 添加消息处理，注意：self指代的对象需要遵守WKScriptMessageHandler协议，结束时需要移除
-        //        userContent.add(self, name: "NativeMethod")
+        // 添加消息处理，注意：self 指代的对象需要遵守 WKScriptMessageHandler 协议，结束时需要移除
+        // userContent.add(self, name: "NativeMethod")
         /*
          // 原有的，不支持图文混排
          let jSString = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);"
          */
         
-        // 自适应屏幕宽度js
+        // 自适应屏幕宽度 js.
         let jSString = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta); var imgs = document.getElementsByTagName('img');for (var i in imgs){imgs[i].style.maxWidth='100%';imgs[i].style.height='auto';}"
         let wkUserScript = WKUserScript(source: jSString, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
-        // 添加自适应屏幕宽度js调用的方法
+        // 添加自适应屏幕宽度 js 调用的方法。
         userContent.addUserScript(wkUserScript)
-        // 将UserConttentController设置到配置文件
+        // 将 UserConttentController 设置到配置文件。
         config.userContentController = userContent
         
         let webView = WKWebView(frame: UIScreen.main.bounds, configuration: config)
-        
+
         return webView
     }
     
