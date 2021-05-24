@@ -201,7 +201,10 @@ import WebKit
 
 /// 内置一个 WKWebView 的基础控制器。
 open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
-    
+
+    /// 目标 url,webView 将打开该路径。
+    public var url: String?
+
     /// 核心 webView.
     public private(set) lazy var  webView: WKWebView = {
         // 初始化偏好设置属性：preferences.
@@ -217,27 +220,22 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
         return myWebView
     }()
     
-    /// 目标 url,设置该属性使 webView 打开目标路径。
-    public var url: String?
-    
     /// 网页加载进度指示条。
     public private(set) lazy var progressView = UIProgressView()
 
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        // webView 代理方法
-        webView.navigationDelegate = self
-//        webView.uiDelegate = self
-        // js
-//        let controller = webView.configuration.userContentController
-        //show 是JS中对应的方法名
-//        controller.add(WeakScriptMessageDelegate(self), name: "JMWPay")
+        
+        // 记得在 deinit 中 webView.configuration.userContentController.removeScriptMessageHandler
+        // webView.configuration.userContentController.add(WeakScriptMessageDelegate(self), name: "JMWPay")
         guard url != nil,
               let url = URL(stringUTF8: url!) else {
-            Judy.logWarning("未设置 url.")
+            Judy.logWarning("无效 url，不能将无法打开 WKWebView!")
             return
         }
+        
+        webView.navigationDelegate = self
         
         view.addSubview(webView)
         webView.load(URLRequest(url: url))
@@ -250,7 +248,6 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
         progressView.progress = 1
 
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
-
     }
     
     deinit {
@@ -267,7 +264,7 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
     // MARK: - WKNavigationDelegate
     
     // 网页内容加载完成之后触发。
-    open func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!){
+    open func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         
         // 获取网页 title.
         if title == "" { title = webView.title }
@@ -278,8 +275,7 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
     }
     
     // 页面加载失败时调用。
-    open func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error){
-        
+    open func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         UIView.animate(withDuration: 0.5) { [weak self] in
             self?.progressView.progress = 0.0
             self?.progressView.isHidden = true
