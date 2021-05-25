@@ -957,7 +957,7 @@ private extension GiftMessageViewCtrl {
                 giftViewAnchors.append(handleView.center)
             }
         }
-        self.semaphore.signal()
+        semaphore.signal()
 
         /// 往上飘气泡移动轨迹路径。
         let travelPath = UIBezierPath()
@@ -996,26 +996,26 @@ public extension GiftMessageViewCtrl {
 
 }
 
+/* UIView 生命周期
+ 
+ 1.UIView生命周期加载阶段。
+ 在loadView阶段（内存加载阶段），先是把自己本身都加到superView上面，再去寻找自己的subView并依次添加。到此为止，只和addSubview操作有关，和是否显示无关。等到所有的subView都在内存层面加载完成了，会调用一次viewWillAppear，然后会把加载好的一层层view，分别绘制到window上面。然后layoutSubview，DrawRect，加载即完成。
+ 
+ 2.UIView生命周期移除阶段。
+ 会先依次移除本view的moveToWindow，然后依次移除所有子视图，掉他们的moveToWindow，view就在window上消失不见了，然后在removeFromSuperView，然后dealloc，dealloc之后再removeSubview。（但不理解为什么dealloc之后再removeSubview）
+ 
+ 3.如果没有子视图，则不会接收到didAddSubview和willRemoveSubview消息。
+ 
+ 4.和superView，window相关的方法，可以通过参数（superView/window）或者self.superView/self.window,判断是创建还是销毁，如果指针不为空，是创建，如果为空，就是销毁。这四个方法，在整个view的生命周期中，都会被调用2次，一共是8次。
+ 
+ 5.removeFromSuperview和dealloc在view的生命周期中，调且只调用一次，可以用来removeObserver，移除计时器等操作。（layoutSubview可能会因为子视图的调整，多次调用)
+ 
+ 6.UIView是在被加到自己的父视图上之后，才开始会寻找添加自己的子视图（数据层面的添加，并不是加到window上面）。UIView是在调用dealloc中，移除自己的子视图，所有子视图移除并销毁内存之后，才会销毁自己的内存，dealloc完成。
+ 
+ */
+
 /// 直播间刷礼物弹出的消息视图。
 open class GiftView: UIView {
-    /*
-     1.UIView生命周期加载阶段。在loadView阶段（内存加载阶段），先是把自己本身都加到superView上面，再去寻找自己的subView并依次添加。到此为止，只和addSubview操作有关，和是否显示无关。等到所有的subView都在内存层面加载完成了，会调用一次viewWillAppear，然后会把加载好的一层层view，分别绘制到window上面。然后layoutSubview，DrawRect，加载即完成。
-
-     2.UIView生命周期移除阶段。会先依次移除本view的moveToWindow，然后依次移除所有子视图，掉他们的moveToWindow，view就在window上消失不见了，然后在removeFromSuperView，然后dealloc，dealloc之后再removeSubview。（但不理解为什么dealloc之后再removeSubview）
-
-     3.如果没有子视图，则不会接收到didAddSubview和willRemoveSubview消息。
-
-     4.和superView，window相关的方法，可以通过参数（superView/window）或者self.superView/self.window,判断是创建还是销毁，如果指针不为空，是创建，如果为空，就是销毁。这四个方法，在整个view的生命周期中，都会被调用2次，一共是8次。
-
-     5.removeFromSuperview和dealloc在view的生命周期中，调且只调用一次，可以用来removeObserver，移除计时器等操作。（layoutSubview可能会因为子视图的调整，多次调用)
-
-     6.UIView是在被加到自己的父视图上之后，才开始会寻找添加自己的子视图（数据层面的添加，并不是加到window上面）。UIView是在调用dealloc中，移除自己的子视图，所有子视图移除并销毁内存之后，才会销毁自己的内存，dealloc完成。
-
-
-     ————————————————
-     版权声明：本文为CSDN博主「我很白」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-     原文链接：https://blog.csdn.net/cewei711/article/details/80111907
-     */
     /// 当发生暴击事件时通过此匿名函数更新被暴击的 giftView（更新已存在的礼物视图）。
     public var updateViewAtCriticalStrikeHandle: ((GiftView)->Void)?
 
@@ -1081,12 +1081,8 @@ open class GiftView: UIView {
     }
 
     
-    // MARK: - private funcs
-    
     /// 初始化通用函数。
-    open func commonInit() {
-
-    }
+    open func commonInit() {}
     
     /// 结束倒计时，并将计时器设为无效。
     private func endCountdown() {
