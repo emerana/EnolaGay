@@ -868,6 +868,8 @@ open class GiftMessageViewCtrl {
 
     /// 最多允许多少个线程同时访问共享资源或者同时执行多少个任务。
     private let semaphore = DispatchSemaphore(value: 3)
+    // 一个用于执行礼物动画的并发队列。
+    private let giftMessageQueue = DispatchQueue(label: "GiftMessageViewCtrl", attributes: .concurrent)
 
     
     /// 通过此构造器实例化一个 GiftMessageViewCtrl.
@@ -883,12 +885,13 @@ open class GiftMessageViewCtrl {
     public func profferGiftMessageView(giftView: GiftView,
                                        critConditionsHandle: ((GiftView)->(Bool))? = nil) {
         if critConditionsHandle != nil {
-            /// 需要暴击的 giftView 索引。
+            /// 查找需要暴击的 giftView 索引。
             var critConditionsIndex: Int? = nil
             let existlist = giftViews.enumerated().filter { (index, messageView) -> Bool in
-                let isEquat = critConditionsHandle!(messageView)
-                if isEquat { critConditionsIndex = index }
-                return isEquat
+                /// 是否符合暴击条件。
+                let isEeligible = critConditionsHandle!(messageView)
+                if isEeligible { critConditionsIndex = index }
+                return isEeligible
             }
             // 判断是否存在相同特性的 GiftView,如果存在则直接触发暴击。
             guard existlist.isEmpty else {
@@ -896,7 +899,7 @@ open class GiftMessageViewCtrl {
                 return
             }
         }
-        DispatchQueue.global().async { [weak self] in
+        giftMessageQueue.async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.semaphore.wait()
             DispatchQueue.main.async {
@@ -1068,7 +1071,7 @@ open class GiftView: UIView {
         if window == nil {
             completeHandle?(self)
         } else {
-             isCounting = true
+            isCounting = true
         }
     }
     
@@ -1079,7 +1082,6 @@ open class GiftView: UIView {
         waitTime = defaultWaitTime
         updateViewAtCriticalStrikeHandle?(self)
     }
-
     
     /// 初始化通用函数。
     open func commonInit() {}
