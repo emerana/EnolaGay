@@ -25,17 +25,13 @@ class GiftMessageViewCtrlTest: JudyBaseViewCtrl {
         giftMessageViewCtrl.containerView = giftMessageViews
     }
     
-    
     /// 发送一个礼物事件。
     @IBAction private func sendGiftAction(_ sender: Any) {
-
-        DispatchQueue.main.async {
             let view = GiftView()
-            self.giftMessageViewCtrl.profferGiftMessageView(giftView: view) { (giftView) -> (Bool) in
-                return false
-            }
-        }
-
+            view.frame = .zero
+            view.frame.size = CGSize(width: 188, height: 88)
+            view.backgroundColor = .red
+            giftMessageViewCtrl.profferGiftMessageView(giftView: view)
     }
 
 }
