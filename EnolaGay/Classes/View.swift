@@ -870,7 +870,7 @@ open class GiftMessageViewCtrl {
     private let semaphore = DispatchSemaphore(value: 3)
 
     
-    /// 通过此唯一构造器实例化一个 GiftMessageViewCtrl.
+    /// 通过此构造器实例化一个 GiftMessageViewCtrl.
     /// - Parameter parentView: 用于显示礼物消息动画的容器，将 giftMessageView 显示在该 View 里面。
     public init(parentView: UIView? = nil) {
         containerView = parentView ?? Judy.appWindow
