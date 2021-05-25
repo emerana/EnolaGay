@@ -1075,7 +1075,5 @@ open class GiftView: UIView {
         countdownTimer = nil
     }
     
-    deinit {
-        print("deinit 销毁 GiftView")
-    }
+    deinit { Judy.logHappy("deinit 销毁 GiftView") }
 }
