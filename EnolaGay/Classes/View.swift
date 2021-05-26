@@ -857,7 +857,6 @@ open class GiftMessageCtrlPanel: UIView {
     /// giftView 的桩点，只有存在 giftViewAnchors 里面的桩点才能显示 giftView.
     private var giftViewAnchors = [CGPoint]()
 
-    
     /// 最多允许多少个线程同时访问共享资源或者同时执行多少个任务，任务数量取决于 maxGiftViewCount。
     private var semaphore = DispatchSemaphore(value: 3)
     // 一个用于执行礼物动画的并发队列。
