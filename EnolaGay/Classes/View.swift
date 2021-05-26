@@ -883,6 +883,10 @@ open class GiftMessageCtrlPanel: UIView {
         // 说明被移除。
         if window == nil {
             Judy.log("window 为 nil，控制面板被移除啦")
+            for _ in 1...maxGiftViewCount {
+                semaphore.signal()
+            }
+
         } else {
             Judy.log("控制面板被添加到屏幕上了。")
         }
@@ -920,7 +924,9 @@ open class GiftMessageCtrlPanel: UIView {
         }
     }
 
-    deinit { Judy.logHappy("GiftMessageCtrlPanel 已经释放。") }
+    deinit {
+        Judy.logHappy("GiftMessageCtrlPanel 已经释放。")
+    }
 }
 
 private extension GiftMessageCtrlPanel {

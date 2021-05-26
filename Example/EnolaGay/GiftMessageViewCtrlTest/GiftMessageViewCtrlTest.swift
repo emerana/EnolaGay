@@ -53,7 +53,7 @@ class GiftMessageViewCtrlTest: JudyBaseViewCtrl {
 /// 信号量崩溃测试。
 class CrashTestViewCtrl: UIViewController {
 
-    private var semaphore = DispatchSemaphore(value: 1)
+    private var semaphore = DispatchSemaphore(value: 2)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,10 +61,13 @@ class CrashTestViewCtrl: UIViewController {
         DispatchQueue.global().async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.semaphore.wait()
+            strongSelf.semaphore.wait()
         }
     }
     
     deinit {
+        semaphore.signal()
+        semaphore.signal()
         print("释放")
     }
 }
