@@ -47,3 +47,24 @@ class GiftMessageViewCtrlTest: JudyBaseViewCtrl {
     }
 
 }
+
+
+
+/// 信号量崩溃测试。
+class CrashTestViewCtrl: UIViewController {
+
+    private var semaphore = DispatchSemaphore(value: 1)
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        DispatchQueue.global().async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.semaphore.wait()
+        }
+    }
+    
+    deinit {
+        print("释放")
+    }
+}

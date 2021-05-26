@@ -858,6 +858,7 @@ open class GiftMessageCtrlPanel: UIView {
     private var giftViewAnchors = [CGPoint]()
 
     /// 最多允许多少个线程同时访问共享资源或者同时执行多少个任务，任务数量取决于 maxGiftViewCount。
+    /// - Warning: semaphore 处于 wait() 时， 若释放引起崩溃(EXC_BAD_INSTRUCTION)，需在释放前将当前信号量值大于等于初始信号量值。
     private var semaphore = DispatchSemaphore(value: 3)
     // 一个用于执行礼物动画的并发队列。
      private let giftMessageQueue = DispatchQueue(label: "GiftMessageCtrlPanel", attributes: .concurrent)
