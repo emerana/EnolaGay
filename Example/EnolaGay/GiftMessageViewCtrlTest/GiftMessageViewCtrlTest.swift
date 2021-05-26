@@ -12,11 +12,11 @@ import SwiftyJSON
 
 class GiftMessageViewCtrlTest: JudyBaseViewCtrl {
     
-    // override var viewTitle: String? { "送礼测试" }
+     override var viewTitle: String? { "送礼测试" }
     
     /// 送礼物弹窗消息 View。
     @IBOutlet weak var giftMessageViews: UIView!
-    private let giftMessageViewCtrl = GiftMessageViewCtrl()
+    private let giftMessageViewCtrl = GiftMessageViewCtrl(giftViewCount: 2, duringShow: 1)
 
     
     override func viewDidLoad() {

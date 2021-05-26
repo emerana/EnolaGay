@@ -845,6 +845,7 @@ public class JudyPopBubble {
 ///
 /// 请通过设置 containerView 来确定礼物视图显示的容器 view,若未设置，containerView 默认为 app 启动的窗口。
 public final class GiftMessageViewCtrl {
+    // FIXME: 当 giftMessageQueue 还有阻塞的任务时 GiftMessageViewCtrl 将无法释放。
     
     /// 礼物视图活动区域的容器 View，默认为当前窗口。
     /// - Warning: 设置该属性时会默认将 isUserInteractionEnabled 设置为 false，请知悉。
@@ -856,10 +857,10 @@ public final class GiftMessageViewCtrl {
 
     /// 同屏显示的礼物间距，默认 10.
     public var giftViewSpace = 10
-    /// 入场动画时长，默认 1 秒。
-    public var entranceAnimationDuration: TimeInterval = 1
-    /// 往上飘动即将消失的动画时长，默认 3 秒。
-    public var appearanceAnimationDuration: TimeInterval = 3
+    /// 出现过程动画时长，默认 1 秒。
+    public var entranceDuration: TimeInterval = 1
+    /// 往上飘（消失过程的）动画时长，默认 3 秒。
+    public var disappearDuration: TimeInterval = 3
 
     /// 存储所有正在显示的礼物消息视图 view.
     private var giftViews = [GiftView]()
@@ -867,14 +868,14 @@ public final class GiftMessageViewCtrl {
     private var giftViewAnchors = [CGPoint]()
 
     /// 每个 GiftView 显示的时长，单位为秒，该时间过后即释放该 GiftView.
-    private var duringShowGiftView: Int
+    private var showGiftViewDuration: Int
     /// 一次性最多可显示的 giftView 数量。
     private var maxGiftViewCount: Int
     
     /// 最多允许多少个线程同时访问共享资源或者同时执行多少个任务，任务数量取决于 maxGiftViewCount。
     private var semaphore: DispatchSemaphore
     // 一个用于执行礼物动画的并发队列。
-    private let giftMessageQueue = DispatchQueue(label: "GiftMessageViewCtrl", attributes: .concurrent)
+     private let giftMessageQueue = DispatchQueue(label: "GiftMessageViewCtrl", attributes: .concurrent)
 
     
     /// 通过此构造器实例化一个 GiftMessageViewCtrl.
@@ -882,7 +883,7 @@ public final class GiftMessageViewCtrl {
     ///   - giftViewCount: 最多同时显示的 giftView 数量，默认为 3.
     ///   - duringShow: 每个 giftView 允许显示的时长，默认 3 秒。
     public init(giftViewCount: Int = 3, duringShow: Int = 3) {
-        duringShowGiftView = duringShow
+        showGiftViewDuration = duringShow
         maxGiftViewCount = giftViewCount
         semaphore = DispatchSemaphore(value: maxGiftViewCount)
     }
@@ -924,9 +925,7 @@ public final class GiftMessageViewCtrl {
         }
     }
     
-    deinit {
-        Judy.logHappy("GiftMessageViewCtrl 已经释放。")
-    }
+    deinit { Judy.logHappy("GiftMessageViewCtrl 已经释放。") }
 }
 
 private extension GiftMessageViewCtrl {
@@ -934,7 +933,7 @@ private extension GiftMessageViewCtrl {
     /// 将目标 GiftView 以动画方式并排好队列显示在 containerView 容器视图中，此函数请务必在 main 线程运行。
     func showGiftView(giftView: GiftView) {
         // 配置 giftView 基础信息
-        giftView.defaultWaitTime = duringShowGiftView
+        giftView.defaultWaitTime = showGiftViewDuration
         giftView.completeHandle = { view in
             self.dismissGiftView(giftView: view)
         }
@@ -961,7 +960,7 @@ private extension GiftMessageViewCtrl {
         // 从左往右出现的动画。
         giftView.center.x = -giftView.frame.size.width
         giftView.transform = CGAffineTransform(scaleX: 0, y: 0)
-        UIView.animate(withDuration: entranceAnimationDuration, delay: 0.0,
+        UIView.animate(withDuration: entranceDuration, delay: 0.0,
                        usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8,
                        options: UIView.AnimationOptions.curveEaseOut) {
             giftView.transform = CGAffineTransform.identity
@@ -992,7 +991,7 @@ private extension GiftMessageViewCtrl {
         keyFrameAnimation.path = travelPath.cgPath
         keyFrameAnimation.timingFunction = CAMediaTimingFunction(name: .default)
         // 往上飘动画时长,可控制速度。
-        keyFrameAnimation.duration = appearanceAnimationDuration
+        keyFrameAnimation.duration = disappearDuration
         giftView.layer.add(keyFrameAnimation, forKey: "positionOnPath")
 
         // 消失动画。
@@ -1110,8 +1109,5 @@ open class GiftView: UIView {
         countdownTimer = nil
     }
     
-    deinit {
-
-        Judy.logHappy("GiftView 释放。")
-    }
+    deinit { Judy.logHappy("GiftView 释放。") }
 }
