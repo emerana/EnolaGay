@@ -839,11 +839,188 @@ public class JudyPopBubble {
 }
 
 
-// MARK: - 直播间送礼物控制器
+// MARK: - 直播间送礼物功能
+
+/// 直播间送礼物控制面板。
+///
+/// 通过 profferGiftMessageView() 函数来送出一个礼物，该礼物将显示在当前 View 上。
+@IBDesignable open class GiftMessageCtrlPanel: UIView {
+    /// 每个 giftView 允许显示的时长，默认 3 秒。
+    @IBInspectable public var duringShow = 3
+    /// 最多同时显示的 giftView 数量，默认为 3.
+    @IBInspectable public var maxGiftViewCount = 3
+
+    /// 询问目标 GiftView 对象成立暴击的条件。
+    ///
+    /// 通过比较两个 GiftView 判断是否为需要暴击的 GiftView，其中，第一个参数为已存在的 GiftView，第二个参数为要送出去的 GiftView.
+    public var critConditionsClosure: ((_ oldGiftView: GiftView, _ showGiftView: GiftView)->(Bool))?
+    /// 当发生暴击事件时通过此匿名函数更新被暴击的 giftView（更新已存在的礼物视图）。
+    public var criticalStrikeAction: ((GiftView)->Void)?
+
+    /// 同屏显示的礼物间距，默认 10.
+    public var giftViewSpace = 10
+    /// 出现过程动画时长，默认 1 秒。
+    public var entranceDuration: TimeInterval = 1
+    /// 往上飘（消失过程的）动画时长，默认 3 秒。
+    public var disappearDuration: TimeInterval = 3
+
+    /// 存储所有正在显示的礼物消息视图 view.
+    private var giftViews = [GiftView]()
+    /// giftView 的桩点，只有存在 giftViewAnchors 里面的桩点才能显示 giftView.
+    private var giftViewAnchors = [CGPoint]()
+
+    /// 每个 GiftView 显示的时长，单位为秒，该时间过后即释放该 GiftView.
+    private var showGiftViewDuration: Int = 1
+    
+    /// 最多允许多少个线程同时访问共享资源或者同时执行多少个任务，任务数量取决于 maxGiftViewCount。
+    private var semaphore = DispatchSemaphore(value: 1)
+    // 一个用于执行礼物动画的并发队列。
+     private let giftMessageQueue = DispatchQueue(label: "GiftMessageViewCtrl", attributes: .concurrent)
+
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+
+    /// 初始化通用函数。
+    open func commonInit() {
+        isUserInteractionEnabled = false
+        
+        showGiftViewDuration = duringShow
+        semaphore = DispatchSemaphore(value: maxGiftViewCount)
+    }
+
+    open override func didMoveToWindow() {
+        // 说明被移除。
+        if window == nil {
+            Judy.log("window 为 nil，控制面板被移除啦")
+        } else {
+            Judy.log("控制面板被添加到屏幕上了。")
+        }
+    }
+    
+    
+    /// 通过该函数送出一个 GiftView，即送出一个礼物。
+    ///
+    /// 该函数会优先确认暴击条件函数 critConditionsClosure，如果送出的礼物符合暴击条件将不会弹出新 GiftView.
+    /// - Parameter giftView: 要显示的 giftView
+    public func profferGiftMessageView(giftView: GiftView) {
+        
+        if critConditionsClosure != nil {
+            /// 查找需要暴击的 giftView 索引。
+            var critConditionsIndex: Int? = nil
+            let existlist = giftViews.enumerated().filter { (index, oldGiftView) -> Bool in
+                /// 是否符合暴击条件。
+                let isEeligible = critConditionsClosure!(oldGiftView, giftView)
+                if isEeligible { critConditionsIndex = index }
+                return isEeligible
+            }
+            // 判断是否存在相同特性的 GiftView,如果存在则直接触发暴击。
+            guard existlist.isEmpty else {
+                criticalStrikeAction?(giftViews[critConditionsIndex!])
+                giftViews[critConditionsIndex!].criticalStrike()
+                return
+            }
+        }
+        giftMessageQueue.async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.semaphore.wait()
+            DispatchQueue.main.async {
+                strongSelf.showGiftView(giftView: giftView)
+            }
+        }
+    }
+
+    deinit { Judy.logHappy("GiftMessageCtrlPanel 已经释放。") }
+}
+
+private extension GiftMessageCtrlPanel {
+    
+    /// 将目标 GiftView 以动画方式并排好队列显示在 containerView 容器视图中，此函数请务必在 main 线程运行。
+    func showGiftView(giftView: GiftView) {
+        // 配置 giftView 基础信息
+        giftView.defaultWaitTime = showGiftViewDuration
+        giftView.completeHandle = { view in
+            self.dismissGiftView(giftView: view)
+        }
+
+        // 将 giftView 插入到 containerView 上方，同时存储到 giftViews 中。
+        insertSubview(giftView, at: 0)
+        giftViews.insert(giftView, at: 0)
+        
+        // 如果 giftViewAnchors 有桩点就从里面拿一个，否则计算一个新桩点。
+        if giftViewAnchors.isEmpty {
+            // 根据当前 giftViews 数量计算 giftView 所在桩点。
+            var centerY: CGFloat = 0
+            // 计算出一个桩点。
+            giftViews.enumerated().forEach { (index, giftView) in
+                centerY = frame.height - CGFloat(index+1)*giftView.frame.height
+                centerY -= CGFloat(index*giftViewSpace)
+                centerY += giftView.frame.height/2
+            }
+            giftView.center.y = centerY
+        } else {
+            giftView.center = giftViewAnchors.removeFirst()
+        }
+        
+        // 从左往右出现的动画。
+        giftView.center.x = -giftView.frame.size.width
+        giftView.transform = CGAffineTransform(scaleX: 0, y: 0)
+        UIView.animate(withDuration: entranceDuration, delay: 0.0,
+                       usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8,
+                       options: UIView.AnimationOptions.curveEaseOut) {
+            giftView.transform = CGAffineTransform.identity
+            
+            giftView.center.x = self.frame.width/2
+        }
+        
+    }
+    
+    /// 动画将指定 giftView 移除。
+    func dismissGiftView(giftView: GiftView) {
+        // 先释放信号量，不必非得等到 giftView 移除后再释放。
+        if let index = giftViews.lastIndex(of: giftView) {
+            giftViews.remove(at: index)
+            giftViewAnchors.append(giftView.center)
+        }
+        semaphore.signal()
+
+        /// 往上飘气泡移动轨迹路径。
+        let travelPath = UIBezierPath()
+        travelPath.move(to: giftView.center)
+        //根据贝塞尔曲线添加动画。
+        let endPoint = CGPoint(x: giftView.center.x, y: 0)
+        travelPath.addQuadCurve(to: endPoint, controlPoint: endPoint)
+
+        // 关键帧动画,实现整体图片位移。
+        let keyFrameAnimation = CAKeyframeAnimation(keyPath: "position")
+        keyFrameAnimation.path = travelPath.cgPath
+        keyFrameAnimation.timingFunction = CAMediaTimingFunction(name: .default)
+        // 往上飘动画时长,可控制速度。
+        keyFrameAnimation.duration = disappearDuration
+        giftView.layer.add(keyFrameAnimation, forKey: "positionOnPath")
+
+        // 消失动画。
+        UIView.animate(withDuration: 1) {
+            giftView.alpha = 0.0
+        } completion: { finished in
+            giftView.removeFromSuperview()
+        }
+    }
+
+}
+
 
 /// 适用于直播间送礼物动画弹窗的消息视图控制器。
 ///
 /// 请通过设置 containerView 来确定礼物视图显示的容器 view,若未设置，containerView 默认为 app 启动的窗口。
+@available(*, deprecated, message: "请直接使用 GiftMessageCtrlPanel 礼物控制面板")
 public final class GiftMessageViewCtrl {
     // FIXME: 当 giftMessageQueue 还有阻塞的任务时 GiftMessageViewCtrl 将无法释放。
     
@@ -877,7 +1054,7 @@ public final class GiftMessageViewCtrl {
     /// 每个 GiftView 显示的时长，单位为秒，该时间过后即释放该 GiftView.
     private var showGiftViewDuration: Int
     /// 一次性最多可显示的 giftView 数量。
-    private var maxGiftViewCount: Int
+    // private var maxGiftViewCount: Int
     
     /// 最多允许多少个线程同时访问共享资源或者同时执行多少个任务，任务数量取决于 maxGiftViewCount。
     private var semaphore: DispatchSemaphore
@@ -887,18 +1064,17 @@ public final class GiftMessageViewCtrl {
     
     /// 通过此构造器实例化一个 GiftMessageViewCtrl.
     /// - Parameters:
-    ///   - giftViewCount: 最多同时显示的 giftView 数量，默认为 3.
+    ///   - maxGiftViewCount: 最多同时显示的 giftView 数量，默认为 3.
     ///   - duringShow: 每个 giftView 允许显示的时长，默认 3 秒。
-    public init(giftViewCount: Int = 3, duringShow: Int = 3) {
+    public init(maxGiftViewCount: Int = 3, duringShow: Int = 3) {
         showGiftViewDuration = duringShow
-        maxGiftViewCount = giftViewCount
         semaphore = DispatchSemaphore(value: maxGiftViewCount)
     }
     
     /// 通过此构造器实例化一个 GiftMessageViewCtrl.
     /// - Parameter parentView: 用于显示礼物消息动画的容器，将 giftMessageView 显示在该 View 里面。
-    public convenience init(parentView: UIView? = nil, giftViewCount: Int = 3, duringShow: Int = 3) {
-        self.init(giftViewCount: giftViewCount, duringShow: duringShow)
+    public convenience init(parentView: UIView? = nil, maxGiftViewCount: Int = 3, duringShow: Int = 3) {
+        self.init(maxGiftViewCount: maxGiftViewCount, duringShow: duringShow)
         if parentView != nil { containerView = parentView! }
     }
     
@@ -1076,16 +1252,6 @@ open class GiftView: UIView {
     }
 
     
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-    
     open override func didMoveToWindow() {
         // 说明被移除。
         if window == nil {
@@ -1097,9 +1263,6 @@ open class GiftView: UIView {
     
     /// 发生暴击事件（显示相同的已存在礼物视图）时重置 waitTime.
     final func criticalStrike() { waitTime = defaultWaitTime }
-    
-    /// 初始化通用函数。
-    open func commonInit() {}
     
     /// 结束倒计时，并将计时器设为无效。
     private func endCountdown() {

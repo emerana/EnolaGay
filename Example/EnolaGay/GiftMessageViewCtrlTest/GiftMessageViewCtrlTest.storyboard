@@ -46,7 +46,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWA-vB-r7X">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWA-vB-r7X" customClass="GiftMessageCtrlPanel" customModule="EnolaGay">
                                 <rect key="frame" x="0.0" y="88" width="414" height="486"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                             </view>
@@ -72,7 +72,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="4fR-H1-yZI"/>
                     <connections>
-                        <outlet property="giftMessageViews" destination="eWA-vB-r7X" id="fRu-uW-TbH"/>
+                        <outlet property="giftMessageViewPanel" destination="eWA-vB-r7X" id="EX2-0G-j0P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m3x-qo-vOC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

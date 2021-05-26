@@ -14,20 +14,16 @@ class GiftMessageViewCtrlTest: JudyBaseViewCtrl {
     
      override var viewTitle: String? { "送礼测试" }
     
-    /// 送礼物弹窗消息 View。
-    @IBOutlet weak var giftMessageViews: UIView!
-    private let giftMessageViewCtrl = GiftMessageViewCtrl()
-
+    @IBOutlet weak var giftMessageViewPanel: GiftMessageCtrlPanel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        giftMessageViewCtrl.containerView = giftMessageViews
-        giftMessageViewCtrl.critConditionsClosure = { (oldGiftView, showGiftView) in
-            return false
+        giftMessageViewPanel.critConditionsClosure = { (oldGiftView, showGiftView) in
+            return true
         }
         var index = 1
-        giftMessageViewCtrl.criticalStrikeAction = { gifView in
+        giftMessageViewPanel.criticalStrikeAction = { gifView in
             index += 1
             let label = gifView.viewWithTag(1101) as! UILabel
             label.text = "值为：\(index)"
@@ -47,7 +43,7 @@ class GiftMessageViewCtrlTest: JudyBaseViewCtrl {
         view.addSubview(label)
         label.center = view.center
         view.backgroundColor = .red
-        giftMessageViewCtrl.profferGiftMessageView(giftView: view)
+        giftMessageViewPanel.profferGiftMessageView(giftView: view)
     }
 
 }
