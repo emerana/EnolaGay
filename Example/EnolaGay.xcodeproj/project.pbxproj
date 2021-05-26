@@ -29,6 +29,8 @@
 		8B81AA1F261EEF85003A194B /* KeyBoardPopUpViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81AA1E261EEF85003A194B /* KeyBoardPopUpViewCtrl.swift */; };
 		8BA9AA01260EDAAC008B1803 /* AttributedStringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */; };
 		8BA9AA05260EDAB8008B1803 /* AttributedString.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA9AA04260EDAB8008B1803 /* AttributedString.storyboard */; };
+		8BB8861E265CF30A00E8836D /* GiftMessageViewCtrlTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */; };
+		8BB88621265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BB88620265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard */; };
 		8BD8C6952628636B006738E6 /* TestCollectionRefreshCollectionViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8C6942628636B006738E6 /* TestCollectionRefreshCollectionViewCtrl.swift */; };
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
@@ -75,6 +77,8 @@
 		8B81AA1E261EEF85003A194B /* KeyBoardPopUpViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardPopUpViewCtrl.swift; sourceTree = "<group>"; };
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
 		8BA9AA04260EDAB8008B1803 /* AttributedString.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AttributedString.storyboard; sourceTree = "<group>"; };
+		8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftMessageViewCtrlTest.swift; sourceTree = "<group>"; };
+		8BB88620265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GiftMessageViewCtrlTest.storyboard; sourceTree = "<group>"; };
 		8BD8C6942628636B006738E6 /* TestCollectionRefreshCollectionViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionRefreshCollectionViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerticalScrollView.storyboard; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				8B1AA67725A74B350063BE04 /* JudyLivePageViewCtrl */,
 				8BA9A9FF260EDA8E008B1803 /* AttributedString */,
 				8B76428E25A702C400A418F8 /* Tests */,
+				8BB8861F265CF31200E8836D /* GiftMessageViewCtrlTest */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				8B76428F25A702C400A418F8 /* AppConfigs.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -245,6 +250,15 @@
 				8BA9AA04260EDAB8008B1803 /* AttributedString.storyboard */,
 			);
 			path = AttributedString;
+			sourceTree = "<group>";
+		};
+		8BB8861F265CF31200E8836D /* GiftMessageViewCtrlTest */ = {
+			isa = PBXGroup;
+			children = (
+				8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */,
+				8BB88620265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard */,
+			);
+			path = GiftMessageViewCtrlTest;
 			sourceTree = "<group>";
 		};
 		8BFCC83125E385F9000B1611 /* 垂直轮播图 */ = {
@@ -355,6 +369,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				8BB88621265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard in Resources */,
 				8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				8B81AA1B261EEF74003A194B /* KeyBoardPopUp.storyboard in Resources */,
@@ -460,6 +475,7 @@
 				8B1AA67325A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */,
 				8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */,
 				8B0B90AB262832830059B992 /* TestTableRefreshTableViewCtrl.swift in Sources */,
+				8BB8861E265CF30A00E8836D /* GiftMessageViewCtrlTest.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				8BA9AA01260EDAAC008B1803 /* AttributedStringViewController.swift in Sources */,
 				8B1AA68025A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */,

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jx4-zZ-kHa">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5x3-Cc-QML">
+                                <rect key="frame" x="192" y="433" width="30" height="30"/>
+                                <state key="normal" title="Go"/>
+                                <connections>
+                                    <segue destination="a1y-uG-SzM" kind="show" id="FJi-Tj-NIU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5x3-Cc-QML" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Rgk-w2-vnv"/>
+                            <constraint firstItem="5x3-Cc-QML" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="faR-2e-emb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="78l-6c-FDj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="997.10144927536237" y="137.94642857142856"/>
+        </scene>
+        <!--送礼物测试-->
+        <scene sceneID="X0x-qH-WWO">
+            <objects>
+                <viewController title="送礼物测试" id="a1y-uG-SzM" customClass="GiftMessageViewCtrlTest" customModule="EnolaGay_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vDs-fh-s3E">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWA-vB-r7X" customClass="GiftMessageCtrlPanel" customModule="EnolaGay">
+                                <rect key="frame" x="0.0" y="88" width="414" height="486"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPT-FN-1mp">
+                                <rect key="frame" x="161" y="754" width="92" height="40"/>
+                                <state key="normal" title="发送一个礼物"/>
+                                <connections>
+                                    <action selector="sendGiftAction:" destination="a1y-uG-SzM" eventType="touchUpInside" id="qyu-ro-I1T"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="N3e-vy-JxC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eWA-vB-r7X" firstAttribute="top" secondItem="N3e-vy-JxC" secondAttribute="top" id="Jj6-2O-chE"/>
+                            <constraint firstItem="kPT-FN-1mp" firstAttribute="top" secondItem="eWA-vB-r7X" secondAttribute="bottom" constant="180" id="PpK-tn-BIZ"/>
+                            <constraint firstItem="eWA-vB-r7X" firstAttribute="trailing" secondItem="N3e-vy-JxC" secondAttribute="trailing" id="TzY-8a-vbs"/>
+                            <constraint firstItem="N3e-vy-JxC" firstAttribute="bottom" secondItem="eWA-vB-r7X" secondAttribute="bottom" constant="288" id="Xlk-EA-nlK"/>
+                            <constraint firstItem="N3e-vy-JxC" firstAttribute="bottom" secondItem="kPT-FN-1mp" secondAttribute="bottom" constant="68" id="fRA-9E-YnL"/>
+                            <constraint firstItem="kPT-FN-1mp" firstAttribute="centerX" secondItem="vDs-fh-s3E" secondAttribute="centerX" id="n6R-3D-ykV"/>
+                            <constraint firstItem="eWA-vB-r7X" firstAttribute="leading" secondItem="N3e-vy-JxC" secondAttribute="leading" id="oX3-nj-qRJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4fR-H1-yZI"/>
+                    <connections>
+                        <outlet property="giftMessageViewPanel" destination="eWA-vB-r7X" id="EX2-0G-j0P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m3x-qo-vOC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1879.7101449275365" y="137.94642857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jXf-9d-Vd6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jx4-zZ-kHa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l4M-mC-9Cq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="mvE-0N-WIl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D2E-Hg-lb5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="86.956521739130437" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

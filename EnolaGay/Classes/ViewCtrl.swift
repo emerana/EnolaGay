@@ -6,15 +6,17 @@
 import UIKit
 import SwiftyJSON
 
-/// 遵循统一标准的 ViewController.
-/// - Warning: 该 viewController 遵循以下标准：
-/// * 重写 viewTitle 以设置标题。
-/// * 设置 requestConfig 对象以配置请求信息。
+/// 遵循统一标准的 viewController.
+///
+/// * 在本类及子类中，请重写 viewTitle 属性为本类设置标题，viewTitle 将覆盖 navigationItem.title、self.title，若未设置，navigationItem.title 将直接使用 title.
+/// * 本类中已集成 Api 层，通过设置 requestConfig 对象以配置请求信息，请求流详见 reqApi().
 open class JudyBaseViewCtrl: UIViewController {
 
     // MARK: - public var property
 
-    /// navigationItem.title，该 viewTitle 优先于 self.title 显示，且将覆盖 self.title.
+    /// 为当前设置一个标题。
+    ///
+    /// 该 viewTitle 优先且覆盖 self.title 及 navigationItem.title.
     ///
     /// 如需更改该值请在 viewDidLoad 之后 navigationItem.title = 新 title 即可。
     /// - Warning: 重写读写属性方式为实现 get、set，且里面最好全调用 super，尤其是 set.
@@ -55,9 +57,10 @@ open class JudyBaseViewCtrl: UIViewController {
         if viewTitle == nil {
             navigationItem.title = title
         } else {
-            navigationItem.title = viewTitle
             title = viewTitle
+            navigationItem.title = viewTitle
         }
+        
         // 设置背景色。
         view.backgroundColor = EMERANA.enolagayAdapter?.viewBackgroundColor() ?? .white
     }
@@ -190,7 +193,7 @@ open class JudyBaseViewCtrl: UIViewController {
     open func reqOver() {}
     
     deinit {
-        Judy.logHappy("<\(classForCoder)> - \(viewTitle ?? (title ?? "未命名界面")) -> 已经释放。")
+        Judy.logHappy("\(classForCoder) - \(viewTitle ?? (title ?? "未命名界面")) -> 已经释放。")
     }
     
 }
@@ -256,7 +259,7 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
     }
     
     deinit {
-        Judy.logHappy("<\(classForCoder)> - \(title ?? "未命名的 WebViewCtrl") -> 已经释放。")
+        Judy.logHappy("\(classForCoder) - \(title ?? "未命名的 WebViewCtrl") -> 已经释放。")
     }
     
     // KVO.
