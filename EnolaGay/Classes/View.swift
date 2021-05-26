@@ -958,23 +958,27 @@ private extension GiftMessageViewCtrl {
             giftView.center = giftViewAnchors.removeFirst()
         }
         
-        // 从左边往右出现的动画。
+        // 从左往右出现的动画。
         giftView.center.x = -giftView.frame.size.width
         giftView.transform = CGAffineTransform(scaleX: 0, y: 0)
-        UIView.animate(withDuration: entranceAnimationDuration, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: UIView.AnimationOptions.curveEaseOut) {
+        UIView.animate(withDuration: entranceAnimationDuration, delay: 0.0,
+                       usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8,
+                       options: UIView.AnimationOptions.curveEaseOut) {
             giftView.transform = CGAffineTransform.identity
             
             giftView.center.x = self.containerView.frame.width/2
-
-        } completion: { isCompletion in
-
-//            self.giftViewAnchors.append(giftView.center)
         }
         
     }
     
     /// 动画将指定 giftView 移除。
     func dismissGiftView(giftView: GiftView) {
+        // 先释放信号量，不必非得等到 giftView 移除后再释放。
+        if let index = giftViews.lastIndex(of: giftView) {
+            giftViews.remove(at: index)
+            giftViewAnchors.append(giftView.center)
+        }
+        semaphore.signal()
 
         /// 往上飘气泡移动轨迹路径。
         let travelPath = UIBezierPath()
@@ -995,13 +999,7 @@ private extension GiftMessageViewCtrl {
         UIView.animate(withDuration: 1) {
             giftView.alpha = 0.0
         } completion: { finished in
-            // 确保 giftViews 中有这个可操作的 giftView.
-            if let index = self.giftViews.lastIndex(of: giftView) {
-                self.giftViews.remove(at: index)
-                self.giftViewAnchors.append(giftView.center)
-            }
             giftView.removeFromSuperview()
-            self.semaphore.signal()
         }
     }
 }
