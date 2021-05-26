@@ -859,7 +859,7 @@ open class GiftMessageCtrlPanel: UIView {
 
     
     /// 最多允许多少个线程同时访问共享资源或者同时执行多少个任务，任务数量取决于 maxGiftViewCount。
-    private var semaphore = DispatchSemaphore(value: 1)
+    private var semaphore = DispatchSemaphore(value: 3)
     // 一个用于执行礼物动画的并发队列。
      private let giftMessageQueue = DispatchQueue(label: "GiftMessageCtrlPanel", attributes: .concurrent)
 
