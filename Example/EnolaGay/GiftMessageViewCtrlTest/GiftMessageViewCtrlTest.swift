@@ -18,16 +18,17 @@ class GiftMessageViewCtrlTest: JudyBaseViewCtrl {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        giftMessageViewPanel.critConditionsClosure = { (oldGiftView, showGiftView) in
-            return true
-        }
-        var index = 1
-        giftMessageViewPanel.criticalStrikeAction = { gifView in
-            index += 1
-            let label = gifView.viewWithTag(1101) as! UILabel
-            label.text = "值为：\(index)"
-        }
+        giftMessageViewPanel.duringShow = 2
+        giftMessageViewPanel.maxGiftViewCount = 2
+//        giftMessageViewPanel.critConditionsClosure = { (oldGiftView, showGiftView) in
+//            return true
+//        }
+//        var index = 1
+//        giftMessageViewPanel.criticalStrikeAction = { gifView in
+//            index += 1
+//            let label = gifView.viewWithTag(1101) as! UILabel
+//            label.text = "值为：\(index)"
+//        }
     }
     
     /// 发送一个礼物事件。
