@@ -377,7 +377,6 @@ public class MarqueeView: UIView {
 /// 支持自定义相关属性的圆形进度条。
 /// - Warning: 仅限在 StoryBoard 中使用。
 open class CircularProgressView: UIView {
-    
     // MARK: 公开属性
 
     /// 该属性指定圆环的粗细，默认为 10
@@ -400,8 +399,6 @@ open class CircularProgressView: UIView {
     /// 圆的半径
     private(set) var radius: Float!
 
-
-
     
     open override func awakeFromNib() {
         super.awakeFromNib()
@@ -409,13 +406,9 @@ open class CircularProgressView: UIView {
         backgroundColor = UIColor.clear
     }
     
-    
     open override func draw(_ rect: CGRect) {
-        // Drawing code
-        
         drawMiddlecircle()
         drawCircle()
-        
     }
 
     
@@ -499,7 +492,7 @@ open class CircularProgressLiveView: CircularProgressView {
     open override func awakeFromNib() {
         super.awakeFromNib()
         
-        // 旋转 View, 将开始点设置在顶部，即（3/2）π 处，必须以重新赋值的方式设置
+        // 旋转 View, 将开始点设置在顶部，即（3/2）π 处，必须以重新赋值的方式设置。
         var transform = self.transform
         transform = transform.rotated(by: -CGFloat(Double.pi/2)) // 逆时针旋转90°
         self.transform = transform
@@ -509,25 +502,20 @@ open class CircularProgressLiveView: CircularProgressView {
         lineLayer.strokeColor = UIColor.purple.cgColor
         lineLayer.lineWidth  = CGFloat(lineWith)
         
-        // 用于画圆的贝塞尔曲线(矢量路径)
+        // 用于画圆的贝塞尔曲线(矢量路径)。
         let circleBezierPath = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: 0, y: 0), size: frame.size))
 
         lineLayer.path = circleBezierPath.cgPath
         layer.addSublayer(lineLayer)
-        // 设置
+        // 设置。
         lineLayer.strokeStart = 0
         lineLayer.strokeEnd = 0
-
-        
     }
 
-    
     // 覆盖父类的 draw 函数，使其啥都不做
     open override func draw(_ rect: CGRect) {
         // Drawing code
     }
-    
-
 }
 
 @available(*, unavailable, message: "此类尚未完成测试，请勿使用")
@@ -553,15 +541,12 @@ class MyScaleCircle: CircularProgressView {
                 second_animation_time: Float!,
                 third_animation_time: Float!,
                 fourth_animation_time: Float!
-
     
     
     open override func awakeFromNib() {
         super.awakeFromNib()
         
         initCenterLabel()
-
-        
     }
     
     open override func draw(_ rect: CGRect) {
@@ -597,9 +582,6 @@ class MyScaleCircle: CircularProgressView {
         }
     }
     
-    
-    // } private extension MyScaleCircle {
-    
     /// 参数配置
     func initData(){
         //计算 animation 时间
@@ -624,7 +606,6 @@ class MyScaleCircle: CircularProgressView {
         contentMode = .redraw
         addSubview(centerLable!)
         centerLable?.text = "请初始化..."
-        
     }
     
     
@@ -700,8 +681,6 @@ class MyScaleCircle: CircularProgressView {
         ani.duration = Double(fourth_animation_time)
         lineLayer_fourth.add(ani, forKey: "strokeEnd")
         layer.addSublayer(lineLayer_fourth)
-        
-        
     }
     
 }
