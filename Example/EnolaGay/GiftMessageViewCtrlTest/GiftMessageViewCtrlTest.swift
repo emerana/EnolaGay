@@ -18,9 +18,8 @@ class GiftMessageViewCtrlTest: JudyBaseViewCtrl {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        giftMessageViewPanel.duringShow = 2
-        giftMessageViewPanel.maxGiftViewCount = 2
-//        giftMessageViewPanel.critConditionsClosure = { (oldGiftView, showGiftView) in
+
+        //        giftMessageViewPanel.critConditionsClosure = { (oldGiftView, showGiftView) in
 //            return true
 //        }
 //        var index = 1
