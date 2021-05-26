@@ -854,6 +854,13 @@ public final class GiftMessageViewCtrl {
             containerView.isUserInteractionEnabled = false
         }
     }
+    
+    /// 询问目标 GiftView 对象成立暴击的条件。
+    ///
+    /// 通过比较两个 GiftView 判断是否为需要暴击的 GiftView，其中，第一个参数为已存在的 GiftView，第二个参数为要送出去的 GiftView.
+    public var critConditionsClosure: ((_ oldGiftView: GiftView, _ showGiftView: GiftView)->(Bool))?
+    /// 当发生暴击事件时通过此匿名函数更新被暴击的 giftView（更新已存在的礼物视图）。
+    public var criticalStrikeAction: ((GiftView)->Void)?
 
     /// 同屏显示的礼物间距，默认 10.
     public var giftViewSpace = 10
@@ -895,23 +902,24 @@ public final class GiftMessageViewCtrl {
         if parentView != nil { containerView = parentView! }
     }
     
-    /// 通过该函数送出一个礼物，即显示一个消息视图。
-    /// - Parameters:
-    ///   - giftView: 要显示的 giftView.
-    ///   - critConditionsHandle: 询问目标 GiftView 对象成立暴击的条件，默认不判断暴击条件。
-    public func profferGiftMessageView(giftView: GiftView,
-                                       critConditionsHandle: ((GiftView)->(Bool))? = nil) {
-        if critConditionsHandle != nil {
+    /// 通过该函数送出一个 GiftView，即送出一个礼物。
+    ///
+    /// 该函数会优先确认暴击条件函数 critConditionsClosure，如果送出的礼物符合暴击条件将不会弹出新 GiftView.
+    /// - Parameter giftView: 要显示的 giftView
+    public func profferGiftMessageView(giftView: GiftView) {
+        
+        if critConditionsClosure != nil {
             /// 查找需要暴击的 giftView 索引。
             var critConditionsIndex: Int? = nil
-            let existlist = giftViews.enumerated().filter { (index, messageView) -> Bool in
+            let existlist = giftViews.enumerated().filter { (index, oldGiftView) -> Bool in
                 /// 是否符合暴击条件。
-                let isEeligible = critConditionsHandle!(messageView)
+                let isEeligible = critConditionsClosure!(oldGiftView, giftView)
                 if isEeligible { critConditionsIndex = index }
                 return isEeligible
             }
             // 判断是否存在相同特性的 GiftView,如果存在则直接触发暴击。
             guard existlist.isEmpty else {
+                criticalStrikeAction?(giftViews[critConditionsIndex!])
                 giftViews[critConditionsIndex!].criticalStrike()
                 return
             }
@@ -1036,17 +1044,11 @@ public extension GiftMessageViewCtrl {
 
 /// 直播间刷礼物弹出的消息视图。
 open class GiftView: UIView {
-    /// 当发生暴击事件时通过此匿名函数更新被暴击的 giftView（更新已存在的礼物视图）。
-    public var updateViewAtCriticalStrikeHandle: ((GiftView)->Void)?
-
-    // MARK: 计时器相关属性
-    
     /// 计时器完成的事件处理，通过此函数执行将本视图移除的相关操作。
     var completeHandle: ((GiftView)->Void)?
-
+    
     /// 默认倒计时时长，该时长决定触发 completeHandle 前的等待时间。该属性默认值为 3.
     var defaultWaitTime = 3
-    
     /// 实际倒计时时长。
     private var waitTime = 5
     
@@ -1073,6 +1075,7 @@ open class GiftView: UIView {
         }
     }
 
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -1092,13 +1095,8 @@ open class GiftView: UIView {
         }
     }
     
-    /// 暴击事件（显示相同的已存在礼物视图）。
-    ///
-    /// 此函数将会从 defaultWaitTime 重新开始计时（延迟释放 giftView），并触发 updateViewAtCriticalStrikeHandle 更新该礼物视图。
-    final func criticalStrike() {
-        waitTime = defaultWaitTime
-        updateViewAtCriticalStrikeHandle?(self)
-    }
+    /// 发生暴击事件（显示相同的已存在礼物视图）时重置 waitTime.
+    final func criticalStrike() { waitTime = defaultWaitTime }
     
     /// 初始化通用函数。
     open func commonInit() {}
