@@ -19,15 +19,15 @@ class GiftMessageViewCtrlTest: JudyBaseViewCtrl {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        giftMessageViewPanel.critConditionsClosure = { (oldGiftView, showGiftView) in
-            return true
-        }
-        var index = 1
-        giftMessageViewPanel.criticalStrikeAction = { gifView in
-            index += 1
-            let label = gifView.viewWithTag(1101) as! UILabel
-            label.text = "值为：\(index)"
-        }
+        //        giftMessageViewPanel.critConditionsClosure = { (oldGiftView, showGiftView) in
+//            return true
+//        }
+//        var index = 1
+//        giftMessageViewPanel.criticalStrikeAction = { gifView in
+//            index += 1
+//            let label = gifView.viewWithTag(1101) as! UILabel
+//            label.text = "值为：\(index)"
+//        }
     }
     
     /// 发送一个礼物事件。
@@ -46,4 +46,28 @@ class GiftMessageViewCtrlTest: JudyBaseViewCtrl {
         giftMessageViewPanel.profferGiftMessageView(giftView: view)
     }
 
+}
+
+
+
+/// 信号量崩溃测试。
+class CrashTestViewCtrl: UIViewController {
+
+    private var semaphore = DispatchSemaphore(value: 2)
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        DispatchQueue.global().async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.semaphore.wait()
+            strongSelf.semaphore.wait()
+        }
+    }
+    
+    deinit {
+        semaphore.signal()
+        semaphore.signal()
+        print("释放")
+    }
 }

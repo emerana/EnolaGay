@@ -645,7 +645,7 @@ public extension UIImage {
 
 // MARK: - UIImageView IBDesignable 扩展
 
-@IBDesignable public extension UIImageView {
+public extension UIImageView {
     
     /// 标识该 imageView 是否需要设置为正圆，需要的话请确保其为正方形，否则不生效
     /// - warning: 若在 Cell 中不能正常显示正圆，请覆盖 Cell 中 layoutIfNeeded() 设置正圆，或在父 View 中设置
@@ -816,11 +816,11 @@ public extension NSMutableAttributedString {
 
 // MARK: - UIView IBDesignable 扩展
 
-@IBDesignable public extension UIView {
+public extension UIView {
 
     // MARK: - UIView frame 相关的扩展
     
-    /// 边框宽度
+    /// 边框宽度。
     @IBInspectable var borderWidth: CGFloat {
         set { layer.borderWidth = newValue }
         get { return layer.borderWidth }
@@ -837,7 +837,7 @@ public extension NSMutableAttributedString {
         }
     }
     
-    /// 圆角程度
+    /// 圆角程度。
     @IBInspectable var cornerRadius: CGFloat {
         set {
             layer.cornerRadius = newValue
@@ -846,13 +846,13 @@ public extension NSMutableAttributedString {
         get { return layer.cornerRadius }
     }
 
-    /// 获取当前操作 View 的 frame.origin.x
+    /// view 的 frame.origin.x.
     var x_emerana: CGFloat {
         set { frame.origin.x = newValue }
         get { return frame.origin.x }
     }
 
-    /// /// 获取当前操作 View 的 frame.origin.y
+    /// view 的 frame.origin.y.
     var y_emerana: CGFloat {
         set { frame.origin.y = newValue }
         get { return frame.origin.y }
@@ -861,21 +861,21 @@ public extension NSMutableAttributedString {
     
     // MARK: UIView layer 相关的扩展
     
-    /// 设置 view 的边框样式
+    /// 设置 view 的边框样式。
     /// - Parameters:
-    ///   - border: 边框大小，默认0
-    ///   - color: 边框颜色，默认 .darkGray
+    ///   - border: 边框大小，默认0.
+    ///   - color: 边框颜色，默认 .darkGray.
     func viewBorder(border: CGFloat = 0, color: UIColor = .darkGray) {
         layer.borderWidth = border
         layer.borderColor = color.cgColor
     }
     
-    /// 给当前操作的 View 设置正圆，该函数会验证 View 是否为正方形，若不是正方形则圆角不生效
-    /// - warning: 请在 viewDidLayout 函数或涉及到布局的函数中调用，否则可能出现问题
+    /// 给当前操作的 View 设置正圆，该函数会验证 View 是否为正方形，若不是正方形则圆角不生效。
+    /// - warning: 请在 viewDidLayout 函数或涉及到布局的函数中调用，否则可能出现问题。
     /// - Parameters:
-    ///   - border: 边框大小，默认0
-    ///   - color: 边框颜色，默认深灰色
-    /// - Returns: 是否成功设置正圆
+    ///   - border: 边框大小，默认 0.
+    ///   - color: 边框颜色，默认深灰色。
+    /// - Returns: 是否成功设置正圆。
     @discardableResult
     func viewRound(border: CGFloat = 0, color: UIColor = .darkGray) -> Bool {
         
@@ -888,12 +888,12 @@ public extension NSMutableAttributedString {
         return true
     }
     
-    /// 给当前操作的 View 设置圆角
+    /// 给当前操作的 View 设置圆角。
     ///
     /// - Parameters:
-    ///   - radiu: 圆角大小，默认10
-    ///   - border: 边框大小，默认0
-    ///   - color: 边框颜色，默认深灰色
+    ///   - radiu: 圆角大小，默认 10.
+    ///   - border: 边框大小，默认 0.
+    ///   - color: 边框颜色，默认深灰色。
     func viewRadiu(radiu: CGFloat = 10, border: CGFloat = 0, color: UIColor = .darkGray) {
         viewBorder(border: border, color: color)
         
@@ -1249,6 +1249,14 @@ public extension UITableView {
 
 import UIKit
 
+/*
+ 什么时候用结构体，什么时候用类？
+ 
+ 把结构体看做值，如位置（经纬度）坐标（二维坐标，三维坐标）温度……
+ 把类看做是物体，如人、车、动物……
+ 
+ 结构较小，适用于复制操作，相比一个 class 的实例被多次引用，struct 更加安全，无须担心内存泄漏或者多线程冲突问题。
+ */
 
 /// EMERANA 结构体，项目中所有辅助性功能应该基于 EMERANA 模块化，可以通过 public extension 新增模块。
 /// - Warning: 该结构体已禁用 init() 函数，请使用 judy 单例对象

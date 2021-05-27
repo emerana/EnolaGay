@@ -11,7 +11,7 @@
 import UIKit
 
 /// EMERANA框架中所用到的Button，默认 FontStyle 为均码。
-@IBDesignable open class JudyBaseButton: UIButton, EMERANA_FontStyle {
+open class JudyBaseButton: UIButton, EMERANA_FontStyle {
 
     /// 图像方位。
     private enum ImageDirection: Int {
