@@ -24,12 +24,21 @@
                                     <segue destination="a1y-uG-SzM" kind="show" id="FJi-Tj-NIU"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jp2-yq-CsA">
+                                <rect key="frame" x="153" y="667" width="108" height="30"/>
+                                <state key="normal" title="信号量崩溃测试"/>
+                                <connections>
+                                    <segue destination="lNA-VB-sbW" kind="show" id="vcT-jg-aJZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5x3-Cc-QML" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Rgk-w2-vnv"/>
+                            <constraint firstItem="Jp2-yq-CsA" firstAttribute="centerX" secondItem="5x3-Cc-QML" secondAttribute="centerX" id="dck-Ha-Uos"/>
                             <constraint firstItem="5x3-Cc-QML" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="faR-2e-emb"/>
+                            <constraint firstItem="Jp2-yq-CsA" firstAttribute="top" secondItem="5x3-Cc-QML" secondAttribute="bottom" constant="204" id="wnR-hI-jgd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="78l-6c-FDj"/>
@@ -78,6 +87,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m3x-qo-vOC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1879.7101449275365" y="137.94642857142856"/>
+        </scene>
+        <!--Crash Test View Ctrl-->
+        <scene sceneID="BKZ-2e-ZJ3">
+            <objects>
+                <viewController id="lNA-VB-sbW" customClass="CrashTestViewCtrl" customModule="EnolaGay_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dnf-wa-w0H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="APr-8G-Xjc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ry2-X8-irM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zqh-2x-WK3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="997" y="836"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jXf-9d-Vd6">

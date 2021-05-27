@@ -14,7 +14,7 @@ import UIKit
 /// * 单击弹出复制功能（在 storyboard 中启用 isSupportCopy 或 isSupportCopy = true）
 /// * 内边距属性调整功能
 /// * 支持深度拷贝，参考 copy(with zone: NSZone? = nil) -> Any 函数
-@IBDesignable open class JudyBaseLabel: UILabel, EMERANA_FontStyle {
+open class JudyBaseLabel: UILabel, EMERANA_FontStyle {
     
     /// 是否显示一条删除线，默认 false.
     @IBInspectable var isUnderline: Bool = false

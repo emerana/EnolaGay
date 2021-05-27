@@ -104,7 +104,7 @@ public protocol JudyPlusButtonActionDelegate: AnyObject {
 /// * 通过 judyDelegate 代理设置大按钮点击事件。
 ///
 /// - warning: 如果设置了 judyViewCtrl，则点击大按钮会切换到该 judyViewCtrl 而不执行代理方法。
-@IBDesignable open class JudyPlusButtonTabBar: UITabBar {
+open class JudyPlusButtonTabBar: UITabBar {
     
     /**
      对应的父级 UITabBarController,通过 Storyboard 连线的方式关联，改变 viewControllers 会自动执行 layoutIfNeeded()。
