@@ -9,7 +9,7 @@
 import UIKit
 
 /// EMERANA框架中所用到的 TextField，默认 FontStyle 为均码。
-@IBDesignable open class JudyBaseTextField: UITextField, EMERANA_FontStyle {
+open class JudyBaseTextField: UITextField, EMERANA_FontStyle {
 
     // MARK: 配置字体样式
     @IBInspectable private(set) public var initFontStyle: Int = 0
