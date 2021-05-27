@@ -1386,6 +1386,32 @@ public extension EMERANA.Key {
 }
 
 
+// MARK: 命名空间
+
+/// 在 EnolaGay 中的兼容包装类型，该包装类型为 EnolaGay 中的方便方法提供了一个扩展点。
+public struct EnolaGayWrapper<Base> {
+    /// 包装对象在 EnolaGay 中对应的原始对象。
+    public let base: Base
+    public init(_ base: Base) { self.base = base }
+}
+
+/// 表示与 EnolaGay 兼容的对象类型协议。
+///
+/// AnyObject 目标类型在实现该协议后即可使用`judy`属性在 EnolaGay 的名称空间中获得一个值包装后的对象。
+public protocol EnolaGayCompatible: AnyObject { }
+
+extension EnolaGayCompatible {
+    /// 获取在 EnolaGay 中的兼容类型包装对象，即 EnolaGay 空间持有者对象。
+    public var judy: EnolaGayWrapper<Self> {
+        get { return EnolaGayWrapper(self) }
+        set { }
+    }
+}
+
+/// 使 UIViewController 实现兼容类型。
+extension UIViewController: EnolaGayCompatible { }
+
+
 // MARK: 废弃的协议
 
 /// viewCtrl 基础协议。

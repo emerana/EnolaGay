@@ -222,7 +222,7 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
         // 不通过用户交互，是否可以打开窗口。
         preferences.javaScriptCanOpenWindowsAutomatically = false
 
-        let myWebView = judy_webView()
+        let myWebView = judy.webView()
         myWebView.configuration.preferences = preferences
         
         return myWebView
@@ -298,7 +298,17 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
 }
 
 
-public extension UIViewController {
+/// 由 EnolaGay 为 UIViewController 提供的函数。
+public extension EnolaGayWrapper where Base: UIViewController {
+    
+    /// 此函数将在系统的 present 函数基础上强化，使目标 viewController 的 modalPresentationStyle 属性为 fullScreen.
+    func present(_ viewController: UIViewController, presentationStyle: UIModalPresentationStyle = .fullScreen, animated: Bool, completion: (() -> Void)? = nil) {
+        if viewController.modalPresentationStyle == .pageSheet {
+            viewController.modalPresentationStyle = presentationStyle
+        }
+        base.present(viewController, animated: animated, completion: completion)
+    }
+
     
     /// 生成一个 WKWebView，该 webView 的 frame 为 view.bounds，且已加载自适应屏幕宽度脚本。
     ///
@@ -309,7 +319,7 @@ public extension UIViewController {
     /// webView?.frame = CGRect(x: 0, y: 0, width: webViewParentView!.frame.size.width, height: webViewParentView!.frame.size.height)
     /// ```
     /// - Returns: WKWebView.
-    final func judy_webView() -> WKWebView {
+    func webView() -> WKWebView {
         let config = WKWebViewConfiguration()
         // 创建 UserContentController（提供 JavaScript 向 webView 发送消息的方法）。
         let userContent = WKUserContentController()
@@ -328,14 +338,12 @@ public extension UIViewController {
         // 将 UserConttentController 设置到配置文件。
         config.userContentController = userContent
 
-        return WKWebView(frame: view.bounds, configuration: config)
+        return WKWebView(frame: base.view.bounds, configuration: config)
     }
-    
-}
 
-// MARK: - gradientLayer 渐变
-public extension UIViewController {
-    
+
+    // MARK: - gradientLayer 渐变
+
     /// 获取一个 CAGradientLayer 渐变。
     /// * 使用方式如下：
     /// ```
@@ -348,7 +356,7 @@ public extension UIViewController {
     ///   - startColor: 起始颜色，默认为 red.
     ///   - endColor: 终止颜色，默认为 green.
     /// - Returns: CAGradientLayer 对象。
-    final func judy_getGradient(vertical: Bool = true, frame: CGRect = UIScreen.main.bounds, startColor: UIColor = .red, endColor: UIColor = .green) -> CAGradientLayer {
+    func getGradient(vertical: Bool = true, frame: CGRect = UIScreen.main.bounds, startColor: UIColor = .red, endColor: UIColor = .green) -> CAGradientLayer {
         //create gradientLayer
         let gradientLayer : CAGradientLayer = CAGradientLayer()
         gradientLayer.frame = CGRect.init(x: 0, y: 0, width: frame.width, height: frame.height)
@@ -366,11 +374,220 @@ public extension UIViewController {
         return gradientLayer
     }
     
+
+    // MARK: - 截图功能
+
+    /// 截取指定 UIScrollView 生成图片。
+    ///
+    /// - Parameters:
+    ///   - targetScrollView: 要保存为图片的 UIScrollView.
+    ///   - transparent: 是否透明，默认 false，如果背景颜色可能是部分透明我们必须用白色填充。
+    ///   - savedPhotosAlbum: 是否保存到相册，默认 false.
+    /// - Warning: 调用此方法务必在 viewDidAppear 函数之后。
+    /// - Returns: 你要的图像。
+    func captureScreenImage(targetScrollView: UIScrollView, transparent: Bool = false, savedPhotosAlbum: Bool = false ) -> UIImage? {
+        
+        UIGraphicsBeginImageContextWithOptions(targetScrollView.contentSize, false, 0.0)
+        
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        
+        let savedContentOffset = targetScrollView.contentOffset
+        let savedFrame = targetScrollView.frame
+        let rect = CGRect(x: 0, y: 0, width: targetScrollView.contentSize.width, height: targetScrollView.contentSize.height)
+
+        targetScrollView.contentOffset = .zero
+        targetScrollView.frame = rect
+        
+        // 处理背景可能是透明的情况
+        if targetScrollView.isOpaque || !transparent {
+            // 背景颜色可能是部分透明的，如果我们想输出不透明的图像，我们必须用白色填充
+            context.setFillColor(UIColor.white.cgColor)
+            context.fill(rect)
+            
+            if let backgroundColor = targetScrollView.backgroundColor {
+                context.setFillColor(backgroundColor.cgColor)
+                context.fill(rect)
+            }
+        }
+        
+        targetScrollView.layer.render(in: context)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        targetScrollView.contentOffset = savedContentOffset
+        targetScrollView.frame = savedFrame
+        UIGraphicsEndImageContext()
+        
+        if savedPhotosAlbum && image != nil {
+            UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+        }
+        
+        return image
+    }
+
+    /// 截取指定 View 生成图片。
+    ///
+    /// - Parameters:
+    ///   - targetView: 要保存为图片的 View.
+    ///   - transparent: 是否透明，默认 false，如果背景颜色可能是部分透明我们必须用白色填充。
+    ///   - complete: 是否需要截取完整视图层次结构（包含状态栏），默认 false.
+    /// - Warning: 调用此方法务必在 viewDidAppear 函数之后。
+    /// - Returns: 你要的图像。
+    func captureScreenImage(targetView: UIView, transparent: Bool = false, complete: Bool = false) -> UIImage? {
+        
+        UIGraphicsBeginImageContextWithOptions(targetView.bounds.size, false, 0.0)
+        
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        
+        let rect = CGRect(origin: CGPoint(x: targetView.x_emerana, y: targetView.y_emerana), size: targetView.bounds.size)
+        // 处理背景可能是透明的情况
+        if targetView.isOpaque || !transparent {
+            // 背景颜色可能是部分透明的，如果我们想输出不透明的图像，我们必须用白色填充
+            context.setFillColor(UIColor.white.cgColor)
+            context.fill(rect)
+            
+            if let backgroundColor = targetView.backgroundColor {
+                context.setFillColor(backgroundColor.cgColor)
+                context.fill(rect)
+            }
+        }
+        
+        if complete {
+            // 将完整视图层次结构的快照以在屏幕上可见的形式呈现到当前上下文中.此方法可以将状态栏也包含
+            targetView.drawHierarchy(in: targetView.frame, afterScreenUpdates: true)
+        } else {
+            // 将层及其子层呈现到指定上下文中，此方法是不包含状态栏的
+            targetView.layer.render(in: context)
+        }
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+    
+    /// 截取指定 View 生成图片，并保存到相册。
+    ///
+    /// - Parameters:
+    ///   - targetView: 要保存为图片的 View.
+    ///   - transparent: 是否透明。
+    /// - Warning: 调用此方法务必在 viewDidAppear 函数之后。
+    /// - Returns: 保存结果。
+    @discardableResult
+    func captureImageSavedPhotosAlbum(targetView: UIView, transparent: Bool = false) -> Bool {
+        
+        let image = captureScreenImage(targetView: targetView, transparent: transparent)
+        guard image != nil else {
+            Judy.log("图片截取失败！")
+            return false
+        }
+        
+        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+        
+        return true
+    }
+
+
+    // MARK: - UIViewController 其他扩展函数
+
+    /// 递归查找 UITextField.
+    /// - Parameter view: UITextField 可能存在的父 View.
+    func recursionUITextField(view: UIView) -> UIView? {
+        
+        var textField: UIView? = nil
+        
+        for subView in view.subviews {
+            if let _ = subView as? UITextField {
+                return subView
+            } else {
+                textField = recursionUITextField(view: subView)
+            }
+        }
+        
+        return textField
+    }
+        
+    
+    // MARK: 将导航栏移出屏幕外
+    
+    /// 移动导航条，将导航栏移出屏幕外（或恢复原位置）。
+    ///
+    /// - Parameter isHihe: 是否隐藏。默认值应该为 false.
+    /// - Warning: 该方法一般要调用两次（移动之后需要恢复）。
+    func moveNavigationBar(isHihe: Bool = false) {
+        guard base.navigationController != nil else { return }
+        
+        UIView.animate(withDuration: 0.2) {
+            // 获取状态栏高度
+            let statusBarHeight = UIApplication.shared.statusBarView?.frame.size.height ?? 0
+            
+            let yDiff = isHihe ? base.navigationController!.navigationBar.frame.origin.y - base.navigationController!.navigationBar.frame.size.height - statusBarHeight :base.navigationController!.navigationBar.frame.origin.y + base.navigationController!.navigationBar.frame.size.height + statusBarHeight
+            // 重设 navigationBar.frame。
+            base.navigationController!.navigationBar.frame =
+                CGRect(x: 0, y: yDiff,
+                       width: base.navigationController!.navigationBar.frame.size.width,
+                       height: base.navigationController!.navigationBar.frame.size.height)
+        }
+    }
+    
+    /// 弹出一个系统警告框，只包含一个确定按钮，没有任何按钮的操作事件。
+    ///
+    /// 通常用于临时性提醒、警告作用。
+    ///
+    /// - Parameter title: alert的标题，默认为"提示"。
+    /// - Parameter msg: 消息文字。
+    /// - Parameter cancelButtonTitle: 取消按钮的标题，默认为"确定"。
+    /// - Parameter completionAction: 取消按钮点击事件，默认为 nil。
+    func alert(title: String = "提示", msg: String? = nil, cancelButtonTitle: String = "确定", completionAction: (() -> Void)? = nil) {
+        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        // 创建 UIAlertAction 控件
+        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        DispatchQueue.main.async { [weak base] in
+            base?.present(alertController, animated: false, completion: completionAction)
+        }
+    }
+    
+    /// 获取当前 UIViewController 的导航控制器。
+    ///
+    /// - Returns: UIViewController的导航控制器对象。
+    func navigationCtrller() -> UINavigationController {
+        var navigationController: UINavigationController!
+        
+        if base.isKind(of: UINavigationController.classForCoder()) {
+            navigationController = base as? UINavigationController
+        } else {
+            if base.isKind(of: UITabBarController.classForCoder()) {
+                navigationController = (base as! UITabBarController).selectedViewController?.judy.navigationCtrller()
+            } else { // 只能是 UIViewController
+                guard navigationController != nil else {
+                    Judy.log("🚔当前 ViewCtrl 没有可用的 UINavigationController，故返回了一个 UINavigationController()")
+                    return UINavigationController()
+                }
+                
+                navigationController = base.navigationController!
+            }
+        }
+        return navigationController
+    }
+
 }
 
+// MARK: 需要升级的函数
 
-// MARK: - 截图功能
 public extension UIViewController {
+    
+    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.webView")
+    final func judy_webView() -> WKWebView { WKWebView() }
+    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.getGradient")
+    final func judy_getGradient(vertical: Bool = true, frame: CGRect = UIScreen.main.bounds, startColor: UIColor = .red, endColor: UIColor = .green) -> CAGradientLayer {
+        return CAGradientLayer()
+    }
     
     @available(*, unavailable, message: "不要使用这个方法，目前还没完善", renamed: "judyGenerateImage")
     final func judyGenerateImageWithNav(targetScrollView: UIScrollView, transparent: Bool = false, savedPhotosAlbum: Bool = false ) -> UIImage? {
@@ -437,224 +654,41 @@ public extension UIViewController {
         return result
     }
     
-    
-    /// 截取指定 UIScrollView 生成图片。
-    ///
-    /// - Parameters:
-    ///   - targetScrollView: 要保存为图片的 UIScrollView.
-    ///   - transparent: 是否透明，默认 false，如果背景颜色可能是部分透明我们必须用白色填充。
-    ///   - savedPhotosAlbum: 是否保存到相册，默认 false.
-    /// - Warning: 调用此方法务必在 viewDidAppear 函数之后。
-    /// - Returns: 你要的图像。
-    final func judy_captureScreenImage(targetScrollView: UIScrollView, transparent: Bool = false, savedPhotosAlbum: Bool = false ) -> UIImage? {
-        
-        UIGraphicsBeginImageContextWithOptions(targetScrollView.contentSize, false, 0.0)
-        
-        guard let context = UIGraphicsGetCurrentContext() else {
-            return nil
-        }
-        
-        let savedContentOffset = targetScrollView.contentOffset
-        let savedFrame = targetScrollView.frame
-        let rect = CGRect(x: 0, y: 0, width: targetScrollView.contentSize.width, height: targetScrollView.contentSize.height)
+    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.captureScreenImage")
+    final func judy_captureScreenImage(targetScrollView: UIScrollView, transparent: Bool = false, savedPhotosAlbum: Bool = false ) -> UIImage? { nil }
 
-        targetScrollView.contentOffset = .zero
-        targetScrollView.frame = rect
-        
-        // 处理背景可能是透明的情况
-        if targetScrollView.isOpaque || !transparent {
-            // 背景颜色可能是部分透明的，如果我们想输出不透明的图像，我们必须用白色填充
-            context.setFillColor(UIColor.white.cgColor)
-            context.fill(rect)
-            
-            if let backgroundColor = targetScrollView.backgroundColor {
-                context.setFillColor(backgroundColor.cgColor)
-                context.fill(rect)
-            }
-        }
-        
-        targetScrollView.layer.render(in: context)
-        
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        
-        targetScrollView.contentOffset = savedContentOffset
-        targetScrollView.frame = savedFrame
-        UIGraphicsEndImageContext()
-        
-        if savedPhotosAlbum && image != nil {
-            UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
-        }
-        
-        return image
-    }
-
-    /// 截取指定 View 生成图片。
-    ///
-    /// - Parameters:
-    ///   - targetView: 要保存为图片的 View.
-    ///   - transparent: 是否透明，默认 false，如果背景颜色可能是部分透明我们必须用白色填充。
-    ///   - complete: 是否需要截取完整视图层次结构（包含状态栏），默认 false.
-    /// - Warning: 调用此方法务必在 viewDidAppear 函数之后。
-    /// - Returns: 你要的图像。
-    final func judy_captureScreenImage(targetView: UIView, transparent: Bool = false, complete: Bool = false) -> UIImage? {
-        
-        UIGraphicsBeginImageContextWithOptions(targetView.bounds.size, false, 0.0)
-        
-        guard let context = UIGraphicsGetCurrentContext() else {
-            return nil
-        }
-        
-        let rect = CGRect(origin: CGPoint(x: targetView.x_emerana, y: targetView.y_emerana), size: targetView.bounds.size)
-        // 处理背景可能是透明的情况
-        if targetView.isOpaque || !transparent {
-            // 背景颜色可能是部分透明的，如果我们想输出不透明的图像，我们必须用白色填充
-            context.setFillColor(UIColor.white.cgColor)
-            context.fill(rect)
-            
-            if let backgroundColor = targetView.backgroundColor {
-                context.setFillColor(backgroundColor.cgColor)
-                context.fill(rect)
-            }
-        }
-        
-        if complete {
-            // 将完整视图层次结构的快照以在屏幕上可见的形式呈现到当前上下文中.此方法可以将状态栏也包含
-            targetView.drawHierarchy(in: targetView.frame, afterScreenUpdates: true)
-        } else {
-            // 将层及其子层呈现到指定上下文中，此方法是不包含状态栏的
-            targetView.layer.render(in: context)
-        }
-        
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        
-        UIGraphicsEndImageContext()
-        
-        return image
-    }
+    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.captureScreenImage")
+    final func judy_captureScreenImage(targetView: UIView, transparent: Bool = false, complete: Bool = false) -> UIImage? { nil }
     
-    /// 截取指定 View 生成图片，并保存到相册。
-    ///
-    /// - Parameters:
-    ///   - targetView: 要保存为图片的 View.
-    ///   - transparent: 是否透明。
-    /// - Warning: 调用此方法务必在 viewDidAppear 函数之后。
-    /// - Returns: 保存结果。
+    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.captureImageSavedPhotosAlbum")
     @discardableResult
-    final func judy_captureImageSavedPhotosAlbum(targetView: UIView, transparent: Bool = false) -> Bool {
-        
-        let image = judy_captureScreenImage(targetView: targetView, transparent: transparent)
-        guard image != nil else {
-            Judy.log("图片截取失败！")
-            return false
-        }
-        
-        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
-        
-        return true
-    }
-
-}
-
-
-// MARK: - UIViewController 其他扩展函数
-
-public extension UIViewController {
+    final func judy_captureImageSavedPhotosAlbum(targetView: UIView, transparent: Bool = false) -> Bool { false }
     
-    /// 递归查找 UITextField.
-    /// - Parameter view: UITextField 可能存在的父 View.
-    func judy_recursionUITextField(view: UIView) -> UIView? {
-        
-        var textField: UIView? = nil
-        
-        for subView in view.subviews {
-            if let _ = subView as? UITextField {
-                return subView
-            } else {
-                textField = judy_recursionUITextField(view: subView)
-            }
-        }
-        
-        return textField
-    }
+    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.recursionUITextField")
+    func judy_recursionUITextField(view: UIView) -> UIView? { nil }
         
     /// 解决 push 时右上角出现可恶的黑影，给 keyWindow 设置背景色即可，一般为白色或 EMERANA 配置的通用背景色。
-    @available(*,unavailable,message: "此函数太过于简单，弃用之！")
+    @available(*,unavailable, message: "此函数太过于简单，弃用之！")
     func judy_setWindowBackgroundColor() {  }
     /// 将 window 背景色重置为 nil
-    @available(*,unavailable,message: "此函数太过于简单，弃用之！")
+    @available(*,unavailable, message: "此函数太过于简单，弃用之！")
     func judy_resetWindowBackgroundColor() {  }
     
+    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.moveNavigationBar")
+    func judy_moveNavigationBar(isHihe: Bool = false) {}
     
-    // MARK: 将导航栏移出屏幕外
+    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.alert")
+    func judy_alert(title: String = "提示", msg: String? = nil, cancelButtonTitle: String = "确定", completionAction: (() -> Void)? = nil) {}
     
-    /// 移动导航条，将导航栏移出屏幕外（或恢复原位置）。
-    ///
-    /// - Parameter isHihe: 是否隐藏。默认值应该为 false.
-    /// - Warning: 该方法一般要调用两次（移动之后需要恢复）。
-    func judy_moveNavigationBar(isHihe: Bool = false) {
-        guard navigationController != nil else { return }
-        
-        UIView.animate(withDuration: 0.2) {
-            // 获取状态栏高度
-            let statusBarHeight = UIApplication.shared.statusBarView?.frame.size.height ?? 0
-            
-            let yDiff = isHihe ? self.navigationController!.navigationBar.frame.origin.y - self.navigationController!.navigationBar.frame.size.height - statusBarHeight :self.navigationController!.navigationBar.frame.origin.y + self.navigationController!.navigationBar.frame.size.height + statusBarHeight
-            // 重设 navigationBar.frame。
-            self.navigationController!.navigationBar.frame =
-                CGRect(x: 0, y: yDiff,
-                       width: self.navigationController!.navigationBar.frame.size.width,
-                       height: self.navigationController!.navigationBar.frame.size.height)
-        }
-    }
-    
-    /// 弹出一个系统警告框，只包含一个确定按钮，没有任何按钮的操作事件。
-    ///
-    /// 通常用于临时性提醒、警告作用。
-    ///
-    /// - Parameter title: alert的标题，默认为"提示"。
-    /// - Parameter msg: 消息文字。
-    /// - Parameter cancelButtonTitle: 取消按钮的标题，默认为"确定"。
-    /// - Parameter completionAction: 取消按钮点击事件，默认为 nil。
-    func judy_alert(title: String = "提示", msg: String? = nil, cancelButtonTitle: String = "确定", completionAction: (() -> Void)? = nil) {
-        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-        // 创建 UIAlertAction 控件
-        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        DispatchQueue.main.async { [weak self] in
-            self?.present(alertController, animated: false, completion: completionAction)
-        }
-    }
-    
-    /// 获取当前 UIViewController 的导航控制器。
-    ///
-    /// - Returns: UIViewController的导航控制器对象。
-    final func judy_navigationCtrller() -> UINavigationController {
-        var navigationController: UINavigationController!
-        
-        if self.isKind(of: UINavigationController.classForCoder()) {
-            navigationController = self as? UINavigationController
-        } else {
-            if self.isKind(of: UITabBarController.classForCoder()) {
-                navigationController = (self as! UITabBarController).selectedViewController?.judy_navigationCtrller()
-            } else { // 只能是 UIViewController
-                guard self.navigationController != nil else {
-                    Judy.log("🚔当前 ViewCtrl 没有可用的 UINavigationController，故返回了一个 UINavigationController()")
-                    return UINavigationController()
-                }
-                
-                navigationController = self.navigationController!
-            }
-        }
-        return navigationController
-    }
-
+    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.navigationCtrller")
+    final func judy_navigationCtrller() -> UINavigationController { UINavigationController() }
 }
 
 
 // MARK: - 正确地处理键盘遮挡输入框
 
 public extension UIViewController {
-    
+
     /// 在 extension 中新增存储属性相关的key。
     private struct AssociatedKey {
         static var keyBoardHeight: CGFloat = 0

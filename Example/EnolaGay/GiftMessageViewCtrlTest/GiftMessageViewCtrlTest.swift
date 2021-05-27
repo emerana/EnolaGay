@@ -18,7 +18,8 @@ class GiftMessageViewCtrlTest: JudyBaseViewCtrl {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let dd = judy.webView()
+        
         //        giftMessageViewPanel.critConditionsClosure = { (oldGiftView, showGiftView) in
 //            return true
 //        }
