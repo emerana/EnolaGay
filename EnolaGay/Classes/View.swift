@@ -844,31 +844,31 @@ open class GiftMessageCtrlPanel: UIView {
     public var critConditionsClosure: ((_ oldGiftView: GiftView, _ showGiftView: GiftView)->(Bool))?
     /// 当发生暴击事件时通过此匿名函数更新被暴击的 giftView（更新已存在的礼物视图）。
     public var criticalStrikeAction: ((GiftView)->Void)?
-
+    
     /// 同屏显示的礼物间距，默认 10.
     public var giftViewSpace = 10
     /// 出现过程动画时长，默认 1 秒。
     public var entranceDuration: TimeInterval = 1
     /// 往上飘（消失过程的）动画时长，默认 3 秒。
     public var disappearDuration: TimeInterval = 3
-
+    
     /// 存储所有正在显示的礼物消息视图 view.
     private var giftViews = [GiftView]()
     /// giftView 的桩点，只有存在 giftViewAnchors 里面的桩点才能显示 giftView.
     private var giftViewAnchors = [CGPoint]()
-
+    
     /// 最多允许多少个线程同时访问共享资源或者同时执行多少个任务，任务数量取决于 maxGiftViewCount。
     /// - Warning: semaphore 处于 wait() 时， 若释放引起崩溃(EXC_BAD_INSTRUCTION)，需在释放前将当前信号量值大于等于初始信号量值。
     private var semaphore = DispatchSemaphore(value: 3)
     // 一个用于执行礼物动画的并发队列。
-     private let giftMessageQueue = DispatchQueue(label: "GiftMessageCtrlPanel", attributes: .concurrent)
-
+    private let giftMessageQueue = DispatchQueue(label: "GiftMessageCtrlPanel", attributes: .concurrent)
+    
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
-
+    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
