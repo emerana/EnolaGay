@@ -7,8 +7,7 @@
 
 import SwiftyJSON
 
-
-// MARK: - typealias
+// MARK: typealias
 
 /// 一个不传递任何参数的闭包
 public typealias Closure = (() -> Void)
@@ -460,9 +459,7 @@ open class Appearance {
 
 
 // MARK: UIApplication 扩展
-
-public extension UIApplication {
-    
+public extension EnolaGayWrapper where Base: UIApplication {
     /// 获取状态栏 View。
     var statusBarView: UIView? {
         
@@ -481,50 +478,55 @@ public extension UIApplication {
                 return statusBarView
             }
         } else {
-            if responds(to: Selector(("statusBar"))) {
-                return value(forKey: "statusBar") as? UIView
+            if base.responds(to: Selector(("statusBar"))) {
+                return base.value(forKey: "statusBar") as? UIView
             }
         }
         return nil
     }
-    
+}
+
+public extension UIApplication {
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.statusBarView")
+    var statusBarView: UIView? { nil }
 }
 
 
 // MARK: - UIImage 扩展
 
-public extension UIImage {
-    
+public extension EnolaGayWrapper where Base: UIImage {
     /// 重设图片大小
     /// - Parameter reSize: 目标 size
     /// - Returns: 目标 image
     func reSizeImage(reSize: CGSize) -> UIImage {
         //UIGraphicsBeginImageContext(reSize);
         UIGraphicsBeginImageContextWithOptions(reSize, false, UIScreen.main.scale)
-        self.draw(in: CGRect(x: 0, y: 0, width: reSize.width, height: reSize.height))
+        base.draw(in: CGRect(x: 0, y: 0, width: reSize.width, height: reSize.height))
         let reSizeImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         return reSizeImage
     }
-     
-    /// 等比率缩放
-    /// - Parameter scaleSize: 缩放倍数
-    /// - Returns: 目标 image
+
+    /// 等比缩放。
+    /// - Parameter scaleSize: 缩放倍数。
+    /// - Returns: 目标 image.
     func scaleImage(scaleSize: CGFloat) -> UIImage {
-        let reSize = CGSize(width: size.width * scaleSize, height: size.height * scaleSize)
+        let reSize = CGSize(width: base.size.width * scaleSize, height: base.size.height * scaleSize)
 
         return reSizeImage(reSize: reSize)
     }
     
-    /// 压缩图像的体积
+    /// 压缩图像的体积。
     ///
-    /// 此函数将返回 UIImage 对象通过此函数得到一个小于原始体积的 Data，通常用于图片上传时限制体积
+    /// 此函数将返回 UIImage 对象通过此函数得到一个小于原始体积的 Data，通常用于图片上传时限制体积。
+    /// 大小的计算（图像不得超过128K时）如：
+    /// if image.pngData()!.count/1024 >= 128 { resetImgSize(maxImageLenght:131072, maxSizeKB: 128) }
     /// - Parameters:
-    ///   - maxImageLenght: 最大长度，如：0
-    ///   - maxSizeKB: 最大 KB 体积，如 2048
-    /// - Returns: 目标 Data
-    func judy_resetImgSize(maxImageLenght: CGFloat, maxSizeKB: CGFloat) -> Data {
+    ///   - maxImageLenght: 最大长度，通常为 128 * 1024,即 131072.
+    ///   - maxSizeKB: 最大 KB 体积，如 128.
+    /// - Returns: 目标 Data.
+    func resetImgSize(maxImageLenght: CGFloat, maxSizeKB: CGFloat) -> Data {
         
         var maxSize = maxSizeKB
         
@@ -535,17 +537,17 @@ public extension UIImage {
         if (maxImageSize <= 0.0) { maxImageSize = 1024.0 }
         
         //先调整分辨率
-        var newSize = CGSize.init(width: size.width, height: size.height)
+        var newSize = CGSize.init(width: base.size.width, height: base.size.height)
         let tempHeight = newSize.height / maxImageSize;
         let tempWidth = newSize.width / maxImageSize;
         if (tempWidth > 1.0 && tempWidth > tempHeight) {
-            newSize = CGSize.init(width: size.width / tempWidth, height: size.height / tempWidth)
+            newSize = CGSize.init(width: base.size.width / tempWidth, height: base.size.height / tempWidth)
         } else if (tempHeight > 1.0 && tempWidth < tempHeight){
-            newSize = CGSize.init(width: size.width / tempHeight, height: size.height / tempHeight)
+            newSize = CGSize.init(width: base.size.width / tempHeight, height: base.size.height / tempHeight)
         }
         
         UIGraphicsBeginImageContext(newSize)
-        draw(in: CGRect.init(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        base.draw(in: CGRect.init(x: 0, y: 0, width: newSize.width, height: newSize.height))
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -570,7 +572,7 @@ public extension UIImage {
     /// 生成圆形图片
     func imageCircle() -> UIImage {
         //取最短边长
-        let shotest = min(size.width, size.height)
+        let shotest = min(base.size.width, base.size.height)
         //输出尺寸
         let outputRect = CGRect(x: 0, y: 0, width: shotest, height: shotest)
         //开始图片处理上下文（由于输出的图不会进行缩放，所以缩放因子等于屏幕的scale即可）
@@ -580,15 +582,19 @@ public extension UIImage {
         context.addEllipse(in: outputRect)
         context.clip()
         //绘制图片
-        draw(in: CGRect(x: (shotest-size.width)/2,
-                        y: (shotest-size.height)/2,
-                        width: size.width,
-                        height: size.height))
+        base.draw(in: CGRect(x: (shotest-base.size.width)/2,
+                        y: (shotest-base.size.height)/2,
+                        width: base.size.width,
+                        height: base.size.height))
         //获得处理后的图片
         let maskedImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return maskedImage
     }
+
+}
+
+public extension UIImage {
     
     /// 通过颜色生成一张图片。
     /// - Parameter color: 该颜色用于直接生成一张图像。
@@ -637,6 +643,19 @@ public extension UIImage {
         self.init(cgImage: outputImage!.cgImage!)
 
     }
+    
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.reSizeImage")
+    func reSizeImage(reSize: CGSize) -> UIImage { UIImage() }
+     
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.scaleImage")
+    func scaleImage(scaleSize: CGFloat) -> UIImage { UIImage() }
+    
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.resetImgSize")
+    func judy_resetImgSize(maxImageLenght: CGFloat, maxSizeKB: CGFloat) -> Data { Data() }
+
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.imageCircle")
+    func imageCircle() -> UIImage { UIImage() }
+    
 
     @available(*, unavailable, message: "此方法已不推荐使用，建议使用新函数 image(gradientColors …… )")
     static func image(fromLayer layer: CALayer) -> UIImage {return UIImage()}
@@ -652,7 +671,7 @@ public extension UIImageView {
     @IBInspectable private(set) var isRound: Bool {
         set {
             if newValue {
-                if viewRound() {
+                if judy.viewRound() {
                     contentMode = .scaleAspectFill  // 设为等比拉伸
                 }
             }
@@ -722,7 +741,7 @@ public extension UIScrollView {
 
 // MARK: - UILabel 扩展 NSMutableAttributedString 函数
 
-public extension UILabel {
+public extension EnolaGayWrapper where Base: UILabel {
     
     /// 为当前 Label 显示的文本中设置部分文字高亮。
     /// - Parameters:
@@ -731,6 +750,31 @@ public extension UILabel {
     ///   - highlightedColor: 高亮部分文本颜色，默认 nil，即使用原有颜色。
     ///   - highlightedFont: 高亮部分文本字体，默认为 nil，即使用原有字体。
     /// - Warning: 在调用此函数前 label.text 不能为 nil。
+    func setHighlighted(text highlightedText: String, color highlightedColor: UIColor? = nil, font highlightedFont: UIFont? = nil) {
+        // attributedText 即 label.text，所以直接判断 attributedText 不为 nil 即可。
+        guard base.text != nil, base.attributedText != nil else { return }
+        //  attributedText: 为该属性分配新值也会将 text 属性的值替换为相同的字符串数据，但不包含任何格式化信息。此外，分配一个新值将更新字体、textColor 和其他与样式相关的属性中的值，以便它们反映从带属性字符串的位置 0 开始的样式信息。
+        
+        var attrs = [NSAttributedString.Key : Any]()
+        // 高亮文本颜色。
+        attrs[.foregroundColor] = highlightedColor
+        // 高亮文本字体。
+        attrs[.font] = highlightedFont
+        // 将 label 的 NSAttributedString 转换成 NSMutableAttributedString。
+        let attributedString = NSMutableAttributedString(attributedString: base.attributedText!)
+        //  let attributedString = NSMutableAttributedString(text: text!, textColor: textColor, textFont: font, highlightText: highlightedText, highlightTextColor: highlightedColor, highlightTextFont: highlightedFont)
+        // 添加到指定范围。
+        let highlightedRange = attributedString.mutableString.range(of: highlightedText)
+        attributedString.addAttributes(attrs, range: highlightedRange)
+        
+        // 重新给 label 的 attributedText 赋值。
+        base.attributedText = attributedString
+    }
+}
+
+public extension UILabel {
+    
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.setHighlighted")
     func judy_setHighlighted(text highlightedText: String, color highlightedColor: UIColor? = nil, font highlightedFont: UIFont? = nil) {
         // attributedText 即 label.text，所以直接判断 attributedText 不为 nil 即可。
         guard text != nil, attributedText != nil else { return }
@@ -814,20 +858,216 @@ public extension NSMutableAttributedString {
 }
 
 
-// MARK: - UIView IBDesignable 扩展
+// MARK: - UIView frame 相关的扩展
 
+public extension EnolaGayWrapper where Base: UIView {
+    
+    /// view 的 frame.origin.x.
+    var x: CGFloat {
+        set { base.frame.origin.x = newValue }
+        get { base.frame.origin.x }
+    }
+
+    /// view 的 frame.origin.y.
+    var y: CGFloat {
+        set { base.frame.origin.y = newValue }
+        get { base.frame.origin.y }
+    }
+    
+    /// 设置 view 的边框样式。
+    /// - Parameters:
+    ///   - border: 边框大小，默认0.
+    ///   - color: 边框颜色，默认 .darkGray.
+    func viewBorder(border: CGFloat = 0, color: UIColor = .darkGray) {
+        base.layer.borderWidth = border
+        base.layer.borderColor = color.cgColor
+    }
+    
+    /// 给当前操作的 View 设置正圆，该函数会验证 View 是否为正方形，若不是正方形则圆角不生效。
+    /// - warning: 请在 viewDidLayout 函数或涉及到布局的函数中调用，否则可能出现问题。
+    /// - Parameters:
+    ///   - border: 边框大小，默认 0.
+    ///   - color: 边框颜色，默认深灰色。
+    /// - Returns: 是否成功设置正圆。
+    @discardableResult
+    func viewRound(border: CGFloat = 0, color: UIColor = .darkGray) -> Bool {
+        
+        viewBorder(border: border, color: color)
+        base.layer.masksToBounds = true
+        
+        guard base.frame.size.width == base.frame.size.height else { return false }
+        base.layer.cornerRadius = base.frame.size.height / 2
+        
+        return true
+    }
+    
+    /// 给当前操作的 View 设置圆角。
+    ///
+    /// - Parameters:
+    ///   - radiu: 圆角大小，默认 10.
+    ///   - border: 边框大小，默认 0.
+    ///   - color: 边框颜色，默认深灰色。
+    func viewRadiu(radiu: CGFloat = 10, border: CGFloat = 0, color: UIColor = .darkGray) {
+        viewBorder(border: border, color: color)
+        base.layer.cornerRadius = radiu
+        base.layer.masksToBounds = true
+    }
+    
+    /// 为指定的角设置圆角。
+    ///
+    /// - Parameters:
+    ///   - rectCorner: 需要设置的圆角，若有多个可以为数组，如：[.topLeft, .topRight ]
+    ///   - cornerRadii: 圆角的大小。
+    func viewRadiu(rectCorner: UIRectCorner, cornerRadii: CGSize) {
+        let path = UIBezierPath(roundedRect: base.bounds,
+                                byRoundingCorners: rectCorner,
+                                cornerRadii: cornerRadii)
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = base.bounds
+        maskLayer.path = path.cgPath
+        base.layer.mask = maskLayer
+    }
+
+    /// 给当前操作的 View 设置阴影效果。
+    /// * 注意：该函数会将 layer.masksToBounds = false.
+    /// - Parameters:
+    ///   - offset: 阴影偏移量，默认（0,0）.
+    ///   - opacity: 阴影可见度，默认 0.6.
+    ///   - color: 阴影颜色，默认黑色。
+    ///   - radius: 阴影圆角，默认 3.
+    func viewShadow(offset: CGSize = CGSize(width: 0, height: 0), opacity: Float = 0.6, color: UIColor = .black, radius: CGFloat = 3) {
+        
+        base.layer.masksToBounds = false
+
+        // shadowOffset阴影偏移,x向右偏移，y向下偏移，默认 0.
+        base.layer.shadowOffset = offset
+        base.layer.shadowOpacity = opacity
+        base.layer.shadowColor = color.cgColor
+        base.layer.shadowRadius = radius
+    }
+    
+    /// 给当前操作的 View 设置边框
+    /// - Parameter borderWidth: 边框大小，默认1
+    /// - Parameter borderColor: 边框颜色，默认红色
+    @available(*, unavailable, message: "此函数尚未完善，待修复")
+    func viewBorder(borderWidth: CGFloat = 1, borderColor: UIColor = .red){
+        let borderLayer = CALayer()
+        borderLayer.frame = CGRect(x: 0, y: 30, width: base.frame.size.width, height: 10)
+        borderLayer.backgroundColor = borderColor.cgColor
+        // layer.addSublayer(borderLayer)
+        base.layer.insertSublayer(borderLayer, at: 0)
+        
+    }
+    
+    /// 给 View 设置渐变背景色
+    /// * 此方法中会先移除最底层的 CAGradientLayer（该 Layer 的 name 为 EMERANAGRADIENTLAYER）
+    /// - Parameters:
+    ///   - startColor: 渐变起始颜色，默认 red
+    ///   - endColor: 渐变结束颜色，默认 blue
+    @discardableResult
+    func gradientView(startColor: UIColor = .red, endColor: UIColor = .blue) -> CAGradientLayer {
+        // 渐变 Layer 层
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.name = "EMERANAGRADIENTLAYER"
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        gradientLayer.locations = [0, 1]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        gradientLayer.frame = base.bounds
+        // layer.addSublayer(gradient1)
+        if base.layer.sublayers?[0].name == "EMERANAGRADIENTLAYER" {
+            // 先移除再插入！
+            base.layer.sublayers?[0].removeFromSuperlayer()
+        }
+        //  if layer.sublayers?[0].classForCoder == CAGradientLayer.classForCoder() {
+        //  // 先移除再插入！
+        //  layer.sublayers?[0].removeFromSuperlayer()
+        //  }
+        // 插入到最底层。
+        base.layer.insertSublayer(gradientLayer, at: 0)
+        return gradientLayer
+    }
+    
+    /// 根据键盘调整 window origin。
+    ///
+    /// - Parameter isReset: 是否重置窗口？默认 flase。
+    /// - Parameter offset: 偏移距离，默认 88。
+    func updateWindowFrame(isReset: Bool = false, offset: CGFloat = 88) {
+        //滑动效果
+        UIView.animate(withDuration: 0.3) { [self] in
+            //恢复屏幕
+            if isReset {
+                base.window?.frame.origin.y = 0
+            } else {
+                base.window?.frame.origin.y = -offset
+            }
+            base.window?.layoutIfNeeded()
+        }
+    }
+    
+    /// 执行一次发光效果。
+    ///
+    /// 该函数以 View 为中心执行一个烟花爆炸动效。
+    /// - warning: 如有必要可参考此函数创建新的扩展函数。
+    /// - Parameter finishededAction: 动画完成后执行的事件，默认为 nil。
+    func judy_blingBling(finishededAction: (()->Void)? = nil) {
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            // 放大倍数
+            base.transform = CGAffineTransform(scaleX: 2, y: 2)
+            let anim = CABasicAnimation(keyPath: "strokeStart")
+            anim.fromValue = 0.5 // 从 View 的边缘处开始执行
+            anim.toValue = 1
+            anim.beginTime = CACurrentMediaTime()
+            anim.repeatCount = 1    // 执行次数
+            anim.duration = 0.2
+            anim.fillMode = .forwards
+            //        anim.isRemovedOnCompletion = true
+            
+            let count = 12 // 发光粒子数量
+            let spacing: Double = Double(base.bounds.width) + 5 // 发光粒子与 view 间距
+            for i in 0..<count {
+                let path = CGMutablePath()
+                /*
+                 x=x+s·cosθ
+                 y=y+s·sinθ
+                 */
+                path.move(to: CGPoint(x: base.bounds.midX, y: base.bounds.midY))
+                path.addLine(to: CGPoint(
+                    x: Double(base.bounds.midX)+spacing*cos(2*Double.pi*Double(i)/Double(count)),
+                    y: Double(base.bounds.midY)+spacing*sin(2*Double.pi*Double(i)/Double(count))
+                ))
+                
+                let trackLayer = CAShapeLayer()
+                trackLayer.strokeColor = UIColor.orange.cgColor
+                trackLayer.lineWidth = 1
+                trackLayer.path = path
+                trackLayer.fillColor = UIColor.clear.cgColor
+                trackLayer.strokeStart = 1
+                base.layer.addSublayer(trackLayer)
+                trackLayer.add(anim, forKey: nil)
+            }
+            
+        }, completion: { finished in
+            base.transform = CGAffineTransform.identity
+            finishededAction?()
+        })
+        
+    }
+
+}
+
+// MARK: - UIView IBDesignable 扩展
 public extension UIView {
 
-    // MARK: - UIView frame 相关的扩展
-    
     /// 边框宽度。
     @IBInspectable var borderWidth: CGFloat {
         set { layer.borderWidth = newValue }
         get { return layer.borderWidth }
     }
+
     
-    /// borderColor
-    /// - 这里防止与其他库的属性产生冲突故以此命名
+    /// 边框颜色.
     @IBInspectable var borderColor_EMERANA: UIColor? {
         set { layer.borderColor = newValue!.cgColor }
         get {
@@ -846,207 +1086,42 @@ public extension UIView {
         get { return layer.cornerRadius }
     }
 
-    /// view 的 frame.origin.x.
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.x")
     var x_emerana: CGFloat {
         set { frame.origin.x = newValue }
         get { return frame.origin.x }
     }
-
-    /// view 的 frame.origin.y.
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.y")
     var y_emerana: CGFloat {
         set { frame.origin.y = newValue }
         get { return frame.origin.y }
     }
     
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.viewBorder")
+    func viewBorder(border: CGFloat = 0, color: UIColor = .darkGray) { }
     
-    // MARK: UIView layer 相关的扩展
-    
-    /// 设置 view 的边框样式。
-    /// - Parameters:
-    ///   - border: 边框大小，默认0.
-    ///   - color: 边框颜色，默认 .darkGray.
-    func viewBorder(border: CGFloat = 0, color: UIColor = .darkGray) {
-        layer.borderWidth = border
-        layer.borderColor = color.cgColor
-    }
-    
-    /// 给当前操作的 View 设置正圆，该函数会验证 View 是否为正方形，若不是正方形则圆角不生效。
-    /// - warning: 请在 viewDidLayout 函数或涉及到布局的函数中调用，否则可能出现问题。
-    /// - Parameters:
-    ///   - border: 边框大小，默认 0.
-    ///   - color: 边框颜色，默认深灰色。
-    /// - Returns: 是否成功设置正圆。
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.viewRound")
     @discardableResult
-    func viewRound(border: CGFloat = 0, color: UIColor = .darkGray) -> Bool {
-        
-        viewBorder(border: border, color: color)
-        layer.masksToBounds = true
-        
-        guard frame.size.width == frame.size.height else { return false }
-        layer.cornerRadius = frame.size.height / 2
-        
-        return true
-    }
+    func viewRound(border: CGFloat = 0, color: UIColor = .darkGray) -> Bool { false }
     
-    /// 给当前操作的 View 设置圆角。
-    ///
-    /// - Parameters:
-    ///   - radiu: 圆角大小，默认 10.
-    ///   - border: 边框大小，默认 0.
-    ///   - color: 边框颜色，默认深灰色。
-    func viewRadiu(radiu: CGFloat = 10, border: CGFloat = 0, color: UIColor = .darkGray) {
-        viewBorder(border: border, color: color)
-        
-        layer.cornerRadius = radiu
-        layer.masksToBounds = true
-    }
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.viewRadiu")
+    func viewRadiu(radiu: CGFloat = 10, border: CGFloat = 0, color: UIColor = .darkGray) { }
     
-    /// 为指定的角设置圆角。
-    /// 
-    /// - Parameters:
-    ///   - rectCorner: 需要设置的圆角，若有多个可以为数组，如：[.topLeft, .topRight ]
-    ///   - cornerRadii: 圆角的大小。
-    func viewRadiu(rectCorner: UIRectCorner, cornerRadii: CGSize) {
-        let path = UIBezierPath(roundedRect: bounds,
-                                byRoundingCorners: rectCorner,
-                                cornerRadii: cornerRadii)
-        let maskLayer = CAShapeLayer()
-        maskLayer.frame = bounds
-        maskLayer.path = path.cgPath
-        layer.mask = maskLayer
-    }
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.viewRadiu")
+    func viewRadiu(rectCorner: UIRectCorner, cornerRadii: CGSize) { }
 
-    /// 给当前操作的 View 设置阴影效果。
-    /// * 注意：该函数会将 layer.masksToBounds = false.
-    /// - Parameters:
-    ///   - offset: 阴影偏移量，默认（0,0）.
-    ///   - opacity: 阴影可见度，默认 0.6.
-    ///   - color: 阴影颜色，默认黑色。
-    ///   - radius: 阴影圆角，默认 3.
-    func viewShadow(offset: CGSize = CGSize(width: 0, height: 0), opacity: Float = 0.6, color: UIColor = .black, radius: CGFloat = 3) {
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.viewShadow")
+    func viewShadow(offset: CGSize = CGSize(width: 0, height: 0), opacity: Float = 0.6, color: UIColor = .black, radius: CGFloat = 3) { }
         
-        layer.masksToBounds = false
-
-        //shadowOffset阴影偏移,x向右偏移，y向下偏移，默认0,
-        layer.shadowOffset = offset
-        layer.shadowOpacity = opacity
-        layer.shadowColor = color.cgColor
-        layer.shadowRadius = radius
-    }
-    
-    /// 给当前操作的 View 设置边框
-    /// - Parameter borderWidth: 边框大小，默认1
-    /// - Parameter borderColor: 边框颜色，默认红色
-    @available(*, unavailable, message: "此函数尚未完善，待修复")
-    func viewBorder(borderWidth: CGFloat = 1, borderColor: UIColor = .red){
-        let borderLayer = CALayer()
-        borderLayer.frame = CGRect(x: 0, y: 30, width: frame.size.width, height: 10)
-        borderLayer.backgroundColor = borderColor.cgColor
-        // layer.addSublayer(borderLayer)
-        layer.insertSublayer(borderLayer, at: 0)
-        
-    }
-    
-    /// 给 View 设置渐变背景色
-    /// * 此方法中会先移除最底层的 CAGradientLayer（该 Layer 的 name 为 EMERANAGRADIENTLAYER）
-    /// - Parameters:
-    ///   - startColor: 渐变起始颜色，默认 red
-    ///   - endColor: 渐变结束颜色，默认 blue
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.gradientView")
     @discardableResult
-    func gradientView(startColor: UIColor = .red, endColor: UIColor = .blue) -> CAGradientLayer {
-        // 渐变 Layer 层
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.name = "EMERANAGRADIENTLAYER"
-        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
-        gradientLayer.locations = [0, 1]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-        gradientLayer.frame = bounds
-        // layer.addSublayer(gradient1)
-        if layer.sublayers?[0].name == "EMERANAGRADIENTLAYER" {
-            // 先移除再插入！
-            layer.sublayers?[0].removeFromSuperlayer()
-        }
-        //  if layer.sublayers?[0].classForCoder == CAGradientLayer.classForCoder() {
-        //  // 先移除再插入！
-        //  layer.sublayers?[0].removeFromSuperlayer()
-        //  }
-        // 插入到最底层
-        layer.insertSublayer(gradientLayer, at: 0)
-        return gradientLayer
-    }
+    func gradientView(startColor: UIColor = .red, endColor: UIColor = .blue) -> CAGradientLayer { CAGradientLayer() }
     
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.updateWindowFrame")
+    func updateWindowFrame(isReset: Bool = false, offset: CGFloat = 88) { }
 
-    // MARK: UIView 弹出键盘时调整窗体位置扩展
-    
-    /// 根据键盘调整 window origin。
-    ///
-    /// - Parameter isReset: 是否重置窗口？默认 flase。
-    /// - Parameter offset: 偏移距离，默认 88。
-    func updateWindowFrame(isReset: Bool = false, offset: CGFloat = 88){
-        //滑动效果
-        UIView.animate(withDuration: 0.3) { [self] in
-            //恢复屏幕
-            if isReset {
-                window?.frame.origin.y = 0
-            } else {
-                window?.frame.origin.y = -offset
-            }
-            window?.layoutIfNeeded()
-        }
-        
-    }
-
-    /// 执行一次发光效果。
-    ///
-    /// 该函数以 View 为中心执行一个烟花爆炸动效。
-    /// - warning: 如有必要可参考此函数创建新的扩展函数。
-    /// - Parameter finishededAction: 动画完成后执行的事件，默认为 nil。
-    func judy_blingBling(finishededAction: (()->Void)? = nil) {
-        
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
-            // 放大倍数
-            self.transform = CGAffineTransform(scaleX: 2, y: 2)
-            let anim = CABasicAnimation(keyPath: "strokeStart")
-            anim.fromValue = 0.5 // 从 View 的边缘处开始执行
-            anim.toValue = 1
-            anim.beginTime = CACurrentMediaTime()
-            anim.repeatCount = 1    // 执行次数
-            anim.duration = 0.2
-            anim.fillMode = .forwards
-            //        anim.isRemovedOnCompletion = true
-            
-            let count = 12 // 发光粒子数量
-            let spacing: Double = Double(self.bounds.width) + 5 // 发光粒子与 view 间距
-            for i in 0..<count {
-                let path = CGMutablePath()
-                /*
-                 x=x+s·cosθ
-                 y=y+s·sinθ
-                 */
-                path.move(to: CGPoint(x: self.bounds.midX, y: self.bounds.midY))
-                path.addLine(to: CGPoint(
-                    x: Double(self.bounds.midX)+spacing*cos(2*Double.pi*Double(i)/Double(count)),
-                    y: Double(self.bounds.midY)+spacing*sin(2*Double.pi*Double(i)/Double(count))
-                ))
-                
-                let trackLayer = CAShapeLayer()
-                trackLayer.strokeColor = UIColor.orange.cgColor
-                trackLayer.lineWidth = 1
-                trackLayer.path = path
-                trackLayer.fillColor = UIColor.clear.cgColor
-                trackLayer.strokeStart = 1
-                self.layer.addSublayer(trackLayer)
-                trackLayer.add(anim, forKey: nil)
-            }
-            
-        }, completion: { finished in
-            self.transform = CGAffineTransform.identity
-            finishededAction?()
-        })
-        
-    }
-        
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.judy_blingBling")
+    func judy_blingBling(finishededAction: (()->Void)? = nil) { }
 }
 
 
@@ -1057,8 +1132,8 @@ public extension UIView {
 
 
 // MARK: - Double 扩展
-
-public extension Double {
+/// 为空间包装对象 Double 添加扩展函数。
+public extension EnolaGayWrapper where Base == Double {
     
     /// 将 double 四舍五入到指定小数位数并输出 String。
     ///
@@ -1066,9 +1141,14 @@ public extension Double {
     /// - Returns: 转换后的 String。
     func format(f: Int = 2) -> String {
         // String(format: "%.3f", 0.3030000000000000) ==> 0.303
-        return String(format: "%.\(f)f", self)
+        return String(format: "%.\(f)f", base)
     }
-    
+
+}
+
+public extension Double {
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.format")
+    func format(f: Int = 2) -> String { "" }
 }
 
 // MARK: - URL 扩展
@@ -1099,9 +1179,7 @@ public extension URL {
         }
         self.init(dataRepresentation: data, relativeTo: nil)!
     }
-
 }
-
 
 // MARK: - 针对 String 扩展的便携方法，这些方法尚未验证其准确性
 
@@ -1225,25 +1303,28 @@ public extension String {
 
 
 // MARK: - 为 tableView 增加滚动到底部函数
-public extension UITableView {
-    
+public extension EnolaGayWrapper where Base: UITableView {
+
     /// 将 tableView 滚动到最底部。
     ///
     /// 在此之前的方法可能会引起数组越界问题，此函数针对该问题修复。
     /// - Parameter animated: 是否需要动画效果？默认为 true。
     /// - warning: 在调用该函数之前请先调用 reloadData()。
     func scrollToBottom(animated: Bool = true) {
-        if numberOfSections > 0 {
-            let lastSectionIndex = numberOfSections-1
-            let lastRowIndex = numberOfRows(inSection: lastSectionIndex)-1
+        if base.numberOfSections > 0 {
+            let lastSectionIndex = base.numberOfSections-1
+            let lastRowIndex = base.numberOfRows(inSection: lastSectionIndex)-1
             if lastRowIndex > 0 {
                 let indexPath = IndexPath(row: lastRowIndex, section: lastSectionIndex)
-                scrollToRow(at: indexPath, at: .bottom, animated: animated)
-                
+                base.scrollToRow(at: indexPath, at: .bottom, animated: animated)
             }
         }
     }
-    
+}
+
+public extension UITableView {
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.scrollToBottom")
+    func scrollToBottom(animated: Bool = true) { }
 }
 
 
@@ -1382,9 +1463,122 @@ public extension EMERANA.Key {
     struct ApiKey {}
     @available(*, unavailable, message: "已废弃，请重命名", renamed: "Cell")
     struct CellKey {}
-
 }
 
+
+// MARK: 命名空间
+
+/// 在 EnolaGay 中的兼容包装类型，该包装类型为 EnolaGay 中的方便方法提供了一个扩展点。
+public struct EnolaGayWrapper<Base> {
+    /// 包装对象在 EnolaGay 中对应的原始对象。
+    public var base: Base
+    public init(_ base: Base) { self.base = base }
+}
+
+/// 表示与 EnolaGay 兼容的对象类型协议。
+///
+/// 目标类型在实现该协议后即可使用`judy`属性在 EnolaGay 的名称空间中获得一个值包装后的对象。（不限制 AnyObject）
+public protocol EnolaGayCompatible { }
+
+extension EnolaGayCompatible {
+    /// 获取在 EnolaGay 中的兼容类型包装对象，即 EnolaGay 空间持有者对象。
+    public var judy: EnolaGayWrapper<Self> {
+        get { return EnolaGayWrapper(self) }
+        set { }
+    }
+}
+
+// MARK: 使指定类型接受命名空间兼容类型协议，指定类型就可以使用 Judy 命名空间
+
+extension UIViewController: EnolaGayCompatible { }
+
+extension Double: EnolaGayCompatible { }
+
+extension UIView: EnolaGayCompatible { }
+
+extension UIImage: EnolaGayCompatible { }
+
+extension UIApplication: EnolaGayCompatible { }
+
+
+// MARK: - 正确地处理键盘遮挡输入框
+
+/// 防止键盘遮挡输入框的工具类，让输入框跟着键盘移动！
+///
+/// 仅需通过 registerKeyBoardListener() 函数即可实现输入框跟随键盘位置移动从而保证输入框不被遮挡。
+public final class KeyboardHelper {
+    
+    /// 此属性用于记录当下键盘的高度，若键盘已被收起则为 0。
+    public private(set) var keyboardHeight: CGFloat = 0
+    /// 输入框所在的 view,当键盘出现或隐藏，会根据键盘的高度移动该 view.
+    private(set) var textFieldWrapperView = UIView()
+    /// 是否保留安全区域底部距离，默认 true，textFieldWrapperView 在跟随键盘弹出时会预留该距离是底部的安全区域可见，反之亦然。
+    private(set) var isKeepSafeAreaInsetsBottom = false
+    
+    public init() { }
+    
+    /// 注册监听键盘弹出收起事件，该函数可使 inputView 跟随键盘弹出收起。
+    ///
+    /// - Warning:
+    /// 当需要实现点击空白区域即收起键盘时需要注意，参考如下代码确定点击的位置：
+    /// ```
+    /// if sender.location(in: view).y < view.bounds.height - keyboardHelper.keyboardHeight {
+    ///    textFeild.resignFirstResponder()
+    /// }
+    /// ```
+    /// - Parameters:
+    ///   - inputView: 输入框所在的 view,即需要跟随键盘的出现而移动的 view。
+    ///   - ignoreSafeAreaInsetsBottom: inputView 在往上移动时是否保留安全区域底部距离，默认 false.只有当 inputView 紧贴底部安全区域时才可能需要设置为 true.
+    public func registerKeyBoardListener(forView inputView: UIView, ignoreSafeAreaInsetsBottom: Bool = false) {
+        NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        self.textFieldWrapperView = inputView
+        self.isKeepSafeAreaInsetsBottom = ignoreSafeAreaInsetsBottom
+    }
+
+    /// 监听事件，键盘弹出或收起时均会触发此函数。
+    @objc private func keyBoardShowHideAction(notification: NSNotification) {
+        guard let userInfo = notification.userInfo,
+              let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
+        else { return }
+        
+        /// 改变目标 textFieldWrapperView 的执行过程事件，更新其 2D 仿射变换矩阵。
+        let animations: (() -> Void) = { [weak self] in
+            guard let strongSelf = self else { return }
+            // 键盘弹出事件。
+            if notification.name == UIResponder.keyboardWillShowNotification {
+                // 得到键盘高度。
+                strongSelf.keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect).size.height
+                
+                /// textFieldWrapperView.y 轴需要移动的距离。
+                var yDiff = -strongSelf.keyboardHeight
+                // 不需要保留底部安全区域处理。
+                if !strongSelf.isKeepSafeAreaInsetsBottom {
+                    let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+                    let bottomPadding = window?.safeAreaInsets.bottom ?? 0
+                    yDiff += bottomPadding
+                }
+                strongSelf.textFieldWrapperView.transform = CGAffineTransform(translationX: 0,y: yDiff)
+            }
+            // 键盘收起事件。
+            if notification.name == UIResponder.keyboardWillHideNotification {
+                strongSelf.textFieldWrapperView.transform = CGAffineTransform.identity
+                strongSelf.keyboardHeight = 0
+            }
+        }
+        
+        // 键盘弹出过程时长。
+        if duration > 0 {
+            let options = UIView.AnimationOptions(rawValue: userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt)
+            UIView.animate(withDuration: duration, delay: 0, options: options, animations: animations, completion: nil)
+        } else {
+            // 键盘已经弹出，只是切换键盘，直接更新 textFieldWrapperView 2D 仿射变换矩阵。
+            animations()
+        }
+
+    }
+
+}
 
 // MARK: 废弃的协议
 

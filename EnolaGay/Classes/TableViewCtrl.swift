@@ -373,11 +373,10 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
         // 此处涉及到布局，因此必须放在 layoutSubviews() 中。
         if isShowSeparatorAtFooter {
             // 解决 UITableView 有 footerView 时最后一个 Cell 不显示分割线问题。
-            for separatorView in self.contentView.superview!.subviews {
+            for var separatorView in self.contentView.superview!.subviews {
                 if NSStringFromClass(separatorView.classForCoder).hasSuffix("SeparatorView") {
                     separatorView.alpha = 1
-
-                    separatorView.x_emerana = separatorInset.left
+                    separatorView.judy.x = separatorInset.left
                     let newWidth = frame.width - (separatorInset.left + separatorInset.right)
                     separatorView.frame.size = CGSize(width: newWidth, height: separatorView.frame.size.height)
                     
@@ -393,7 +392,7 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
         
         // 设置正圆.
         if masterImageView?.isRound ?? false {
-            masterImageView?.viewRound()
+            masterImageView?.judy.viewRound()
         }
         
     }

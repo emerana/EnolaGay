@@ -18,7 +18,10 @@ class GiftMessageViewCtrlTest: JudyBaseViewCtrl {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let rs: Double = 2302.1025123123123
+        Judy.log(rs.judy.format(f: 2))
+        
+        
         //        giftMessageViewPanel.critConditionsClosure = { (oldGiftView, showGiftView) in
 //            return true
 //        }
@@ -57,17 +60,16 @@ class CrashTestViewCtrl: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         DispatchQueue.global().async { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.semaphore.wait()
-            strongSelf.semaphore.wait()
+            sleep(6)
+            // do something ......
+            self?.semaphore.signal()
         }
+        
+        semaphore.wait()
     }
     
     deinit {
-        semaphore.signal()
-        semaphore.signal()
         print("释放")
     }
 }

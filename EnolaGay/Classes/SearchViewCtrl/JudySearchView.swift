@@ -83,7 +83,7 @@ open class JudySearchView: UIView {
                                                            owner: self, options: nil)![0] as? JudySearchView
         
         if judyView != nil {
-            judyView!.viewRadiu(radiu: 8)
+            judyView!.judy.viewRadiu(radiu: 8)
             judyView!.widthForSearchView.constant = viewWidth
             judyView!.heightForSearchView.constant = viewHeight
 
