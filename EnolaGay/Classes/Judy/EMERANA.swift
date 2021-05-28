@@ -7,8 +7,7 @@
 
 import SwiftyJSON
 
-
-// MARK: - typealias
+// MARK: typealias
 
 /// 一个不传递任何参数的闭包
 public typealias Closure = (() -> Void)
@@ -460,9 +459,7 @@ open class Appearance {
 
 
 // MARK: UIApplication 扩展
-
-public extension UIApplication {
-    
+public extension EnolaGayWrapper where Base: UIApplication {
     /// 获取状态栏 View。
     var statusBarView: UIView? {
         
@@ -481,13 +478,17 @@ public extension UIApplication {
                 return statusBarView
             }
         } else {
-            if responds(to: Selector(("statusBar"))) {
-                return value(forKey: "statusBar") as? UIView
+            if base.responds(to: Selector(("statusBar"))) {
+                return base.value(forKey: "statusBar") as? UIView
             }
         }
         return nil
     }
-    
+}
+
+public extension UIApplication {
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.statusBarView")
+    var statusBarView: UIView? { nil }
 }
 
 
@@ -1493,6 +1494,7 @@ extension Double: EnolaGayCompatible { }
 
 extension UIView: EnolaGayCompatible { }
 
+extension UIImage: EnolaGayCompatible { }
 
 
 // MARK: - 正确地处理键盘遮挡输入框
