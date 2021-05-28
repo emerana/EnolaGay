@@ -58,17 +58,16 @@ class CrashTestViewCtrl: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         DispatchQueue.global().async { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.semaphore.wait()
-            strongSelf.semaphore.wait()
+            sleep(6)
+            // do something ......
+            self?.semaphore.signal()
         }
+        
+        semaphore.wait()
     }
     
     deinit {
-        semaphore.signal()
-        semaphore.signal()
         print("释放")
     }
 }
