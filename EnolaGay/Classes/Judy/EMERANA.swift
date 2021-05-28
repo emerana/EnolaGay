@@ -1465,7 +1465,7 @@ public extension EMERANA.Key {
 
 // MARK: - 正确地处理键盘遮挡输入框
 
-/// 防止键盘遮挡输入框的工具类，让输入框跟着键盘移动！
+/// 防止键盘遮挡输入框的工具类，让指定 view 跟着键盘移动就像微信的键盘输入效果。
 ///
 /// 仅需通过 registerKeyBoardListener() 函数即可实现输入框跟随键盘位置移动从而保证输入框不被遮挡。
 public final class KeyboardHelper {
@@ -1482,6 +1482,7 @@ public final class KeyboardHelper {
     /// 注册监听键盘弹出收起事件，该函数可使 inputView 跟随键盘弹出收起。
     ///
     /// - Warning:
+    /// 请注意与 IQKeyboardManagerSwift 的冲突导致键盘高度计算不准确，关闭之即可。
     /// 当需要实现点击空白区域即收起键盘时需要注意，参考如下代码确定点击的位置：
     /// ```
     /// if sender.location(in: view).y < view.bounds.height - keyboardHelper.keyboardHeight {
@@ -1490,12 +1491,12 @@ public final class KeyboardHelper {
     /// ```
     /// - Parameters:
     ///   - inputView: 输入框所在的 view,即需要跟随键盘的出现而移动的 view。
-    ///   - ignoreSafeAreaInsetsBottom: inputView 在往上移动时是否保留安全区域底部距离，默认 false.只有当 inputView 紧贴底部安全区域时才可能需要设置为 true.
-    public func registerKeyBoardListener(forView inputView: UIView, ignoreSafeAreaInsetsBottom: Bool = false) {
+    ///   - isKeepSafeAreaInsetsBottom: inputView 在往上移动时是否保留安全区域底部距离，默认 false.若将该值传入 true 请确保输入框的底部边距 ≥ 安全区域高度。
+    public func registerKeyBoardListener(forView inputView: UIView, isKeepSafeAreaInsetsBottom: Bool = false) {
         NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         self.textFieldWrapperView = inputView
-        self.isKeepSafeAreaInsetsBottom = ignoreSafeAreaInsetsBottom
+        self.isKeepSafeAreaInsetsBottom = isKeepSafeAreaInsetsBottom
     }
 
     /// 监听事件，键盘弹出或收起时均会触发此函数。
@@ -1512,9 +1513,9 @@ public final class KeyboardHelper {
                 // 得到键盘高度。
                 strongSelf.keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect).size.height
                 
-                /// textFieldWrapperView.y 轴需要移动的距离。
+                /// 键盘高度即 textFieldWrapperView.y 轴需要移动的距离。
                 var yDiff = -strongSelf.keyboardHeight
-                // 不需要保留底部安全区域处理。
+                // 需要保留底部安全区域处理，需要再往上移动安全区域的高度。
                 if !strongSelf.isKeepSafeAreaInsetsBottom {
                     let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
                     let bottomPadding = window?.safeAreaInsets.bottom ?? 0

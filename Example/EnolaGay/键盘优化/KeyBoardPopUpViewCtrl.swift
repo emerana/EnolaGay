@@ -20,7 +20,6 @@ class KeyBoardPopUpViewCtrl: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        judy.alert()
         
         textFeild.placeholder = "输入消息内容"
         textFeild.returnKeyType = .send
@@ -30,7 +29,7 @@ class KeyBoardPopUpViewCtrl: UIViewController {
         tapGestureRecognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGestureRecognizer)
 
-        keyboardHelper.registerKeyBoardListener(forView: keyBaordView, ignoreSafeAreaInsetsBottom: true)
+        keyboardHelper.registerKeyBoardListener(forView: keyBaordView, isKeepSafeAreaInsetsBottom: true)
     }
     
     
