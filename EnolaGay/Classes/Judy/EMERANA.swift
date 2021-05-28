@@ -517,13 +517,15 @@ public extension EnolaGayWrapper where Base: UIImage {
         return reSizeImage(reSize: reSize)
     }
     
-    /// 压缩图像的体积
+    /// 压缩图像的体积。
     ///
-    /// 此函数将返回 UIImage 对象通过此函数得到一个小于原始体积的 Data，通常用于图片上传时限制体积
+    /// 此函数将返回 UIImage 对象通过此函数得到一个小于原始体积的 Data，通常用于图片上传时限制体积。
+    /// 大小的计算（图像不得超过128K时）如：
+    /// if image.pngData()!.count/1024 >= 128 { resetImgSize(maxImageLenght:131072, maxSizeKB: 128) }
     /// - Parameters:
-    ///   - maxImageLenght: 最大长度，如：0
-    ///   - maxSizeKB: 最大 KB 体积，如 2048
-    /// - Returns: 目标 Data
+    ///   - maxImageLenght: 最大长度，通常为 128 * 1024,即 131072.
+    ///   - maxSizeKB: 最大 KB 体积，如 128.
+    /// - Returns: 目标 Data.
     func resetImgSize(maxImageLenght: CGFloat, maxSizeKB: CGFloat) -> Data {
         
         var maxSize = maxSizeKB
@@ -1495,6 +1497,8 @@ extension Double: EnolaGayCompatible { }
 extension UIView: EnolaGayCompatible { }
 
 extension UIImage: EnolaGayCompatible { }
+
+extension UIApplication: EnolaGayCompatible { }
 
 
 // MARK: - 正确地处理键盘遮挡输入框

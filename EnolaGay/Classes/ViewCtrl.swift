@@ -526,7 +526,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
         
         UIView.animate(withDuration: 0.2) {
             // 获取状态栏高度
-            let statusBarHeight = UIApplication.shared.statusBarView?.frame.size.height ?? 0
+            let statusBarHeight = UIApplication.shared.judy.statusBarView?.frame.size.height ?? 0
             
             let yDiff = isHihe ? base.navigationController!.navigationBar.frame.origin.y - base.navigationController!.navigationBar.frame.size.height - statusBarHeight :base.navigationController!.navigationBar.frame.origin.y + base.navigationController!.navigationBar.frame.size.height + statusBarHeight
             // 重设 navigationBar.frame。
