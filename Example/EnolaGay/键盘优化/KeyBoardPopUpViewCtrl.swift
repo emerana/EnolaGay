@@ -20,6 +20,7 @@ class KeyBoardPopUpViewCtrl: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        judy.alert()
         
         textFeild.placeholder = "输入消息内容"
         textFeild.returnKeyType = .send

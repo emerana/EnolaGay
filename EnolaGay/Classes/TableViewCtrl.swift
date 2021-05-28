@@ -376,8 +376,7 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
             for separatorView in self.contentView.superview!.subviews {
                 if NSStringFromClass(separatorView.classForCoder).hasSuffix("SeparatorView") {
                     separatorView.alpha = 1
-
-                    separatorView.x_emerana = separatorInset.left
+                    separatorView.frame.origin.x = separatorInset.left
                     let newWidth = frame.width - (separatorInset.left + separatorInset.right)
                     separatorView.frame.size = CGSize(width: newWidth, height: separatorView.frame.size.height)
                     
@@ -393,7 +392,7 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
         
         // 设置正圆.
         if masterImageView?.isRound ?? false {
-            masterImageView?.viewRound()
+            masterImageView?.judy.viewRound()
         }
         
     }

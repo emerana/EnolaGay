@@ -340,7 +340,7 @@ private extension JudyPlusButtonTabBar {
             }
         }
         
-        if isRound { judyButton?.viewRound() }
+        if isRound { judyButton?.judy.viewRound() }
 
         // 整理 view 堆叠层次
         bringSubviewToFront(backgroundView!)
