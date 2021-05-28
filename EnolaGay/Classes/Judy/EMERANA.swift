@@ -55,7 +55,6 @@ public extension RefreshAdapter {
     func pageParameterStrings() -> (String, String) { ("pageIndex","pageSize") }
 }
 
-
 /// tableView、collectionView 专用刷新协议。
 /// - Warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供。
 public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
@@ -343,7 +342,6 @@ public extension EMERANA_UIFont where Self: UIFont {
         
         return (fontName, fontSize)
     }
-    
 }
 
 
@@ -1010,7 +1008,7 @@ public extension EnolaGayWrapper where Base: UIView {
     /// 该函数以 View 为中心执行一个烟花爆炸动效。
     /// - warning: 如有必要可参考此函数创建新的扩展函数。
     /// - Parameter finishededAction: 动画完成后执行的事件，默认为 nil。
-    func judy_blingBling(finishededAction: (()->Void)? = nil) {
+    func blingBling(finishededAction: (()->Void)? = nil) {
         
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
             // 放大倍数
@@ -1120,7 +1118,7 @@ public extension UIView {
     @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.updateWindowFrame")
     func updateWindowFrame(isReset: Bool = false, offset: CGFloat = 88) { }
 
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.judy_blingBling")
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.blingBling")
     func judy_blingBling(finishededAction: (()->Void)? = nil) { }
 }
 
@@ -1143,7 +1141,6 @@ public extension EnolaGayWrapper where Base == Double {
         // String(format: "%.3f", 0.3030000000000000) ==> 0.303
         return String(format: "%.\(f)f", base)
     }
-
 }
 
 public extension Double {
@@ -1466,41 +1463,6 @@ public extension EMERANA.Key {
 }
 
 
-// MARK: 命名空间
-
-/// 在 EnolaGay 中的兼容包装类型，该包装类型为 EnolaGay 中的方便方法提供了一个扩展点。
-public struct EnolaGayWrapper<Base> {
-    /// 包装对象在 EnolaGay 中对应的原始对象。
-    public var base: Base
-    public init(_ base: Base) { self.base = base }
-}
-
-/// 表示与 EnolaGay 兼容的对象类型协议。
-///
-/// 目标类型在实现该协议后即可使用`judy`属性在 EnolaGay 的名称空间中获得一个值包装后的对象。（不限制 AnyObject）
-public protocol EnolaGayCompatible { }
-
-extension EnolaGayCompatible {
-    /// 获取在 EnolaGay 中的兼容类型包装对象，即 EnolaGay 空间持有者对象。
-    public var judy: EnolaGayWrapper<Self> {
-        get { return EnolaGayWrapper(self) }
-        set { }
-    }
-}
-
-// MARK: 使指定类型接受命名空间兼容类型协议，指定类型就可以使用 Judy 命名空间
-
-extension UIViewController: EnolaGayCompatible { }
-
-extension Double: EnolaGayCompatible { }
-
-extension UIView: EnolaGayCompatible { }
-
-extension UIImage: EnolaGayCompatible { }
-
-extension UIApplication: EnolaGayCompatible { }
-
-
 // MARK: - 正确地处理键盘遮挡输入框
 
 /// 防止键盘遮挡输入框的工具类，让输入框跟着键盘移动！
@@ -1580,18 +1542,44 @@ public final class KeyboardHelper {
 
 }
 
-// MARK: 废弃的协议
 
-/// viewCtrl 基础协议。
-/// - warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
-@available(*, unavailable, message: "此协议已弃用")
-public protocol EMERANA_ViewCtrl where Self: JudyBaseViewCtrl {}
 
-/// ViewCtrl 专用 Api 协议，此协议中规定了一个viewCtrl中必须的属性及函数
-@available(*, unavailable, message: "此协议已弃用")
-public protocol EMERANA_Api: EMERANA_ViewCtrl {}
+// MARK: - 命名空间
 
-// MARK: Swift提供的许多功能强大的全局函数
+/// 在 EnolaGay 中的兼容包装类型，该包装类型为 EnolaGay 中的方便方法提供了一个扩展点。
+public struct EnolaGayWrapper<Base> {
+    /// 包装对象在 EnolaGay 中对应的原始对象。
+    public var base: Base
+    public init(_ base: Base) { self.base = base }
+}
+
+/// 表示与 EnolaGay 兼容的对象类型协议。
+///
+/// 目标类型在实现该协议后即可使用`judy`属性在 EnolaGay 的名称空间中获得一个值包装后的对象。（不限制 AnyObject）
+public protocol EnolaGayCompatible { }
+
+extension EnolaGayCompatible {
+    /// 获取在 EnolaGay 中的兼容类型包装对象，即 EnolaGay 空间持有者对象。
+    public var judy: EnolaGayWrapper<Self> {
+        get { return EnolaGayWrapper(self) }
+        set { }
+    }
+}
+
+// MARK: 使指定类型接受命名空间兼容类型协议，指定类型就可以使用 Judy 命名空间
+
+extension UIViewController: EnolaGayCompatible { }
+
+extension Double: EnolaGayCompatible { }
+
+extension UIView: EnolaGayCompatible { }
+
+extension UIImage: EnolaGayCompatible { }
+
+extension UIApplication: EnolaGayCompatible { }
+
+
+// MARK: - Swift提供的许多功能强大的全局函数
 
 /*
  
