@@ -52,9 +52,9 @@ private extension AttributedStringViewController {
         label2.text = labelTest
         label3.text = labelTest
 
-        label1.judy_setHighlighted(text: "￥", color: .red)
-        label2.judy_setHighlighted(text: "￥", color: .red, font: UIFont(style: .S_B))
-        label3.judy_setHighlighted(text: "￥", color: .red)
+        label1.judy.setHighlighted(text: "￥", color: .red)
+        label2.judy.setHighlighted(text: "￥", color: .red, font: UIFont(style: .S_B))
+        label3.judy.setHighlighted(text: "￥", color: .red)
 
     }
     

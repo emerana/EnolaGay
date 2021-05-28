@@ -493,26 +493,25 @@ public extension UIApplication {
 
 // MARK: - UIImage 扩展
 
-public extension UIImage {
-    
+public extension EnolaGayWrapper where Base: UIImage {
     /// 重设图片大小
     /// - Parameter reSize: 目标 size
     /// - Returns: 目标 image
     func reSizeImage(reSize: CGSize) -> UIImage {
         //UIGraphicsBeginImageContext(reSize);
         UIGraphicsBeginImageContextWithOptions(reSize, false, UIScreen.main.scale)
-        self.draw(in: CGRect(x: 0, y: 0, width: reSize.width, height: reSize.height))
+        base.draw(in: CGRect(x: 0, y: 0, width: reSize.width, height: reSize.height))
         let reSizeImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         return reSizeImage
     }
-     
-    /// 等比率缩放
-    /// - Parameter scaleSize: 缩放倍数
-    /// - Returns: 目标 image
+
+    /// 等比缩放。
+    /// - Parameter scaleSize: 缩放倍数。
+    /// - Returns: 目标 image.
     func scaleImage(scaleSize: CGFloat) -> UIImage {
-        let reSize = CGSize(width: size.width * scaleSize, height: size.height * scaleSize)
+        let reSize = CGSize(width: base.size.width * scaleSize, height: base.size.height * scaleSize)
 
         return reSizeImage(reSize: reSize)
     }
@@ -524,7 +523,7 @@ public extension UIImage {
     ///   - maxImageLenght: 最大长度，如：0
     ///   - maxSizeKB: 最大 KB 体积，如 2048
     /// - Returns: 目标 Data
-    func judy_resetImgSize(maxImageLenght: CGFloat, maxSizeKB: CGFloat) -> Data {
+    func resetImgSize(maxImageLenght: CGFloat, maxSizeKB: CGFloat) -> Data {
         
         var maxSize = maxSizeKB
         
@@ -535,17 +534,17 @@ public extension UIImage {
         if (maxImageSize <= 0.0) { maxImageSize = 1024.0 }
         
         //先调整分辨率
-        var newSize = CGSize.init(width: size.width, height: size.height)
+        var newSize = CGSize.init(width: base.size.width, height: base.size.height)
         let tempHeight = newSize.height / maxImageSize;
         let tempWidth = newSize.width / maxImageSize;
         if (tempWidth > 1.0 && tempWidth > tempHeight) {
-            newSize = CGSize.init(width: size.width / tempWidth, height: size.height / tempWidth)
+            newSize = CGSize.init(width: base.size.width / tempWidth, height: base.size.height / tempWidth)
         } else if (tempHeight > 1.0 && tempWidth < tempHeight){
-            newSize = CGSize.init(width: size.width / tempHeight, height: size.height / tempHeight)
+            newSize = CGSize.init(width: base.size.width / tempHeight, height: base.size.height / tempHeight)
         }
         
         UIGraphicsBeginImageContext(newSize)
-        draw(in: CGRect.init(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        base.draw(in: CGRect.init(x: 0, y: 0, width: newSize.width, height: newSize.height))
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -570,7 +569,7 @@ public extension UIImage {
     /// 生成圆形图片
     func imageCircle() -> UIImage {
         //取最短边长
-        let shotest = min(size.width, size.height)
+        let shotest = min(base.size.width, base.size.height)
         //输出尺寸
         let outputRect = CGRect(x: 0, y: 0, width: shotest, height: shotest)
         //开始图片处理上下文（由于输出的图不会进行缩放，所以缩放因子等于屏幕的scale即可）
@@ -580,15 +579,19 @@ public extension UIImage {
         context.addEllipse(in: outputRect)
         context.clip()
         //绘制图片
-        draw(in: CGRect(x: (shotest-size.width)/2,
-                        y: (shotest-size.height)/2,
-                        width: size.width,
-                        height: size.height))
+        base.draw(in: CGRect(x: (shotest-base.size.width)/2,
+                        y: (shotest-base.size.height)/2,
+                        width: base.size.width,
+                        height: base.size.height))
         //获得处理后的图片
         let maskedImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return maskedImage
     }
+
+}
+
+public extension UIImage {
     
     /// 通过颜色生成一张图片。
     /// - Parameter color: 该颜色用于直接生成一张图像。
@@ -637,6 +640,19 @@ public extension UIImage {
         self.init(cgImage: outputImage!.cgImage!)
 
     }
+    
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.reSizeImage")
+    func reSizeImage(reSize: CGSize) -> UIImage { UIImage() }
+     
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.scaleImage")
+    func scaleImage(scaleSize: CGFloat) -> UIImage { UIImage() }
+    
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.resetImgSize")
+    func judy_resetImgSize(maxImageLenght: CGFloat, maxSizeKB: CGFloat) -> Data { Data() }
+
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.imageCircle")
+    func imageCircle() -> UIImage { UIImage() }
+    
 
     @available(*, unavailable, message: "此方法已不推荐使用，建议使用新函数 image(gradientColors …… )")
     static func image(fromLayer layer: CALayer) -> UIImage {return UIImage()}
@@ -722,7 +738,7 @@ public extension UIScrollView {
 
 // MARK: - UILabel 扩展 NSMutableAttributedString 函数
 
-public extension UILabel {
+public extension EnolaGayWrapper where Base: UILabel {
     
     /// 为当前 Label 显示的文本中设置部分文字高亮。
     /// - Parameters:
@@ -731,6 +747,31 @@ public extension UILabel {
     ///   - highlightedColor: 高亮部分文本颜色，默认 nil，即使用原有颜色。
     ///   - highlightedFont: 高亮部分文本字体，默认为 nil，即使用原有字体。
     /// - Warning: 在调用此函数前 label.text 不能为 nil。
+    func setHighlighted(text highlightedText: String, color highlightedColor: UIColor? = nil, font highlightedFont: UIFont? = nil) {
+        // attributedText 即 label.text，所以直接判断 attributedText 不为 nil 即可。
+        guard base.text != nil, base.attributedText != nil else { return }
+        //  attributedText: 为该属性分配新值也会将 text 属性的值替换为相同的字符串数据，但不包含任何格式化信息。此外，分配一个新值将更新字体、textColor 和其他与样式相关的属性中的值，以便它们反映从带属性字符串的位置 0 开始的样式信息。
+        
+        var attrs = [NSAttributedString.Key : Any]()
+        // 高亮文本颜色。
+        attrs[.foregroundColor] = highlightedColor
+        // 高亮文本字体。
+        attrs[.font] = highlightedFont
+        // 将 label 的 NSAttributedString 转换成 NSMutableAttributedString。
+        let attributedString = NSMutableAttributedString(attributedString: base.attributedText!)
+        //  let attributedString = NSMutableAttributedString(text: text!, textColor: textColor, textFont: font, highlightText: highlightedText, highlightTextColor: highlightedColor, highlightTextFont: highlightedFont)
+        // 添加到指定范围。
+        let highlightedRange = attributedString.mutableString.range(of: highlightedText)
+        attributedString.addAttributes(attrs, range: highlightedRange)
+        
+        // 重新给 label 的 attributedText 赋值。
+        base.attributedText = attributedString
+    }
+}
+
+public extension UILabel {
+    
+    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.setHighlighted")
     func judy_setHighlighted(text highlightedText: String, color highlightedColor: UIColor? = nil, font highlightedFont: UIFont? = nil) {
         // attributedText 即 label.text，所以直接判断 attributedText 不为 nil 即可。
         guard text != nil, attributedText != nil else { return }
