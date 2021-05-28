@@ -318,9 +318,8 @@ public class JudyNavigationCtrl: JudyBaseNavigationCtrl {
     }
 
     public override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-
         // push 之前截取当前屏幕
-        let capturedImage = judy_captureScreenImage(targetView: topView, complete: true)
+        let capturedImage = judy.captureScreenImage(targetView: topView, complete: true)
         screenShotsList.append(capturedImage!)
         
         super.pushViewController(viewController, animated: animated)

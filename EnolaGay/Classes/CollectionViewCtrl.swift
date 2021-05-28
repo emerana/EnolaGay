@@ -542,7 +542,7 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
         // 在 CollectionCell 中设置正圆的正确方式
         layoutIfNeeded()
         if masterImageView?.isRound ?? false {
-            masterImageView?.viewRound()
+            masterImageView?.judy.viewRound()
         }
         
     }

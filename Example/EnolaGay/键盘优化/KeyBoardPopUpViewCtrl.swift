@@ -16,10 +16,12 @@ class KeyBoardPopUpViewCtrl: UIViewController {
     @IBOutlet weak var keyBaordView: UIView!
     @IBOutlet weak var textFeild: UITextField!
     
+    let keyboardHelper = KeyboardHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        judy.alert()
+        
         textFeild.placeholder = "输入消息内容"
         textFeild.returnKeyType = .send
         textFeild.enablesReturnKeyAutomatically  = true
@@ -27,21 +29,19 @@ class KeyBoardPopUpViewCtrl: UIViewController {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTouches(sender:)))
         tapGestureRecognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGestureRecognizer)
-        
-        registerKeyBoardListener(forView: keyBaordView, isSafeAreaInsetsBottom: false)
-        
+
+        keyboardHelper.registerKeyBoardListener(forView: keyBaordView, ignoreSafeAreaInsetsBottom: true)
     }
-        
+    
     
     @objc func handleTouches(sender: UITapGestureRecognizer) {
         // 只要点击区域不在键盘范围即收起键盘。
-        if sender.location(in: view).y < view.bounds.height - keyBoardHeight {
+        if sender.location(in: view).y < view.bounds.height - keyboardHelper.keyboardHeight {
             textFeild.resignFirstResponder()
         }
     }
     
-    deinit {
-        Judy.log("正常释放！")
-    }
-
+    deinit { Judy.logHappy("正常释放！") }
 }
+
+
