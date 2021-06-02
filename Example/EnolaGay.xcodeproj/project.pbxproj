@@ -82,6 +82,12 @@
 		8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftMessageViewCtrlTest.swift; sourceTree = "<group>"; };
 		8BB88620265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GiftMessageViewCtrlTest.storyboard; sourceTree = "<group>"; };
 		8BD8C6942628636B006738E6 /* TestCollectionRefreshCollectionViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionRefreshCollectionViewCtrl.swift; sourceTree = "<group>"; };
+		8BE5C0512667563700FEAF52 /* 湖南郴州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "湖南郴州.gpx"; sourceTree = "<group>"; };
+		8BE5C0522667563800FEAF52 /* 福建龙岩.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "福建龙岩.gpx"; sourceTree = "<group>"; };
+		8BE5C0532667563A00FEAF52 /* 广东清远.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "广东清远.gpx"; sourceTree = "<group>"; };
+		8BE5C0542667570F00FEAF52 /* 广东韶关.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "广东韶关.gpx"; sourceTree = "<group>"; };
+		8BE5C0552667583200FEAF52 /* 浙江台州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "浙江台州.gpx"; sourceTree = "<group>"; };
+		8BE5C0562667592D00FEAF52 /* 天津.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "天津.gpx"; sourceTree = "<group>"; };
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerticalScrollView.storyboard; sourceTree = "<group>"; };
 		BC7CAC302FF14B8C947237A0 /* Pods_EnolaGay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +174,12 @@
 			children = (
 				8B8E2BF92660920200B16E49 /* 深圳龙岗天安数码城.gpx */,
 				8B8E2BFA2660929100B16E49 /* 陆港电商小镇.gpx */,
+				8BE5C0512667563700FEAF52 /* 湖南郴州.gpx */,
+				8BE5C0522667563800FEAF52 /* 福建龙岩.gpx */,
+				8BE5C0532667563A00FEAF52 /* 广东清远.gpx */,
+				8BE5C0542667570F00FEAF52 /* 广东韶关.gpx */,
+				8BE5C0552667583200FEAF52 /* 浙江台州.gpx */,
+				8BE5C0562667592D00FEAF52 /* 天津.gpx */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
