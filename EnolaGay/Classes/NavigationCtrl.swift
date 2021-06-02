@@ -12,7 +12,6 @@ import UIKit
 
 /// EnolaGay 中导航条的根类。
 open class JudyBaseNavigationCtrl: UINavigationController {
-
     // MARK: var
     
     /// 当前 navigationCtrl navigationBar 的返回指示符图像。
@@ -59,7 +58,7 @@ open class JudyBaseNavigationCtrl: UINavigationController {
         navigationBar.backIndicatorTransitionMaskImage = backIndicatorImage?.withRenderingMode(isAlwaysOriginal ? .alwaysOriginal:.automatic)
         
         if let itemsColor = EMERANA.enolagayAdapter?.navigationBarItemsColor() {
-            setItemsColor(color: itemsColor)
+            judy.setItemsColor(color: itemsColor)
         }
 
     }
@@ -67,15 +66,15 @@ open class JudyBaseNavigationCtrl: UINavigationController {
     /// 覆盖 push 事件，实现在 push 过程中自定义部分操作。
     ///
     /// - Parameters:
-    ///   - viewController: 当前ViewCtrl
-    ///   - animated: 动画
+    ///   - viewController: 当前 viewCtrl.
+    ///   - animated: 动画。
     open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if children.count > 0 {
-            // 解决 push 时右上角出现可恶的黑影，给 keyWindow 设置背景色即可，一般为白色或 EMERANA 配置的通用背景色
+            // 解决 push 时右上角出现可恶的黑影，给 keyWindow 设置背景色即可，一般为白色或配置的通用背景色。
             Judy.keyWindow!.backgroundColor = .white
-            // 将底部TabBar隐藏
+            // 将底部 TabBar 隐藏。
             viewController.hidesBottomBarWhenPushed = true
-            // Judy-mark:在父级ViewCtrl中使用这句将左侧返回按钮标题清空，保留箭头
+            // 在父级 viewCtrl 中使用这句将左侧返回按钮标题清空，保留箭头。
             children.last?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         }
 
@@ -85,38 +84,31 @@ open class JudyBaseNavigationCtrl: UINavigationController {
         if topViewController != nil {
             // topViewController!.responds(to: #selector(topViewController!.pushAction))，是通过 public extension 新增的函数，所以该函数一定有响应。
             topViewController!.pushAction(current: topViewController!, pushTo: viewController)
-
         }
-        
         super.pushViewController(viewController, animated: animated)
     }
-    
 }
 
-extension JudyBaseNavigationCtrl {
-    
-    /// 为 JudyBaseNavigationCtrl 对象设置一个统一返回指示符图像。
-    ///
-    /// - Returns: UIImage: 指定的返回图标，若为 nil 则使用 storyboard 设置的或系统自带的, Bool: 决定了是否使用图片原色彩。
-    open func setBackIndicatorImage() -> (UIImage?, Bool) {
-        return (nil, false)
-    }
+// MARK: - UINavigationController 命名空间扩展
 
-    /// 设置 navigationBar的 barTintColor(此操作可能会影响到毛玻璃效果)，若要使用此函数请确保 storyboard 中该属性为 Default。
+/// 为空间包装对象 Double 添加扩展函数。
+public extension EnolaGayWrapper where Base: UINavigationController {
+    
+    /// 设置 navigationBar的 barTintColor(此操作可能会影响到毛玻璃效果)，若要使用此函数请确保 storyboard 中该属性为 Default.
     /// - Parameters:
-    ///   - color: 要设置的目标颜色，若该颜色的 alpha 为 0，则 barTintColor 为 nil。该值默认值 nil。
-    ///   - isApplyBackground: 是否需要一块设置 navigationBar.backgroundColor，默认值 false。
-    public final func setBarTintColor(color: UIColor, isApplyBackground: Bool = false) {
+    ///   - color: 要设置的目标颜色，若该颜色的 alpha 为 0，则 barTintColor 为 nil。该值默认值 nil.
+    ///   - isApplyBackground: 是否需要一块设置 navigationBar.backgroundColor，默认值 false.
+    func setBarTintColor(color: UIColor, isApplyBackground: Bool = false) {
         // 设置 navigationBarTint 颜色，对 barTint 设置颜色将会影响到毛玻璃效果。
         if color.cgColor.alpha == 0 {
-            navigationBar.barTintColor = nil
+            base.navigationBar.barTintColor = nil
         } else {
-            navigationBar.barTintColor = color
+            base.navigationBar.barTintColor = color
         }
         if isApplyBackground {
-            navigationBar.backgroundColor = color
+            base.navigationBar.backgroundColor = color
         } else {
-            navigationBar.backgroundColor = nil
+            base.navigationBar.backgroundColor = nil
         }
     }
     
@@ -124,25 +116,89 @@ extension JudyBaseNavigationCtrl {
     /// - Parameters:
     ///   - color: 要设置的目标颜色。
     ///   - isApplyTint: 是否需要同时设置 navigationBar 上的（标题两侧 items、返回箭头）tintColor，默认 true.
-    public final func setItemsColor(color: UIColor, isApplyTint: Bool = true) {
-
+    func setItemsColor(color: UIColor, isApplyTint: Bool = true) {
         // 设置 navigationBar 上的 titleColor(foregroundColor).
         // 该属性的值是一个 UIColor 对象。使用此属性在呈现时指定文本的颜色。如果没有指定此属性，则将文本呈现为黑色。
         let attributed: [NSAttributedString.Key: Any] = [.foregroundColor: color]
-        if navigationBar.titleTextAttributes == nil {
-            navigationBar.titleTextAttributes = attributed
+        if base.navigationBar.titleTextAttributes == nil {
+            base.navigationBar.titleTextAttributes = attributed
         } else {
-            navigationBar.titleTextAttributes![.foregroundColor] = attributed[.foregroundColor]
+            base.navigationBar.titleTextAttributes![.foregroundColor] = attributed[.foregroundColor]
         }
         // 同时设置 tintColor（标题两侧的按钮颜色及返回箭头的颜色）。
-        if isApplyTint { navigationBar.tintColor = color }
+        if isApplyTint { base.navigationBar.tintColor = color }
     }
+    
+    // MARK: - 扩展返回按钮图标及导航条透明
+    
+    /// 将导航栏设为透明，一般用于 viewWillAppear()，恢复请调用 resetNav()。
+    /// - Warning: 如果在 resetNav() 中需要恢复阴影线请使用代理隐藏导航条的方式
+    func setNavTransParent() {
+        // 透明
+        base.navigationBar.isTranslucent = true
+        // 设置导航栏背景图片为一个空的image，这样就透明了
+        base.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        // 去掉透明后导航栏下边的黑边
+        base.navigationBar.shadowImage = UIImage()
+    }
+    
+    /// 恢复导航栏，当设置了导航栏设为透明时，别的界面不需要透明调用此方法恢复。
+    ///
+    /// 一般在 viewWillDisappear() 函数中使用，且和 setNavTransParent() 成对使用。
+    /// - Warning: 由于在 setNavTransParent() 中会将 isTranslucent = true，所以调用此函数后需自行设置 isTranslucent。
+    func resetNav() {
+        base.navigationBar.shadowImage = nil
+        // 不让其他页面的导航栏变为透明 需要重置
+        base.navigationBar.setBackgroundImage(nil, for: .default)
+    }
+    
+    /// 设置导航栏渐变背景色，渐变方向为从左向右
+    ///
+    /// - Parameters:
+    ///   - startColor: 起始颜色，默认为red
+    ///   - endColor: 终止颜色，默认为green
+    func setNavGradient(startColor: UIColor = .red, endColor: UIColor = .green)  {
 
+        // self.navigationBar.layer.insertSublayer(gradientLayer, at: 0)     // 这样无效
+        let backgroundImage = UIImage(gradientColors: startColor, endColor: endColor, frame: base.navigationBar.frame)
+        base.navigationBar.setBackgroundImage(backgroundImage, for: .default)
+    }
+}
+
+extension UINavigationController {
+    /// 通过重写此函数为 JudyBaseNavigationCtrl 对象设置一个统一返回指示符图像。
+    ///
+    /// - Returns: UIImage: 指定的返回图标，若为 nil 则使用 storyboard 设置的或系统自带的, Bool: 决定了是否使用图片原色彩。
+    open func setBackIndicatorImage() -> (UIImage?, Bool) { (nil, false) }
 }
 
 
-// MARK: - 配合拦截系统导航条返回事件，为 JudyBaseViewCtrl 新增返回按钮点击函数
-extension JudyBaseViewCtrl {
+// MARK: 为 UIViewController 新增需重写的扩展函数
+extension UIViewController {
+    
+    // push 函数，并配合 JudyBaseNavigationCtrl 控制器。
+    
+    /// 当前界面 push 事件，该函数只在导航控制器为 JudyBaseNavigationCtrl 下才有效。
+    /// * 常用于当前界面 push 新界面之后无需返回此界面场景，参考如下代码：
+    /// ```
+    ///    if viewCtrl === self {
+    ///        let newViewCtrls = navigationController?.viewControllers.filter({ (viewCtrl) -> Bool in
+    ///            // 移除当前 ViewCtrl
+    ///            return viewCtrl !== self
+    ///        })
+    ///
+    ///        navigationController?.viewControllers = newViewCtrls!
+    ///
+    ///    }
+    /// ```
+    /// - Parameters:
+    ///   - viewCtrl: 当前的 viewCtrl
+    ///   - targetViewCtrl: push 的目标 viewCtrl
+    @objc open func pushAction(current viewCtrl: UIViewController, pushTo targetViewCtrl: UIViewController) {
+        
+    }
+    
+    // 配合拦截系统导航条返回事件，为 JudyBaseViewCtrl 新增返回按钮点击函数。
     
     /// 当前界面导航条返回按钮点击事件，此函数决定了是否执行 pop 事件。
     /// * 此函数依然能通过手势滑动返回，可以用以下方式禁用系统侧滑返回。
@@ -218,71 +274,6 @@ extension JudyBaseNavigationCtrl: UINavigationBarDelegate {
     
     public func navigationBar(_ navigationBar: UINavigationBar, didPush item: UINavigationItem) {
     }
-        
-}
-
-
-// MARK: 为 UIViewController 新增 push 函数，并配合 JudyBaseNavigationCtrl 控制器
-extension UIViewController {
-
-    /// 当前界面 push 事件，该函数只在导航控制器为 JudyBaseNavigationCtrl 下才有效。
-    /// * 常用于当前界面 push 新界面之后无需返回此界面场景，参考如下代码：
-    /// ```
-    ///    if viewCtrl === self {
-    ///        let newViewCtrls = navigationController?.viewControllers.filter({ (viewCtrl) -> Bool in
-    ///            // 移除当前 ViewCtrl
-    ///            return viewCtrl !== self
-    ///        })
-    ///
-    ///        navigationController?.viewControllers = newViewCtrls!
-    ///
-    ///    }
-    /// ```
-    /// - Parameters:
-    ///   - viewCtrl: 当前的 viewCtrl
-    ///   - targetViewCtrl: push 的目标 viewCtrl
-    @objc open func pushAction(current viewCtrl: UIViewController, pushTo targetViewCtrl: UIViewController) {
-        
-    }
-    
-}
-
-// MARK: - 扩展返回按钮图标及导航条透明
-public extension UINavigationController {
-
-    /// 将导航栏设为透明，一般用于 viewWillAppear()，恢复请调用 resetNav()。
-    /// - Warning: 如果在 resetNav() 中需要恢复阴影线请使用代理隐藏导航条的方式
-    func setNavTransParent() {
-        // 透明
-        navigationBar.isTranslucent = true
-        // 设置导航栏背景图片为一个空的image，这样就透明了
-        navigationBar.setBackgroundImage(UIImage(), for: .default)
-        // 去掉透明后导航栏下边的黑边
-        navigationBar.shadowImage = UIImage()
-    }
-    
-    /// 恢复导航栏，当设置了导航栏设为透明时，别的界面不需要透明调用此方法恢复。
-    ///
-    /// 一般在 viewWillDisappear() 函数中使用，且和 setNavTransParent() 成对使用。
-    /// - Warning: 由于在 setNavTransParent() 中会将 isTranslucent = true，所以调用此函数后需自行设置 isTranslucent。
-    func resetNav() {
-        navigationBar.shadowImage = nil
-        // 不让其他页面的导航栏变为透明 需要重置
-        navigationBar.setBackgroundImage(nil, for: .default)
-    }
-    
-    /// 设置导航栏渐变背景色，渐变方向为从左向右
-    ///
-    /// - Parameters:
-    ///   - startColor: 起始颜色，默认为red
-    ///   - endColor: 终止颜色，默认为green
-    func setNavGradient(startColor: UIColor = .red, endColor: UIColor = .green)  {
-
-        // self.navigationBar.layer.insertSublayer(gradientLayer, at: 0)     // 这样无效
-        let backgroundImage = UIImage(gradientColors: startColor, endColor: endColor, frame: navigationBar.frame)
-        self.navigationBar.setBackgroundImage(backgroundImage, for: .default)
-    }
-    
 }
 
 
@@ -341,7 +332,7 @@ public class JudyNavigationCtrl: JudyBaseNavigationCtrl {
 }
 
 // MARK: - 公开方法
-extension JudyNavigationCtrl {
+public extension JudyNavigationCtrl {
     
     /// 关闭向右滑动 Pop 事件，调用此函数后将失去全屏 Pop 手势能力，请调用 reOpenRecognizer() 函数重新开启该能力
     final func closeRecognizer() {
@@ -358,8 +349,7 @@ extension JudyNavigationCtrl {
         interactivePopGestureRecognizer?.isEnabled = false
     }
 
-    
-    /// 人工模拟手势全屏返回
+    /// 人工模拟手势全屏返回函数。
     ///
     /// - Parameter duration: pop 持续时长，默认0.3
     final func doPopAction(duration: Double = 0.3) {
@@ -374,41 +364,39 @@ extension JudyNavigationCtrl {
         }
         
     }
-    
 }
 
 // MARK: - 私有事件
 private extension JudyNavigationCtrl {
 
-    var keyWindow: UIWindow { return Judy.keyWindow! }
-    var topView: UIView { return Judy.keyWindow!.rootViewController!.view }
+    var keyWindow: UIWindow { Judy.keyWindow! }
+    var topView: UIView { Judy.keyWindow!.rootViewController!.view }
     
-    /// 移动 topView 的位置
+    /// 移动 topView 的位置。
     ///
-    /// - Parameter x: frame 的 x ，跟随手指移动实时刷新
+    /// - Parameter x: frame 的 x ，跟随手指移动实时刷新。
     func moveViewWithX(x: CGFloat){
         var x = x
-        // 最大最小值限制
+        // 最大最小值限制。
         x = x > view.frame.width ? view.frame.width:x
         x = x < 0 ? 0:x
         
         // Judy.log("当前移动X:\(x)")
         
-        // 移动顶层 View 的 X
+        // 移动顶层 View 的 X.
         topView.frame.origin.x = x
         
-        // 规模为1时表示不缩放
+        // 规模为1时表示不缩放。
         var scale: CGFloat = (x/6800) + 0.95
         scale = scale > 1 ? 1:scale
-        // 滑动过程中的遮罩 View 能见度
+        // 滑动过程中的遮罩 View 能见度。
         let alpha = 0.68*(1 - x/view.frame.width)
         
         lastScreenShotView?.transform = CGAffineTransform.init(scaleX: scale, y: scale)
         blackMask?.alpha = alpha
-        
     }
     
-    /// 手指离开屏幕，拖动结束事件，此事件未达到 navigationCtrl pop 条件，还原 topView 位置
+    /// 手指离开屏幕，拖动结束事件，此事件未达到 navigationCtrl pop 条件，还原 topView 位置。
     func panEndedReductionAction() {
         
         UIView.animate(withDuration: 0.3, animations: {
@@ -417,12 +405,11 @@ private extension JudyNavigationCtrl {
             self.isMoving = false
             self.backgroundView?.isHidden = true
         }
-        
     }
     
-    /// 手指开始拖动事件
+    /// 手指开始拖动事件。
     ///
-    /// - Parameter startTouchPoint: 触摸的起点
+    /// - Parameter startTouchPoint: 触摸的起点。
     func panBeganAction(startTouchPoint: CGPoint) {
         isMoving = true
         startTouch = startTouchPoint
@@ -449,7 +436,7 @@ private extension JudyNavigationCtrl {
         backgroundView?.insertSubview(lastScreenShotView!, belowSubview: blackMask!)
     }
 
-    /// 以动画的方式触发 Pop 事件
+    /// 以动画的方式触发 pop 事件。
     func popActionWithAnimate() {
         UIView.animate(withDuration: 0.3, animations: {
             self.moveViewWithX(x: self.view.frame.width)
@@ -460,32 +447,29 @@ private extension JudyNavigationCtrl {
             self.topView.frame.origin.x = 0
             self.isMoving = false
             self.backgroundView?.isHidden = true
-            // 将遮罩层恢复为不透明
+            // 将遮罩层恢复为不透明。
             self.blackMask?.alpha = 1
         }
     }
     
-    
-    /// 平移手势事件，不断的执行
+    /// 平移手势事件，不断的执行。
     @objc func paningGestureReceive(recoginzer: UIPanGestureRecognizer){
         if viewControllers.count <= 1 {
             return
         }
         
-        // 平移时将window背景设为黑色
+        // 平移时将 window 背景设为黑色。
         keyWindow.backgroundColor = .black
         
         let touchPoint = recoginzer.location(in: keyWindow)
         
-        // 开始拖动屏幕触发
+        // 开始拖动屏幕触发。
         if recoginzer.state == .began {
-            //            Judy.log("began")
             panBeganAction(startTouchPoint: touchPoint)
-            
-            // 结束，手指离开屏幕触发
+
+            // 结束，手指离开屏幕触发。
         } else if recoginzer.state == .ended {
-            //            Judy.log("ended")
-            // 设置滑动多少距离就可以触发pop
+            // 设置滑动多少距离就可以触发 pop.
             if touchPoint.x - startTouch.x > 28 {
                 popActionWithAnimate()
             } else {
@@ -493,7 +477,6 @@ private extension JudyNavigationCtrl {
             }
             return
         } else if recoginzer.state == .cancelled {  // 取消了
-            //            Judy.log("cancelled")
             panEndedReductionAction()
             return
         }
@@ -501,16 +484,14 @@ private extension JudyNavigationCtrl {
         if isMoving {
             moveViewWithX(x: touchPoint.x - startTouch.x)
         }
-        
     }
-    
 }
 
 // MARK: - UIGestureRecognizerDelegate
 
 extension JudyNavigationCtrl: UIGestureRecognizerDelegate {
     // 接收事件代理方法。
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+    open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         return children.count > 1
     }
 }
