@@ -38,7 +38,7 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
     /// 模型驱动代理，在使用模型驱动时必须实现该代理，并通过此代理设置 viewCtrl 模型。
     weak public var enolagay: EMERANA_JudyBasePageViewCtrlModel?
 
-    /// 记录当前选中的索引。
+    /// 记录当前显示的索引。
     lazy public var lastSelectIndex = 0
 
     
@@ -177,8 +177,6 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
 
 }
 
-
-// MARK: 私有配置函数
 private extension JudyBasePageViewCtrl {
     
     /// 通过当前 viewCtrl 获取对应的在 viewCtrlArray 中的 index。
@@ -243,7 +241,6 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
         return segmentedView
     }()
 
-    
     // MARK: - UIPageViewControllerDelegate
 
     open override func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
@@ -253,23 +250,12 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
         segmentedCtrl.selectItem(at: lastSelectIndex)
     }
     
-    
     // MARK: - segmentedCtrl 相关函数
     
     /// 设置 SegmentedCtrl 基本信息。
     /// - Parameter isLesser: 是否较少内容，默认false，若需要使 segmentedCtrl 宽度适应内容宽度传入 true
     @available(*, unavailable, message: "此函数已废弃")
-    open func setSegmentedCtrl(isLesser: Bool = false) {
-                
-        if isLesser {
-            var width = "".textSize().width
-            viewCtrlTitleArray.forEach { (title) in
-                width += title.textSize().width + 28
-            }
-            segmentedCtrl.frame.size.width = width
-        }
-    }
-
+    open func setSegmentedCtrl(isLesser: Bool = false) { }
 
     // MARK: - SegmentedViewDelegate
 
@@ -291,7 +277,7 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
 }
 
 
-/// 适用于比如 JudyLivePageViewCtrl 等 UIPageViewController 子类管理 viewCtrl 的协议。
+/// 适用于 JudyLivePageViewCtrl 等 UIPageViewController 子类管理 viewCtrl 的协议。
 ///
 /// 该协议中定义了如何确定具体的 viewCtrl，以及确定该 viewCtrl 所需要的唯一数据。
 public protocol JudyPageViewCtrlDelegate: AnyObject {
@@ -302,21 +288,27 @@ public protocol JudyPageViewCtrlDelegate: AnyObject {
     /// 询问 viewCtrl 在 entitys 中对应的索引。
     ///
     /// - Parameters:
-    ///   - viewCtrl: 发生转换之前的视图控制器，通常每个 viewCtrl 都有一个 entity 作为其唯一标识符，通过该 entity 确定在 entitys 中的索引。若该 viewCtrl 不存在 entitys 中请返回 0。
+    ///   - viewCtrl: 每个 viewCtrl 都有一个 entity 作为其唯一标识符，通过该 entity 确定在 entitys 中的索引。若该 viewCtrl 不存在 entitys 中请返回 0.
     ///   - entitys: viewCtrl 所在的数据源实体数组，viewCtrl 应该对应该数组中的某个元素。
-    /// - Warning: viewCtrl 可能为 emptyViewCtrl，请注意与 emptyViewCtrl(for pageViewCtrl: UIPageViewController) 函数返回的 viewCtrl 正确区分。
+    /// - Warning: viewCtrl 可能为 emptyViewCtrl，请注意与 emptyViewCtrl(for pageViewCtrl: UIPageViewController) 代理函数返回的 viewCtrl 正确区分。
     func index(for viewCtrl: UIViewController, at entitys: [Any] ) -> Int
     
-    /// 询问目标实体 entity 对应的 viewCtrl。
+    /// 询问目标实体 entity 对应的 viewCtrl.
     ///
-    /// 每个 viewCtrl 都应该有一个 entity，同时该 entity 作为该 viewCtrl 的唯一标识符。
+    /// 每个 viewCtrl 都应包含一个 entity，该 entity 作为该 viewCtrl 的唯一标识符。
     func viewCtrl(for entity: Any) -> UIViewController
     
-    /// 询问当 pageViewCtrl 中没有可显示的 viewCtrl 时用于显示的界面，应该在该界面做好重载数据及初始化工作。
+    /// 询问当 pageViewCtrl 中没有可显示的 viewCtrl 时用于显示的界面。在该界面应做好重载数据及初始化工作。
     ///
     /// 由于不允许传入 nil，setViewControllers(nil, direction: .forward, animated: true) 将直接崩溃。如果能够保证永远不需要空白界面则可不实现此函数，该函数默认返回 UIViewController()。
     func emptyViewCtrl(for pageViewCtrl: UIPageViewController) -> UIViewController
-
+    
+    /// 询问代理添加下拉刷新控件。该函数默认为空实现。
+    ///
+    /// 请在此为 pageViewCtrl 添加下拉刷新功能，如： scrollView.mj_header = MJRefreshNormalHeader，
+    /// scrollView 仅支持下拉刷新，如有上拉加载更多的需求请考虑使用 tableView.
+    /// - Parameter scrollView: pageViewCtrl 中的核心 scrollView.
+    func addReloadHeaderView(for scrollView: UIScrollView)
 }
 
 // 默认实现函数，使其变成可选协议函数。
@@ -324,6 +316,8 @@ public extension JudyPageViewCtrlDelegate {
     func emptyViewCtrl(for pageViewCtrl: UIPageViewController) -> UIViewController {
         return UIViewController()
     }
+    
+    func addReloadHeaderView(for scrollView: UIScrollView) { }
 }
 
 /// 适用于直播、短视频类型的（viewCtrl 数量不限）轻量级 pageViewCtrl。
@@ -331,21 +325,19 @@ public extension JudyPageViewCtrlDelegate {
 /// 别忘了设置滚动方向 pageViewCtrl.navigationOrientation，根据需要设置为水平方向滑动还是垂直方向滑动。
 /// - Warning: 注意事项：
 /// * 请记得设置 transitionStyle 为 scroll；
-/// * 支持下拉刷新请通过 scrollViewClosure 获取 scrollView;
 /// * 当确定 enolagay.entitys 后请调用 onStart() 使 pageViewCtrl 开始工作;
 open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate {
 
     /// viewCtrl 数据源配置代理对象，所有要显示的 viewCtrl 均通过此协议配置。
     weak public var enolagay: JudyPageViewCtrlDelegate!
     
-    /// 当 scrollView 有值后触发此闭包以便外部设置下拉刷新。
-    /// - Warning: scrollView 仅支持下拉刷新，在使用该闭包时应弱引用调用者。
+    @available(*, unavailable, message: "请使用 enolagay 实现下拉刷新")
     public var scrollViewClosure: ((UIScrollView) -> Void)?
     /// 在 UIPageViewController 中的核心 ScrollView，请通过 scrollViewClosure 获取有效的 scrollView。
     public private(set) var scrollView: UIScrollView? {
         didSet{
             if scrollView != nil {
-                scrollViewClosure?(scrollView!)
+                enolagay.addReloadHeaderView(for: scrollView!)
             }
         }
     }
@@ -353,6 +345,17 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     /// 用于控制所有显示的 viewCtrl 的实体数据，该数据来源于 enolagay.entitys。
     public var entitys: [Any] { enolagay.entitys(for: self) }
     
+    /// 当前正在显示的 viewCtrl 在 entitys 中的索引，若该值为 -1 说明当前显示为空界面。
+    ///
+    /// 即使正在翻页中尚未完成一个完整的翻页
+    public private(set) var currentIndex = -1
+    /*
+     {
+        didSet {
+            Judy.log("当前显示的序列 currentIndex 为：\(currentIndex)")
+        }
+     }
+     */
     
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -372,22 +375,25 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
         scrollView?.delegate = self
     }
     
+    
     /// 初始化所有数据配置及逻辑。
     ///
-    /// 该函数将询问数据源并重置到数据源中的第一页，，若 enolagay.entitys 为空，则询问一个空视图界面，且需在 enolagay.entitys 首次不为空时重新调用此函数以初始化。
+    /// 该函数将询问数据源并重置到数据源中的第一页，，若 enolagay.entitys 为空，则询问 enolagay.emptyViewCtrl()，且需在 enolagay.entitys 首次不为空时重新调用此函数以初始化。
     public final func onStart() {
-        if entitys.first != nil {
-            let homePage = enolagay.viewCtrl(for: entitys.first!)
-            // 设置初始页。
-            setViewControllers([homePage], direction: .forward, animated: false)
-            dataSource = self
-            delegate = self
-        } else {
-            // 询问无视图可显示的情况。
+        if entitys.isEmpty {
+            // 询问空视图界面。
             let emptyViewCtrl = enolagay.emptyViewCtrl(for: self)
             setViewControllers([emptyViewCtrl], direction: .forward, animated: false)
             dataSource = nil
             delegate = nil
+            currentIndex = -1
+        } else {
+            let homePage = enolagay.viewCtrl(for: entitys[0])
+            // 设置初始页。
+            setViewControllers([homePage], direction: .forward, animated: false)
+            dataSource = self
+            delegate = self
+            currentIndex = 0
         }
     }
     
@@ -415,9 +421,16 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     
     // MARK: - UIPageViewControllerDelegate
     
-    // 通过拖动 pageViewCtrl 才会触发此函数。
+    // 通过用户拖拽 pageViewCtrl 且要转换的目标界面不为 nil 时即触发此函数。
+    // 手势驱动转换完成后调用。使用completed参数来区分完成的转换(翻页)和用户中止的转换(未翻页)。
     open func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        //  if completed { Judy.log("翻页完毕") }
+        if completed {
+            // Judy.log("完成翻页")
+            // 只有完成了一个翻页才需要确定 currentIndex.
+            currentIndex = enolagay.index(for: pageViewController.viewControllers!.last!, at: entitys)
+        } else {
+            // Judy.log("中止翻页")
+        }
     }
     
     // MARK: - UIScrollViewDelegate

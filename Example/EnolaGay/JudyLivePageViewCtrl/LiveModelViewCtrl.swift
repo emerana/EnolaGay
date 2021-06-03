@@ -16,7 +16,9 @@ class LiveModelViewCtrl: UIViewController {
         super.viewDidLoad()
 
         (view.viewWithTag(101) as? UILabel)?.text = "当前 tagDataSource = \(tagDataSource)"
-        
+        let colors: [UIColor] = [.red, .green, .blue, .brown, .cyan, .purple]
+         
+        view.backgroundColor = colors[Int(arc4random_uniform(UInt32(colors.count-1)))]
     }
     
 
