@@ -348,12 +348,14 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     /// 当前正在显示的 viewCtrl 在 entitys 中的索引，若该值为 -1 说明当前显示为空界面。
     ///
     /// 即使正在翻页中尚未完成一个完整的翻页
-    public private(set) var currentIndex = -1 {
+    public private(set) var currentIndex = -1
+    /*
+     {
         didSet {
             Judy.log("当前显示的序列 currentIndex 为：\(currentIndex)")
         }
-    }
-
+     }
+     */
     
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -422,13 +424,12 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     // 通过用户拖拽 pageViewCtrl 且要转换的目标界面不为 nil 时即触发此函数。
     // 手势驱动转换完成后调用。使用completed参数来区分完成的转换(翻页)和用户中止的转换(未翻页)。
     open func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-
         if completed {
-            Judy.log("完成翻页")
+            // Judy.log("完成翻页")
             // 只有完成了一个翻页才需要确定 currentIndex.
             currentIndex = enolagay.index(for: pageViewController.viewControllers!.last!, at: entitys)
         } else {
-            Judy.log("中止翻页")
+            // Judy.log("中止翻页")
         }
     }
     
