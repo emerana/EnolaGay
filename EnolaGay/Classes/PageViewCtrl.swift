@@ -288,14 +288,14 @@ public protocol JudyPageViewCtrlDelegate: AnyObject {
     /// 询问 viewCtrl 在 entitys 中对应的索引。
     ///
     /// - Parameters:
-    ///   - viewCtrl: 发生转换之前的视图控制器，通常每个 viewCtrl 都有一个 entity 作为其唯一标识符，通过该 entity 确定在 entitys 中的索引。若该 viewCtrl 不存在 entitys 中请返回 0.
+    ///   - viewCtrl: 每个 viewCtrl 都有一个 entity 作为其唯一标识符，通过该 entity 确定在 entitys 中的索引。若该 viewCtrl 不存在 entitys 中请返回 0.
     ///   - entitys: viewCtrl 所在的数据源实体数组，viewCtrl 应该对应该数组中的某个元素。
-    /// - Warning: viewCtrl 可能为 emptyViewCtrl，请注意与 emptyViewCtrl(for pageViewCtrl: UIPageViewController) 函数返回的 viewCtrl 正确区分。
+    /// - Warning: viewCtrl 可能为 emptyViewCtrl，请注意与 emptyViewCtrl(for pageViewCtrl: UIPageViewController) 代理函数返回的 viewCtrl 正确区分。
     func index(for viewCtrl: UIViewController, at entitys: [Any] ) -> Int
     
     /// 询问目标实体 entity 对应的 viewCtrl.
     ///
-    /// 每个 viewCtrl 都应该有一个 entity，同时该 entity 作为该 viewCtrl 的唯一标识符。
+    /// 每个 viewCtrl 都应包含一个 entity，该 entity 作为该 viewCtrl 的唯一标识符。
     func viewCtrl(for entity: Any) -> UIViewController
     
     /// 询问当 pageViewCtrl 中没有可显示的 viewCtrl 时用于显示的界面。在该界面应做好重载数据及初始化工作。
@@ -345,10 +345,12 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     /// 用于控制所有显示的 viewCtrl 的实体数据，该数据来源于 enolagay.entitys。
     public var entitys: [Any] { enolagay.entitys(for: self) }
     
-    /// 当前显示 viewCtrl 在 entitys 中的索引。
-    public private(set) var currentIndex = 0 {
+    /// 当前正在显示的 viewCtrl 在 entitys 中的索引，若该值为 -1 说明当前显示为空界面。
+    ///
+    /// 即使正在翻页中尚未完成一个完整的翻页
+    public private(set) var currentIndex = -1 {
         didSet {
-            // Judy.log("当前显示的序列索引为：\(currentIndex)")
+            Judy.log("当前显示的序列 currentIndex 为：\(currentIndex)")
         }
     }
 
@@ -382,12 +384,14 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
             setViewControllers([emptyViewCtrl], direction: .forward, animated: false)
             dataSource = nil
             delegate = nil
+            currentIndex = -1
         } else {
-            let homePage = enolagay.viewCtrl(for: entitys.first!)
+            let homePage = enolagay.viewCtrl(for: entitys[0])
             // 设置初始页。
             setViewControllers([homePage], direction: .forward, animated: false)
             dataSource = self
             delegate = self
+            currentIndex = 0
         }
     }
     
@@ -415,12 +419,17 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     
     // MARK: - UIPageViewControllerDelegate
     
-    // 通过用户拖拽 pageViewCtrl 并完成切换才会触发此函数。
+    // 通过用户拖拽 pageViewCtrl 且要转换的目标界面不为 nil 时即触发此函数。
+    // 手势驱动转换完成后调用。使用completed参数来区分完成的转换(翻页)和用户中止的转换(未翻页)。
     open func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        // 在此处确定 currentIndex
-        currentIndex = enolagay.index(for: pageViewController.viewControllers!.last!, at: entitys)
 
-        if completed { Judy.log("翻页完毕") }
+        if completed {
+            Judy.log("完成翻页")
+            // 只有完成了一个翻页才需要确定 currentIndex.
+            currentIndex = enolagay.index(for: pageViewController.viewControllers!.last!, at: entitys)
+        } else {
+            Judy.log("中止翻页")
+        }
     }
     
     // MARK: - UIScrollViewDelegate
