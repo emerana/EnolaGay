@@ -18,8 +18,7 @@ class JudyLivePageViewTest: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        title = "LivePageViewCtrl 进阶"
     }
     
 
@@ -33,7 +32,6 @@ class JudyLivePageViewTest: UIViewController {
             livePageViewCtrl = segue.destination as? JudyLivePageViewCtrl
             livePageViewCtrl.enolagay = self
             livePageViewCtrl.onStart()
-
         }
 
     }
@@ -52,6 +50,7 @@ extension JudyLivePageViewTest: JudyPageViewCtrlDelegate {
                 return
             }
         }
+        Judy.log("当前询问的序列索引为：\(rs)")
         return rs
     }
     
