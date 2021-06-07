@@ -1133,7 +1133,7 @@ public extension UIView {
 /// 为空间包装对象 Double 添加扩展函数。
 public extension EnolaGayWrapper where Base == Double {
     
-    /// 将 double 四舍五入到指定小数位数并输出 String。
+    /// 将 double 四舍五入到指定小数位数并输出 String.
     ///
     /// - Parameter f: 要保留的小数位数，默认为 2。
     /// - Returns: 转换后的 String。
@@ -1155,7 +1155,7 @@ public extension URL {
     /// utf8 编码的 URL。适用于当URL地址中包含中文时无法正常加载等情况。
     ///
     /// - Parameter utf8StringURL: 带有中文的链接，比如：http://api.tuoken.pro/api/product/qrDode?address=渠道商ETH地址。
-    /// - Returns: 对应的 URL 对象，如：http://api.tuoken.pro/api/product/qrDode?address=%E6%B8%A0%E9%81%93%E5%95%86ECH%E5%9C%B0%E5%9D%80。
+    /// - Returns: 对应的 URL 对象，如：http://api.tuoken.pro/api/product/qrDode?address=%E6%B8%A0%E9%81%93%E5%95%86ECH%E5%9C%B0%E5%9D%80.
     @available(*, unavailable, message: "请使用构造函数", renamed: "init(stringUTF8:)")
     static func utf8URL(utf8StringURL: String) -> URL? {
         let data = utf8StringURL.data(using: String.Encoding.utf8)
@@ -1222,7 +1222,7 @@ public extension String {
 
     /// 清除字符串中的所有空格。
     ///
-    /// - Returns: "strabc"
+    /// - Returns: 如："str abc", "strabc".
     func clean() -> String { replacingOccurrences(of: " ", with: "") }
     
     /// 计算文本的 size。
@@ -1230,7 +1230,7 @@ public extension String {
     /// - Parameters:
     ///   - font: 字体，默认按照 M 码字体计算。
     ///   - maxSize: 最大尺寸，默认为 CGSize(width: 320, height: 68)
-    /// - Returns: 文本所需宽度
+    /// - Returns: 文本所需宽度。
     func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(style: .M)) -> CGSize {
         // 根据文本内容获取尺寸，计算文字尺寸 UIFont.systemFont(ofSize: 14.0)
         return self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin],
