@@ -23,6 +23,8 @@
 		8B1AA67A25A74B600063BE04 /* JudyLivePageViewCtrl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */; };
 		8B1AA68025A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */; };
 		8B1AA68125A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */; };
+		8B4A4DE3266E0E37007D6DC5 /* NavigatinCtrl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */; };
+		8B4A4DE5266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */; };
 		8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76428F25A702C400A418F8 /* AppConfigs.swift */; };
 		8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */; };
 		8B81AA1B261EEF74003A194B /* KeyBoardPopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B81AA1A261EEF74003A194B /* KeyBoardPopUp.storyboard */; };
@@ -71,6 +73,8 @@
 		8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JudyLivePageViewCtrl.storyboard; sourceTree = "<group>"; };
 		8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveModelViewCtrl.swift; sourceTree = "<group>"; };
 		8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTestViewCtrl.swift; sourceTree = "<group>"; };
+		8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigatinCtrl.storyboard; sourceTree = "<group>"; };
+		8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatinMainViewCtrl.swift; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
 		8B81AA1A261EEF74003A194B /* KeyBoardPopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KeyBoardPopUp.storyboard; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 		607FACD21AFB9204008FA782 /* Example for EnolaGay */ = {
 			isa = PBXGroup;
 			children = (
+				8B4A4DE1266E0E23007D6DC5 /* NavigationCtrl */,
 				8B0B90A9262832650059B992 /* RefreshTest */,
 				8B81AA19261EEF63003A194B /* 键盘优化 */,
 				8BFCC83125E385F9000B1611 /* 垂直轮播图 */,
@@ -238,6 +243,15 @@
 				8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */,
 			);
 			path = JudyLivePageViewCtrl;
+			sourceTree = "<group>";
+		};
+		8B4A4DE1266E0E23007D6DC5 /* NavigationCtrl */ = {
+			isa = PBXGroup;
+			children = (
+				8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */,
+				8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */,
+			);
+			path = NavigationCtrl;
 			sourceTree = "<group>";
 		};
 		8B76428E25A702C400A418F8 /* Tests */ = {
@@ -391,6 +405,7 @@
 				8B81AA1B261EEF74003A194B /* KeyBoardPopUp.storyboard in Resources */,
 				8BA9AA05260EDAB8008B1803 /* AttributedString.storyboard in Resources */,
 				8B0B90B12628328E0059B992 /* Refresh.storyboard in Resources */,
+				8B4A4DE3266E0E37007D6DC5 /* NavigatinCtrl.storyboard in Resources */,
 				8B1A499025C8354700FDA57A /* LangRenSha.storyboard in Resources */,
 				8B1AA67925A74B600063BE04 /* JudyLivePageViewCtrl.storyboard in Resources */,
 			);
@@ -485,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				8B4A4DE5266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift in Sources */,
 				8BD8C6952628636B006738E6 /* TestCollectionRefreshCollectionViewCtrl.swift in Sources */,
 				8B81AA1F261EEF85003A194B /* KeyBoardPopUpViewCtrl.swift in Sources */,
 				8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */,

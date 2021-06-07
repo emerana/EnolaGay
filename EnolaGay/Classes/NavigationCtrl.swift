@@ -454,21 +454,17 @@ private extension JudyNavigationCtrl {
     
     /// 平移手势事件，不断的执行。
     @objc func paningGestureReceive(recoginzer: UIPanGestureRecognizer){
-        if viewControllers.count <= 1 {
-            return
-        }
+        guard viewControllers.count > 1 else { return }
         
         // 平移时将 window 背景设为黑色。
         keyWindow.backgroundColor = .black
         
         let touchPoint = recoginzer.location(in: keyWindow)
         
-        // 开始拖动屏幕触发。
-        if recoginzer.state == .began {
+        switch recoginzer.state {
+        case .began: // 开始拖动屏幕时触发
             panBeganAction(startTouchPoint: touchPoint)
-
-            // 结束，手指离开屏幕触发。
-        } else if recoginzer.state == .ended {
+        case .ended: // 结束，手指离开屏幕触发
             // 设置滑动多少距离就可以触发 pop.
             if touchPoint.x - startTouch.x > 28 {
                 popActionWithAnimate()
@@ -476,10 +472,26 @@ private extension JudyNavigationCtrl {
                 panEndedReductionAction()
             }
             return
-        } else if recoginzer.state == .cancelled {  // 取消了
+        case .cancelled: // 取消了
             panEndedReductionAction()
             return
+        default: break
         }
+//        // 开始拖动屏幕时触发
+//        if recoginzer.state == .began {
+//            panBeganAction(startTouchPoint: touchPoint)
+//        } else if recoginzer.state == .ended {  // 结束，手指离开屏幕触发
+//            // 设置滑动多少距离就可以触发 pop.
+//            if touchPoint.x - startTouch.x > 28 {
+//                popActionWithAnimate()
+//            } else {
+//                panEndedReductionAction()
+//            }
+//            return
+//        } else if recoginzer.state == .cancelled {  // 取消了
+//            panEndedReductionAction()
+//            return
+//        }
         
         if isMoving {
             moveViewWithX(x: touchPoint.x - startTouch.x)
@@ -490,7 +502,7 @@ private extension JudyNavigationCtrl {
 // MARK: - UIGestureRecognizerDelegate
 
 extension JudyNavigationCtrl: UIGestureRecognizerDelegate {
-    // 接收事件代理方法。
+    // 是否接收事件代理函数？
     open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         return children.count > 1
     }
