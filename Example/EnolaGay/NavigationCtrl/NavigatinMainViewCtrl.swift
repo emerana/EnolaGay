@@ -9,7 +9,7 @@
 import UIKit
 import EnolaGay
 
-class NavigatinMainViewCtrl: JudyBaseViewCtrl {
+class NavigatinMainViewCtrl: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
