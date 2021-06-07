@@ -614,17 +614,17 @@ public extension UIImage {
         self.init(cgImage: image!.cgImage!)
     }
     
-    /// 通过渐变颜色生成一张图片。
+    /// 通过渐变颜色生成一张图片，渐变色方向为从左往右。
     /// - Parameters:
-    ///   - startColor: 渐变起始颜色，默认red。
-    ///   - endColor: 渐变结束颜色，默认blue。
-    ///   - frame: 生成的图片 frame。
+    ///   - startColor: 渐变起始颜色，默认 red.
+    ///   - endColor: 渐变结束颜色，默认 blue.
+    ///   - frame: 生成的图片 frame.
     convenience init(gradientColors startColor: UIColor = .red, endColor: UIColor = .blue, frame: CGRect) {
         
-        let gradientLayer : CAGradientLayer = CAGradientLayer()
+        let gradientLayer = CAGradientLayer()
         gradientLayer.frame = frame
-        //gradient colors
-        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        // gradient colors.
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor] // 渐变的颜色信息
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0)
         
@@ -639,7 +639,6 @@ public extension UIImage {
             return
         }
         self.init(cgImage: outputImage!.cgImage!)
-
     }
     
     @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.reSizeImage")
@@ -957,20 +956,21 @@ public extension EnolaGayWrapper where Base: UIView {
         
     }
     
-    /// 给 View 设置渐变背景色
-    /// * 此方法中会先移除最底层的 CAGradientLayer（该 Layer 的 name 为 EMERANAGRADIENTLAYER）
+    /// 给 View 设置渐变背景色，改背景色的方向为从左往右。
+    ///
+    /// 此方法中会先移除最底层的 CAGradientLayer（该 Layer 的 name 为 EMERANAGRADIENTLAYER）
     /// - Parameters:
-    ///   - startColor: 渐变起始颜色，默认 red
-    ///   - endColor: 渐变结束颜色，默认 blue
+    ///   - startColor: 渐变起始颜色，默认 red.
+    ///   - endColor: 渐变结束颜色，默认 blue.
     @discardableResult
     func gradientView(startColor: UIColor = .red, endColor: UIColor = .blue) -> CAGradientLayer {
-        // 渐变 Layer 层
+        // 渐变 Layer 层。
         let gradientLayer = CAGradientLayer()
         gradientLayer.name = "EMERANAGRADIENTLAYER"
         gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
-        gradientLayer.locations = [0, 1]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        gradientLayer.locations = [0, 1] // 对应 colors 的 alpha 值。
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5) // 渐变色起始点。
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5) // 渐变色终止点。
         gradientLayer.frame = base.bounds
         // layer.addSublayer(gradient1)
         if base.layer.sublayers?[0].name == "EMERANAGRADIENTLAYER" {
@@ -986,10 +986,10 @@ public extension EnolaGayWrapper where Base: UIView {
         return gradientLayer
     }
     
-    /// 根据键盘调整 window origin。
+    /// 根据键盘调整 window origin.
     ///
-    /// - Parameter isReset: 是否重置窗口？默认 flase。
-    /// - Parameter offset: 偏移距离，默认 88。
+    /// - Parameter isReset: 是否重置窗口？默认 flase.
+    /// - Parameter offset: 偏移距离，默认 88.
     func updateWindowFrame(isReset: Bool = false, offset: CGFloat = 88) {
         //滑动效果
         UIView.animate(withDuration: 0.3) { [self] in
@@ -1007,7 +1007,7 @@ public extension EnolaGayWrapper where Base: UIView {
     ///
     /// 该函数以 View 为中心执行一个烟花爆炸动效。
     /// - warning: 如有必要可参考此函数创建新的扩展函数。
-    /// - Parameter finishededAction: 动画完成后执行的事件，默认为 nil。
+    /// - Parameter finishededAction: 动画完成后执行的事件，默认为 nil.
     func blingBling(finishededAction: (()->Void)? = nil) {
         
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
