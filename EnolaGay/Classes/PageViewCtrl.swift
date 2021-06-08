@@ -126,7 +126,7 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
                 }
                 
                 guard theViewTitle != nil, theViewTitle != "" else {
-                    Judy.log("🚔 viewController title 为空，请检查！")
+                    Judy.logWarning("viewController title 为空，请检查！")
                     return "EMERANA"
                 }
                 
@@ -144,14 +144,20 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
     
     // MARK: - UIPageViewControllerDelegate
 
-    // 在手势驱动转换完成后调用。也就是说只有通过拖动 viewCtrl 完成切换（用户已完成翻页手势）才会触发此函数。
+    // 通过用户拖拽 pageViewCtrl 直到手指离开屏幕后且要转换的目标界面不为 nil 时即触发此函数。
+    // 手势驱动转换完成后调用。使用completed参数来区分完成的转换(翻页)和用户中止的转换(未翻页)。
     public func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
 
         isScrollByViewCtrl = true
-        lastSelectIndex = indexOfViewController(viewCtrl: pageViewController.viewControllers!.last!)
         
-        emerana?.pageViewCtrlDidFinishAnimating(at: lastSelectIndex)
-        Judy.log("当前切换到：\(UInt(lastSelectIndex))")
+        if completed {
+            lastSelectIndex = indexOfViewController(viewCtrl: pageViewController.viewControllers!.last!)
+            emerana?.pageViewCtrlDidFinishAnimating(at: lastSelectIndex)
+            // Judy.log("当前切换到：\(UInt(lastSelectIndex))")
+        } else {
+            // Judy.log("中止翻页")
+        }
+
     }
 
     
@@ -420,8 +426,8 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     }
     
     // MARK: - UIPageViewControllerDelegate
-    
-    // 通过用户拖拽 pageViewCtrl 且要转换的目标界面不为 nil 时即触发此函数。
+
+    // 通过用户拖拽 pageViewCtrl 直到手指离开屏幕后且要转换的目标界面不为 nil 时即触发此函数。
     // 手势驱动转换完成后调用。使用completed参数来区分完成的转换(翻页)和用户中止的转换(未翻页)。
     open func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed {
