@@ -88,21 +88,20 @@ class DouYinPageViewCtrl: JudyBasePageViewCtrl {
         if scrollView.contentOffset.x - scrollView.frame.width > 0 {
             if !isPushing {
                 isPushing = true
-                userHome = storyboard?.instantiateViewController(withIdentifier: "UserHome")
+//                userHome = storyboard?.instantiateViewController(withIdentifier: "UserHome")
             }
-            if userHome != nil {
+//            if userHome != nil {
                 if isPushing {
                     Judy.log("移动中……")
-//                    userHome?.view.frame.origin.x = scrollView.contentOffset.x - scrollView.frame.width
                     // 直接 push!
                     if scrollView.contentOffset.x - scrollView.frame.width > 55 {
                         Judy.logWarning("触发 push!")
-                        navigationController?.pushViewController(userHome!, animated: true)
+//                        navigationController?.pushViewController(userHome!, animated: true)
                         isPushing = false
                         scrollView.delegate = nil
                     }
                 }
-            }
+//            }
 
         } else { // == 0
             if isPushing {
