@@ -38,30 +38,32 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
     /// 模型驱动代理，在使用模型驱动时必须实现该代理，并通过此代理设置 viewCtrl 模型。
     weak public var enolagay: EMERANA_JudyBasePageViewCtrlModel?
 
-    /// 记录当前显示的索引。
-    lazy public var lastSelectIndex = 0
+    /// 记录当前显示的索引，该值默认为 0。
+    public fileprivate(set) var currentIndex = 0
 
-    
     /// 当最左边的 ViewCtrl 继续向右拖动达到指定位置时执行 Pop()，默认值应该为 false。
     /// - Warning: 只有当前导航条为 JudyNavigationCtrl 时该属性才起作用。
-    @IBInspectable lazy public var isAutoPop: Bool = false
+    @IBInspectable public lazy var isAutoPop: Bool = false
     
     /// 是否支持弹簧效果，默认为 true。
     /// - Warning: 将该值设为 false 则 pageViewCtrl 首位界面没有向外部滚动的弹簧效果。
-    @IBInspectable lazy public var isBounces: Bool = true
+    @IBInspectable public lazy var isBounces: Bool = true
 
     /// 该值用于记录是否通过拖拽 viewCtrl 触发的切换。
     ///
     /// 若该值为 false（如点击 segmentCtrl 触发切换函数），则不应该响应导航条 Pop() 函数。
     /// - Warning: 若当前导航条为 JudyNavigationCtrl 时才需要该属性。
-    lazy public var isScrollByViewCtrl = true
+    public lazy var isScrollByViewCtrl = true
 
     /// pageViewCtrl 中出现的所有 viewCtrl 数组。
-    private(set) public var viewCtrlArray = [UIViewController]()
+    public private(set) var viewCtrlArray = [UIViewController]()
     
     /// viewCtrlArray 对应的 titles。
-    private(set) lazy public var viewCtrlTitleArray = [String]()
+    public private(set) lazy var viewCtrlTitleArray = [String]()
     
+    /// 在 UIPageViewController 中的核心 ScrollView，请通过 scrollViewClosure 获取有效的 scrollView.
+    public private(set) var scrollView: UIScrollView?
+
     
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -78,8 +80,8 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
         dataSource = self
         delegate = self
 
-        let scrollView = view.subviews.filter { $0 is UIScrollView }.first as! UIScrollView
-        scrollView.delegate = self
+        scrollView = view.subviews.filter { $0 is UIScrollView }.first as? UIScrollView
+        scrollView?.delegate = self
     }
 
     /// 通过此函数启动 pageViewCtrl 以设置数据源，默认会显示数据源中的第一项。
@@ -90,30 +92,30 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
     public final func onStart<DataSource>(dataSource: [DataSource], index: Int = 0) {
         guard !dataSource.isEmpty else { return }
         guard index < dataSource.count else {
-            lastSelectIndex = 0
+            currentIndex = 0
             return
         }
-        lastSelectIndex = index
+        currentIndex = index
 
         if dataSource is [String] { // 传入的标题，以模型驱动。
             guard enolagay != nil else { fatalError("模型驱动必须实现 enolagay！") }
             
             viewCtrlTitleArray = dataSource as! [String]
-            // 根据 viewCtrlTitleArray 设置 viewCtrlArray
+            // 根据 viewCtrlTitleArray 设置 viewCtrlArray.
             viewCtrlArray = viewCtrlTitleArray.enumerated().map({ (index, title) -> UIViewController in
                 let viewCtrl = enolagay!.viewCtrl(for: index, at: title)
                 viewCtrl.title = title
                 return viewCtrl
             })
             // 配置默认显示的界面。
-            setViewControllers([viewCtrlArray[lastSelectIndex]], direction: .forward, animated: true)
+            setViewControllers([viewCtrlArray[currentIndex]], direction: .forward, animated: true)
 
         } else if dataSource is [UIViewController] {  // 传入的 viewCtrl，以 viewCtrl 驱动。
             viewCtrlArray = dataSource as! [UIViewController]
             // 配置默认显示的界面。
-            setViewControllers([viewCtrlArray[lastSelectIndex]], direction: .forward, animated: true)
+            setViewControllers([viewCtrlArray[currentIndex]], direction: .forward, animated: true)
 
-            // 根据 viewCtrlArray 设置 viewCtrlTitleArray。
+            // 根据 viewCtrlArray 设置 viewCtrlTitleArray.
             viewCtrlTitleArray = viewCtrlArray.map({ (item) -> String in
                 let viewController = item
                 var theViewTitle: String?
@@ -126,7 +128,7 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
                 }
                 
                 guard theViewTitle != nil, theViewTitle != "" else {
-                    Judy.log("🚔 viewController title 为空，请检查！")
+                    Judy.logWarning("viewController title 为空，请检查！")
                     return "EMERANA"
                 }
                 
@@ -134,6 +136,11 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
             })
 
         } else { Judy.logWarning("未知数据源类型！") }
+    }
+    
+    /// 外部可能需重设 scrollView?.delegate 时通过调用此函数将 scrollView.delegate 设置为初始状态，也就是 JudyBasePageViewCtrl 本身。
+    public final func resetScrollViewDelegate() {
+        scrollView?.delegate = self
     }
     
     deinit { Judy.logHappy("\(title ?? "\(classForCoder)") 已经释放。") }
@@ -144,14 +151,20 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
     
     // MARK: - UIPageViewControllerDelegate
 
-    // 在手势驱动转换完成后调用。也就是说只有通过拖动 viewCtrl 完成切换（用户已完成翻页手势）才会触发此函数。
+    // 通过用户拖拽 pageViewCtrl 直到手指离开屏幕后且要转换的目标界面不为 nil 时即触发此函数。
+    // 手势驱动转换完成后调用。使用completed参数来区分完成的转换(翻页)和用户中止的转换(未翻页)。
     public func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
 
         isScrollByViewCtrl = true
-        lastSelectIndex = indexOfViewController(viewCtrl: pageViewController.viewControllers!.last!)
         
-        emerana?.pageViewCtrlDidFinishAnimating(at: lastSelectIndex)
-        Judy.log("当前切换到：\(UInt(lastSelectIndex))")
+        if completed {
+            currentIndex = indexOfViewController(viewCtrl: pageViewController.viewControllers!.last!)
+            emerana?.pageViewCtrlDidFinishAnimating(at: currentIndex)
+            // Judy.log("当前切换到：\(UInt(lastSelectIndex))")
+        } else {
+            // Judy.log("中止翻页")
+        }
+
     }
 
     
@@ -165,7 +178,7 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
         guard isAutoPop, isScrollByViewCtrl,
               navigationController is JudyNavigationCtrl,
               navigationController!.children.count > 1, // 守护 JudyNavigationCtrl 不是最底层，最底层无法 pop。
-              lastSelectIndex == 0 else {
+              currentIndex == 0 else {
             return
         }
         
@@ -247,7 +260,7 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
 
         super.pageViewController(pageViewController, didFinishAnimating: finished, previousViewControllers: previousViewControllers, transitionCompleted: completed)
         
-        segmentedCtrl.selectItem(at: lastSelectIndex)
+        segmentedCtrl.selectItem(at: currentIndex)
     }
     
     // MARK: - segmentedCtrl 相关函数
@@ -270,8 +283,8 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
         }
         let viewCtrls = [viewCtrlArray[index]]
         // 不应该在 completion 里设置 lastSelectIndex，这样不及时。
-        setViewControllers(viewCtrls, direction: ((lastSelectIndex < index) ? .forward : .reverse), animated: true)
-        lastSelectIndex = index
+        setViewControllers(viewCtrls, direction: ((currentIndex < index) ? .forward : .reverse), animated: true)
+        currentIndex = index
     }
     
 }
@@ -333,7 +346,7 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     
     @available(*, unavailable, message: "请使用 enolagay 实现下拉刷新")
     public var scrollViewClosure: ((UIScrollView) -> Void)?
-    /// 在 UIPageViewController 中的核心 ScrollView，请通过 scrollViewClosure 获取有效的 scrollView。
+    /// 在 UIPageViewController 中的核心 ScrollView，请通过 scrollViewClosure 获取有效的 scrollView.
     public private(set) var scrollView: UIScrollView? {
         didSet{
             if scrollView != nil {
@@ -347,15 +360,8 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     
     /// 当前正在显示的 viewCtrl 在 entitys 中的索引，若该值为 -1 说明当前显示为空界面。
     ///
-    /// 即使正在翻页中尚未完成一个完整的翻页
+    /// 即使正在翻页中尚未完成一个完整的翻页。
     public private(set) var currentIndex = -1
-    /*
-     {
-        didSet {
-            Judy.log("当前显示的序列 currentIndex 为：\(currentIndex)")
-        }
-     }
-     */
     
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -374,7 +380,6 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
         scrollView = view.subviews.filter { $0 is UIScrollView }.first as? UIScrollView
         scrollView?.delegate = self
     }
-    
     
     /// 初始化所有数据配置及逻辑。
     ///
@@ -420,8 +425,8 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     }
     
     // MARK: - UIPageViewControllerDelegate
-    
-    // 通过用户拖拽 pageViewCtrl 且要转换的目标界面不为 nil 时即触发此函数。
+
+    // 通过用户拖拽 pageViewCtrl 直到手指离开屏幕后且要转换的目标界面不为 nil 时即触发此函数。
     // 手势驱动转换完成后调用。使用completed参数来区分完成的转换(翻页)和用户中止的转换(未翻页)。
     open func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed {

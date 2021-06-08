@@ -326,7 +326,7 @@ public class JudyNavigationCtrl: JudyBaseNavigationCtrl {
     deinit {
         backgroundView?.removeFromSuperview()
         backgroundView = nil
-        Judy.log("JudyNavigation 释放！")
+        Judy.logHappy("导航控制器已释放")
     }
     
 }
@@ -370,41 +370,31 @@ public extension JudyNavigationCtrl {
 private extension JudyNavigationCtrl {
 
     var keyWindow: UIWindow { Judy.keyWindow! }
-    var topView: UIView { Judy.keyWindow!.rootViewController!.view }
+    var topView: UIView { keyWindow.rootViewController!.view }
     
-    /// 移动 topView 的位置。
+    /// 将 topView.x 移动到指定的的位置。
     ///
-    /// - Parameter x: frame 的 x ，跟随手指移动实时刷新。
+    /// - Parameter x: frame 的目标 x.
     func moveViewWithX(x: CGFloat){
         var x = x
         // 最大最小值限制。
-        x = x > view.frame.width ? view.frame.width:x
-        x = x < 0 ? 0:x
+        x = min(view.frame.width, x)
+        x = max(0, x)
         
         // Judy.log("当前移动X:\(x)")
         
         // 移动顶层 View 的 X.
         topView.frame.origin.x = x
         
-        // 规模为1时表示不缩放。
+        // 规模为 1 时表示不缩放。
         var scale: CGFloat = (x/6800) + 0.95
-        scale = scale > 1 ? 1:scale
+        scale = min(1, scale)
+
         // 滑动过程中的遮罩 View 能见度。
         let alpha = 0.68*(1 - x/view.frame.width)
         
         lastScreenShotView?.transform = CGAffineTransform.init(scaleX: scale, y: scale)
         blackMask?.alpha = alpha
-    }
-    
-    /// 手指离开屏幕，拖动结束事件，此事件未达到 navigationCtrl pop 条件，还原 topView 位置。
-    func panEndedReductionAction() {
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            self.moveViewWithX(x: 0)
-        }) { (finished) in
-            self.isMoving = false
-            self.backgroundView?.isHidden = true
-        }
     }
     
     /// 手指开始拖动事件。
@@ -435,15 +425,26 @@ private extension JudyNavigationCtrl {
         lastScreenShotView = UIImageView(image: lastScreenShot)
         backgroundView?.insertSubview(lastScreenShotView!, belowSubview: blackMask!)
     }
+    
+    /// 手指离开屏幕，拖动结束事件，此事件未达到 navigationCtrl pop 条件，还原 topView 位置。
+    func panEndedReductionAction() {
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.moveViewWithX(x: 0)
+        }) { (finished) in
+            self.isMoving = false
+            self.backgroundView?.isHidden = true
+        }
+    }
 
     /// 以动画的方式触发 pop 事件。
     func popActionWithAnimate() {
         UIView.animate(withDuration: 0.3, animations: {
             self.moveViewWithX(x: self.view.frame.width)
         }) { (finished) in
-            // 触发 pop
+            // 触发 pop 事件.
             self.popViewController(animated: false)
-            
+
             self.topView.frame.origin.x = 0
             self.isMoving = false
             self.backgroundView?.isHidden = true
@@ -454,21 +455,18 @@ private extension JudyNavigationCtrl {
     
     /// 平移手势事件，不断的执行。
     @objc func paningGestureReceive(recoginzer: UIPanGestureRecognizer){
-        if viewControllers.count <= 1 {
-            return
-        }
-        
+        guard viewControllers.count > 1 else { return }
         // 平移时将 window 背景设为黑色。
         keyWindow.backgroundColor = .black
         
         let touchPoint = recoginzer.location(in: keyWindow)
         
-        // 开始拖动屏幕触发。
-        if recoginzer.state == .began {
+        switch recoginzer.state {
+        case .began: // 开始拖动屏幕时触发
+            // Judy.logWarning("began：\(touchPoint.x)")
             panBeganAction(startTouchPoint: touchPoint)
-
-            // 结束，手指离开屏幕触发。
-        } else if recoginzer.state == .ended {
+        case .ended: // 结束，手指离开屏幕触发
+            // Judy.logWarning("ended：\(touchPoint.x)")
             // 设置滑动多少距离就可以触发 pop.
             if touchPoint.x - startTouch.x > 28 {
                 popActionWithAnimate()
@@ -476,13 +474,14 @@ private extension JudyNavigationCtrl {
                 panEndedReductionAction()
             }
             return
-        } else if recoginzer.state == .cancelled {  // 取消了
+        case .cancelled: // 取消了
+            // Judy.logWarning("cancelled：\(touchPoint.x)")
             panEndedReductionAction()
             return
-        }
-        
-        if isMoving {
+        case .changed: // 正在拖动的过程中
+            // Judy.logWarning("changed：\(touchPoint.x)")
             moveViewWithX(x: touchPoint.x - startTouch.x)
+        default: break
         }
     }
 }
@@ -490,7 +489,7 @@ private extension JudyNavigationCtrl {
 // MARK: - UIGestureRecognizerDelegate
 
 extension JudyNavigationCtrl: UIGestureRecognizerDelegate {
-    // 接收事件代理方法。
+    // 是否接收事件代理函数？
     open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         return children.count > 1
     }
