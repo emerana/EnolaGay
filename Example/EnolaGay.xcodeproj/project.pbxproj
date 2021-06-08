@@ -25,6 +25,8 @@
 		8B1AA68125A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */; };
 		8B4A4DE3266E0E37007D6DC5 /* NavigatinCtrl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */; };
 		8B4A4DE5266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */; };
+		8B4A4DEB266F0B8C007D6DC5 /* DouYin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */; };
+		8B4A4DED266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */; };
 		8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76428F25A702C400A418F8 /* AppConfigs.swift */; };
 		8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */; };
 		8B81AA1B261EEF74003A194B /* KeyBoardPopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B81AA1A261EEF74003A194B /* KeyBoardPopUp.storyboard */; };
@@ -75,6 +77,8 @@
 		8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTestViewCtrl.swift; sourceTree = "<group>"; };
 		8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigatinCtrl.storyboard; sourceTree = "<group>"; };
 		8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatinMainViewCtrl.swift; sourceTree = "<group>"; };
+		8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DouYin.storyboard; sourceTree = "<group>"; };
+		8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DouYonHomeViewCtrl.swift; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
 		8B81AA1A261EEF74003A194B /* KeyBoardPopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KeyBoardPopUp.storyboard; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 		607FACD21AFB9204008FA782 /* Example for EnolaGay */ = {
 			isa = PBXGroup;
 			children = (
+				8B4A4DE9266F0B7B007D6DC5 /* DouYinHome */,
 				8B4A4DE1266E0E23007D6DC5 /* NavigationCtrl */,
 				8B0B90A9262832650059B992 /* RefreshTest */,
 				8B81AA19261EEF63003A194B /* 键盘优化 */,
@@ -252,6 +257,15 @@
 				8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */,
 			);
 			path = NavigationCtrl;
+			sourceTree = "<group>";
+		};
+		8B4A4DE9266F0B7B007D6DC5 /* DouYinHome */ = {
+			isa = PBXGroup;
+			children = (
+				8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */,
+				8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */,
+			);
+			path = DouYinHome;
 			sourceTree = "<group>";
 		};
 		8B76428E25A702C400A418F8 /* Tests */ = {
@@ -405,6 +419,7 @@
 				8B81AA1B261EEF74003A194B /* KeyBoardPopUp.storyboard in Resources */,
 				8BA9AA05260EDAB8008B1803 /* AttributedString.storyboard in Resources */,
 				8B0B90B12628328E0059B992 /* Refresh.storyboard in Resources */,
+				8B4A4DEB266F0B8C007D6DC5 /* DouYin.storyboard in Resources */,
 				8B4A4DE3266E0E37007D6DC5 /* NavigatinCtrl.storyboard in Resources */,
 				8B1A499025C8354700FDA57A /* LangRenSha.storyboard in Resources */,
 				8B1AA67925A74B600063BE04 /* JudyLivePageViewCtrl.storyboard in Resources */,
@@ -505,6 +520,7 @@
 				8B81AA1F261EEF85003A194B /* KeyBoardPopUpViewCtrl.swift in Sources */,
 				8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */,
 				8B1AA67325A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */,
+				8B4A4DED266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift in Sources */,
 				8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */,
 				8B0B90AB262832830059B992 /* TestTableRefreshTableViewCtrl.swift in Sources */,
 				8BB8861E265CF30A00E8836D /* GiftMessageViewCtrlTest.swift in Sources */,
