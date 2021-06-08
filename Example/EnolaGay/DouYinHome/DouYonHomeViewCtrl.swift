@@ -22,6 +22,13 @@ class DouYonHomeViewCtrl: JudyBaseViewCtrl {
     }
 
     // MARK: - override
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let scrollView = pageViewCtrl.view.subviews.filter { $0 is UIScrollView }.first as! UIScrollView
+        scrollView.delegate = pageViewCtrl
+
+    }
     
     // MARK: - event response
 
@@ -90,9 +97,11 @@ class DouYinPageViewCtrl: JudyBasePageViewCtrl {
             if userHome != nil {
                 if isPushing {
                     Judy.log("移动中……")
+//                    userHome?.view.frame.origin.x = scrollView.contentOffset.x - scrollView.frame.width
                     // 直接 push!
-                    if scrollView.contentOffset.x - scrollView.frame.width > scrollView.frame.width/5 {
+                    if scrollView.contentOffset.x - scrollView.frame.width > 15 {
                         Judy.logWarning("触发 push!")
+                        navigationController?.pushViewController(userHome!, animated: true)
                         isPushing = false
                         scrollView.delegate = nil
                     }
