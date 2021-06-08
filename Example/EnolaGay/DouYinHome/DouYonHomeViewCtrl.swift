@@ -25,9 +25,7 @@ class DouYonHomeViewCtrl: JudyBaseViewCtrl {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let scrollView = pageViewCtrl.view.subviews.filter { $0 is UIScrollView }.first as! UIScrollView
-        scrollView.delegate = pageViewCtrl
-
+        pageViewCtrl.resetScrollViewDelegate()
     }
     
     // MARK: - event response
@@ -81,13 +79,11 @@ class DouYinPageViewCtrl: JudyBasePageViewCtrl {
             Judy.logHappy(isPushing ? "push 开始":"push 结束")
         }
     }
-    
-//    private var isPushed = false
-    
+        
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.bounces = true
         // Judy.log("滚动:\(scrollView.contentOffset.x)")
-        if lastSelectIndex != 2 { return }
+        if currentIndex != 2 { return }
         
         if scrollView.contentOffset.x - scrollView.frame.width > 0 {
             if !isPushing {
@@ -99,7 +95,7 @@ class DouYinPageViewCtrl: JudyBasePageViewCtrl {
                     Judy.log("移动中……")
 //                    userHome?.view.frame.origin.x = scrollView.contentOffset.x - scrollView.frame.width
                     // 直接 push!
-                    if scrollView.contentOffset.x - scrollView.frame.width > 15 {
+                    if scrollView.contentOffset.x - scrollView.frame.width > 55 {
                         Judy.logWarning("触发 push!")
                         navigationController?.pushViewController(userHome!, animated: true)
                         isPushing = false
