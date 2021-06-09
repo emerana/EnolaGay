@@ -245,6 +245,13 @@ public extension Judy {
         #endif
     }
     
+    /// 极简打印，该函数仅输出要打印的消息体。
+    static func logs<msg>(level: LogLevel = .🟠, _ message: @autoclosure () -> msg) {
+        #if DEBUG
+        print("\(level) \(message())")
+        #endif
+    }
+    
     /// 该函数强制以换行的方式将消息体打印，打印消息体等同于 log() 函数。
     static func logn<msg>(level: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
@@ -259,20 +266,6 @@ public extension Judy {
         #endif
     }
 
-    /// 极简打印，该函数仅输出要打印的消息体。
-    static func logs<msg>(level: LogLevel = .🟠, _ message: @autoclosure () -> msg) {
-        #if DEBUG
-        print("\(level) \(message())")
-        #endif
-    }
-    
-    /// 该函数强制打印好消息级别的标识符输出，打印消息体等同于 log() 函数，只是消息体放在最前面。
-    static func logHappy<msg>(level: LogLevel = .🟢, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
-        #if DEBUG
-        print("\(level) \(message()) ⚓️ \((file as NSString).lastPathComponent) [\(line)] \(method)")
-        #endif
-    }
-
     /// 该函数仅输出线程相关信息，所在函数名及所在行。
     static func logt<msg>(level: LogLevel = .🟣, _ message: @autoclosure () -> msg, method: String = #function, line: Int = #line) {
         #if DEBUG
@@ -280,10 +273,17 @@ public extension Judy {
         #endif
     }
     
-    /// 该函数强制打印警告或错误级别的标识符输出，打印消息体等同于 log() 函数。
-    static func logWarning<msg>(level: LogLevel = .🔴, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
+    /// 该函数强制打印好消息级别的标识符输出，打印消息体等同于 log() 函数，只是消息体放在最前面。
+    static func logHappy<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
-        print("\(level) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
+        print("\(LogLevel.🟢) \(message()) ⚓️ \((file as NSString).lastPathComponent) [\(line)] \(method)")
+        #endif
+    }
+    
+    /// 该函数强制打印警告或错误级别的标识符输出，打印消息体等同于 log() 函数。
+    static func logWarning<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
+        #if DEBUG
+        print("\(LogLevel.🔴) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
         #endif
     }
 
