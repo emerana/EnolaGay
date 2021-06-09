@@ -21,6 +21,7 @@ class VideoCell: JudyBaseTableCell {
     /// - 请在 didEndDisplaying cell 函数中将该值设为 true.
     var isDisAppear = true {
         didSet {
+            Judy.log("isDisAppear 被设为：\(isDisAppear)，此时播放器状态为：\(player.playbackState.description)")
             // 需要暂停播放
             if isDisAppear {
                 player.pause()
@@ -35,9 +36,6 @@ class VideoCell: JudyBaseTableCell {
     /// 播放按钮。
     @IBOutlet weak var playerButton: JudyBaseButton!
     
-    // MARK: - var property
-    
-    
     // MARK: - life cycle
     
     // cell 准备重用时执行的方法。
@@ -51,14 +49,14 @@ class VideoCell: JudyBaseTableCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .green
-
-        Judy.log("")
         self.player.playerDelegate = self
         self.player.playbackDelegate = self
         self.player.view.frame = contentView.bounds
         self.player.fillMode = .resize
+        self.player.playbackLoops = true
 
-        self.contentView.addSubview(self.player.view)
+//        self.contentView.addSubview(self.player.view)
+        contentView.insertSubview(player.view, at: 0)
     }
     
     override func layoutSubviews() {
@@ -77,6 +75,10 @@ class VideoCell: JudyBaseTableCell {
     
     /// 设置数据源事件。
     override func jsonDidSetAction() {
+        guard player.url?.absoluteString != json["urls"].stringValue else {
+            Judy.logWarning("都已经是同样的 URL 了，不用设置啦！")
+            return
+        }
         self.player.url = URL(string: json["urls"].stringValue)!
     }
     
@@ -88,12 +90,17 @@ class VideoCell: JudyBaseTableCell {
 extension VideoCell: PlayerDelegate {
     
     func playerReady(_ player: Player) {
-        print("\(#function) ready")
-        self.player.playFromBeginning()
+        Judy.logHappy("ready")
     }
     
     func playerPlaybackStateDidChange(_ player: Player) {
-        print("\(#function) \(player.playbackState.description)")
+        Judy.log(player.playbackState.description)
+        switch player.playbackState {
+        case .playing:
+            playerButton.isHidden = true
+        case .paused, .failed, .stopped:
+            playerButton.show()
+        }
     }
     
     func playerBufferingStateDidChange(_ player: Player) {
@@ -103,7 +110,7 @@ extension VideoCell: PlayerDelegate {
     }
     
     func player(_ player: Player, didFailWithError error: Error?) {
-        print("\(#function) error.description")
+        Judy.logl("\(#function) error.description")
     }
     
 }

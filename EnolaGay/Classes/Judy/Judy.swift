@@ -222,14 +222,26 @@ public extension Judy {
 // MARK: - 自定义输出、限制输入
 public extension Judy {
     
+    /// log 函数打印的可选级别。通过该级别可能更好地区分打印的信息等级以便于调试。
+    enum LogLevel: String {
+        /// 默认级别，通常代表普通信息。
+        case 🟡
+        /// 该级别通常表示警告、错误等需要重视的信息。
+        case 🔴
+        /// 该级别通常代表好消息、令人愉悦的信息。
+        case 🟢
+        /// 没有特别定义，用于强调、区分日志信息等级而已。
+        case 🟠, 🔵, 🟣, 🟤, 🔘
+    }
+    
     /**
      - 如果发现不能正常打印，请在Build Settings -> Active Compilation Conditions 的 Debug 项中添加一个 DEBUG 即可。
      */
 
     /// 该打印函数将打印包含文件名、所在行及函数名的消息，通常用于日志式的信息输出。
-    static func log<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
+    static func log<msg>(_ message: @autoclosure () -> msg, level: LogLevel = .🟡, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
-        print("🟡 \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
+        print("\(level) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
         #endif
     }
     

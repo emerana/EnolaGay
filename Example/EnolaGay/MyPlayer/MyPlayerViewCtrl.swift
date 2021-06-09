@@ -35,7 +35,6 @@ class MyPlayerViewCtrl: JudyBaseTableViewCtrl {
 }
 
 extension MyPlayerViewCtrl {
-    
     func setDataSoruce() {
         dataSource = [
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210414135329.mp4"]),
@@ -58,11 +57,11 @@ extension MyPlayerViewCtrl {
         // viewDidLoad 中执行 tableView?.scrollToRow 后，
         // 导致上下切换 Cell 还会残留上一个 Cell 问题，
         // 是因为 Estimate 为 Automatic，给其设置一个值即可。
-        return tableView.frame.height - tableView.safeAreaInsets.top
+        return tableView.frame.height
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height - tableView.safeAreaInsets.top
+        return tableView.frame.height
     }
     
     /// 询问指定 indexPath 的 cell 实例，默认取 identifier 为 cell 的实例。
@@ -80,13 +79,17 @@ extension MyPlayerViewCtrl {
 extension MyPlayerViewCtrl {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        // Judy.logWarning("Cell \(indexPath.row) 显示，并开始播放。")
+        Judy.logWarning("Cell \(indexPath.row) 显示，并开始播放。")
         currentPlayerCell = cell as? VideoCell
     }
-    
+
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         Judy.logWarning("Cell \(indexPath.row) 消失，并暂停播放。")
         (cell as? VideoCell)?.isDisAppear = true
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        Judy.logl("scrollViewDidEndDecelerating")
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

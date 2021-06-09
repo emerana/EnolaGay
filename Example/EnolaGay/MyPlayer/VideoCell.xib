@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -18,8 +18,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oN-o0-18R" customClass="JudyBaseButton" customModule="EnolaGay">
-                        <rect key="frame" x="173.5" y="301" width="37" height="34"/>
-                        <state key="normal" title="播放">
+                        <rect key="frame" x="172" y="291.66666666666669" width="40" height="53"/>
+                        <state key="normal" image="button_播放">
                             <color key="titleColor" red="1" green="0.22352941179999999" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
@@ -37,6 +37,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="button_播放" width="40" height="52.666667938232422"/>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
