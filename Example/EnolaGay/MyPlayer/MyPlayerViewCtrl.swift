@@ -13,6 +13,13 @@ import SwiftyJSON
 class MyPlayerViewCtrl: JudyBaseTableViewCtrl {
     override var viewTitle: String? { "Player" }
 
+    /// 当前正播放视频的 Cell.
+    private(set) var currentPlayerCell: VideoCell? {
+        didSet {
+            oldValue?.isDisAppear = true
+            currentPlayerCell?.isDisAppear = false
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +73,25 @@ extension MyPlayerViewCtrl {
         
         return cell
     }
+}
 
+
+// MARK: - tableView delegate
+extension MyPlayerViewCtrl {
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // Judy.logWarning("Cell \(indexPath.row) 显示，并开始播放。")
+        currentPlayerCell = cell as? VideoCell
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        Judy.logWarning("Cell \(indexPath.row) 消失，并暂停播放。")
+        (cell as? VideoCell)?.isDisAppear = true
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as? VideoCell
+        cell?.isDisAppear = !cell!.isDisAppear
+    }
 
 }

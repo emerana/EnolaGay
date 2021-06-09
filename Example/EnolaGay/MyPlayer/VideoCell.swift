@@ -12,6 +12,24 @@ import Player
 
 class VideoCell: JudyBaseTableCell {
     
+    // MARK: - public var property
+    
+    /// 当前 Cell 是否已经消失的标志，默认为 true.
+    ///
+    /// - 务必通过此函数来控制播放器。
+    /// - 请在 willDisplay cell 函数中将该值设为 false.
+    /// - 请在 didEndDisplaying cell 函数中将该值设为 true.
+    var isDisAppear = true {
+        didSet {
+            // 需要暂停播放
+            if isDisAppear {
+                player.pause()
+            } else {
+                player.playFromCurrentTime()
+            }
+        }
+    }
+
     fileprivate var player = Player()
 
     /// 播放按钮。
@@ -33,16 +51,14 @@ class VideoCell: JudyBaseTableCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .green
-//        contentMode = .scaleAspectFit
-        
+
+        Judy.log("")
         self.player.playerDelegate = self
         self.player.playbackDelegate = self
         self.player.view.frame = contentView.bounds
-//        self.player.fillMode = .resizeAspect
+        self.player.fillMode = .resize
 
-        // self.addChild(self.player)
         self.contentView.addSubview(self.player.view)
-        // self.player.didMove(toParent: self)
     }
     
     override func layoutSubviews() {
