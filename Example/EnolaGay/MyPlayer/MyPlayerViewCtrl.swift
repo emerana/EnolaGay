@@ -24,7 +24,6 @@ class MyPlayerViewCtrl: JudyBaseViewCtrl {
         
         self.player.url = URL(string: "https://video.jingmaiwang.com/smallvideo/-1_20210415143308.mp4")!
 
-
         self.addChild(self.player)
         self.view.addSubview(self.player.view)
         self.player.didMove(toParent: self)
