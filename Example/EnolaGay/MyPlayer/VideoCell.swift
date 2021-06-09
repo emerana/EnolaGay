@@ -32,14 +32,22 @@ class VideoCell: JudyBaseTableCell {
     /// 从 xib 或故事板创建对象将会执行此初始函数。
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = .green
+//        contentMode = .scaleAspectFit
         
         self.player.playerDelegate = self
         self.player.playbackDelegate = self
         self.player.view.frame = contentView.bounds
-        
-        //        self.addChild(self.player)
+//        self.player.fillMode = .resizeAspect
+
+        // self.addChild(self.player)
         self.contentView.addSubview(self.player.view)
         // self.player.didMove(toParent: self)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.player.view.frame = contentView.bounds
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
