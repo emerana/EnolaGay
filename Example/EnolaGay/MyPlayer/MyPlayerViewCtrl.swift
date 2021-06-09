@@ -79,7 +79,7 @@ extension MyPlayerViewCtrl {
 extension MyPlayerViewCtrl {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        Judy.logWarning("Cell \(indexPath.row) 显示，并开始播放。")
+        Judy.logs("Cell \(indexPath.row) 显示，并开始播放。")
         currentPlayerCell = cell as? VideoCell
     }
 
@@ -87,9 +87,13 @@ extension MyPlayerViewCtrl {
         Judy.logWarning("Cell \(indexPath.row) 消失，并暂停播放。")
         (cell as? VideoCell)?.isDisAppear = true
     }
-    
+
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        Judy.logl("scrollViewDidEndDecelerating")
+        // 这才是正确地获取当前显示的 Cell 方式！
+        if scrollView == tableView {
+            let cells = tableView?.visibleCells
+            currentPlayerCell = cells?.first as? VideoCell
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
