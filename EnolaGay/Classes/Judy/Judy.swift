@@ -231,7 +231,12 @@ public extension Judy {
         /// 该级别通常代表好消息、令人愉悦的信息。
         case 🟢
         /// 没有特别定义，用于强调、区分日志信息等级而已。
-        case 🟠, 🔵, 🟣, 🟤, 🔘
+        case 🟠, 🔵, 🟣, 🟤, 🔘, 🟦, 🟪, 🅰️, 🅱️, 🅾️,
+             🌤, 🌧, 💨, 💧, 💙, 💜, 🤎, 🔸, 🔹,
+             🍏, 🍎, 🍑, 🍒, 🥭, 🍅, 🍉, 🍌, 🫐,
+             🥬, 🌽, 🏀, 🔱,  🛑, 💊, 🚫,
+             🔆, 🦠, 🌐, 🪣, 👑, 🏵, 🔔, 🌰,
+             🧿, 📀, 🖥, 🛠, 🏆, 🛎, 🌎, 🛖, 🎁, 🧻, 🖼, 🐶
     }
     
     /**
@@ -239,41 +244,41 @@ public extension Judy {
      */
 
     /// 该打印函数将依次打印文件名、触发函数所在行及函数名的信息，最常用的日志式的信息输出。
-    static func log<msg>(level: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
+    static func log<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
-        print("\(level) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
+        print("\(type) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
         #endif
     }
     
     /// 极简打印，该函数仅输出要打印的消息体。
-    static func logs<msg>(level: LogLevel = .🟠, _ message: @autoclosure () -> msg) {
+    static func logs<msg>(type: LogLevel = .🔘, _ message: @autoclosure () -> msg) {
         #if DEBUG
-        print("\(level) \(message())")
+        print("\(type) \(message())")
         #endif
     }
     
     /// 该函数强制以换行的方式将消息体打印，打印消息体等同于 log() 函数。
-    static func logn<msg>(level: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
+    static func logn<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
-        print("\(level) \((file as NSString).lastPathComponent) [\(line)] \(method) \n \(message())")
+        print("\(type) \((file as NSString).lastPathComponent) [\(line)] \(method) \n \(message())")
         #endif
     }
 
     /// 该打印函数仅输出文件名及所在行信息。
-    static func logl<msg>(level: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, line: Int = #line) {
+    static func logl<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, line: Int = #line) {
         #if DEBUG
-        print("\(level) \((file as NSString).lastPathComponent)[\(line)] ⚓️ \(message())")
+        print("\(type) \((file as NSString).lastPathComponent)[\(line)] ⚓️ \(message())")
         #endif
     }
 
     /// 该函数仅输出线程相关信息，所在函数名及所在行。
-    static func logt<msg>(level: LogLevel = .🟣, _ message: @autoclosure () -> msg, method: String = #function, line: Int = #line) {
+    static func logt<msg>(type: LogLevel = .🟣, _ message: @autoclosure () -> msg, method: String = #function, line: Int = #line) {
         #if DEBUG
-        print("\(level) \(Thread.current) [\(line)] \(method) ⚓️ \(message())")
+        print("\(type) \(Thread.current) [\(line)] \(method) ⚓️ \(message())")
         #endif
     }
     
-    /// 该函数强制打印好消息级别的标识符输出，打印消息体等同于 log() 函数，只是消息体放在最前面。
+    /// 该函数强制打印好消息级别的标识符输出，打印消息体等同于 log() 函数，但消息体放在最前面。
     static func logHappy<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
         print("\(LogLevel.🟢) \(message()) ⚓️ \((file as NSString).lastPathComponent) [\(line)] \(method)")
