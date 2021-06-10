@@ -25,7 +25,7 @@ public protocol EMERANA_JudyPageViewCtrlAnimating: UIViewController {
 
 import UIKit
 
-/// 支持模型驱动和数据驱动的标准 JudyBasePageViewCtrl。
+/// 支持模型驱动和数据驱动的标准 JudyBasePageViewCtrl.
 ///
 /// 通过 setPageViewDataSource 函数设置数据及界面，此类适用于切换的页面较少的场景，会保留所有出现的 viewCtrl。
 /// - Warning: setPageViewDataSource 函数中直接明确了所有需要出现的 viewCtrls 及对应的 titles。
@@ -38,10 +38,10 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
     /// 模型驱动代理，在使用模型驱动时必须实现该代理，并通过此代理设置 viewCtrl 模型。
     weak public var enolagay: EMERANA_JudyBasePageViewCtrlModel?
 
-    /// 记录当前显示的索引，该值默认为 0。
+    /// 记录当前显示的索引，该值默认为 0.
     public fileprivate(set) var currentIndex = 0
 
-    /// 当最左边的 ViewCtrl 继续向右拖动达到指定位置时执行 Pop()，默认值应该为 false。
+    /// 当最左边的 ViewCtrl 继续向右拖动达到指定位置时执行 Pop()，默认值应该为 false.
     /// - Warning: 只有当前导航条为 JudyNavigationCtrl 时该属性才起作用。
     @IBInspectable public lazy var isAutoPop: Bool = false
     
@@ -49,16 +49,16 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
     /// - Warning: 将该值设为 false 则 pageViewCtrl 首位界面没有向外部滚动的弹簧效果。
     @IBInspectable public lazy var isBounces: Bool = true
 
-    /// 该值用于记录是否通过拖拽 viewCtrl 触发的切换。
+    /// 该值用于记录最后一次视图的转换是否由用户通过拖拽触发，该值默认为 true.
     ///
-    /// 若该值为 false（如点击 segmentCtrl 触发切换函数），则不应该响应导航条 Pop() 函数。
+    /// 若该值为 false（如因为 segmentCtrl 切换触发转换），则不应该响应导航条 Pop() 函数。
     /// - Warning: 若当前导航条为 JudyNavigationCtrl 时才需要该属性。
-    public lazy var isScrollByViewCtrl = true
+    public lazy var isDrag = true
 
     /// pageViewCtrl 中出现的所有 viewCtrl 数组。
     public private(set) var viewCtrlArray = [UIViewController]()
     
-    /// viewCtrlArray 对应的 titles。
+    /// viewCtrlArray 对应的 titles.
     public private(set) lazy var viewCtrlTitleArray = [String]()
     
     /// 在 UIPageViewController 中的核心 ScrollView，请通过 scrollViewClosure 获取有效的 scrollView.
@@ -145,17 +145,14 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
     
     deinit { Judy.logHappy("\(title ?? "\(classForCoder)") 已经释放。") }
 
-    @available(*, unavailable, message: "该函数已更新，请通过 onStart 函数启动。", renamed: "onStart")
-    final public func setPageViewDataSource<DataSource>(dataSource: [DataSource]) {}
-
     
     // MARK: - UIPageViewControllerDelegate
-
+    
     // 通过用户拖拽 pageViewCtrl 直到手指离开屏幕后且要转换的目标界面不为 nil 时即触发此函数。
     // 手势驱动转换完成后调用。使用completed参数来区分完成的转换(翻页)和用户中止的转换(未翻页)。
     public func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
 
-        isScrollByViewCtrl = true
+        isDrag = true
         
         if completed {
             currentIndex = indexOfViewController(viewCtrl: pageViewController.viewControllers!.last!)
@@ -164,7 +161,6 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
         } else {
             // Judy.log("中止翻页")
         }
-
     }
 
     
@@ -175,9 +171,9 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.bounces = isBounces
 
-        guard isAutoPop, isScrollByViewCtrl,
+        guard isAutoPop, isDrag,
               navigationController is JudyNavigationCtrl,
-              navigationController!.children.count > 1, // 守护 JudyNavigationCtrl 不是最底层，最底层无法 pop。
+              navigationController!.children.count > 1, // 守护 JudyNavigationCtrl 不是最底层，最底层无法 pop.
               currentIndex == 0 else {
             return
         }
@@ -192,21 +188,20 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
 
 private extension JudyBasePageViewCtrl {
     
-    /// 通过当前 viewCtrl 获取对应的在 viewCtrlArray 中的 index。
+    /// 通过当前 viewCtrl 获取对应的在 viewCtrlArray 中的 index.
     /// - Parameter viewCtrl: 此 viewCtrl 必须是 viewCtrlArray 中的一员。
     func indexOfViewController(viewCtrl: UIViewController) -> Int {
         return viewCtrlArray.firstIndex(of: viewCtrl) ?? NSNotFound
     }
     
-    /// 通过 index 在 viewCtrlArray 中获取一个 viewCtrl。
+    /// 通过 index 在 viewCtrlArray 中获取一个 viewCtrl.
     ///
     /// - Parameter index: 索引。
-    /// - Returns: 目标 viewCtrl。
     func viewCtrlBySwitchAtIndex(index: Int) -> UIViewController? {
         if (viewCtrlArray.count == 0) || (index >= viewCtrlArray.count) {
             return nil
         }
-        // 从 viewCtrlArray 中直接拿出对应的 viewCtrl
+        // 从 viewCtrlArray 中直接拿出对应的 viewCtrl.
         return viewCtrlArray[index]
     }
     
@@ -219,9 +214,7 @@ extension JudyBasePageViewCtrl: UIPageViewControllerDataSource {
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let index = indexOfViewController(viewCtrl: viewController)
         // 判断是否已经是第一页
-        if index == 0 || index == NSNotFound {
-            return nil
-        }
+        if index == 0 || index == NSNotFound { return nil }
         
         return viewCtrlBySwitchAtIndex(index: index-1)
     }
@@ -247,7 +240,7 @@ extension JudyBasePageViewCtrl: UIPageViewControllerDataSource {
 ///  - warning: 本类中的 segmentedCtrl 已经和 pageViewCtrl 互相关联，无需手动配置二者关系。
 open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDelegate {
     
-    /// 内置的分段控制器，请自行配置其 dataSource。
+    /// 内置的分段控制器，请自行配置其 dataSource.
     public lazy private(set) var segmentedCtrl: SegmentedView = {
         let segmentedView = SegmentedView()
         segmentedView.delegate = self
@@ -262,25 +255,18 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
         
         segmentedCtrl.selectItem(at: currentIndex)
     }
-    
-    // MARK: - segmentedCtrl 相关函数
-    
-    /// 设置 SegmentedCtrl 基本信息。
-    /// - Parameter isLesser: 是否较少内容，默认false，若需要使 segmentedCtrl 宽度适应内容宽度传入 true
-    @available(*, unavailable, message: "此函数已废弃")
-    open func setSegmentedCtrl(isLesser: Bool = false) { }
 
     // MARK: - SegmentedViewDelegate
 
     open func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int) {
         
-        isScrollByViewCtrl = false
-        // segmentedCtrl 改变 viewControllers。
-        let index = index
-        if index >= viewCtrlArray.count {
-            Judy.log("切换目标 index 不在 viewCtrlArray 范围")
+        isDrag = false
+        // segmentedCtrl 改变 viewControllers.
+        guard index < viewCtrlArray.count else {
+            Judy.logWarning("目标 index 不在 viewCtrlArray 范围!")
             return
         }
+
         let viewCtrls = [viewCtrlArray[index]]
         // 不应该在 completion 里设置 lastSelectIndex，这样不及时。
         setViewControllers(viewCtrls, direction: ((currentIndex < index) ? .forward : .reverse), animated: true)
