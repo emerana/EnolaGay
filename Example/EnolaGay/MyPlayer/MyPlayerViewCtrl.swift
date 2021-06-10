@@ -47,6 +47,16 @@ extension MyPlayerViewCtrl {
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210414135138.mp4"]),
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210415143308.mp4"]),
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210425160443.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210426084615.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210414135009.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210426130012.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210425160639.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210429132634.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210420153851.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210415130817.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210425152907.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210413161440.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210426085627.mp4"]),
         ]
     }
 }

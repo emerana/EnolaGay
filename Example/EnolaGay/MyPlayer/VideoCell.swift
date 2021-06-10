@@ -21,7 +21,7 @@ class VideoCell: JudyBaseTableCell {
     /// - 请在 didEndDisplaying cell 函数中将该值设为 true.
     var isDisAppear = true {
         didSet {
-            Judy.log(type: .🌎, "和和")
+            Judy.log(type: .💧, "和和")
             Judy.log("isDisAppear 被设为：\(isDisAppear)，此时播放器状态为：\(player.playbackState.description)")
             // 需要暂停播放
             if isDisAppear {
