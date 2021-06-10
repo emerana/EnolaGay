@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="639" id="Vht-KA-2qZ" customClass="VideoCell" customModule="EnolaGay_Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="636"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vht-KA-2qZ" id="Xwa-C8-Zkx">
+                <rect key="frame" x="0.0" y="0.0" width="384" height="636"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oN-o0-18R" customClass="JudyBaseButton" customModule="EnolaGay">
+                        <rect key="frame" x="172" y="291.66666666666669" width="40" height="53"/>
+                        <state key="normal" image="button_播放">
+                            <color key="titleColor" red="1" green="0.22352941179999999" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" systemColor="separatorColor"/>
+                <constraints>
+                    <constraint firstItem="1oN-o0-18R" firstAttribute="centerX" secondItem="Xwa-C8-Zkx" secondAttribute="centerX" id="CXb-91-iEn"/>
+                    <constraint firstItem="1oN-o0-18R" firstAttribute="centerY" secondItem="Xwa-C8-Zkx" secondAttribute="centerY" id="eoA-Le-eC3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="playerButton" destination="1oN-o0-18R" id="ozA-oe-qYO"/>
+            </connections>
+            <point key="canvasLocation" x="90.769230769230759" y="555.92417061611377"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="button_播放" width="40" height="52.666667938232422"/>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
