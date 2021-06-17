@@ -537,22 +537,20 @@ public extension EnolaGayWrapper where Base: UIViewController {
         }
     }
     
-    /// 弹出一个系统警告框，只包含一个确定按钮，没有任何按钮的操作事件。
-    ///
-    /// 通常用于临时性提醒、警告作用。
-    ///
-    /// - Parameter title: alert的标题，默认为"提示"。
-    /// - Parameter msg: 消息文字。
-    /// - Parameter cancelButtonTitle: 取消按钮的标题，默认为"确定"。
-    /// - Parameter completionAction: 取消按钮点击事件，默认为 nil。
-    func alert(title: String = "提示", msg: String? = nil, cancelButtonTitle: String = "确定", completionAction: (() -> Void)? = nil) {
+    /// 弹出一个系统警告框，只包含一个取消类型的按钮。通常用于临时性提醒、警告作用。
+    /// - Parameters:
+    ///   - title: alert的标题，默认为"提示"。
+    ///   - msg: 消息文字。
+    ///   - cancelButtonTitle: 取消按钮的标题，默认为"确定"。
+    ///   - cancelAction: 取消按钮点击事件，默认为 nil.
+    func alert(title: String = "提示", msg: String? = nil, cancelButtonTitle: String = "确定", cancelAction: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         // 创建 UIAlertAction 控件
-        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        DispatchQueue.main.async { [weak base] in
-            base?.present(alertController, animated: false, completion: completionAction)
+        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { alertAction in
+            cancelAction?()
         }
+        alertController.addAction(cancelAction)
+        base.present(alertController, animated: false, completion: nil)
     }
     
     /// 获取当前 UIViewController 的导航控制器。
@@ -568,7 +566,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
                 navigationController = (base as! UITabBarController).selectedViewController?.judy.navigationCtrller()
             } else { // 只能是 UIViewController
                 guard navigationController != nil else {
-                    Judy.log("🚔当前 ViewCtrl 没有可用的 UINavigationController，故返回了一个 UINavigationController()")
+                    Judy.logWarning("当前 ViewCtrl 没有可用的 UINavigationController，故返回了一个 UINavigationController()")
                     return UINavigationController()
                 }
                 
