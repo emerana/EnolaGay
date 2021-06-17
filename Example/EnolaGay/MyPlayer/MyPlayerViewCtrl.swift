@@ -9,6 +9,7 @@
 import UIKit
 import EnolaGay
 import SwiftyJSON
+import AVFAudio
 
 class MyPlayerViewCtrl: JudyBaseTableViewCtrl {
     override var viewTitle: String? { "Player" }
@@ -23,7 +24,9 @@ class MyPlayerViewCtrl: JudyBaseTableViewCtrl {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // 手机静音模式下依然播放声音。
+        try! AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+
         setDataSoruce()
     }
 
@@ -37,12 +40,7 @@ class MyPlayerViewCtrl: JudyBaseTableViewCtrl {
 extension MyPlayerViewCtrl {
     func setDataSoruce() {
         dataSource = [
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210414135329.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210425153032.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210422095345.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210422100200.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210422100512.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210410094203.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210413161440.mp4"]),
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210429131045.mp4"]),
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210414135138.mp4"]),
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210415143308.mp4"]),
@@ -50,12 +48,17 @@ extension MyPlayerViewCtrl {
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210426084615.mp4"]),
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210414135009.mp4"]),
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210426130012.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210414135329.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210425153032.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210422095345.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210422100200.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210422100512.mp4"]),
+            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210410094203.mp4"]),
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210425160639.mp4"]),
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210429132634.mp4"]),
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210420153851.mp4"]),
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210415130817.mp4"]),
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210425152907.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210413161440.mp4"]),
             JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210426085627.mp4"]),
         ]
     }

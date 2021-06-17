@@ -56,7 +56,7 @@ class VideoCell: JudyBaseTableCell {
         self.player.fillMode = .resize
         self.player.playbackLoops = true
 
-//        self.contentView.addSubview(self.player.view)
+        // self.contentView.addSubview(self.player.view)
         contentView.insertSubview(player.view, at: 0)
     }
     
