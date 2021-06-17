@@ -543,10 +543,12 @@ public extension EnolaGayWrapper where Base: UIViewController {
     ///   - msg: 消息文字。
     ///   - cancelButtonTitle: 取消按钮的标题，默认为"确定"。
     ///   - cancelAction: 取消按钮点击事件，默认为 nil.
-    func alert(title: String = "提示", msg: String? = nil, cancelButtonTitle: String = "确定", cancelAction: ((UIAlertAction) -> Void)? = nil) {
+    func alert(title: String = "提示", msg: String? = nil, cancelButtonTitle: String = "确定", cancelAction: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         // 创建 UIAlertAction 控件
-        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { alertAction in
+            cancelAction?()
+        }
         alertController.addAction(cancelAction)
         base.present(alertController, animated: false, completion: nil)
     }
