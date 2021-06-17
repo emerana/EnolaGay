@@ -787,6 +787,8 @@ fileprivate extension Judy {
  */
 
 /// 对 ProgressHUD 的封装，常用于活动指示器的管理工具类。
+///
+/// - Warning: 使用时请确保在 main 线程执行。
 public struct JudyTip {
     
     /// HUD 消息类型。
