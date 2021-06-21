@@ -466,15 +466,15 @@ public extension Date {
         return dateFormatter.date(from: string)
     }
     
-    /// 通过一个 string 构建一个 date 对象。
+    /// 通过一个 string 构建一个北京时区的 date 对象。
     /// - Parameters:
     ///   - string: 该 string 应符合一个正常日期格式。
-    ///   - dateFormat: 目标的日期格式，该值默认为："yyyy-MM-dd"
+    ///   - format: 目标的日期格式，该值默认为："yyyy-MM-dd"
     init(string: String, format: String = "yyyy-MM-dd") {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         if let date = dateFormatter.date(from: string) {
-            self = date
+            self = date.judy.dateFromGMT()
         } else {
             self.init()
         }
@@ -482,7 +482,7 @@ public extension Date {
 }
 
 public extension EnolaGayWrapper where Base == Date {
-    /// 获取当前（北京）时区的 Date 值。
+    /// 转换成北京时区的 Date 值。
     func dateFromGMT() -> Date {
         // let today = Date()// 获取格林威治时间（GMT）/ 标准时间
         // print("today = \(today)")// 打印出的时间是GTM时间，比北京时间早了8个小时
@@ -496,7 +496,7 @@ public extension EnolaGayWrapper where Base == Date {
         return base.addingTimeInterval(secondFromGMT)
     }
     
-    /// 将当前 date 值转成目标格式 String.
+    /// 获取目标格式的 String 值。
     func stringFormat(dateFormat: String = "yyyy-MM-dd") -> String {
         let timeZone = TimeZone(identifier: "UTC")
         let formatter = DateFormatter()
@@ -505,7 +505,14 @@ public extension EnolaGayWrapper where Base == Date {
         formatter.dateFormat = dateFormat
         let date = formatter.string(from: base)
         return date
-        //           return date.components(separatedBy: "-").first!
+        // return date.components(separatedBy: "-").first!
+    }
+    
+    /// 当 Date 转换成北京时区的目标格式 string 值。
+    /// - Parameter format: 目标格式，默认为 "yyyy-MM-dd".
+    /// - Returns: format 对应的目标值。
+    func stringGMT(format: String = "yyyy-MM-dd") -> String {
+        return dateFromGMT().judy.stringFormat(dateFormat: format)
     }
 }
 
