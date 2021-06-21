@@ -127,7 +127,9 @@ open class JudyBaseViewCtrl: UIViewController {
         /// 接收响应的闭包。
         let responseClosure: ((JSON) -> Void) = { [weak self] json in
             guard let strongSelf = self else {
-                JudyTip.message(messageType: .error, text: "发现逃逸对象！")
+                JudyTip.dismiss()
+                // JudyTip.message(messageType: .error, text: "发现逃逸对象！")
+                Judy.logWarning("发现逃逸对象！")
                 return
             }
             strongSelf.apiData = json
