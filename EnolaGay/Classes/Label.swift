@@ -8,13 +8,13 @@
 
 import UIKit
 
-/// EMERANA 框架中所用到的 Label，实现 EMERANA_FontStyle，默认 fontStyle 为均码。
+/// EMERANA 框架中所用到的 Label.
 /// ## 支持功能：
 /// * 在 label 上显示删除线
 /// * 单击弹出复制功能（在 storyboard 中启用 isSupportCopy 或 isSupportCopy = true）
 /// * 内边距属性调整功能
 /// * 支持深度拷贝，参考 copy(with zone: NSZone? = nil) -> Any 函数
-open class JudyBaseLabel: UILabel, EMERANA_FontStyle {
+open class JudyBaseLabel: UILabel, FontStyle {
     
     /// 是否显示一条删除线，默认 false.
     @IBInspectable var isUnderline: Bool = false
@@ -30,10 +30,7 @@ open class JudyBaseLabel: UILabel, EMERANA_FontStyle {
     /// 要复制的文本，默认 nil(复制时将复制整个 Label 的值)
     public var pasteboardText: String? = nil
     
-    // MARK: - EMERANA 字体
-    
-    @IBInspectable private(set) dynamic public var initFontStyle: Int = 0
-
+    /// 字体样式。此属性用于便携式设置 font.
     public var fontStyle: UIFont.FontStyle = .M {
         didSet{
             font = UIFont(style: fontStyle)
@@ -76,8 +73,7 @@ open class JudyBaseLabel: UILabel, EMERANA_FontStyle {
     open override func awakeFromNib() {
         super.awakeFromNib()
         
-        font = UIFont(style: UIFont.FontStyle.new(rawValue: initFontStyle))
-        // 复制功能
+        // 复制功能。
         if isSupportCopy {
             isUserInteractionEnabled = isSupportCopy
             
