@@ -183,13 +183,15 @@ public extension EMERANA_CellBasic {
 
 // MARK: - 字体样式协议。目前用于 button、label、textField
 
+@available(*, unavailable, message: "该协议已更新", renamed: "FontStyle")
+public protocol EMERANA_FontStyle: AnyObject {}
 /// 字体专用协议。
 /// - Warning: 此协仅支持对象类型。
-public protocol EMERANA_FontStyle: AnyObject {
+public protocol FontStyle: AnyObject {
     
-    /// 配置 EMERANA 字体大小及样式，默认值为 m
+    /// 配置 EMERANA 字体大小及样式，默认值为 m.
     ///
-    /// 实现协议参考如下：建议在 didSet 中直接设置 font
+    /// 实现协议参考如下：建议在 didSet 中直接设置 font.
     /// ```
     /// var fontStyle: EMERANA.FontStyle = .m {
     ///     didSet{
@@ -199,20 +201,6 @@ public protocol EMERANA_FontStyle: AnyObject {
     /// ```
     /// - warning: 设置该属性等同直接设置 UIFont
     var fontStyle: UIFont.FontStyle { get set }
-
-    
-    /// 初始字体样式,将通过该值得到一个 EMERANA.FontStyle，默认 0，奇数为粗体
-    ///
-    /// * 实现协议参考如下：
-    /// ```
-    /// @IBInspectable private(set) var initFontStyle: Int = 0
-    /// ```
-    /// 使用方式
-    /// ```
-    /// FontStyle.new(rawValue: initFontStyle)
-    /// ```
-    /// - warning: 该值仅对初始化时有效
-    var initFontStyle: Int { get }
 }
 
 /*
