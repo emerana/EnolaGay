@@ -14,7 +14,7 @@ import UIKit
 /// * 单击弹出复制功能（在 storyboard 中启用 isSupportCopy 或 isSupportCopy = true）
 /// * 内边距属性调整功能
 /// * 支持深度拷贝，参考 copy(with zone: NSZone? = nil) -> Any 函数
-open class JudyBaseLabel: UILabel, EMERANA_FontStyle {
+open class JudyBaseLabel: UILabel, FontStyle {
     
     /// 是否显示一条删除线，默认 false.
     @IBInspectable var isUnderline: Bool = false
@@ -32,7 +32,7 @@ open class JudyBaseLabel: UILabel, EMERANA_FontStyle {
     
     // MARK: - EMERANA 字体
     
-    @IBInspectable private(set) dynamic public var initFontStyle: Int = 0
+    // @IBInspectable private(set) dynamic public var initFontStyle: Int = 0
 
     public var fontStyle: UIFont.FontStyle = .M {
         didSet{
@@ -76,7 +76,7 @@ open class JudyBaseLabel: UILabel, EMERANA_FontStyle {
     open override func awakeFromNib() {
         super.awakeFromNib()
         
-        font = UIFont(style: UIFont.FontStyle.new(rawValue: initFontStyle))
+        // font = UIFont(style: UIFont.FontStyle.new(rawValue: initFontStyle))
         // 复制功能
         if isSupportCopy {
             isUserInteractionEnabled = isSupportCopy

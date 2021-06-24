@@ -9,10 +9,10 @@
 import UIKit
 
 /// EMERANA框架中所用到的 TextField，默认 FontStyle 为均码。
-open class JudyBaseTextField: UITextField, EMERANA_FontStyle {
+open class JudyBaseTextField: UITextField, FontStyle {
 
     // MARK: 配置字体样式
-    @IBInspectable private(set) public var initFontStyle: Int = 0
+    // @IBInspectable private(set) public var initFontStyle: Int = 0
 
     public var fontStyle: UIFont.FontStyle = .M {
         didSet{
@@ -20,7 +20,6 @@ open class JudyBaseTextField: UITextField, EMERANA_FontStyle {
         }
     }
 
-    
     var inputType: ContentType = .默认 {
         didSet{
             setInputType()
@@ -39,7 +38,7 @@ open class JudyBaseTextField: UITextField, EMERANA_FontStyle {
     open override func awakeFromNib() {
         super.awakeFromNib()
         
-        font = UIFont(style: UIFont.FontStyle.new(rawValue: initFontStyle))
+        // font = UIFont(style: UIFont.FontStyle.new(rawValue: initFontStyle))
         
 //        delegate = self
     }

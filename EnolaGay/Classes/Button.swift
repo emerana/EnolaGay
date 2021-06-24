@@ -11,7 +11,7 @@
 import UIKit
 
 /// EMERANA框架中所用到的Button，默认 FontStyle 为均码。
-open class JudyBaseButton: UIButton, EMERANA_FontStyle {
+open class JudyBaseButton: UIButton, FontStyle {
 
     /// 图像方位。
     private enum ImageDirection: Int {
@@ -26,7 +26,7 @@ open class JudyBaseButton: UIButton, EMERANA_FontStyle {
 
     // MARK: - EMERANA 字体
     
-    @IBInspectable private(set) public var initFontStyle: Int = 0
+    // @IBInspectable private(set) public var initFontStyle: Int = 0
 
     public var fontStyle: UIFont.FontStyle = .M {
         didSet{
@@ -45,7 +45,7 @@ open class JudyBaseButton: UIButton, EMERANA_FontStyle {
     open override func awakeFromNib() {
         super.awakeFromNib()
         
-        titleLabel?.font = UIFont(style: UIFont.FontStyle.new(rawValue: initFontStyle))
+        // titleLabel?.font = UIFont(style: UIFont.FontStyle.new(rawValue: initFontStyle))
         
         guard let tempImageDirection = JudyBaseButton.ImageDirection(rawValue: imageDirection) else {
             return
