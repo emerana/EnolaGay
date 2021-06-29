@@ -713,14 +713,18 @@ public extension UIImage {
 
 public extension UIImageView {
     
-    /// 标识该 imageView 是否需要设置为正圆，需要的话请确保其为正方形，否则不生效
-    /// - warning: 若在 Cell 中不能正常显示正圆，请覆盖 Cell 中 layoutIfNeeded() 设置正圆，或在父 View 中设置
+    /// 标识该 imageView 是否需要设置为正圆，需要的话请确保其为正方形，否则不生效。
+    /// - Warning: 若在 Cell 中不能正常显示正圆，请覆盖 Cell 中 layoutIfNeeded() 设置正圆，或在父 View 中设置。
     @IBInspectable private(set) var isRound: Bool {
         set {
             if newValue {
-                if judy.viewRound() {
-                    contentMode = .scaleAspectFill  // 设为等比拉伸
+                guard frame.size.width == frame.size.height else {
+                    Judy.logWarning("该 UIImageView 非正方形，无法设置为正圆！")
+                    return
                 }
+                layer.masksToBounds = true
+                contentMode = .scaleAspectFill  // 设为等比拉伸。
+                layer.cornerRadius = frame.size.height / 2
             }
         }
         get {
@@ -925,9 +929,9 @@ public extension EnolaGayWrapper where Base: UIView {
     /// - Parameters:
     ///   - border: 边框大小，默认0.
     ///   - color: 边框颜色，默认 .darkGray.
-    func viewBorder(border: CGFloat = 0, color: UIColor = .darkGray) {
-        base.layer.borderWidth = border
-        base.layer.borderColor = color.cgColor
+    func viewBorder(border: CGFloat = 0, color: UIColor? = .darkGray) {
+        base.borderWidth = border
+        base.borderColor = color
     }
     
     /// 给当前操作的 View 设置正圆，该函数会验证 View 是否为正方形，若不是正方形则圆角不生效。
@@ -937,13 +941,11 @@ public extension EnolaGayWrapper where Base: UIView {
     ///   - color: 边框颜色，默认深灰色。
     /// - Returns: 是否成功设置正圆。
     @discardableResult
-    func viewRound(border: CGFloat = 0, color: UIColor = .darkGray) -> Bool {
-        
+    func viewRound(border: CGFloat = 0, color: UIColor? = .darkGray) -> Bool {
         viewBorder(border: border, color: color)
-        base.layer.masksToBounds = true
         
         guard base.frame.size.width == base.frame.size.height else { return false }
-        base.layer.cornerRadius = base.frame.size.height / 2
+        base.cornerRadius = base.frame.size.height / 2
         
         return true
     }
@@ -954,10 +956,9 @@ public extension EnolaGayWrapper where Base: UIView {
     ///   - radiu: 圆角大小，默认 10.
     ///   - border: 边框大小，默认 0.
     ///   - color: 边框颜色，默认深灰色。
-    func viewRadiu(radiu: CGFloat = 10, border: CGFloat = 0, color: UIColor = .darkGray) {
+    func viewRadiu(radiu: CGFloat = 10, border: CGFloat = 0, color: UIColor? = .darkGray) {
         viewBorder(border: border, color: color)
-        base.layer.cornerRadius = radiu
-        base.layer.masksToBounds = true
+        base.cornerRadius = radiu
     }
     
     /// 为指定的角设置圆角。
@@ -1116,8 +1117,8 @@ public extension UIView {
 
     
     /// 边框颜色.
-    @IBInspectable var borderColor_EMERANA: UIColor? {
-        set { layer.borderColor = newValue!.cgColor }
+    @IBInspectable var borderColor: UIColor? {
+        set { layer.borderColor = newValue?.cgColor }
         get {
             if let color = layer.borderColor {
                 return UIColor(cgColor: color)

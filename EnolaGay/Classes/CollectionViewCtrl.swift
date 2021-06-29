@@ -539,12 +539,13 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
          self.layer.insertSublayer(gradientLayer, at: 0)
          
          */
-        // 在 CollectionCell 中设置正圆的正确方式
+        // 在 CollectionCell 中设置正圆的正确方式。
         layoutIfNeeded()
         if masterImageView?.isRound ?? false {
-            masterImageView?.judy.viewRound()
+            masterImageView?.judy.viewRound(
+                border: masterImageView!.borderWidth,
+                color: masterImageView!.borderColor)
         }
-        
     }
     
     // 如果布局更新挂起，则立即布局子视图。
