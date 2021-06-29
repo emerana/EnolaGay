@@ -389,12 +389,12 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     // 如果布局更新挂起，则立即布局子视图。
     open override func layoutIfNeeded() {
         super.layoutIfNeeded()
-        
-        // 设置正圆.
+        // 设置正圆。
         if masterImageView?.isRound ?? false {
-            masterImageView?.judy.viewRound()
-        }
-        
+            masterImageView?.judy.viewRound(
+                border: masterImageView!.borderWidth,
+                color: masterImageView!.borderColor)
+        }        
     }
     
     
