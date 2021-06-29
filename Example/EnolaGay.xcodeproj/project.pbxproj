@@ -85,6 +85,8 @@
 		8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DouYonHomeViewCtrl.swift; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
+		8B8038772687F253006745A6 /* 深圳东站东广场.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "深圳东站东广场.gpx"; sourceTree = "<group>"; };
+		8B8038782687F290006745A6 /* 深圳北站.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "深圳北站.gpx"; sourceTree = "<group>"; };
 		8B81AA1A261EEF74003A194B /* KeyBoardPopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KeyBoardPopUp.storyboard; sourceTree = "<group>"; };
 		8B81AA1E261EEF85003A194B /* KeyBoardPopUpViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardPopUpViewCtrl.swift; sourceTree = "<group>"; };
 		8B8E2BF92660920200B16E49 /* 深圳龙岗天安数码城.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "深圳龙岗天安数码城.gpx"; sourceTree = "<group>"; };
@@ -192,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				8B8E2BF92660920200B16E49 /* 深圳龙岗天安数码城.gpx */,
+				8B8038772687F253006745A6 /* 深圳东站东广场.gpx */,
+				8B8038782687F290006745A6 /* 深圳北站.gpx */,
 				8B8E2BFA2660929100B16E49 /* 陆港电商小镇.gpx */,
 				8BE5C0512667563700FEAF52 /* 湖南郴州.gpx */,
 				8BE5C0522667563800FEAF52 /* 福建龙岩.gpx */,
