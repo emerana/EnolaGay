@@ -7,96 +7,82 @@
 //
 
 import UIKit
-import SnapKit
 
 class ScrollableCell: UICollectionViewCell {
+    /// Cell 中持有的实体。
+    open lazy var itemModel = ScrollableCellViewModel()
 
-    let titleLabel = UILabel()
-
-    var viewModel: ScrollableCellViewModel? {
-        didSet {
-            guard let viewModel = viewModel else { return }
-            titleLabel.text = viewModel.title
-        }
-    }
-//    static let cellSize = CGSize(width: 68, height: 28)
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        backgroundColor = .white
-        contentView.layer.borderColor = UIColor.black.withAlphaComponent(0.08).cgColor
-        contentView.layer.borderWidth = 1.0
-
-        contentView.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-//            make.top.bottom.equalTo(8)
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-        }
-    }
+    public let titleLabel = UILabel()
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-class ScrollableCellViewModel: Selectable {
-
-    let threeLetterWeekdayFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.dateFormat = "EEE"
-        return formatter
-    }()
-
-    let singleDateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.dateFormat = "d"
-        return formatter
-    }()
-
-    var date: Date? {
-        didSet {
-            guard let date = date else { return }
-            dateLabelText = singleDateFormatter.string(from: date)
-            dayLabelText = threeLetterWeekdayFormatter.string(from: date)
-        }
-    }
-
-    var dayLabelText: String?
     
-    var title: String?
-
-    var dateLabelText: String?
-
-    var isSelectable: Bool
-
-    init(isSelectable: Bool) {
-        self.isSelectable = isSelectable
-    }
-
-}
-
-extension ScrollableCellViewModel {
-    
-    static func dummyCells() -> [ScrollableCellViewModel] {
-        let today = Date()
-        return (0...10).map { index in
-            let cellVM = ScrollableCellViewModel(isSelectable: arc4random_uniform(2) == 1)
-            cellVM.date = Calendar.current.date(byAdding: .day, value: index, to: today)
-            return cellVM
-        }
-    }
-    
-    static func list() -> [ScrollableCellViewModel] {
-        let list = ["浙江温州", "江南皮革厂", "哈哈哈", "倒闭了"]
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        return list.map { string in
-            let rs = ScrollableCellViewModel(isSelectable: true)
-            rs.title = string
-            return rs
-        }
+        contentView.addSubview(titleLabel)
+
+        titleLabel.textAlignment = .center
+        backgroundColor = .white
+        contentView.layer.borderColor = UIColor.black.withAlphaComponent(0.08).cgColor
+        contentView.layer.borderWidth = 1.0
+
+//        contentView.addSubview(titleLabel)
+//        titleLabel.snp.makeConstraints { make in
+////            make.top.bottom.equalTo(8)
+//            make.centerX.equalToSuperview()
+//            make.centerY.equalToSuperview()
+//        }
     }
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+
+        // 在 numberOfLines 大于 0 的时候，cell 进行重用的时候通过`sizeToFit`，label 设置成错误的 size，用`sizeThatFits`可以规避掉这个问题。
+        let labelSize = titleLabel.sizeThatFits(self.contentView.bounds.size)
+        let labelBounds = CGRect(x: 0, y: 0, width: labelSize.width, height: labelSize.height)
+        titleLabel.bounds = labelBounds
+        titleLabel.center = contentView.center
+    }
+    
+    open func reloadData(itemModel: ScrollableCellViewModel) {
+        self.itemModel = itemModel
+        titleLabel.numberOfLines = 1
+        titleLabel.text = itemModel.title
+        if itemModel.isSelectable {
+            titleLabel.textColor = itemModel.titleSelectedColor
+        } else {
+            titleLabel.textColor = itemModel.titleNormalColor
+        }
+        setNeedsLayout()
+    }
+
+}
+
+open class ScrollableCellViewModel: Selectable {
+
+    /// title 普通状态时的字体。
+    open var titleNormalFont: UIFont = UIFont.systemFont(ofSize: 15)
+    /// 选中状态下的字体。
+    open var titleSelectedFont: UIFont = UIFont.systemFont(ofSize: 15)
+    /// title 普通状态的 textColor.
+    open var titleNormalColor: UIColor = .black
+    /// 当前显示的颜色。
+    open var titleCurrentColor: UIColor = .black
+    /// title 选中状态的 textColor.
+    open var titleSelectedColor: UIColor = .red
+
+    public var isSelectable: Bool = false
+    public var title = ""
+    public var cellWidth: CGFloat {
+        let textWidth = NSString(string: title)
+            .boundingRect(with: CGSize(width: CGFloat.infinity, height: CGFloat.infinity),
+                          options: [.usesFontLeading, .usesLineFragmentOrigin],
+                          attributes: [.font: titleNormalFont],
+                          context: nil).size.width
+        return CGFloat(ceilf(Float(textWidth)))
+    }
+
+
 }

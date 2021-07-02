@@ -7,6 +7,7 @@
 //
 
 import EnolaGay
+import SnapKit
 
 public class PickerView: UIView {
 
@@ -120,15 +121,33 @@ public class PickerView: UIView {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .lightGray
+
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         // 配置 collectionView
         addSubview(collectionView)
-        collectionView.register(PickerViewCell.self, forCellWithReuseIdentifier: "DayCell")
-        collectionView.snp.makeConstraints { make in
-            // 使 collectionView 完全铺满。
-            make.left.right.top.bottom.equalToSuperview()
-//            make.height.equalTo(cellSize ?? PickerViewCell.cellSize.height)
-        }
-
+        
+        // 设置 collectionView 铺满 self.
+        self.addConstraint(
+            NSLayoutConstraint(item: collectionView, attribute: .top,
+                               relatedBy: .equal, toItem: self,
+                               attribute: .top, multiplier: 1,
+                               constant: 0))
+        
+        self.addConstraint(
+            NSLayoutConstraint(item: collectionView, attribute: .left,
+                               relatedBy: .equal, toItem: self,
+                               attribute: .left, multiplier: 1,
+                               constant: 0))
+        self.addConstraint(
+            NSLayoutConstraint(item: collectionView, attribute: .bottom,
+                               relatedBy: .equal, toItem: self,
+                               attribute: .bottom, multiplier: 1,
+                               constant: 0))
+        self.addConstraint(
+            NSLayoutConstraint(item: collectionView, attribute: .right,
+                               relatedBy: .equal, toItem: self,
+                               attribute: .right, multiplier: 1,
+                               constant: 0))
         // 配置 selectedItemOverlay
         addSubview(selectedItemOverlay)
         selectedItemOverlay.snp.makeConstraints { make in
@@ -142,7 +161,7 @@ public class PickerView: UIView {
     }
     
     /// 数据源。
-    private var items = [String]()
+    public private(set) var items = [ScrollableCellViewModel]()
 
     public final func reloadData() {
         guard let dataSource = self.dataSource else {
@@ -155,8 +174,13 @@ public class PickerView: UIView {
             Judy.logWarning("dataSource.registerCell() 不能响应为空字符")
             return
         }
-        items = dataSource.titles(for: self)
-        // viewModel = PickerViewModel(cells: dataSource.selectableCells)
+        items.removeAll()
+        items = dataSource.titles(for: self).map { title in
+            let model = ScrollableCellViewModel()
+            model.title = title
+            
+            return model
+        }
         
         collectionView.reloadData()
         collectionView.collectionViewLayout.invalidateLayout()
@@ -234,9 +258,9 @@ extension PickerView: UICollectionViewDataSource {
     }
 
     public final func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier!, for: indexPath)
-//        delegate?.configure(cell: cell, for: indexPath)
-        dataSource?.reload(cell: cell, for: indexPath.item, with: items)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier!, for: indexPath) as! ScrollableCell
+        // dataSource?.reload(cell: cell, for: indexPath.item, with: items)
+        cell.reloadData(itemModel: items[indexPath.item])
         return cell
     }
 
@@ -254,8 +278,9 @@ extension PickerView: UICollectionViewDelegateFlowLayout {
     /// This delegate function determines the size of the cell to return. If the cellSize is not set, then it returns the size of the PickerViewCell
     public final func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let width = dataSource!.pickerView(self, widthForItemAt: indexPath.item)
-        return CGSize(width: width, height: collectionView.bounds.size.height)
+//        let width = dataSource!.pickerView(self, widthForItemAt: indexPath.item)
+        // return CGSize(width: items[indexPath.item].cellWidth, height: collectionView.bounds.size.height)
+        return CGSize(width: 128, height: collectionView.bounds.size.height)
     }
 }
 

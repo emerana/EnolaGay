@@ -10,9 +10,6 @@
 import EnolaGay
 
 class MandolineViewController: UIViewController, PickerViewDataSource {
-    
-
-    // var selectableCells: [Selectable] = ScrollableCellViewModel.list()
 
     @IBOutlet weak var pickerView: PickerView!
 
@@ -47,11 +44,6 @@ extension MandolineViewController: PickerViewDelegate {
     func reload(cell: UICollectionViewCell, for index: Int, with source: [String]) {
         guard let datedCell = cell as? ScrollableCell else { return }
         datedCell.titleLabel.text = source[index]
-    }
-
-    func configure(cell: UICollectionViewCell, for indexPath: IndexPath) {
-//        guard let datedCell = cell as? ScrollableCell else { return }
-//        datedCell.titleLabel =  //selectableCells[indexPath.row] as? ScrollableCellViewModel
     }
     
     func pickerView(_ pickerView: PickerView, didSelectedItemAt index: Int) {
