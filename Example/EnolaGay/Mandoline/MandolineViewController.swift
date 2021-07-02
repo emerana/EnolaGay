@@ -7,6 +7,7 @@
 //
 
 import SnapKit
+import EnolaGay
 
 class MandolineViewController: UIViewController, PickerViewDataSource {
     var selectableCells: [Selectable] = ScrollableCellViewModel.list()
@@ -24,8 +25,10 @@ class MandolineViewController: UIViewController, PickerViewDataSource {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let randomIndexPath = IndexPath(row: Int(arc4random_uniform(UInt32(selectableCells.count))),section: 0)
-        pickerView.scrollToCell(at: randomIndexPath)
+//        let randomIndexPath = IndexPath(row: Int(arc4random_uniform(UInt32(selectableCells.count))),section: 0)
+//        pickerView.scrollToCell(at: randomIndexPath)
+        pickerView.scrollToCell(at: IndexPath(row: 0, section: 0))
+
     }
 
 }
@@ -34,5 +37,9 @@ extension MandolineViewController: PickerViewDelegate {
     func configure(cell: UICollectionViewCell, for indexPath: IndexPath) {
         guard let datedCell = cell as? ScrollableCell else { return }
         datedCell.viewModel = selectableCells[indexPath.row] as? ScrollableCellViewModel
+    }
+    
+    func collectionView(_ view: PickerView, didSelectItemAt indexPath: IndexPath) {
+        Judy.log("滚动到:\(indexPath)")
     }
 }
