@@ -64,19 +64,19 @@ public class PickerView: UIView {
         }
     }
 
-    /// Set the size of the cell
-    public var cellSize: CGSize? {
-        didSet {
-            guard let size = cellSize else { return }
-            selectedItemOverlay.snp.updateConstraints { make in
-                make.size.equalTo(size)
-            }
-            collectionView.snp.updateConstraints { make in
-                make.height.equalTo(size.height)
-            }
-            setNeedsLayout()
-        }
-    }
+//    /// Set the size of the cell
+//    public var cellSize: CGSize? {
+//        didSet {
+//            guard let size = cellSize else { return }
+//            selectedItemOverlay.snp.updateConstraints { make in
+//                make.size.equalTo(size)
+//            }
+//            collectionView.snp.updateConstraints { make in
+//                make.height.equalTo(size.height)
+//            }
+//            setNeedsLayout()
+//        }
+//    }
 
     /// Change the background color of the UICollectionView
     override public var backgroundColor: UIColor? {
@@ -146,6 +146,7 @@ public class PickerView: UIView {
             make.centerX.equalToSuperview()
             // make.size.equalTo(cellSize ?? PickerViewCell.cellSize)
             make.height.equalTo(collectionView)
+            // TODO: - 有个宽度需要计算。
             make.width.equalTo(128)
         }
     }
@@ -177,7 +178,7 @@ public class PickerView: UIView {
     public override func layoutSubviews() {
         super.layoutSubviews()
         guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        let inset = center.x - ((cellSize ?? PickerViewCell.cellSize).width / 2)
+        let inset = center.x - 64
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
     }
 }
@@ -241,6 +242,7 @@ extension PickerView: UICollectionViewDelegateFlowLayout {
 
     /// This delegate function determines the size of the cell to return. If the cellSize is not set, then it returns the size of the PickerViewCell
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // TODO: - 有个宽度需要计算。
         return CGSize(width: 128, height: collectionView.bounds.size.height)
 //        return cellSize ?? PickerViewCell.cellSize
     }
@@ -268,7 +270,8 @@ extension PickerView : UIScrollViewDelegate {
     /// whether the left and right cells are "selectable"
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let vm = viewModel else { return }
-        let scrollProgress = CGFloat(collectionView.contentOffset.x / (cellSize ?? PickerViewCell.cellSize).width)
+        // TODO: - 有个宽度需要计算。
+        let scrollProgress = CGFloat(collectionView.contentOffset.x / 128)
         defer { lastScrollProgress = scrollProgress }
         let leftIndex = Int(floor(scrollProgress))
         let rightIndex = Int(ceil(scrollProgress))
