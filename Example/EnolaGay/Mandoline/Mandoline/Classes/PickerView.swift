@@ -101,7 +101,8 @@ public class PickerView: UIView {
         self.setupSubviews()
     }
 
-    fileprivate var viewModel: PickerViewModel?
+    // fileprivate var viewModel: PickerViewModel?
+    fileprivate var selectedModel: Selectable?
     fileprivate var lastScrollProgress = CGFloat()
     fileprivate var lastIndexPath: IndexPath?
     
@@ -153,17 +154,23 @@ public class PickerView: UIView {
             make.width.equalTo(128)
         }
     }
+    
+    /// 数据源。
+    private var items = [Selectable]()
 
     public final func reloadData() {
-        guard let dataSource = self.dataSource else { return }
-        // TODO: - 确定注册的 Cell.
+        guard let dataSource = self.dataSource else {
+            Judy.logWarning("请设置 PickerView.dataSource")
+            return
+        }
+        // 确定注册的 Cell.
         cellReuseIdentifier = dataSource.registerCell(for: collectionView)
         guard cellReuseIdentifier != "" else {
             Judy.logWarning("dataSource.registerCell() 不能响应为空字符")
             return
         }
-
-        viewModel = PickerViewModel(cells: dataSource.selectableCells)
+        items = dataSource.selectableCells
+        // viewModel = PickerViewModel(cells: dataSource.selectableCells)
         
         collectionView.reloadData()
         collectionView.collectionViewLayout.invalidateLayout()
@@ -172,9 +179,9 @@ public class PickerView: UIView {
     /// Scroll to a cell at a given indexPath
     /// 滚动到指定 indexPath 的单元格
     public func scrollToCell(at indexPath: IndexPath) {
-        guard let cellViewModelsCount = viewModel?.cells.count else { return }
-        if indexPath.row < cellViewModelsCount / 2 {
-            let lastIndexPath = IndexPath(row: cellViewModelsCount - 1, section: 0)
+//        guard let cellViewModelsCount =  else { return }
+        if indexPath.row < items.count / 2 {
+            let lastIndexPath = IndexPath(row: items.count - 1, section: 0)
             collectionView.scrollToItem(at: lastIndexPath, at: .centeredHorizontally, animated: false)
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         } else {
@@ -185,6 +192,7 @@ public class PickerView: UIView {
     public override func layoutSubviews() {
         super.layoutSubviews()
         guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        // TODO: - 有个宽度需要计算。
         let inset = center.x - 64
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
     }
@@ -226,8 +234,10 @@ extension PickerViewDelegate {
 
 extension PickerView: UICollectionViewDataSource {
 
+    public func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
+
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.cells.count ?? 0
+        return items.count
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -236,12 +246,11 @@ extension PickerView: UICollectionViewDataSource {
         return cell
     }
 
-    public func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 
-        guard let model = viewModel?.cells[indexPath.row] as? ScrollableCellViewModel else { return }
+        guard let model = items[indexPath.row] as? ScrollableCellViewModel else { return }
         Judy.log("当前选择的是：\(model.title)")
 
         delegate?.collectionView(self, didSelectItemAt: indexPath)
@@ -279,7 +288,7 @@ extension PickerView : UIScrollViewDelegate {
     /// This delegate function calculates how much the overlay imageView should transform depending on
     /// whether the left and right cells are "selectable"
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let vm = viewModel else { return }
+//        guard let vm = viewModel else { return }
         // TODO: - 有个宽度需要计算。
         let scrollProgress = CGFloat(collectionView.contentOffset.x / 128)
         defer { lastScrollProgress = scrollProgress }
@@ -287,8 +296,8 @@ extension PickerView : UIScrollViewDelegate {
         let rightIndex = Int(ceil(scrollProgress))
         let interCellProgress = scrollProgress - CGFloat(leftIndex)
         let deltaFromMiddle = abs(0.5 - interCellProgress)
-        let (this, next) = (vm.cells[safe: leftIndex]?.isSelectable ?? false,
-                            vm.cells[safe: rightIndex]?.isSelectable ?? false)
+        let (this, next) = (items[safe: leftIndex]?.isSelectable ?? false,
+                            items[safe: rightIndex]?.isSelectable ?? false)
         let dotScale: CGFloat
         switch (this, next) {
         case (true, true):
@@ -308,7 +317,8 @@ extension PickerView : UIScrollViewDelegate {
         var convertedCenter = collectionView.convert(selectedItemOverlay.center, to: collectionView)
         convertedCenter.x += collectionView.contentOffset.x
         guard let indexPath = collectionView.indexPathForItem(at: convertedCenter) else { return }
-        vm.select(cell: vm.cells[indexPath.row])
+//        vm.select(cell: items.cells[indexPath.row])
+        selectedModel = items[indexPath.row]
         self.generateFeedback()
         delegate?.scrollViewDidScroll(scrollView)
     }
@@ -316,7 +326,7 @@ extension PickerView : UIScrollViewDelegate {
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         // 这才是正确地获取当前显示的 Cell 方式！
         if scrollView == collectionView {
-            guard let model = viewModel?.selectedCell as? ScrollableCellViewModel else { return }
+            guard let model = selectedModel as? ScrollableCellViewModel else { return }
             Judy.log("当前选择的是：\(model.title)")
         }
     }
