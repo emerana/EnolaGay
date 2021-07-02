@@ -127,7 +127,8 @@ public class PickerView: UIView {
         addSubview(collectionView)
         collectionView.register(PickerViewCell.self, forCellWithReuseIdentifier: "DayCell")
         collectionView.snp.makeConstraints { make in
-            make.left.right.top.equalToSuperview()
+            // 使 collectionView 完全铺满。
+            make.left.right.top.bottom.equalToSuperview()
             make.height.equalTo(cellSize ?? PickerViewCell.cellSize.height)
         }
 
