@@ -27,9 +27,7 @@
 		8B372D0B268E9F3E004840FC /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D00268E9F3E004840FC /* PickerView.swift */; };
 		8B372D0C268E9F3E004840FC /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D02268E9F3E004840FC /* Array+Extensions.swift */; };
 		8B372D0D268E9F3E004840FC /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D03268E9F3E004840FC /* CGFloat+Extensions.swift */; };
-		8B372D0E268E9F3E004840FC /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D04268E9F3E004840FC /* Selectable.swift */; };
 		8B372D0F268E9F3E004840FC /* PickerViewOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D05268E9F3E004840FC /* PickerViewOverlay.swift */; };
-		8B372D10268E9F3E004840FC /* PickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D06268E9F3E004840FC /* PickerViewModel.swift */; };
 		8B372D11268E9F3E004840FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D08268E9F3E004840FC /* Assets.xcassets */; };
 		8B372D12268E9F3E004840FC /* rescheduler.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D09268E9F3E004840FC /* rescheduler.gif */; };
 		8B372D1D268EA105004840FC /* MandolineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D1A268EA104004840FC /* MandolineViewController.swift */; };
@@ -94,9 +92,7 @@
 		8B372D00268E9F3E004840FC /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		8B372D02268E9F3E004840FC /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		8B372D03268E9F3E004840FC /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
-		8B372D04268E9F3E004840FC /* Selectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
 		8B372D05268E9F3E004840FC /* PickerViewOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewOverlay.swift; sourceTree = "<group>"; };
-		8B372D06268E9F3E004840FC /* PickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewModel.swift; sourceTree = "<group>"; };
 		8B372D08268E9F3E004840FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B372D09268E9F3E004840FC /* rescheduler.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rescheduler.gif; sourceTree = "<group>"; };
 		8B372D1A268EA104004840FC /* MandolineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandolineViewController.swift; sourceTree = "<group>"; };
@@ -303,9 +299,7 @@
 				8B372D01268E9F3E004840FC /* Extensions */,
 				8B372D00268E9F3E004840FC /* PickerView.swift */,
 				8B372CFF268E9F3E004840FC /* PickerViewCell.swift */,
-				8B372D04268E9F3E004840FC /* Selectable.swift */,
 				8B372D05268E9F3E004840FC /* PickerViewOverlay.swift */,
-				8B372D06268E9F3E004840FC /* PickerViewModel.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -629,7 +623,6 @@
 				8B4A4DE5266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift in Sources */,
 				8BD8C6952628636B006738E6 /* TestCollectionRefreshCollectionViewCtrl.swift in Sources */,
 				8B372D0A268E9F3E004840FC /* PickerViewCell.swift in Sources */,
-				8B372D0E268E9F3E004840FC /* Selectable.swift in Sources */,
 				8B372D0D268E9F3E004840FC /* CGFloat+Extensions.swift in Sources */,
 				8B81AA1F261EEF85003A194B /* KeyBoardPopUpViewCtrl.swift in Sources */,
 				8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */,
@@ -643,7 +636,6 @@
 				8BBD55322670A0C900C7B48E /* MyPlayerViewCtrl.swift in Sources */,
 				8B372D0F268E9F3E004840FC /* PickerViewOverlay.swift in Sources */,
 				8B372D1D268EA105004840FC /* MandolineViewController.swift in Sources */,
-				8B372D10268E9F3E004840FC /* PickerViewModel.swift in Sources */,
 				8BA9AA01260EDAAC008B1803 /* AttributedStringViewController.swift in Sources */,
 				8B1AA68025A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */,
 				8B372D0C268E9F3E004840FC /* Array+Extensions.swift in Sources */,

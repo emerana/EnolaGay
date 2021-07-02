@@ -6,16 +6,14 @@
 //  Copyright (c) 2017 ag. All rights reserved.
 //
 
-import SnapKit
+//import SnapKit
 import EnolaGay
 
 public class PickerView: UIView {
 
     /// The dataSource that, upon providing a set of `Selectable` items, reloads the UICollectionView
     public weak var dataSource: PickerViewDataSource? {
-        didSet {
-            reloadData()
-        }
+        didSet { reloadData() }
     }
 
     /// The object that acts as a delegate
@@ -64,20 +62,6 @@ public class PickerView: UIView {
         }
     }
 
-//    /// Set the size of the cell
-//    public var cellSize: CGSize? {
-//        didSet {
-//            guard let size = cellSize else { return }
-//            selectedItemOverlay.snp.updateConstraints { make in
-//                make.size.equalTo(size)
-//            }
-//            collectionView.snp.updateConstraints { make in
-//                make.height.equalTo(size.height)
-//            }
-//            setNeedsLayout()
-//        }
-//    }
-
     /// Change the background color of the UICollectionView
     override public var backgroundColor: UIColor? {
         didSet {
@@ -101,8 +85,9 @@ public class PickerView: UIView {
         self.setupSubviews()
     }
 
-    // fileprivate var viewModel: PickerViewModel?
-    fileprivate var selectedModel: Selectable?
+    
+    /// 当前选中的数据模型。
+    private var selectedModel: Selectable?
     fileprivate var lastScrollProgress = CGFloat()
     fileprivate var lastIndexPath: IndexPath?
     
