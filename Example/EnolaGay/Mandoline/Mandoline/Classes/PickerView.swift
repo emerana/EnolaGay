@@ -7,6 +7,7 @@
 //
 
 import SnapKit
+import EnolaGay
 
 public class PickerView: UIView {
 
@@ -228,6 +229,10 @@ extension PickerView: UICollectionViewDataSource {
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+
+        guard let model = viewModel?.cells[indexPath.row] as? ScrollableCellViewModel else { return }
+        Judy.log("当前选择的是：\(model.title)")
+
         delegate?.collectionView(self, didSelectItemAt: indexPath)
     }
 }
@@ -294,6 +299,15 @@ extension PickerView : UIScrollViewDelegate {
         self.generateFeedback()
         delegate?.scrollViewDidScroll(scrollView)
     }
+    
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        // 这才是正确地获取当前显示的 Cell 方式！
+        if scrollView == collectionView {
+            guard let model = viewModel?.selectedCell as? ScrollableCellViewModel else { return }
+            Judy.log("当前选择的是：\(model.title)")
+        }
+    }
+
 }
 
 extension PickerView {

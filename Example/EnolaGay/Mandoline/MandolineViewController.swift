@@ -10,6 +10,7 @@ import SnapKit
 import EnolaGay
 
 class MandolineViewController: UIViewController, PickerViewDataSource {
+    
     var selectableCells: [Selectable] = ScrollableCellViewModel.list()
 
     @IBOutlet weak var pickerView: PickerView!
@@ -40,6 +41,10 @@ extension MandolineViewController: PickerViewDelegate {
     }
     
     func collectionView(_ view: PickerView, didSelectItemAt indexPath: IndexPath) {
-        Judy.log("滚动到:\(indexPath)")
+//        Judy.log("滚动到:\(indexPath)")
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        Judy.log("scrollViewDidScroll")
     }
 }

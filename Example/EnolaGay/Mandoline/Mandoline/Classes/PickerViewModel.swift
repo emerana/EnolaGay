@@ -7,11 +7,17 @@
 //
 
 import Foundation
+import EnolaGay
 
 class PickerViewModel {
     var cells: [Selectable]
 
-    var selectedCell: Selectable?
+    var selectedCell: Selectable? {
+        didSet {
+//            guard let model = selectedCell as? ScrollableCellViewModel else { return }
+//            Judy.log("selectedCell 被改变了：\(model.title)")
+        }
+    }
 
     func select(cell: Selectable) {
         selectedCell = cell
