@@ -104,6 +104,9 @@ public class PickerView: UIView {
     fileprivate var viewModel: PickerViewModel?
     fileprivate var lastScrollProgress = CGFloat()
     fileprivate var lastIndexPath: IndexPath?
+    
+    /// 用于存储 collectionView 注册 Cell 的重用标识符。
+    private var cellReuseIdentifier: String?
 
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -151,15 +154,19 @@ public class PickerView: UIView {
         }
     }
 
-    func reloadData() {
+    public final func reloadData() {
         guard let dataSource = self.dataSource else { return }
-        viewModel = PickerViewModel(cells: dataSource.selectableCells)
-        collectionView.reloadData()
-    }
+        // TODO: - 确定注册的 Cell.
+        cellReuseIdentifier = dataSource.registerCell(for: collectionView)
+        guard cellReuseIdentifier != "" else {
+            Judy.logWarning("dataSource.registerCell() 不能响应为空字符")
+            return
+        }
 
-    /// Register a `UICollectionViewCell` subclass
-    public func register<T: UICollectionViewCell>(cellType: T.Type) {
-        collectionView.register(cellType, forCellWithReuseIdentifier: "DayCell")
+        viewModel = PickerViewModel(cells: dataSource.selectableCells)
+        
+        collectionView.reloadData()
+        collectionView.collectionViewLayout.invalidateLayout()
     }
 
     /// Scroll to a cell at a given indexPath
@@ -186,6 +193,9 @@ public class PickerView: UIView {
 public protocol PickerViewDataSource: AnyObject {
     /// The cells that are `Selectable` and set by the implementing ViewController
     var selectableCells: [Selectable] { get }
+    
+    /// 注册专用 Cell 并询问该 Cell 的重用标识符。
+    func registerCell(for collectionView: UICollectionView) -> String
 }
 
 public protocol PickerViewDelegate: AnyObject {
@@ -221,7 +231,7 @@ extension PickerView: UICollectionViewDataSource {
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier!, for: indexPath)
         delegate?.configure(cell: cell, for: indexPath)
         return cell
     }

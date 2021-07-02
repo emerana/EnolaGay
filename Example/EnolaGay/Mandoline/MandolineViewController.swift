@@ -18,7 +18,7 @@ class MandolineViewController: UIViewController, PickerViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        pickerView.register(cellType: ScrollableCell.self)
+        //        pickerView.register(cellType: ScrollableCell.self)
         pickerView.delegate = self
         pickerView.dataSource = self
     }
@@ -35,10 +35,18 @@ class MandolineViewController: UIViewController, PickerViewDataSource {
 }
 
 extension MandolineViewController: PickerViewDelegate {
+    
+    func registerCell(for collectionView: UICollectionView) -> String {
+        collectionView.register(ScrollableCell.self, forCellWithReuseIdentifier: "DayCell")
+        return "DayCell"
+    }
+
+    
     func configure(cell: UICollectionViewCell, for indexPath: IndexPath) {
         guard let datedCell = cell as? ScrollableCell else { return }
         datedCell.viewModel = selectableCells[indexPath.row] as? ScrollableCellViewModel
     }
+    
     
     func collectionView(_ view: PickerView, didSelectItemAt indexPath: IndexPath) {
 //        Judy.log("滚动到:\(indexPath)")
