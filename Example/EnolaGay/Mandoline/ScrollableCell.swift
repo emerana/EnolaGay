@@ -18,7 +18,7 @@ class ScrollableCell: UICollectionViewCell {
             titleLabel.text = viewModel.title
         }
     }
-    static let cellSize = CGSize(width: 68, height: 28)
+//    static let cellSize = CGSize(width: 68, height: 28)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,6 +29,7 @@ class ScrollableCell: UICollectionViewCell {
 
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
+//            make.top.bottom.equalTo(8)
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }

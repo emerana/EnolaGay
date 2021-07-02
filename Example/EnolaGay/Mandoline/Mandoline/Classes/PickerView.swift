@@ -109,10 +109,11 @@ public class PickerView: UIView {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.allowsMultipleSelection = false
-        collectionView.clipsToBounds = false
+        collectionView.clipsToBounds = true
         return collectionView
     }()
-
+    
+    /// 覆盖层。先不用
     let selectedItemOverlay: PickerViewOverlay = {
         let view = PickerViewOverlay()
         view.isUserInteractionEnabled = false
@@ -131,7 +132,6 @@ public class PickerView: UIView {
             make.left.right.top.bottom.equalToSuperview()
             make.height.equalTo(cellSize ?? PickerViewCell.cellSize.height)
         }
-
         addSubview(selectedItemOverlay)
         selectedItemOverlay.snp.makeConstraints { make in
             make.top.equalTo(collectionView.snp.top)

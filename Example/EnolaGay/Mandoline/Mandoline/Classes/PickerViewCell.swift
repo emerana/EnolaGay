@@ -10,7 +10,7 @@ import UIKit
 
 public class PickerViewCell: UICollectionViewCell, Selectable {
     public var isSelectable = true
-    static let cellSize = CGSize(width: 76, height: 94)
+    static let cellSize = CGSize(width: 80, height: 40)
 
     public override init(frame: CGRect) {
         super.init(frame: frame)

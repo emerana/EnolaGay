@@ -20,7 +20,7 @@ class MandolineViewController: UIViewController, PickerViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        pickerView.cellSize = CGSize(width: 100, height: 28)
 //        view.addSubview(pickerView)
 //        pickerView.snp.makeConstraints { make in
 //            make.left.bottom.right.equalToSuperview()
