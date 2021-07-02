@@ -23,6 +23,15 @@
 		8B1AA67A25A74B600063BE04 /* JudyLivePageViewCtrl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */; };
 		8B1AA68025A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */; };
 		8B1AA68125A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */; };
+		8B372D0A268E9F3E004840FC /* PickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372CFF268E9F3E004840FC /* PickerViewCell.swift */; };
+		8B372D0B268E9F3E004840FC /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D00268E9F3E004840FC /* PickerView.swift */; };
+		8B372D0C268E9F3E004840FC /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D02268E9F3E004840FC /* Array+Extensions.swift */; };
+		8B372D0D268E9F3E004840FC /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D03268E9F3E004840FC /* CGFloat+Extensions.swift */; };
+		8B372D0E268E9F3E004840FC /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D04268E9F3E004840FC /* Selectable.swift */; };
+		8B372D0F268E9F3E004840FC /* PickerViewOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D05268E9F3E004840FC /* PickerViewOverlay.swift */; };
+		8B372D10268E9F3E004840FC /* PickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D06268E9F3E004840FC /* PickerViewModel.swift */; };
+		8B372D11268E9F3E004840FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D08268E9F3E004840FC /* Assets.xcassets */; };
+		8B372D12268E9F3E004840FC /* rescheduler.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D09268E9F3E004840FC /* rescheduler.gif */; };
 		8B4A4DE3266E0E37007D6DC5 /* NavigatinCtrl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */; };
 		8B4A4DE5266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */; };
 		8B4A4DEB266F0B8C007D6DC5 /* DouYin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */; };
@@ -78,6 +87,15 @@
 		8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudyLivePageViewTest.swift; sourceTree = "<group>"; };
 		8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JudyLivePageViewCtrl.storyboard; sourceTree = "<group>"; };
 		8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveModelViewCtrl.swift; sourceTree = "<group>"; };
+		8B372CFF268E9F3E004840FC /* PickerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewCell.swift; sourceTree = "<group>"; };
+		8B372D00268E9F3E004840FC /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		8B372D02268E9F3E004840FC /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		8B372D03268E9F3E004840FC /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
+		8B372D04268E9F3E004840FC /* Selectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
+		8B372D05268E9F3E004840FC /* PickerViewOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewOverlay.swift; sourceTree = "<group>"; };
+		8B372D06268E9F3E004840FC /* PickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewModel.swift; sourceTree = "<group>"; };
+		8B372D08268E9F3E004840FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B372D09268E9F3E004840FC /* rescheduler.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rescheduler.gif; sourceTree = "<group>"; };
 		8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTestViewCtrl.swift; sourceTree = "<group>"; };
 		8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigatinCtrl.storyboard; sourceTree = "<group>"; };
 		8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatinMainViewCtrl.swift; sourceTree = "<group>"; };
@@ -168,6 +186,7 @@
 		607FACD21AFB9204008FA782 /* Example for EnolaGay */ = {
 			isa = PBXGroup;
 			children = (
+				8B372CFD268E9F3E004840FC /* Mandoline */,
 				8BBD552E2670A0A200C7B48E /* MyPlayer */,
 				8B4A4DE9266F0B7B007D6DC5 /* DouYinHome */,
 				8B4A4DE1266E0E23007D6DC5 /* NavigationCtrl */,
@@ -261,6 +280,46 @@
 				8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */,
 			);
 			path = JudyLivePageViewCtrl;
+			sourceTree = "<group>";
+		};
+		8B372CFD268E9F3E004840FC /* Mandoline */ = {
+			isa = PBXGroup;
+			children = (
+				8B372CFE268E9F3E004840FC /* Classes */,
+				8B372D07268E9F3E004840FC /* Assets */,
+			);
+			path = Mandoline;
+			sourceTree = "<group>";
+		};
+		8B372CFE268E9F3E004840FC /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8B372CFF268E9F3E004840FC /* PickerViewCell.swift */,
+				8B372D00268E9F3E004840FC /* PickerView.swift */,
+				8B372D01268E9F3E004840FC /* Extensions */,
+				8B372D04268E9F3E004840FC /* Selectable.swift */,
+				8B372D05268E9F3E004840FC /* PickerViewOverlay.swift */,
+				8B372D06268E9F3E004840FC /* PickerViewModel.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		8B372D01268E9F3E004840FC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8B372D02268E9F3E004840FC /* Array+Extensions.swift */,
+				8B372D03268E9F3E004840FC /* CGFloat+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8B372D07268E9F3E004840FC /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8B372D08268E9F3E004840FC /* Assets.xcassets */,
+				8B372D09268E9F3E004840FC /* rescheduler.gif */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		8B4A4DE1266E0E23007D6DC5 /* NavigationCtrl */ = {
@@ -439,10 +498,12 @@
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				8BB88621265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard in Resources */,
 				8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */,
+				8B372D11268E9F3E004840FC /* Assets.xcassets in Resources */,
 				8BBD55342670AE7000C7B48E /* VideoCell.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				8B81AA1B261EEF74003A194B /* KeyBoardPopUp.storyboard in Resources */,
 				8BA9AA05260EDAB8008B1803 /* AttributedString.storyboard in Resources */,
+				8B372D12268E9F3E004840FC /* rescheduler.gif in Resources */,
 				8BBD55302670A0B200C7B48E /* MyPlayer.storyboard in Resources */,
 				8B0B90B12628328E0059B992 /* Refresh.storyboard in Resources */,
 				8B4A4DEB266F0B8C007D6DC5 /* DouYin.storyboard in Resources */,
@@ -519,6 +580,7 @@
 				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Player/Player.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -528,6 +590,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Player.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,8 +607,12 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				8BBD55362670AE8C00C7B48E /* VideoCell.swift in Sources */,
+				8B372D0B268E9F3E004840FC /* PickerView.swift in Sources */,
 				8B4A4DE5266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift in Sources */,
 				8BD8C6952628636B006738E6 /* TestCollectionRefreshCollectionViewCtrl.swift in Sources */,
+				8B372D0A268E9F3E004840FC /* PickerViewCell.swift in Sources */,
+				8B372D0E268E9F3E004840FC /* Selectable.swift in Sources */,
+				8B372D0D268E9F3E004840FC /* CGFloat+Extensions.swift in Sources */,
 				8B81AA1F261EEF85003A194B /* KeyBoardPopUpViewCtrl.swift in Sources */,
 				8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */,
 				8B1AA67325A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */,
@@ -555,8 +622,11 @@
 				8BB8861E265CF30A00E8836D /* GiftMessageViewCtrlTest.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				8BBD55322670A0C900C7B48E /* MyPlayerViewCtrl.swift in Sources */,
+				8B372D0F268E9F3E004840FC /* PickerViewOverlay.swift in Sources */,
+				8B372D10268E9F3E004840FC /* PickerViewModel.swift in Sources */,
 				8BA9AA01260EDAAC008B1803 /* AttributedStringViewController.swift in Sources */,
 				8B1AA68025A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */,
+				8B372D0C268E9F3E004840FC /* Array+Extensions.swift in Sources */,
 				8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
