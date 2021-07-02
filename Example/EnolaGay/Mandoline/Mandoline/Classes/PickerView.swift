@@ -190,25 +190,15 @@ public protocol PickerViewDelegate: AnyObject {
 
 extension PickerViewDelegate {
 
-    func collectionView(_ view: PickerView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ view: PickerView, didSelectItemAt indexPath: IndexPath) { }
 
-    }
+    func scrollViewWillBeginDragging(_ view: PickerView) { }
 
-    func scrollViewWillBeginDragging(_ view: PickerView) {
+    func scrollViewWillEndDragging(_ view: PickerView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) { }
 
-    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) { }
 
-    func scrollViewWillEndDragging(_ view: PickerView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-
-    }
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
-    }
-
-    func configure(cell: UICollectionViewCell, for: IndexPath) {
-
-    }
+    func configure(cell: UICollectionViewCell, for: IndexPath) { }
 }
 
 extension PickerView: UICollectionViewDataSource {
@@ -223,9 +213,7 @@ extension PickerView: UICollectionViewDataSource {
         return cell
     }
 
-    public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
+    public func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)

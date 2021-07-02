@@ -16,13 +16,30 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5n-oZ-1HP" customClass="PickerView" customModule="EnolaGay_Example" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="794" width="414" height="68"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="68" id="MXo-Yn-98l"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="h5n-oZ-1HP" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="6Eq-l1-c9Y"/>
+                            <constraint firstItem="h5n-oZ-1HP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="B3F-SD-cXp"/>
+                            <constraint firstItem="h5n-oZ-1HP" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="nTf-15-aE8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pickerView" destination="h5n-oZ-1HP" id="imx-tL-98n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84" y="104"/>
+            <point key="canvasLocation" x="82.608695652173921" y="103.79464285714285"/>
         </scene>
     </scenes>
     <resources>

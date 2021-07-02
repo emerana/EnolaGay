@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// 覆盖层。
 class PickerViewOverlay: UIView {
 
     let view: UIView

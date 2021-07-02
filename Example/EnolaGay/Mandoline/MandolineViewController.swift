@@ -9,22 +9,23 @@
 import SnapKit
 
 class MandolineViewController: UIViewController, PickerViewDataSource {
-    var selectableCells: [Selectable] = ScrollableCellViewModel.dummyCells()
+    var selectableCells: [Selectable] = ScrollableCellViewModel.list()
 
-    let pickerView: PickerView = {
-        let view = PickerView()
-        view.cellSize = ScrollableCell.cellSize
-        return view
-    }()
+    @IBOutlet weak var pickerView: PickerView!
+    //    let pickerView: PickerView = {
+//        let view = PickerView()
+//        view.cellSize = ScrollableCell.cellSize
+//        return view
+//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(pickerView)
-        pickerView.snp.makeConstraints { make in
-            make.left.bottom.right.equalToSuperview()
-            make.height.equalTo(ScrollableCell.cellSize.height)
-        }
+//        view.addSubview(pickerView)
+//        pickerView.snp.makeConstraints { make in
+//            make.left.bottom.right.equalToSuperview()
+//            make.height.equalTo(ScrollableCell.cellSize.height)
+//        }
 
         pickerView.register(cellType: ScrollableCell.self)
         pickerView.delegate = self
@@ -33,6 +34,7 @@ class MandolineViewController: UIViewController, PickerViewDataSource {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         let randomIndexPath = IndexPath(row: Int(arc4random_uniform(UInt32(selectableCells.count))),section: 0)
         pickerView.scrollToCell(at: randomIndexPath)
     }
