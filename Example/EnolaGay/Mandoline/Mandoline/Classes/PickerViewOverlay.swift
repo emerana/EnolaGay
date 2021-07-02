@@ -12,7 +12,8 @@ import UIKit
 class PickerViewOverlay: UIView {
 
     let view: UIView
-
+    
+    /// 点
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "HandleGreen", in: Bundle(for: PickerView.self), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
@@ -59,7 +60,7 @@ class PickerViewOverlay: UIView {
         }
     }
 
-    var dotDistanceFromTop: CGFloat = 70 {
+    var dotDistanceFromTop: CGFloat = 0 {
         didSet {
             imageView.snp.updateConstraints { make in
                 make.top.equalToSuperview().offset(dotDistanceFromTop)

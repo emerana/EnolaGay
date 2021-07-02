@@ -12,20 +12,9 @@ class MandolineViewController: UIViewController, PickerViewDataSource {
     var selectableCells: [Selectable] = ScrollableCellViewModel.list()
 
     @IBOutlet weak var pickerView: PickerView!
-    //    let pickerView: PickerView = {
-//        let view = PickerView()
-//        view.cellSize = ScrollableCell.cellSize
-//        return view
-//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        pickerView.cellSize = CGSize(width: 100, height: 28)
-//        view.addSubview(pickerView)
-//        pickerView.snp.makeConstraints { make in
-//            make.left.bottom.right.equalToSuperview()
-//            make.height.equalTo(ScrollableCell.cellSize.height)
-//        }
 
         pickerView.register(cellType: ScrollableCell.self)
         pickerView.delegate = self

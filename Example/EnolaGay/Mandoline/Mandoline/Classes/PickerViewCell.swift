@@ -8,6 +8,10 @@
 
 import UIKit
 
+public protocol Selectable {
+    var isSelectable: Bool { get set }
+}
+
 public class PickerViewCell: UICollectionViewCell, Selectable {
     public var isSelectable = true
     static let cellSize = CGSize(width: 80, height: 40)

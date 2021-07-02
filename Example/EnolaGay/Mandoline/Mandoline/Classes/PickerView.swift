@@ -21,6 +21,7 @@ public class PickerView: UIView {
     public weak var delegate: PickerViewDelegate?
 
     /// Change the color of the overlay's border
+    /// 改变覆盖的边界的颜色
     public var selectedOverlayColor: UIColor = UIColor.blue {
         didSet {
             selectedItemOverlay.maindoBorderColor = selectedOverlayColor
@@ -28,6 +29,7 @@ public class PickerView: UIView {
     }
 
     /// Change the color of the dot
+    /// 改变点的颜色。
     public var dotColor: UIColor = UIColor.green {
         didSet {
             selectedItemOverlay.dotColor = dotColor
@@ -35,6 +37,7 @@ public class PickerView: UIView {
     }
 
     /// Change the size of the picker triangle
+    /// 改变三角形的大小。
     public var triangleSize: CGSize? {
         didSet {
             guard let size = triangleSize else { return }
@@ -43,6 +46,7 @@ public class PickerView: UIView {
     }
 
     /// Change the size of the dot
+    /// 改变点的大小。
     public var dotSize: CGSize? {
         didSet {
             guard let size = dotSize else { return }
@@ -51,6 +55,7 @@ public class PickerView: UIView {
     }
 
     /// Change the distance of the dot from the top of the UICollectionView
+    /// 改变点与 UICollectionView 顶部的距离
     public var dotDistanceFromTop: CGFloat? {
         didSet {
             guard let distance = dotDistanceFromTop else { return }
@@ -113,7 +118,7 @@ public class PickerView: UIView {
         return collectionView
     }()
     
-    /// 覆盖层。先不用
+    /// 选中项的覆盖层
     let selectedItemOverlay: PickerViewOverlay = {
         let view = PickerViewOverlay()
         view.isUserInteractionEnabled = false
@@ -124,19 +129,23 @@ public class PickerView: UIView {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .lightGray
-
+        // 配置 collectionView
         addSubview(collectionView)
         collectionView.register(PickerViewCell.self, forCellWithReuseIdentifier: "DayCell")
         collectionView.snp.makeConstraints { make in
             // 使 collectionView 完全铺满。
             make.left.right.top.bottom.equalToSuperview()
-            make.height.equalTo(cellSize ?? PickerViewCell.cellSize.height)
+//            make.height.equalTo(cellSize ?? PickerViewCell.cellSize.height)
         }
+
+        // 配置 selectedItemOverlay
         addSubview(selectedItemOverlay)
         selectedItemOverlay.snp.makeConstraints { make in
             make.top.equalTo(collectionView.snp.top)
-            make.size.equalTo(cellSize ?? PickerViewCell.cellSize)
             make.centerX.equalToSuperview()
+            // make.size.equalTo(cellSize ?? PickerViewCell.cellSize)
+            make.height.equalTo(collectionView)
+            make.width.equalTo(128)
         }
     }
 
@@ -152,6 +161,7 @@ public class PickerView: UIView {
     }
 
     /// Scroll to a cell at a given indexPath
+    /// 滚动到指定 indexPath 的单元格
     public func scrollToCell(at indexPath: IndexPath) {
         guard let cellViewModelsCount = viewModel?.cells.count else { return }
         if indexPath.row < cellViewModelsCount / 2 {
@@ -226,7 +236,8 @@ extension PickerView: UICollectionViewDelegateFlowLayout {
 
     /// This delegate function determines the size of the cell to return. If the cellSize is not set, then it returns the size of the PickerViewCell
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return cellSize ?? PickerViewCell.cellSize
+        return CGSize(width: 128, height: collectionView.bounds.size.height)
+//        return cellSize ?? PickerViewCell.cellSize
     }
 }
 extension PickerView : UIScrollViewDelegate {
