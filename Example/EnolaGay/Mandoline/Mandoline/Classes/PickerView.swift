@@ -174,6 +174,11 @@ public class PickerView: UIView {
         
         collectionView.reloadData()
         collectionView.collectionViewLayout.invalidateLayout()
+        // 默认选中项
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: UInt64(0.01)), execute: { [weak self] in
+            self?.scrollToCell(at: IndexPath(row: 0, section: 0))
+        })
+
     }
 
     /// Scroll to a cell at a given indexPath
@@ -271,6 +276,9 @@ extension PickerView : UIScrollViewDelegate {
     /// This delegate function calculates the "snapping" for the overlay over the CollectionView (calendar view) cells
     /// The main purpose of this function is to calculate the size of the selected overlay's imageView,
     /// that is whether it scales from 0 to 1.5x
+    ///这个委托函数计算 CollectionView (日历视图)单元格上覆盖的“捕捉”，
+    ///这个函数的主要目的是计算所选覆盖的imageView的大小，
+    ///它是否从 0 到 1.5x
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let targetXOffset = targetContentOffset.pointee.x
         let rect = CGRect(origin: targetContentOffset.pointee, size: collectionView.bounds.size)

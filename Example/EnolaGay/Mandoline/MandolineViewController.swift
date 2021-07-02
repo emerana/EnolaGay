@@ -28,7 +28,7 @@ class MandolineViewController: UIViewController, PickerViewDataSource {
         
 //        let randomIndexPath = IndexPath(row: Int(arc4random_uniform(UInt32(selectableCells.count))),section: 0)
 //        pickerView.scrollToCell(at: randomIndexPath)
-        pickerView.scrollToCell(at: IndexPath(row: 0, section: 0))
+//        pickerView.scrollToCell(at: IndexPath(row: 0, section: 0))
 
     }
 
