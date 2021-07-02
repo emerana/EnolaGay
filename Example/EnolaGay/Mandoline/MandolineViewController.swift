@@ -6,11 +6,11 @@
 //  Copyright (c) 2017 ag. All rights reserved.
 //
 
-import SnapKit
+//import SnapKit
 import EnolaGay
 
 class MandolineViewController: UIViewController, PickerViewDataSource {
-    
+
     var selectableCells: [Selectable] = ScrollableCellViewModel.list()
 
     @IBOutlet weak var pickerView: PickerView!
@@ -18,7 +18,6 @@ class MandolineViewController: UIViewController, PickerViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //        pickerView.register(cellType: ScrollableCell.self)
         pickerView.delegate = self
         pickerView.dataSource = self
     }
@@ -26,10 +25,7 @@ class MandolineViewController: UIViewController, PickerViewDataSource {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        let randomIndexPath = IndexPath(row: Int(arc4random_uniform(UInt32(selectableCells.count))),section: 0)
-//        pickerView.scrollToCell(at: randomIndexPath)
-//        pickerView.scrollToCell(at: IndexPath(row: 0, section: 0))
-
+        // pickerView.select(at: 2)
     }
 
 }
@@ -41,18 +37,15 @@ extension MandolineViewController: PickerViewDelegate {
         return "DayCell"
     }
 
-    
+    func pickerView(_ pickerView: PickerView, widthForItemAt index: Int) -> CGFloat { 128 }
+
     func configure(cell: UICollectionViewCell, for indexPath: IndexPath) {
         guard let datedCell = cell as? ScrollableCell else { return }
         datedCell.viewModel = selectableCells[indexPath.row] as? ScrollableCellViewModel
     }
     
-    
-    func collectionView(_ view: PickerView, didSelectItemAt indexPath: IndexPath) {
-//        Judy.log("滚动到:\(indexPath)")
+    func pickerView(_ pickerView: PickerView, didSelectedItemAt index: Int) {
+        Judy.log("选中了\(index)")
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        Judy.log("scrollViewDidScroll")
-    }
 }

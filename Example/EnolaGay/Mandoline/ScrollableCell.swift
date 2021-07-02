@@ -6,6 +6,7 @@
 //  Copyright © 2017 CocoaPods. All rights reserved.
 //
 
+import UIKit
 import SnapKit
 
 class ScrollableCell: UICollectionViewCell {
@@ -99,4 +100,3 @@ extension ScrollableCellViewModel {
         }
     }
 }
-

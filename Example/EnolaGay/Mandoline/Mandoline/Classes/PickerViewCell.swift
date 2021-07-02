@@ -12,9 +12,9 @@ public protocol Selectable {
     var isSelectable: Bool { get set }
 }
 
-public class PickerViewCell: UICollectionViewCell, Selectable {
+open class PickerViewCell: UICollectionViewCell, Selectable {
     public var isSelectable = true
-    static let cellSize = CGSize(width: 80, height: 40)
+    public var cellWidth: CGFloat = 128
 
     public override init(frame: CGRect) {
         super.init(frame: frame)

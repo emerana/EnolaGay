@@ -6,7 +6,6 @@
 //  Copyright (c) 2017 ag. All rights reserved.
 //
 
-//import SnapKit
 import EnolaGay
 
 public class PickerView: UIView {
@@ -85,11 +84,13 @@ public class PickerView: UIView {
         self.setupSubviews()
     }
 
-    
     /// 当前选中的数据模型。
-    private var selectedModel: Selectable?
+    private(set) var selectedModel: Selectable?
     fileprivate var lastScrollProgress = CGFloat()
-    fileprivate var lastIndexPath: IndexPath?
+    /// 最后选中的 indexPath.
+    private var lastIndexPath = IndexPath(row: 0, section: 0)
+    /// 在拖拽时临时存储的 indexPath.
+    private lazy var didScrollIndexPath = IndexPath(row: 0, section: 0)
     
     /// 用于存储 collectionView 注册 Cell 的重用标识符。
     private var cellReuseIdentifier: String?
@@ -159,18 +160,14 @@ public class PickerView: UIView {
         
         collectionView.reloadData()
         collectionView.collectionViewLayout.invalidateLayout()
-        // 默认选中项
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: UInt64(0.01)), execute: { [weak self] in
-            self?.scrollToCell(at: IndexPath(row: 0, section: 0))
-        })
-
     }
 
     /// Scroll to a cell at a given indexPath
-    /// 滚动到指定 indexPath 的单元格
-    public func scrollToCell(at indexPath: IndexPath) {
-//        guard let cellViewModelsCount =  else { return }
-        if indexPath.row < items.count / 2 {
+    /// 滚动到指定 index.
+    public func select(at index: Int) {
+        guard index < items.count else { return }
+        let indexPath = IndexPath(row: index, section: 0)
+        if index < items.count / 2 {
             let lastIndexPath = IndexPath(row: items.count - 1, section: 0)
             collectionView.scrollToItem(at: lastIndexPath, at: .centeredHorizontally, animated: false)
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
@@ -178,84 +175,84 @@ public class PickerView: UIView {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
     }
-
+    
     public override func layoutSubviews() {
         super.layoutSubviews()
-        guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        // TODO: - 有个宽度需要计算。
-        let inset = center.x - 64
+        guard dataSource != nil,
+              let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        else { return }
+
+        let inset = center.x - dataSource!.pickerView(self, widthForItemAt: lastIndexPath.item)/2
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
     }
 }
 
+private extension PickerView {
+    
+}
+
+// MARK: - PickerViewDataSource
 public protocol PickerViewDataSource: AnyObject {
     /// The cells that are `Selectable` and set by the implementing ViewController
     var selectableCells: [Selectable] { get }
     
     /// 注册专用 Cell 并询问该 Cell 的重用标识符。
     func registerCell(for collectionView: UICollectionView) -> String
+    
+    /// 询问指定 index 的 Cell 宽度。
+    func pickerView(_ pickerView: PickerView, widthForItemAt index: Int) -> CGFloat
 }
 
+// MARK: - PickerViewDelegate
 public protocol PickerViewDelegate: AnyObject {
-    /// UICollectionViewDelegate function that allows the consumer to respond to any selection events
-    func collectionView(_ view: PickerView, didSelectItemAt indexPath: IndexPath)
-    /// UIScrollView function that allows the consumer to respond to scrolling events beginning
-    func scrollViewWillBeginDragging(_ view: PickerView)
-    /// UIScrollView function that allows the consumer to respond to scrolling events ending
-    func scrollViewWillEndDragging(_ view: PickerView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
-    /// UIScrollView function that allows the consumer to respond to `scrollViewDidScroll`
-    func scrollViewDidScroll(_ scrollView: UIScrollView)
+    /// 当选中的数据发生实质性的变更时的处理。
+    func pickerView(_ pickerView: PickerView, didSelectedItemAt index: Int)
+
     /// Configuration function to be called with consumer's implemented custom UICollectionViewCell.
     func configure(cell: UICollectionViewCell, for: IndexPath)
 }
 
 extension PickerViewDelegate {
 
-    func collectionView(_ view: PickerView, didSelectItemAt indexPath: IndexPath) { }
-
-    func scrollViewWillBeginDragging(_ view: PickerView) { }
-
-    func scrollViewWillEndDragging(_ view: PickerView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) { }
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) { }
+    func pickerView(_ pickerView: PickerView, didSelectedItemAt index: Int) { }
 
     func configure(cell: UICollectionViewCell, for: IndexPath) { }
 }
 
 extension PickerView: UICollectionViewDataSource {
 
-    public func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
+    public final func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
 
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public final func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
 
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public final func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier!, for: indexPath)
         delegate?.configure(cell: cell, for: indexPath)
         return cell
     }
 
-
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public final func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-
-        guard let model = items[indexPath.row] as? ScrollableCellViewModel else { return }
-        Judy.log("当前选择的是：\(model.title)")
-
-        delegate?.collectionView(self, didSelectItemAt: indexPath)
+        // 防止重复点击。
+        guard lastIndexPath != indexPath else { return }
+        lastIndexPath = indexPath
+        delegate?.pickerView(self, didSelectedItemAt: lastIndexPath.item)
     }
 }
 
 extension PickerView: UICollectionViewDelegateFlowLayout {
 
     /// This delegate function determines the size of the cell to return. If the cellSize is not set, then it returns the size of the PickerViewCell
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // TODO: - 有个宽度需要计算。
-        return CGSize(width: 128, height: collectionView.bounds.size.height)
-//        return cellSize ?? PickerViewCell.cellSize
+    public final func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let width = dataSource!.pickerView(self, widthForItemAt: indexPath.item)
+        return CGSize(width: width, height: collectionView.bounds.size.height)
     }
 }
+
+// MARK: - UIScrollViewDelegate
 extension PickerView : UIScrollViewDelegate {
 
     /// This delegate function calculates the "snapping" for the overlay over the CollectionView (calendar view) cells
@@ -275,15 +272,15 @@ extension PickerView : UIScrollViewDelegate {
         guard let min = differences.min(), let position = differences.firstIndex(of: min) else { return }
         let actualOffset = xOffsets[position] - distanceToOverlayLeftEdge
         targetContentOffset.pointee.x = actualOffset
-        delegate?.scrollViewWillEndDragging(self, withVelocity: velocity, targetContentOffset: targetContentOffset)
+//        delegate?.scrollViewWillEndDragging(self, withVelocity: velocity, targetContentOffset: targetContentOffset)
     }
 
     /// This delegate function calculates how much the overlay imageView should transform depending on
     /// whether the left and right cells are "selectable"
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public final func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        guard let vm = viewModel else { return }
-        // TODO: - 有个宽度需要计算。
-        let scrollProgress = CGFloat(collectionView.contentOffset.x / 128)
+        guard dataSource != nil else { return }
+        let scrollProgress = CGFloat(collectionView.contentOffset.x / dataSource!.pickerView(self, widthForItemAt: lastIndexPath.item))
         defer { lastScrollProgress = scrollProgress }
         let leftIndex = Int(floor(scrollProgress))
         let rightIndex = Int(ceil(scrollProgress))
@@ -310,17 +307,17 @@ extension PickerView : UIScrollViewDelegate {
         var convertedCenter = collectionView.convert(selectedItemOverlay.center, to: collectionView)
         convertedCenter.x += collectionView.contentOffset.x
         guard let indexPath = collectionView.indexPathForItem(at: convertedCenter) else { return }
-//        vm.select(cell: items.cells[indexPath.row])
         selectedModel = items[indexPath.row]
+        didScrollIndexPath = indexPath
         self.generateFeedback()
-        delegate?.scrollViewDidScroll(scrollView)
     }
     
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        // 这才是正确地获取当前显示的 Cell 方式！
+    public final func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        // 这才是正确地获取当前显示的 Cell 方式
         if scrollView == collectionView {
-            guard let model = selectedModel as? ScrollableCellViewModel else { return }
-            Judy.log("当前选择的是：\(model.title)")
+            guard lastIndexPath != didScrollIndexPath else { return }
+            lastIndexPath = didScrollIndexPath
+            delegate?.pickerView(self, didSelectedItemAt: lastIndexPath.item)
         }
     }
 
