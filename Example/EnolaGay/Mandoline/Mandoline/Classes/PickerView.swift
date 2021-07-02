@@ -142,7 +142,7 @@ public class PickerView: UIView {
     }
     
     /// 数据源。
-    private var items = [Selectable]()
+    private var items = [String]()
 
     public final func reloadData() {
         guard let dataSource = self.dataSource else {
@@ -155,7 +155,7 @@ public class PickerView: UIView {
             Judy.logWarning("dataSource.registerCell() 不能响应为空字符")
             return
         }
-        items = dataSource.selectableCells
+        items = dataSource.titles(for: self)
         // viewModel = PickerViewModel(cells: dataSource.selectableCells)
         
         collectionView.reloadData()
@@ -194,13 +194,19 @@ private extension PickerView {
 // MARK: - PickerViewDataSource
 public protocol PickerViewDataSource: AnyObject {
     /// The cells that are `Selectable` and set by the implementing ViewController
-    var selectableCells: [Selectable] { get }
+    // var selectableCells: [Selectable] { get }
     
+    /// 询问 pickerView 的标题列表。
+    func titles(for pickerView: PickerView) -> [String]
+
     /// 注册专用 Cell 并询问该 Cell 的重用标识符。
     func registerCell(for collectionView: UICollectionView) -> String
     
     /// 询问指定 index 的 Cell 宽度。
     func pickerView(_ pickerView: PickerView, widthForItemAt index: Int) -> CGFloat
+
+    func reload(cell: UICollectionViewCell, for index: Int, with source: [String])
+
 }
 
 // MARK: - PickerViewDelegate
@@ -229,7 +235,8 @@ extension PickerView: UICollectionViewDataSource {
 
     public final func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier!, for: indexPath)
-        delegate?.configure(cell: cell, for: indexPath)
+//        delegate?.configure(cell: cell, for: indexPath)
+        dataSource?.reload(cell: cell, for: indexPath.item, with: items)
         return cell
     }
 
@@ -286,20 +293,21 @@ extension PickerView : UIScrollViewDelegate {
         let rightIndex = Int(ceil(scrollProgress))
         let interCellProgress = scrollProgress - CGFloat(leftIndex)
         let deltaFromMiddle = abs(0.5 - interCellProgress)
-        let (this, next) = (items[safe: leftIndex]?.isSelectable ?? false,
-                            items[safe: rightIndex]?.isSelectable ?? false)
-        let dotScale: CGFloat
-        switch (this, next) {
-        case (true, true):
-            dotScale = 1.5 - (deltaFromMiddle)
-        case (true, false):
-            dotScale = 1 - interCellProgress
-        case (false, true):
-            dotScale = interCellProgress
-        case (false, false):
-            dotScale = 0
-        }
-        selectedItemOverlay.imageView.transform = CGAffineTransform(scaleX: dotScale, y: dotScale)
+        
+//        let (this, next) = (items[safe: leftIndex]?.isSelectable ?? false,
+//                            items[safe: rightIndex]?.isSelectable ?? false)
+//        let dotScale: CGFloat
+//        switch (this, next) {
+//        case (true, true):
+//            dotScale = 1.5 - (deltaFromMiddle)
+//        case (true, false):
+//            dotScale = 1 - interCellProgress
+//        case (false, true):
+//            dotScale = interCellProgress
+//        case (false, false):
+//            dotScale = 0
+//        }
+//        selectedItemOverlay.imageView.transform = CGAffineTransform(scaleX: dotScale, y: dotScale)
 
         guard ((lastScrollProgress.integerBelow != scrollProgress.integerBelow) && !lastScrollProgress.isIntegral)
             || (scrollProgress.isIntegral && !lastScrollProgress.isIntegral) else { return }
@@ -307,7 +315,7 @@ extension PickerView : UIScrollViewDelegate {
         var convertedCenter = collectionView.convert(selectedItemOverlay.center, to: collectionView)
         convertedCenter.x += collectionView.contentOffset.x
         guard let indexPath = collectionView.indexPathForItem(at: convertedCenter) else { return }
-        selectedModel = items[indexPath.row]
+//        selectedModel = items[indexPath.row]
         didScrollIndexPath = indexPath
         self.generateFeedback()
     }

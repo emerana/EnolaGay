@@ -10,8 +10,9 @@
 import EnolaGay
 
 class MandolineViewController: UIViewController, PickerViewDataSource {
+    
 
-    var selectableCells: [Selectable] = ScrollableCellViewModel.list()
+    // var selectableCells: [Selectable] = ScrollableCellViewModel.list()
 
     @IBOutlet weak var pickerView: PickerView!
 
@@ -32,6 +33,10 @@ class MandolineViewController: UIViewController, PickerViewDataSource {
 
 extension MandolineViewController: PickerViewDelegate {
     
+    func titles(for pickerView: PickerView) -> [String] {
+        return ["浙江温州", "江南皮革厂", "哈哈哈", "倒闭了"]
+    }
+    
     func registerCell(for collectionView: UICollectionView) -> String {
         collectionView.register(ScrollableCell.self, forCellWithReuseIdentifier: "DayCell")
         return "DayCell"
@@ -39,9 +44,14 @@ extension MandolineViewController: PickerViewDelegate {
 
     func pickerView(_ pickerView: PickerView, widthForItemAt index: Int) -> CGFloat { 128 }
 
-    func configure(cell: UICollectionViewCell, for indexPath: IndexPath) {
+    func reload(cell: UICollectionViewCell, for index: Int, with source: [String]) {
         guard let datedCell = cell as? ScrollableCell else { return }
-        datedCell.viewModel = selectableCells[indexPath.row] as? ScrollableCellViewModel
+        datedCell.titleLabel.text = source[index]
+    }
+
+    func configure(cell: UICollectionViewCell, for indexPath: IndexPath) {
+//        guard let datedCell = cell as? ScrollableCell else { return }
+//        datedCell.titleLabel =  //selectableCells[indexPath.row] as? ScrollableCellViewModel
     }
     
     func pickerView(_ pickerView: PickerView, didSelectedItemAt index: Int) {
