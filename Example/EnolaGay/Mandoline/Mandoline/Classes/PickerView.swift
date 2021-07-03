@@ -7,7 +7,6 @@
 //
 
 import EnolaGay
-import SnapKit
 
 /// 一款横向选择器。
 public class PickerView: UIView {
@@ -108,16 +107,24 @@ public class PickerView: UIView {
                                relatedBy: .equal, toItem: self,
                                attribute: .right, multiplier: 1, constant: 0))
         // 配置 selectedItemOverlay
+        selectedItemOverlay.translatesAutoresizingMaskIntoConstraints = false
         addSubview(selectedItemOverlay)
-        
-        selectedItemOverlay.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.top)
-            make.centerX.equalToSuperview()
-            // make.size.equalTo(cellSize ?? PickerViewCell.cellSize)
-            make.height.equalTo(collectionView)
-            // TODO: - 有个宽度需要计算。
-            make.width.equalTo(cellWidth)
-        }
+        self.addConstraint(
+            NSLayoutConstraint(item: selectedItemOverlay, attribute: .centerX,
+                               relatedBy: .equal, toItem: self,
+                               attribute: .centerX, multiplier: 1, constant: 0))
+        self.addConstraint(
+            NSLayoutConstraint(item: selectedItemOverlay, attribute: .top,
+                               relatedBy: .equal, toItem: collectionView,
+                               attribute: .top, multiplier: 1, constant: 0))
+        self.addConstraint(
+            NSLayoutConstraint(item: selectedItemOverlay, attribute: .height,
+                               relatedBy: .equal, toItem: collectionView,
+                               attribute: .height, multiplier: 1, constant: 0))
+        self.addConstraint(
+            NSLayoutConstraint(item: selectedItemOverlay, attribute: .width,
+                               relatedBy: .equal, toItem: nil,
+                               attribute: .width, multiplier: 1, constant: cellWidth))
     }
     
     public override func layoutSubviews() {
