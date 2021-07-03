@@ -29,7 +29,15 @@ public class PickerView: UIView {
     private(set) var selectedModel: Selectable?
     fileprivate var lastScrollProgress = CGFloat()
     /// 最后选中的 indexPath.
-    private var lastIndexPath = IndexPath(row: 0, section: 0)
+    private var lastIndexPath = IndexPath(row: 0, section: 0) {
+        didSet {
+            Judy.log("变更 lastIndexPath = \(lastIndexPath.item)")
+//            let oldCell = collectionView.cellForItem(at: oldValue)
+//            (oldCell as? ScrollableCell)?.titleLabel.textColor = .black
+//            let cell = collectionView.cellForItem(at: lastIndexPath)
+//            (cell as? ScrollableCell)?.titleLabel.textColor = .red
+        }
+    }
     /// 在拖拽时临时存储的 indexPath.
     private lazy var didScrollIndexPath = IndexPath(row: 0, section: 0)
     /// 当前显示在中间的 Cell 的 frame.
@@ -55,7 +63,6 @@ public class PickerView: UIView {
         view.isUserInteractionEnabled = false
         return view
     }()
-
 
     /// Initializers
     public override init(frame: CGRect) {
@@ -157,6 +164,7 @@ public extension PickerView {
         } else {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
+        lastIndexPath = indexPath
     }
 }
 
@@ -251,16 +259,16 @@ extension PickerView : UIScrollViewDelegate {
         // 您的应用程序可以更改targetContentOffset参数的值，以调整滚动视图完成滚动动画的位置。
         // 滚动动作减速到停止时的预期偏移量。
         let targetXOffset = targetContentOffset.pointee.x
-        Judy.log(type: .🍅, "targetContentOffset = \(targetContentOffset.pointee)")
+        // Judy.log(type: .🍅, "targetContentOffset = \(targetContentOffset.pointee)")
 
         // collectionView 预期显示的 rect
         let rect = CGRect(origin: targetContentOffset.pointee, size: collectionView.bounds.size)
-        Judy.log("预期显示的区域 = \(rect)")
+        // Judy.log("预期显示的区域 = \(rect)")
         // 检索指定矩形中所有单元格和视图的布局属性。
         guard let attributes = collectionView.collectionViewLayout.layoutAttributesForElements(in: rect) else { return }
         let xOffsets = attributes.map { $0.frame.origin.x }
         
-        Judy.log("selectedItemOverlay.frame.origin.x = \(selectedItemOverlay.frame.origin.x)")
+        // Judy.log("selectedItemOverlay.frame.origin.x = \(selectedItemOverlay.frame.origin.x)")
         // 左边距离。
         let distanceToOverlayLeftEdge = selectedItemOverlay.frame.origin.x - collectionView.frame.origin.x
         // 目标Cell左边边缘
@@ -271,7 +279,7 @@ extension PickerView : UIScrollViewDelegate {
         guard let min = differences.min(), let position = differences.firstIndex(of: min) else { return }
         
         let actualOffset = xOffsets[position] - distanceToOverlayLeftEdge
-        Judy.log("actualOffset = \(actualOffset)")
+        // Judy.log("actualOffset = \(actualOffset)")
         targetContentOffset.pointee.x = actualOffset
     }
 
@@ -282,10 +290,10 @@ extension PickerView : UIScrollViewDelegate {
         guard dataSource != nil else { return }
         let scrollProgress = CGFloat(collectionView.contentOffset.x / cellWidth)
         defer { lastScrollProgress = scrollProgress }
-        let leftIndex = Int(floor(scrollProgress))
-        let rightIndex = Int(ceil(scrollProgress))
-        let interCellProgress = scrollProgress - CGFloat(leftIndex)
-        let deltaFromMiddle = abs(0.5 - interCellProgress)
+        // let leftIndex = Int(floor(scrollProgress))
+        // let rightIndex = Int(ceil(scrollProgress))
+        // let interCellProgress = scrollProgress - CGFloat(leftIndex)
+        // let deltaFromMiddle = abs(0.5 - interCellProgress)
         
 //        let (this, next) = (items[safe: leftIndex]?.isSelectable ?? false,
 //                            items[safe: rightIndex]?.isSelectable ?? false)

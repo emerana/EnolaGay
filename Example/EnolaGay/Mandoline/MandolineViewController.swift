@@ -23,7 +23,7 @@ class MandolineViewController: UIViewController, PickerViewDataSource {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // pickerView.select(at: 2)
+         pickerView.select(at: 3)
     }
 
 }
@@ -31,10 +31,8 @@ class MandolineViewController: UIViewController, PickerViewDataSource {
 extension MandolineViewController: PickerViewDelegate {
     
     func titles(for pickerView: PickerView) -> [String] {
-        return ["浙江温州", "江南皮革厂", "哈哈哈", "倒闭了"]
+        return ["上传视频", "快拍", "长拍", "开直播"]
     }
-
-    func pickerView(_ pickerView: PickerView, widthForItemAt index: Int) -> CGFloat { 128 }
 
     func reload(cell: UICollectionViewCell, for index: Int, with source: [String]) {
         // guard let datedCell = cell as? ScrollableCell else { return }

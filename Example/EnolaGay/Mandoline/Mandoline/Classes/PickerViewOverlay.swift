@@ -12,13 +12,7 @@ import UIKit
 class PickerViewOverlay: UIView {
 
     let view: UIView
-    /// 点
-//    let imageView: UIImageView = {
-//        let imageView = UIImageView()
-//        imageView.image = UIImage(named: "HandleGreen", in: Bundle(for: PickerView.self), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
-//        return imageView
-//    }()
-    
+
     /// 三角形。
     let triangleView = PickerViewOverlayTriangleView()
 
@@ -46,28 +40,6 @@ class PickerViewOverlay: UIView {
         }
     }
 
-//    var dotColor: UIColor? = UIColor.green {
-//        didSet {
-//            imageView.tintColor = dotColor
-//        }
-//    }
-
-//    var dotSize = CGSize(width: 8, height: 8) {
-//        didSet {
-//            imageView.snp.updateConstraints { make in
-//                make.size.equalTo(dotSize)
-//            }
-//        }
-//    }
-
-//    var dotDistanceFromTop: CGFloat = 0 {
-//        didSet {
-//            imageView.snp.updateConstraints { make in
-//                make.top.equalToSuperview().offset(dotDistanceFromTop)
-//            }
-//        }
-//    }
-
     override init(frame: CGRect) {
         view = UIView(frame: .zero)
         super.init(frame: frame)
@@ -82,18 +54,6 @@ class PickerViewOverlay: UIView {
         }
         view.layer.borderWidth = mandoBorderWidth
         view.layer.borderColor = maindoBorderColor.cgColor
-
-//        addSubview(imageView)
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(dotDistanceFromTop)
-//            make.centerX.equalToSuperview()
-//        }
-
-//        imageView.tintColor = dotColor
-//        imageView.snp.makeConstraints { make in
-//            make.size.equalTo(dotSize)
-//        }
 
         addSubview(triangleView)
         triangleView.snp.makeConstraints { make in
