@@ -20,59 +20,11 @@ public class PickerView: UIView {
     /// The object that acts as a delegate
     public weak var delegate: PickerViewDelegate?
 
-    /// Change the color of the overlay's border
-    /// 改变覆盖的边界的颜色
-    public var selectedOverlayColor: UIColor = UIColor.blue {
-        didSet {
-            selectedItemOverlay.maindoBorderColor = selectedOverlayColor
-        }
-    }
-
-    /// Change the color of the dot
-    /// 改变点的颜色。
-    public var dotColor: UIColor = UIColor.green {
-        didSet {
-            selectedItemOverlay.dotColor = dotColor
-        }
-    }
-
-    /// Change the size of the picker triangle
-    /// 改变三角形的大小。
-    public var triangleSize: CGSize? {
-        didSet {
-            guard let size = triangleSize else { return }
-            selectedItemOverlay.triangleSize = size
-        }
-    }
-
-    /// Change the size of the dot
-    /// 改变点的大小。
-    public var dotSize: CGSize? {
-        didSet {
-            guard let size = dotSize else { return }
-            selectedItemOverlay.dotSize = size
-        }
-    }
-
-    /// Change the distance of the dot from the top of the UICollectionView
-    /// 改变点与 UICollectionView 顶部的距离
-    public var dotDistanceFromTop: CGFloat? {
-        didSet {
-            guard let distance = dotDistanceFromTop else { return }
-            selectedItemOverlay.dotDistanceFromTop = distance
-        }
-    }
-
-    /// Change the background color of the UICollectionView
-    override public var backgroundColor: UIColor? {
-        didSet {
-            collectionView.backgroundColor = backgroundColor
-        }
-    }
-    
+    /// 通用的宽度。
+    var cellWidth: CGFloat = 128
     /// 数据源。
     public private(set) var items = [PickerViewItemModel]()
-
+    
     /// 当前选中的数据模型。
     private(set) var selectedModel: Selectable?
     fileprivate var lastScrollProgress = CGFloat()
@@ -80,9 +32,6 @@ public class PickerView: UIView {
     private var lastIndexPath = IndexPath(row: 0, section: 0)
     /// 在拖拽时临时存储的 indexPath.
     private lazy var didScrollIndexPath = IndexPath(row: 0, section: 0)
-    
-    /// 用于存储 collectionView 注册 Cell 的重用标识符。
-    private var cellReuseIdentifier: String?
 
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -155,13 +104,34 @@ public class PickerView: UIView {
                                constant: 0))
         // 配置 selectedItemOverlay
         addSubview(selectedItemOverlay)
+        
+//        self.addConstraint(
+//            NSLayoutConstraint(item: selectedItemOverlay, attribute: .top,
+//                               relatedBy: .equal, toItem: collectionView,
+//                               attribute: .top, multiplier: 1, constant: 0))
+//        self.addConstraint(
+//            NSLayoutConstraint(item: selectedItemOverlay, attribute: .centerX,
+//                               relatedBy: .equal, toItem: self,
+//                               attribute: .centerX, multiplier: 1,
+//                               constant: 0))
+//        self.addConstraint(
+//            NSLayoutConstraint(item: selectedItemOverlay, attribute: .height,
+//                               relatedBy: .equal, toItem: collectionView,
+//                               attribute: .height, multiplier: 1,
+//                               constant: 0))
+//        self.addConstraint(
+//            NSLayoutConstraint(item: selectedItemOverlay, attribute: .width,
+//                               relatedBy: .equal, toItem: nil, attribute: .width,
+//                               multiplier: 1, constant: cellWidth))
+
+        
         selectedItemOverlay.snp.makeConstraints { make in
             make.top.equalTo(collectionView.snp.top)
             make.centerX.equalToSuperview()
             // make.size.equalTo(cellSize ?? PickerViewCell.cellSize)
             make.height.equalTo(collectionView)
             // TODO: - 有个宽度需要计算。
-            make.width.equalTo(128)
+            make.width.equalTo(cellWidth)
         }
     }
     
@@ -171,7 +141,7 @@ public class PickerView: UIView {
               let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         else { return }
 
-        let inset = center.x - dataSource!.pickerView(self, widthForItemAt: lastIndexPath.item)/2
+        let inset = center.x - cellWidth/2
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
     }
 }
@@ -184,16 +154,12 @@ public extension PickerView {
             return
         }
         // 确定注册的 Cell.
-        cellReuseIdentifier = dataSource.registerCell(for: collectionView)
-        guard cellReuseIdentifier != "" else {
-            Judy.logWarning("dataSource.registerCell() 不能响应为空字符")
-            return
-        }
+        collectionView.register(ScrollableCell.self, forCellWithReuseIdentifier: "DayCell")
+
         items.removeAll()
         items = dataSource.titles(for: self).map { title in
             let model = PickerViewItemModel()
             model.title = title
-            
             return model
         }
         
@@ -216,22 +182,27 @@ public extension PickerView {
     }
 }
 
+// MARK: 私有函数
+private extension PickerView {
+    /// 设置一个三角形在中间位置。
+    func setupTriangleView() {
+        /// 三角形。
+        let triangleView = PickerViewOverlayTriangleView()
+        triangleView.frame = CGRect(origin: CGPoint(x: self.frame.size.width/2, y: 0), size: CGSize(width: 10, height: 5))
+        triangleView.color = .red
+        addSubview(triangleView)
+    }
+}
+
 // MARK: - PickerViewDataSource
 public protocol PickerViewDataSource: AnyObject {
-    /// The cells that are `Selectable` and set by the implementing ViewController
-    // var selectableCells: [Selectable] { get }
-    
     /// 询问 pickerView 的标题列表。
     func titles(for pickerView: PickerView) -> [String]
-
-    /// 注册专用 Cell 并询问该 Cell 的重用标识符。
-    func registerCell(for collectionView: UICollectionView) -> String
     
     /// 询问指定 index 的 Cell 宽度。
-    func pickerView(_ pickerView: PickerView, widthForItemAt index: Int) -> CGFloat
+    // func pickerView(_ pickerView: PickerView, widthForItemAt index: Int) -> CGFloat
 
-    func reload(cell: UICollectionViewCell, for index: Int, with source: [String])
-
+    // func reload(cell: UICollectionViewCell, for index: Int, with source: [String])
 }
 
 // MARK: - PickerViewDelegate
@@ -240,7 +211,7 @@ public protocol PickerViewDelegate: AnyObject {
     func pickerView(_ pickerView: PickerView, didSelectedItemAt index: Int)
 
     /// Configuration function to be called with consumer's implemented custom UICollectionViewCell.
-    func configure(cell: UICollectionViewCell, for: IndexPath)
+    // func configure(cell: UICollectionViewCell, for: IndexPath)
 }
 
 extension PickerViewDelegate {
@@ -259,7 +230,7 @@ extension PickerView: UICollectionViewDataSource {
     }
 
     public final func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier!, for: indexPath) as! ScrollableCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCell", for: indexPath) as! ScrollableCell
         // dataSource?.reload(cell: cell, for: indexPath.item, with: items)
         cell.reloadData(model: items[indexPath.item])
         return cell
@@ -280,7 +251,7 @@ extension PickerView: UICollectionViewDelegateFlowLayout {
     public final func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         //  return CGSize(width: items[indexPath.item].textWidth, height: collectionView.bounds.size.height)
-        return CGSize(width: 128, height: collectionView.bounds.size.height)
+        return CGSize(width: cellWidth, height: collectionView.bounds.size.height)
     }
 }
 
@@ -293,16 +264,26 @@ extension PickerView : UIScrollViewDelegate {
     ///这个委托函数计算 CollectionView (日历视图)单元格上覆盖的“捕捉”，
     ///这个函数的主要目的是计算所选覆盖的imageView的大小，
     ///它是否从 0 到 1.5x
+    // 自动对齐
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
         let targetXOffset = targetContentOffset.pointee.x
+        
         let rect = CGRect(origin: targetContentOffset.pointee, size: collectionView.bounds.size)
         guard let attributes = collectionView.collectionViewLayout.layoutAttributesForElements(in: rect) else { return }
+        
         let xOffsets = attributes.map { $0.frame.origin.x }
+        
         let distanceToOverlayLeftEdge = selectedItemOverlay.frame.origin.x - collectionView.frame.origin.x
+        
         let targetCellLeftEdge = targetXOffset + distanceToOverlayLeftEdge
+        
         let differences = xOffsets.map { fabs(Double($0 - targetCellLeftEdge)) }
+        
         guard let min = differences.min(), let position = differences.firstIndex(of: min) else { return }
+        
         let actualOffset = xOffsets[position] - distanceToOverlayLeftEdge
+        
         targetContentOffset.pointee.x = actualOffset
 //        delegate?.scrollViewWillEndDragging(self, withVelocity: velocity, targetContentOffset: targetContentOffset)
     }
@@ -312,7 +293,7 @@ extension PickerView : UIScrollViewDelegate {
     public final func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        guard let vm = viewModel else { return }
         guard dataSource != nil else { return }
-        let scrollProgress = CGFloat(collectionView.contentOffset.x / 128)
+        let scrollProgress = CGFloat(collectionView.contentOffset.x / cellWidth)
         defer { lastScrollProgress = scrollProgress }
         let leftIndex = Int(floor(scrollProgress))
         let rightIndex = Int(ceil(scrollProgress))
@@ -340,7 +321,6 @@ extension PickerView : UIScrollViewDelegate {
         var convertedCenter = collectionView.convert(selectedItemOverlay.center, to: collectionView)
         convertedCenter.x += collectionView.contentOffset.x
         guard let indexPath = collectionView.indexPathForItem(at: convertedCenter) else { return }
-//        selectedModel = items[indexPath.row]
         didScrollIndexPath = indexPath
         self.generateFeedback()
     }

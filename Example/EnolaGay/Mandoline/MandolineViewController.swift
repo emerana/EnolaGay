@@ -15,7 +15,7 @@ class MandolineViewController: UIViewController, PickerViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        pickerView.selectedOverlayColor = .clear
+
         pickerView.delegate = self
         pickerView.dataSource = self
     }
@@ -33,17 +33,11 @@ extension MandolineViewController: PickerViewDelegate {
     func titles(for pickerView: PickerView) -> [String] {
         return ["浙江温州", "江南皮革厂", "哈哈哈", "倒闭了"]
     }
-    
-    func registerCell(for collectionView: UICollectionView) -> String {
-        collectionView.register(ScrollableCell.self, forCellWithReuseIdentifier: "DayCell")
-        return "DayCell"
-    }
 
     func pickerView(_ pickerView: PickerView, widthForItemAt index: Int) -> CGFloat { 128 }
 
     func reload(cell: UICollectionViewCell, for index: Int, with source: [String]) {
-        guard let datedCell = cell as? ScrollableCell else { return }
-        datedCell.titleLabel.text = source[index]
+        // guard let datedCell = cell as? ScrollableCell else { return }
     }
     
     func pickerView(_ pickerView: PickerView, didSelectedItemAt index: Int) {

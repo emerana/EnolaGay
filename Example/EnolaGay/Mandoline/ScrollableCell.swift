@@ -26,7 +26,7 @@ class ScrollableCell: UICollectionViewCell {
         contentView.addSubview(titleLabel)
 
         backgroundColor = .white
-        contentView.layer.borderColor = UIColor.red.cgColor
+        contentView.layer.borderColor = UIColor.cyan.cgColor
         //UIColor.black.withAlphaComponent(0.08).cgColor
         contentView.layer.borderWidth = 1.0
 
