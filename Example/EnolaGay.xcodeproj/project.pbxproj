@@ -33,6 +33,8 @@
 		8B372D1D268EA105004840FC /* MandolineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D1A268EA104004840FC /* MandolineViewController.swift */; };
 		8B372D1E268EA105004840FC /* ScrollableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D1B268EA105004840FC /* ScrollableCell.swift */; };
 		8B372D1F268EA105004840FC /* Mandoline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D1C268EA105004840FC /* Mandoline.storyboard */; };
+		8B372D22268FFA0C004840FC /* HPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D21268FFA0B004840FC /* HPicker.storyboard */; };
+		8B372D24268FFA2E004840FC /* HPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D23268FFA2D004840FC /* HPicker.swift */; };
 		8B4A4DE3266E0E37007D6DC5 /* NavigatinCtrl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */; };
 		8B4A4DE5266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */; };
 		8B4A4DEB266F0B8C007D6DC5 /* DouYin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */; };
@@ -98,6 +100,8 @@
 		8B372D1A268EA104004840FC /* MandolineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandolineViewController.swift; sourceTree = "<group>"; };
 		8B372D1B268EA105004840FC /* ScrollableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollableCell.swift; sourceTree = "<group>"; };
 		8B372D1C268EA105004840FC /* Mandoline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mandoline.storyboard; sourceTree = "<group>"; };
+		8B372D21268FFA0B004840FC /* HPicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HPicker.storyboard; sourceTree = "<group>"; };
+		8B372D23268FFA2D004840FC /* HPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HPicker.swift; sourceTree = "<group>"; };
 		8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTestViewCtrl.swift; sourceTree = "<group>"; };
 		8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigatinCtrl.storyboard; sourceTree = "<group>"; };
 		8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatinMainViewCtrl.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 		607FACD21AFB9204008FA782 /* Example for EnolaGay */ = {
 			isa = PBXGroup;
 			children = (
+				8B372D20268FF9F8004840FC /* HPicker */,
 				8B372D13268EA06F004840FC /* Mandoline */,
 				8BBD552E2670A0A200C7B48E /* MyPlayer */,
 				8B4A4DE9266F0B7B007D6DC5 /* DouYinHome */,
@@ -331,6 +336,15 @@
 				8B372D1B268EA105004840FC /* ScrollableCell.swift */,
 			);
 			path = Mandoline;
+			sourceTree = "<group>";
+		};
+		8B372D20268FF9F8004840FC /* HPicker */ = {
+			isa = PBXGroup;
+			children = (
+				8B372D23268FFA2D004840FC /* HPicker.swift */,
+				8B372D21268FFA0B004840FC /* HPicker.storyboard */,
+			);
+			path = HPicker;
 			sourceTree = "<group>";
 		};
 		8B4A4DE1266E0E23007D6DC5 /* NavigationCtrl */ = {
@@ -508,6 +522,7 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				8BB88621265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard in Resources */,
+				8B372D22268FFA0C004840FC /* HPicker.storyboard in Resources */,
 				8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */,
 				8B372D11268E9F3E004840FC /* Assets.xcassets in Resources */,
 				8BBD55342670AE7000C7B48E /* VideoCell.xib in Resources */,
@@ -621,6 +636,7 @@
 				8BBD55362670AE8C00C7B48E /* VideoCell.swift in Sources */,
 				8B372D0B268E9F3E004840FC /* PickerView.swift in Sources */,
 				8B4A4DE5266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift in Sources */,
+				8B372D24268FFA2E004840FC /* HPicker.swift in Sources */,
 				8BD8C6952628636B006738E6 /* TestCollectionRefreshCollectionViewCtrl.swift in Sources */,
 				8B372D0A268E9F3E004840FC /* PickerViewCell.swift in Sources */,
 				8B372D0D268E9F3E004840FC /* CGFloat+Extensions.swift in Sources */,

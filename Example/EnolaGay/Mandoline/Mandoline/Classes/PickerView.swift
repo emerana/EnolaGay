@@ -313,7 +313,7 @@ extension PickerView : UIScrollViewDelegate {
     public final func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        guard let vm = viewModel else { return }
         guard dataSource != nil else { return }
-        let scrollProgress = CGFloat(collectionView.contentOffset.x / dataSource!.pickerView(self, widthForItemAt: lastIndexPath.item))
+        let scrollProgress = CGFloat(collectionView.contentOffset.x / items[lastIndexPath.item].textWidth)
         defer { lastScrollProgress = scrollProgress }
         let leftIndex = Int(floor(scrollProgress))
         let rightIndex = Int(ceil(scrollProgress))

@@ -95,6 +95,7 @@ open class PickerViewItemModel {
     
     /// title 下文本的宽度。
     open var textWidth: CGFloat {
+        
         let textWidth = NSString(string: title)
             .boundingRect(with: CGSize(width: CGFloat.infinity, height: CGFloat.infinity),
                           options: [.usesFontLeading, .usesLineFragmentOrigin],
