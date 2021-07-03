@@ -247,9 +247,12 @@ extension PickerView : UIScrollViewDelegate {
     ///它是否从 0 到 1.5x
     // 自动对齐
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
         // 您的应用程序可以更改targetContentOffset参数的值，以调整滚动视图完成滚动动画的位置。
         // 滚动动作减速到停止时的预期偏移量。
         let targetXOffset = targetContentOffset.pointee.x
+        Judy.log(type: .🍅, "targetContentOffset = \(targetContentOffset.pointee)")
+
         // collectionView 预期显示的 rect
         let rect = CGRect(origin: targetContentOffset.pointee, size: collectionView.bounds.size)
         Judy.log("预期显示的区域 = \(rect)")
