@@ -84,46 +84,22 @@ public class PickerView: UIView {
         self.addConstraint(
             NSLayoutConstraint(item: collectionView, attribute: .top,
                                relatedBy: .equal, toItem: self,
-                               attribute: .top, multiplier: 1,
-                               constant: 0))
+                               attribute: .top, multiplier: 1, constant: 0))
         
         self.addConstraint(
             NSLayoutConstraint(item: collectionView, attribute: .left,
                                relatedBy: .equal, toItem: self,
-                               attribute: .left, multiplier: 1,
-                               constant: 0))
+                               attribute: .left, multiplier: 1, constant: 0))
         self.addConstraint(
             NSLayoutConstraint(item: collectionView, attribute: .bottom,
                                relatedBy: .equal, toItem: self,
-                               attribute: .bottom, multiplier: 1,
-                               constant: 0))
+                               attribute: .bottom, multiplier: 1, constant: 0))
         self.addConstraint(
             NSLayoutConstraint(item: collectionView, attribute: .right,
                                relatedBy: .equal, toItem: self,
-                               attribute: .right, multiplier: 1,
-                               constant: 0))
+                               attribute: .right, multiplier: 1, constant: 0))
         // 配置 selectedItemOverlay
         addSubview(selectedItemOverlay)
-        
-//        self.addConstraint(
-//            NSLayoutConstraint(item: selectedItemOverlay, attribute: .top,
-//                               relatedBy: .equal, toItem: collectionView,
-//                               attribute: .top, multiplier: 1, constant: 0))
-//        self.addConstraint(
-//            NSLayoutConstraint(item: selectedItemOverlay, attribute: .centerX,
-//                               relatedBy: .equal, toItem: self,
-//                               attribute: .centerX, multiplier: 1,
-//                               constant: 0))
-//        self.addConstraint(
-//            NSLayoutConstraint(item: selectedItemOverlay, attribute: .height,
-//                               relatedBy: .equal, toItem: collectionView,
-//                               attribute: .height, multiplier: 1,
-//                               constant: 0))
-//        self.addConstraint(
-//            NSLayoutConstraint(item: selectedItemOverlay, attribute: .width,
-//                               relatedBy: .equal, toItem: nil, attribute: .width,
-//                               multiplier: 1, constant: cellWidth))
-
         
         selectedItemOverlay.snp.makeConstraints { make in
             make.top.equalTo(collectionView.snp.top)
