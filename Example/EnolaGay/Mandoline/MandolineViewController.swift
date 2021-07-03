@@ -41,7 +41,7 @@ extension MandolineViewController: PickerViewDelegate {
     }
     
     func pickerView(_ pickerView: PickerView, didSelectedItemAt index: Int) {
-        Judy.log("选中了\(index)")
+//        Judy.log("选中了\(index)")
     }
     
 }

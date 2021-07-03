@@ -21,7 +21,7 @@ public class PickerView: UIView {
     public weak var delegate: PickerViewDelegate?
 
     /// 通用的宽度。
-    var cellWidth: CGFloat = 128
+    var cellWidth: CGFloat = 88
     /// 数据源。
     public private(set) var items = [PickerViewItemModel]()
     
@@ -32,6 +32,8 @@ public class PickerView: UIView {
     private var lastIndexPath = IndexPath(row: 0, section: 0)
     /// 在拖拽时临时存储的 indexPath.
     private lazy var didScrollIndexPath = IndexPath(row: 0, section: 0)
+    /// 当前显示在中间的 Cell 的 frame.
+    private var centerFrame = CGRect.zero
 
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -214,6 +216,9 @@ extension PickerView: UICollectionViewDataSource {
 
     public final func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        if let recgt = collectionView.cellForItem(at: indexPath)?.frame {
+            centerFrame = collectionView.convert(recgt, to: self)
+        }
         // 防止重复点击。
         guard lastIndexPath != indexPath else { return }
         lastIndexPath = indexPath
@@ -242,26 +247,29 @@ extension PickerView : UIScrollViewDelegate {
     ///它是否从 0 到 1.5x
     // 自动对齐
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
+        // 您的应用程序可以更改targetContentOffset参数的值，以调整滚动视图完成滚动动画的位置。
+        // 滚动动作减速到停止时的预期偏移量。
         let targetXOffset = targetContentOffset.pointee.x
-        
+        // collectionView 预期显示的 rect
         let rect = CGRect(origin: targetContentOffset.pointee, size: collectionView.bounds.size)
+        Judy.log("预期显示的区域 = \(rect)")
+        // 检索指定矩形中所有单元格和视图的布局属性。
         guard let attributes = collectionView.collectionViewLayout.layoutAttributesForElements(in: rect) else { return }
-        
         let xOffsets = attributes.map { $0.frame.origin.x }
         
+        Judy.log("selectedItemOverlay.frame.origin.x = \(selectedItemOverlay.frame.origin.x)")
+        // 左边距离。
         let distanceToOverlayLeftEdge = selectedItemOverlay.frame.origin.x - collectionView.frame.origin.x
-        
+        // 目标Cell左边边缘
         let targetCellLeftEdge = targetXOffset + distanceToOverlayLeftEdge
-        
+        // 差异
         let differences = xOffsets.map { fabs(Double($0 - targetCellLeftEdge)) }
         
         guard let min = differences.min(), let position = differences.firstIndex(of: min) else { return }
         
         let actualOffset = xOffsets[position] - distanceToOverlayLeftEdge
-        
+        Judy.log("actualOffset = \(actualOffset)")
         targetContentOffset.pointee.x = actualOffset
-//        delegate?.scrollViewWillEndDragging(self, withVelocity: velocity, targetContentOffset: targetContentOffset)
     }
 
     /// This delegate function calculates how much the overlay imageView should transform depending on
