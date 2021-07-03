@@ -154,15 +154,15 @@ public class PickerView: UIView {
                                attribute: .right, multiplier: 1,
                                constant: 0))
         // 配置 selectedItemOverlay
-//        addSubview(selectedItemOverlay)
-//        selectedItemOverlay.snp.makeConstraints { make in
-//            make.top.equalTo(collectionView.snp.top)
-//            make.centerX.equalToSuperview()
-//            // make.size.equalTo(cellSize ?? PickerViewCell.cellSize)
-//            make.height.equalTo(collectionView)
-//            // TODO: - 有个宽度需要计算。
-//            make.width.equalTo(128)
-//        }
+        addSubview(selectedItemOverlay)
+        selectedItemOverlay.snp.makeConstraints { make in
+            make.top.equalTo(collectionView.snp.top)
+            make.centerX.equalToSuperview()
+            // make.size.equalTo(cellSize ?? PickerViewCell.cellSize)
+            make.height.equalTo(collectionView)
+            // TODO: - 有个宽度需要计算。
+            make.width.equalTo(128)
+        }
     }
     
     public override func layoutSubviews() {
@@ -279,9 +279,8 @@ extension PickerView: UICollectionViewDelegateFlowLayout {
     /// This delegate function determines the size of the cell to return. If the cellSize is not set, then it returns the size of the PickerViewCell
     public final func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-//        let width = dataSource!.pickerView(self, widthForItemAt: indexPath.item)
-        return CGSize(width: items[indexPath.item].textWidth, height: collectionView.bounds.size.height)
-//        return CGSize(width: 128, height: collectionView.bounds.size.height)
+        //  return CGSize(width: items[indexPath.item].textWidth, height: collectionView.bounds.size.height)
+        return CGSize(width: 128, height: collectionView.bounds.size.height)
     }
 }
 
@@ -313,7 +312,7 @@ extension PickerView : UIScrollViewDelegate {
     public final func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        guard let vm = viewModel else { return }
         guard dataSource != nil else { return }
-        let scrollProgress = CGFloat(collectionView.contentOffset.x / items[lastIndexPath.item].textWidth)
+        let scrollProgress = CGFloat(collectionView.contentOffset.x / 128)
         defer { lastScrollProgress = scrollProgress }
         let leftIndex = Int(floor(scrollProgress))
         let rightIndex = Int(ceil(scrollProgress))

@@ -9,13 +9,20 @@
 import UIKit
 
 // MARK: - 代理
-@objc protocol MLPickerScrollViewDelegate: NSObjectProtocol {
+protocol MLPickerScrollViewDelegate: AnyObject {
     /// 选中某个Item
-    @objc optional func pickerScrollView(menuScrollView: HPicker, didSelecteItemAtIndex index: NSInteger) -> Void
+    func pickerScrollView(menuScrollView: HPicker, didSelecteItemAtIndex index: NSInteger)
     /// 改变中心位置的Item样式
-    @objc optional func itemForIndexChange(item: MLPickerItem) -> Void
+    func itemForIndexChange(item: MLPickerItem)
     /// 改变-非-中心位置的Item样式
-    @objc optional func itemForIndexBack(item: MLPickerItem) -> Void
+    func itemForIndexBack(item: MLPickerItem)
+}
+extension MLPickerScrollViewDelegate {
+
+    func pickerScrollView(menuScrollView: HPicker, didSelecteItemAtIndex index: NSInteger) {}
+
+    func itemForIndexChange(item: MLPickerItem) { }
+    func itemForIndexBack(item: MLPickerItem) { }
 }
 
 // MARK: - 数据源
@@ -49,6 +56,7 @@ class HPicker: UIView {
         scrollV.showsHorizontalScrollIndicator = false
         scrollV.showsVerticalScrollIndicator = false
         scrollV.delegate = self
+        // 一个浮点值，它决定了用户抬起手指后的减速速率。
         scrollV.decelerationRate = UIScrollView.DecelerationRate(rawValue: 0.5)
         scrollV.backgroundColor = .clear
         return scrollV
@@ -68,12 +76,8 @@ class HPicker: UIView {
     // MARK: - Pubulic Method
     /// 刷新数据
     open func reloadData() {
-    
-        // remove
-        for item in items {
-            item.removeFromSuperview()
-        }
-        
+        // remove.
+        items.forEach { $0.removeFromSuperview()}
         items.removeAll()
         
         // create
@@ -96,7 +100,6 @@ class HPicker: UIView {
         
         // layout
         layoutItems()
-        
     }
     
     /// 滚动到对应选中的下标位置
@@ -110,20 +113,15 @@ class HPicker: UIView {
 extension HPicker: UIScrollViewDelegate {
     
     fileprivate func setUp() {
-        
         firstItemX = 0
         addSubview(scrollView)
-        
     }
     
     // MARK: - layout Items
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        guard items.count > 0 else {
-            return
-        }
-        
+        guard items.count > 0 else { return }
         layoutItems()
     }
     
@@ -136,7 +134,7 @@ extension HPicker: UIScrollViewDelegate {
         // 2.item起始X值
         var startX: CGFloat = firstItemX
         for item in items {
-            item.frame = CGRect.init(x: startX, y: height - itemHeight, width: itemWidth, height: itemHeight)
+            item.frame = CGRect(x: startX, y: height - itemHeight, width: itemWidth, height: itemHeight)
             startX += self.itemWidth
         }
         
@@ -145,7 +143,6 @@ extension HPicker: UIScrollViewDelegate {
         
         // 4.set center item
         setItemAtContentOffset(scrollView.contentOffset)
-        
     }
     
 }
@@ -159,13 +156,11 @@ extension HPicker {
         
         for (i,item) in items.enumerated() {
             itemInCenterBack(item)
-            
             if centerIndex == i {
                 itemInCenterChange(item)
                 seletedIndex = centerIndex
             }
         }
-        
     }
     
     /// 滚动到相应位置
@@ -194,7 +189,7 @@ extension HPicker {
         }) { (finished) in
             if self.delegate != nil {
                 let centerIndex: NSInteger = NSInteger(roundf(Float(self.scrollView.contentOffset.x / self.itemWidth)))
-                self.delegate?.pickerScrollView!(menuScrollView: self, didSelecteItemAtIndex: centerIndex)
+                self.delegate?.pickerScrollView(menuScrollView: self, didSelecteItemAtIndex: centerIndex)
             }
             self.setItemAtContentOffset(scollView.contentOffset)
         }
@@ -210,19 +205,19 @@ extension HPicker {
         scollToItemViewAtIndex(index: seletedIndex, animated: true)
         
         if delegate != nil {
-            delegate?.pickerScrollView!(menuScrollView: self, didSelecteItemAtIndex: seletedIndex)
+            delegate?.pickerScrollView(menuScrollView: self, didSelecteItemAtIndex: seletedIndex)
         }
     }
     
     fileprivate func itemInCenterChange(_ item: MLPickerItem) {
         if delegate != nil {
-            delegate?.itemForIndexChange!(item: item)
+            delegate?.itemForIndexChange(item: item)
         }
     }
     
     fileprivate func itemInCenterBack(_ item: MLPickerItem) {
         if delegate != nil {
-            delegate?.itemForIndexBack!(item: item)
+            delegate?.itemForIndexBack(item: item)
         }
     }
     

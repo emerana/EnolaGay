@@ -15,7 +15,7 @@ class MandolineViewController: UIViewController, PickerViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        pickerView.selectedOverlayColor = .clear
         pickerView.delegate = self
         pickerView.dataSource = self
     }

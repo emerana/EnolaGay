@@ -43,17 +43,13 @@ class HPickerViewCtrl: JudyBaseViewCtrl {
     fileprivate func setUpUI() {
         
         // 1.数据源
-        let titleArray = ["2018.10","2018.11","2018.12","2019.01","2019.02","2019.03","2019.04","2019.05","2019.06","2019.07","2019.08","2019.09"]
+        let titleArray = ["Judy", "EnolaGay", "emerana", "浙江温州", "江南皮革厂", "倒闭了"]
         for (i,title) in titleArray.enumerated() {
             let model = MLDemoModel()
             model.title = title
             model.index = i
-            if title == "2019.04" {
-                model.isCurrentMonth = true
-                currentMonthIndex = i
-            }else{
-                model.isCurrentMonth = false
-            }
+            model.isCurrentMonth = false
+
             dataArray.append(model)
         }
         
@@ -63,16 +59,8 @@ class HPickerViewCtrl: JudyBaseViewCtrl {
         // 3.刷新数据
         pickerScollView.reloadData()
         
-        // 4.滚动到当前月份
-        var number: NSInteger = 0
-        for (i,model) in dataArray.enumerated() {
-            if model.index == currentMonthIndex {
-                number = i
-            }
-        }
-        
-        pickerScollView.seletedIndex = number
-        pickerScollView.scollToSelectdIndex(number)
+        pickerScollView.seletedIndex = 0
+        pickerScollView.scollToSelectdIndex(0)
         
     }
     
@@ -175,9 +163,7 @@ class MLDemoItem: MLPickerItem {
 }
 
 class MLDemoModel: NSObject {
-    
     var title: String?
     var index: NSInteger = 0
     var isCurrentMonth: Bool = false
-    
 }
