@@ -9,6 +9,7 @@
 import EnolaGay
 import SnapKit
 
+/// 一款横向选择器。
 public class PickerView: UIView {
 
     /// The dataSource that, upon providing a set of `Selectable` items, reloads the UICollectionView
@@ -68,22 +69,9 @@ public class PickerView: UIView {
             collectionView.backgroundColor = backgroundColor
         }
     }
-
-    /// Initializers
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setupSubviews()
-    }
-
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.setupSubviews()
-    }
-
-    public override func awakeFromNib() {
-        super.awakeFromNib()
-        self.setupSubviews()
-    }
+    
+    /// 数据源。
+    public private(set) var items = [PickerViewItemModel]()
 
     /// 当前选中的数据模型。
     private(set) var selectedModel: Selectable?
@@ -117,6 +105,23 @@ public class PickerView: UIView {
         return view
     }()
 
+
+    /// Initializers
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.setupSubviews()
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.setupSubviews()
+    }
+
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        self.setupSubviews()
+    }
+
     fileprivate func setupSubviews() {
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -149,55 +154,15 @@ public class PickerView: UIView {
                                attribute: .right, multiplier: 1,
                                constant: 0))
         // 配置 selectedItemOverlay
-        addSubview(selectedItemOverlay)
-        selectedItemOverlay.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.top)
-            make.centerX.equalToSuperview()
-            // make.size.equalTo(cellSize ?? PickerViewCell.cellSize)
-            make.height.equalTo(collectionView)
-            // TODO: - 有个宽度需要计算。
-            make.width.equalTo(128)
-        }
-    }
-    
-    /// 数据源。
-    public private(set) var items = [ScrollableCellViewModel]()
-
-    public final func reloadData() {
-        guard let dataSource = self.dataSource else {
-            Judy.logWarning("请设置 PickerView.dataSource")
-            return
-        }
-        // 确定注册的 Cell.
-        cellReuseIdentifier = dataSource.registerCell(for: collectionView)
-        guard cellReuseIdentifier != "" else {
-            Judy.logWarning("dataSource.registerCell() 不能响应为空字符")
-            return
-        }
-        items.removeAll()
-        items = dataSource.titles(for: self).map { title in
-            let model = ScrollableCellViewModel()
-            model.title = title
-            
-            return model
-        }
-        
-        collectionView.reloadData()
-        collectionView.collectionViewLayout.invalidateLayout()
-    }
-
-    /// Scroll to a cell at a given indexPath
-    /// 滚动到指定 index.
-    public func select(at index: Int) {
-        guard index < items.count else { return }
-        let indexPath = IndexPath(row: index, section: 0)
-        if index < items.count / 2 {
-            let lastIndexPath = IndexPath(row: items.count - 1, section: 0)
-            collectionView.scrollToItem(at: lastIndexPath, at: .centeredHorizontally, animated: false)
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        } else {
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        }
+//        addSubview(selectedItemOverlay)
+//        selectedItemOverlay.snp.makeConstraints { make in
+//            make.top.equalTo(collectionView.snp.top)
+//            make.centerX.equalToSuperview()
+//            // make.size.equalTo(cellSize ?? PickerViewCell.cellSize)
+//            make.height.equalTo(collectionView)
+//            // TODO: - 有个宽度需要计算。
+//            make.width.equalTo(128)
+//        }
     }
     
     public override func layoutSubviews() {
@@ -211,8 +176,44 @@ public class PickerView: UIView {
     }
 }
 
-private extension PickerView {
-    
+public extension PickerView {
+    /// 重新载入所有数据。
+    final func reloadData() {
+        guard let dataSource = self.dataSource else {
+            Judy.logWarning("请设置 PickerView.dataSource")
+            return
+        }
+        // 确定注册的 Cell.
+        cellReuseIdentifier = dataSource.registerCell(for: collectionView)
+        guard cellReuseIdentifier != "" else {
+            Judy.logWarning("dataSource.registerCell() 不能响应为空字符")
+            return
+        }
+        items.removeAll()
+        items = dataSource.titles(for: self).map { title in
+            let model = PickerViewItemModel()
+            model.title = title
+            
+            return model
+        }
+        
+        collectionView.reloadData()
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+
+    /// Scroll to a cell at a given indexPath
+    /// 滚动到指定 index.
+    func select(at index: Int) {
+        guard index < items.count else { return }
+        let indexPath = IndexPath(row: index, section: 0)
+        if index < items.count / 2 {
+            let lastIndexPath = IndexPath(row: items.count - 1, section: 0)
+            collectionView.scrollToItem(at: lastIndexPath, at: .centeredHorizontally, animated: false)
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        } else {
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
 }
 
 // MARK: - PickerViewDataSource
@@ -260,7 +261,7 @@ extension PickerView: UICollectionViewDataSource {
     public final func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier!, for: indexPath) as! ScrollableCell
         // dataSource?.reload(cell: cell, for: indexPath.item, with: items)
-        cell.reloadData(itemModel: items[indexPath.item])
+        cell.reloadData(model: items[indexPath.item])
         return cell
     }
 
@@ -279,8 +280,8 @@ extension PickerView: UICollectionViewDelegateFlowLayout {
     public final func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
 //        let width = dataSource!.pickerView(self, widthForItemAt: indexPath.item)
-        // return CGSize(width: items[indexPath.item].cellWidth, height: collectionView.bounds.size.height)
-        return CGSize(width: 128, height: collectionView.bounds.size.height)
+        return CGSize(width: items[indexPath.item].textWidth, height: collectionView.bounds.size.height)
+//        return CGSize(width: 128, height: collectionView.bounds.size.height)
     }
 }
 

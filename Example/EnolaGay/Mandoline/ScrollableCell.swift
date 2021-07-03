@@ -10,8 +10,9 @@ import UIKit
 
 class ScrollableCell: UICollectionViewCell {
     /// Cell 中持有的实体。
-    open lazy var itemModel = ScrollableCellViewModel()
-
+    open lazy var model = PickerViewItemModel()
+    
+    /// 用于显示标题的 lebel。
     public let titleLabel = UILabel()
 
     required init?(coder aDecoder: NSCoder) {
@@ -21,11 +22,12 @@ class ScrollableCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        titleLabel.textAlignment = .center
         contentView.addSubview(titleLabel)
 
-        titleLabel.textAlignment = .center
         backgroundColor = .white
-        contentView.layer.borderColor = UIColor.black.withAlphaComponent(0.08).cgColor
+        contentView.layer.borderColor = UIColor.red.cgColor
+        //UIColor.black.withAlphaComponent(0.08).cgColor
         contentView.layer.borderWidth = 1.0
 
 //        contentView.addSubview(titleLabel)
@@ -46,36 +48,53 @@ class ScrollableCell: UICollectionViewCell {
         titleLabel.center = contentView.center
     }
     
-    open func reloadData(itemModel: ScrollableCellViewModel) {
-        self.itemModel = itemModel
-        titleLabel.numberOfLines = 1
-        titleLabel.text = itemModel.title
-        if itemModel.isSelectable {
-            titleLabel.textColor = itemModel.titleSelectedColor
+    /// 给 Cell 重新设置模型数据。
+    open func reloadData(model: PickerViewItemModel) {
+        self.model = model
+        
+        let attriText = NSMutableAttributedString(text: model.title,
+                                                  textColor: model.titleNormalColor,
+                                                  textFont: model.titleNormalFont)
+        titleLabel.attributedText = attriText
+                
+        if model.isSelectable {
+            titleLabel.textColor = model.titleSelectedColor
         } else {
-            titleLabel.textColor = itemModel.titleNormalColor
+            titleLabel.textColor = model.titleNormalColor
         }
         setNeedsLayout()
     }
-
 }
 
-open class ScrollableCellViewModel: Selectable {
+/// Cell 中的基础模型。
+open class PickerViewItemModel {
+    /// 该值为实体的索引。
+    // open var index: Int = 0
 
+    open var title = ""
     /// title 普通状态时的字体。
     open var titleNormalFont: UIFont = UIFont.systemFont(ofSize: 15)
     /// 选中状态下的字体。
     open var titleSelectedFont: UIFont = UIFont.systemFont(ofSize: 15)
     /// title 普通状态的 textColor.
     open var titleNormalColor: UIColor = .black
-    /// 当前显示的颜色。
-    open var titleCurrentColor: UIColor = .black
     /// title 选中状态的 textColor.
     open var titleSelectedColor: UIColor = .red
 
-    public var isSelectable: Bool = false
-    public var title = ""
-    public var cellWidth: CGFloat {
+    open var isSelectable: Bool = false
+    
+//    open var cellWidth: CGFloat = 0
+//    {
+//        let textWidth = NSString(string: title)
+//            .boundingRect(with: CGSize(width: CGFloat.infinity, height: CGFloat.infinity),
+//                          options: [.usesFontLeading, .usesLineFragmentOrigin],
+//                          attributes: [.font: titleNormalFont],
+//                          context: nil).size.width
+//        return CGFloat(ceilf(Float(textWidth)))
+//    }
+    
+    /// title 下文本的宽度。
+    open var textWidth: CGFloat {
         let textWidth = NSString(string: title)
             .boundingRect(with: CGSize(width: CGFloat.infinity, height: CGFloat.infinity),
                           options: [.usesFontLeading, .usesLineFragmentOrigin],
@@ -83,6 +102,5 @@ open class ScrollableCellViewModel: Selectable {
                           context: nil).size.width
         return CGFloat(ceilf(Float(textWidth)))
     }
-
-
+    
 }
