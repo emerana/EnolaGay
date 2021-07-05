@@ -23,15 +23,6 @@ public class PickerView: UIView {
     public private(set) var items = [PickerViewCellModel]()
     
     fileprivate var lastScrollProgress = CGFloat()
-    
-    /// title 普通状态时的字体。
-    public var titleNormalFont: UIFont = UIFont.systemFont(ofSize: 15)
-    /// 选中状态下的字体。
-    public var titleSelectedFont: UIFont = UIFont.systemFont(ofSize: 16, weight: .bold)
-    /// title 普通状态的 textColor.
-    public var titleNormalColor: UIColor = UIColor.white.withAlphaComponent(0.6)
-    /// title 选中状态的 textColor.
-    public var titleSelectedColor: UIColor = .white
 
     /// 当前选中的 indexPath，改变该值将更新所有 titles.
     private var selectIndexPath = IndexPath(row: 0, section: 0) {
@@ -157,15 +148,20 @@ public extension PickerView {
         collectionView.register(PickerViewCell.self, forCellWithReuseIdentifier: "DayCell")
 
         items.removeAll()
-        
+        // 确定样式。
+        let titleNormalFont = dataSource.configNormalStyle(for: self).0
+        let titleSelectedFont = dataSource.configSelectedStyle(for: self).0
+        let titleNormalColor = dataSource.configNormalStyle(for: self).1
+        let titleSelectedColor = dataSource.configSelectedStyle(for: self).1
+
         items = dataSource.titles(for: self).enumerated().map { (index,title) in
             let model = PickerViewCellModel()
+            model.isSelected = selectIndexPath.item == index
             model.title = title
             model.titleNormalFont = titleNormalFont
             model.titleSelectedFont = titleSelectedFont
             model.titleNormalColor = titleNormalColor
             model.titleSelectedColor = titleSelectedColor
-            model.isSelected = selectIndexPath.item == index
             return model
         }
 
@@ -209,15 +205,24 @@ public protocol PickerViewDataSource: AnyObject {
     /// 询问 pickerView 的标题列表。
     func titles(for pickerView: PickerView) -> [String]
     
-    /// 询问所有显示的标题中的最大宽度，该函数默认实现为 88
+    /// 询问所有显示的标题中的最大宽度，该函数默认实现为 88.
     func width(for pickerView: PickerView) -> CGFloat
     
-    /// 询问默认的选中索引，该函数默认实现为 0
-    func defaultSelectedIndex(for pickerView: PickerView) -> Int
+    /// 询问普通状态下标题的字体及颜色，该函数默认实现为 15 号字体及透明白色。
+    func configNormalStyle(for pickerView: PickerView) -> (UIFont, UIColor)
+    /// 询问选中状态下标题的字体及颜色，该函数默认实现为 16 加粗字体及纯白色。
+    func configSelectedStyle(for pickerView: PickerView) -> (UIFont, UIColor)
 }
 public extension PickerViewDataSource {
     func width(for pickerView: PickerView) -> CGFloat { 88 }
-    func defaultSelectedIndex(for pickerView: PickerView) -> Int { 0 }
+    
+    func configNormalStyle(for pickerView: PickerView) -> (UIFont, UIColor) {
+        return (UIFont.systemFont(ofSize: 15), UIColor.white.withAlphaComponent(0.6))
+    }
+    
+    func configSelectedStyle(for pickerView: PickerView) -> (UIFont, UIColor) {
+        return (UIFont.systemFont(ofSize: 16, weight: .bold), .white)
+    }
 }
 
 // MARK: - PickerViewDelegate
