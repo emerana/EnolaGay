@@ -18,7 +18,9 @@ public class PickerView: UIView {
     public weak var delegate: PickerViewDelegate?
 
     /// 通用的宽度。
-    private var cellWidth: CGFloat = 88
+    private var cellWidth: CGFloat {
+        return dataSource?.width(for: self) ?? 0
+    }
     /// 数据源。
     public private(set) var items = [PickerViewCellModel]()
     
@@ -54,7 +56,7 @@ public class PickerView: UIView {
     }()
     
     /// 选中项的覆盖层
-    let selectedItemOverlay: PickerViewOverlay = {
+    public let selectedItemOverlay: PickerViewOverlay = {
         let view = PickerViewOverlay()
         view.isUserInteractionEnabled = false
         return view
@@ -106,6 +108,20 @@ public class PickerView: UIView {
         // 配置 selectedItemOverlay
         selectedItemOverlay.translatesAutoresizingMaskIntoConstraints = false
         addSubview(selectedItemOverlay)
+    }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        guard dataSource != nil,
+              let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        else { return }
+
+        let inset = center.x - cellWidth/2
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
+    }
+    
+    public override func updateConstraints() {
+        
         self.addConstraint(
             NSLayoutConstraint(item: selectedItemOverlay, attribute: .centerX,
                                relatedBy: .equal, toItem: self,
@@ -122,16 +138,7 @@ public class PickerView: UIView {
             NSLayoutConstraint(item: selectedItemOverlay, attribute: .width,
                                relatedBy: .equal, toItem: nil,
                                attribute: .width, multiplier: 1, constant: cellWidth))
-    }
-    
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-        guard dataSource != nil,
-              let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
-        else { return }
-
-        let inset = center.x - cellWidth/2
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
+        super.updateConstraints()
     }
 }
 
@@ -142,8 +149,7 @@ public extension PickerView {
             Judy.logWarning("请设置 PickerView.dataSource")
             return
         }
-        // 确定宽度。
-        cellWidth = dataSource.width(for: self)
+
         // 注册 Cell.
         collectionView.register(PickerViewCell.self, forCellWithReuseIdentifier: "DayCell")
 
@@ -214,7 +220,7 @@ public protocol PickerViewDataSource: AnyObject {
     func configSelectedStyle(for pickerView: PickerView) -> (UIFont, UIColor)
 }
 public extension PickerViewDataSource {
-    func width(for pickerView: PickerView) -> CGFloat { 88 }
+    func width(for pickerView: PickerView) -> CGFloat { 68 }
     
     func configNormalStyle(for pickerView: PickerView) -> (UIFont, UIColor) {
         return (UIFont.systemFont(ofSize: 15), UIColor.white.withAlphaComponent(0.6))

@@ -24,9 +24,9 @@ class PickerViewCell: UICollectionViewCell {
         titleLabel.textAlignment = .center
         contentView.addSubview(titleLabel)
         backgroundColor = nil
-//        contentView.layer.borderColor = UIColor.cyan.cgColor
-        //UIColor.black.withAlphaComponent(0.08).cgColor
-//        contentView.layer.borderWidth = 1.0
+
+        //        contentView.layer.borderColor = UIColor.cyan.cgColor
+        //        contentView.layer.borderWidth = 1.0
     }
     
     open override func layoutSubviews() {

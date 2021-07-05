@@ -9,15 +9,13 @@
 import UIKit
 
 /// 覆盖层。
-class PickerViewOverlay: UIView {
-
-    let view: UIView
+public class PickerViewOverlay: UIView {
 
     /// 三角形。
-    let triangleView = PickerViewOverlayTriangleView()
-
+    public let triangleView = PickerViewOverlayTriangleView()
+    
     // Computed Properties
-    var triangleSize = CGSize(width: 10, height: 5) {
+    public var triangleSize = CGSize(width: 10, height: 5) {
         didSet {
             let rect = CGRect(origin: .zero, size: triangleSize)
             triangleView.frame = rect
@@ -26,42 +24,24 @@ class PickerViewOverlay: UIView {
     }
 
     override init(frame: CGRect) {
-        view = UIView(frame: .zero)
         super.init(frame: frame)
         setupSubviews()
     }
 
-    func setupSubviews() {
-        addSubview(view)
-        view.translatesAutoresizingMaskIntoConstraints = false
-
-        self.addConstraint(
-            NSLayoutConstraint(item: view, attribute: .left,
-                               relatedBy: .equal, toItem: self,
-                               attribute: .left, multiplier: 1, constant: 0))
-        self.addConstraint(
-            NSLayoutConstraint(item: view, attribute: .right,
-                               relatedBy: .equal, toItem: self,
-                               attribute: .right, multiplier: 1, constant: 0))
-        self.addConstraint(
-            NSLayoutConstraint(item: view, attribute: .top,
-                               relatedBy: .equal, toItem: self,
-                               attribute: .top, multiplier: 1, constant: 0))
-        self.addConstraint(
-            NSLayoutConstraint(item: view, attribute: .bottom,
-                               relatedBy: .equal, toItem: self,
-                               attribute: .bottom, multiplier: 1, constant: 0))
-
-//        view.layer.borderWidth = mandoBorderWidth
-//        view.layer.borderColor = maindoBorderColor.cgColor
-
+    private func setupSubviews() {
         addSubview(triangleView)
         triangleView.translatesAutoresizingMaskIntoConstraints = false
         
+        // 在顶部。
+//        self.addConstraint(
+//            NSLayoutConstraint(item: triangleView, attribute: .top,
+//                               relatedBy: .equal, toItem: self,
+//                               attribute: .top, multiplier: 1, constant: 0))
+        // 在底部。
         self.addConstraint(
-            NSLayoutConstraint(item: triangleView, attribute: .top,
+            NSLayoutConstraint(item: triangleView, attribute: .bottom,
                                relatedBy: .equal, toItem: self,
-                               attribute: .top, multiplier: 1, constant: 0))
+                               attribute: .bottom, multiplier: 1, constant: 0))
         self.addConstraint(
             NSLayoutConstraint(item: triangleView, attribute: .centerX,
                                relatedBy: .equal, toItem: self,
@@ -83,7 +63,7 @@ class PickerViewOverlay: UIView {
 
 // This is the downward pointing arrow in the OverlayView
 /// OverlayView 中的向下箭头。
-class PickerViewOverlayTriangleView: UIView {
+public class PickerViewOverlayTriangleView: UIView {
 
     // We have to override the init just because we need to set isOpaque to false
     // 我们必须重写 init，因为我们需要将 isOpaque 设为 false.
@@ -96,7 +76,7 @@ class PickerViewOverlayTriangleView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    var color = UIColor.blue {
+    public var color = UIColor.blue {
         didSet {
             setNeedsDisplay()
         }
@@ -108,18 +88,32 @@ class PickerViewOverlayTriangleView: UIView {
     }
     
     // 重写此函数来画三角形。
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         UIColor.clear.setFill()
         let frame = frameToFill ?? layer.frame
         UIBezierPath(rect: frame).fill()
         color.setFill()
-
         let bezierPath = UIBezierPath()
+        // 画三角形。
+        upwardTriangleView(bezierPath: bezierPath)
+        bezierPath.close()
+        bezierPath.fill()
+    }
+    
+    /// 画向下的箭头。
+    private func downwardTriangleView(bezierPath: UIBezierPath) {
         bezierPath.move(to: CGPoint(x: 0, y: 0))
         bezierPath.addLine(to: CGPoint(x: frame.width, y: 0))
         bezierPath.addLine(to: CGPoint(x: frame.width / 2, y: frame.height))
         bezierPath.addLine(to: CGPoint(x: 0, y: 0))
-        bezierPath.close()
-        bezierPath.fill()
     }
+    
+    /// 画向上的箭头。
+    private func upwardTriangleView(bezierPath: UIBezierPath) {
+        bezierPath.move(to: CGPoint(x: frame.width / 2, y: 0))
+        bezierPath.addLine(to: CGPoint(x: frame.width, y: frame.height))
+        bezierPath.addLine(to: CGPoint(x: 0, y: frame.height))
+        bezierPath.addLine(to: CGPoint(x: frame.width / 2, y: 0))
+    }
+
 }

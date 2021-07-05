@@ -14,9 +14,13 @@ class MandolineViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         pickerView.delegate = self
         pickerView.dataSource = self
+        pickerView.selectedItemOverlay.triangleView.color = .yellow
+
+//        pickerView.selectedItemOverlay.layer.borderWidth = 1
+//        pickerView.selectedItemOverlay.layer.borderColor = UIColor.cyan.cgColor
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -28,7 +32,6 @@ class MandolineViewController: UIViewController {
 }
 
 extension MandolineViewController: PickerViewDataSource, PickerViewDelegate {
-
     func titles(for pickerView: PickerView) -> [String] {
         return ["上传视频", "快拍", "长拍", "开直播"]
     }
@@ -36,5 +39,4 @@ extension MandolineViewController: PickerViewDataSource, PickerViewDelegate {
     func pickerView(_ pickerView: PickerView, didSelectedItemAt index: Int) {
         Judy.log("选中了\(index)")
     }
-    
 }
