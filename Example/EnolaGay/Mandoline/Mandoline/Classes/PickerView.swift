@@ -350,3 +350,19 @@ extension PickerView {
         }
     }
 }
+
+
+extension Array {
+    subscript (safe index: Index) -> Iterator.Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
+
+extension CGFloat {
+    var isIntegral: Bool {
+        return self == 0.0 || self.truncatingRemainder(dividingBy: floor(self)) == 0
+    }
+    var integerBelow: Int {
+        return Int(floor(self))
+    }
+}
