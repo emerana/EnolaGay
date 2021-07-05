@@ -24,15 +24,23 @@ public class PickerView: UIView {
     
     fileprivate var lastScrollProgress = CGFloat()
     
-    /// 当前选中的索引。
-    public private(set) var selectedIndex = 0
+    /// title 普通状态时的字体。
+    public var titleNormalFont: UIFont = UIFont.systemFont(ofSize: 15)
+    /// 选中状态下的字体。
+    public var titleSelectedFont: UIFont = UIFont.systemFont(ofSize: 16, weight: .bold)
+    /// title 普通状态的 textColor.
+    public var titleNormalColor: UIColor = UIColor.white.withAlphaComponent(0.6)
+    /// title 选中状态的 textColor.
+    public var titleSelectedColor: UIColor = .white
 
-    /// 最后选中的 indexPath.
-    private var lastIndexPath = IndexPath(row: 0, section: 0) {
+    /// 当前选中的 indexPath.
+    private var selectIndexPath = IndexPath(row: 0, section: 0) {
         didSet {
+            guard selectIndexPath != oldValue else { return }
             items[oldValue.item].isSelected = false
-            items[lastIndexPath.item].isSelected = true
+            items[selectIndexPath.item].isSelected = true
             collectionView.reloadData()
+            delegate?.pickerView(self, didSelectedItemAt: selectIndexPath.item)
         }
     }
     /// 在拖拽时临时存储的 indexPath.
@@ -80,7 +88,7 @@ public class PickerView: UIView {
     fileprivate func setupSubviews() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = .lightGray
+        collectionView.backgroundColor = nil
 
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         // 配置 collectionView
@@ -149,15 +157,20 @@ public extension PickerView {
         collectionView.register(PickerViewCell.self, forCellWithReuseIdentifier: "DayCell")
 
         items.removeAll()
+        
         items = dataSource.titles(for: self).map { title in
             let model = PickerViewCellModel()
             model.title = title
+            model.titleNormalFont = titleNormalFont
+            model.titleSelectedFont = titleSelectedFont
+            model.titleNormalColor = titleNormalColor
+            model.titleSelectedColor = titleSelectedColor
             return model
         }
         
         collectionView.reloadData()
         collectionView.collectionViewLayout.invalidateLayout()
-        lastIndexPath = IndexPath(row: 0, section: 0)
+        selectIndexPath = IndexPath(row: 0, section: 0)
         /*
         let defaultSelectedIndex = dataSource.defaultSelectedIndex(for: self)
         if defaultSelectedIndex < 0 || defaultSelectedIndex >= items.count {
@@ -186,7 +199,7 @@ public extension PickerView {
         } else {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
-        lastIndexPath = indexPath
+        selectIndexPath = indexPath
     }
 }
 
@@ -251,10 +264,7 @@ extension PickerView: UICollectionViewDataSource {
         if let recgt = collectionView.cellForItem(at: indexPath)?.frame {
             centerFrame = collectionView.convert(recgt, to: self)
         }
-        // 防止重复点击。
-        guard lastIndexPath != indexPath else { return }
-        lastIndexPath = indexPath
-        delegate?.pickerView(self, didSelectedItemAt: lastIndexPath.item)
+        selectIndexPath = indexPath
     }
 }
 
@@ -347,9 +357,7 @@ extension PickerView : UIScrollViewDelegate {
     public final func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         // 这才是正确地获取当前显示的 Cell 方式
         if scrollView == collectionView {
-            guard lastIndexPath != didScrollIndexPath else { return }
-            lastIndexPath = didScrollIndexPath
-            delegate?.pickerView(self, didSelectedItemAt: lastIndexPath.item)
+            selectIndexPath = didScrollIndexPath
         }
     }
 

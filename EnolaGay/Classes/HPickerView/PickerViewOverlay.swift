@@ -25,19 +25,6 @@ class PickerViewOverlay: UIView {
         }
     }
 
-    var maindoBorderColor = UIColor.green {
-        didSet {
-            view.layer.borderColor = maindoBorderColor.cgColor
-            triangleView.color = maindoBorderColor
-        }
-    }
-
-    var mandoBorderWidth: CGFloat = 2.0 {
-        didSet {
-            view.layer.borderWidth = mandoBorderWidth
-        }
-    }
-
     override init(frame: CGRect) {
         view = UIView(frame: .zero)
         super.init(frame: frame)
@@ -65,8 +52,8 @@ class PickerViewOverlay: UIView {
                                relatedBy: .equal, toItem: self,
                                attribute: .bottom, multiplier: 1, constant: 0))
 
-        view.layer.borderWidth = mandoBorderWidth
-        view.layer.borderColor = maindoBorderColor.cgColor
+//        view.layer.borderWidth = mandoBorderWidth
+//        view.layer.borderColor = maindoBorderColor.cgColor
 
         addSubview(triangleView)
         triangleView.translatesAutoresizingMaskIntoConstraints = false
