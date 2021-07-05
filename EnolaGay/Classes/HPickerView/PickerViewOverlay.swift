@@ -10,6 +10,20 @@ import UIKit
 
 /// 覆盖层。
 public class PickerViewOverlay: UIView {
+    
+    /// 三角形所在位置上或下。
+    public enum TriangleLocation {
+        case up
+        case down
+    }
+    
+    /// 三角形方向。
+    public var triangleViewLocation = TriangleLocation.up {
+        didSet {
+            updateConstraints()
+            triangleView.triangleLocation = triangleViewLocation
+        }
+    }
 
     /// 三角形。
     public let triangleView = PickerViewOverlayTriangleView()
@@ -32,16 +46,6 @@ public class PickerViewOverlay: UIView {
         addSubview(triangleView)
         triangleView.translatesAutoresizingMaskIntoConstraints = false
         
-        // 在顶部。
-//        self.addConstraint(
-//            NSLayoutConstraint(item: triangleView, attribute: .top,
-//                               relatedBy: .equal, toItem: self,
-//                               attribute: .top, multiplier: 1, constant: 0))
-        // 在底部。
-        self.addConstraint(
-            NSLayoutConstraint(item: triangleView, attribute: .bottom,
-                               relatedBy: .equal, toItem: self,
-                               attribute: .bottom, multiplier: 1, constant: 0))
         self.addConstraint(
             NSLayoutConstraint(item: triangleView, attribute: .centerX,
                                relatedBy: .equal, toItem: self,
@@ -59,12 +63,36 @@ public class PickerViewOverlay: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    public override func updateConstraints() {
+        if triangleViewLocation == .up {
+            // 在顶部。
+            self.addConstraint(
+                NSLayoutConstraint(item: triangleView, attribute: .top,
+                                   relatedBy: .equal, toItem: self,
+                                   attribute: .top, multiplier: 1, constant: 0))
+        } else {
+            // 在底部。
+            self.addConstraint(
+                NSLayoutConstraint(item: triangleView, attribute: .bottom,
+                                   relatedBy: .equal, toItem: self,
+                                   attribute: .bottom, multiplier: 1, constant: 0))
+        }
+        
+        super.updateConstraints()
+    }
 }
 
 // This is the downward pointing arrow in the OverlayView
 /// OverlayView 中的向下箭头。
 public class PickerViewOverlayTriangleView: UIView {
-
+    
+    var triangleLocation = PickerViewOverlay.TriangleLocation.up {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
     // We have to override the init just because we need to set isOpaque to false
     // 我们必须重写 init，因为我们需要将 isOpaque 设为 false.
     override init(frame: CGRect) {
@@ -95,7 +123,11 @@ public class PickerViewOverlayTriangleView: UIView {
         color.setFill()
         let bezierPath = UIBezierPath()
         // 画三角形。
-        upwardTriangleView(bezierPath: bezierPath)
+        if triangleLocation == .up {
+            downwardTriangleView(bezierPath: bezierPath)
+        } else {
+            upwardTriangleView(bezierPath: bezierPath)
+        }
         bezierPath.close()
         bezierPath.fill()
     }

@@ -18,6 +18,7 @@ class MandolineViewController: UIViewController {
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.selectedItemOverlay.triangleView.color = .yellow
+//        pickerView.selectedItemOverlay.triangleViewLocation = .down
 
 //        pickerView.selectedItemOverlay.layer.borderWidth = 1
 //        pickerView.selectedItemOverlay.layer.borderColor = UIColor.cyan.cgColor
