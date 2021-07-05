@@ -6,8 +6,6 @@
 //  Copyright (c) 2017 ag. All rights reserved.
 //
 
-import EnolaGay
-
 /// 一款横向选择器。
 public class PickerView: UIView {
 
@@ -196,7 +194,7 @@ public protocol PickerViewDataSource: AnyObject {
     /// 询问所有显示的标题中的最大宽度，该函数默认实现为 88
     func width(for pickerView: PickerView) -> CGFloat
 }
-extension PickerViewDataSource {
+public extension PickerViewDataSource {
     func width(for pickerView: PickerView) -> CGFloat { 88 }
 }
 // MARK: - PickerViewDelegate
@@ -205,7 +203,7 @@ public protocol PickerViewDelegate: AnyObject {
     func pickerView(_ pickerView: PickerView, didSelectedItemAt index: Int)
 }
 
-extension PickerViewDelegate {
+public extension PickerViewDelegate {
 
     func pickerView(_ pickerView: PickerView, didSelectedItemAt index: Int) { }
 

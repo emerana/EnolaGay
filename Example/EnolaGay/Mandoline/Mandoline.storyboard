@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5n-oZ-1HP" customClass="PickerView" customModule="EnolaGay_Example" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5n-oZ-1HP" customClass="PickerView" customModule="EnolaGay">
                                 <rect key="frame" x="0.0" y="434" width="414" height="28"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
