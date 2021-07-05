@@ -1116,7 +1116,7 @@ public extension UIView {
     }
 
     
-    /// 边框颜色.
+    /// 边框颜色。
     @IBInspectable var borderColor: UIColor? {
         set { layer.borderColor = newValue?.cgColor }
         get {

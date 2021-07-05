@@ -15,11 +15,11 @@ open class SegmentedItemTitleModel: SegmentedItemModel {
     /// label的numberOfLines，默认为 1。
     open var titleNumberOfLines: Int = 1
     
-    /// title 普通状态的 textColor。
+    /// title 普通状态的 textColor.
     open var titleNormalColor: UIColor = .black
     /// 当前显示的颜色。
     open var titleCurrentColor: UIColor = .black
-    /// title 选中状态的 textColor。
+    /// title 选中状态的 textColor.
     open var titleSelectedColor: UIColor = .red
     
     /// title 普通状态时的字体。
@@ -32,7 +32,7 @@ open class SegmentedItemTitleModel: SegmentedItemModel {
     open var titleNormalZoomScale: CGFloat = 0
     open var titleCurrentZoomScale: CGFloat = 0
     
-    /// isTitleZoomEnabled 为 true 才生效。是对字号的缩放，比如 titleNormalFont 的 pointSize 为10，放大之后字号就是10*1.2=12。
+    /// isTitleZoomEnabled 为 true 才生效。是对字号的缩放，比如 titleNormalFont 的 pointSize 为10，放大之后字号就是10*1.2=12.
     open var titleSelectedZoomScale: CGFloat = 0
     /// title 的线宽是否允许粗细。使用该效果时，务必保证 titleNormalFont 和 titleSelectedFont 值相同。
     open var isTitleStrokeWidthEnabled: Bool = false
@@ -92,7 +92,6 @@ open class SegmentedTitleCell: SegmentedCell {
 
         maskTitleLabel.bounds = labelBounds
         maskTitleLabel.center = contentView.center
-
     }
 
     open override func reloadData(itemModel: SegmentedItemModel) {
@@ -125,6 +124,7 @@ open class SegmentedTitleCell: SegmentedCell {
 //            })
 //            }
         } else {
+            // 处理选中情况。
             if myItemModel.isSelected {
                 titleLabel.font = myItemModel.titleSelectedFont
                 maskTitleLabel.font = myItemModel.titleSelectedFont

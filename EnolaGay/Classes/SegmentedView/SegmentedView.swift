@@ -121,7 +121,7 @@ public extension SegmentedView {
     /// 此函数为 SegmentedView 的关键函数，其规范了所有相关的数据、流程、并管理内部所有的关键信息。
     final func reloadData() {
         guard dataSource != nil else {
-            Judy.logWarning("warning: 请设置 SegmentedView.dataSource!!!")
+            Judy.logWarning("请设置 SegmentedView.dataSource")
             return
         }
         // 确定注册的 Cell.
@@ -448,7 +448,7 @@ extension SegmentedView: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = dequeueReusableCell(at: indexPath.item)
-        // segmentCell 重新载入数据
+        // SegmentCell 载入数据。
         cell.reloadData(itemModel: items[indexPath.item])
         
         return cell
