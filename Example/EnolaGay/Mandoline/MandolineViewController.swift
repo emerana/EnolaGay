@@ -8,7 +8,7 @@
 
 import EnolaGay
 
-class MandolineViewController: UIViewController, PickerViewDataSource {
+class MandolineViewController: UIViewController {
 
     @IBOutlet weak var pickerView: PickerView!
 
@@ -22,13 +22,14 @@ class MandolineViewController: UIViewController, PickerViewDataSource {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-         pickerView.select(at: 3)
+//         pickerView.select(at: 3)
     }
 
 }
 
-extension MandolineViewController: PickerViewDelegate {
-    
+extension MandolineViewController: PickerViewDataSource, PickerViewDelegate {
+    func defaultSelectedIndex(for pickerView: PickerView) -> Int { 3 }
+
     func titles(for pickerView: PickerView) -> [String] {
         return ["上传视频", "快拍", "长拍", "开直播"]
     }
@@ -38,7 +39,7 @@ extension MandolineViewController: PickerViewDelegate {
     }
     
     func pickerView(_ pickerView: PickerView, didSelectedItemAt index: Int) {
-//        Judy.log("选中了\(index)")
+        Judy.log("选中了\(index)")
     }
     
 }

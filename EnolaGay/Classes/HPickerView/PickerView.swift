@@ -24,14 +24,15 @@ public class PickerView: UIView {
     
     fileprivate var lastScrollProgress = CGFloat()
     
+    /// 当前选中的索引。
+    public private(set) var selectedIndex = 0
+
     /// 最后选中的 indexPath.
     private var lastIndexPath = IndexPath(row: 0, section: 0) {
         didSet {
-            Judy.log("变更 lastIndexPath = \(lastIndexPath.item)")
-//            let oldCell = collectionView.cellForItem(at: oldValue)
-//            (oldCell as? ScrollableCell)?.titleLabel.textColor = .black
-//            let cell = collectionView.cellForItem(at: lastIndexPath)
-//            (cell as? ScrollableCell)?.titleLabel.textColor = .red
+            items[oldValue.item].isSelected = false
+            items[lastIndexPath.item].isSelected = true
+            collectionView.reloadData()
         }
     }
     /// 在拖拽时临时存储的 indexPath.
@@ -156,11 +157,26 @@ public extension PickerView {
         
         collectionView.reloadData()
         collectionView.collectionViewLayout.invalidateLayout()
+        lastIndexPath = IndexPath(row: 0, section: 0)
+        /*
+        let defaultSelectedIndex = dataSource.defaultSelectedIndex(for: self)
+        if defaultSelectedIndex < 0 || defaultSelectedIndex >= items.count {
+            Judy.logWarning("defaultSelectedIndex 代理函数返回结果不合法")
+            selectedIndex = 0
+        } else {
+            selectedIndex = defaultSelectedIndex
+        }
+        let indexPath = IndexPath(row: selectedIndex, section: 0)
+//        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+        collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
+        */
     }
 
-    /// Scroll to a cell at a given indexPath
-    /// 滚动到指定 index.
-    func select(at index: Int) {
+    /// 选中指定项。
+    ///
+    /// - Parameter index: 选中相关的目标 index.
+    /// - Warning: 请在视图树载入完毕之后再调用此函数，比如在 viewDidAppear 函数中调用。
+    final func select(at index: Int) {
         guard index < items.count else { return }
         let indexPath = IndexPath(row: index, section: 0)
         if index < items.count / 2 {
@@ -184,6 +200,7 @@ private extension PickerView {
         triangleView.color = .red
         addSubview(triangleView)
     }
+    
 }
 
 // MARK: - PickerViewDataSource
@@ -193,10 +210,15 @@ public protocol PickerViewDataSource: AnyObject {
     
     /// 询问所有显示的标题中的最大宽度，该函数默认实现为 88
     func width(for pickerView: PickerView) -> CGFloat
+    
+    /// 询问默认的选中索引，该函数默认实现为 0
+    func defaultSelectedIndex(for pickerView: PickerView) -> Int
 }
 public extension PickerViewDataSource {
     func width(for pickerView: PickerView) -> CGFloat { 88 }
+    func defaultSelectedIndex(for pickerView: PickerView) -> Int { 0 }
 }
+
 // MARK: - PickerViewDelegate
 public protocol PickerViewDelegate: AnyObject {
     /// 当选中的数据发生实质性的变更时的处理。
@@ -218,14 +240,13 @@ extension PickerView: UICollectionViewDataSource {
         return items.count
     }
 
-    public final func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    final public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCell", for: indexPath) as! PickerViewCell
-        // dataSource?.reload(cell: cell, for: indexPath.item, with: items)
         cell.reloadData(model: items[indexPath.item])
         return cell
     }
 
-    public final func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    final public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         if let recgt = collectionView.cellForItem(at: indexPath)?.frame {
             centerFrame = collectionView.convert(recgt, to: self)
@@ -238,10 +259,9 @@ extension PickerView: UICollectionViewDataSource {
 }
 
 extension PickerView: UICollectionViewDelegateFlowLayout {
-
-    /// This delegate function determines the size of the cell to return. If the cellSize is not set, then it returns the size of the PickerViewCell
-    public final func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+    
+    final public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         //  return CGSize(width: items[indexPath.item].textWidth, height: collectionView.bounds.size.height)
         return CGSize(width: cellWidth, height: collectionView.bounds.size.height)
     }
@@ -323,6 +343,7 @@ extension PickerView : UIScrollViewDelegate {
         self.generateFeedback()
     }
     
+    // 只有在用户拖拽结束时才会触发此函数。
     public final func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         // 这才是正确地获取当前显示的 Cell 方式
         if scrollView == collectionView {
