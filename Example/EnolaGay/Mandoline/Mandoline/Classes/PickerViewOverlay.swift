@@ -95,9 +95,11 @@ class PickerViewOverlay: UIView {
 }
 
 // This is the downward pointing arrow in the OverlayView
+/// OverlayView 中的向下箭头。
 class PickerViewOverlayTriangleView: UIView {
 
     // We have to override the init just because we need to set isOpaque to false
+    // 我们必须重写 init，因为我们需要将 isOpaque 设为 false.
     override init(frame: CGRect) {
         super.init(frame: .zero)
         isOpaque = false
@@ -117,7 +119,8 @@ class PickerViewOverlayTriangleView: UIView {
             setNeedsLayout()
         }
     }
-
+    
+    // 重写此函数来画三角形。
     override func draw(_ rect: CGRect) {
         UIColor.clear.setFill()
         let frame = frameToFill ?? layer.frame

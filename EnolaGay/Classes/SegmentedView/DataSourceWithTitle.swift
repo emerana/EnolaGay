@@ -124,6 +124,7 @@ open class SegmentedTitleCell: SegmentedCell {
 //            })
 //            }
         } else {
+            // 处理选中情况。
             if myItemModel.isSelected {
                 titleLabel.font = myItemModel.titleSelectedFont
                 maskTitleLabel.font = myItemModel.titleSelectedFont

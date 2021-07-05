@@ -20,13 +20,12 @@ public class PickerView: UIView {
     public weak var delegate: PickerViewDelegate?
 
     /// 通用的宽度。
-    var cellWidth: CGFloat = 88
+    private var cellWidth: CGFloat = 88
     /// 数据源。
-    public private(set) var items = [PickerViewItemModel]()
+    public private(set) var items = [PickerViewCellModel]()
     
-    /// 当前选中的数据模型。
-    private(set) var selectedModel: Selectable?
     fileprivate var lastScrollProgress = CGFloat()
+    
     /// 最后选中的 indexPath.
     private var lastIndexPath = IndexPath(row: 0, section: 0) {
         didSet {
@@ -145,12 +144,14 @@ public extension PickerView {
             Judy.logWarning("请设置 PickerView.dataSource")
             return
         }
-        // 确定注册的 Cell.
-        collectionView.register(ScrollableCell.self, forCellWithReuseIdentifier: "DayCell")
+        // 确定宽度。
+        cellWidth = dataSource.width(for: self)
+        // 注册 Cell.
+        collectionView.register(PickerViewCell.self, forCellWithReuseIdentifier: "DayCell")
 
         items.removeAll()
         items = dataSource.titles(for: self).map { title in
-            let model = PickerViewItemModel()
+            let model = PickerViewCellModel()
             model.title = title
             return model
         }
@@ -192,19 +193,16 @@ public protocol PickerViewDataSource: AnyObject {
     /// 询问 pickerView 的标题列表。
     func titles(for pickerView: PickerView) -> [String]
     
-    /// 询问指定 index 的 Cell 宽度。
-    // func pickerView(_ pickerView: PickerView, widthForItemAt index: Int) -> CGFloat
-
-    // func reload(cell: UICollectionViewCell, for index: Int, with source: [String])
+    /// 询问所有显示的标题中的最大宽度，该函数默认实现为 88
+    func width(for pickerView: PickerView) -> CGFloat
 }
-
+extension PickerViewDataSource {
+    func width(for pickerView: PickerView) -> CGFloat { 88 }
+}
 // MARK: - PickerViewDelegate
 public protocol PickerViewDelegate: AnyObject {
     /// 当选中的数据发生实质性的变更时的处理。
     func pickerView(_ pickerView: PickerView, didSelectedItemAt index: Int)
-
-    /// Configuration function to be called with consumer's implemented custom UICollectionViewCell.
-    // func configure(cell: UICollectionViewCell, for: IndexPath)
 }
 
 extension PickerViewDelegate {
@@ -223,7 +221,7 @@ extension PickerView: UICollectionViewDataSource {
     }
 
     public final func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCell", for: indexPath) as! ScrollableCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCell", for: indexPath) as! PickerViewCell
         // dataSource?.reload(cell: cell, for: indexPath.item, with: items)
         cell.reloadData(model: items[indexPath.item])
         return cell
@@ -353,9 +351,9 @@ extension PickerView {
 
 
 extension Array {
-    subscript (safe index: Index) -> Iterator.Element? {
-        return indices.contains(index) ? self[index] : nil
-    }
+//    subscript (safe index: Index) -> Iterator.Element? {
+//        return indices.contains(index) ? self[index] : nil
+//    }
 }
 
 extension CGFloat {
