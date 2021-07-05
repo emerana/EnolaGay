@@ -33,7 +33,7 @@ public class PickerView: UIView {
     /// title 选中状态的 textColor.
     public var titleSelectedColor: UIColor = .white
 
-    /// 当前选中的 indexPath.
+    /// 当前选中的 indexPath，改变该值将更新所有 titles.
     private var selectIndexPath = IndexPath(row: 0, section: 0) {
         didSet {
             guard selectIndexPath != oldValue else { return }
@@ -158,31 +158,19 @@ public extension PickerView {
 
         items.removeAll()
         
-        items = dataSource.titles(for: self).map { title in
+        items = dataSource.titles(for: self).enumerated().map { (index,title) in
             let model = PickerViewCellModel()
             model.title = title
             model.titleNormalFont = titleNormalFont
             model.titleSelectedFont = titleSelectedFont
             model.titleNormalColor = titleNormalColor
             model.titleSelectedColor = titleSelectedColor
+            model.isSelected = selectIndexPath.item == index
             return model
         }
-        
+
         collectionView.reloadData()
         collectionView.collectionViewLayout.invalidateLayout()
-        selectIndexPath = IndexPath(row: 0, section: 0)
-        /*
-        let defaultSelectedIndex = dataSource.defaultSelectedIndex(for: self)
-        if defaultSelectedIndex < 0 || defaultSelectedIndex >= items.count {
-            Judy.logWarning("defaultSelectedIndex 代理函数返回结果不合法")
-            selectedIndex = 0
-        } else {
-            selectedIndex = defaultSelectedIndex
-        }
-        let indexPath = IndexPath(row: selectedIndex, section: 0)
-//        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-        collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
-        */
     }
 
     /// 选中指定项。

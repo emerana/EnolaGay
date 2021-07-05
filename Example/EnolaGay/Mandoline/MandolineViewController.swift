@@ -28,8 +28,8 @@ class MandolineViewController: UIViewController {
 }
 
 extension MandolineViewController: PickerViewDataSource, PickerViewDelegate {
-    func defaultSelectedIndex(for pickerView: PickerView) -> Int { 3 }
 
+    
     func titles(for pickerView: PickerView) -> [String] {
         return ["上传视频", "快拍", "长拍", "开直播"]
     }
