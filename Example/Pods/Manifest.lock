@@ -5,7 +5,6 @@ PODS:
     - SwiftyJSON
   - MJRefresh (3.5.0)
   - Player (0.14.0)
-  - SnapKit (5.0.1)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
@@ -14,7 +13,6 @@ DEPENDENCIES:
   - EnolaGay (from `../`)
   - MJRefresh
   - Player
-  - SnapKit
 
 SPEC REPOS:
   trunk:
@@ -22,7 +20,6 @@ SPEC REPOS:
     - Cache
     - MJRefresh
     - Player
-    - SnapKit
     - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -35,9 +32,8 @@ SPEC CHECKSUMS:
   EnolaGay: 2d216667c5dd05650cad013182ac236c564ab76b
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Player: 37e0acc16ea1495fc241df88fe9f089367513331
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 252480e0101e74390c1a8f60c4e75a5f27a966fd
+PODFILE CHECKSUM: fa034ace349eae9e8e224f6668e46b5fb4beddb7
 
 COCOAPODS: 1.10.1

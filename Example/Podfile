@@ -10,7 +10,7 @@ target 'EnolaGay_Example' do
   pod 'Alamofire', '~> 4.9.0'
   pod 'MJRefresh'
   pod "Player"
-  pod "SnapKit"
+#  pod "SnapKit"
 
   target 'EnolaGay_Tests' do
     inherit! :search_paths
