@@ -61,7 +61,7 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
     /// viewCtrlArray 对应的 titles.
     public private(set) lazy var viewCtrlTitleArray = [String]()
     
-    /// 在 UIPageViewController 中的核心 ScrollView，请通过 scrollViewClosure 获取有效的 scrollView.
+    /// 在 UIPageViewController 中的核心 ScrollView.
     public private(set) var scrollView: UIScrollView?
 
     
@@ -138,6 +138,21 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
         } else { Judy.logWarning("未知数据源类型！") }
     }
     
+    /// 滚动到指定索引界面，此函数类似用户触发 segmented 发生的转换，常用于不需要由用户拖拽发生转换的场景。
+    /// - Parameter index: 该索引为当前 viewCtrlArray 中的有效索引，否则函数将不生效。
+    public final func scrollTo(index: Int) {
+        // segmentedCtrl 改变 viewControllers.
+        guard index < viewCtrlArray.count else {
+            Judy.logWarning("目标 index 不在 viewCtrlArray 范围!")
+            return
+        }
+        isDrag = false
+        let viewCtrls = [viewCtrlArray[index]]
+        // 不应该在 completion 里设置 currentIndex，这样不及时。
+        setViewControllers(viewCtrls, direction: ((currentIndex < index) ? .forward : .reverse), animated: true)
+        currentIndex = index
+    }
+
     /// 外部可能需重设 scrollView?.delegate 时通过调用此函数将 scrollView.delegate 设置为初始状态，也就是 JudyBasePageViewCtrl 本身。
     public final func resetScrollViewDelegate() {
         scrollView?.delegate = self
@@ -258,14 +273,13 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
 
     // MARK: - SegmentedViewDelegate
 
-    open func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int) {
-        
-        isDrag = false
+    open func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int) {        
         // segmentedCtrl 改变 viewControllers.
         guard index < viewCtrlArray.count else {
             Judy.logWarning("目标 index 不在 viewCtrlArray 范围!")
             return
         }
+        isDrag = false
 
         let viewCtrls = [viewCtrlArray[index]]
         // 不应该在 completion 里设置 lastSelectIndex，这样不及时。
@@ -332,7 +346,7 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     
     @available(*, unavailable, message: "请使用 enolagay 实现下拉刷新")
     public var scrollViewClosure: ((UIScrollView) -> Void)?
-    /// 在 UIPageViewController 中的核心 ScrollView，请通过 scrollViewClosure 获取有效的 scrollView.
+    /// 在 UIPageViewController 中的核心 ScrollView.
     public private(set) var scrollView: UIScrollView? {
         didSet{
             if scrollView != nil {
