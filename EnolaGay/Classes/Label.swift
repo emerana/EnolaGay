@@ -21,13 +21,13 @@ open class JudyBaseLabel: UILabel, FontStyle {
     
     // MARK: 复制文本功能
     
-    /// 允许成为第一响应
+    /// 允许成为第一响应。
     open override var canBecomeFirstResponder: Bool { true }
     /// 是否支持复制功能，默认 false.
     @IBInspectable var isSupportCopy: Bool = false
-    /// 当 isSupportCopy = true 时，点击 label 进行复制时的提示文字
-    @IBInspectable public var altTitle: String = ""
-    /// 要复制的文本，默认 nil(复制时将复制整个 Label 的值)
+    /// 当 isSupportCopy = true 时，点击 label 进行复制时的提示文字。
+    @IBInspectable public var altTitle: String = "复制"
+    /// 要复制的文本，默认 nil,(复制时将复制整个 Label 的值)。
     public var pasteboardText: String? = nil
     
     /// 字体样式。此属性用于便携式设置 font.
@@ -118,16 +118,16 @@ open class JudyBaseLabel: UILabel, FontStyle {
     // MARK: - 事件
     
     // 单击弹出菜单控制器
-    @objc func longPressAction(recognizer: UIGestureRecognizer) {
+    @objc private func longPressAction(recognizer: UIGestureRecognizer) {
         becomeFirstResponder()
         
-        UIMenuController.shared.menuItems = [UIMenuItem(title: (altTitle == "") ? "复制":altTitle, action: #selector(customCopy(sender:)))]
+        UIMenuController.shared.menuItems = [UIMenuItem(title: altTitle, action: #selector(customCopy(sender:)))]
         UIMenuController.shared.showMenu(from: superview!, rect: frame)
                 
     }
     
     // 复制事件
-    @objc func customCopy(sender: Any){
+    @objc private func customCopy(sender: Any){
         let pasteboard: UIPasteboard = UIPasteboard.general
         pasteboard.string = pasteboardText ?? text
     }
