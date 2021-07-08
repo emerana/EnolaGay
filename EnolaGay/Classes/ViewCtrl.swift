@@ -261,7 +261,7 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
     }
     
     deinit {
-        Judy.logHappy("\(classForCoder) - \(title ?? "未命名的 WebViewCtrl") -> 已经释放。")
+        Judy.logHappy("\(classForCoder) - \(title ?? "未命名的 WebViewCtrl") 已经释放。")
     }
     
     // KVO.
