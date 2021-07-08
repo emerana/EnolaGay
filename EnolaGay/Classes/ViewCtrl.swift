@@ -195,7 +195,7 @@ open class JudyBaseViewCtrl: UIViewController {
     open func reqOver() {}
     
     deinit {
-        Judy.logHappy("\(classForCoder) - \(viewTitle ?? (title ?? "未命名界面")) -> 已经释放。")
+        Judy.logHappy("\(classForCoder) - \(viewTitle ?? (title ?? "未命名界面")) 已经释放。")
     }
     
 }
