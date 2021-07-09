@@ -30,6 +30,8 @@
 		8B372D22268FFA0C004840FC /* HPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D21268FFA0B004840FC /* HPicker.storyboard */; };
 		8B372D24268FFA2E004840FC /* HPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D23268FFA2D004840FC /* HPicker.swift */; };
 		8B372D26268FFA9C004840FC /* HPickerViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D25268FFA9C004840FC /* HPickerViewCtrl.swift */; };
+		8B491DA72698749E00BA782C /* CastSurelyCalculation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B491DA62698749E00BA782C /* CastSurelyCalculation.storyboard */; };
+		8B491DA9269874F200BA782C /* CastSurelyCalculationViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B491DA8269874F200BA782C /* CastSurelyCalculationViewCtrl.swift */; };
 		8B4A4DE3266E0E37007D6DC5 /* NavigatinCtrl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */; };
 		8B4A4DE5266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */; };
 		8B4A4DEB266F0B8C007D6DC5 /* DouYin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */; };
@@ -93,6 +95,8 @@
 		8B372D23268FFA2D004840FC /* HPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HPicker.swift; sourceTree = "<group>"; };
 		8B372D25268FFA9C004840FC /* HPickerViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPickerViewCtrl.swift; sourceTree = "<group>"; };
 		8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTestViewCtrl.swift; sourceTree = "<group>"; };
+		8B491DA62698749E00BA782C /* CastSurelyCalculation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CastSurelyCalculation.storyboard; sourceTree = "<group>"; };
+		8B491DA8269874F200BA782C /* CastSurelyCalculationViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastSurelyCalculationViewCtrl.swift; sourceTree = "<group>"; };
 		8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigatinCtrl.storyboard; sourceTree = "<group>"; };
 		8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatinMainViewCtrl.swift; sourceTree = "<group>"; };
 		8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DouYin.storyboard; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 		607FACD21AFB9204008FA782 /* Example for EnolaGay */ = {
 			isa = PBXGroup;
 			children = (
+				8B491DA52698742300BA782C /* CastSurelyCalculation */,
 				8B372D20268FF9F8004840FC /* HPicker */,
 				8B372D13268EA06F004840FC /* Mandoline */,
 				8BBD552E2670A0A200C7B48E /* MyPlayer */,
@@ -314,6 +319,15 @@
 				8B372D25268FFA9C004840FC /* HPickerViewCtrl.swift */,
 			);
 			path = HPicker;
+			sourceTree = "<group>";
+		};
+		8B491DA52698742300BA782C /* CastSurelyCalculation */ = {
+			isa = PBXGroup;
+			children = (
+				8B491DA62698749E00BA782C /* CastSurelyCalculation.storyboard */,
+				8B491DA8269874F200BA782C /* CastSurelyCalculationViewCtrl.swift */,
+			);
+			path = CastSurelyCalculation;
 			sourceTree = "<group>";
 		};
 		8B4A4DE1266E0E23007D6DC5 /* NavigationCtrl */ = {
@@ -490,6 +504,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				8B491DA72698749E00BA782C /* CastSurelyCalculation.storyboard in Resources */,
 				8BB88621265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard in Resources */,
 				8B372D22268FFA0C004840FC /* HPicker.storyboard in Resources */,
 				8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */,
@@ -599,6 +614,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B491DA9269874F200BA782C /* CastSurelyCalculationViewCtrl.swift in Sources */,
 				8B372D26268FFA9C004840FC /* HPickerViewCtrl.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				8BBD55362670AE8C00C7B48E /* VideoCell.swift in Sources */,
