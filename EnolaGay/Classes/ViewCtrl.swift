@@ -89,9 +89,7 @@ open class JudyBaseViewCtrl: UIViewController {
     
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        
-        // 在界面即将消失（包含所有界面跳转）时关闭所有键盘。
-        UIApplication.shared.windows.last?.endEditing(true)
+        Judy.topViewCtrl.view.endEditing(true)
     }
     
     /// 重写此函数以配置当 json 被设置的事件。
