@@ -101,6 +101,7 @@
 		8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatinMainViewCtrl.swift; sourceTree = "<group>"; };
 		8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DouYin.storyboard; sourceTree = "<group>"; };
 		8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DouYonHomeViewCtrl.swift; sourceTree = "<group>"; };
+		8B5D11AF269968CE004E9732 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
 		8B8038772687F253006745A6 /* 深圳东站东广场.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "深圳东站东广场.gpx"; sourceTree = "<group>"; };
@@ -168,6 +169,7 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for EnolaGay */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				8B5D11AE269968CE004E9732 /* CommandLine */,
 				607FACD11AFB9204008FA782 /* Products */,
 				48F58D42A596E8C4AFE02DEE /* Pods */,
 				C2843BD89BA8C609ED35D6C4 /* Frameworks */,
@@ -348,6 +350,14 @@
 			path = DouYinHome;
 			sourceTree = "<group>";
 		};
+		8B5D11AE269968CE004E9732 /* CommandLine */ = {
+			isa = PBXGroup;
+			children = (
+				8B5D11AF269968CE004E9732 /* main.swift */,
+			);
+			path = CommandLine;
+			sourceTree = "<group>";
+		};
 		8B76428E25A702C400A418F8 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,7 +471,7 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {

@@ -443,6 +443,80 @@ open class Appearance {
     
 }
 
+public extension EnolaGayWrapper where Base == Calendar {
+    /// 获取当月从今天算起剩余的天数。
+    var daysResidueInCurrentMonth: Int {
+        var startComps = DateComponents()
+        startComps.day = components.day
+        startComps.month = components.month
+        startComps.year = components.year
+        
+        var endComps = DateComponents()
+        endComps.day = 1
+        endComps.month = (components.month == 12) ? 1 : ((components.month ?? 0) + 1)
+        endComps.year = (components.month == 12) ? ((components.year ?? 0) + 1) : components.year
+        
+        let diff = base.dateComponents([.day], from: startComps, to: endComps)
+        
+        return diff.day ?? 1
+    }
+    
+    /// 便携式访问该日历当前时间点的日期组件，包含年月日时分秒。
+    var components: DateComponents {
+        return base.dateComponents([.year, .month, .day, .weekday, .hour, .minute, .second], from: Date())
+    }
+    
+    /// 当前月份的天数。
+    var daysInCurrentMonth: Int {
+        var startComps = DateComponents()
+        startComps.day = 1
+        startComps.month = components.month
+        startComps.year = components.year
+        var endComps = DateComponents()
+        endComps.day = 1
+        endComps.month = components.month == 12 ? 1 : ((components.month ?? 0) + 1)
+        endComps.year = components.month == 12 ? ((components.year ?? 0) + 1) : components.year
+        
+        let diff = base.dateComponents([.day], from: startComps, to: endComps)
+        return diff.day ?? 0
+    }
+    
+    /// 计算指定月份的天数。
+    ///
+    /// - Parameters:
+    ///   - year: 指定的年份信息。
+    ///   - month: 指定的月份信息。
+    /// - Returns: 该年该月的天数。
+    func getDaysInMonth(year: Int, month: Int) -> Int {
+        var startComps = DateComponents()
+        startComps.day = 1
+        startComps.month = month
+        startComps.year = year
+        var endComps = DateComponents()
+        endComps.day = 1
+        endComps.month = month == 12 ? 1 : month + 1
+        endComps.year = month == 12 ? year + 1 : year
+        
+        let diff = Calendar.current.dateComponents([.day], from: startComps, to: endComps)
+        return diff.day ?? 0
+    }
+    
+    /// 获取指定年月日的星期
+    /// - Parameters:
+    ///   - year: 指定的年份。
+    ///   - month: 指定的月份。
+    ///   - day: 指定的日期。
+    /// - Returns: 星期，1为周日，7为周六。
+    func getWeekday(year: Int, month: Int, day: Int) -> Int {
+        let date = Date(year: year, month: month, day: day)
+        guard let weekday = base.dateComponents([.weekday], from: date).weekday else {
+            Judy.logWarning("获取星期失败，默认返回1")
+            return 1
+        }
+        return weekday
+    }
+}
+
 // MARK: Date 扩展
 
 public extension Date {
@@ -462,6 +536,19 @@ public extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         if let date = dateFormatter.date(from: string) {
+            self = date.judy.dateFromGMT()
+        } else {
+            self.init()
+        }
+    }
+    
+    /// 通过一个 string 构建一个北京时区的 date 对象。
+    init(year: Int = 2020, month: Int = 3, day: Int = 22) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let dateString = "\(year)-\(month)-\(day)"
+        if let date = dateFormatter.date(from: dateString) {
             self = date.judy.dateFromGMT()
         } else {
             self.init()
@@ -1631,6 +1718,8 @@ extension UIImage: EnolaGayCompatible { }
 extension UIApplication: EnolaGayCompatible { }
 
 extension Date: EnolaGayCompatible { }
+
+extension Calendar: EnolaGayCompatible { }
 
 
 // MARK: - Swift提供的许多功能强大的全局函数
