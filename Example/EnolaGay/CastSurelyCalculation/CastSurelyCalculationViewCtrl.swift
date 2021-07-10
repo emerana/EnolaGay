@@ -45,16 +45,27 @@ class CastSurelyCalculationViewCtrl: JudyBaseViewCtrl {
                 numberInfo += "从今日算起本月共需投入 \(currentMonthNumber) 元。\n"
             } else {
                 var currentMonthNumber = 0
-                for d in 1...calendar.judy.getDaysInMonth(year: calendar.judy.components.year!,
-                                                          month: calendar.judy.components.month!+i) {
+                
+                //var comp = calendar.dateComponents([.year,.month, .day,.weekday], from: Date())
+                
+                let month: Int, year: Int
+                if calendar.judy.components.month!+i > 12 {
+                    year = calendar.judy.components.year! + 1
+                    month = 1
+                } else {
+                    year = calendar.judy.components.year!
+                    month = calendar.judy.components.month!+i
+                }
+                for d in 1...calendar.judy.getDaysInMonth(year: year,
+                                                          month: month) {
                     
-                    let weekday = calendar.judy.getWeekday(year: calendar.judy.components.year!,
-                                                           month: calendar.judy.components.month!+i,
+                    let weekday = calendar.judy.getWeekday(year: year,
+                                                           month: month,
                                                            day: d)
                     if weekday == 1 || weekday == 7 { continue }
                     currentMonthNumber += number
                 }
-                numberInfo += "\(calendar.judy.components.month!+i)月需投入 \(currentMonthNumber) 元。\n"
+                numberInfo += "\(year)年 \(month)月需投入 \(currentMonthNumber) 元。\n"
             }
         }
 
