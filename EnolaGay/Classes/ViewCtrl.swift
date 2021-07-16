@@ -131,8 +131,7 @@ open class JudyBaseViewCtrl: UIViewController {
                 Judy.logWarning("发现逃逸对象！")
                 return
             }
-            // 此处验证 json?
-            
+            // requestConfig 对 apiData 发起质检。
             self.apiData = self.requestConfig.QCApiData(apiData: json)
             self.reqResult()
             

@@ -90,7 +90,7 @@ extension UIApplication: ApiAdapter {
         /// - Parameter response: DataResponse
         func responseAdapter<T>(response: DataResponse<T>) {
 
-            var json = JSON([JSONApiKey.error: [JSONApiKey.msg: "系统错误!", JSONApiKey.code: 250]])
+            var json = JSON([ApiERRORKey.error: [ApiERRORKey.msg: "系统错误!", ApiERRORKey.code: 250]])
             //  Judy.log("收到 \(T.self) 类型响应")
             switch response.result {
             case .success(let value):   // 请求成功
@@ -104,11 +104,7 @@ extension UIApplication: ApiAdapter {
             case .failure(let error):   // 请求失败
                 Judy.log("请求失败:\(error)\n请求地址：\(String(describing: response.request))")
                 json = JSON(error)
-//                json.ApiERROR = [
-//                    JSONApiKey.code.rawValue: response.response?.statusCode ?? 250,
-//                    JSONApiKey.msg.rawValue: error.localizedDescription]
             }
-            
             callback(json)
         }
 

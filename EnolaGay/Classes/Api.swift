@@ -296,27 +296,26 @@ final public class ApiRequestConfig {
     /// 由当前对象向 Api 层发起请求，该函数中将触发 apiRequestConfigAffirm() 确认函数。
     /// - Parameter callback: 请求的回调函数。
     public func request(withCallBack callback: @escaping ((JSON) -> Void)) {
-        // 确认配置信息。
-        configAffirm()
-        
         guard EMERANA.apiAdapter != nil else {
-            let msg = "未实现 extension UIApplication: ApiDelegate，ApiRequestConfig 无法工作！"
+            let msg = "未实现 extension UIApplication: ApiDelegate，ApiRequestConfig 拒绝发起网络请求"
             let json = JSON(
-                [JSONApiKey.error:
-                    [JSONApiKey.msg: msg,
-                     JSONApiKey.code: EMERANA.ErrorCode.default]
+                [ApiERRORKey.error:
+                    [ApiERRORKey.msg: msg,
+                     ApiERRORKey.code: EMERANA.ErrorCode.default]
                 ])
             Judy.logWarning(msg)
             callback(json)
             return
         }
-        
+        // 确认配置信息。
+        configAffirm()
+
         guard api != nil else {
             let msg = "api 为空，取消已请求!"
             let json = JSON(
-                [JSONApiKey.error:
-                    [JSONApiKey.msg: msg,
-                     JSONApiKey.code: EMERANA.ErrorCode.notSetApi]
+                [ApiERRORKey.error.rawValue:
+                    [ApiERRORKey.msg.rawValue: msg,
+                     ApiERRORKey.code.rawValue: EMERANA.ErrorCode.notSetApi]
                 ])
             Judy.logWarning(msg)
             callback(json)
@@ -333,9 +332,9 @@ final public class ApiRequestConfig {
         guard EMERANA.apiAdapter != nil else {
             let msg = "未实现 extension UIApplication: ApiAdapter，ApiRequestConfig 拒绝质检"
             let json = JSON(
-                [JSONApiKey.error:
-                    [JSONApiKey.msg: msg,
-                     JSONApiKey.code: EMERANA.ErrorCode.default]
+                [ApiERRORKey.error.rawValue:
+                    [ApiERRORKey.msg.rawValue: msg,
+                     ApiERRORKey.code.rawValue: EMERANA.ErrorCode.default]
                 ])
             Judy.logWarning(msg)
             return json

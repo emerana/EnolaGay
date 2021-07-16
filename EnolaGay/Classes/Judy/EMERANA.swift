@@ -7,8 +7,8 @@
 
 import SwiftyJSON
 
-/// 在Api请求中常用到的 jsonKey.
-public enum JSONApiKey: String {
+/// 在 Api 请求中常用到的 jsonKey.通常用于访问错误信息。
+public enum ApiERRORKey: String {
     /// 该字段通常用于访问包含错误信息集合的 json.
     case error = "EMERANA_KEY_API_ERROR"
     /// 访问 json 中的语义化响应消息体。
@@ -18,11 +18,16 @@ public enum JSONApiKey: String {
 }
 
 public extension JSON {
-    
-    /// 便携访问 JSONApiKey 字段下的 json.
-    subscript(key: JSONApiKey) -> JSON {
-        get { self[key.rawValue] }
-        set { self[key.rawValue] = newValue }
+    /// 便携式访问 JSON 中的错误信息。需要注意的是，访问 msg、code 可直接访问，内部已经做好向下级取值处理。
+    subscript(key: ApiERRORKey) -> JSON {
+        switch key {
+        case .error:
+            return self[key.rawValue]
+        case .msg:
+            return self[ApiERRORKey.error.rawValue, key.rawValue]
+        case .code:
+            return self[ApiERRORKey.error.rawValue, key.rawValue]
+        }
     }
     
     /// 访问 json 中是否包含访问 Api 请求中响应失败的信息。其核心是访问"APIJSONKEY.error" key.
@@ -34,13 +39,13 @@ public extension JSON {
     /// - Parameters:
     ///   - code: 错误码。
     ///   - msg: 错误消息体。
-    /// - Warning: 该函数会给当前 json 新增 JSONApiKey.error 字段，其内容为包含错误码和错误信息的 json. 通常情况下该函数只应该应用在 responseQC 质检函数中。
+    /// - Warning: 该函数会给当前 json 新增 ApiERRORKey.error 字段，其内容为包含错误码和错误信息的 json. 通常情况下该函数只应该应用在 responseQC 质检函数中。
     mutating func setQCApiERROR(code: Int, msg: String) {
         if self.error == nil {
-            self[.error] = JSON([JSONApiKey.code.rawValue: code, JSONApiKey.msg.rawValue: msg])
+            self[ApiERRORKey.error.rawValue] = JSON([ApiERRORKey.code.rawValue: code, ApiERRORKey.msg.rawValue: msg])
         } else {
-            self = [JSONApiKey.error.rawValue: [JSONApiKey.code.rawValue: EMERANA.ErrorCode.default,
-                                                JSONApiKey.msg.rawValue: "请求失败"]]
+            self = [ApiERRORKey.error.rawValue: [ApiERRORKey.code.rawValue: EMERANA.ErrorCode.default,
+                                                ApiERRORKey.msg.rawValue: "请求失败"]]
         }
     }
 }
@@ -1569,7 +1574,7 @@ public extension EMERANA.Key {
     @available(*, deprecated, message: "该可访问性元素已弃用", renamed: "JSON")
     struct Api {}
 
-    @available(*, deprecated, message: "该可访问性元素已弃用，使用 JSONApiKey")
+    @available(*, deprecated, message: "该可访问性元素已弃用，使用 ApiERRORKey")
     struct JSON {
         public static let error = "EMERANA_KEY_API_ERROR"
         public static let msg = "EMERANA_KEY_API_MSG"
