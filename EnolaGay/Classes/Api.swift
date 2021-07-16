@@ -322,7 +322,10 @@ final public class ApiRequestConfig {
             return
         }
 
-        EMERANA.apiAdapter!.request(withRequestConfig: self, callback: callback)
+        // EMERANA.apiAdapter!.request(withRequestConfig: self, callback: callback)
+        EMERANA.apiAdapter!.request(withRequestConfig: self) { json in
+            // TODO: 在此处完成质检试试。
+        }
     }
     
     /// 针对响应 apiData 进行质检，如果发现错误将在该 json 中加上错误相关的信息。
