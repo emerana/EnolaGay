@@ -19,35 +19,40 @@ import Alamofire
 // ApiRequestConfig。
 
 extension UIApplication: ApiAdapter {
-    
-    
+
     public func domain() -> String { "https://livepretest.jingmaiwang.com" }
 
     public func globalMethodPOST() -> Bool { false }
     
-    public func responseErrorValidation(json: JSON) -> (error: Bool, code: Int, message: String) {
-        
+    public func responseQC(withRequestConfig requestConfig: ApiRequestConfig, apiData: JSON) -> JSON {
         var rs: (error: Bool, code: Int, message: String) = (false, 0, "尚未发现错误")
         // 兼容活动中心的接口响应格式
-        if json["Success"].exists() && !json["Success"].boolValue {
+        if apiData["Success"].exists() && !apiData["Success"].boolValue {
             rs.error = true
             rs.code = 250
-            rs.message = json["Msg"].stringValue
+            rs.message = apiData["Msg"].stringValue
         }
         
-        if json["code"].exists() {
-            if json["code"].intValue != 0 {
+        if apiData["code"].exists() {
+            if apiData["code"].intValue != 0 {
                 rs.error = true
-                rs.code = json["code"].intValue
-                rs.message = json["msg"].stringValue
+                rs.code = apiData["code"].intValue
+                rs.message = apiData["msg"].stringValue
             }
         } else {
             rs.error = true
-            rs.code = json["status"].intValue
-            rs.message = json["title"].stringValue
+            rs.code = apiData["status"].intValue
+            rs.message = apiData["title"].stringValue
         }
-        
-        return rs
+
+        // 配置错误信息。
+        if rs.error {
+            var json = apiData
+            json.setQCApiERROR(code: rs.1, msg: rs.2)
+            return json
+        } else {
+            return apiData
+        }
     }
 
     public func request(withRequestConfig requestConfig: ApiRequestConfig, callback: @escaping ((JSON) -> Void)) {
@@ -96,20 +101,12 @@ extension UIApplication: ApiAdapter {
                 } else {
                     json = JSON(value)
                 }
-                
-                // 数据校验。
-                let result = responseErrorValidation(json: json)
-                // 配置错误信息。
-                if result.error {
-                    json.ApiERROR = [JSONApiKey.code.rawValue: result.1,
-                                     JSONApiKey.msg.rawValue: result.2]
-                }
             case .failure(let error):   // 请求失败
                 Judy.log("请求失败:\(error)\n请求地址：\(String(describing: response.request))")
-                
-                json.ApiERROR = [
-                    JSONApiKey.code.rawValue: response.response?.statusCode ?? 250,
-                    JSONApiKey.msg.rawValue: error.localizedDescription]
+                json = JSON(error)
+//                json.ApiERROR = [
+//                    JSONApiKey.code.rawValue: response.response?.statusCode ?? 250,
+//                    JSONApiKey.msg.rawValue: error.localizedDescription]
             }
             
             callback(json)

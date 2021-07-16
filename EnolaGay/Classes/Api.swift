@@ -178,11 +178,16 @@ public protocol ApiAdapter where Self: UIApplication {
     ///  ```
     func request(withRequestConfig requestConfig: ApiRequestConfig, callback: @escaping ((JSON)->Void))
 
+    /// 针对服务器响应的数据进行质检，验证 json 中是否包含错误信息。
+    /// - Parameters:
+    ///   - requestConfig: 请求对象配置信息。
+    ///   - apiData: 响应的原始 json 数据。
+    /// - Returns: 经过质检后的 JSON 数据。
+    func responseQC(withRequestConfig requestConfig: ApiRequestConfig, apiData: JSON) -> JSON
 }
 
 // 默认实现 ApiDelegate，使其变成可选协议函数。
 public extension ApiAdapter {
-    
     func domain() -> String {
         Judy.logWarning(" 默认域名未配置，将使用 www.baidu.com，请确认 extension UIApplication: ApiAdapter 中 domain 函数的实现")
         return "https://www.baidu.com"
@@ -193,15 +198,12 @@ public extension ApiAdapter {
     func responseJSON() -> Bool { true }
     
     func apiRequestConfigAffirm(requestConfig: ApiRequestConfig) { }
-}
-
-public extension ApiAdapter {
-    /// 校验服务器响应消息的默认函数，请重写此扩展函数以自定义校验服务器响应的消息。
-    func responseErrorValidation(json: JSON) -> (error: Bool, code: Int, message: String) {
-        return (false, 0, "校验协议函数未覆盖。")
+    
+    func responseQC(withRequestConfig requestConfig: ApiRequestConfig, apiData: JSON) -> JSON {
+        Judy.log("未实现 apiData 质检函数，apiData 将直接使用服务器响应的原始数据。")
+        return apiData
     }
 }
-
 
 /// api 接口规范协议，该协议规定了 api 的定义过程，如 enum Actions: String, ApiAction。
 public protocol ApiAction {
@@ -300,21 +302,21 @@ final public class ApiRequestConfig {
         guard EMERANA.apiAdapter != nil else {
             let msg = "未实现 extension UIApplication: ApiDelegate，ApiRequestConfig 无法工作！"
             let json = JSON(
-                [EMERANA.Key.JSON.error:
-                    [EMERANA.Key.JSON.msg: msg,
-                     EMERANA.Key.JSON.code: EMERANA.ErrorCode.default]
+                [JSONApiKey.error:
+                    [JSONApiKey.msg: msg,
+                     JSONApiKey.code: EMERANA.ErrorCode.default]
                 ])
             Judy.logWarning(msg)
             callback(json)
             return
         }
-
+        
         guard api != nil else {
             let msg = "api 为空，取消已请求!"
             let json = JSON(
-                [EMERANA.Key.JSON.error:
-                    [EMERANA.Key.JSON.msg: msg,
-                     EMERANA.Key.JSON.code: EMERANA.ErrorCode.notSetApi]
+                [JSONApiKey.error:
+                    [JSONApiKey.msg: msg,
+                     JSONApiKey.code: EMERANA.ErrorCode.notSetApi]
                 ])
             Judy.logWarning(msg)
             callback(json)
@@ -323,7 +325,23 @@ final public class ApiRequestConfig {
 
         EMERANA.apiAdapter!.request(withRequestConfig: self, callback: callback)
     }
-
+    
+    /// 针对响应 apiData 进行质检，如果发现错误将在该 json 中加上错误相关的信息。
+    /// - Parameter apiData: 需要质检的 json，通常为发起请求后 Api 层响应的原始 JSON 数据。
+    /// - Returns: 经过质检后的 JSON 数据。
+    public func QCApiData(apiData: JSON) -> JSON {
+        guard EMERANA.apiAdapter != nil else {
+            let msg = "未实现 extension UIApplication: ApiAdapter，ApiRequestConfig 拒绝质检"
+            let json = JSON(
+                [JSONApiKey.error:
+                    [JSONApiKey.msg: msg,
+                     JSONApiKey.code: EMERANA.ErrorCode.default]
+                ])
+            Judy.logWarning(msg)
+            return json
+        }
+        return EMERANA.apiAdapter!.responseQC(withRequestConfig: self, apiData: apiData)
+    }
     
     /// ApiRequestConfig 中的域名模块。
     ///

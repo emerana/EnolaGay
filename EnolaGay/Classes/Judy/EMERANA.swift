@@ -22,23 +22,21 @@ public extension JSON {
     /// 便携访问 JSONApiKey 字段下的 json.
     subscript(key: JSONApiKey) -> JSON {
         get { self[key.rawValue] }
-        set {
-            self[key.rawValue] = newValue//JSON(newValue as Any)
-        }
+        set { self[key.rawValue] = newValue }
     }
     
-    /// 该 json 仅保存在访问 Api 请求中响应失败的信息。其核心是访问原始 json 的 "APIJSONKEY.error" key.
+    /// 访问 json 中是否包含访问 Api 请求中响应失败的信息。其核心是访问"APIJSONKEY.error" key.
     var ApiERROR: JSON? {
-        get {
-            if self[.error].exists() {
-               return self[.error]
-            } else {
-                return nil
-            }
-        }
-        set {
-            self[.error] = JSON(newValue as Any)
-        }
+        self[.error].isEmpty ? nil:self[.error]
+    }
+    
+    /// 当该 json 中需要包含 api 质检接口不通过的信息时通过此函数设置错误信息。
+    /// - Parameters:
+    ///   - code: 错误码。
+    ///   - msg: 错误消息体。
+    /// - Warning: 该函数会给当前 json 新增 JSONApiKey.error 字段，其内容为包含错误码和错误信息的 json. 通常情况下该函数只应该应用在 responseQC 质检函数中。
+    mutating func setQCApiERROR(code: Int, msg: String) {
+        self[.error] = JSON([JSONApiKey.code.rawValue: code, JSONApiKey.msg.rawValue: msg])
     }
 }
 

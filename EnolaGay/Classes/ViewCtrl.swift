@@ -126,27 +126,28 @@ open class JudyBaseViewCtrl: UIViewController {
         
         /// 接收响应的闭包。
         let responseClosure: ((JSON) -> Void) = { [weak self] json in
-            guard let strongSelf = self else {
+            guard let `self` = self else {
                 JudyTip.dismiss()
-                // JudyTip.message(messageType: .error, text: "发现逃逸对象！")
                 Judy.logWarning("发现逃逸对象！")
                 return
             }
-            strongSelf.apiData = json
-            strongSelf.reqResult()
+            // 此处验证 json?
+            
+            self.apiData = self.requestConfig.QCApiData(apiData: json)
+            self.reqResult()
             
             // 先处理失败情况。
-            if let error = json.ApiERROR {
+            if let error = self.apiData.ApiERROR {
                 // 确保错误代码不是未设置 api.
-                strongSelf.isReqSuccess = error[.code].intValue == EMERANA.ErrorCode.notSetApi
-                strongSelf.reqFailed()
+                self.isReqSuccess = error[.code].intValue == EMERANA.ErrorCode.notSetApi
+                self.reqFailed()
             } else {
                 JudyTip.dismiss()
-                strongSelf.isReqSuccess = true
-                strongSelf.reqSuccess()
+                self.isReqSuccess = true
+                self.reqSuccess()
             }
             
-            strongSelf.reqOver()
+            self.reqOver()
         }
 
         // 发起请求。
