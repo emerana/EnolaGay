@@ -22,13 +22,23 @@ public extension JSON {
     /// 便携访问 JSONApiKey 字段下的 json.
     subscript(key: JSONApiKey) -> JSON {
         get { self[key.rawValue] }
-        set { }
+        set {
+            self[key.rawValue] = newValue//JSON(newValue as Any)
+        }
     }
     
     /// 该 json 仅保存在访问 Api 请求中响应失败的信息。其核心是访问原始 json 的 "APIJSONKEY.error" key.
     var ApiERROR: JSON? {
-        get { self[.error] }
-        set { }
+        get {
+            if self[.error].exists() {
+               return self[.error]
+            } else {
+                return nil
+            }
+        }
+        set {
+            self[.error] = JSON(newValue as Any)
+        }
     }
 }
 

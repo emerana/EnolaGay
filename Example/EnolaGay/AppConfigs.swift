@@ -25,6 +25,31 @@ extension UIApplication: ApiAdapter {
 
     public func globalMethodPOST() -> Bool { false }
     
+    public func responseErrorValidation(json: JSON) -> (error: Bool, code: Int, message: String) {
+        
+        var rs: (error: Bool, code: Int, message: String) = (false, 0, "尚未发现错误")
+        // 兼容活动中心的接口响应格式
+        if json["Success"].exists() && !json["Success"].boolValue {
+            rs.error = true
+            rs.code = 250
+            rs.message = json["Msg"].stringValue
+        }
+        
+        if json["code"].exists() {
+            if json["code"].intValue != 0 {
+                rs.error = true
+                rs.code = json["code"].intValue
+                rs.message = json["msg"].stringValue
+            }
+        } else {
+            rs.error = true
+            rs.code = json["status"].intValue
+            rs.message = json["title"].stringValue
+        }
+        
+        return rs
+    }
+
     public func request(withRequestConfig requestConfig: ApiRequestConfig, callback: @escaping ((JSON) -> Void)) {
 
         var method = HTTPMethod.get
