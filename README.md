@@ -6,7 +6,7 @@
 
 
 ## 核心
-#### EnolaGay 为项目开发提供了一些便利，简化了部分开发流程，极大地减少了日常开发中重复的流程。
+#### EnolaGay 为项目开发提供了很多便利，简化了部分开发流程，极大地减少了日常开发中重复的流程。
 在做好以下适配后，你会发现省去的麻烦不是一点点。
 - 项目中所有的 ViewController 均继承自 JudyBaseViewCtrl 及其子类。
 - 配置 Api 层。
@@ -18,7 +18,7 @@
 - 每个 ViewController 及其子类无需关心网络请求的细节，只管根据请求结果做你想做的任何事。
 - 更改所有 viewCtrl、tableView、collectionView 及部分其他控件的背景色。
 - EMERANA 是个宝藏，里面有很多常用的扩展。
-- Judy 是 EnolaGay 的元老，功能少但随处可见，其诞生于 2017 年。EnolaGay 在 2020 年基于 Judy 的基础上迅速扩展。
+- Judy 来自 2017，是 EnolaGay 的元老，功能少却最常用。EnolaGay 在 2020 年基于 Judy 的基础上迅速扩展。
 - EnolaGay 中的其他组件也很丰富。
 
 ## 实现以下扩展

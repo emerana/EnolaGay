@@ -7,6 +7,31 @@
 
 import SwiftyJSON
 
+/// 在Api请求中常用到的 jsonKey.
+public enum JSONApiKey: String {
+    /// 该字段通常用于访问包含错误信息集合的 json.
+    case error = "EMERANA_KEY_API_ERROR"
+    /// 访问 json 中的语义化响应消息体。
+    case msg = "EMERANA_KEY_API_MSG"
+    /// 访问 json 中保存的响应代码。
+    case code = "EMERANA_KEY_API_CODE"
+}
+
+public extension JSON {
+    
+    /// 便携访问 JSONApiKey 字段下的 json.
+    subscript(key: JSONApiKey) -> JSON {
+        get { self[key.rawValue] }
+        set { }
+    }
+    
+    /// 该 json 仅保存在访问 Api 请求中响应失败的信息。其核心是访问原始 json 的 "APIJSONKEY.error" key.
+    var ApiERROR: JSON? {
+        get { self[.error] }
+        set { }
+    }
+}
+
 // MARK: typealias
 
 /// 一个不传递任何参数的闭包
@@ -1531,15 +1556,10 @@ public extension EMERANA.Key {
     @available(*, deprecated, message: "该可访问性元素已弃用", renamed: "JSON")
     struct Api {}
 
-    /// 用于 JSON 中的常用的可访问性 KEY。
+    @available(*, deprecated, message: "该可访问性元素已弃用，使用 JSONApiKey")
     struct JSON {
-        /// 一般通过此字段判断 ERROR 是否为空，如果不为空则存在错误信息
-        ///
-        /// 此 Key 的 Value 应该是一个字典，msg、code 均作为 Key 存在 error 层级下
         public static let error = "EMERANA_KEY_API_ERROR"
-        /// 一般用于保存响应的消息
         public static let msg = "EMERANA_KEY_API_MSG"
-        /// 一般用于保存服务器的响应代码
         public static let code = "EMERANA_KEY_API_CODE"
     }
 
