@@ -13,7 +13,7 @@ public enum JSONApiKey: String {
     case error = "EMERANA_KEY_API_ERROR"
     /// 访问 json 中的语义化响应消息体。
     case msg = "EMERANA_KEY_API_MSG"
-    /// 访问 json 中保存的响应代码。
+    /// 访问 json 中保存的响应错误代码。
     case code = "EMERANA_KEY_API_CODE"
 }
 
@@ -36,7 +36,12 @@ public extension JSON {
     ///   - msg: 错误消息体。
     /// - Warning: 该函数会给当前 json 新增 JSONApiKey.error 字段，其内容为包含错误码和错误信息的 json. 通常情况下该函数只应该应用在 responseQC 质检函数中。
     mutating func setQCApiERROR(code: Int, msg: String) {
-        self[.error] = JSON([JSONApiKey.code.rawValue: code, JSONApiKey.msg.rawValue: msg])
+        if self.error == nil {
+            self[.error] = JSON([JSONApiKey.code.rawValue: code, JSONApiKey.msg.rawValue: msg])
+        } else {
+            self = [JSONApiKey.error.rawValue: [JSONApiKey.code.rawValue: EMERANA.ErrorCode.default,
+                                                JSONApiKey.msg.rawValue: "请求失败"]]
+        }
     }
 }
 

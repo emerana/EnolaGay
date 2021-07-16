@@ -18,14 +18,12 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
         super.viewDidLoad()
         
     }
-
     
     override func setApi() {
         super.setApi()
 
-         requestConfig.api = Actions.YouLikeByLiveFinish
-        // requestConfig.parameters?["userid"] = 323430
-                
+         requestConfig.api = Actions.createUserChatToken
+         requestConfig.parameters?["userid"] = 323430
     }
     
     @IBAction func reqApiAction(_ sender: Any) {
