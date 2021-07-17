@@ -19,7 +19,7 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
     
     // MARK: - let property and IBOutlet
     
-    /// 主要的 CollectionView,该 CollectionView 默认将 dataSource、dataSource 设置为 self。
+    /// 主要的 CollectionView,该 CollectionView 默认将 dataSource、dataSource 设置为 self.
     @IBOutlet public weak var collectionView: UICollectionView?
 
     
@@ -176,7 +176,7 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
         /// cell 参与计算的边长，初值为 line 的长度（包含间距）。
         ///
         /// 一个 line 中需要显示的所有 cell 宽度（或高度）及他们之间所有间距的总和，以此来确定单个 cell 的边长。
-        /// - Warning: 请注意在此处减去不参与计算 cell 边长的部分，比如：collectionView.contentInset.left。
+        /// - Warning: 请注意在此处减去不参与计算 cell 边长的部分，比如：collectionView.contentInset.left.
         var lineWidthOfCell: CGFloat = collectionView.frame.width
         // 正确地计算 cellWidth 公式，若发现实际显示不正确，请确认是否关闭 CollectionView 的 Estimate Size，将其设置为 None.
         lineWidthOfCell = (lineWidthOfCell + itemSpacing)/countOfCells - itemSpacing
@@ -268,7 +268,7 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     
     /// 未设置 requestConfig.api 却发起了请求时的消息处理。
     ///
-    /// 当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1。
+    /// 当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1.
     /// - Warning: 重写此方法务必调用父类方法。
     open override func reqNotApi() {
         if isAddMore { currentPage -= 1 }
@@ -278,7 +278,7 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     /// 当服务器响应时首先执行此函数。
     ///
     /// 此函数中会调用 endRefresh()，即结束 header、footer 的刷新状态。
-    /// - Warning: 此函数影响上下拉状态，请确认只有在分页相关请求条件下调用 super.reqResult()。
+    /// - Warning: 此函数影响上下拉状态，请确认只有在分页相关请求条件下调用 super.reqResult().
     /// ```
     /// if  requestConfig.api?.value == ApiActions.Live.getAnchorLibraries.rawValue {
     ///     super.reqResult()
@@ -290,7 +290,7 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     
     /// 请求成功的消息处理，子类请务必调用父类函数。
     ///
-    /// 此函数已经处理是否有更多数据，需自行根据服务器响应数据更改数据源及刷新 collectionView。
+    /// 此函数已经处理是否有更多数据，需自行根据服务器响应数据更改数据源及刷新 collectionView.
     /// - Warning: 此函数中影响设置总页数函数 setSumPage(), 与分页无关的逻辑应该在此排除。
     open override func reqSuccess() {
         // 设置总页数。
@@ -379,12 +379,12 @@ public extension UICollectionViewLayoutAttributes {
 
 }
 
-/// UICollectionViewFlowLayout 自定义版
+/// UICollectionViewFlowLayout 自定义版。
 public class JudyCollectionViewLayout: UICollectionViewFlowLayout {
 
     public override func prepare() {
         super.prepare()
-        // 设置一个非0的 size 以自动计算 Cell 大小
+        // 设置一个非 0 的 size 以自动计算 Cell 大小。
         estimatedItemSize = CGSize(width: 100, height: 28)
 
     }
@@ -554,6 +554,8 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
 
     }
     
+    /// 当 cell.json 设置后将触发此函数，子类通过覆盖此函数以设置 UI.
+    /// - Warning: 注意 super 中的默认实现，如有必要需调用 super.
     open func jsonDidSetAction() {
         titleLabel?.text = json[EMERANA.Key.Cell.title].stringValue
         subTitleLabel?.text = json[EMERANA.Key.Cell.subtitle].stringValue

@@ -6,12 +6,21 @@
 //  Copyright © 2021 CocoaPods. All rights reserved.
 //
 
+class User {
+    var name = "王仁洁"
+}
+
 import UIKit
 import EnolaGay
 
 class CastSurelyCalculationViewCtrl: JudyBaseViewCtrl {
     override var viewTitle: String? { "定投计算" }
 
+    var user = User() {
+        didSet{
+            Judy.log(user.name)
+        }
+    }
     // MARK: - let property and IBOutlet
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var detailLabel: UILabel!
@@ -66,6 +75,7 @@ class CastSurelyCalculationViewCtrl: JudyBaseViewCtrl {
                     currentMonthNumber += number
                 }
                 numberInfo += "\(year)年 \(month)月需投入 \(currentMonthNumber) 元。\n"
+                user = User()
             }
         }
 

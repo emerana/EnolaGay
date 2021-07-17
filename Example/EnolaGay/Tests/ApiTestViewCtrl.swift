@@ -18,18 +18,20 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
         super.viewDidLoad()
         
     }
-
     
     override func setApi() {
         super.setApi()
 
-        // requestConfig.api = Actions.createUserChatToken
-        requestConfig.parameters?["userid"] = 323430
-                
+         requestConfig.api = Actions.YouLikeByLiveFinish
+         requestConfig.parameters?["userid"] = 323430
     }
     
     @IBAction func reqApiAction(_ sender: Any) {
         reqApi()
+    }
+
+    override func reqNotApi() {
+        //JudyTip.message(text: apiData.stringValue)
     }
     
     override func reqOver() {
@@ -38,10 +40,13 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
     
 }
 
-enum Actions: String, ApiAction {
-    var value: String { rawValue }
+public enum Actions: String, ApiAction {
+    public var value: String { rawValue }
     
     /// 生成融云token get
     case createUserChatToken = "/api/liveapp/GetToken"
-}
+    /// 猜你喜欢。 get
+    case YouLikeByLiveFinish = "/api/liveapp/YouLikeByLiveFinish1"
     
+}
+

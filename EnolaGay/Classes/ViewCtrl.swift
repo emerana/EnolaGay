@@ -6,9 +6,10 @@
 import UIKit
 import SwiftyJSON
 
-/// 遵循统一标准的 viewController.
+/// 遵循统一标准的核心 ViewController.
 ///
-/// * 在本类及子类中，请重写 viewTitle 属性为本类设置标题，viewTitle 将覆盖 navigationItem.title、self.title，若未设置，navigationItem.title 将直接使用 title.
+/// * 重写 viewTitle 属性为当前界面设置标题。
+/// * 本类中包含一个 json，用好它。
 /// * 本类中已集成 Api 层，通过设置 requestConfig 对象以配置请求信息，请求流详见 reqApi().
 open class JudyBaseViewCtrl: UIViewController {
 
@@ -16,7 +17,7 @@ open class JudyBaseViewCtrl: UIViewController {
 
     /// 为当前设置一个标题。
     ///
-    /// 该 viewTitle 优先且覆盖 self.title 及 navigationItem.title.
+    /// 该 viewTitle 优先且覆盖 self.title 及 navigationItem.title，若未设置，navigationItem.title 将直接使用 title.
     ///
     /// 如需更改该值请在 viewDidLoad 之后 navigationItem.title = 新 title 即可。
     /// - Warning: 重写读写属性方式为实现 get、set，且里面最好全调用 super，尤其是 set.
@@ -33,7 +34,8 @@ open class JudyBaseViewCtrl: UIViewController {
     
     /// 当前界面网络请求成功的标识，默认 false.
     ///
-    /// 该值为 false 时会在 viewWillAppear() 中触发 reqApi()；若需要取消该请求，重写父类 viewWillAppear(). 参考如下代码：
+    /// 该值为 false 时会在 viewWillAppear() 中触发 reqApi()；
+    /// 若需要取消该请求，重写父类 viewWillAppear()，并在调用父类之前将值改为 true. 参考如下代码：
     /// ```
     /// isReqSuccess = true
     /// super.viewWillAppear(animated)
@@ -93,6 +95,7 @@ open class JudyBaseViewCtrl: UIViewController {
     }
     
     /// 重写此函数以配置当 json 被设置的事件。
+    /// - Warning: 若要在此函数中设置 UI 需要注意 json 的设置一定要在 viewDidLoad 之后。
     open func jsonDidSet() {}
 
     // MARK: Api 相关函数
@@ -124,26 +127,26 @@ open class JudyBaseViewCtrl: UIViewController {
         
         /// 接收响应的闭包。
         let responseClosure: ((JSON) -> Void) = { [weak self] json in
-            guard let strongSelf = self else {
+            guard let `self` = self else {
                 JudyTip.dismiss()
-                // JudyTip.message(messageType: .error, text: "发现逃逸对象！")
                 Judy.logWarning("发现逃逸对象！")
                 return
             }
-            strongSelf.apiData = json
-            strongSelf.reqResult()
+            self.apiData = json
+            self.reqResult()
             
-            //  存在 EMERANA.Key.JSON.error 即失败。
-            if json[EMERANA.Key.JSON.error].isEmpty {
-                JudyTip.dismiss()
-                strongSelf.isReqSuccess = true
-                strongSelf.reqSuccess()
+            // 先处理失败情况。
+            if let error = self.apiData.ApiERROR {
+                // 如果是未设置 api 则视为请求成功处理。
+                self.isReqSuccess = error[.code].intValue == EMERANA.ErrorCode.notSetApi
+                self.reqFailed()
             } else {
-                // 确保错误代码不是未设置 api.
-                strongSelf.isReqSuccess = json[EMERANA.Key.JSON.error, EMERANA.Key.JSON.code].intValue == EMERANA.ErrorCode.notSetApi
-                strongSelf.reqFailed()
+                JudyTip.dismiss()
+                self.isReqSuccess = true
+                self.reqSuccess()
             }
-            strongSelf.reqOver()
+            
+            self.reqOver()
         }
 
         // 发起请求。
@@ -181,10 +184,11 @@ open class JudyBaseViewCtrl: UIViewController {
     /// - Warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则。
     open func reqSuccess() {}
     
-    /// 请求失败或服务器响应失败时的消息处理，该函数默认弹出失败消息体。
+    /// 请求失败或服务器响应为失败信息时的处理，在父类该函数将弹出失败消息体。若无需弹出请重写此函数并不调用 super 即可。
     open func reqFailed() {
-        let msg = apiData[EMERANA.Key.JSON.error, EMERANA.Key.JSON.msg].string
-        JudyTip.message(text: msg)
+        if let error = apiData.ApiERROR {
+            JudyTip.message(text: error[.msg].stringValue)
+        }
     }
     
     /// 在整个请求流程中最后执行的方法。

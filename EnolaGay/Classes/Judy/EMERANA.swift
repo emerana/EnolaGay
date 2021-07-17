@@ -158,10 +158,8 @@ public protocol EMERANA_CellBasic {
     /// * titleLabel -> EMERANA.Key.Cell.title
     /// * subTitleLabel -> EMERANA.Key.Cell.subtitle
     var json: JSON { get set }
-    
-    /// 设置 json 数据源事件。
-    func jsonDidSetAction()
 }
+
 /*
  // MARK: 默认实现的注意点
  
@@ -1517,9 +1515,9 @@ public struct EMERANA {
     
     /// 常用错误代码。
     public struct ErrorCode {
-        /// 默认错误，代码 250。
+        /// 默认错误，代码 250.
         static let `default` = 250
-        /// 在 ApiRequestConfig 中发起请求时没有设置 Api。
+        /// 在 ApiRequestConfig 中发起请求时没有设置 Api.
         static let notSetApi = 2500
     }
 }
@@ -1531,15 +1529,10 @@ public extension EMERANA.Key {
     @available(*, deprecated, message: "该可访问性元素已弃用", renamed: "JSON")
     struct Api {}
 
-    /// 用于 JSON 中的常用的可访问性 KEY。
+    @available(*, deprecated, message: "该可访问性元素已弃用，使用 APIERRKEY")
     struct JSON {
-        /// 一般通过此字段判断 ERROR 是否为空，如果不为空则存在错误信息
-        ///
-        /// 此 Key 的 Value 应该是一个字典，msg、code 均作为 Key 存在 error 层级下
         public static let error = "EMERANA_KEY_API_ERROR"
-        /// 一般用于保存响应的消息
         public static let msg = "EMERANA_KEY_API_MSG"
-        /// 一般用于保存服务器的响应代码
         public static let code = "EMERANA_KEY_API_CODE"
     }
 
