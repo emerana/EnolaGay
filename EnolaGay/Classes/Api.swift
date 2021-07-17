@@ -200,12 +200,12 @@ public extension ApiAdapter {
     func apiRequestConfigAffirm(requestConfig: ApiRequestConfig) { }
     
     func responseQC(withRequestConfig requestConfig: ApiRequestConfig, apiData: JSON) -> JSON {
-        Judy.log("未实现 responseQC 质检函数，apiData 将直接使用服务器响应的原始数据。")
+        Judy.logWarning("未实现 responseQC 质检函数，apiData 将直接使用服务器响应的原始数据。")
         return apiData
     }
 }
 
-/// api 接口规范协议，该协议规定了 api 的定义过程，如 enum Actions: String, ApiAction。
+/// api 接口规范协议，该协议规定了 api 的定义过程，如 enum Actions: String, ApiAction.
 public protocol ApiAction {
     /// api 的原始值。
     var value: String { get }
