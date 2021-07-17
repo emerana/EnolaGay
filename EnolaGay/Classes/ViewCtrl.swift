@@ -131,13 +131,12 @@ open class JudyBaseViewCtrl: UIViewController {
                 Judy.logWarning("发现逃逸对象！")
                 return
             }
-            // requestConfig 对 apiData 发起质检。
-            self.apiData = self.requestConfig.QCApiData(apiData: json)
+            self.apiData = json
             self.reqResult()
             
             // 先处理失败情况。
             if let error = self.apiData.ApiERROR {
-                // 确保错误代码不是未设置 api.
+                // 如果是未设置 api 则视为请求成功处理。
                 self.isReqSuccess = error[.code].intValue == EMERANA.ErrorCode.notSetApi
                 self.reqFailed()
             } else {
@@ -186,7 +185,9 @@ open class JudyBaseViewCtrl: UIViewController {
     
     /// 请求失败或服务器响应为失败信息时的处理，在父类该函数将弹出失败消息体。若无需弹出请重写此函数并不调用 super 即可。
     open func reqFailed() {
-        JudyTip.message(text: apiData.ApiERROR?[.msg].stringValue)
+        if let error = apiData.ApiERROR {
+            JudyTip.message(text: error[.msg].stringValue)
+        }
     }
     
     /// 在整个请求流程中最后执行的方法。

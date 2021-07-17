@@ -45,11 +45,9 @@ extension UIApplication: ApiAdapter {
             rs.message = apiData["title"].stringValue
         }
 
-        // 配置错误信息。
+        // 设置错误信息。
         if rs.error {
-            var json = apiData
-            json.setQCApiERROR(code: rs.1, msg: rs.2)
-            return json
+            return apiData.setQCApiERROR(code: rs.1, msg: rs.2)
         } else {
             return apiData
         }
