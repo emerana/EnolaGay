@@ -19,12 +19,40 @@ import Alamofire
 // ApiRequestConfig。
 
 extension UIApplication: ApiAdapter {
-    
-    
+
     public func domain() -> String { "https://livepretest.jingmaiwang.com" }
 
     public func globalMethodPOST() -> Bool { false }
     
+    public func responseQC(withRequestConfig requestConfig: ApiRequestConfig, apiData: JSON) -> JSON {
+        var rs: (error: Bool, code: Int, message: String) = (false, 0, "尚未发现错误")
+        // 兼容活动中心的接口响应格式
+        if apiData["Success"].exists() && !apiData["Success"].boolValue {
+            rs.error = true
+            rs.code = 250
+            rs.message = apiData["Msg"].stringValue
+        }
+        
+        if apiData["code"].exists() {
+            if apiData["code"].intValue != 0 {
+                rs.error = true
+                rs.code = apiData["code"].intValue
+                rs.message = apiData["msg"].stringValue
+            }
+        } else {
+            rs.error = true
+            rs.code = apiData["status"].intValue
+            rs.message = apiData["title"].stringValue
+        }
+
+        // 设置错误信息。
+        if rs.error {
+            return apiData.setQCApiERROR(code: rs.1, msg: rs.2)
+        } else {
+            return apiData
+        }
+    }
+
     public func request(withRequestConfig requestConfig: ApiRequestConfig, callback: @escaping ((JSON) -> Void)) {
 
         var method = HTTPMethod.get
@@ -60,8 +88,7 @@ extension UIApplication: ApiAdapter {
         /// - Parameter response: DataResponse
         func responseAdapter<T>(response: DataResponse<T>) {
 
-
-            var json = JSON([EMERANA.Key.JSON.error:[EMERANA.Key.JSON.msg: "系统错误!", EMERANA.Key.JSON.code: 250]])
+            var json = JSON([APIERRKEY.error: [APIERRKEY.msg: "系统错误!", APIERRKEY.code: 250]])
             //  Judy.log("收到 \(T.self) 类型响应")
             switch response.result {
             case .success(let value):   // 请求成功
@@ -72,23 +99,10 @@ extension UIApplication: ApiAdapter {
                 } else {
                     json = JSON(value)
                 }
-                
-                // 数据校验。
-                
-                let result = responseErrorValidation(json: json)
-                // 配置错误信息。
-                if result.error {
-                    json[EMERANA.Key.JSON.error] = [EMERANA.Key.JSON.code: result.1, EMERANA.Key.JSON.msg: result.2]
-                }
             case .failure(let error):   // 请求失败
                 Judy.log("请求失败:\(error)\n请求地址：\(String(describing: response.request))")
-                
-                json[EMERANA.Key.JSON.error] = [
-                    EMERANA.Key.JSON.code: response.response?.statusCode ?? 250,
-                    EMERANA.Key.JSON.msg: error.localizedDescription,
-                ]
+                json = JSON(error)
             }
-            
             callback(json)
         }
 

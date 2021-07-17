@@ -13,20 +13,19 @@ import SwiftyJSON
 
 /**
  *  该类包含一个 tableView，请将 tableView 与故事板关联。
- *  * 该 tableView 已经实现 dataSource 和 delegate。
- *  * 默认 tableViewCellidentitier 为 "Cell"。
+ *  * 该 tableView 已经实现 dataSource 和 delegate.
+ *  * 默认 tableViewCellidentitier 为 "Cell".
  */
 open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
     
     // MARK: - let property and IBOutlet
     
-    /// 视图中的主要 tableView，该 tableView 默认将 dataSource、dataSource 设置为 self。
+    /// 视图中的主要 tableView，该 tableView 默认将 dataSource、dataSource 设置为 self.
     @IBOutlet weak public var tableView: UITableView?
-
 
     // MARK: - var property
     
-    /// 是否隐藏 tableFooterView，默认 false，将该值调为 true 即可隐藏多余的 cell。
+    /// 是否隐藏 tableFooterView，默认 false，将该值调为 true 即可隐藏多余的 cell.
     @IBInspectable private(set) lazy public var isHideFooter: Bool = false
 
     lazy public var dataSource = [JSON]()
@@ -54,7 +53,7 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
         // 设置 tableView 的背景色。
         tableView?.backgroundColor = EMERANA.enolagayAdapter?.scrollViewBackGroundColor()
 
-        // 配置 tableView 的背景色
+        // 配置 tableView 的背景色。
         /*
         if #available(iOS 13.0, *) {
             if tableView?.backgroundColor == UIColor.systemBackground {
@@ -150,14 +149,14 @@ extension JudyBaseTableViewCtrl: UITableViewDataSource {
      func numberOfSections(in tableView: UITableView) -> Int { 2 }
      */
     
-    /// 询问指定 section 中的 cell 数量，默认为 dataSource.count。
+    /// 询问指定 section 中的 cell 数量，默认为 dataSource.count.
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
     
     /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例。
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // 此方法可以不判断 Cell 是否为 nil。
+        // 此方法可以不判断 Cell 是否为 nil.
         return tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
     }
     
@@ -221,7 +220,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
 
     /// 未设置 requestConfig.api 却发起了请求时的消息处理。
     ///
-    /// 当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1。
+    /// 当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1.
     /// - Warning: 重写此方法务必调用父类方法。
     open override func reqNotApi() {
         if isAddMore { currentPage -= 1 }
@@ -325,7 +324,6 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     /// 是否需要解决 UITableView 有 footerView 时最后一个 cell 不显示分割线问题，默认 false。
     @IBInspectable lazy var isShowSeparatorAtFooter: Bool = false
 
-
     // MARK: - let property and IBOutlet
 
     @IBOutlet weak public var titleLabel: UILabel?
@@ -338,7 +336,7 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     // MARK: - var property
 
     /**
-     didSet 时重新定义 super.frame
+     didSet 时重新定义 super.frame.
      # 切记是要更改 super.frame，而不是 self，否则会进入死循环。
      */
     open override var frame: CGRect {
@@ -404,6 +402,8 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
         // Configure the view for the selected state
     }
     
+    /// 当 cell.json 设置后将触发此函数，子类通过覆盖此函数以设置 UI.
+    /// - Warning: 注意 super 中的默认实现，如有必要需调用 super.
     open func jsonDidSetAction() {
         titleLabel?.text = json[EMERANA.Key.Cell.title].stringValue
         subTitleLabel?.text = json[EMERANA.Key.Cell.subtitle].stringValue
