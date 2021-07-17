@@ -95,6 +95,7 @@ open class JudyBaseViewCtrl: UIViewController {
     }
     
     /// 重写此函数以配置当 json 被设置的事件。
+    /// - Warning: 若要在此函数中设置 UI 需要注意 json 的设置一定要在 viewDidLoad 之后。
     open func jsonDidSet() {}
 
     // MARK: Api 相关函数
