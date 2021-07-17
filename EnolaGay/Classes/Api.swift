@@ -180,10 +180,10 @@ public protocol ApiAdapter where Self: UIApplication {
     
     /// 询问代理响应一个经过质检后的 JSON 数据，代理应针对服务器响应的 JSON 数据进行质检，若包含错误信息请通过 JSON.setQCApiERROR() 函数完成错误信息设置。
     /// - Parameters:
-    ///   - requestConfig: 发起请求的配置信息对象。
+    /////   - requestConfig: 发起请求的配置信息对象。
     ///   - apiData: 响应的原始 JSON 数据。
     /// - Returns: 经过质检后的 JSON 数据，apiData.setQCApiERROR() 函数即可得到目标 JSON.
-    func responseQC(withRequestConfig requestConfig: ApiRequestConfig, apiData: JSON) -> JSON
+    func responseQC(apiData: JSON) -> JSON
 }
 
 // 默认实现 ApiDelegate，使其变成可选协议函数。
@@ -199,13 +199,13 @@ public extension ApiAdapter {
     
     func apiRequestConfigAffirm(requestConfig: ApiRequestConfig) { }
     
-    func responseQC(withRequestConfig requestConfig: ApiRequestConfig, apiData: JSON) -> JSON {
-        Judy.log("未实现 responseQC 质检函数，apiData 将直接使用服务器响应的原始数据。")
+    func responseQC(apiData: JSON) -> JSON {
+        Judy.logWarning("未实现 responseQC 质检函数，apiData 将直接使用服务器响应的原始数据。")
         return apiData
     }
 }
 
-/// api 接口规范协议，该协议规定了 api 的定义过程，如 enum Actions: String, ApiAction。
+/// api 接口规范协议，该协议规定了 api 的定义过程，如 enum Actions: String, ApiAction.
 public protocol ApiAction {
     /// api 的原始值。
     var value: String { get }
@@ -293,7 +293,9 @@ final public class ApiRequestConfig {
         EMERANA.apiAdapter?.apiRequestConfigAffirm(requestConfig: self)
     }
     
-    /// 由当前对象向 Api 层发起请求，该函数中将触发 apiRequestConfigAffirm() 确认函数。
+    /// 由当前对象向 Api 层发起请求，该函数中将触发 configAffirm() 确认函数，并且在得到响应数据后要求对该数据进行质检。
+    ///
+    /// 在 callback 函数中，可以通过 JSON.ApiERROR 来判断是否存在错误信息。
     /// - Parameter callback: 请求的回调函数。
     public func request(withCallBack callback: @escaping ((JSON) -> Void)) {
         guard EMERANA.apiAdapter != nil else {
@@ -320,17 +322,14 @@ final public class ApiRequestConfig {
             return
         }
 
-        // EMERANA.apiAdapter!.request(withRequestConfig: self, callback: callback)
-        EMERANA.apiAdapter!.request(withRequestConfig: self) { [weak self] json in
+        EMERANA.apiAdapter!.request(withRequestConfig: self) { json in
             // 若原始 JSON 已包含一个错误信息，则无需质检直接返回该数据。
             if json.ApiERROR != nil {
                 callback(json)
                 return
             }
             // 要求完成质检。
-            guard let `self` = self else { return }
-            let QCJSON = EMERANA.apiAdapter!.responseQC(withRequestConfig: self,
-                                                        apiData: json)
+            let QCJSON = EMERANA.apiAdapter!.responseQC(apiData: json)
             callback(QCJSON)
         }
     }
