@@ -298,11 +298,10 @@ final public class ApiRequestConfig {
     public func request(withCallBack callback: @escaping ((JSON) -> Void)) {
         guard EMERANA.apiAdapter != nil else {
             let msg = "未实现 extension UIApplication: ApiDelegate，ApiRequestConfig 拒绝发起网络请求"
-            let json = JSON(
-                [ApiERRORKey.error:
-                    [ApiERRORKey.msg: msg,
-                     ApiERRORKey.code: EMERANA.ErrorCode.default]
-                ])
+            let json = JSON([ApiERRORKey.error:
+                                [ApiERRORKey.msg: msg,
+                                 ApiERRORKey.code: EMERANA.ErrorCode.default]
+            ])
             Judy.logWarning(msg)
             callback(json)
             return
@@ -312,11 +311,10 @@ final public class ApiRequestConfig {
 
         guard api != nil else {
             let msg = "api 为空，取消已请求!"
-            let json = JSON(
-                [ApiERRORKey.error.rawValue:
-                    [ApiERRORKey.msg.rawValue: msg,
-                     ApiERRORKey.code.rawValue: EMERANA.ErrorCode.notSetApi]
-                ])
+            let json = JSON([ApiERRORKey.error.rawValue:
+                                [ApiERRORKey.msg.rawValue: msg,
+                                 ApiERRORKey.code.rawValue: EMERANA.ErrorCode.notSetApi]
+            ])
             Judy.logWarning(msg)
             callback(json)
             return
