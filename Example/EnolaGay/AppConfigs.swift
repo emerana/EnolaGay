@@ -24,7 +24,7 @@ extension UIApplication: ApiAdapter {
 
     public func globalMethodPOST() -> Bool { false }
     
-    public func responseQC(withRequestConfig requestConfig: ApiRequestConfig, apiData: JSON) -> JSON {
+    public func responseQC(apiData: JSON) -> JSON {
         var rs: (error: Bool, code: Int, message: String) = (false, 0, "尚未发现错误")
         // 兼容活动中心的接口响应格式
         if apiData["Success"].exists() && !apiData["Success"].boolValue {
