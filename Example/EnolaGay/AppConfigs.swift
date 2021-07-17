@@ -88,7 +88,7 @@ extension UIApplication: ApiAdapter {
         /// - Parameter response: DataResponse
         func responseAdapter<T>(response: DataResponse<T>) {
 
-            var json = JSON([ApiERRORKey.error: [ApiERRORKey.msg: "系统错误!", ApiERRORKey.code: 250]])
+            var json = JSON([APIERRKEY.error: [APIERRKEY.msg: "系统错误!", APIERRKEY.code: 250]])
             //  Judy.log("收到 \(T.self) 类型响应")
             switch response.result {
             case .success(let value):   // 请求成功

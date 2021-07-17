@@ -22,8 +22,7 @@
 - EnolaGay 中的其他组件也很丰富。
 
 ## 实现以下扩展
-#### extension EMERANA.Key
-项目中用到的可访问性字符，当然您也可以自己管理而不必扩展。
+
 #### extension UIApplication: EnolaGayAdapter
 EnolaGay 全局配置，当前只是配置部分通用背景色等，详见 EnolaGayAdapter.
 #### extension UIApplication: RefreshAdapter

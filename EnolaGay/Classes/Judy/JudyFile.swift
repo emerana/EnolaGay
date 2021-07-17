@@ -100,7 +100,7 @@ public class JudyFile: NSObject {
     /// - Returns: 一个标准的JSON
     public func jsonFormFile(fileName: String, fileType: String = "json") -> JSON {
         guard fileName.clean() != "" else {
-            return JSON([ApiERRORKey.error.rawValue: [ApiERRORKey.msg.rawValue: "请传入文件名"]])
+            return JSON([APIERRKEY.error.rawValue: [APIERRKEY.msg.rawValue: "请传入文件名"]])
         }
         var json = JSON()
         //读取Json数据
@@ -108,7 +108,7 @@ public class JudyFile: NSObject {
             // Judy-mark: 如果 fileName 为""，则会返回上一次使用成功的文件名
             let path = Bundle.main.path(forResource: fileName, ofType: fileType)
             guard path != nil else {
-                return JSON([ApiERRORKey.error.rawValue: [ApiERRORKey.msg.rawValue: "没有找到文件：\"\(fileName).\(fileType)\""]])
+                return JSON([APIERRKEY.error.rawValue: [APIERRKEY.msg.rawValue: "没有找到文件：\"\(fileName).\(fileType)\""]])
             }
             let nsUrl = NSURL.fileURL(withPath: path!)
             let data: Data = try Data(contentsOf: nsUrl as URL)
@@ -118,7 +118,7 @@ public class JudyFile: NSObject {
             json = try! JSON(data: data)
         } catch {
             Judy.log("读取文件发生异常")
-            json = JSON([ApiERRORKey.error.rawValue: [ApiERRORKey.msg.rawValue: "读取文件发生异常", "file": fileName]])
+            json = JSON([APIERRKEY.error.rawValue: [APIERRKEY.msg.rawValue: "读取文件发生异常", "file": fileName]])
         }
         
         return json

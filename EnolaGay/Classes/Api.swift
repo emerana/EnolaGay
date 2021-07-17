@@ -178,11 +178,11 @@ public protocol ApiAdapter where Self: UIApplication {
     ///  ```
     func request(withRequestConfig requestConfig: ApiRequestConfig, callback: @escaping ((JSON) -> Void))
     
-    /// 询问代理响应一个经过质检后的 JSON 数据，代理应针对服务器响应的 JSON 数据进行质检，若包含错误信息请创建一个新的 json 数据并调用 setQCApiERROR() 函数以完成错误信息设置。
+    /// 询问代理响应一个经过质检后的 JSON 数据，代理应针对服务器响应的 JSON 数据进行质检，若包含错误信息请通过 JSON.setQCApiERROR() 函数完成错误信息设置。
     /// - Parameters:
     ///   - requestConfig: 发起请求的配置信息对象。
     ///   - apiData: 响应的原始 JSON 数据。
-    /// - Returns: 经过质检后的 JSON 数据。
+    /// - Returns: 经过质检后的 JSON 数据，apiData.setQCApiERROR() 函数即可得到目标 JSON.
     func responseQC(withRequestConfig requestConfig: ApiRequestConfig, apiData: JSON) -> JSON
 }
 
@@ -200,7 +200,7 @@ public extension ApiAdapter {
     func apiRequestConfigAffirm(requestConfig: ApiRequestConfig) { }
     
     func responseQC(withRequestConfig requestConfig: ApiRequestConfig, apiData: JSON) -> JSON {
-        Judy.log("未实现 apiData 质检函数，apiData 将直接使用服务器响应的原始数据。")
+        Judy.log("未实现 responseQC 质检函数，apiData 将直接使用服务器响应的原始数据。")
         return apiData
     }
 }
@@ -297,10 +297,10 @@ final public class ApiRequestConfig {
     /// - Parameter callback: 请求的回调函数。
     public func request(withCallBack callback: @escaping ((JSON) -> Void)) {
         guard EMERANA.apiAdapter != nil else {
-            let msg = "未实现 extension UIApplication: ApiDelegate，ApiRequestConfig 拒绝发起网络请求"
-            let json = JSON([ApiERRORKey.error:
-                                [ApiERRORKey.msg: msg,
-                                 ApiERRORKey.code: EMERANA.ErrorCode.default]
+            let msg = "未实现 extension UIApplication: ApiAdapter，ApiRequestConfig 拒绝发起网络请求"
+            let json = JSON([APIERRKEY.error.rawValue:
+                                [APIERRKEY.msg.rawValue: msg,
+                                 APIERRKEY.code.rawValue: EMERANA.ErrorCode.default]
             ])
             Judy.logWarning(msg)
             callback(json)
@@ -311,9 +311,9 @@ final public class ApiRequestConfig {
 
         guard api != nil else {
             let msg = "api 为空，取消已请求!"
-            let json = JSON([ApiERRORKey.error.rawValue:
-                                [ApiERRORKey.msg.rawValue: msg,
-                                 ApiERRORKey.code.rawValue: EMERANA.ErrorCode.notSetApi]
+            let json = JSON([APIERRKEY.error.rawValue:
+                                [APIERRKEY.msg.rawValue: msg,
+                                 APIERRKEY.code.rawValue: EMERANA.ErrorCode.notSetApi]
             ])
             Judy.logWarning(msg)
             callback(json)
@@ -350,7 +350,7 @@ final public class ApiRequestConfig {
             self.rawValue = rawValue
             
             if EMERANA.apiAdapter == nil {
-                Judy.logWarning("未实现 extension UIApplication: ApiDelegate，所有请求将使用默认值！")
+                Judy.logWarning("未实现 extension UIApplication: ApiAdapter，所有请求将使用默认值！")
             }
         }
         
@@ -360,8 +360,8 @@ final public class ApiRequestConfig {
     
 }
 
-/// 在 Api 请求中常用到的 jsonKey.通常用于访问错误信息。
-public enum ApiERRORKey: String {
+/// 在 Api 请求中常用到的 JSONKey，主要用于访问错误信息。
+public enum APIERRKEY: String {
     /// 该字段通常用于访问包含错误信息集合的 json.
     case error = "EMERANA_KEY_API_ERROR"
     /// 访问 json 中的语义化响应消息体。
@@ -372,7 +372,7 @@ public enum ApiERRORKey: String {
 
 public extension JSON {
     /// 便携式访问 JSON 中的错误信息。需要注意的是，访问 msg、code 可直接访问，内部已经做好向下级取值处理。
-    subscript(key: ApiERRORKey) -> JSON { self[key.rawValue] }
+    subscript(key: APIERRKEY) -> JSON { self[key.rawValue] }
     
     /// 访问 json 中是否包含访问 Api 请求中响应失败的信息。其核心是访问"APIJSONKEY.error" key.
     var ApiERROR: JSON? { self[.error].isEmpty ? nil:self[.error] }
@@ -382,16 +382,16 @@ public extension JSON {
     ///   - code: 错误码。
     ///   - msg: 错误消息体。
     /// - Returns: 一个经过质检后的 JSON，若存在错误，该 JSON 中会包含 QCJSON[.error] 数据。
-    /// - Warning: 该函数会给当前 json 新增 ApiERRORKey.error 字段，其内容为包含错误码和错误信息的 json. 通常情况下该函数只应该应用在 responseQC 质检函数中。
+    /// - Warning: 该函数会给当前 json 新增 APIERRKEY.error 字段，其内容为包含错误码和错误信息的 json. 通常情况下该函数只应该应用在 responseQC 质检函数中。
     func setQCApiERROR(code: Int, msg: String) -> JSON {
         var QCJSON = self
         if QCJSON.error == nil {
-            QCJSON[ApiERRORKey.error.rawValue] = JSON([ApiERRORKey.code.rawValue: code,
-                                                       ApiERRORKey.msg.rawValue: msg])
+            QCJSON[APIERRKEY.error.rawValue] = JSON([APIERRKEY.code.rawValue: code,
+                                                       APIERRKEY.msg.rawValue: msg])
         } else {
             // 请求阶段就失败的质检信息。
-            QCJSON = [ApiERRORKey.error.rawValue: [ApiERRORKey.code.rawValue: EMERANA.ErrorCode.default,
-                                                   ApiERRORKey.msg.rawValue: "请求失败"]]
+            QCJSON = [APIERRKEY.error.rawValue: [APIERRKEY.code.rawValue: EMERANA.ErrorCode.default,
+                                                   APIERRKEY.msg.rawValue: "请求失败"]]
         }
         return QCJSON
     }

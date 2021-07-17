@@ -158,10 +158,8 @@ public protocol EMERANA_CellBasic {
     /// * titleLabel -> EMERANA.Key.Cell.title
     /// * subTitleLabel -> EMERANA.Key.Cell.subtitle
     var json: JSON { get set }
-    
-    /// 设置 json 数据源事件。
-    func jsonDidSetAction()
 }
+
 /*
  // MARK: 默认实现的注意点
  
@@ -1531,7 +1529,7 @@ public extension EMERANA.Key {
     @available(*, deprecated, message: "该可访问性元素已弃用", renamed: "JSON")
     struct Api {}
 
-    @available(*, deprecated, message: "该可访问性元素已弃用，使用 ApiERRORKey")
+    @available(*, deprecated, message: "该可访问性元素已弃用，使用 APIERRKEY")
     struct JSON {
         public static let error = "EMERANA_KEY_API_ERROR"
         public static let msg = "EMERANA_KEY_API_MSG"
