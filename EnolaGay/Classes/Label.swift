@@ -28,6 +28,9 @@ open class JudyBaseLabel: UILabel, FontStyle {
     @IBInspectable var isSupportCopy: Bool = false
     /// 当 isSupportCopy = true 时，点击 label 进行复制时的提示文字。
     @IBInspectable public var altTitle: String = "复制"
+
+    @IBInspectable private(set) public var disableFont: Bool = false
+
     /// 要复制的文本，默认 nil,(复制时将复制整个 Label 的值)。
     public var pasteboardText: String? = nil
     
@@ -77,7 +80,6 @@ open class JudyBaseLabel: UILabel, FontStyle {
     /// 从 xib/storyboard 中构造会先触发此构造函数再唤醒 awakeFromNib.
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
-        initFont()
     }
     
 
@@ -85,7 +87,9 @@ open class JudyBaseLabel: UILabel, FontStyle {
     
     open override func awakeFromNib() {
         super.awakeFromNib()
-        
+
+        if !disableFont { initFont() }
+
         // 复制功能。
         if isSupportCopy {
             isUserInteractionEnabled = isSupportCopy

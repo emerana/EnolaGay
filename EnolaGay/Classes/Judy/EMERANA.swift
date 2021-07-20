@@ -186,7 +186,9 @@ public protocol EMERANA_FontStyle: AnyObject {}
 /// 字体专用协议。
 /// - Warning: 此协仅支持对象类型。
 public protocol FontStyle: AnyObject {
-    
+    /// 是否禁用全局字体名称配置，默认 false，将该值改为 true 即可使用在 xib 配置的值。
+    var disableFont: Bool { get }
+
     /// 配置 EMERANA 字体大小及样式，默认值为 m.
     ///
     /// 实现协议参考如下：建议在 didSet 中直接设置 font.
@@ -415,7 +417,9 @@ public extension UIFont {
 
 /// EnolaGay 框架全局适配协议，该协议只允许 UIApplication 继承。
 public protocol EnolaGayAdapter where Self: UIApplication {
-    /// 询问 JudyBaseLabel、JudyBaseButton、JudyBaseTextField 的默认 font，该 font 需要用木匾 fontName 构建。**无论是不是在xib/storyboard 中构建的都会询问该 font.**
+    /// 询问 JudyBaseLabel、JudyBaseButton、JudyBaseTextField 的默认 font，该 font 需要用木匾 fontName 构建。
+    ///
+    /// 无论是不是在 xib 中构建的都会询问该 font.在 xib 中若需要使用 xib 设置的字体请将 disableFont 设置为 true 即可。
     ///
     /// - Warning: EnolaGayAdapter 只会使用 UIFont.fontName，字体大小将沿用修改前的值。
     func defaultFontName() -> UIFont

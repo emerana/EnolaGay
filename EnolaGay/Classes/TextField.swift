@@ -11,6 +11,8 @@ import UIKit
 /// EMERANA框架中所用到的 TextField.
 open class JudyBaseTextField: UITextField, FontStyle {
 
+    @IBInspectable private(set) public var disableFont: Bool = false
+
     /// 字体样式。此属性用于便携式设置 font.
     public var fontStyle: UIFont.FontStyle = .M {
         didSet{
@@ -42,12 +44,12 @@ open class JudyBaseTextField: UITextField, FontStyle {
     /// 从 xib/storyboard 中构造会先触发此构造函数再唤醒 awakeFromNib.
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
-        initFont()
     }
     
     open override func awakeFromNib() {
         super.awakeFromNib()
-        // delegate = self
+
+        if !disableFont { initFont() }
     }
 
 }
