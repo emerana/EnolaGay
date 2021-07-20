@@ -246,55 +246,40 @@ public extension UIColor {
 /// 字体专用协议。
 /// - Warning: 此协仅支持对象类型。
 protocol FontStyle: AnyObject {
-    /// 是否禁用全局字体名称配置，默认 false，将该值改为 true 即可使用在 xib 配置的值。
+    /// 是否禁用全局字体名称配置，默认 false，将该值改为 true 即可忽略全局配置，单独使用在 xib 配置的值。
+    ///
+    /// 其核心为 JudyBaseLabel、JudyBaseButton、JudyBaseTextfield 的默认字体使用了 EMERANA.enolagayAdapter?.defaultFontName.
     var disableFont: Bool { get }
 }
 
+/// 常用字体名。
+public enum FontName: String {
+    case 苹方_简_极细体 = "PingFangSC-Ultralight"
+    case 苹方_简_纤细体 = "PingFangSC-Thin"
+    case 苹方_简_细体 = "PingFangSC-Light"
+    case 苹方_简_常规体 = "PingFangSC-Regular"
+    case 苹方_简_中黑体 = "PingFangSC-Medium"
+    case 苹方_简_中粗体 = "PingFangSC-Semibold"
+    
+    /// HelveticaNeue 纤细体
+    case HelveticaNeue_Thin = "HelveticaNeue-Thin"
+    /// HelveticaNeue 细体
+    case HelveticaNeue_Light = "HelveticaNeue-Light"
+    /// HelveticaNeue 常规体
+    case HelveticaNeue = "HelveticaNeue"
+    /// HelveticaNeue 中黑体
+    case HelveticaNeue_Medium = "HelveticaNeue-Medium"
+    /// HelveticaNeue 粗体
+    case HelveticaNeue_Bold = "HelveticaNeue-Bold"
+}
+
 public extension UIFont {
-    /// 已废弃的枚举。
-    enum FontStyle: Int {
-        case x = 0
-        /// FontStyle 构造器，安全地构建一个 FontStyle 实例
-        /// - Parameter rawValue: FontStyle 实例对象，若传入不合法的值将返回 m
-        static func new(rawValue: Int) -> FontStyle {
-            var raw = 0
-            if (-8...14).contains(rawValue) { raw = rawValue }
-            return FontStyle(rawValue: raw)!
-        }
-        
-    }
-    
-    /// 常用字体名。
-    enum FontName: String {
-        case 苹方_简_极细体 = "PingFangSC-Ultralight"
-        case 苹方_简_纤细体 = "PingFangSC-Thin"
-        case 苹方_简_细体 = "PingFangSC-Light"
-        case 苹方_简_常规体 = "PingFangSC-Regular"
-        case 苹方_简_中黑体 = "PingFangSC-Medium"
-        case 苹方_简_中粗体 = "PingFangSC-Semibold"
-        
-        /// HelveticaNeue 纤细体
-        case HelveticaNeue_Thin = "HelveticaNeue-Thin"
-        /// HelveticaNeue 细体
-        case HelveticaNeue_Light = "HelveticaNeue-Light"
-        /// HelveticaNeue 常规体
-        case HelveticaNeue = "HelveticaNeue"
-        /// HelveticaNeue 中黑体
-        case HelveticaNeue_Medium = "HelveticaNeue-Medium"
-        /// HelveticaNeue 粗体
-        case HelveticaNeue_Bold = "HelveticaNeue-Bold"
-    }
-    
-    @available(*, unavailable, message: "该构造函数已废弃", renamed: "init")
-    convenience init(style: UIFont.FontStyle) {
-        self.init()
-    }
-    
-    /// 通过 FontStyle 获得一个 UIFont 对象。
-    /// - warning: 若有需要，请 public extension UIFont 并覆盖 configFontStyle()
-    /// - Parameter style: 目标 style
-    convenience init(name: UIFont.FontName, size: CGFloat) {
-        self.init(name: UIFont.FontName.苹方_简_常规体.rawValue, size: min(size, 100))!
+    /// 通过 FontName 获得一个 UIFont 对象。
+    /// - Parameters:
+    ///   - name: 参见 FontName.
+    ///   - size: 字体的大小，该值最大取 100.
+    convenience init(name: FontName = .苹方_简_中黑体, size: CGFloat) {
+        self.init(name: name.rawValue, size: min(size, 100))!
     }
 }
 
