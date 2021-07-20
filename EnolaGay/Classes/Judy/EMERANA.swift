@@ -30,7 +30,6 @@ public extension JudyBaseViewCtrl {
 
 /// 刷新控件适配器协议。
 public protocol RefreshAdapter where Self: UIApplication {
-
     /// 配置头部刷新控件（即下拉刷新）。
     func initHeaderRefresh(scrollView: UIScrollView?, callback: @escaping (()->Void))
     /// 配置底部刷新控件（即上拉加载）。
@@ -47,7 +46,6 @@ public protocol RefreshAdapter where Self: UIApplication {
     /// 询问分页请求中页码和页大小字段名，默认实现为 "pageIndex","pageSize".
     /// - Warning: 第一个元素为页码，第二个元素为页大小。
     func pageParameterStrings() -> (String, String)
-
 }
 
 /// 默认实现。
@@ -145,7 +143,6 @@ protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
 /// Cell 基础协议。
 /// - Warning: 此协议针对 tableViewCell、collectionViewCell 类定制。
 public protocol EMERANA_CellBasic {
-    
     /// 标题。
     var titleLabel: UILabel? { get set }
     /// 副标题。
@@ -169,7 +166,6 @@ public protocol EMERANA_CellBasic {
  */
 /// 为 EMERANA_CellBasic 协议新增的扩展函数（非默认实现函数）。
 public extension EMERANA_CellBasic {
-    
     /// 所有实现 EMERANA_CellBasic 协议的对象在初始函数中均会先触发此扩展函数，在此函数中补充所需操作。
     ///
     /// 扩展对应的类并重写此函数即可使该类执行重写后的函数。
@@ -183,23 +179,6 @@ public extension EMERANA_CellBasic {
 
 @available(*, unavailable, message: "该协议已更新", renamed: "FontStyle")
 public protocol EMERANA_FontStyle: AnyObject {}
-/// 字体专用协议。
-/// - Warning: 此协仅支持对象类型。
-public protocol FontStyle: AnyObject {
-    
-    /// 配置 EMERANA 字体大小及样式，默认值为 m.
-    ///
-    /// 实现协议参考如下：建议在 didSet 中直接设置 font.
-    /// ```
-    /// var fontStyle: EMERANA.FontStyle = .m {
-    ///     didSet{
-    ///         font = .judy(fontStyle: fontStyle)
-    ///     }
-    /// }
-    /// ```
-    /// - warning: 设置该属性等同直接设置 UIFont
-    var fontStyle: UIFont.FontStyle { get set }
-}
 
 /*
  
@@ -223,7 +202,7 @@ public protocol FontStyle: AnyObject {
  */
 
 
-// MARK: UIColor 配置扩展
+// MARK: - UIColor 配置扩展
 
 public extension UIColor {
     
@@ -262,107 +241,19 @@ public extension UIColor {
 }
 
 
-// MARK: - UIFont 配置
-
-/// UIFont EMERANA 配置协议，此协议已经默认实现
-/// - Warning: 使用注意事项
-///     * 如需自定义请 public extension UIFont 覆盖 judy() 函数
-///     * 此协仅对 UIFont 类型提供
-public protocol EMERANA_UIFont { // where Self: UIFont
-
-    /// 配置 FontStyle 的函数。若有需要，请 public extension UIFont 并覆盖此函数，分别返回对应 style 下的 fontName 和 fontSize
-    /// # 此函数仅对此构造函数有效
-    /// ```
-    /// init?(style: UIFont.FontStyle)
-    /// ```
-    /// - Parameter style: 对应的 FontStyle
-    /// - warning:通过 init(style: UIFont.FontStyle) 函数创建的字体大小最大值被限制为 100
-    func configFontStyle(_ style: UIFont.FontStyle) -> (UIFont.FontName, CGFloat)
-}
-
-// EMERANA_UIFont 协议默认实现，使其变成可选函数。
-public extension EMERANA_UIFont where Self: UIFont {
-    
-    func configFontStyle(_ style: UIFont.FontStyle) -> (UIFont.FontName, CGFloat) {
-        // 通过判断原始值为奇数使用加粗字体，N系列自定义
-        var fontName: UIFont.FontName = style.rawValue%2 == 0 ? .HelveticaNeue:.HelveticaNeue_Bold
-        var fontSize: CGFloat = 28
-        switch style {
-
-        case .xxxs, .xxxs_B: // 最小码
-            fontSize = 8
-        case .xxs, .xxs_B: // 极小码
-            fontSize = 9
-        case .XS, .XS_B: // 超小码
-            fontSize = 10
-        case .S, .S_B:   // 小码
-            fontSize = 11
-        case .M, .M_B:   // 均码
-            fontSize = 12
-        case .L, .L_B:   // 大码
-            fontSize = 13
-        case .XL, .XL_B: // 超大码
-            fontSize = 14
-        case .xxl, .xxl_B:
-            fontSize = 16
-        case .xxxl, .xxxl_B:
-            fontSize = 18
-            
-        // 其他码号配置
-        case .Nx1:
-            fontSize = 28
-            fontName = .苹方_简_常规体
-        case .Nx2:
-            fontSize = 38
-            fontName = .苹方_简_细体
-        case .Nx3:
-            fontSize = 48
-            fontName = .苹方_简_极细体
-        case .Nx4:
-            fontSize = 58
-            fontName = .苹方_简_中粗体
-        case .Nx5:
-            fontSize = 68
-            fontName = .苹方_简_中黑体
-        }
-        
-        return (fontName, fontSize)
-    }
-}
-
-
 // MARK: UIFont 扩展
 
+/// 字体专用协议。
+/// - Warning: 此协仅支持对象类型。
+protocol FontStyle: AnyObject {
+    /// 是否禁用全局字体名称配置，默认 false，将该值改为 true 即可使用在 xib 配置的值。
+    var disableFont: Bool { get }
+}
+
 public extension UIFont {
-    
-    /// 字体样式。**EMERANA 中默认使用 M 码**
-    /// - warning: 使用注意事项
-    /// - 原始值范围-8...14，N系列从10开始
-    /// - 原始值为奇数表示加粗（N系列除外）
+    /// 已废弃的枚举。
     enum FontStyle: Int {
-        
-        /// 比 xxs 码还要小一号
-        case xxxs = -8, xxxs_B = -7
-        /// 比 XS 码还要小一号
-        case xxs = -6, xxs_B = -5
-        /// 超小码
-        case XS = -4, XS_B = -3
-        /// 小码
-        case S = -2, S_B = -1
-        /// 均码，默认值
-        case M = 0, M_B = 1
-        /// 大码
-        case L = 2, L_B = 3
-        /// 超大码
-        case XL = 4, XL_B = 5
-        /// 比 XL 码还要大一号
-        case xxl = 6, xxl_B = 7
-        /// 比 xxl 码还要大一号
-        case xxxl = 8, xxxl_B = 9
-        
-        /// 其他补充码号，从 10 开始
-        case Nx1, Nx2, Nx3, Nx4, Nx5
-        
+        case x = 0
         /// FontStyle 构造器，安全地构建一个 FontStyle 实例
         /// - Parameter rawValue: FontStyle 实例对象，若传入不合法的值将返回 m
         static func new(rawValue: Int) -> FontStyle {
@@ -373,7 +264,7 @@ public extension UIFont {
         
     }
     
-    /// 常用字体名
+    /// 常用字体名。
     enum FontName: String {
         case 苹方_简_极细体 = "PingFangSC-Ultralight"
         case 苹方_简_纤细体 = "PingFangSC-Thin"
@@ -393,31 +284,31 @@ public extension UIFont {
         /// HelveticaNeue 粗体
         case HelveticaNeue_Bold = "HelveticaNeue-Bold"
     }
-
+    
+    @available(*, unavailable, message: "该构造函数已废弃", renamed: "init")
+    convenience init(style: UIFont.FontStyle) {
+        self.init()
+    }
+    
     /// 通过 FontStyle 获得一个 UIFont 对象。
     /// - warning: 若有需要，请 public extension UIFont 并覆盖 configFontStyle()
     /// - Parameter style: 目标 style
-    convenience init(style: UIFont.FontStyle) {
-
-        if EMERANA.fontStyleConfigDelegate == nil {
-            Judy.logWarning("请 extension UIApplication: EMERANA_UIFont 配置字体协议")
-            self.init(name: UIFont.FontName.苹方_简_常规体.rawValue, size: 16)!
-        } else {
-            let style = EMERANA.fontStyleConfigDelegate!.configFontStyle(style)
-            self.init(name: style.0.rawValue, size: min(style.1, 100))!
-        }
-        
+    convenience init(name: UIFont.FontName, size: CGFloat) {
+        self.init(name: UIFont.FontName.苹方_简_常规体.rawValue, size: min(size, 100))!
     }
 }
 
 
-// MARK: 字体、颜色管理类
+// MARK: - EnolaGayAdapter 协议：字体、颜色配置
 
 /// EnolaGay 框架全局适配协议，该协议只允许 UIApplication 继承。
 public protocol EnolaGayAdapter where Self: UIApplication {
-    
-    /// 询问管理全局外观的实体，该实例为 Appearance 及其子类。
-    // func appearanceForApplication() -> Appearance
+    /// 询问 JudyBaseLabel、JudyBaseButton、JudyBaseTextField 的默认 font，该 font 需要用目标 fontName 构建。
+    ///
+    /// 无论是不是在 xib 中构建的都会询问该 font.在 xib 中若需要使用 xib 设置的字体请将 disableFont 设置为 true 即可。
+    ///
+    /// - Warning: EnolaGayAdapter 只会使用 UIFont.fontName，字体大小将沿用修改前的值。
+    func defaultFontName() -> UIFont
     
     /// 询问 JudyBaseViewCtrl 及其子类的背景色，该函数默认实现为 white.
     func viewBackgroundColor() -> UIColor
@@ -436,11 +327,7 @@ public extension EnolaGayAdapter {
     func navigationBarItemsColor() -> UIColor { .systemBlue }
 }
 
-/// 外观配置基类。
-open class Appearance {
-    
-}
-
+// MARK: - Calendar 扩展
 public extension EnolaGayWrapper where Base == Calendar {
     /// 获取当月从今天算起剩余的天数。
     var daysResidueInCurrentMonth: Int {
@@ -515,7 +402,7 @@ public extension EnolaGayWrapper where Base == Calendar {
     }
 }
 
-// MARK: Date 扩展
+// MARK: - Date 扩展
 
 public extension Date {
 
@@ -591,7 +478,7 @@ public extension EnolaGayWrapper where Base == Date {
 
 
 
-// MARK: UIApplication 扩展
+// MARK: - UIApplication 扩展
 public extension EnolaGayWrapper where Base: UIApplication {
     /// 获取状态栏 View。
     var statusBarView: UIView? {
@@ -1367,14 +1254,14 @@ public extension String {
     ///   - font: 字体，默认按照 M 码字体计算。
     ///   - maxSize: 最大尺寸，默认为 CGSize(width: 320, height: 68)
     /// - Returns: 文本所需宽度。
-    func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(style: .M)) -> CGSize {
+    func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(name: .苹方_简_中黑体, size: 16)) -> CGSize {
         // 根据文本内容获取尺寸，计算文字尺寸 UIFont.systemFont(ofSize: 14.0)
         return self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin],
                                  attributes: [NSAttributedString.Key.font: font],
                                  context: nil).size
     }
 
-    func sizeWith(font: UIFont = UIFont(style: .M) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize {
+    func sizeWith(font: UIFont = UIFont(name: .苹方_简_中黑体, size: 16) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize {
         let options = NSStringDrawingOptions.usesLineFragmentOrigin
         
         let paragraphStyle : NSMutableParagraphStyle = NSMutableParagraphStyle()
@@ -1477,9 +1364,9 @@ import UIKit
 public struct EMERANA {
     /// EMERANA 结构体的唯一实例。在单例模式下，只有该实例被首次访问时才会创建该对象（触发 init() ）。
     public static let judy = EMERANA()
-    
-    /// 字体样式配置代理。
-    static let fontStyleConfigDelegate: EMERANA_UIFont? = UIApplication.shared as? EMERANA_UIFont
+
+    @available(*, message: "该代理已淘汰")
+    static let fontStyleConfigDelegate = ""
     
     /// EnolaGay 框架全局适配器。
     static let enolagayAdapter: EnolaGayAdapter? = UIApplication.shared as? EnolaGayAdapter

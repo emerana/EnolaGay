@@ -48,6 +48,8 @@
 		8BBD55322670A0C900C7B48E /* MyPlayerViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD55312670A0C900C7B48E /* MyPlayerViewCtrl.swift */; };
 		8BBD55342670AE7000C7B48E /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BBD55332670AE7000C7B48E /* VideoCell.xib */; };
 		8BBD55362670AE8C00C7B48E /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD55352670AE8C00C7B48E /* VideoCell.swift */; };
+		8BD7AE4E26A6746F00A07EB6 /* FontExtension.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD7AE4D26A6746F00A07EB6 /* FontExtension.storyboard */; };
+		8BD7AE5026A6747C00A07EB6 /* FontExtensionViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD7AE4F26A6747C00A07EB6 /* FontExtensionViewCtrl.swift */; };
 		8BD8C6952628636B006738E6 /* TestCollectionRefreshCollectionViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8C6942628636B006738E6 /* TestCollectionRefreshCollectionViewCtrl.swift */; };
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
@@ -118,6 +120,8 @@
 		8BBD55312670A0C900C7B48E /* MyPlayerViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlayerViewCtrl.swift; sourceTree = "<group>"; };
 		8BBD55332670AE7000C7B48E /* VideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		8BBD55352670AE8C00C7B48E /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		8BD7AE4D26A6746F00A07EB6 /* FontExtension.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FontExtension.storyboard; sourceTree = "<group>"; };
+		8BD7AE4F26A6747C00A07EB6 /* FontExtensionViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensionViewCtrl.swift; sourceTree = "<group>"; };
 		8BD8C6942628636B006738E6 /* TestCollectionRefreshCollectionViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionRefreshCollectionViewCtrl.swift; sourceTree = "<group>"; };
 		8BE5C0512667563700FEAF52 /* 湖南郴州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "湖南郴州.gpx"; sourceTree = "<group>"; };
 		8BE5C0522667563800FEAF52 /* 福建龙岩.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "福建龙岩.gpx"; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 		607FACD21AFB9204008FA782 /* Example for EnolaGay */ = {
 			isa = PBXGroup;
 			children = (
+				8BD7AE4C26A6745B00A07EB6 /* FontExtension */,
 				8B491DA52698742300BA782C /* CastSurelyCalculation */,
 				8B372D20268FF9F8004840FC /* HPicker */,
 				8B372D13268EA06F004840FC /* Mandoline */,
@@ -406,6 +411,15 @@
 			path = MyPlayer;
 			sourceTree = "<group>";
 		};
+		8BD7AE4C26A6745B00A07EB6 /* FontExtension */ = {
+			isa = PBXGroup;
+			children = (
+				8BD7AE4D26A6746F00A07EB6 /* FontExtension.storyboard */,
+				8BD7AE4F26A6747C00A07EB6 /* FontExtensionViewCtrl.swift */,
+			);
+			path = FontExtension;
+			sourceTree = "<group>";
+		};
 		8BFCC83125E385F9000B1611 /* 垂直轮播图 */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +533,7 @@
 				8B372D22268FFA0C004840FC /* HPicker.storyboard in Resources */,
 				8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */,
 				8B372D11268E9F3E004840FC /* Assets.xcassets in Resources */,
+				8BD7AE4E26A6746F00A07EB6 /* FontExtension.storyboard in Resources */,
 				8BBD55342670AE7000C7B48E /* VideoCell.xib in Resources */,
 				8B372D1F268EA105004840FC /* Mandoline.storyboard in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -635,6 +650,7 @@
 				8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */,
 				8B1AA67325A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */,
 				8B4A4DED266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift in Sources */,
+				8BD7AE5026A6747C00A07EB6 /* FontExtensionViewCtrl.swift in Sources */,
 				8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */,
 				8B0B90AB262832830059B992 /* TestTableRefreshTableViewCtrl.swift in Sources */,
 				8BB8861E265CF30A00E8836D /* GiftMessageViewCtrlTest.swift in Sources */,

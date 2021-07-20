@@ -31,15 +31,15 @@ private extension AttributedStringViewController {
     /// NSMutableAttributedString 初始化函数测试。
     func mutableAttributedStringInitTest() {
         
-        let attrs1 = NSMutableAttributedString(text: "只要￥9.9还包邮！", textFont: UIFont(style: .M))
+        let attrs1 = NSMutableAttributedString(text: "只要￥9.9还包邮！", textFont: UIFont(name: .苹方_简_中黑体, size: 16))
         
         label1?.attributedText = attrs1
         
-        let attrs2 = NSMutableAttributedString(text: "只要￥9.9还包邮！", textFont: UIFont(style: .M), highlightText: "￥", highlightTextColor: .red)
+        let attrs2 = NSMutableAttributedString(text: "只要￥9.9还包邮！", textFont: UIFont(name: .苹方_简_中黑体, size: 16), highlightText: "￥", highlightTextColor: .red)
         
         label2?.attributedText = attrs2
         
-        let attrs3 = NSMutableAttributedString(text: "只要￥9.9还包邮！", textColor: .green, textFont: UIFont(style: .M), highlightText: "￥", highlightTextColor: .red, highlightTextFont: UIFont(style: .xxxl_B))
+        let attrs3 = NSMutableAttributedString(text: "只要￥9.9还包邮！", textColor: .green, textFont: UIFont(name: .苹方_简_中黑体, size: 16), highlightText: "￥", highlightTextColor: .red, highlightTextFont: UIFont(name: .苹方_简_中黑体, size: 16))
         
         label3?.attributedText = attrs3
 
@@ -53,7 +53,7 @@ private extension AttributedStringViewController {
         label3.text = labelTest
 
         label1.judy.setHighlighted(text: "￥", color: .red)
-        label2.judy.setHighlighted(text: "￥", color: .red, font: UIFont(style: .S_B))
+        label2.judy.setHighlighted(text: "￥", color: .red, font: UIFont(name: .苹方_简_中黑体, size: 16))
         label3.judy.setHighlighted(text: "￥", color: .red)
 
     }
@@ -64,7 +64,7 @@ private extension AttributedStringViewController {
 
         
 
-        let attrs = NSMutableAttributedString(text: labelTest, highlightText: "￥", highlightTextFont: UIFont(style: .S_B))
+        let attrs = NSMutableAttributedString(text: labelTest, highlightText: "￥", highlightTextFont: UIFont(name: .苹方_简_中黑体, size: 16))
 //            judy_setHighlighted(text: "￥", font: UIFont(style: .S_B))
         
         label1.attributedText = attrs
@@ -78,15 +78,15 @@ private extension AttributedStringViewController {
     func judy_mutableAttributedStringInitTest() {
         let labelTest = "￥9.9"
         
-        label1.attributedText = NSMutableAttributedString(text: labelTest, highlightText: "￥", highlightTextFont: UIFont(style: .S_B))
+        label1.attributedText = NSMutableAttributedString(text: labelTest, highlightText: "￥", highlightTextFont: UIFont(name: .苹方_简_中黑体, size: 16))
 
-        label2.attributedText = NSMutableAttributedString(text: labelTest, highlightText: "￥", highlightTextColor: .red, highlightTextFont: UIFont(style: .S_B))
+        label2.attributedText = NSMutableAttributedString(text: labelTest, highlightText: "￥", highlightTextColor: .red, highlightTextFont: UIFont(name: .苹方_简_中黑体, size: 16))
         
-        label3.attributedText = NSMutableAttributedString(text: labelTest, textColor: .blue, highlightText: "￥", highlightTextFont: UIFont(style: .S_B))
+        label3.attributedText = NSMutableAttributedString(text: labelTest, textColor: .blue, highlightText: "￥", highlightTextFont: UIFont(name: .苹方_简_中黑体, size: 16))
         
-        label4.attributedText = NSMutableAttributedString(text: labelTest, textColor: .blue, textFont: UIFont(style: .Nx1), highlightText: "￥", highlightTextFont: UIFont(style: .S_B))
+        label4.attributedText = NSMutableAttributedString(text: labelTest, textColor: .blue, textFont: UIFont(name: .苹方_简_中黑体, size: 16), highlightText: "￥", highlightTextFont: UIFont(name: .苹方_简_中黑体, size: 16))
 
-        label5.attributedText = NSMutableAttributedString(text: labelTest, textColor: .blue, textFont: UIFont(style: .Nx1), highlightText: "￥", highlightTextColor: .red, highlightTextFont: UIFont(style: .S_B))
+        label5.attributedText = NSMutableAttributedString(text: labelTest, textColor: .blue, textFont: UIFont(name: .苹方_简_中黑体, size: 16), highlightText: "￥", highlightTextColor: .red, highlightTextFont: UIFont(name: .苹方_简_中黑体, size: 16))
     }
 
 }
