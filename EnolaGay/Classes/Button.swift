@@ -25,13 +25,6 @@ open class JudyBaseButton: UIButton, FontStyle {
     @IBInspectable private(set) var imageDirection: Int = 0
 
     @IBInspectable private(set) public var disableFont: Bool = false
-
-    /// 字体样式。此属性用于便携式设置 titleLabel?.font.
-    public var fontStyle: UIFont.FontStyle = .M {
-        didSet{
-            titleLabel?.font = UIFont(style: fontStyle)
-        }
-    }
     
     /*
     // Only override draw() if you perform custom drawing.

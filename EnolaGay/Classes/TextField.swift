@@ -12,20 +12,12 @@ import UIKit
 open class JudyBaseTextField: UITextField, FontStyle {
 
     @IBInspectable private(set) public var disableFont: Bool = false
-
-    /// 字体样式。此属性用于便携式设置 font.
-    public var fontStyle: UIFont.FontStyle = .M {
-        didSet{
-            font = UIFont(style: fontStyle)
-        }
-    }
     
     var inputType: ContentType = .默认 {
         didSet{
             setInputType()
         }
     }
-    
     
     /*
     // Only override draw() if you perform custom drawing.
