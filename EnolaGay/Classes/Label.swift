@@ -10,6 +10,7 @@ import UIKit
 
 /// EMERANA 框架中所用到的 Label.
 /// ## 支持功能：
+/// * 全局配置统一的字体名称。
 /// * 在 label 上显示删除线
 /// * 单击弹出复制功能（在 storyboard 中启用 isSupportCopy 或 isSupportCopy = true）
 /// * 内边距属性调整功能
@@ -129,8 +130,9 @@ open class JudyBaseLabel: UILabel, FontStyle {
 
     // MARK: - 事件
     
-    // 单击弹出菜单控制器
-    @objc private func longPressAction(recognizer: UIGestureRecognizer) {
+    /// 单击弹出菜单控制器。
+    @objc
+    private func longPressAction(recognizer: UIGestureRecognizer) {
         becomeFirstResponder()
         
         UIMenuController.shared.menuItems = [UIMenuItem(title: altTitle, action: #selector(customCopy(sender:)))]
@@ -148,7 +150,7 @@ open class JudyBaseLabel: UILabel, FontStyle {
 private extension JudyBaseLabel {
     /// 在构造 JudyBaseLabel 时就设置好 label 的默认 font.
     func initFont() {
-        if let defaultFont = EMERANA.enolagayAdapter?.defaultFontFamily() {
+        if let defaultFont = EMERANA.enolagayAdapter?.defaultFontName() {
             font = UIFont(name: defaultFont.fontName, size: font.pointSize)
         }
     }

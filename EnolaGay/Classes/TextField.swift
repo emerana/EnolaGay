@@ -33,6 +33,18 @@ open class JudyBaseTextField: UITextField, FontStyle {
     }
     */
     
+    /// 使用 JudyBaseTextField() 构造器将触发此构造函数。
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        initFont()
+    }
+    
+    /// 从 xib/storyboard 中构造会先触发此构造函数再唤醒 awakeFromNib.
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        initFont()
+    }
+    
     open override func awakeFromNib() {
         super.awakeFromNib()
         // delegate = self
@@ -91,7 +103,13 @@ public extension JudyBaseTextField {
 
 // MARK: - 私有函数
 private extension JudyBaseTextField {
-    
+    /// 在构造 JudyBaseTextField 时就设置好 label 的默认 font.
+    func initFont() {
+        if let defaultFont = EMERANA.enolagayAdapter?.defaultFontName() {
+            font = UIFont(name: defaultFont.fontName, size: font?.pointSize ?? 12)
+        }
+    }
+
     /// 设置 inputType 事件
     func setInputType() {
         switch inputType {

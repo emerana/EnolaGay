@@ -415,10 +415,10 @@ public extension UIFont {
 
 /// EnolaGay 框架全局适配协议，该协议只允许 UIApplication 继承。
 public protocol EnolaGayAdapter where Self: UIApplication {
-    /// 询问 JudyBaseLabel、JudyBaseButton、JudyBaseTextField 的默认 family.
+    /// 询问 JudyBaseLabel、JudyBaseButton、JudyBaseTextField 的默认 font，该 font 需要用木匾 fontName 构建。**无论是不是在xib/storyboard 中构建的都会询问该 font.**
     ///
-    /// - Warning: EnolaGayAdapter 只需要 UIFont.family，字号将被忽略。
-    func defaultFontFamily() -> UIFont
+    /// - Warning: EnolaGayAdapter 只会使用 UIFont.fontName，字体大小将沿用修改前的值。
+    func defaultFontName() -> UIFont
     
     /// 询问 JudyBaseViewCtrl 及其子类的背景色，该函数默认实现为 white.
     func viewBackgroundColor() -> UIColor
