@@ -10,6 +10,7 @@ import UIKit
 
 /// EMERANA 框架中所用到的 Label.
 /// ## 支持功能：
+/// * 全局配置统一的字体名称。
 /// * 在 label 上显示删除线
 /// * 单击弹出复制功能（在 storyboard 中启用 isSupportCopy 或 isSupportCopy = true）
 /// * 内边距属性调整功能
@@ -27,15 +28,11 @@ open class JudyBaseLabel: UILabel, FontStyle {
     @IBInspectable var isSupportCopy: Bool = false
     /// 当 isSupportCopy = true 时，点击 label 进行复制时的提示文字。
     @IBInspectable public var altTitle: String = "复制"
+
+    @IBInspectable private(set) public var disableFont: Bool = false
+
     /// 要复制的文本，默认 nil,(复制时将复制整个 Label 的值)。
     public var pasteboardText: String? = nil
-    
-    /// 字体样式。此属性用于便携式设置 font.
-    public var fontStyle: UIFont.FontStyle = .M {
-        didSet{
-            font = UIFont(style: fontStyle)
-        }
-    }
 
     // MARK: - 内边距属性
     
@@ -67,12 +64,25 @@ open class JudyBaseLabel: UILabel, FontStyle {
         set { padding.bottom = newValue }
     }
     
+    /// 使用 JudyBaseLabel() 构造器将触发此构造函数。
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        initFont()
+    }
     
+    /// 从 xib/storyboard 中构造会先触发此构造函数再唤醒 awakeFromNib.
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+
     // MARK: - 重写父类方法
     
     open override func awakeFromNib() {
         super.awakeFromNib()
-        
+
+        if !disableFont { initFont() }
+
         // 复制功能。
         if isSupportCopy {
             isUserInteractionEnabled = isSupportCopy
@@ -117,8 +127,9 @@ open class JudyBaseLabel: UILabel, FontStyle {
 
     // MARK: - 事件
     
-    // 单击弹出菜单控制器
-    @objc private func longPressAction(recognizer: UIGestureRecognizer) {
+    /// 单击弹出菜单控制器。
+    @objc
+    private func longPressAction(recognizer: UIGestureRecognizer) {
         becomeFirstResponder()
         
         UIMenuController.shared.menuItems = [UIMenuItem(title: altTitle, action: #selector(customCopy(sender:)))]
@@ -130,6 +141,15 @@ open class JudyBaseLabel: UILabel, FontStyle {
     @objc private func customCopy(sender: Any){
         let pasteboard: UIPasteboard = UIPasteboard.general
         pasteboard.string = pasteboardText ?? text
+    }
+}
+
+private extension JudyBaseLabel {
+    /// 在构造 JudyBaseLabel 时就设置好 label 的默认 font.
+    func initFont() {
+        if let defaultFont = EMERANA.enolagayAdapter?.defaultFontName() {
+            font = UIFont(name: defaultFont.fontName, size: font.pointSize)
+        }
     }
 }
 
@@ -146,6 +166,4 @@ extension JudyBaseLabel: NSCopying {
         label.padding = padding
         return label
     }
-    
-
 }

@@ -24,12 +24,7 @@ open class JudyBaseButton: UIButton, FontStyle {
     /// 图像所在方位，默认0，对应 enum ImageDirection, left = 0, up = 1, right = 2, down = 3
     @IBInspectable private(set) var imageDirection: Int = 0
 
-    /// 字体样式。此属性用于便携式设置 titleLabel?.font.
-    public var fontStyle: UIFont.FontStyle = .M {
-        didSet{
-            titleLabel?.font = UIFont(style: fontStyle)
-        }
-    }
+    @IBInspectable private(set) public var disableFont: Bool = false
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -39,9 +34,22 @@ open class JudyBaseButton: UIButton, FontStyle {
     }
     */
     
+    /// 使用 JudyBaseButton() 构造器将触发此构造函数。
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        initFont()
+    }
+    
+    /// 从 xib/storyboard 中构造会先触发此构造函数再唤醒 awakeFromNib.
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     open override func awakeFromNib() {
         super.awakeFromNib()
         
+        if !disableFont { initFont() }
+
         guard let tempImageDirection = JudyBaseButton.ImageDirection(rawValue: imageDirection) else {
             return
         }
@@ -60,6 +68,15 @@ open class JudyBaseButton: UIButton, FontStyle {
 
     }
     
+}
+
+private extension JudyBaseButton {
+    /// 在构造 JudyBaseLabel 时就设置好 label 的默认 font.
+    func initFont() {
+        if let defaultFont = EMERANA.enolagayAdapter?.defaultFontName() {
+            titleLabel?.font = UIFont(name: defaultFont.fontName, size: titleLabel?.font.pointSize ?? 12)
+        }
+    }
 }
 
 // MARK: - 显示的效果
@@ -94,9 +111,7 @@ public extension UIButton {
      
      */
     
-    /// 以动画的方式显示该按钮
-    /// - version: 1.0
-    /// - since: 2021年01月15日
+    /// 以动画的方式显示该按钮。
     func show() {
         
         guard isHidden == true else { return }
