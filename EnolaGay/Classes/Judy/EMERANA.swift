@@ -415,9 +415,10 @@ public extension UIFont {
 
 /// EnolaGay 框架全局适配协议，该协议只允许 UIApplication 继承。
 public protocol EnolaGayAdapter where Self: UIApplication {
-    
-    /// 询问管理全局外观的实体，该实例为 Appearance 及其子类。
-    // func appearanceForApplication() -> Appearance
+    /// 询问 JudyBaseLabel、JudyBaseButton、JudyBaseTextField 的默认 family.
+    ///
+    /// - Warning: EnolaGayAdapter 只需要 UIFont.family，字号将被忽略。
+    func defaultFontFamily() -> UIFont
     
     /// 询问 JudyBaseViewCtrl 及其子类的背景色，该函数默认实现为 white.
     func viewBackgroundColor() -> UIColor
@@ -436,10 +437,6 @@ public extension EnolaGayAdapter {
     func navigationBarItemsColor() -> UIColor { .systemBlue }
 }
 
-/// 外观配置基类。
-open class Appearance {
-    
-}
 
 public extension EnolaGayWrapper where Base == Calendar {
     /// 获取当月从今天算起剩余的天数。

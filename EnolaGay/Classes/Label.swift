@@ -67,7 +67,19 @@ open class JudyBaseLabel: UILabel, FontStyle {
         set { padding.bottom = newValue }
     }
     
+    /// 使用 JudyBaseLabel() 构造器将触发此构造函数。
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        initFont()
+    }
     
+    /// 从 xib/storyboard 中构造会先触发此构造函数再唤醒 awakeFromNib.
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        initFont()
+    }
+    
+
     // MARK: - 重写父类方法
     
     open override func awakeFromNib() {
@@ -133,6 +145,15 @@ open class JudyBaseLabel: UILabel, FontStyle {
     }
 }
 
+private extension JudyBaseLabel {
+    /// 在构造 JudyBaseLabel 时就设置好 label 的默认 font.
+    func initFont() {
+        if let defaultFont = EMERANA.enolagayAdapter?.defaultFontFamily() {
+            font = UIFont(name: defaultFont.fontName, size: font.pointSize)
+        }
+    }
+}
+
 // MARK: - 深度对象拷贝
 extension JudyBaseLabel: NSCopying {
     
@@ -146,6 +167,4 @@ extension JudyBaseLabel: NSCopying {
         label.padding = padding
         return label
     }
-    
-
 }
