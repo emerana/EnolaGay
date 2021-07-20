@@ -30,7 +30,6 @@ public extension JudyBaseViewCtrl {
 
 /// 刷新控件适配器协议。
 public protocol RefreshAdapter where Self: UIApplication {
-
     /// 配置头部刷新控件（即下拉刷新）。
     func initHeaderRefresh(scrollView: UIScrollView?, callback: @escaping (()->Void))
     /// 配置底部刷新控件（即上拉加载）。
@@ -47,7 +46,6 @@ public protocol RefreshAdapter where Self: UIApplication {
     /// 询问分页请求中页码和页大小字段名，默认实现为 "pageIndex","pageSize".
     /// - Warning: 第一个元素为页码，第二个元素为页大小。
     func pageParameterStrings() -> (String, String)
-
 }
 
 /// 默认实现。
@@ -145,7 +143,6 @@ protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
 /// Cell 基础协议。
 /// - Warning: 此协议针对 tableViewCell、collectionViewCell 类定制。
 public protocol EMERANA_CellBasic {
-    
     /// 标题。
     var titleLabel: UILabel? { get set }
     /// 副标题。
@@ -169,7 +166,6 @@ public protocol EMERANA_CellBasic {
  */
 /// 为 EMERANA_CellBasic 协议新增的扩展函数（非默认实现函数）。
 public extension EMERANA_CellBasic {
-    
     /// 所有实现 EMERANA_CellBasic 协议的对象在初始函数中均会先触发此扩展函数，在此函数中补充所需操作。
     ///
     /// 扩展对应的类并重写此函数即可使该类执行重写后的函数。
@@ -225,7 +221,7 @@ public protocol FontStyle: AnyObject {
  */
 
 
-// MARK: UIColor 配置扩展
+// MARK: - UIColor 配置扩展
 
 public extension UIColor {
     
@@ -332,7 +328,6 @@ public extension EMERANA_UIFont where Self: UIFont {
     }
 }
 
-
 // MARK: UIFont 扩展
 
 public extension UIFont {
@@ -413,11 +408,11 @@ public extension UIFont {
 }
 
 
-// MARK: 字体、颜色管理类
+// MARK: - EnolaGayAdapter 协议：字体、颜色配置
 
 /// EnolaGay 框架全局适配协议，该协议只允许 UIApplication 继承。
 public protocol EnolaGayAdapter where Self: UIApplication {
-    /// 询问 JudyBaseLabel、JudyBaseButton、JudyBaseTextField 的默认 font，该 font 需要用木匾 fontName 构建。
+    /// 询问 JudyBaseLabel、JudyBaseButton、JudyBaseTextField 的默认 font，该 font 需要用目标 fontName 构建。
     ///
     /// 无论是不是在 xib 中构建的都会询问该 font.在 xib 中若需要使用 xib 设置的字体请将 disableFont 设置为 true 即可。
     ///
@@ -441,7 +436,7 @@ public extension EnolaGayAdapter {
     func navigationBarItemsColor() -> UIColor { .systemBlue }
 }
 
-
+// MARK: - Calendar 扩展
 public extension EnolaGayWrapper where Base == Calendar {
     /// 获取当月从今天算起剩余的天数。
     var daysResidueInCurrentMonth: Int {
@@ -516,7 +511,7 @@ public extension EnolaGayWrapper where Base == Calendar {
     }
 }
 
-// MARK: Date 扩展
+// MARK: - Date 扩展
 
 public extension Date {
 
@@ -592,7 +587,7 @@ public extension EnolaGayWrapper where Base == Date {
 
 
 
-// MARK: UIApplication 扩展
+// MARK: - UIApplication 扩展
 public extension EnolaGayWrapper where Base: UIApplication {
     /// 获取状态栏 View。
     var statusBarView: UIView? {
