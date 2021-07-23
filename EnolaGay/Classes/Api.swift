@@ -13,18 +13,14 @@ import SwiftyJSON
 /// Api 管理层
 ///
 /// public extension JudyApi 并覆盖 EMERANA_ApiDataValidation 中的函数以配置数据校验
-/// - warning: 此类依赖 Alamofire
-/// - since: V1.1 2020年11月20日14:03:12
 @available(*, unavailable, message: "此类以弃用！")
 public final class JudyApi {
-
-    // 私有化init()，禁止构建对象
+    // 私有化init()，禁止构建对象。
     private init() {}
-    
     
     // MARK: 公开的网络请求方法
     
-    /// 发起网络请求
+    /// 发起网络请求。
     ///
     /// 唯一发起请求的函数，closure 中的 JSON 已经处理好，可直接使用
     ///  - since: V1.1
@@ -106,7 +102,6 @@ public final class JudyApi {
 
     }
     
-    
     /**
      正确地上传图片方式
      // 正确地上传图片
@@ -133,11 +128,8 @@ public final class JudyApi {
              break
          }
      }
-
      */
-    
 }
-
 
 // MARK: - Api 层
 
@@ -155,7 +147,7 @@ public protocol ApiAdapter where Self: UIApplication {
     /// - Warning: 该函数主要针对全局配置，如需变更请单独设置 apiConfig.method.
     func globalMethodPOST() -> Bool
 
-    /// 询问 apiRequestConfig 请求的响应方式是否为 responseJSON？默认实现为 true，否则为 responseString。
+    /// 询问 apiRequestConfig 请求的响应方式是否为 responseJSON？默认实现为 true，否则为 responseString.
     func responseJSON() -> Bool
     
     /// 确认 apiRequestConfig 最终配置，此函数为触发请求（调用 request() ）前的最后操作。
@@ -224,9 +216,9 @@ public extension ApiAction {
 /// - Warning: 请 extension UIApplication: ApiAdapter 并覆盖指定函数以配置属性的初始值。
 final public class ApiRequestConfig {
 
-    /// 当前请求的 api。
+    /// 请求的 api.
     ///
-    /// 该值为用于与 domain 拼接的部分，初值 nil，每次请求都会有一个 api。
+    /// 该值为用于与 domain 拼接的部分，初值 nil，每次请求都会有一个 api.
     /// - Warning: 配置 api 请通过创建实现 ApiAction 协议的 public enum，参考如下代码：
     /// ```
     /// enum Apis: String, ApiAction {
@@ -236,32 +228,32 @@ final public class ApiRequestConfig {
     /// ```
     public lazy var api: ApiAction? = nil
 
-    /// 请求域名，请 extension UIApplication: ApiDelegate 重写 domain() 配置域名。
+    /// 请求域名。
     ///
-    /// 该值将与 api 属性拼接成最终请求的完整 URL。若存在多个域名，请通过 extension ApiRequestConfig.Domain 新增。
+    /// 该值将与 api 属性拼接成最终请求的完整 URL。若存在多个域名，请通过 UIApplication: ApiAdapter 新增。
     public var domain: Domain = .default
         
-    /// 请求方式 HTTPMethod，默认 post。通过覆盖 globalMethodPOST() 以配置全局通用值。
+    /// 请求方式 HTTPMethod，请通过 extension UIApplication: ApiAdapter 配置全局通用值。
     public var method: Method = ((EMERANA.apiAdapter?.globalMethodPOST() ?? true) ? .post : .get)
 
     /// 请求参数，初值是一个空数组。
     public var parameters: [String: Any]? = [String: Any]()
 
-    /// 请求参数的编码方式 ParameterEncoding，默认值为 URLEncoding。
+    /// 请求参数的编码方式 ParameterEncoding，默认值为 URLEncoding.
     public lazy var encoding: Encoding = .URLEncoding
 
     /// 请求头信息字典。
-    /// - Warning: 该值可以设置为 nil，但初值非 nil。
+    /// - Warning: 该值可以设置为 nil，但初值非 nil.
     public lazy var headers: [String: String]? = [String: String]()
     
-    /// 请求的响应数据格式是否为 responseJSON，默认 true，反之响应为 responseString。
+    /// 请求的响应数据格式是否为 responseJSON，默认 true，反之响应为 responseString.
     /// 通过覆盖 responseJSON() 以配置全局通用值。
     public var isResponseJSON: Bool = EMERANA.apiAdapter?.responseJSON() ?? true
 
-    /// 完整的请求 URL。
+    /// 完整的请求 URL.
     public var reqURL: String { domain.rawValue + (api?.value ?? "") }
 
-    /// HTTPMethod。
+    /// HTTPMethod.
     public enum Method {
         case options
         case get
@@ -274,7 +266,7 @@ final public class ApiRequestConfig {
         case connect
     }
     
-    /// 请求参数可选编码方式 encoding。
+    /// 请求参数可选编码方式 encoding.
     public enum Encoding {
         /// 将参数打包成 JSON。
         case JSONEncoding
@@ -370,7 +362,7 @@ public enum APIERRKEY: String {
 }
 
 public extension JSON {
-    /// 便携式访问 JSON 中的错误信息。需要注意的是，访问 msg、code 可直接访问，内部已经做好向下级取值处理。
+    /// 便携式访问 JSON 中的错误信息。
     subscript(key: APIERRKEY) -> JSON { self[key.rawValue] }
     
     /// 访问 json 中是否包含访问 Api 请求中响应失败的信息。其核心是访问"APIJSONKEY.error" key.

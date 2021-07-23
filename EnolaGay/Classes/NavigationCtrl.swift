@@ -60,7 +60,6 @@ open class JudyBaseNavigationCtrl: UINavigationController {
         if let itemsColor = EMERANA.enolagayAdapter?.navigationBarItemsColor() {
             judy.setItemsColor(color: itemsColor)
         }
-
     }
         
     /// 覆盖 push 事件，实现在 push 过程中自定义部分操作。
