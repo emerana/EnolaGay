@@ -100,7 +100,6 @@ open class JudyBaseLabel: UILabel, FontStyle {
             attributedString.addAttribute(.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range:NSRange(location:0,length:str.length))
             attributedText = attributedString
         }
-
         
     }
 
