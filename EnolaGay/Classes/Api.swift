@@ -143,8 +143,7 @@ public protocol ApiAdapter where Self: UIApplication {
     /// - Warning: 该函数主要针对全局配置，如需变更请单独设置 apiConfig.domain.
     func domain() -> String
     
-    /// 询问请求方法是否为 POST 请求？默认实现为 true.
-    /// - Warning: 该函数主要针对全局配置，如需变更请单独设置 apiConfig.method.
+    /// 询问全局默认的请求方法是否为 POST? 该函数默认实现为 true.
     func globalMethodPOST() -> Bool
 
     /// 询问 apiRequestConfig 请求的响应方式是否为 responseJSON？默认实现为 true，否则为 responseString.
@@ -152,29 +151,24 @@ public protocol ApiAdapter where Self: UIApplication {
     
     /// 确认 apiRequestConfig 最终配置，此函数为触发请求（调用 request() ）前的最后操作。
     /// - Parameter requestConfig: 当前 apiConfig 对象。
-    /// - Warning: 发生请求时，若请求头/请求参数的初值发生改变应该在此函数中更新/覆盖对应信息，如用户登录的 token。
+    /// - Warning: 发生请求时，若请求头/请求参数的初值发生改变应该在此函数中更新/覆盖对应信息，如用户登录的 token.
     func apiRequestConfigAffirm(requestConfig: ApiRequestConfig)
     
-    /// 实现向 Api 层发起请求。
+    /// 实现发起请求。
+    ///
+    /// 该函数中需要实现网络请求，requestConfig 对象中包含了所有的请求相关信息，在得到响应后应通过 callback 函数将相应数据返回。严格地说，无论是否响应成功最终都应该触发 callback.
     /// - Parameters:
     ///   - requestConfig: 配置好的 ApiRequestConfig 对象。
-    ///   - callback: 发起请求后的回调函数。
-    /// - Warning: callBack 中的 json 必须遵守如下层级关系：
-    /// ```
-    ///  [
-    ///     EMERANA.Key.JSON.error: [
-    ///         EMERANA.Key.JSON.code: 1,
-    ///         EMERANA.Key.JSON.msg: "error"
-    ///     ],
-    ///  ]
-    ///  ```
-    func request(withRequestConfig requestConfig: ApiRequestConfig, callback: @escaping ((JSON) -> Void))
+    ///   - callback: 发起请求后的响应函数，该函数要求传入响应的数据。
+    func request(requestConfig: ApiRequestConfig, callback: @escaping ((JSON) -> Void))
     
-    /// 询问代理响应一个经过质检后的 JSON 数据，代理应针对服务器响应的 JSON 数据进行质检，若包含错误信息请通过 JSON.setQCApiERROR() 函数完成错误信息设置。
+    /// 询问代理响应一个经过质检后的 JSON 数据。
+    ///
+    /// 该函数要求对响应的 JSON 数据进行质检，若包含错误信息请通过 JSON.setQCApiERROR() 函数完成错误信息设置。
     /// - Parameters:
-    /////   - requestConfig: 发起请求的配置信息对象。
+    ///   - requestConfig: 发起请求的配置信息对象。
     ///   - apiData: 响应的原始 JSON 数据。
-    /// - Returns: 经过质检后的 JSON 数据，apiData.setQCApiERROR() 函数即可得到目标 JSON.
+    /// - Returns: 经过质检后的 JSON 数据，JSON.setQCApiERROR() 函数即可得到目标 JSON.
     func responseQC(apiData: JSON) -> JSON
 }
 
@@ -314,7 +308,7 @@ final public class ApiRequestConfig {
             return
         }
 
-        EMERANA.apiAdapter!.request(withRequestConfig: self) { json in
+        EMERANA.apiAdapter!.request(requestConfig: self) { json in
             // 若原始 JSON 已包含一个错误信息，则无需质检直接返回该数据。
             if json.ApiERROR != nil {
                 callback(json)
