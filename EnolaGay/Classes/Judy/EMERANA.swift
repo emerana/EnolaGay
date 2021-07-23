@@ -246,23 +246,36 @@ protocol FontStyle: AnyObject {
 
 /// 常用字体名。
 public enum FontName: String {
-    case 苹方_简_极细体 = "PingFangSC-Ultralight"
-    case 苹方_简_纤细体 = "PingFangSC-Thin"
-    case 苹方_简_细体 = "PingFangSC-Light"
-    case 苹方_简_常规体 = "PingFangSC-Regular"
-    case 苹方_简_中黑体 = "PingFangSC-Medium"
-    case 苹方_简_中粗体 = "PingFangSC-Semibold"
+    @available(*, unavailable, message: "重命名", renamed: "苹方_极细体")
+    case 苹方_简_极细体 = "PingFangSC-Ultr"
+    @available(*, unavailable, message: "重命名", renamed: "苹方_纤细体")
+    case 苹方_简_纤细体 = "PingFangSC-T"
+    @available(*, unavailable, message: "重命名", renamed: "苹方_细体")
+    case 苹方_简_细体 = "PingFangSC-Lgh"
+    @available(*, unavailable, message: "重命名", renamed: "苹方_常规体")
+    case 苹方_简_常规体 = "PingFangSC-ar"
+    @available(*, unavailable, message: "重命名", renamed: "苹方_中黑体")
+    case 苹方_简_中黑体 = "PingFangSCium"
+    @available(*, unavailable, message: "重命名", renamed: "苹方_中粗体")
+    case 苹方_简_中粗体 = "PingFangSCold"
+
+    case 苹方_极细体 = "PingFangSC-Ultralight"
+    case 苹方_纤细体 = "PingFangSC-Thin"
+    case 苹方_细体 = "PingFangSC-Light"
+    case 苹方_常规体 = "PingFangSC-Regular"
+    case 苹方_中黑体 = "PingFangSC-Medium"
+    case 苹方_中粗体 = "PingFangSC-Semibold"
     
     /// HelveticaNeue 纤细体
-    case HelveticaNeue_Thin = "HelveticaNeue-Thin"
+    case HlvtcThin = "HelveticaNeue-Thin"
     /// HelveticaNeue 细体
-    case HelveticaNeue_Light = "HelveticaNeue-Light"
+    case HlvtcNeue_Light = "HelveticaNeue-Light"
     /// HelveticaNeue 常规体
-    case HelveticaNeue = "HelveticaNeue"
+    case HlvtcNeue = "HelveticaNeue"
     /// HelveticaNeue 中黑体
-    case HelveticaNeue_Medium = "HelveticaNeue-Medium"
+    case HlvtcNeue_Medium = "HelveticaNeue-Medium"
     /// HelveticaNeue 粗体
-    case HelveticaNeue_Bold = "HelveticaNeue-Bold"
+    case HlvtcNeue_Bold = "HelveticaNeue-Bold"
 }
 
 public extension UIFont {
@@ -270,7 +283,7 @@ public extension UIFont {
     /// - Parameters:
     ///   - name: 参见 FontName.
     ///   - size: 字体的大小，该值最大取 100.
-    convenience init(name: FontName = .苹方_简_中黑体, size: CGFloat) {
+    convenience init(name: FontName = .苹方_中黑体, size: CGFloat) {
         self.init(name: name.rawValue, size: min(size, 100))!
     }
 }
@@ -1222,14 +1235,14 @@ public extension String {
     ///   - font: 字体，默认按照 M 码字体计算。
     ///   - maxSize: 最大尺寸，默认为 CGSize(width: 320, height: 68)
     /// - Returns: 文本所需宽度。
-    func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(name: .苹方_简_中黑体, size: 16)) -> CGSize {
+    func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(name: .苹方_中黑体, size: 16)) -> CGSize {
         // 根据文本内容获取尺寸，计算文字尺寸 UIFont.systemFont(ofSize: 14.0)
         return self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin],
                                  attributes: [NSAttributedString.Key.font: font],
                                  context: nil).size
     }
 
-    func sizeWith(font: UIFont = UIFont(name: .苹方_简_中黑体, size: 16) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize {
+    func sizeWith(font: UIFont = UIFont(name: .苹方_中黑体, size: 16) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize {
         let options = NSStringDrawingOptions.usesLineFragmentOrigin
         
         let paragraphStyle : NSMutableParagraphStyle = NSMutableParagraphStyle()
