@@ -53,7 +53,7 @@ extension UIApplication: ApiAdapter {
         }
     }
 
-    public func request(withRequestConfig requestConfig: ApiRequestConfig, callback: @escaping ((JSON) -> Void)) {
+    public func request(requestConfig: ApiRequestConfig, callback: @escaping ((JSON) -> Void)) {
 
         var method = HTTPMethod.get
         switch requestConfig.method {
