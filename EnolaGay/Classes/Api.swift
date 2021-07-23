@@ -161,12 +161,14 @@ public protocol ApiAdapter where Self: UIApplication {
     ///   - requestConfig: 配置好的 ApiRequestConfig 对象。
     ///   - callback: 发起请求后的响应函数，该函数要求传入响应的数据。
     func request(requestConfig: ApiRequestConfig, callback: @escaping ((JSON) -> Void))
-
-    /// 询问代理响应一个经过质检后的 JSON 数据，代理应针对服务器响应的 JSON 数据进行质检，若包含错误信息请通过 JSON.setQCApiERROR() 函数完成错误信息设置。
+    
+    /// 询问代理响应一个经过质检后的 JSON 数据。
+    ///
+    /// 该函数要求对响应的 JSON 数据进行质检，若包含错误信息请通过 JSON.setQCApiERROR() 函数完成错误信息设置。
     /// - Parameters:
-    /////   - requestConfig: 发起请求的配置信息对象。
+    ///   - requestConfig: 发起请求的配置信息对象。
     ///   - apiData: 响应的原始 JSON 数据。
-    /// - Returns: 经过质检后的 JSON 数据，apiData.setQCApiERROR() 函数即可得到目标 JSON.
+    /// - Returns: 经过质检后的 JSON 数据，JSON.setQCApiERROR() 函数即可得到目标 JSON.
     func responseQC(apiData: JSON) -> JSON
 }
 
