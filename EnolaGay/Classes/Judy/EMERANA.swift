@@ -9,11 +9,11 @@ import SwiftyJSON
 
 // MARK: typealias
 
-/// 一个不传递任何参数的闭包
+/// 一个不传递任何参数的闭包。
 public typealias Closure = (() -> Void)
-/// 传递一个 JSON 对象的闭包
+/// 传递一个 JSON 对象的闭包。
 public typealias ClosureJSON = ((JSON) -> Void)
-/// 传递一个 String 对象的闭包
+/// 传递一个 String 对象的闭包。
 public typealias ClosureString = ((String) -> Void)
 
 
@@ -68,7 +68,6 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     /// 该属性标识最后操作是否为上拉加载，通常在获取到服务器数据后需要判断该值进行数据的处理。
     var isAddMore: Bool { get }
     
-    
     /// 请在此函数中配置头部（下拉）刷新控件。
     func initHeaderRefresh()
     /// 请在此函数中配置底部（上拉）加加载控件。
@@ -107,15 +106,14 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
  # 注意：协议扩展是针对抽象类的，而协议本身是针对具体对象的。
  */
 extension EMERANA_Refresh {
-    
-    /// 是否隐藏上拉刷新控件？默认 false
+    /// 是否隐藏上拉刷新控件？默认 false.
     /// - warning: 所有实现 EMERANA_Refresh 协议的对象均能触发此扩展函数
     ///     * 在此函数中补充所需操作，扩展对应的类并重写此函数
     func hideFooterStateLabel() -> Bool { false }
 }
 
 
-/// 此协议仅适用于包含基础集合视图的 tableViewCtrl、collectionViewCtrl。
+/// 此协议仅适用于包含基础集合视图的 tableViewCtrl、collectionViewCtrl.
 protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
     
     /// 主要数据源，需要手动赋值，默认为空数组。
@@ -173,12 +171,6 @@ public extension EMERANA_CellBasic {
     
     func selectedDidSet(isSelected: Bool) { }
 }
-
-
-// MARK: - 字体样式协议。目前用于 button、label、textField
-
-@available(*, unavailable, message: "该协议已更新", renamed: "FontStyle")
-public protocol EMERANA_FontStyle: AnyObject {}
 
 /*
  
@@ -254,23 +246,36 @@ protocol FontStyle: AnyObject {
 
 /// 常用字体名。
 public enum FontName: String {
-    case 苹方_简_极细体 = "PingFangSC-Ultralight"
-    case 苹方_简_纤细体 = "PingFangSC-Thin"
-    case 苹方_简_细体 = "PingFangSC-Light"
-    case 苹方_简_常规体 = "PingFangSC-Regular"
-    case 苹方_简_中黑体 = "PingFangSC-Medium"
-    case 苹方_简_中粗体 = "PingFangSC-Semibold"
+    @available(*, unavailable, message: "重命名", renamed: "苹方_极细体")
+    case 苹方_简_极细体 = "PingFangSC-Ultr"
+    @available(*, unavailable, message: "重命名", renamed: "苹方_纤细体")
+    case 苹方_简_纤细体 = "PingFangSC-T"
+    @available(*, unavailable, message: "重命名", renamed: "苹方_细体")
+    case 苹方_简_细体 = "PingFangSC-Lgh"
+    @available(*, unavailable, message: "重命名", renamed: "苹方_常规体")
+    case 苹方_简_常规体 = "PingFangSC-ar"
+    @available(*, unavailable, message: "重命名", renamed: "苹方_中黑体")
+    case 苹方_简_中黑体 = "PingFangSCium"
+    @available(*, unavailable, message: "重命名", renamed: "苹方_中粗体")
+    case 苹方_简_中粗体 = "PingFangSCold"
+
+    case 苹方_极细体 = "PingFangSC-Ultralight"
+    case 苹方_纤细体 = "PingFangSC-Thin"
+    case 苹方_细体 = "PingFangSC-Light"
+    case 苹方_常规体 = "PingFangSC-Regular"
+    case 苹方_中黑体 = "PingFangSC-Medium"
+    case 苹方_中粗体 = "PingFangSC-Semibold"
     
     /// HelveticaNeue 纤细体
-    case HelveticaNeue_Thin = "HelveticaNeue-Thin"
+    case HlvtcThin = "HelveticaNeue-Thin"
     /// HelveticaNeue 细体
-    case HelveticaNeue_Light = "HelveticaNeue-Light"
+    case HlvtcNeue_Light = "HelveticaNeue-Light"
     /// HelveticaNeue 常规体
-    case HelveticaNeue = "HelveticaNeue"
+    case HlvtcNeue = "HelveticaNeue"
     /// HelveticaNeue 中黑体
-    case HelveticaNeue_Medium = "HelveticaNeue-Medium"
+    case HlvtcNeue_Medium = "HelveticaNeue-Medium"
     /// HelveticaNeue 粗体
-    case HelveticaNeue_Bold = "HelveticaNeue-Bold"
+    case HlvtcNeue_Bold = "HelveticaNeue-Bold"
 }
 
 public extension UIFont {
@@ -278,7 +283,7 @@ public extension UIFont {
     /// - Parameters:
     ///   - name: 参见 FontName.
     ///   - size: 字体的大小，该值最大取 100.
-    convenience init(name: FontName = .苹方_简_中黑体, size: CGFloat) {
+    convenience init(name: FontName = .苹方_中黑体, size: CGFloat) {
         self.init(name: name.rawValue, size: min(size, 100))!
     }
 }
@@ -371,7 +376,7 @@ public extension EnolaGayWrapper where Base == Calendar {
         return diff.day ?? 0
     }
     
-    /// 获取指定年月日的星期
+    /// 获取指定年月日的星期。
     /// - Parameters:
     ///   - year: 指定的年份。
     ///   - month: 指定的月份。
@@ -390,18 +395,10 @@ public extension EnolaGayWrapper where Base == Calendar {
 // MARK: - Date 扩展
 
 public extension Date {
-
-    @available(*, unavailable, message: "请直接使用构造函数", renamed: "init(string:)")
-    static func stringConvertDate(string: String, dateFormat: String="yyyy-MM-dd") -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.date(from: string)
-    }
-    
     /// 通过一个 string 构建一个北京时区的 date 对象。
     /// - Parameters:
     ///   - string: 该 string 应符合一个正常日期格式。
-    ///   - format: 目标的日期格式，该值默认为："yyyy-MM-dd"
+    ///   - format: 目标的日期格式，该值默认为："yyyy-MM-dd".
     init(string: String, format: String = "yyyy-MM-dd") {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
@@ -462,7 +459,6 @@ public extension EnolaGayWrapper where Base == Date {
 }
 
 
-
 // MARK: - UIApplication 扩展
 public extension EnolaGayWrapper where Base: UIApplication {
     /// 获取状态栏 View。
@@ -500,9 +496,9 @@ public extension UIApplication {
 // MARK: - UIImage 扩展
 
 public extension EnolaGayWrapper where Base: UIImage {
-    /// 重设图片大小
-    /// - Parameter reSize: 目标 size
-    /// - Returns: 目标 image
+    /// 重设图片大小。
+    /// - Parameter reSize: 目标 size.
+    /// - Returns: 目标 image.
     func reSizeImage(reSize: CGSize) -> UIImage {
         //UIGraphicsBeginImageContext(reSize);
         UIGraphicsBeginImageContextWithOptions(reSize, false, UIScreen.main.scale)
@@ -560,7 +556,7 @@ public extension EnolaGayWrapper where Base: UIImage {
         var imageData = newImage!.jpegData(compressionQuality: 1.0)
         var sizeOriginKB : CGFloat = CGFloat((imageData?.count)!) / 1024.0;
         
-        //调整大小
+        // 调整大小。
         var resizeRate = 0.9;
         while (sizeOriginKB > maxSize && resizeRate > 0.1) {
             
@@ -574,24 +570,24 @@ public extension EnolaGayWrapper where Base: UIImage {
         return imageData!
     }
 
-    /// 生成圆形图片
+    /// 生成圆形图片。
     func imageCircle() -> UIImage {
-        //取最短边长
+        // 取最短边长。
         let shotest = min(base.size.width, base.size.height)
-        //输出尺寸
+        // 输出尺寸。
         let outputRect = CGRect(x: 0, y: 0, width: shotest, height: shotest)
-        //开始图片处理上下文（由于输出的图不会进行缩放，所以缩放因子等于屏幕的scale即可）
+        // 开始图片处理上下文（由于输出的图不会进行缩放，所以缩放因子等于屏幕的scale即可）。
         UIGraphicsBeginImageContextWithOptions(outputRect.size, false, 0)
         let context = UIGraphicsGetCurrentContext()!
-        //添加圆形裁剪区域
+        // 添加圆形裁剪区域。
         context.addEllipse(in: outputRect)
         context.clip()
-        //绘制图片
+        // 绘制图片。
         base.draw(in: CGRect(x: (shotest-base.size.width)/2,
                         y: (shotest-base.size.height)/2,
                         width: base.size.width,
                         height: base.size.height))
-        //获得处理后的图片
+        // 获得处理后的图片。
         let maskedImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return maskedImage
@@ -816,15 +812,15 @@ public extension NSAttributedString {
 // MARK: - NSMutableAttributedString 扩展函数
 public extension NSMutableAttributedString {
 
-    /// 生成一个高配版 NSMutableAttributedString。
+    /// 生成一个高配版 NSMutableAttributedString.
     /// - Parameters:
     ///   - text: 要显示的文本信息。
-    ///   - textColor: 文本颜色，默认为 nil。
-    ///   - textFont: 文本的字体，默认为 nil。
+    ///   - textColor: 文本颜色，默认为 nil.
+    ///   - textFont: 文本的字体，默认为 nil.
     ///   - highlightText: 高亮的文本，该文本应该是 text 的一部分。
-    ///   - highlightTextColor: 高亮文本的颜色，该值默认为 nil，。
-    ///   - highlightTextFont: 高亮状态文本的字体，默认为 nil。
-    /// - Returns: attributedString。
+    ///   - highlightTextColor: 高亮文本的颜色，该值默认为 nil.
+    ///   - highlightTextFont: 高亮状态文本的字体，默认为 nil.
+    /// - Returns: attributedString.
     /// - Warning: addAttribute() 或 addAttributes() 均需要指定一个 range，如需扩展，可模拟此函数创建新的自定义函数。
     convenience init(text: String, textColor: UIColor? = nil, textFont: UIFont? = nil, highlightText: String? = nil, highlightTextColor: UIColor? = nil, highlightTextFont: UIFont? = nil) {
         // 默认配置。
@@ -1239,14 +1235,14 @@ public extension String {
     ///   - font: 字体，默认按照 M 码字体计算。
     ///   - maxSize: 最大尺寸，默认为 CGSize(width: 320, height: 68)
     /// - Returns: 文本所需宽度。
-    func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(name: .苹方_简_中黑体, size: 16)) -> CGSize {
+    func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(name: .苹方_中黑体, size: 16)) -> CGSize {
         // 根据文本内容获取尺寸，计算文字尺寸 UIFont.systemFont(ofSize: 14.0)
         return self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin],
                                  attributes: [NSAttributedString.Key.font: font],
                                  context: nil).size
     }
 
-    func sizeWith(font: UIFont = UIFont(name: .苹方_简_中黑体, size: 16) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize {
+    func sizeWith(font: UIFont = UIFont(name: .苹方_中黑体, size: 16) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize {
         let options = NSStringDrawingOptions.usesLineFragmentOrigin
         
         let paragraphStyle : NSMutableParagraphStyle = NSMutableParagraphStyle()
