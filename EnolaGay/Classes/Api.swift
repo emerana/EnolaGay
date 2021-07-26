@@ -222,10 +222,9 @@ final public class ApiRequestConfig {
     /// ```
     public lazy var api: ApiAction? = nil
 
-    /// 请求域名。该值将与 api 属性拼接成最终请求的完整 URL。
+    /// 请求域名，默认为 Domain.default，该值将与 api 属性拼接成最终请求的完整 URL。
     ///
-    /// 通过 extension UIApplication: ApiAdapter 实现 domain() 以配置默认值；
-    /// 若需配置多个域名，详见 Domain。
+    /// 配置默认值及配置多个域名详见 Domain。
     public var domain: Domain = .default
         
     /// 请求方式 HTTPMethod.
@@ -324,20 +323,21 @@ final public class ApiRequestConfig {
     
     /// ApiRequestConfig 中的域名配置模块。
     ///
-    /// ApiRequestConfig 中所有域名均通过此 structure 配置，通过 extension UIApplication: ApiAdapter 实现 domain() 以配置默认值；配置多个域名参考如下警示：
-    /// - Warning: 新增域名请务必参考如下代码:
+    /// ApiRequestConfig 中所有域名均通过此 structure 配置，通过 extension UIApplication: ApiAdapter 实现 domain() 以配置默认值；
+    ///
+    /// # 配置多个域名参考如下代码：
     /// ```
-    /// static let masterDomain = ApiRequestConfig.Domain(rawValue: "https://www.baidu.com")
+    /// static let domain = ApiRequestConfig.Domain(rawValue: "https://www.baidu.com")
     /// ```
     public struct Domain: Hashable, Equatable, RawRepresentable {
         /// 域名的实际可访问性字符串。
         private(set) public var rawValue: String
-        
+
         public init(rawValue: String) {
             self.rawValue = rawValue
         }
         
-        /// 项目中默认使用的主要域名，值为 domain() 函数。
+        /// 项目中默认使用的主要域名，值为 ApiAdapter 协议中的 domain() 函数。
         static let `default` = Domain(rawValue: EMERANA.apiAdapter?.domain() ?? "https://www.baidu.com")
     }
     
