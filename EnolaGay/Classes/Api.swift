@@ -247,20 +247,13 @@ final public class ApiRequestConfig {
     /// 通过覆盖 responseJSON() 以配置全局通用值。
     public var isResponseJSON: Bool = EMERANA.apiAdapter?.responseJSON() ?? true
 
-    /// 完整的请求 URL.
+    /// 最终的请求 URL. 该值为 domain、api 拼接而成。
     public var reqURL: String { domain.rawValue + (api?.value ?? "") }
 
-    /// HTTPMethod.
+    /// HTTPMethod 请求方式。
     public enum Method {
-        case options
         case get
-        case head
         case post
-        case put
-        case patch
-        case delete
-        case trace
-        case connect
     }
     
     /// 请求参数可选编码方式 encoding.
@@ -287,6 +280,7 @@ final public class ApiRequestConfig {
     /// 由当前对象向 Api 层发起请求，该函数中将触发 configAffirm() 确认函数，并且在得到响应数据后要求对该数据进行质检。
     ///
     /// 在 callback 函数中，可以通过 JSON.ApiERROR 来判断是否存在错误信息。
+    /// - Warning: 请确认实现 extension UIApplication: ApiAdapter.
     /// - Parameter callback: 请求的回调函数。
     public func request(withCallBack callback: @escaping ((JSON) -> Void)) {
         guard EMERANA.apiAdapter != nil else {
