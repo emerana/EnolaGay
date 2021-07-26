@@ -222,13 +222,16 @@ final public class ApiRequestConfig {
     /// ```
     public lazy var api: ApiAction? = nil
 
-    /// 请求域名。
+    /// 请求域名。该值将与 api 属性拼接成最终请求的完整 URL。
     ///
-    /// 该值将与 api 属性拼接成最终请求的完整 URL。若存在多个域名，请通过 UIApplication: ApiAdapter 新增。
+    /// 通过 extension UIApplication: ApiAdapter 实现 domain() 以配置默认值；
+    /// 若需配置多个域名，详见 Domain。
     public var domain: Domain = .default
         
-    /// 请求方式 HTTPMethod，请通过 extension UIApplication: ApiAdapter 配置全局通用值。
-    public var method: Method = ((EMERANA.apiAdapter?.globalMethodPOST() ?? true) ? .post : .get)
+    /// 请求方式 HTTPMethod.
+    ///
+    /// 请通过 extension UIApplication: ApiAdapter 实现 globalMethodPOST() 以配置全局通用值。
+    public var method: Method = (EMERANA.apiAdapter?.globalMethodPOST() ?? true) ? .post:.get
 
     /// 请求参数，初值是一个空数组。
     public var parameters: [String: Any]? = [String: Any]()
@@ -319,23 +322,19 @@ final public class ApiRequestConfig {
         }
     }
     
-    /// ApiRequestConfig 中的域名模块。
+    /// ApiRequestConfig 中的域名配置模块。
     ///
-    /// ApiRequestConfig 中所有域名均通过此 structure 配置，通常扩展并覆盖 static func domain() 即为项目配置了主要域名，若需要多个域名，请 extension ApiRequestConfig.Domain 新增即可。
+    /// ApiRequestConfig 中所有域名均通过此 structure 配置，通过 extension UIApplication: ApiAdapter 实现 domain() 以配置默认值；配置多个域名参考如下警示：
     /// - Warning: 新增域名请务必参考如下代码:
     /// ```
     /// static let masterDomain = ApiRequestConfig.Domain(rawValue: "https://www.baidu.com")
     /// ```
     public struct Domain: Hashable, Equatable, RawRepresentable {
-        
+        /// 域名的实际可访问性字符串。
         private(set) public var rawValue: String
         
         public init(rawValue: String) {
             self.rawValue = rawValue
-            
-            if EMERANA.apiAdapter == nil {
-                Judy.logWarning("未实现 extension UIApplication: ApiAdapter，所有请求将使用默认值！")
-            }
         }
         
         /// 项目中默认使用的主要域名，值为 domain() 函数。
