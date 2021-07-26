@@ -260,9 +260,9 @@ final public class ApiRequestConfig {
     
     /// 请求参数可选编码方式 encoding.
     public enum Encoding {
-        /// 将参数打包成 JSON。
+        /// 将请求参数打包成 JSON.
         case JSONEncoding
-        /// 一般在 get 请求时需要将参数拼接到 URL 上选择此编码。
+        /// 将请求参数拼接到请求 URL 上，常用于 get 请求。
         case URLEncoding
         /// 将参数放在请求 body 中而不是 URL 里面。
         case URLEncodingHttpBody
