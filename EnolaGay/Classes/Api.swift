@@ -241,12 +241,12 @@ final public class ApiRequestConfig {
     @available(*, unavailable, message: "请重命名", renamed: "header")
     public lazy var headers: [String: String]? = [String: String]()
     
-    /// 请求头信息字典。
-    /// - Warning: 该值可以设置为 nil，但初值非 nil.
-    public lazy var header: [String: String]? = [String: String]()
+    /// 请求头信息，该值默认为一个空字典。
+    public lazy var header = [String: String]()
 
-    /// 请求的响应数据格式是否为 responseJSON，默认 true，反之响应为 responseString.
-    /// 通过覆盖 responseJSON() 以配置全局通用值。
+    /// 请求的响应数据格式是否为 responseJSON，默认值为 true.反之响应为 responseString.
+    ///
+    /// 请通过 extension UIApplication: ApiAdapter 实现 responseJSON() 以修改默认值。
     public var isResponseJSON: Bool = EMERANA.apiAdapter?.responseJSON() ?? true
 
     /// 最终的请求 URL. 该值为 domain、api 拼接而成。
