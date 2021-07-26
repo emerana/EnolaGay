@@ -212,12 +212,12 @@ final public class ApiRequestConfig {
 
     /// 请求的 api.
     ///
-    /// 该值为用于与 domain 拼接的部分，初值 nil，每次请求都会有一个 api.
-    /// - Warning: 配置 api 请通过创建实现 ApiAction 协议的 public enum，参考如下代码：
+    /// 该值为用于与 domain 拼接的部分，初值为 nil.
+    /// - Warning: 通过实现 ApiAction 协议配置 api，推荐使用 enum，如：
     /// ```
     /// enum Apis: String, ApiAction {
     ///     var value: String { rawValue }
-    ///     case testAction = "test"
+    ///     case yourAction = "/api/login"
     /// }
     /// ```
     public lazy var api: ApiAction? = nil
@@ -275,7 +275,9 @@ final public class ApiRequestConfig {
 
     public init() {}
     
-    /// 主动确认配置信息，此函数将触发 ApiAdapter 的 apiRequestConfigAffirm 函数。
+    /// 确认配置信息。
+    ///
+    /// 此函数将触发 ApiAdapter 的 apiRequestConfigAffirm 函数。
     ///
     /// - Warning: 在 apiRequestConfig 不通过 request 函数发起请求时请务必调用此函数以便确认配置信息的正确性。
     public func configAffirm() {
