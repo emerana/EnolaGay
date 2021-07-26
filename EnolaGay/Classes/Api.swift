@@ -229,7 +229,7 @@ final public class ApiRequestConfig {
         
     /// 请求方式 HTTPMethod.
     ///
-    /// 请通过 extension UIApplication: ApiAdapter 实现 globalMethodPOST() 以配置全局通用值。
+    /// 请通过实现 ApiAdapter.globalMethodPOST() 以配置全局通用值。
     public var method: Method = (EMERANA.apiAdapter?.globalMethodPOST() ?? true) ? .post:.get
 
     /// 请求参数，初值是一个空数组。
@@ -246,7 +246,7 @@ final public class ApiRequestConfig {
 
     /// 请求的响应数据格式是否为 responseJSON，默认值为 true.反之响应为 responseString.
     ///
-    /// 请通过 extension UIApplication: ApiAdapter 实现 responseJSON() 以修改默认值。
+    /// 请通过实现 ApiAdapter.responseJSON() 以修改默认值。
     public var isResponseJSON: Bool = EMERANA.apiAdapter?.responseJSON() ?? true
 
     /// 最终的请求 URL. 该值为 domain、api 拼接而成。
@@ -271,7 +271,7 @@ final public class ApiRequestConfig {
     
     /// 确认配置信息。
     ///
-    /// 此函数将触发 ApiAdapter 的 apiRequestConfigAffirm 函数。
+    /// 请通过实现 ApiAdapter.apiRequestConfigAffirm() 确认 ApiRequestConfig 对象的准确性。
     ///
     /// - Warning: 在 apiRequestConfig 不通过 request 函数发起请求时请务必调用此函数以便确认配置信息的正确性。
     public func configAffirm() {
@@ -322,7 +322,7 @@ final public class ApiRequestConfig {
     
     /// ApiRequestConfig 中的域名配置模块。
     ///
-    /// ApiRequestConfig 中所有域名均通过此 structure 配置，通过 extension UIApplication: ApiAdapter 实现 domain() 以配置默认值；
+    /// ApiRequestConfig 中所有域名均通过此 structure 配置，通过实现 ApiAdapter.domain() 配置默认值；
     ///
     /// # 配置多个域名参考如下代码：
     /// ```
@@ -336,7 +336,7 @@ final public class ApiRequestConfig {
             self.rawValue = rawValue
         }
         
-        /// 项目中默认使用的主要域名，值为 ApiAdapter 协议中的 domain() 函数。
+        /// 项目中默认使用的主要域名，其值为 ApiAdapter.domain().
         static let `default` = Domain(rawValue: EMERANA.apiAdapter?.domain() ?? "https://www.baidu.com")
     }
     
