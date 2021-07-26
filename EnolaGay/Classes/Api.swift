@@ -235,11 +235,14 @@ final public class ApiRequestConfig {
 
     /// 请求参数的编码方式 ParameterEncoding，默认值为 URLEncoding.
     public lazy var encoding: Encoding = .URLEncoding
-
-    /// 请求头信息字典。
-    /// - Warning: 该值可以设置为 nil，但初值非 nil.
+    
+    @available(*, unavailable, message: "请重命名", renamed: "header")
     public lazy var headers: [String: String]? = [String: String]()
     
+    /// 请求头信息字典。
+    /// - Warning: 该值可以设置为 nil，但初值非 nil.
+    public lazy var header: [String: String]? = [String: String]()
+
     /// 请求的响应数据格式是否为 responseJSON，默认 true，反之响应为 responseString.
     /// 通过覆盖 responseJSON() 以配置全局通用值。
     public var isResponseJSON: Bool = EMERANA.apiAdapter?.responseJSON() ?? true
