@@ -254,8 +254,7 @@ final public class ApiRequestConfig {
 
     /// HTTPMethod 请求方式。
     public enum Method {
-        case get
-        case post
+        case get, post
     }
     
     /// 请求参数可选编码方式 encoding.
