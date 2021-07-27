@@ -281,7 +281,7 @@ public enum FontName: String {
 public extension UIFont {
     /// 通过 FontName 获得一个 UIFont 对象。
     /// - Parameters:
-    ///   - name: 参见 FontName.
+    ///   - name: 参见 FontName，该值默认为 .苹方_中黑体。
     ///   - size: 字体的大小，该值最大取 100.
     convenience init(name: FontName = .苹方_中黑体, size: CGFloat) {
         self.init(name: name.rawValue, size: min(size, 100))!
@@ -1203,20 +1203,21 @@ public extension String {
     /// - Returns: 如："str abc", "strabc".
     func clean() -> String { replacingOccurrences(of: " ", with: "") }
     
-    /// 计算文本的 size。
+    /// 计算文本的 size.
     ///
     /// - Parameters:
-    ///   - font: 字体，默认按照 M 码字体计算。
-    ///   - maxSize: 最大尺寸，默认为 CGSize(width: 320, height: 68)
+    ///   - font: 以该字体作为计算尺寸的参考。
+    ///   - maxSize: 最大尺寸，默认为 CGSize(width: 320, height: 68).
     /// - Returns: 文本所需宽度。
-    func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(name: .苹方_中黑体, size: 16)) -> CGSize {
+    func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(size: 16)) -> CGSize {
         // 根据文本内容获取尺寸，计算文字尺寸 UIFont.systemFont(ofSize: 14.0)
         return self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin],
                                  attributes: [NSAttributedString.Key.font: font],
                                  context: nil).size
     }
-
-    func sizeWith(font: UIFont = UIFont(name: .苹方_中黑体, size: 16) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize {
+    
+    /// 计算文本的 size.
+    func sizeWith(font: UIFont = UIFont(size: 16) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize {
         let options = NSStringDrawingOptions.usesLineFragmentOrigin
         
         let paragraphStyle : NSMutableParagraphStyle = NSMutableParagraphStyle()
@@ -1344,16 +1345,15 @@ public struct EMERANA {
     
     /// 该数据结构的主要用来封装少量相关简单数据值。
     /// - Warning: 注意
-    ///     * 项目中所有固定的可访问性字符都应该封装在此结构体内，在此结构体中定义所有可访问性数据（字符）
-    ///     * 希望数据结构的实例被赋值给另一个实例时是拷贝而不是引用，封装的数据及其中存储的值也是拷贝而不是引用
-    ///     * 该数据结构不需要使用继承
+    ///     * 项目中所有固定的可访问性字符都应该封装在此结构体内，在此结构体中定义所有可访问性数据（字符）。
+    ///     * 希望数据结构的实例被赋值给另一个实例时是拷贝而不是引用，封装的数据及其中存储的值也是拷贝而不是引用。
+    ///     * 该数据结构不需要使用继承。
     public struct Key {
         /// 状态栏 View 专用 tag.
         public static let statusBarViewTag = 20210727
 
     }
-    
-
+    /// 定义 String 类型的 enum 样板，这种 enum 可以不用 rawValue.
     public enum Info: String {
         case 新增Api请求代理管理
         case 新增全局Cell代理管理
@@ -1373,7 +1373,7 @@ public extension EMERANA.Key {
 
     /// 与各种 Cell 相关的常用 Key.
     struct Cell {
-        /// Cell 的重用标识符，能够代表该 Cell 具体类型标识
+        /// Cell 的重用标识符，能够代表该 Cell 具体类型标识。
         public static let cell = "EMERANA_KEY_Cell_identitierCell"
 
         /// 标识 cell 的高度
@@ -1429,7 +1429,7 @@ public extension EMERANA.Key {
 /// 仅需通过 registerKeyBoardListener() 函数即可实现输入框跟随键盘位置移动从而保证输入框不被遮挡。
 public final class KeyboardHelper {
     
-    /// 此属性用于记录当下键盘的高度，若键盘已被收起则为 0。
+    /// 此属性用于记录当下键盘的高度，若键盘已被收起则为 0.
     public private(set) var keyboardHeight: CGFloat = 0
     /// 输入框所在的 view,当键盘出现或隐藏，会根据键盘的高度移动该 view.
     private(set) var textFieldWrapperView = UIView()
@@ -1497,11 +1497,8 @@ public final class KeyboardHelper {
             // 键盘已经弹出，只是切换键盘，直接更新 textFieldWrapperView 2D 仿射变换矩阵。
             animations()
         }
-
     }
-
 }
-
 
 
 // MARK: - 命名空间
@@ -1636,13 +1633,4 @@ extension Calendar: EnolaGayCompatible { }
  target 'ChainInstall'
  
  end
- */
-
-
-/*
- system_login_no(2100, "请先登录！"),
- system_login_timeout(2101,"登录超时，请重新登录！"),
- system_refuse(3000, "访问过于频繁，休息一下！"),
- system_message_excess(3001, "短信发送已经超出一天限制，请明天再试！"),
- 
  */

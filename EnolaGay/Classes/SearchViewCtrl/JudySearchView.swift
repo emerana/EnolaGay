@@ -96,7 +96,7 @@ open class JudySearchView: UIView {
 
                 // Judy-mark: 修改 textField 的光标颜色
                 judyView!.searchTextField?.tintColor = judyView!.titleColor
-                judyView!.searchTextField?.font = UIFont(name: .苹方_中黑体, size: 16)
+                judyView!.searchTextField?.font = UIFont(size: 16)
                 // judyView!.searchTextField?.textColor = judyView!.titleColor
                 // Judy-mark: 修改所有textField的光标颜色
                 //            UITextField.appearance().tintColor = .black
@@ -106,7 +106,7 @@ open class JudySearchView: UIView {
                 judyView?.searchTextField = nil
                 // Judy-mark: 修改searchButton颜色
                 judyView!.searchButton?.setTitleColor(judyView!.titleColor, for: .normal)
-                judyView!.searchButton?.titleLabel?.font = UIFont(name: .苹方_中黑体, size: 16)
+                judyView!.searchButton?.titleLabel?.font = UIFont(size: 16)
                 judyView!.searchButton?.contentHorizontalAlignment = alignLeft ? .left:.center
                 judyView!.searchButton?.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: alignLeft ? 8:0, bottom: 0, right: 0)
                 judyView!.searchButton?.setImageTextSpacing(spacing: 8)
