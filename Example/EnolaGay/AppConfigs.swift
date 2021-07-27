@@ -78,7 +78,7 @@ extension UIApplication: ApiAdapter {
                                           method: method,
                                           parameters: requestConfig.parameters,
                                           encoding: encoding,
-                                          headers: requestConfig.headers)
+                                          headers: requestConfig.header)
 
         // 设置请求等待响应时间。
         // 这招已经没用了Modifying a URLSession's properties after it has been assigned to a URLSession isn't supported
