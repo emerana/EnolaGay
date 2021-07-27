@@ -310,9 +310,9 @@ public protocol EnolaGayAdapter where Self: UIApplication {
 }
 
 public extension EnolaGayAdapter {
-    func viewBackgroundColor() -> UIColor { .white }
+    func viewBackgroundColor() -> UIColor { .systemBackground }
 
-    func scrollViewBackGroundColor() -> UIColor { .white }
+    func scrollViewBackGroundColor() -> UIColor { .systemBackground }
 
     func navigationBarItemsColor() -> UIColor { .systemBlue }
 }
