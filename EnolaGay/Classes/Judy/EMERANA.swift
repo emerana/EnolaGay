@@ -1135,8 +1135,8 @@ public extension UIView {
 // MARK: - UITextFieldDelegate 扩展函数
 
 public extension UITextFieldDelegate {
-    
     /// 限制当前输入的字符为整数。
+    /// - Warning: 此函数仅限在输入阶段的 shouldChangeCharactersIn() 使用。
     /// - Parameters:
     ///   - textField: 输入框对象。
     ///   - string: 输入的字符，即代理方法中的 string.
@@ -1165,7 +1165,9 @@ public extension UITextFieldDelegate {
     }
 }
 
+
 // MARK: - Double 扩展
+
 /// 为空间包装对象 Double 添加扩展函数。
 public extension EnolaGayWrapper where Base == Double {
     
