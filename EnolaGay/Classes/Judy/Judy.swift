@@ -335,53 +335,8 @@ public extension Judy {
         return true
     }
     
-    /// 验证正整型输入，确保当下输入的值符合所需数值要求
-    ///
-    /// - warning: 此方法限 textField shouldChangeCharactersInRange 代理方法中调用
-    /// - Parameters:
-    ///   - textField: UITextField 对象
-    ///   - range: 代理方法的range
-    ///   - string: 代理方法中的的string，即输入的字符
-    ///   - num: 限制输入的位数。默认为0，不限制。
-    ///   - maxNumber: 允许输入的最大值，比如1000，那么该输入框就无法输入大于1000的值。默认为0，不限制
-    ///   - minNumber: 允许输入的最小值，比如1，那么该输入框就无法输入小于1的值且不能输入0。默认为0，不限制
-    /// - Returns: 是否验证通过
-    static func numberInputRestriction(textField: UITextField, range: NSRange, string: String, num: Int = 0, maxNumber: Int = 0, minNumber: Int = 0) -> Bool {
-        
-        // Step1：输入数值校验，仅允许输入指定的字符
-        let cs: CharacterSet = CharacterSet.init(charactersIn: "0123456789\n").inverted
-        let filtered: String = (string.components(separatedBy: cs) as NSArray).componentsJoined(by: "")
-        guard string as String == filtered  else { logWarning("请输入正确的数值"); return false }
-        
-        // Step2：位数校验，验证小数点前所允许的位数
-        let textFieldText = textField.text! as NSString
-        if num != 0 && string != ""  {
-            // 小数点前面位数验证
-            guard textFieldText.length < num else { logWarning("只能输入\(num)位"); return false }
-        }
-
-        // Step3：数值校验，验证最终输入框中的字符是否符合要求
-        let textFieldString = (textFieldText as String) + string
-        let numberValue = Int(textFieldString) ?? 0
-        // 最大值校验
-        if maxNumber != 0 && numberValue > maxNumber && string != "" {
-            logWarning("只能输入小于\(maxNumber)的值")
-            return false
-        }
-        // 最小值校验
-        if minNumber != 0 && numberValue < minNumber && string != "" {
-            logWarning("只能输入>=\(minNumber)的值")
-            return false
-        }
-        
-        // 空字符校验
-        if string == "" && numberValue <= minNumber {
-            textField.text = String(minNumber)
-            return false
-        }
-        
-        return true
-    }
+    @available(*, unavailable, message: "请直接使用 UITextFieldDelegate 的扩展函数 numberRestriction()")
+    static func numberInputRestriction(textField: UITextField, range: NSRange, string: String, num: Int = 0, maxNumber: Int = 0, minNumber: Int = 0) -> Bool { true }
     
     /// 仅限整型输入。可输入的字符[0123456789\n]
     /// - Parameters:
