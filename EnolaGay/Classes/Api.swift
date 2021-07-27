@@ -7,103 +7,11 @@
 //  Copyright © 2017年 8891.com.tw. All rights reserved.
 //
 
-
 import SwiftyJSON
 
-/// Api 管理层
-///
-/// public extension JudyApi 并覆盖 EMERANA_ApiDataValidation 中的函数以配置数据校验
 @available(*, unavailable, message: "此类以弃用！")
 public final class JudyApi {
-    // 私有化init()，禁止构建对象。
-    private init() {}
-    
-    // MARK: 公开的网络请求方法
-    
-    /// 发起网络请求。
-    ///
-    /// 唯一发起请求的函数，closure 中的 JSON 已经处理好，可直接使用
-    ///  - since: V1.1
-    ///  * author: 王仁洁 2020年12月04日09:25
-    ///  * note: 暂无
-    /// - Parameters:
-    ///   - requestConfig: ApiRequestConfig 请求配置对象
-    ///   - closure: 回调函数，通过 [EMERANA.Key.Api.error].isEmpty 验证是否成功
-    public static func req(requestConfig: ApiRequestConfig, closure: @escaping ((JSON)->Void)) {
-        
-        guard requestConfig.api != nil else { fatalError("请给 requestConfig.api 赋值！") }
-        
-//        guard emeranaRequestDelegate == nil else {
-//            emeranaResponseDelegate = nil   // 将响应代理设为nil
-//            closure(emeranaRequestDelegate!.requestMap(action: requestConfig.api!, param: requestConfig.parameters))
-//            return
-//        }
-        /*
-        /// 请求对象
-        let alamofire = Alamofire.request(requestConfig.reqURL,
-                                          method: requestConfig.method,
-                                          parameters: requestConfig.parameters,
-                                          encoding: requestConfig.alamofireEncoding,
-                                          headers: requestConfig.headers)
-
-        // 设置请求等待响应时间。
-        // 这招已经没用了Modifying a URLSession's properties after it has been assigned to a URLSession isn't supported
-        alamofire.session.configuration.timeoutIntervalForRequest = 10
-        // alamofire.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        /// 响应适配函数
-        /// - Parameter response: DataResponse
-        func responseAdapter<T>(response: DataResponse<T>) {
-//
-//            guard emeranaResponseDelegate == nil else {
-//                closure(emeranaResponseDelegate!.responseMap(action: requestConfig.api!, param: requestConfig.parameters))
-//                return
-//            }
-
-            var json = JSON([EMERANA.Key.Api.error:[EMERANA.Key.Api.msg: "系统错误!", EMERANA.Key.Api.code: 250]])
-            //  Judy.log("收到 \(T.self) 类型响应")
-            switch response.result {
-            case .success(let value):   // 请求成功
-                if value is String {
-                    // string 先转成 Data 再转成 JSON
-                    let data = (value as! String).data(using: .utf8)!
-                    json = JSON(data)
-                } else {
-                    json = JSON(value)
-                }
-                
-                // 数据校验。
-                if EMERANA.apiAdapter != nil {
-                    let result = EMERANA.apiAdapter!.responseErrorValidation(json: json)
-                    // 配置错误信息。
-                    if result.error {
-                        json[EMERANA.Key.Api.error] = [EMERANA.Key.Api.code: result.1, EMERANA.Key.Api.msg: result.2]
-                    }
-                } else {
-                    Judy.logWarning("未实现 extension UIApplication: EMERANA_ApiDataValidation，服务器响应的数据将不会进行校验！")
-                }
-            case .failure(let error):   // 请求失败
-                Judy.log("请求失败:\(error)\n请求地址：\(String(describing: response.request))")
-                json[EMERANA.Key.Api.error] = [
-                    EMERANA.Key.Api.code: response.response?.statusCode ?? 250,
-                    EMERANA.Key.Api.msg: error.localizedDescription,
-                ]
-            }
-            
-            closure(json)
-        }
-
-         // 服务器响应格式，String 或 JSON
-        if requestConfig.isResponseJSON {
-            alamofire.responseJSON {(response: DataResponse<Any>) in responseAdapter(response: response) }
-        } else {
-            alamofire.responseString { (response: DataResponse<String>) in responseAdapter(response: response) }
-        }
-         */
-
-    }
-    
-    /**
-     正确地上传图片方式
+    /*
      // 正确地上传图片
      let imgData = newImage.jpegData(compressionQuality: 0.75)
      Alamofire.upload(multipartFormData: { (multipartFormData) in
@@ -138,14 +46,14 @@ public final class JudyApi {
 /// ApiRequestConfig 专用初始化协议，该协议定义了 ApiRequestConfig 部分属性的初值，及通用的请求接口。
 /// - Warning: 该协议主要针对 ApiRequestConfig 进行全局性的配置，可单独设置其属性。
 public protocol ApiAdapter where Self: UIApplication {
-        
+    
     /// 询问请求的主要（默认）域名。
     /// - Warning: 该函数主要针对全局配置，如需变更请单独设置 apiConfig.domain.
     func domain() -> String
     
     /// 询问全局默认的请求方法是否为 POST? 该函数默认实现为 true.
     func globalMethodPOST() -> Bool
-
+    
     /// 询问 apiRequestConfig 请求的响应方式是否为 responseJSON？默认实现为 true，否则为 responseString.
     func responseJSON() -> Bool
     
@@ -175,7 +83,7 @@ public protocol ApiAdapter where Self: UIApplication {
 // 默认实现 ApiDelegate，使其变成可选协议函数。
 public extension ApiAdapter {
     func domain() -> String {
-        Judy.logWarning(" 默认域名未配置，将使用 www.baidu.com，请确认 extension UIApplication: ApiAdapter 中 domain 函数的实现")
+        Judy.logWarning("ApiAdapter.domain() 未实现，默认域名将使用 www.baidu.com")
         return "https://www.baidu.com"
     }
     
@@ -186,21 +94,21 @@ public extension ApiAdapter {
     func apiRequestConfigAffirm(requestConfig: ApiRequestConfig) { }
     
     func responseQC(apiData: JSON) -> JSON {
-        Judy.logWarning("未实现 responseQC 质检函数，apiData 将直接使用服务器响应的原始数据。")
+        Judy.logWarning("ApiAdapter.responseQC() 未实现，将直接使用服务器响应的原始数据")
         return apiData
     }
 }
 
 /// api 接口规范协议，该协议规定了 api 的定义过程，如 enum Actions: String, ApiAction.
 public protocol ApiAction {
-    /// api 的原始值。
+    /// api 的可访问性原始值。
     var value: String { get }
 }
 
 public extension ApiAction {
-    /// 此函数用于验证当前 api 是否为指定目标 api。
-    /// - Parameter apiAction: 匹配目标 ApiAction。
-    /// - Returns: 比对结果。
+    /// 验证当前 api 是否为目标 api.
+    /// - Parameter apiAction: 匹配的目标 ApiAction.
+    /// - Returns: 若目标 Api 与之匹配，返回 true.
     func `is`(_ apiAction: ApiAction) -> Bool { apiAction.value == value }
 }
 
@@ -209,7 +117,7 @@ public extension ApiAction {
 /// ApiRequestConfig 对象在初始化时就已经通过 ApiAdapter 协议中的函数配置好了必须属性，关于 domain 和 api 属性的使用请参考其自身说明。
 /// - Warning: 请 extension UIApplication: ApiAdapter 并覆盖指定函数以配置属性的初始值。
 final public class ApiRequestConfig {
-
+    
     /// 请求的 api.
     ///
     /// 该值为用于与 domain 拼接的部分，初值为 nil.
@@ -221,20 +129,20 @@ final public class ApiRequestConfig {
     /// }
     /// ```
     public lazy var api: ApiAction? = nil
-
+    
     /// 请求域名，默认为 Domain.default，该值将与 api 属性拼接成最终请求的完整 URL。
     ///
     /// 配置默认值及配置多个域名详见 Domain。
     public var domain: Domain = .default
-        
+    
     /// 请求方式 HTTPMethod.
     ///
     /// 请通过实现 ApiAdapter.globalMethodPOST() 以配置全局通用值。
     public var method: Method = (EMERANA.apiAdapter?.globalMethodPOST() ?? true) ? .post:.get
-
+    
     /// 请求参数，初值是一个空数组。
     public var parameters: [String: Any]? = [String: Any]()
-
+    
     /// 请求参数的编码方式 ParameterEncoding，默认值为 URLEncoding.
     public lazy var encoding: Encoding = .URLEncoding
     
@@ -243,15 +151,15 @@ final public class ApiRequestConfig {
     
     /// 请求头信息，该值默认为一个空字典。
     public lazy var header = [String: String]()
-
+    
     /// 请求的响应数据格式是否为 responseJSON，默认值为 true.反之响应为 responseString.
     ///
     /// 请通过实现 ApiAdapter.responseJSON() 以修改默认值。
     public var isResponseJSON: Bool = EMERANA.apiAdapter?.responseJSON() ?? true
-
+    
     /// 最终的请求 URL. 该值为 domain、api 拼接而成。
     public var reqURL: String { domain.rawValue + (api?.value ?? "") }
-
+    
     /// HTTPMethod 请求方式。
     public enum Method {
         case get, post
@@ -266,7 +174,7 @@ final public class ApiRequestConfig {
         /// 将参数放在请求 body 中而不是 URL 里面。
         case URLEncodingHttpBody
     }
-
+    
     public init() {}
     
     /// 确认配置信息。
@@ -296,7 +204,7 @@ final public class ApiRequestConfig {
         }
         // 确认配置信息。
         configAffirm()
-
+        
         guard api != nil else {
             let msg = "api 为空，取消已请求!"
             let json = JSON([APIERRKEY.error.rawValue:
@@ -307,7 +215,7 @@ final public class ApiRequestConfig {
             callback(json)
             return
         }
-
+        
         EMERANA.apiAdapter!.request(requestConfig: self) { json in
             // 若原始 JSON 已包含一个错误信息，则无需质检直接返回该数据。
             if json.ApiERROR != nil {
@@ -331,7 +239,7 @@ final public class ApiRequestConfig {
     public struct Domain: Hashable, Equatable, RawRepresentable {
         /// 域名的实际可访问性字符串。
         private(set) public var rawValue: String
-
+        
         public init(rawValue: String) {
             self.rawValue = rawValue
         }
@@ -358,7 +266,7 @@ public extension JSON {
     
     /// 访问 json 中是否包含访问 Api 请求中响应失败的信息。其核心是访问"APIJSONKEY.error" key.
     var ApiERROR: JSON? { self[.error].isEmpty ? nil:self[.error] }
-
+    
     /// 在质检 apiData 发现错误信息时调用此函数来设置相关信息，并返回包含该错误信息的新 JSON.
     /// - Parameters:
     ///   - code: 错误码。
@@ -369,11 +277,11 @@ public extension JSON {
         var QCJSON = self
         if QCJSON.error == nil {
             QCJSON[APIERRKEY.error.rawValue] = JSON([APIERRKEY.code.rawValue: code,
-                                                       APIERRKEY.msg.rawValue: msg])
+                                                     APIERRKEY.msg.rawValue: msg])
         } else {
             // 请求阶段就失败的质检信息。
             QCJSON = [APIERRKEY.error.rawValue: [APIERRKEY.code.rawValue: EMERANA.ErrorCode.default,
-                                                   APIERRKEY.msg.rawValue: "请求失败"]]
+                                                 APIERRKEY.msg.rawValue: "请求失败"]]
         }
         return QCJSON
     }
