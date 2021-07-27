@@ -80,8 +80,11 @@ private extension CastSurelyCalculationViewCtrl {
 extension CastSurelyCalculationViewCtrl: UITextFieldDelegate {
     // 输入验证。当值发生更改时的确认。
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
         Judy.log("shouldChangeCharactersIn<!-- \(string) -->,输入之前为--> \(String(describing: textField.text))")
-        return Judy.numberInputRestriction(textField: textField, range: range, string: string, num: 4, maxNumber: 1688, minNumber: 1)
+        
+//        return Judy.numberInputRestriction(textField: textField, range: range, string: string, num: 4, maxNumber: 1688, minNumber: 1)
+        return numberRestriction(textField: textField, inputString: string, maxNumber: 1688)
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {

@@ -335,25 +335,25 @@ public extension Judy {
         return true
     }
     
-    /// 验证正整型输入，确保当下输入的值符合所需数值要求
+    /// 验证正整型输入，确保当下输入的值符合所需数值要求。
     ///
-    /// - warning: 此方法限 textField shouldChangeCharactersInRange 代理方法中调用
+    /// - warning: 此方法限 textField shouldChangeCharactersInRange 代理方法中调用。
     /// - Parameters:
-    ///   - textField: UITextField 对象
-    ///   - range: 代理方法的range
-    ///   - string: 代理方法中的的string，即输入的字符
+    ///   - textField: UITextField 对象。
+    ///   - range: 代理方法的 range.
+    ///   - string: 代理方法中的的string，即输入的字符。
     ///   - num: 限制输入的位数。默认为0，不限制。
-    ///   - maxNumber: 允许输入的最大值，比如1000，那么该输入框就无法输入大于1000的值。默认为0，不限制
-    ///   - minNumber: 允许输入的最小值，比如1，那么该输入框就无法输入小于1的值且不能输入0。默认为0，不限制
+    ///   - maxNumber: 允许输入的最大值，比如1000，那么该输入框就无法输入大于1000的值。默认为0，不限制。
+    ///   - minNumber: 允许输入的最小值，比如1，那么该输入框就无法输入小于1的值且不能输入0。默认为0，不限制。
     /// - Returns: 是否验证通过
     static func numberInputRestriction(textField: UITextField, range: NSRange, string: String, num: Int = 0, maxNumber: Int = 0, minNumber: Int = 0) -> Bool {
-        
-        // Step1：输入数值校验，仅允许输入指定的字符
-        let cs: CharacterSet = CharacterSet.init(charactersIn: "0123456789\n").inverted
+        /// 仅允许输入指定的字符。
+        let cs = CharacterSet(charactersIn: "0123456789\n").inverted
+        /// 过滤输入的字符。
         let filtered: String = (string.components(separatedBy: cs) as NSArray).componentsJoined(by: "")
-        guard string as String == filtered  else { logWarning("请输入正确的数值"); return false }
+        guard (string as String) == filtered  else { logWarning("请输入正确的数值"); return false }
         
-        // Step2：位数校验，验证小数点前所允许的位数
+        // 位数校验，验证小数点前所允许的位数。
         let textFieldText = textField.text! as NSString
         if num != 0 && string != ""  {
             // 小数点前面位数验证
