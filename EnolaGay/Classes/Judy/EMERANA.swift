@@ -461,18 +461,16 @@ public extension EnolaGayWrapper where Base == Date {
 
 // MARK: - UIApplication 扩展
 public extension EnolaGayWrapper where Base: UIApplication {
-    /// 获取状态栏 View。
+    /// 获取状态栏 View.
     var statusBarView: UIView? {
-        
         if #available(iOS 13.0, *) {
-            let tag = 3848245
-            
-            if let statusBar = Judy.keyWindow?.viewWithTag(tag) {
+            if let statusBar = Judy.keyWindow?.viewWithTag(EMERANA.Key.statusBarViewTag) {
                 return statusBar
             } else {
                 let height = Judy.keyWindow?.windowScene?.statusBarManager?.statusBarFrame ?? .zero
                 let statusBarView = UIView(frame: height)
-                statusBarView.tag = tag
+                statusBarView.tag = EMERANA.Key.statusBarViewTag
+                // 值越高，离观察者越近。
                 statusBarView.layer.zPosition = 999999
                 
                 Judy.keyWindow?.addSubview(statusBarView)
@@ -485,11 +483,6 @@ public extension EnolaGayWrapper where Base: UIApplication {
         }
         return nil
     }
-}
-
-public extension UIApplication {
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.statusBarView")
-    var statusBarView: UIView? { nil }
 }
 
 
@@ -643,22 +636,6 @@ public extension UIImage {
         }
         self.init(cgImage: outputImage!.cgImage!)
     }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.reSizeImage")
-    func reSizeImage(reSize: CGSize) -> UIImage { UIImage() }
-     
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.scaleImage")
-    func scaleImage(scaleSize: CGFloat) -> UIImage { UIImage() }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.resetImgSize")
-    func judy_resetImgSize(maxImageLenght: CGFloat, maxSizeKB: CGFloat) -> Data { Data() }
-
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.imageCircle")
-    func imageCircle() -> UIImage { UIImage() }
-    
-
-    @available(*, unavailable, message: "此方法已不推荐使用，建议使用新函数 image(gradientColors …… )")
-    static func image(fromLayer layer: CALayer) -> UIImage {return UIImage()}
 }
 
 
@@ -1087,43 +1064,6 @@ public extension UIView {
         }
         get { return layer.cornerRadius }
     }
-
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.x")
-    var x_emerana: CGFloat {
-        set { frame.origin.x = newValue }
-        get { return frame.origin.x }
-    }
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.y")
-    var y_emerana: CGFloat {
-        set { frame.origin.y = newValue }
-        get { return frame.origin.y }
-    }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.viewBorder")
-    func viewBorder(border: CGFloat = 0, color: UIColor = .darkGray) { }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.viewRound")
-    @discardableResult
-    func viewRound(border: CGFloat = 0, color: UIColor = .darkGray) -> Bool { false }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.viewRadiu")
-    func viewRadiu(radiu: CGFloat = 10, border: CGFloat = 0, color: UIColor = .darkGray) { }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.viewRadiu")
-    func viewRadiu(rectCorner: UIRectCorner, cornerRadii: CGSize) { }
-
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.viewShadow")
-    func viewShadow(offset: CGSize = CGSize(width: 0, height: 0), opacity: Float = 0.6, color: UIColor = .black, radius: CGFloat = 3) { }
-        
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.gradientView")
-    @discardableResult
-    func gradientView(startColor: UIColor = .red, endColor: UIColor = .blue) -> CAGradientLayer { CAGradientLayer() }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.updateWindowFrame")
-    func updateWindowFrame(isReset: Bool = false, offset: CGFloat = 88) { }
-
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.blingBling")
-    func judy_blingBling(finishededAction: (()->Void)? = nil) { }
 }
 
 
@@ -1407,7 +1347,11 @@ public struct EMERANA {
     ///     * 项目中所有固定的可访问性字符都应该封装在此结构体内，在此结构体中定义所有可访问性数据（字符）
     ///     * 希望数据结构的实例被赋值给另一个实例时是拷贝而不是引用，封装的数据及其中存储的值也是拷贝而不是引用
     ///     * 该数据结构不需要使用继承
-    public struct Key { }
+    public struct Key {
+        /// 状态栏 View 专用 tag.
+        public static let statusBarViewTag = 20210727
+
+    }
     
 
     public enum Info: String {
@@ -1426,20 +1370,8 @@ public struct EMERANA {
 
 
 public extension EMERANA.Key {
-    
-    /// Api 层中的 JSON 常用 Key
-    @available(*, deprecated, message: "该可访问性元素已弃用", renamed: "JSON")
-    struct Api {}
 
-    @available(*, deprecated, message: "该可访问性元素已弃用，使用 APIERRKEY")
-    struct JSON {
-        public static let error = "EMERANA_KEY_API_ERROR"
-        public static let msg = "EMERANA_KEY_API_MSG"
-        public static let code = "EMERANA_KEY_API_CODE"
-    }
-
-    /// 与各种 Cell 相关的常用 Key
-    /// - since: 1.0
+    /// 与各种 Cell 相关的常用 Key.
     struct Cell {
         /// Cell 的重用标识符，能够代表该 Cell 具体类型标识
         public static let cell = "EMERANA_KEY_Cell_identitierCell"
@@ -1486,13 +1418,7 @@ public extension EMERANA.Key {
         public static let insetBottom = "EMERANA_KEY_Cell_insetBottomCell"
         /// 标识 section 顶部偏移量
         public static let insetTop = "EMERANA_KEY_Cell_insetTopCell"
-
     }
-    
-    @available(*, unavailable, message: "已废弃，请重命名", renamed: "Api")
-    struct ApiKey {}
-    @available(*, unavailable, message: "已废弃，请重命名", renamed: "Cell")
-    struct CellKey {}
 }
 
 
