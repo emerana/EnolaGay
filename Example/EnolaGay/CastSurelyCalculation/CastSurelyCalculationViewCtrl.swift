@@ -23,7 +23,7 @@ class CastSurelyCalculationViewCtrl: JudyBaseViewCtrl {
     /// 计算事件。
     @IBAction private func calculationAction(_ sender: Any) {
         guard let number = Int(inputTextField.text ?? "0") else {
-            detailLabel.text = "输入不合法！"
+            detailLabel.text = "请输入正确地数值！"
             return
         }
         view.endEditing(true)
@@ -80,8 +80,10 @@ private extension CastSurelyCalculationViewCtrl {
 extension CastSurelyCalculationViewCtrl: UITextFieldDelegate {
     // 输入验证。当值发生更改时的确认。
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
         Judy.log("shouldChangeCharactersIn<!-- \(string) -->,输入之前为--> \(String(describing: textField.text))")
-        return Judy.numberInputRestriction(textField: textField, range: range, string: string, num: 4, maxNumber: 1688, minNumber: 1)
+
+        return numberRestriction(textField: textField, inputString: string)
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {

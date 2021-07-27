@@ -310,9 +310,9 @@ public protocol EnolaGayAdapter where Self: UIApplication {
 }
 
 public extension EnolaGayAdapter {
-    func viewBackgroundColor() -> UIColor { .white }
+    func viewBackgroundColor() -> UIColor { .systemBackground }
 
-    func scrollViewBackGroundColor() -> UIColor { .white }
+    func scrollViewBackGroundColor() -> UIColor { .systemBackground }
 
     func navigationBarItemsColor() -> UIColor { .systemBlue }
 }
@@ -1130,10 +1130,44 @@ public extension UIView {
 // MARK: - UIButton 扩展
 
 
-// MARK: - UITextFieldView 扩展
+// MARK: - UITextField 扩展
+
+// MARK: - UITextFieldDelegate 扩展函数
+
+public extension UITextFieldDelegate {
+    /// 限制当前输入的字符为整数。
+    /// - Warning: 此函数仅限在输入阶段的 shouldChangeCharactersIn() 使用。
+    /// - Parameters:
+    ///   - textField: 输入框对象。
+    ///   - string: 输入的字符，即代理方法中的 string.
+    ///   - maxNumber: 允许输入的最大数值，默认为0，不限制。
+    /// - Returns: 是否符合验证，若输入的值不合符该值将不会出现在输入框中。
+    func numberRestriction(textField: UITextField, inputString string: String, maxNumber: Int = 0) -> Bool {
+        // 回退。
+        guard string != "" else { return true }
+        /// 仅允许输入指定的字符。
+        let cs = CharacterSet(charactersIn: "0123456789\n").inverted
+        /// 过滤输入的字符。
+        let filtered: String = (string.components(separatedBy: cs) as NSArray).componentsJoined(by: "")
+        guard (string as String) == filtered  else { Judy.logWarning("只能输入数值"); return false }
+        
+        // 最大值校验。
+        if maxNumber != 0 {
+            let textFieldString = (textField.text!) + string
+            // 将输入的整数值。
+            let numberValue = Int(textFieldString) ?? 0
+            if numberValue > maxNumber {
+                Judy.logWarning("只能输入小于\(maxNumber)的值")
+                return false
+            }
+        }
+        return true
+    }
+}
 
 
 // MARK: - Double 扩展
+
 /// 为空间包装对象 Double 添加扩展函数。
 public extension EnolaGayWrapper where Base == Double {
     
