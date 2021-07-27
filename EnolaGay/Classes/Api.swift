@@ -80,7 +80,7 @@ public protocol ApiAdapter where Self: UIApplication {
     func responseQC(apiData: JSON) -> JSON
 }
 
-// 默认实现 ApiDelegate，使其变成可选协议函数。
+// ApiAdapter 的部分默认实现，使其变成可选协议函数。
 public extension ApiAdapter {
     func domain() -> String {
         Judy.logWarning("ApiAdapter.domain() 未实现，默认域名将使用 www.baidu.com")
@@ -99,7 +99,15 @@ public extension ApiAdapter {
     }
 }
 
-/// api 接口规范协议，该协议规定了 api 的定义过程，如 enum Actions: String, ApiAction.
+/// api 接口规范协议。
+///
+/// 该协议规定了 api 的定义过程，参考如下：
+/// ```
+/// enum Apis: String, ApiAction {
+///     var value: String { rawValue }
+///     case action = "/api/login"
+/// }
+/// ```
 public protocol ApiAction {
     /// api 的可访问性原始值。
     var value: String { get }
@@ -120,14 +128,7 @@ final public class ApiRequestConfig {
     
     /// 请求的 api.
     ///
-    /// 该值为用于与 domain 拼接的部分，初值为 nil.
-    /// - Warning: 通过实现 ApiAction 协议配置 api，推荐使用 enum，如：
-    /// ```
-    /// enum Apis: String, ApiAction {
-    ///     var value: String { rawValue }
-    ///     case yourAction = "/api/login"
-    /// }
-    /// ```
+    /// 该值为用于与 domain 拼接的部分，初值为 nil. 定义Api接口详见 ApiAction.
     public lazy var api: ApiAction? = nil
     
     /// 请求域名，默认为 Domain.default，该值将与 api 属性拼接成最终请求的完整 URL。
