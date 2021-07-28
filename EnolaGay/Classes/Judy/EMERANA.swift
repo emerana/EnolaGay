@@ -1052,7 +1052,7 @@ public extension EnolaGayWrapper where Base: UIView {
          7. completion: ((Bool) -> Void)?   动画完成时执行的回调，可选性，可以为 nil
          */
         /// 出现动画：变大->变小。
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 1) {
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.008, initialSpringVelocity: 0.2) {
             // 缩放。
             transform = transform.scaledBy(x: 0.8, y: 0.8)
             base.transform = transform
