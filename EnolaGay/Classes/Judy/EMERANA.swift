@@ -865,7 +865,7 @@ public extension EnolaGayWrapper where Base: UIView {
     }
     
     /// 给当前操作的 View 设置正圆，该函数会验证 View 是否为正方形，若不是正方形则圆角不生效。
-    /// - warning: 请在 viewDidLayout 函数或涉及到布局的函数中调用，否则可能出现问题。
+    /// - Warning: 请在 viewDidLayout 函数或涉及到布局的函数中调用，否则可能出现问题。
     /// - Parameters:
     ///   - border: 边框大小，默认 0.
     ///   - color: 边框颜色，默认深灰色。
@@ -924,9 +924,9 @@ public extension EnolaGayWrapper where Base: UIView {
         base.layer.shadowRadius = radius
     }
     
-    /// 给当前操作的 View 设置边框
-    /// - Parameter borderWidth: 边框大小，默认1
-    /// - Parameter borderColor: 边框颜色，默认红色
+    /// 给当前操作的 View 设置边框。
+    /// - Parameter borderWidth: 边框大小，默认 1.
+    /// - Parameter borderColor: 边框颜色，默认红色。
     @available(*, unavailable, message: "此函数尚未完善，待修复")
     func viewBorder(borderWidth: CGFloat = 1, borderColor: UIColor = .red){
         let borderLayer = CALayer()
@@ -934,12 +934,11 @@ public extension EnolaGayWrapper where Base: UIView {
         borderLayer.backgroundColor = borderColor.cgColor
         // layer.addSublayer(borderLayer)
         base.layer.insertSublayer(borderLayer, at: 0)
-        
     }
     
     /// 给 View 设置渐变背景色，改背景色的方向为从左往右。
     ///
-    /// 此方法中会先移除最底层的 CAGradientLayer（该 Layer 的 name 为 EMERANAGRADIENTLAYER）
+    /// 此方法中会先移除最底层的 CAGradientLayer.
     /// - Parameters:
     ///   - startColor: 渐变起始颜色，默认 red.
     ///   - endColor: 渐变结束颜色，默认 blue.
@@ -947,14 +946,14 @@ public extension EnolaGayWrapper where Base: UIView {
     func gradientView(startColor: UIColor = .red, endColor: UIColor = .blue) -> CAGradientLayer {
         // 渐变 Layer 层。
         let gradientLayer = CAGradientLayer()
-        gradientLayer.name = "EMERANAGRADIENTLAYER"
+        gradientLayer.name = EMERANA.Key.gradientViewName
         gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
         gradientLayer.locations = [0, 1] // 对应 colors 的 alpha 值。
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5) // 渐变色起始点。
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5) // 渐变色终止点。
         gradientLayer.frame = base.bounds
         // layer.addSublayer(gradient1)
-        if base.layer.sublayers?[0].name == "EMERANAGRADIENTLAYER" {
+        if base.layer.sublayers?[0].name == EMERANA.Key.gradientViewName {
             // 先移除再插入！
             base.layer.sublayers?[0].removeFromSuperlayer()
         }
@@ -987,10 +986,9 @@ public extension EnolaGayWrapper where Base: UIView {
     /// 执行一次发光效果。
     ///
     /// 该函数以 View 为中心执行一个烟花爆炸动效。
-    /// - warning: 如有必要可参考此函数创建新的扩展函数。
+    /// - Warning: 如有必要可参考此函数创建新的扩展函数。
     /// - Parameter finishededAction: 动画完成后执行的事件，默认为 nil.
     func blingBling(finishededAction: (()->Void)? = nil) {
-        
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
             // 放大倍数
             base.transform = CGAffineTransform(scaleX: 2, y: 2)
@@ -1001,7 +999,7 @@ public extension EnolaGayWrapper where Base: UIView {
             anim.repeatCount = 1    // 执行次数
             anim.duration = 0.2
             anim.fillMode = .forwards
-            //        anim.isRemovedOnCompletion = true
+            // anim.isRemovedOnCompletion = true
             
             let count = 12 // 发光粒子数量
             let spacing: Double = Double(base.bounds.width) + 5 // 发光粒子与 view 间距
@@ -1031,21 +1029,22 @@ public extension EnolaGayWrapper where Base: UIView {
             base.transform = CGAffineTransform.identity
             finishededAction?()
         })
+    }
+    
+    /// 模拟抖音双击视频点赞效果。
+    func doubleClickThumbUp() {
         
     }
-
 }
 
 // MARK: - UIView IBDesignable 扩展
 public extension UIView {
-
     /// 边框宽度。
     @IBInspectable var borderWidth: CGFloat {
         set { layer.borderWidth = newValue }
         get { return layer.borderWidth }
     }
 
-    
     /// 边框颜色。
     @IBInspectable var borderColor: UIColor? {
         set { layer.borderColor = newValue?.cgColor }
@@ -1068,7 +1067,6 @@ public extension UIView {
 
 
 // MARK: - UIButton 扩展
-
 
 // MARK: - UITextField 扩展
 
@@ -1280,7 +1278,6 @@ public extension String {
 
 // MARK: - 为 tableView 增加滚动到底部函数
 public extension EnolaGayWrapper where Base: UITableView {
-
     /// 将 tableView 滚动到最底部。
     ///
     /// 在此之前的方法可能会引起数组越界问题，此函数针对该问题修复。
@@ -1320,9 +1317,6 @@ import UIKit
 public struct EMERANA {
     /// EMERANA 结构体的唯一实例。在单例模式下，只有该实例被首次访问时才会创建该对象（触发 init() ）。
     public static let judy = EMERANA()
-
-    @available(*, message: "该代理已淘汰")
-    static let fontStyleConfigDelegate = ""
     
     /// EnolaGay 框架全局适配器。
     static let enolagayAdapter: EnolaGayAdapter? = UIApplication.shared as? EnolaGayAdapter
@@ -1338,10 +1332,7 @@ public struct EMERANA {
     
     
     // 私有化构造器；在单例模式下，只有该单例被首次访问时才会创建该对象。
-    private init() {
-        // TODO: 获取 Appearance 实例。
-        // appearanceManager = enolagayAdapter?.appearanceForApplication()
-    }
+    private init() { }
     
     /// 该数据结构的主要用来封装少量相关简单数据值。
     /// - Warning: 注意
@@ -1351,8 +1342,10 @@ public struct EMERANA {
     public struct Key {
         /// 状态栏 View 专用 tag.
         public static let statusBarViewTag = 20210727
-
+        /// 该值用作于 EMERANA UIView 扩展函数 gradientView() 辨别 gradientLayer.name.
+        public static let gradientViewName = "EMERANA_GRADIENT_LAYER_NAME"
     }
+    
     /// 定义 String 类型的 enum 样板，这种 enum 可以不用 rawValue.
     public enum Info: String {
         case 新增Api请求代理管理
