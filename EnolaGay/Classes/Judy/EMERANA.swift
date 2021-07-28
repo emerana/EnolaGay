@@ -1042,25 +1042,30 @@ public extension EnolaGayWrapper where Base: UIView {
         // 顺时针或逆时针旋转。
         transform = transform.rotated(by: travelDirection*angle)
         base.transform = transform
-
+        /*
+         1. withDuration: TimeInterval  动画执行时间
+         2. delay: TimeInterval 动画延迟执行时间
+         3. usingSpringWithDamping: CGFloat 弹簧阻力，取值范围为0.0-1.0，数值越小“弹簧”振动效果越明显。
+         4. initialSpringVelocity: CGFloat  动画初始的速度（pt/s），数值越大初始速度越快。但要注意的是，初始速度取值较高而时间较短时，也会出现反弹情况。
+         5. options: UIViewAnimationOptions 运动动画速度曲线
+         6. animations: () -> Void  执行动画的函数，也是本动画的核心
+         7. completion: ((Bool) -> Void)?   动画完成时执行的回调，可选性，可以为 nil
+         */
         /// 出现动画：变大->变小。
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 1) {
             // 缩放。
             transform = transform.scaledBy(x: 0.8, y: 0.8)
             base.transform = transform
         } completion: { finished in
-            // 停留 0.5 秒再消失。
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                // 消失过程动画。
-                UIView.animate(withDuration: 0.5) {
-                    // 缩放。
-                    transform = transform.scaledBy(x: 8, y: 8)
-                    base.transform = transform
-                    base.alpha = 0
-                } completion: { finished in
-                    base.removeFromSuperview()
-                }
-            })
+            // 消失过程动画。停留 0.5 秒再消失。
+            UIView.animate(withDuration: 0.5, delay: 0.5) {
+                // 缩放。
+                transform = transform.scaledBy(x: 8, y: 8)
+                base.transform = transform
+                base.alpha = 0
+            } completion: { finished in
+                base.removeFromSuperview()
+            }
         }
     }
 }
