@@ -1033,7 +1033,35 @@ public extension EnolaGayWrapper where Base: UIView {
     
     /// 模拟抖音双击视频点赞效果。
     func doubleClickThumbUp() {
-        
+        var transform = base.transform
+        /// 随机偏转角度 control 点，该值限制为 0 和 1.
+        let j = CGFloat(arc4random_uniform(2)) 
+        /// 随机方向，-1/1 代表了顺时针或逆时针。
+        let travelDirection = CGFloat(1 - 2*j)
+        let angle = CGFloat(Double.pi/4)
+        // 顺时针或逆时针旋转。
+        transform = transform.rotated(by: travelDirection*angle)
+        base.transform = transform
+
+        /// 出现动画：变大->变小。
+        UIView.animate(withDuration: 0.2) {
+            // 缩放。
+            transform = transform.scaledBy(x: 0.8, y: 0.8)
+            base.transform = transform
+        } completion: { finished in
+            // 停留 0.5 秒再消失。
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                // 消失过程动画。
+                UIView.animate(withDuration: 0.5) {
+                    // 缩放。
+                    transform = transform.scaledBy(x: 8, y: 8)
+                    base.transform = transform
+                    base.alpha = 0
+                } completion: { finished in
+                    base.removeFromSuperview()
+                }
+            })
+        }
     }
 }
 
