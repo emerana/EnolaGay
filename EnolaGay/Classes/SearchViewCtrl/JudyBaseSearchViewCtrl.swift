@@ -105,7 +105,7 @@ open class JudyBaseSearchViewCtrl: JudyBaseTableRefreshViewCtrl {
         for subView in searchBar!.subviews  {
             for subsubView in subView.subviews  {
                 if let textField = subsubView as? UITextField {
-                    textField.font = UIFont(name: .苹方_中黑体, size: 16)
+                    textField.font = UIFont(size: 16)
                     // 输入框的背景色
                     textField.backgroundColor = textFieldBackgroundColor
                     // 输入的文本颜色

@@ -18,6 +18,7 @@ class CastSurelyCalculationViewCtrl: JudyBaseViewCtrl {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
 
     /// 计算事件。

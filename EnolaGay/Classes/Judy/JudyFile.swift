@@ -308,15 +308,11 @@ public class JudyFile: NSObject {
         // 试试删除文件夹或文件
         self.remove(str: "data")
         self.queryDocuments(folder: nil)
-        
-        
     }
     
 }
 
-
-
-/// 文件管理类。为 car8891 专用，不推荐使用。
+@available(*, unavailable, message: "文件管理类。为 car8891 专用，不推荐使用。")
 class JudyFileManage: NSObject {
     
     private let fileManager = FileManager.default

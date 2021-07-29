@@ -585,13 +585,6 @@ public extension EnolaGayWrapper where Base: UIViewController {
 
 public extension UIViewController {
     
-    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.webView")
-    final func judy_webView() -> WKWebView { WKWebView() }
-    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.getGradient")
-    final func judy_getGradient(vertical: Bool = true, frame: CGRect = UIScreen.main.bounds, startColor: UIColor = .red, endColor: UIColor = .green) -> CAGradientLayer {
-        return CAGradientLayer()
-    }
-    
     @available(*, unavailable, message: "不要使用这个方法，目前还没完善", renamed: "judyGenerateImage")
     final func judyGenerateImageWithNav(targetScrollView: UIScrollView, transparent: Bool = false, savedPhotosAlbum: Bool = false ) -> UIImage? {
         
@@ -656,35 +649,6 @@ public extension UIViewController {
         
         return result
     }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.captureScreenImage")
-    final func judy_captureScreenImage(targetScrollView: UIScrollView, transparent: Bool = false, savedPhotosAlbum: Bool = false ) -> UIImage? { nil }
-
-    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.captureScreenImage")
-    final func judy_captureScreenImage(targetView: UIView, transparent: Bool = false, complete: Bool = false) -> UIImage? { nil }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.captureImageSavedPhotosAlbum")
-    @discardableResult
-    final func judy_captureImageSavedPhotosAlbum(targetView: UIView, transparent: Bool = false) -> Bool { false }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.recursionUITextField")
-    func judy_recursionUITextField(view: UIView) -> UIView? { nil }
-        
-    /// 解决 push 时右上角出现可恶的黑影，给 keyWindow 设置背景色即可，一般为白色或 EMERANA 配置的通用背景色。
-    @available(*,unavailable, message: "此函数太过于简单，弃用之！")
-    func judy_setWindowBackgroundColor() {  }
-    /// 将 window 背景色重置为 nil
-    @available(*,unavailable, message: "此函数太过于简单，弃用之！")
-    func judy_resetWindowBackgroundColor() {  }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.moveNavigationBar")
-    func judy_moveNavigationBar(isHihe: Bool = false) {}
-    
-    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.alert")
-    func judy_alert(title: String = "提示", msg: String? = nil, cancelButtonTitle: String = "确定", completionAction: (() -> Void)? = nil) {}
-    
-    @available(*, unavailable, message: "请使用 judy 持有者。", renamed: "judy.navigationCtrller")
-    final func judy_navigationCtrller() -> UINavigationController { UINavigationController() }
 }
 
 
