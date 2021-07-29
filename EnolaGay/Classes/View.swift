@@ -774,8 +774,9 @@ public class JudyPopBubble {
         // 旋转气泡。
         UIView.animate(withDuration: bubble_animate_rotatedDuration) {
             var transform = bubbleImageView.transform
-            let rs = Double.pi/4//(4+Double(rotationFraction)*0.2)。
-            transform = transform.rotated(by: travelDirection*CGFloat(rs)) // 顺时针或逆时针旋转。
+            let rs = Double.pi/4 //(4+Double(rotationFraction)*0.2)
+            // 顺时针或逆时针旋转。
+            transform = transform.rotated(by: travelDirection*CGFloat(rs))
             // transform = transform.translatedBy(x: 0, y: 200)//平移。
             // transform = transform.scaledBy(x: 0.5, y: 0.5)//缩放。
             bubbleImageView.transform = transform

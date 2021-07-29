@@ -18,6 +18,7 @@ class CastSurelyCalculationViewCtrl: JudyBaseViewCtrl {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
 
     /// 计算事件。
@@ -28,9 +29,7 @@ class CastSurelyCalculationViewCtrl: JudyBaseViewCtrl {
         }
         view.endEditing(true)
         let calendar = Calendar.current
-        let currentDayInfo = "今天是 \(calendar.judy.components.year!) 年 \(calendar.judy.components.month!) 月 \(calendar.judy.components.day!) 日\n"
-        
-        var numberInfo = "每日定投 \(number) 元，接下来6个月如下：\n"
+        var numberInfo = "今天是\(calendar.judy.components.year!)年\(calendar.judy.components.month!)月\(calendar.judy.components.day!)日,\n每日定投 \(number) 元,\n"
 
         for i in 0...6 {
             if i == 0 {
@@ -42,10 +41,9 @@ class CastSurelyCalculationViewCtrl: JudyBaseViewCtrl {
                     if weekday == 1 || weekday == 7 { continue }
                     currentMonthNumber += number
                 }
-                numberInfo += "从今日算起本月共需投入 \(currentMonthNumber) 元。\n"
+                numberInfo += "从今日算起本月还需投入 \(currentMonthNumber) 元。\n接下来6个月如下：\n"
             } else {
                 var currentMonthNumber = 0
-                
                 //var comp = calendar.dateComponents([.year,.month, .day,.weekday], from: Date())
                 
                 let month: Int, year: Int
@@ -69,7 +67,7 @@ class CastSurelyCalculationViewCtrl: JudyBaseViewCtrl {
             }
         }
 
-        detailLabel.text = currentDayInfo + numberInfo
+        detailLabel.text = numberInfo
     }
 }
 

@@ -281,7 +281,7 @@ public enum FontName: String {
 public extension UIFont {
     /// 通过 FontName 获得一个 UIFont 对象。
     /// - Parameters:
-    ///   - name: 参见 FontName.
+    ///   - name: 参见 FontName，该值默认为 .苹方_中黑体。
     ///   - size: 字体的大小，该值最大取 100.
     convenience init(name: FontName = .苹方_中黑体, size: CGFloat) {
         self.init(name: name.rawValue, size: min(size, 100))!
@@ -461,18 +461,16 @@ public extension EnolaGayWrapper where Base == Date {
 
 // MARK: - UIApplication 扩展
 public extension EnolaGayWrapper where Base: UIApplication {
-    /// 获取状态栏 View。
+    /// 获取状态栏 View.
     var statusBarView: UIView? {
-        
         if #available(iOS 13.0, *) {
-            let tag = 3848245
-            
-            if let statusBar = Judy.keyWindow?.viewWithTag(tag) {
+            if let statusBar = Judy.keyWindow?.viewWithTag(EMERANA.Key.statusBarViewTag) {
                 return statusBar
             } else {
                 let height = Judy.keyWindow?.windowScene?.statusBarManager?.statusBarFrame ?? .zero
                 let statusBarView = UIView(frame: height)
-                statusBarView.tag = tag
+                statusBarView.tag = EMERANA.Key.statusBarViewTag
+                // 值越高，离观察者越近。
                 statusBarView.layer.zPosition = 999999
                 
                 Judy.keyWindow?.addSubview(statusBarView)
@@ -485,11 +483,6 @@ public extension EnolaGayWrapper where Base: UIApplication {
         }
         return nil
     }
-}
-
-public extension UIApplication {
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.statusBarView")
-    var statusBarView: UIView? { nil }
 }
 
 
@@ -643,22 +636,6 @@ public extension UIImage {
         }
         self.init(cgImage: outputImage!.cgImage!)
     }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.reSizeImage")
-    func reSizeImage(reSize: CGSize) -> UIImage { UIImage() }
-     
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.scaleImage")
-    func scaleImage(scaleSize: CGFloat) -> UIImage { UIImage() }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.resetImgSize")
-    func judy_resetImgSize(maxImageLenght: CGFloat, maxSizeKB: CGFloat) -> Data { Data() }
-
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.imageCircle")
-    func imageCircle() -> UIImage { UIImage() }
-    
-
-    @available(*, unavailable, message: "此方法已不推荐使用，建议使用新函数 image(gradientColors …… )")
-    static func image(fromLayer layer: CALayer) -> UIImage {return UIImage()}
 }
 
 
@@ -888,7 +865,7 @@ public extension EnolaGayWrapper where Base: UIView {
     }
     
     /// 给当前操作的 View 设置正圆，该函数会验证 View 是否为正方形，若不是正方形则圆角不生效。
-    /// - warning: 请在 viewDidLayout 函数或涉及到布局的函数中调用，否则可能出现问题。
+    /// - Warning: 请在 viewDidLayout 函数或涉及到布局的函数中调用，否则可能出现问题。
     /// - Parameters:
     ///   - border: 边框大小，默认 0.
     ///   - color: 边框颜色，默认深灰色。
@@ -947,9 +924,9 @@ public extension EnolaGayWrapper where Base: UIView {
         base.layer.shadowRadius = radius
     }
     
-    /// 给当前操作的 View 设置边框
-    /// - Parameter borderWidth: 边框大小，默认1
-    /// - Parameter borderColor: 边框颜色，默认红色
+    /// 给当前操作的 View 设置边框。
+    /// - Parameter borderWidth: 边框大小，默认 1.
+    /// - Parameter borderColor: 边框颜色，默认红色。
     @available(*, unavailable, message: "此函数尚未完善，待修复")
     func viewBorder(borderWidth: CGFloat = 1, borderColor: UIColor = .red){
         let borderLayer = CALayer()
@@ -957,12 +934,11 @@ public extension EnolaGayWrapper where Base: UIView {
         borderLayer.backgroundColor = borderColor.cgColor
         // layer.addSublayer(borderLayer)
         base.layer.insertSublayer(borderLayer, at: 0)
-        
     }
     
     /// 给 View 设置渐变背景色，改背景色的方向为从左往右。
     ///
-    /// 此方法中会先移除最底层的 CAGradientLayer（该 Layer 的 name 为 EMERANAGRADIENTLAYER）
+    /// 此方法中会先移除最底层的 CAGradientLayer.
     /// - Parameters:
     ///   - startColor: 渐变起始颜色，默认 red.
     ///   - endColor: 渐变结束颜色，默认 blue.
@@ -970,14 +946,14 @@ public extension EnolaGayWrapper where Base: UIView {
     func gradientView(startColor: UIColor = .red, endColor: UIColor = .blue) -> CAGradientLayer {
         // 渐变 Layer 层。
         let gradientLayer = CAGradientLayer()
-        gradientLayer.name = "EMERANAGRADIENTLAYER"
+        gradientLayer.name = EMERANA.Key.gradientViewName
         gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
         gradientLayer.locations = [0, 1] // 对应 colors 的 alpha 值。
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5) // 渐变色起始点。
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5) // 渐变色终止点。
         gradientLayer.frame = base.bounds
         // layer.addSublayer(gradient1)
-        if base.layer.sublayers?[0].name == "EMERANAGRADIENTLAYER" {
+        if base.layer.sublayers?[0].name == EMERANA.Key.gradientViewName {
             // 先移除再插入！
             base.layer.sublayers?[0].removeFromSuperlayer()
         }
@@ -1010,10 +986,9 @@ public extension EnolaGayWrapper where Base: UIView {
     /// 执行一次发光效果。
     ///
     /// 该函数以 View 为中心执行一个烟花爆炸动效。
-    /// - warning: 如有必要可参考此函数创建新的扩展函数。
+    /// - Warning: 如有必要可参考此函数创建新的扩展函数。
     /// - Parameter finishededAction: 动画完成后执行的事件，默认为 nil.
     func blingBling(finishededAction: (()->Void)? = nil) {
-        
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
             // 放大倍数
             base.transform = CGAffineTransform(scaleX: 2, y: 2)
@@ -1024,7 +999,7 @@ public extension EnolaGayWrapper where Base: UIView {
             anim.repeatCount = 1    // 执行次数
             anim.duration = 0.2
             anim.fillMode = .forwards
-            //        anim.isRemovedOnCompletion = true
+            // anim.isRemovedOnCompletion = true
             
             let count = 12 // 发光粒子数量
             let spacing: Double = Double(base.bounds.width) + 5 // 发光粒子与 view 间距
@@ -1054,21 +1029,58 @@ public extension EnolaGayWrapper where Base: UIView {
             base.transform = CGAffineTransform.identity
             finishededAction?()
         })
-        
     }
-
+    
+    /// 模拟抖音双击视频点赞效果。
+    /// - Parameters:
+    ///   - duration: 动画的执行时长，默认 0.3 秒。
+    ///   - spring: 弹簧阻尼，默认 0.5，值越小震动效果越明显。
+    func doubleClickThumbUp(duration: TimeInterval = 0.3, spring: CGFloat = 0.5) {
+        var transform = base.transform
+        /// 随机偏转角度 control 点，该值限制为 0 和 1.
+        let j = CGFloat(arc4random_uniform(2)) 
+        /// 随机方向，-1/1 代表了顺时针或逆时针。
+        let travelDirection = CGFloat(1 - 2*j)
+        let angle = CGFloat(Double.pi/4)
+        // 顺时针或逆时针旋转。
+        transform = transform.rotated(by: travelDirection*angle)
+        base.transform = transform
+        /*
+         1. withDuration: TimeInterval  动画执行时间
+         2. delay: TimeInterval 动画延迟执行时间
+         3. usingSpringWithDamping: CGFloat 弹簧阻力，取值范围为0.0-1.0，数值越小“弹簧”振动效果越明显。
+         4. initialSpringVelocity: CGFloat  动画初始的速度（pt/s），数值越大初始速度越快。但要注意的是，初始速度取值较高而时间较短时，也会出现反弹情况。
+         5. options: UIViewAnimationOptions 运动动画速度曲线
+         6. animations: () -> Void  执行动画的函数，也是本动画的核心
+         7. completion: ((Bool) -> Void)?   动画完成时执行的回调，可选性，可以为 nil
+         */
+        /// 出现动画：变大->变小。
+        UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: spring, initialSpringVelocity: 3) {
+            // 缩放。
+            transform = transform.scaledBy(x: 0.8, y: 0.8)
+            base.transform = transform
+        } completion: { finished in
+            // 消失过程动画。停留 0.5 秒再消失。
+            UIView.animate(withDuration: 0.5, delay: 0.5) {
+                // 缩放。
+                transform = transform.scaledBy(x: 8, y: 8)
+                base.transform = transform
+                base.alpha = 0
+            } completion: { finished in
+                base.removeFromSuperview()
+            }
+        }
+    }
 }
 
 // MARK: - UIView IBDesignable 扩展
 public extension UIView {
-
     /// 边框宽度。
     @IBInspectable var borderWidth: CGFloat {
         set { layer.borderWidth = newValue }
         get { return layer.borderWidth }
     }
 
-    
     /// 边框颜色。
     @IBInspectable var borderColor: UIColor? {
         set { layer.borderColor = newValue?.cgColor }
@@ -1087,48 +1099,10 @@ public extension UIView {
         }
         get { return layer.cornerRadius }
     }
-
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.x")
-    var x_emerana: CGFloat {
-        set { frame.origin.x = newValue }
-        get { return frame.origin.x }
-    }
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.y")
-    var y_emerana: CGFloat {
-        set { frame.origin.y = newValue }
-        get { return frame.origin.y }
-    }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.viewBorder")
-    func viewBorder(border: CGFloat = 0, color: UIColor = .darkGray) { }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.viewRound")
-    @discardableResult
-    func viewRound(border: CGFloat = 0, color: UIColor = .darkGray) -> Bool { false }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.viewRadiu")
-    func viewRadiu(radiu: CGFloat = 10, border: CGFloat = 0, color: UIColor = .darkGray) { }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.viewRadiu")
-    func viewRadiu(rectCorner: UIRectCorner, cornerRadii: CGSize) { }
-
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.viewShadow")
-    func viewShadow(offset: CGSize = CGSize(width: 0, height: 0), opacity: Float = 0.6, color: UIColor = .black, radius: CGFloat = 3) { }
-        
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.gradientView")
-    @discardableResult
-    func gradientView(startColor: UIColor = .red, endColor: UIColor = .blue) -> CAGradientLayer { CAGradientLayer() }
-    
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.updateWindowFrame")
-    func updateWindowFrame(isReset: Bool = false, offset: CGFloat = 88) { }
-
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.blingBling")
-    func judy_blingBling(finishededAction: (()->Void)? = nil) { }
 }
 
 
 // MARK: - UIButton 扩展
-
 
 // MARK: - UITextField 扩展
 
@@ -1263,20 +1237,21 @@ public extension String {
     /// - Returns: 如："str abc", "strabc".
     func clean() -> String { replacingOccurrences(of: " ", with: "") }
     
-    /// 计算文本的 size。
+    /// 计算文本的 size.
     ///
     /// - Parameters:
-    ///   - font: 字体，默认按照 M 码字体计算。
-    ///   - maxSize: 最大尺寸，默认为 CGSize(width: 320, height: 68)
+    ///   - font: 以该字体作为计算尺寸的参考。
+    ///   - maxSize: 最大尺寸，默认为 CGSize(width: 320, height: 68).
     /// - Returns: 文本所需宽度。
-    func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(name: .苹方_中黑体, size: 16)) -> CGSize {
+    func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(size: 16)) -> CGSize {
         // 根据文本内容获取尺寸，计算文字尺寸 UIFont.systemFont(ofSize: 14.0)
         return self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin],
                                  attributes: [NSAttributedString.Key.font: font],
                                  context: nil).size
     }
-
-    func sizeWith(font: UIFont = UIFont(name: .苹方_中黑体, size: 16) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize {
+    
+    /// 计算文本的 size.
+    func sizeWith(font: UIFont = UIFont(size: 16) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize {
         let options = NSStringDrawingOptions.usesLineFragmentOrigin
         
         let paragraphStyle : NSMutableParagraphStyle = NSMutableParagraphStyle()
@@ -1339,7 +1314,6 @@ public extension String {
 
 // MARK: - 为 tableView 增加滚动到底部函数
 public extension EnolaGayWrapper where Base: UITableView {
-
     /// 将 tableView 滚动到最底部。
     ///
     /// 在此之前的方法可能会引起数组越界问题，此函数针对该问题修复。
@@ -1379,9 +1353,6 @@ import UIKit
 public struct EMERANA {
     /// EMERANA 结构体的唯一实例。在单例模式下，只有该实例被首次访问时才会创建该对象（触发 init() ）。
     public static let judy = EMERANA()
-
-    @available(*, message: "该代理已淘汰")
-    static let fontStyleConfigDelegate = ""
     
     /// EnolaGay 框架全局适配器。
     static let enolagayAdapter: EnolaGayAdapter? = UIApplication.shared as? EnolaGayAdapter
@@ -1397,19 +1368,21 @@ public struct EMERANA {
     
     
     // 私有化构造器；在单例模式下，只有该单例被首次访问时才会创建该对象。
-    private init() {
-        // TODO: 获取 Appearance 实例。
-        // appearanceManager = enolagayAdapter?.appearanceForApplication()
-    }
+    private init() { }
     
     /// 该数据结构的主要用来封装少量相关简单数据值。
     /// - Warning: 注意
-    ///     * 项目中所有固定的可访问性字符都应该封装在此结构体内，在此结构体中定义所有可访问性数据（字符）
-    ///     * 希望数据结构的实例被赋值给另一个实例时是拷贝而不是引用，封装的数据及其中存储的值也是拷贝而不是引用
-    ///     * 该数据结构不需要使用继承
-    public struct Key { }
+    ///     * 项目中所有固定的可访问性字符都应该封装在此结构体内，在此结构体中定义所有可访问性数据（字符）。
+    ///     * 希望数据结构的实例被赋值给另一个实例时是拷贝而不是引用，封装的数据及其中存储的值也是拷贝而不是引用。
+    ///     * 该数据结构不需要使用继承。
+    public struct Key {
+        /// 状态栏 View 专用 tag.
+        public static let statusBarViewTag = 20210727
+        /// 该值用作于 EMERANA UIView 扩展函数 gradientView() 辨别 gradientLayer.name.
+        public static let gradientViewName = "EMERANA_GRADIENT_LAYER_NAME"
+    }
     
-
+    /// 定义 String 类型的 enum 样板，这种 enum 可以不用 rawValue.
     public enum Info: String {
         case 新增Api请求代理管理
         case 新增全局Cell代理管理
@@ -1426,22 +1399,10 @@ public struct EMERANA {
 
 
 public extension EMERANA.Key {
-    
-    /// Api 层中的 JSON 常用 Key
-    @available(*, deprecated, message: "该可访问性元素已弃用", renamed: "JSON")
-    struct Api {}
 
-    @available(*, deprecated, message: "该可访问性元素已弃用，使用 APIERRKEY")
-    struct JSON {
-        public static let error = "EMERANA_KEY_API_ERROR"
-        public static let msg = "EMERANA_KEY_API_MSG"
-        public static let code = "EMERANA_KEY_API_CODE"
-    }
-
-    /// 与各种 Cell 相关的常用 Key
-    /// - since: 1.0
+    /// 与各种 Cell 相关的常用 Key.
     struct Cell {
-        /// Cell 的重用标识符，能够代表该 Cell 具体类型标识
+        /// Cell 的重用标识符，能够代表该 Cell 具体类型标识。
         public static let cell = "EMERANA_KEY_Cell_identitierCell"
 
         /// 标识 cell 的高度
@@ -1486,13 +1447,7 @@ public extension EMERANA.Key {
         public static let insetBottom = "EMERANA_KEY_Cell_insetBottomCell"
         /// 标识 section 顶部偏移量
         public static let insetTop = "EMERANA_KEY_Cell_insetTopCell"
-
     }
-    
-    @available(*, unavailable, message: "已废弃，请重命名", renamed: "Api")
-    struct ApiKey {}
-    @available(*, unavailable, message: "已废弃，请重命名", renamed: "Cell")
-    struct CellKey {}
 }
 
 
@@ -1503,7 +1458,7 @@ public extension EMERANA.Key {
 /// 仅需通过 registerKeyBoardListener() 函数即可实现输入框跟随键盘位置移动从而保证输入框不被遮挡。
 public final class KeyboardHelper {
     
-    /// 此属性用于记录当下键盘的高度，若键盘已被收起则为 0。
+    /// 此属性用于记录当下键盘的高度，若键盘已被收起则为 0.
     public private(set) var keyboardHeight: CGFloat = 0
     /// 输入框所在的 view,当键盘出现或隐藏，会根据键盘的高度移动该 view.
     private(set) var textFieldWrapperView = UIView()
@@ -1571,11 +1526,8 @@ public final class KeyboardHelper {
             // 键盘已经弹出，只是切换键盘，直接更新 textFieldWrapperView 2D 仿射变换矩阵。
             animations()
         }
-
     }
-
 }
-
 
 
 // MARK: - 命名空间
@@ -1710,13 +1662,4 @@ extension Calendar: EnolaGayCompatible { }
  target 'ChainInstall'
  
  end
- */
-
-
-/*
- system_login_no(2100, "请先登录！"),
- system_login_timeout(2101,"登录超时，请重新登录！"),
- system_refuse(3000, "访问过于频繁，休息一下！"),
- system_message_excess(3001, "短信发送已经超出一天限制，请明天再试！"),
- 
  */
