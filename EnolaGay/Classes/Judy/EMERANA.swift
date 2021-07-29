@@ -1032,7 +1032,10 @@ public extension EnolaGayWrapper where Base: UIView {
     }
     
     /// 模拟抖音双击视频点赞效果。
-    func doubleClickThumbUp() {
+    /// - Parameters:
+    ///   - duration: 动画的执行时长，默认 0.3 秒。
+    ///   - spring: 弹簧阻尼，默认 0.5，值越小震动效果越明显。
+    func doubleClickThumbUp(duration: TimeInterval = 0.3, spring: CGFloat = 0.5) {
         var transform = base.transform
         /// 随机偏转角度 control 点，该值限制为 0 和 1.
         let j = CGFloat(arc4random_uniform(2)) 
@@ -1052,7 +1055,7 @@ public extension EnolaGayWrapper where Base: UIView {
          7. completion: ((Bool) -> Void)?   动画完成时执行的回调，可选性，可以为 nil
          */
         /// 出现动画：变大->变小。
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.008, initialSpringVelocity: 0.2) {
+        UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: spring, initialSpringVelocity: 3) {
             // 缩放。
             transform = transform.scaledBy(x: 0.8, y: 0.8)
             base.transform = transform

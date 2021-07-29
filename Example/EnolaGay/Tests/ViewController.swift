@@ -65,3 +65,15 @@ extension ViewController: SegmentedViewDelegate {
     }
 }
 
+/// 抖音双击点赞动画。
+class DoubleClickThumbUpViewCtrl: UIViewController {
+   
+    @IBAction func popAction(_ sender: Any) {
+        let blingImageView = UIImageView(image: UIImage(named: "双击点赞爱心.jpg"))
+        blingImageView.center = view.center
+        view.addSubview(blingImageView)
+
+        blingImageView.judy.doubleClickThumbUp()
+    }
+    
+}
