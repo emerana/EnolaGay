@@ -57,10 +57,10 @@ open class JudyBaseViewCtrl: UIViewController {
         
         // 优化 title 显示方式，如果 viewTitle 为 nil，则使用该 viewCtrl 的 title.
         if viewTitle == nil {
-            navigationItem.title = title
+            if title != nil { navigationItem.title = title }
         } else {
             title = viewTitle
-            navigationItem.title = viewTitle
+            navigationItem.title = title
         }
         
         // 设置背景色。
@@ -197,7 +197,7 @@ open class JudyBaseViewCtrl: UIViewController {
     open func reqOver() {}
     
     deinit {
-        Judy.logHappy("\(classForCoder) - \(viewTitle ?? (title ?? "未命名界面")) 已经释放。")
+        Judy.logHappy("\(classForCoder) - \(viewTitle ?? title ?? navigationItem.title ?? "未命名界面") 已释放。")
     }
     
 }

@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="963.76811594202911" y="137.94642857142856"/>
         </scene>
-        <!--Judy Navigation Ctrl-->
+        <!--我的-->
         <scene sceneID="TlS-s7-SVE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CJd-gC-V0T" customClass="JudyNavigationCtrl" customModule="EnolaGay" sceneMemberID="viewController">
+                <navigationController title="我的" automaticallyAdjustsScrollViewInsets="NO" id="CJd-gC-V0T" customClass="JudyNavigationCtrl" customModule="EnolaGay" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3YR-XV-TGD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
