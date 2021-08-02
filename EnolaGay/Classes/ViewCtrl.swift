@@ -15,11 +15,9 @@ open class JudyBaseViewCtrl: UIViewController {
 
     // MARK: - public var property
 
-    /// 为当前设置一个标题。
+    /// 为当前设置一个标题。**当前界面的标题显示优先顺序为 viewTitle > title > navigationItem.title.**
     ///
-    /// 该 viewTitle 优先且覆盖 self.title 及 navigationItem.title，若未设置，navigationItem.title 将直接使用 title.
-    ///
-    /// 如需更改该值请在 viewDidLoad 之后 navigationItem.title = 新 title 即可。
+    /// 如需更改显示的标题请在 viewDidLoad 之后设置 navigationItem.title 即可。
     /// - Warning: 重写读写属性方式为实现 get、set，且里面最好全调用 super，尤其是 set.
     open var viewTitle: String? { nil }
     /// 当前界面包含的 json 数据，设置该值将触发 jsonDidSet() 函数，初值为 JSON().
@@ -57,10 +55,10 @@ open class JudyBaseViewCtrl: UIViewController {
         
         // 优化 title 显示方式，如果 viewTitle 为 nil，则使用该 viewCtrl 的 title.
         if viewTitle == nil {
-            navigationItem.title = title
+            if title != nil { navigationItem.title = title }
         } else {
             title = viewTitle
-            navigationItem.title = viewTitle
+            navigationItem.title = title
         }
         
         // 设置背景色。
@@ -197,7 +195,7 @@ open class JudyBaseViewCtrl: UIViewController {
     open func reqOver() {}
     
     deinit {
-        Judy.logHappy("\(classForCoder) - \(viewTitle ?? (title ?? "未命名界面")) 已经释放。")
+        Judy.logHappy("\(classForCoder) - \(viewTitle ?? title ?? navigationItem.title ?? "未命名界面") 已释放。")
     }
     
 }
