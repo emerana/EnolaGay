@@ -130,32 +130,33 @@ public extension EnolaGayWrapper where Base: UINavigationController {
     
     // MARK: - 扩展返回按钮图标及导航条透明
     
-    /// 将导航栏设为透明，一般用于 viewWillAppear()，恢复请调用 resetNav()。
-    /// - Warning: 如果在 resetNav() 中需要恢复阴影线请使用代理隐藏导航条的方式
+    /// 将导航条设为透明，一般用于 viewWillAppear()，恢复请调用 resetNav().
+    /// - Warning: 如果在 resetNav() 中需要恢复阴影线请使用代理隐藏导航条的方式。
     func setNavTransParent() {
-        // 透明
+        // 保持透明。
         base.navigationBar.isTranslucent = true
-        // 设置导航栏背景图片为一个空的image，这样就透明了
+        // 导航栏的背景图片会有毛玻璃效果，设置导航栏背景图片为一个空的 image，这样就完全透明了。
         base.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        // 去掉透明后导航栏下边的黑边
+        // 导航栏下边的黑边，该黑边是一个 UIImage，通过给其设置一个全新的 UIImage 达到清除横线的效果。
         base.navigationBar.shadowImage = UIImage()
     }
     
-    /// 恢复导航栏，当设置了导航栏设为透明时，别的界面不需要透明调用此方法恢复。
+    /// 恢复导航条。当设置了导航条透明时，别的界面不需要透明调用此方法恢复。
     ///
     /// 一般在 viewWillDisappear() 函数中使用，且和 setNavTransParent() 成对使用。
-    /// - Warning: 由于在 setNavTransParent() 中会将 isTranslucent = true，所以调用此函数后需自行设置 isTranslucent。
+    /// - Warning: 由于在 setNavTransParent() 中会将 isTranslucent = true，所以调用此函数后需自行设置 isTranslucent.
     func resetNav() {
+        // 恢复导航条下方的横线将其设为 nil 即可。
         base.navigationBar.shadowImage = nil
-        // 不让其他页面的导航栏变为透明 需要重置
+        // 将导航条的背景图片设为 nil 即可恢复毛玻璃效果。
         base.navigationBar.setBackgroundImage(nil, for: .default)
     }
     
-    /// 设置导航栏渐变背景色，渐变方向为从左向右
+    /// 设置导航栏渐变背景色，渐变方向为从左向右。
     ///
     /// - Parameters:
-    ///   - startColor: 起始颜色，默认为red
-    ///   - endColor: 终止颜色，默认为green
+    ///   - startColor: 起始颜色，默认为 red.
+    ///   - endColor: 终止颜色，默认为 green.
     func setNavGradient(startColor: UIColor = .red, endColor: UIColor = .green)  {
 
         // self.navigationBar.layer.insertSublayer(gradientLayer, at: 0)     // 这样无效
