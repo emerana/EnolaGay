@@ -32,7 +32,7 @@ class MyPlayerViewCtrl: JudyBaseTableViewCtrl {
 
     override func registerReuseComponents() {
         let nib = UINib(nibName: "VideoCell", bundle: nil)
-        tableView?.register(nib, forCellReuseIdentifier: "Cell")
+        tableView?.register(nib, forCellReuseIdentifier: EMERANA.Key.cell)
     }
 
 }

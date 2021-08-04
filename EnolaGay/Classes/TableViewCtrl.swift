@@ -157,7 +157,7 @@ extension JudyBaseTableViewCtrl: UITableViewDataSource {
     /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例。
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 此方法可以不判断 Cell 是否为 nil.
-        return tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        return tableView.dequeueReusableCell(withIdentifier: EMERANA.Key.cell, for: indexPath)
     }
     
 }
@@ -405,13 +405,12 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     /// 当 cell.json 设置后将触发此函数，子类通过覆盖此函数以设置 UI.
     /// - Warning: 注意 super 中的默认实现，如有必要需调用 super.
     open func jsonDidSetAction() {
-        titleLabel?.text = json[EMERANA.Key.Cell.title].stringValue
-        subTitleLabel?.text = json[EMERANA.Key.Cell.subtitle].stringValue
-        if let imageName = json[EMERANA.Key.Cell.icon].string {
+        titleLabel?.text = json[EMERANA.Key.title].stringValue
+        subTitleLabel?.text = json[EMERANA.Key.subtitle].stringValue
+        if let imageName = json[EMERANA.Key.icon].string {
             masterImageView?.image = UIImage(named: imageName)
         }
     }
-
 }
 
 
@@ -440,12 +439,10 @@ open class JudyInputCell: JudyBaseTableCell {
             titleLabel?.text = "请先设置 indexPath！"
             return
         }
-        inputTextField?.placeholder = json[EMERANA.Key.Cell.placeholder].stringValue
-        inputTextField?.text = json[EMERANA.Key.Cell.value].stringValue
-        inputTextField?.isEnabled = json[EMERANA.Key.Cell.input].boolValue
+        inputTextField?.placeholder = json[EMERANA.Key.placeholder].stringValue
+        inputTextField?.text = json[EMERANA.Key.value].stringValue
+        inputTextField?.isEnabled = json[EMERANA.Key.input].boolValue
     }
-    
-    
 }
 
 

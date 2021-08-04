@@ -93,7 +93,7 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDataSource {
     
     /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例。
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        return collectionView.dequeueReusableCell(withReuseIdentifier: EMERANA.Key.cell, for: indexPath)
     }
     
     // 生成 HeaderView 和 FooterView。
@@ -557,9 +557,9 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
     /// 当 cell.json 设置后将触发此函数，子类通过覆盖此函数以设置 UI.
     /// - Warning: 注意 super 中的默认实现，如有必要需调用 super.
     open func jsonDidSetAction() {
-        titleLabel?.text = json[EMERANA.Key.Cell.title].stringValue
-        subTitleLabel?.text = json[EMERANA.Key.Cell.subtitle].stringValue
-        if let imageName = json[EMERANA.Key.Cell.icon].string {
+        titleLabel?.text = json[EMERANA.Key.title].stringValue
+        subTitleLabel?.text = json[EMERANA.Key.subtitle].stringValue
+        if let imageName = json[EMERANA.Key.icon].string {
             masterImageView?.image = UIImage(named: imageName)
         }
     }

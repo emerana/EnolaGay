@@ -361,8 +361,8 @@ open class SegmentedViewTitleDataSource: SegmentedViewDataSource {
     public init() {}
 
     public func segmentedView(registerCellForCollectionViewAt collectionView: UICollectionView) -> String {
-        collectionView.register(SegmentedTitleCell.self, forCellWithReuseIdentifier: "Cell")
-        return "Cell"
+        collectionView.register(SegmentedTitleCell.self, forCellWithReuseIdentifier: EMERANA.Key.cell)
+        return EMERANA.Key.cell
     }
     
     public func numberOfItems(in segmentedView: SegmentedView) -> Int { titles.count }

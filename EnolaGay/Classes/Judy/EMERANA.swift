@@ -1380,6 +1380,16 @@ public struct EMERANA {
         public static let statusBarViewTag = 20210727
         /// 该值用作于 EMERANA UIView 扩展函数 gradientView() 辨别 gradientLayer.name.
         public static let gradientViewName = "EMERANA_GRADIENT_LAYER_NAME"
+        /// 在 JudyBaseTableViewCtrl/JudyBaseCollectionViewCtrl 中 dequeueReusableCell 用到的 Cell 标识符。
+        public static let cell = "Cell"
+        
+        public static let title = "title"
+        public static let subtitle = "subtitle"
+        public static let segue = "segue"
+        public static let icon = "icon"
+        public static let placeholder = "placeholder"
+        public static let value = "value"
+        public static let input = "input"
     }
     
     /// 定义 String 类型的 enum 样板，这种 enum 可以不用 rawValue.
@@ -1396,60 +1406,6 @@ public struct EMERANA {
         static let notSetApi = 2500
     }
 }
-
-
-public extension EMERANA.Key {
-
-    /// 与各种 Cell 相关的常用 Key.
-    struct Cell {
-        /// Cell 的重用标识符，能够代表该 Cell 具体类型标识。
-        public static let cell = "EMERANA_KEY_Cell_identitierCell"
-
-        /// 标识 cell 的高度
-        public static let height = "EMERANA_KEY_Cell_heightCell"
-        /// 标识 Cell 的高宽比
-        public static let proportion = "EMERANA_KEY_Cell_proportionCell"
-
-        /// 在 JudyBaseCell 中 对应 titleLabel
-        public static let title = "EMERANA_KEY_Cell_titleCell"
-        /// 在 JudyBaseCell 中 对应 subtitle
-        public static let subtitle = "EMERANA_KEY_Cell_subtitleCell"
-        
-        /// 一般用于数据源中的数组标识
-        public static let datas = "EMERANA_KEY_Cell_datasCell"
-
-        /// 一般用来标识 segue
-        public static let segue = "EMERANA_KEY_Cell_segueIdentifierCell"
-        /// 如果有用到本地小图标这选择这个 Key，注意不要和 image 搞混
-        public static let icon = "EMERANA_KEY_Cell_iconCell"
-        /// 在 JudyBaseCell 中对应 masterImageView 的 URL
-        public static let image = "EMERANA_KEY_Cell_imageCell"
-
-        // MARK: cell 中的输入场景
-        
-        /// 占位符，一般用于输入框场景
-        public static let placeholder = "EMERANA_KEY_Cell_placeholderCell"
-        /// 一般表示输入框的值
-        public static let value = "EMERANA_KEY_Cell_valueCell"
-        /// 是否支持输入？一般对应一个 Bool 值
-        public static let input = "EMERANA_KEY_Cell_inputEnableCell"
-        
-        /// 一般用来标识 对应的Api Key
-        public static let apiKey = "EMERANA_KEY_Cell_apiKeyCell"
-
-        // MARK: header/footer
-
-        /// 标识 section header
-        public static let header = "EMERANA_KEY_Cell_headerViewCell"
-        /// 标识 section footer
-        public static let footer = "EMERANA_KEY_Cell_footerViewCell"
-        /// 标识 section 底部偏移量
-        public static let insetBottom = "EMERANA_KEY_Cell_insetBottomCell"
-        /// 标识 section 顶部偏移量
-        public static let insetTop = "EMERANA_KEY_Cell_insetTopCell"
-    }
-}
-
 
 // MARK: - 正确地处理键盘遮挡输入框
 
