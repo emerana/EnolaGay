@@ -21,12 +21,8 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
     
     /// 主要的 CollectionView,该 CollectionView 默认将 dataSource、dataSource 设置为 self.
     @IBOutlet public weak var collectionView: UICollectionView?
-
-    
-    // MARK: - var property
     
     open lazy var dataSource = [JSON]()
-    
     /// 同一 line 中 item（cell）之间的最小间隙。
     open var itemSpacing: CGFloat { return 6 }
 
@@ -37,7 +33,7 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
         super.viewDidLoad()
         
         guard collectionView != nil else {
-            Judy.log("🚔 collectionView 没有关联 IBOutlet！")
+            Judy.logWarning("collectionView 没有关联 IBOutlet")
             return
         }
 
@@ -305,8 +301,7 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     
     /// 请求失败的消息处理，此函数中会触发 reqNotApi 函数。
     ///
-    /// 重写此方法务必调用父类方法。
-    /// - Warning:
+    /// - Warning: 重写此方法务必调用父类方法。
     open override func reqFailed() {
         super.reqFailed()
         reqNotApi()
@@ -376,7 +371,6 @@ public extension UICollectionViewLayoutAttributes {
         frame.origin.x = sectionInset.left
         self.frame = frame
     }
-
 }
 
 /// UICollectionViewFlowLayout 自定义版。
@@ -454,7 +448,6 @@ public class JudyCollectionViewLayout: UICollectionViewFlowLayout {
         
         return currentItemAttributes
     }
-        
 }
 
 private extension JudyCollectionViewLayout {
@@ -471,7 +464,7 @@ private extension JudyCollectionViewLayout {
         }
     }
     
-    /// 计算 Section 的 UIEdgeInsets
+    /// 计算 Section 的 UIEdgeInsets.
     func evaluatedSectionInsetForItemAtIndex(index: NSInteger) -> UIEdgeInsets {
         
         if collectionView?.delegate?.responds(to: #selector((collectionView!.delegate as! UICollectionViewDelegateFlowLayout).collectionView(_:layout:insetForSectionAt:))) ?? false {
@@ -482,7 +475,6 @@ private extension JudyCollectionViewLayout {
             return sectionInset
         }
     }
-    
 }
 
 
@@ -494,9 +486,7 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
     // MARK: - let property and IBOutlet
     
     @IBOutlet weak public var titleLabel: UILabel?
-    
     @IBOutlet weak public var subTitleLabel: UILabel?
-    
     @IBOutlet weak public var masterImageView: UIImageView?
     
 
@@ -551,7 +541,6 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
     // 如果布局更新挂起，则立即布局子视图。
     open override func layoutIfNeeded() {
         super.layoutIfNeeded()
-
     }
     
     /// 当 cell.json 设置后将触发此函数，子类通过覆盖此函数以设置 UI.
@@ -563,5 +552,4 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
             masterImageView?.image = UIImage(named: imageName)
         }
     }
-
 }
