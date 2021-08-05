@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>Api</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// MARK: Api 相关
+
+override func setApi() {
+    super.setApi()
+    
+    requestConfig.api = &lt;#ApiAction#&gt;.
+    
+}
+
+override func reqSuccess() {
+    super.reqSuccess()
+    
+    Judy.log("请求成功-\(apiData)")
+    
+    /*
+    if isAddMore {
+     dataSource += apiData["data", "&lt;#rows#&gt;"].arrayValue
+    } else {
+     dataSource = apiData["data", "&lt;#rows#&gt;"].arrayValue
+    }
+     tableView?.reloadSections(IndexSet(integer: &lt;#0#&gt;), with: .fade)
+     或
+     tableView?.reloadData()
+     
+    */
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>2C015EAF-EA9A-4DD1-B4BF-C861D7C20A47</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>设置Api及请求结果</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>重写Api请求相关方法</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

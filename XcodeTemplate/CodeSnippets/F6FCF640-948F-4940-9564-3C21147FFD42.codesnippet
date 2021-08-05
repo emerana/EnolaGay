@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>tbd</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    // MARK: dataSource
+
+    /*
+     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
+     // 父类已设置为dataSource.count，如需修改请，重写此方法，但要注意cellFor里面DataSource[indexPath.row]越界
+     return &lt;#T##dataSource.count#&gt;
+     }
+     */
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {
+        // 此方法可以不判断cell == nil
+        let cell: JudyBaseTableCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)as! JudyBaseTableCell
+        cell.json = dataSource[indexPath.row]
+        
+        
+        return cell
+    }
+    
+    // MARK: delegate
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        /*
+         let data = dataSource[indexPath.row]
+         if data["segue"].stringValue != "" {
+         performSegue(withIdentifier: data["segue"].stringValue, sender: data)
+         }
+         */
+    }
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>F6FCF640-948F-4940-9564-3C21147FFD42</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>基本数据源及选中代理</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>重写tableView代理</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
