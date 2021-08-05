@@ -79,8 +79,7 @@ public extension SegmentedViewDataSource {
 
 /// SegmentedView 相关事件代理协议。
 public protocol SegmentedViewDelegate: AnyObject {
-
-    /// 询问是否允许点击选中目标 index 的 item，该函数已默认实现返回 true。
+    /// 询问是否允许点击选中目标 index 的 item，该函数已默认实现返回 true.
     func segmentedView(_ segmentedView: SegmentedView, canClickItemAt index: Int) -> Bool
     
     /// 选中目标 item 后的代理事件，此函数发生在完成选中指定项之后。
@@ -88,14 +87,12 @@ public protocol SegmentedViewDelegate: AnyObject {
     ///   - segmentedView: 操作的 segmentedView 对象。
     ///   - index: 被选中的索引。
     func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int)
-
 }
 
 // MARK: SegmentedViewDelegate 默认实现
 
 /// 提供 SegmentedViewDelegate 的默认实现，这样对于遵从 SegmentedViewDelegate 的类来说，所有代理方法都是可选实现的。
 public extension SegmentedViewDelegate {
-    
     func segmentedView(_ segmentedView: SegmentedView, canClickItemAt index: Int) -> Bool { true }
 
     func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int){}
@@ -104,7 +101,7 @@ public extension SegmentedViewDelegate {
 
 // MARK: 指示器专用协议
 
-/// 指示器专用协议
+/// 指示器专用协议。
 public protocol IndicatorProtocol {
     
     /// 是否需要将当前的 indicator 的 frame 转换到 Cell。辅助 SegmentedTitleDataSourced 的 isTitleMaskEnabled 属性使用。

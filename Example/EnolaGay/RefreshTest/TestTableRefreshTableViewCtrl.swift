@@ -75,11 +75,11 @@ private extension TestTableRefreshTableViewCtrl {
         
         dataSource = [
             [
-                EMERANA.Key.Cell.title: "模拟数据",
-                EMERANA.Key.Cell.segue: "模拟数据",
+                EMERANA.Key.title: "模拟数据",
+                EMERANA.Key.segue: "模拟数据",
             ],
-            [EMERANA.Key.Cell.title: "模拟数据", ],
-            [EMERANA.Key.Cell.title: "模拟数据", ],
+            [EMERANA.Key.title: "模拟数据", ],
+            [EMERANA.Key.title: "模拟数据", ],
         ]
     }
     
