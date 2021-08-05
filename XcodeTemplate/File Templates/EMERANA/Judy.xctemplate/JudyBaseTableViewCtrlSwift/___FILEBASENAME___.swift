@@ -38,16 +38,15 @@ class ___FILEBASENAMEASIDENTIFIER___: JudyBaseTableViewCtrl {
 
 // MARK: - private methods
 private extension ___FILEBASENAMEASIDENTIFIER___ {
-    
     /// 设置 JSON 数据源。
     func setDataSource() {
         dataSource = [
             [
-                EMERANA.Key.Cell.title: "模拟数据",
-                EMERANA.Key.Cell.segue: "模拟数据",
+                EMERANA.Key.title: "模拟数据",
+                EMERANA.Key.segue: "模拟数据",
             ],
-            [EMERANA.Key.Cell.title: "模拟数据", ],
-            [EMERANA.Key.Cell.title: "模拟数据", ],
+            [EMERANA.Key.title: "模拟数据", ],
+            [EMERANA.Key.title: "模拟数据", ],
         ]
     }
     
