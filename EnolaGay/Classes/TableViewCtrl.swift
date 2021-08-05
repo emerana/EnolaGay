@@ -37,7 +37,7 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
         super.viewDidLoad()
         
         guard tableView != nil else {
-            Judy.log("🚔 tableView 没有关联 IBOutlet！")
+            Judy.logWarning("tableView 没有关联 IBOutlet！")
             return
         }
         
@@ -76,7 +76,6 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
          let cell = tableView.dequeueReusableCell(withIdentifier: "<#Cell#>", for: indexPath)
          */
     }
-    
 }
 
 
@@ -109,7 +108,6 @@ extension JudyBaseTableViewCtrl: UITableViewDelegate {
     
     /// 选中事件。默认在父类里 deselectRow，实现此函数覆盖 super 即可。
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if !tableView.isEditing {
             tableView.deselectRow(at: indexPath, animated: true)
         }
@@ -137,7 +135,6 @@ extension JudyBaseTableViewCtrl: UITableViewDelegate {
      }
 
      */
-    
 }
 
 
@@ -157,7 +154,7 @@ extension JudyBaseTableViewCtrl: UITableViewDataSource {
     /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例。
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 此方法可以不判断 Cell 是否为 nil.
-        return tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        return tableView.dequeueReusableCell(withIdentifier: EMERANA.Key.cell, for: indexPath)
     }
     
 }
@@ -317,8 +314,8 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
 }
 
 
-/// tableVie 通用 cell，包含一张主要图片、副标题以及默认数据源 json。
-/// * labelsForColor 中的 labels 会配置颜色 foreground。
+/// tableVie 通用 cell，包含一张主要图片、副标题以及默认数据源 json.
+/// * labelsForColor 中的 labels 会配置颜色 foreground.
 open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     
     /// 是否需要解决 UITableView 有 footerView 时最后一个 cell 不显示分割线问题，默认 false。
@@ -327,9 +324,7 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     // MARK: - let property and IBOutlet
 
     @IBOutlet weak public var titleLabel: UILabel?
-    
     @IBOutlet weak public var subTitleLabel: UILabel?
-    
     @IBOutlet weak public var masterImageView: UIImageView?
     
 
@@ -405,13 +400,12 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     /// 当 cell.json 设置后将触发此函数，子类通过覆盖此函数以设置 UI.
     /// - Warning: 注意 super 中的默认实现，如有必要需调用 super.
     open func jsonDidSetAction() {
-        titleLabel?.text = json[EMERANA.Key.Cell.title].stringValue
-        subTitleLabel?.text = json[EMERANA.Key.Cell.subtitle].stringValue
-        if let imageName = json[EMERANA.Key.Cell.icon].string {
+        titleLabel?.text = json[EMERANA.Key.title].stringValue
+        subTitleLabel?.text = json[EMERANA.Key.subtitle].stringValue
+        if let imageName = json[EMERANA.Key.icon].string {
             masterImageView?.image = UIImage(named: imageName)
         }
     }
-
 }
 
 
@@ -433,6 +427,7 @@ open class JudyInputCell: JudyBaseTableCell {
         didSet{ inputTextField?.indexPath = indexPath }
     }
     
+    
     open override func jsonDidSetAction() {
         super.jsonDidSetAction()
         
@@ -440,19 +435,16 @@ open class JudyInputCell: JudyBaseTableCell {
             titleLabel?.text = "请先设置 indexPath！"
             return
         }
-        inputTextField?.placeholder = json[EMERANA.Key.Cell.placeholder].stringValue
-        inputTextField?.text = json[EMERANA.Key.Cell.value].stringValue
-        inputTextField?.isEnabled = json[EMERANA.Key.Cell.input].boolValue
+        inputTextField?.placeholder = json[EMERANA.Key.placeholder].stringValue
+        inputTextField?.text = json[EMERANA.Key.value].stringValue
+        inputTextField?.isEnabled = json[EMERANA.Key.input].boolValue
     }
-    
-    
 }
 
 
-/// 包含一个 indexPath 的 UITextField，该 UITextField 通常嵌于 TableViewCell 里，为此在里面指定一个 indexPath。
+/// 包含一个 indexPath 的 UITextField，该 UITextField 通常嵌于 TableViewCell 里，为此在里面指定一个 indexPath.
 /// - Warning: 此类必须独立出来。
 final public class JudyCellTextField: JudyBaseTextField {
-    /// 对应 cell 中的 indexPath。
+    /// 对应 cell 中的 indexPath.
     public var indexPath: IndexPath!
 }
-

@@ -21,12 +21,8 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
     
     /// 主要的 CollectionView,该 CollectionView 默认将 dataSource、dataSource 设置为 self.
     @IBOutlet public weak var collectionView: UICollectionView?
-
-    
-    // MARK: - var property
     
     open lazy var dataSource = [JSON]()
-    
     /// 同一 line 中 item（cell）之间的最小间隙。
     open var itemSpacing: CGFloat { return 6 }
 
@@ -37,7 +33,7 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
         super.viewDidLoad()
         
         guard collectionView != nil else {
-            Judy.log("🚔 collectionView 没有关联 IBOutlet！")
+            Judy.logWarning("collectionView 没有关联 IBOutlet")
             return
         }
 
@@ -93,7 +89,7 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDataSource {
     
     /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例。
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        return collectionView.dequeueReusableCell(withReuseIdentifier: EMERANA.Key.cell, for: indexPath)
     }
     
     // 生成 HeaderView 和 FooterView。
@@ -169,15 +165,17 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
      }
      */
     
-    /// 询问 cell 大小，在此函数中计算好对应的 size。
+    /// 询问 cell 大小，在此函数中计算好对应的 size.
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         /// 在一个 line 中需要显示的 Cell 数量。
         let countOfCells: CGFloat = 3
         /// cell 参与计算的边长，初值为 line 的长度（包含间距）。
         ///
         /// 一个 line 中需要显示的所有 cell 宽度（或高度）及他们之间所有间距的总和，以此来确定单个 cell 的边长。
-        /// - Warning: 请注意在此处减去不参与计算 cell 边长的部分，比如：collectionView.contentInset.left.
-        var lineWidthOfCell: CGFloat = collectionView.frame.width
+        /// - Warning: 请注意在此处减去不参与计算 cell 边长的部分，比如 collectionView.contentInset 的两边。
+        var lineWidthOfCell = collectionView.frame.width
+        // var lineWidthOfCell = collectionView.frame.width - collectionView.contentInset.left - collectionView.contentInset.right
+
         // 正确地计算 cellWidth 公式，若发现实际显示不正确，请确认是否关闭 CollectionView 的 Estimate Size，将其设置为 None.
         lineWidthOfCell = (lineWidthOfCell + itemSpacing)/countOfCells - itemSpacing
         
@@ -198,13 +196,11 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
 
     // 一个 section 中连续的行或列之间的最小间距，默认为 0。实际值可能大于该值，但不会比其小。
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
         return itemSpacing
     }
     
     // 同一行中连续的 cell 间的最小间距，该间距决定了一行内有多少个 cell，数量确定后，实际的间距可能会比该值大。
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        
         return itemSpacing
     }
 
@@ -305,8 +301,7 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     
     /// 请求失败的消息处理，此函数中会触发 reqNotApi 函数。
     ///
-    /// 重写此方法务必调用父类方法。
-    /// - Warning:
+    /// - Warning: 重写此方法务必调用父类方法。
     open override func reqFailed() {
         super.reqFailed()
         reqNotApi()
@@ -376,7 +371,6 @@ public extension UICollectionViewLayoutAttributes {
         frame.origin.x = sectionInset.left
         self.frame = frame
     }
-
 }
 
 /// UICollectionViewFlowLayout 自定义版。
@@ -454,7 +448,6 @@ public class JudyCollectionViewLayout: UICollectionViewFlowLayout {
         
         return currentItemAttributes
     }
-        
 }
 
 private extension JudyCollectionViewLayout {
@@ -471,7 +464,7 @@ private extension JudyCollectionViewLayout {
         }
     }
     
-    /// 计算 Section 的 UIEdgeInsets
+    /// 计算 Section 的 UIEdgeInsets.
     func evaluatedSectionInsetForItemAtIndex(index: NSInteger) -> UIEdgeInsets {
         
         if collectionView?.delegate?.responds(to: #selector((collectionView!.delegate as! UICollectionViewDelegateFlowLayout).collectionView(_:layout:insetForSectionAt:))) ?? false {
@@ -482,7 +475,6 @@ private extension JudyCollectionViewLayout {
             return sectionInset
         }
     }
-    
 }
 
 
@@ -494,9 +486,7 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
     // MARK: - let property and IBOutlet
     
     @IBOutlet weak public var titleLabel: UILabel?
-    
     @IBOutlet weak public var subTitleLabel: UILabel?
-    
     @IBOutlet weak public var masterImageView: UIImageView?
     
 
@@ -551,17 +541,15 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
     // 如果布局更新挂起，则立即布局子视图。
     open override func layoutIfNeeded() {
         super.layoutIfNeeded()
-
     }
     
     /// 当 cell.json 设置后将触发此函数，子类通过覆盖此函数以设置 UI.
     /// - Warning: 注意 super 中的默认实现，如有必要需调用 super.
     open func jsonDidSetAction() {
-        titleLabel?.text = json[EMERANA.Key.Cell.title].stringValue
-        subTitleLabel?.text = json[EMERANA.Key.Cell.subtitle].stringValue
-        if let imageName = json[EMERANA.Key.Cell.icon].string {
+        titleLabel?.text = json[EMERANA.Key.title].stringValue
+        subTitleLabel?.text = json[EMERANA.Key.subtitle].stringValue
+        if let imageName = json[EMERANA.Key.icon].string {
             masterImageView?.image = UIImage(named: imageName)
         }
     }
-
 }

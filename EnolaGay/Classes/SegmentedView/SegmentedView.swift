@@ -239,6 +239,10 @@ public extension SegmentedView {
     /// - Parameter index: 目标 index，函数内部会对该参数进行合法校验。
     /// - Parameter selectedType: 触发选择的操作类型。
     final func selectItem(at index: Int) {
+        guard dataSource != nil else {
+            Judy.logWarning("dataSource 不能为 nil")
+            return
+        }
         // 确保允许选中
         guard delegate?.segmentedView(self, canClickItemAt: index) != false else { return }
 
@@ -257,14 +261,14 @@ public extension SegmentedView {
         
         updateSelectedEntitys(currentSelected: currentSelectedItemModel, willSelected: willSelectedItemModel)
         
-        // 更新两个 Cell
+        // 更新两个 Cell.
         let currentSelectedCell = collectionView.cellForItem(at: IndexPath(item: selectedIndex, section: 0)) as? SegmentedCell
         currentSelectedCell?.reloadData(itemModel: currentSelectedItemModel)
 
         let willSelectedCell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? SegmentedCell
         willSelectedCell?.reloadData(itemModel: willSelectedItemModel)
         
-        // 根据滚动情况再次更新
+        // 根据滚动情况再次更新。
         if scrollingTargetIndex != -1 && scrollingTargetIndex != index {
             let scrollingTargetItemModel = items[scrollingTargetIndex]
             scrollingTargetItemModel.isSelected = false
@@ -274,10 +278,10 @@ public extension SegmentedView {
             let scrollingTargetCell = collectionView.cellForItem(at: IndexPath(item: scrollingTargetIndex, section: 0)) as? SegmentedCell
             scrollingTargetCell?.reloadData(itemModel: scrollingTargetItemModel)
         }
-        // 处理缩放情况
-        if dataSource?.isItemWidthZoomEnabled == true {
+        // 处理缩放情况。
+        if dataSource!.isItemWidthZoomEnabled {
             // 延时为了解决 cellwidth 变化，点击最后几个 cell，scrollToItem 会出现位置偏移 bug。需要等 cellWidth 动画渐变结束后再滚动到 index 的 cell 位置。
-            let selectedAnimationDurationInMilliseconds = Int((dataSource?.selectedAnimationDuration ?? 0)*1000)
+            let selectedAnimationDurationInMilliseconds = Int(dataSource!.selectedAnimationDuration*1000)
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(selectedAnimationDurationInMilliseconds)) {
                 self.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
@@ -288,7 +292,7 @@ public extension SegmentedView {
         
         selectedIndex = index
         
-        // 更新 indicator
+        // 更新 indicator.
         let currentSelectedItemFrame = getItemFrameAt(index: selectedIndex)
         for indicator in indicators {
             let indicatorParams = IndicatorSelectedParams(index: selectedIndex,
@@ -472,7 +476,6 @@ extension SegmentedView: UICollectionViewDelegate {
             selectItem(at: indexPath.item)
         }
     }
-
 }
 
 
