@@ -165,15 +165,17 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
      }
      */
     
-    /// 询问 cell 大小，在此函数中计算好对应的 size。
+    /// 询问 cell 大小，在此函数中计算好对应的 size.
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         /// 在一个 line 中需要显示的 Cell 数量。
         let countOfCells: CGFloat = 3
         /// cell 参与计算的边长，初值为 line 的长度（包含间距）。
         ///
         /// 一个 line 中需要显示的所有 cell 宽度（或高度）及他们之间所有间距的总和，以此来确定单个 cell 的边长。
-        /// - Warning: 请注意在此处减去不参与计算 cell 边长的部分，比如：collectionView.contentInset.left.
-        var lineWidthOfCell: CGFloat = collectionView.frame.width
+        /// - Warning: 请注意在此处减去不参与计算 cell 边长的部分，比如：collectionView.contentInset 的两边。
+        var lineWidthOfCell = collectionView.frame.width
+        // var lineWidthOfCell = collectionView.frame.width - collectionView.contentInset.left - collectionView.contentInset.right
+
         // 正确地计算 cellWidth 公式，若发现实际显示不正确，请确认是否关闭 CollectionView 的 Estimate Size，将其设置为 None.
         lineWidthOfCell = (lineWidthOfCell + itemSpacing)/countOfCells - itemSpacing
         
@@ -194,13 +196,11 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
 
     // 一个 section 中连续的行或列之间的最小间距，默认为 0。实际值可能大于该值，但不会比其小。
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
         return itemSpacing
     }
     
     // 同一行中连续的 cell 间的最小间距，该间距决定了一行内有多少个 cell，数量确定后，实际的间距可能会比该值大。
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        
         return itemSpacing
     }
 
