@@ -9,84 +9,84 @@ import SwiftyJSON
 
 // MARK: typealias
 
-/// 一个不传递任何参数的闭包。
+/// 一个不传递任何参数的闭包
 public typealias Closure = (() -> Void)
-/// 传递一个 JSON 对象的闭包。
+/// 传递一个 JSON 对象的闭包
 public typealias ClosureJSON = ((JSON) -> Void)
-/// 传递一个 String 对象的闭包。
+/// 传递一个 String 对象的闭包
 public typealias ClosureString = ((String) -> Void)
 
 
 // MARK: - 为 ViewCtrl 新增部分协议
 
-// 为 JudyBaseViewCtrl 扩展函数实现。
+// 为 JudyBaseViewCtrl 扩展函数实现
 public extension JudyBaseViewCtrl {
-    /// 是否隐藏所有界面 reqApi() 时显示等待的 HUD，此函数已默认实现返回 false，通过 public extension JudyBaseViewCtrl 重写此函数以改变默认值。
+    /// 是否隐藏所有界面 reqApi() 时显示等待的 HUD，此函数已默认实现返回 false，通过 public extension JudyBaseViewCtrl 重写此函数以改变默认值
     static func isGlobalHideWaitingHUD() -> Bool { false }
 }
 
 
 // MARK: - 刷新视图专用协议，主要用于 tableView、collectionView
 
-/// 刷新控件适配器协议。
+/// 刷新控件适配器协议
 public protocol RefreshAdapter where Self: UIApplication {
-    /// 配置头部刷新控件（即下拉刷新）。
+    /// 配置头部刷新控件（即下拉刷新）
     func initHeaderRefresh(scrollView: UIScrollView?, callback: @escaping (()->Void))
-    /// 配置底部刷新控件（即上拉加载）。
+    /// 配置底部刷新控件（即上拉加载）
     func initFooterRefresh(scrollView: UIScrollView?, callback: @escaping (()->Void))
     
-    /// 结束所有上拉、下拉状态。
+    /// 结束所有上拉、下拉状态
     func endRefresh(scrollView: UIScrollView?)
-    /// 结束没有更多数据的函数。
+    /// 结束没有更多数据的函数
     func endRefreshingWithNoMoreData(scrollView: UIScrollView?)
     
-    /// 重置没有更多数据。
+    /// 重置没有更多数据
     func resetNoMoreData(scrollView: UIScrollView?)
     
-    /// 询问分页请求中页码和页大小字段名，默认实现为 "pageIndex","pageSize".
-    /// - Warning: 第一个元素为页码，第二个元素为页大小。
+    /// 询问分页请求中页码和页大小字段名，默认实现为 "pageIndex","pageSize"
+    /// - Warning: 第一个元素为页码，第二个元素为页大小
     func pageParameterStrings() -> (String, String)
 }
 
-/// 默认实现。
+/// 默认实现
 public extension RefreshAdapter {
     func pageParameterStrings() -> (String, String) { ("pageIndex","pageSize") }
 }
 
-/// tableView、collectionView 专用刷新协议。
-/// - Warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供。
+/// tableView、collectionView 专用刷新协议
+/// - Warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
 public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     
     /// 缺省请求页码，通常第一页码为1，但有的情况可能为 0.
     var defaultPageIndex: Int { get }
-    /// 请求页码。初始化、下拉刷新时会重置到默认值 defaultPageIndex.
+    /// 请求页码初始化、下拉刷新时会重置到默认值 defaultPageIndex.
     var currentPage: Int { get }
     
-    /// 每页的数据大小。
+    /// 每页的数据大小
     var pageSize: Int { get }
 
-    /// 该属性标识最后操作是否为上拉加载，通常在获取到服务器数据后需要判断该值进行数据的处理。
+    /// 该属性标识最后操作是否为上拉加载，通常在获取到服务器数据后需要判断该值进行数据的处理
     var isAddMore: Bool { get }
     
-    /// 请在此函数中配置头部（下拉）刷新控件。
+    /// 请在此函数中配置头部（下拉）刷新控件
     func initHeaderRefresh()
-    /// 请在此函数中配置底部（上拉）加加载控件。
+    /// 请在此函数中配置底部（上拉）加加载控件
     func initFooterRefresh()
     
-    /// 询问分页请求中的当前页码字段名，默认实现为 "pageIndex"，否则请重写此函数以配置正确的字段名。
+    /// 询问分页请求中的当前页码字段名，默认实现为 "pageIndex"，否则请重写此函数以配置正确的字段名
     func pageParameterString() -> String
-    /// 询问分页请求中的每页大小的字段名，默认实现为 "pageSize"，否则请重写此函数以配置正确的字段名。
+    /// 询问分页请求中的每页大小的字段名，默认实现为 "pageSize"，否则请重写此函数以配置正确的字段名
     func pageSizeParameterString() -> String
     
-    /// 当 currentPage 发生变化的操作。
+    /// 当 currentPage 发生变化的操作
     func didSetCurrentPage()
 
-    /// 执行下拉刷新之前的事件补充。
+    /// 执行下拉刷新之前的事件补充
     func refreshHeader()
-    /// 执行上拉加载之前的事件补充。
+    /// 执行上拉加载之前的事件补充
     func refreshFooter()
 
-    /// 询问当前分页数据的总页数。
+    /// 询问当前分页数据的总页数
     ///
     /// 通过服务器响应的数据量来判断是否还有更多数据，通常以请求数据大小为条件，只要没有达到目标数据大小即视为没有更多数据，参考代码：
     /// ```
@@ -95,15 +95,15 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     /// - Warning: 若未覆盖此函数，默认值为 1.
     func setSumPage() -> Int
     
-    /// 重置当前页面请求页数及上下拉状态。
+    /// 重置当前页面请求页数及上下拉状态
     ///
-    /// 在此函数中请将 `currentPage`、`isAddMore` 设置为初始值。
-    /// - Warning: 此函数一般用于 segmentCtrl 发生切换并需要重新请求 Api 时重置当前刷新状态。
+    /// 在此函数中请将 `currentPage`、`isAddMore` 设置为初始值
+    /// - Warning: 此函数一般用于 segmentCtrl 发生切换并需要重新请求 Api 时重置当前刷新状态
     func resetStatus()
 }
 
 /*
- # 注意：协议扩展是针对抽象类的，而协议本身是针对具体对象的。
+ # 注意：协议扩展是针对抽象类的，而协议本身是针对具体对象的
  */
 extension EMERANA_Refresh {
     /// 是否隐藏上拉刷新控件？默认 false.
@@ -116,10 +116,10 @@ extension EMERANA_Refresh {
 /// 此协议仅适用于包含基础集合视图的 tableViewCtrl、collectionViewCtrl.
 protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
     
-    /// 主要数据源，需要手动赋值，默认为空数组。
+    /// 主要数据源，需要手动赋值，默认为空数组
     var dataSource: [JSON] { get set }
     
-    /// 重写此方法并在此方法中注册 Cell 或 HeaderFooter。**此方法在 ViewDidLoad() 中被执行**
+    /// 重写此方法并在此方法中注册 Cell 或 HeaderFooter**此方法在 ViewDidLoad() 中被执行**
     ///
     /// * 注册 Cell 参考代码
     /// ```
@@ -132,22 +132,22 @@ protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
     /// ```
     /// let cell = tableView.dequeueReusableCell(withIdentifier: "<#Cell#>", for: indexPath)
     /// ```
-    /// - Warning: 一个 Nib 里面只放一个 Cell，且里面的 Cell 不能自带 identifier，否则必须用自带的 identifier 进行注册。
+    /// - Warning: 一个 Nib 里面只放一个 Cell，且里面的 Cell 不能自带 identifier，否则必须用自带的 identifier 进行注册
     func registerReuseComponents()
 }
 
 // MARK: - tableViewCell 和 collectionViewCell 专用协议
 
-/// Cell 基础协议。
-/// - Warning: 此协议针对 tableViewCell、collectionViewCell 类定制。
+/// Cell 基础协议
+/// - Warning: 此协议针对 tableViewCell、collectionViewCell 类定制
 public protocol EMERANA_CellBasic {
-    /// 标题。
+    /// 标题
     var titleLabel: UILabel? { get set }
-    /// 副标题。
+    /// 副标题
     var subTitleLabel: UILabel? { get set }
-    /// 主图片。
+    /// 主图片
     var masterImageView: UIImageView? { get set }
-    /// Cell 中的数据源。
+    /// Cell 中的数据源
     ///
     /// 设置该值的时候将触发 jsonDidSetAction()，函数中的默认对应:
     /// * titleLabel -> EMERANA.Key.Cell.title
@@ -158,15 +158,15 @@ public protocol EMERANA_CellBasic {
 /*
  // MARK: 默认实现的注意点
  
- # 注意：协议扩展是针对抽象类的，而协议本身是针对具体对象的。
+ # 注意：协议扩展是针对抽象类的，而协议本身是针对具体对象的
  # 当声明协议时没有进行限定则须注意一下：
- # 重写协议的默认实现函数调用权重为 子类>实现类>默认实现，若没有在实现类实现函数则直接调用默认实现函数，此时子类的重写无效。
+ # 重写协议的默认实现函数调用权重为 子类>实现类>默认实现，若没有在实现类实现函数则直接调用默认实现函数，此时子类的重写无效
  */
-/// 为 EMERANA_CellBasic 协议新增的扩展函数（非默认实现函数）。
+/// 为 EMERANA_CellBasic 协议新增的扩展函数（非默认实现函数）
 public extension EMERANA_CellBasic {
-    /// 所有实现 EMERANA_CellBasic 协议的对象在初始函数中均会先触发此扩展函数，在此函数中补充所需操作。
+    /// 所有实现 EMERANA_CellBasic 协议的对象在初始函数中均会先触发此扩展函数，在此函数中补充所需操作
     ///
-    /// 扩展对应的类并重写此函数即可使该类执行重写后的函数。
+    /// 扩展对应的类并重写此函数即可使该类执行重写后的函数
     func globalAwakeFromNib() { }
     
     func selectedDidSet(isSelected: Bool) { }
@@ -176,15 +176,15 @@ public extension EMERANA_CellBasic {
  
  // MARK: - @available 使用
 
- @available： 可用来标识计算属性、函数、类、协议、结构体、枚举等类型的生命周期。（依赖于特定的平台版本 或 Swift 版本）
- available 特性经常与参数列表一同出现，该参数列表至少有两个特性参数，参数之间由逗号分隔。
+ @available： 可用来标识计算属性、函数、类、协议、结构体、枚举等类型的生命周期（依赖于特定的平台版本 或 Swift 版本）
+ available 特性经常与参数列表一同出现，该参数列表至少有两个特性参数，参数之间由逗号分隔
  
- unavailable：表示该声明在指定的平台上是无效的。
- introduced：表示指定平台从哪一版本开始引入该声明。
- deprecated：表示指定平台从哪一版本开始弃用该声明。虽然被弃用，但是依然使用的话也是没有问题的。若省略版本号，则表示目前弃用，同时可直接省略冒号。
- obsoleted：表示指定平台从哪一版本开始废弃该声明。当一个声明被废弃后，它就从平台中移除，不能再被使用。
- message：说明信息。当使用被弃用或者被废弃的声明时，编译器会抛出警告或错误信息。
- renamed：新的声明名称信息。当使用旧声明时，编译器会报错提示修改为新名字。
+ unavailable：表示该声明在指定的平台上是无效的
+ introduced：表示指定平台从哪一版本开始引入该声明
+ deprecated：表示指定平台从哪一版本开始弃用该声明虽然被弃用，但是依然使用的话也是没有问题的若省略版本号，则表示目前弃用，同时可直接省略冒号
+ obsoleted：表示指定平台从哪一版本开始废弃该声明当一个声明被废弃后，它就从平台中移除，不能再被使用
+ message：说明信息当使用被弃用或者被废弃的声明时，编译器会抛出警告或错误信息
+ renamed：新的声明名称信息当使用旧声明时，编译器会报错提示修改为新名字
  
  如果 available 特性除了平台名称参数外，只指定了一个 introduced 参数，那么可以使用以下简写语法代替：
  @available(平台名称 版本号, *)
@@ -203,16 +203,16 @@ public extension UIColor {
      * class 定义的属性和func 可以被子类 override.
      */
     
-    /// 此颜色为白色。
+    /// 此颜色为白色
     static let scrollView: UIColor = .white
 
     // MARK: 构造函数
     
-    /// 通过16进制转换成 UIColor。
+    /// 通过16进制转换成 UIColor
     ///
     /// - Parameters:
-    ///   - rgbValue: 如:0x36c7b7（其实就是#36c7b7）。
-    ///   - alpha: 默认1。 可见度，0.0~1.0，值越高越不透明，越小越透明。
+    ///   - rgbValue: 如:0x36c7b7（其实就是#36c7b7）
+    ///   - alpha: 默认1 可见度，0.0~1.0，值越高越不透明，越小越透明
     convenience init(rgbValue: Int, alpha: CGFloat = 1) {
         self.init(red: CGFloat(Float((rgbValue & 0xff0000) >> 16)) / 255.0,
                   green: CGFloat((Float((rgbValue & 0xff00) >> 8)) / 255.0),
@@ -220,13 +220,13 @@ public extension UIColor {
                   alpha: alpha)
     }
     
-    /// 通过指定 RGB 比值生成 UIColor，不需要2/255，只填入2即可。
+    /// 通过指定 RGB 比值生成 UIColor，不需要2/255，只填入2即可
     /// - Parameters:
-    ///   - r: 红色值。
-    ///   - g: 绿色值。
-    ///   - b: 蓝色值。
-    ///   - a: 默认1。 透密昂度，0.0~1.0，值越高越不透明，越小越透明。
-    /// - Warning: 传入的 RGB 值在 0~255 之间哈。
+    ///   - r: 红色值
+    ///   - g: 绿色值
+    ///   - b: 蓝色值
+    ///   - a: 默认1 透密昂度，0.0~1.0，值越高越不透明，越小越透明
+    /// - Warning: 传入的 RGB 值在 0~255 之间哈
     convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1) {
         self.init(red: CGFloat(r / 255.0), green: CGFloat(g / 255.0), blue: CGFloat(b / 255.0), alpha: a)
     }
@@ -235,16 +235,16 @@ public extension UIColor {
 
 // MARK: UIFont 扩展
 
-/// 字体专用协议。
-/// - Warning: 此协仅支持对象类型。
+/// 字体专用协议
+/// - Warning: 此协仅支持对象类型
 protocol FontStyle: AnyObject {
-    /// 是否禁用全局字体名称配置，默认 false，将该值改为 true 即可忽略全局配置，单独使用在 xib 配置的值。
+    /// 是否禁用全局字体名称配置，默认 false，将该值改为 true 即可忽略全局配置，单独使用在 xib 配置的值
     ///
     /// 其核心为 JudyBaseLabel、JudyBaseButton、JudyBaseTextfield 的默认字体使用了 EMERANA.enolagayAdapter?.defaultFontName.
     var disableFont: Bool { get }
 }
 
-/// 常用字体名。
+/// 常用字体名
 public enum FontName: String {
     @available(*, unavailable, message: "重命名", renamed: "苹方_极细体")
     case 苹方_简_极细体 = "PingFangSC-Ultr"
@@ -279,9 +279,9 @@ public enum FontName: String {
 }
 
 public extension UIFont {
-    /// 通过 FontName 获得一个 UIFont 对象。
+    /// 通过 FontName 获得一个 UIFont 对象
     /// - Parameters:
-    ///   - name: 参见 FontName，该值默认为 .苹方_中黑体。
+    ///   - name: 参见 FontName，该值默认为 .苹方_中黑体
     ///   - size: 字体的大小，该值最大取 100.
     convenience init(name: FontName = .苹方_中黑体, size: CGFloat) {
         self.init(name: name.rawValue, size: min(size, 100))!
@@ -291,13 +291,13 @@ public extension UIFont {
 
 // MARK: - EnolaGayAdapter 协议：字体、颜色配置
 
-/// EnolaGay 框架全局适配协议，该协议只允许 UIApplication 继承。
+/// EnolaGay 框架全局适配协议，该协议只允许 UIApplication 继承
 public protocol EnolaGayAdapter where Self: UIApplication {
-    /// 询问 JudyBaseLabel、JudyBaseButton、JudyBaseTextField 的默认 font，该 font 需要用目标 fontName 构建。
+    /// 询问 JudyBaseLabel、JudyBaseButton、JudyBaseTextField 的默认 font，该 font 需要用目标 fontName 构建
     ///
-    /// 无论是不是在 xib 中构建的都会询问该 font.在 xib 中若需要使用 xib 设置的字体请将 disableFont 设置为 true 即可。
+    /// 无论是不是在 xib 中构建的都会询问该 font.在 xib 中若需要使用 xib 设置的字体请将 disableFont 设置为 true 即可
     ///
-    /// - Warning: EnolaGayAdapter 只会使用 UIFont.fontName，字体大小将沿用修改前的值。
+    /// - Warning: EnolaGayAdapter 只会使用 UIFont.fontName，字体大小将沿用修改前的值
     func defaultFontName() -> UIFont
     
     /// 询问 JudyBaseViewCtrl 及其子类的背景色，该函数默认实现为 white.
@@ -319,7 +319,7 @@ public extension EnolaGayAdapter {
 
 // MARK: - Calendar 扩展
 public extension EnolaGayWrapper where Base == Calendar {
-    /// 获取当月从今天算起剩余的天数。
+    /// 获取当月从今天算起剩余的天数
     var daysResidueInCurrentMonth: Int {
         var startComps = DateComponents()
         startComps.day = components.day
@@ -336,12 +336,12 @@ public extension EnolaGayWrapper where Base == Calendar {
         return diff.day ?? 1
     }
     
-    /// 便携式访问该日历当前时间点的日期组件，包含年月日时分秒。
+    /// 便携式访问该日历当前时间点的日期组件，包含年月日时分秒
     var components: DateComponents {
         return base.dateComponents([.year, .month, .day, .weekday, .hour, .minute, .second], from: Date())
     }
     
-    /// 当前月份的天数。
+    /// 当前月份的天数
     var daysInCurrentMonth: Int {
         var startComps = DateComponents()
         startComps.day = 1
@@ -356,12 +356,12 @@ public extension EnolaGayWrapper where Base == Calendar {
         return diff.day ?? 0
     }
     
-    /// 计算指定月份的天数。
+    /// 计算指定月份的天数
     ///
     /// - Parameters:
-    ///   - year: 指定的年份信息。
-    ///   - month: 指定的月份信息。
-    /// - Returns: 该年该月的天数。
+    ///   - year: 指定的年份信息
+    ///   - month: 指定的月份信息
+    /// - Returns: 该年该月的天数
     func getDaysInMonth(year: Int, month: Int) -> Int {
         var startComps = DateComponents()
         startComps.day = 1
@@ -376,12 +376,12 @@ public extension EnolaGayWrapper where Base == Calendar {
         return diff.day ?? 0
     }
     
-    /// 获取指定年月日的星期。
+    /// 获取指定年月日的星期
     /// - Parameters:
-    ///   - year: 指定的年份。
-    ///   - month: 指定的月份。
-    ///   - day: 指定的日期。
-    /// - Returns: 星期，1为周日，7为周六。
+    ///   - year: 指定的年份
+    ///   - month: 指定的月份
+    ///   - day: 指定的日期
+    /// - Returns: 星期，1为周日，7为周六
     func getWeekday(year: Int, month: Int, day: Int) -> Int {
         let date = Date(year: year, month: month, day: day)
         guard let weekday = base.dateComponents([.weekday], from: date).weekday else {
@@ -395,9 +395,9 @@ public extension EnolaGayWrapper where Base == Calendar {
 // MARK: - Date 扩展
 
 public extension Date {
-    /// 通过一个 string 构建一个北京时区的 date 对象。
+    /// 通过一个 string 构建一个北京时区的 date 对象
     /// - Parameters:
-    ///   - string: 该 string 应符合一个正常日期格式。
+    ///   - string: 该 string 应符合一个正常日期格式
     ///   - format: 目标的日期格式，该值默认为："yyyy-MM-dd".
     init(string: String, format: String = "yyyy-MM-dd") {
         let dateFormatter = DateFormatter()
@@ -409,7 +409,7 @@ public extension Date {
         }
     }
     
-    /// 通过一个 string 构建一个北京时区的 date 对象。
+    /// 通过一个 string 构建一个北京时区的 date 对象
     init(year: Int = 2020, month: Int = 3, day: Int = 22) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -424,7 +424,7 @@ public extension Date {
 }
 
 public extension EnolaGayWrapper where Base == Date {
-    /// 转换成北京时区的 Date 值。
+    /// 转换成北京时区的 Date 值
     func dateFromGMT() -> Date {
         // let today = Date()// 获取格林威治时间（GMT）/ 标准时间
         // print("today = \(today)")// 打印出的时间是GTM时间，比北京时间早了8个小时
@@ -433,12 +433,12 @@ public extension EnolaGayWrapper where Base == Date {
         //date = Date.dateFromGMT(date)
         //print("转成北京时区 date: \(date)")
         //print("seconds:\(date.timeIntervalSince1970)")
-        /// 获取当前时区和 GMT 的时间间隔，当前时区和格林威治时区的时间差 8小时 = 28800秒。
+        /// 获取当前时区和 GMT 的时间间隔，当前时区和格林威治时区的时间差 8小时 = 28800秒
         let secondFromGMT: TimeInterval = TimeInterval(TimeZone.current.secondsFromGMT(for: base))
         return base.addingTimeInterval(secondFromGMT)
     }
     
-    /// 获取目标格式的 String 值。
+    /// 获取目标格式的 String 值
     func stringFormat(dateFormat: String = "yyyy-MM-dd") -> String {
         let timeZone = TimeZone(identifier: "UTC")
         let formatter = DateFormatter()
@@ -450,9 +450,9 @@ public extension EnolaGayWrapper where Base == Date {
         // return date.components(separatedBy: "-").first!
     }
     
-    /// 当 Date 转换成北京时区的目标格式 string 值。
+    /// 当 Date 转换成北京时区的目标格式 string 值
     /// - Parameter format: 目标格式，默认为 "yyyy-MM-dd".
-    /// - Returns: format 对应的目标值。
+    /// - Returns: format 对应的目标值
     func stringGMT(format: String = "yyyy-MM-dd") -> String {
         return dateFromGMT().judy.stringFormat(dateFormat: format)
     }
@@ -470,7 +470,7 @@ public extension EnolaGayWrapper where Base: UIApplication {
                 let height = Judy.keyWindow?.windowScene?.statusBarManager?.statusBarFrame ?? .zero
                 let statusBarView = UIView(frame: height)
                 statusBarView.tag = EMERANA.Key.statusBarViewTag
-                // 值越高，离观察者越近。
+                // 值越高，离观察者越近
                 statusBarView.layer.zPosition = 999999
                 
                 Judy.keyWindow?.addSubview(statusBarView)
@@ -489,7 +489,7 @@ public extension EnolaGayWrapper where Base: UIApplication {
 // MARK: - UIImage 扩展
 
 public extension EnolaGayWrapper where Base: UIImage {
-    /// 重设图片大小。
+    /// 重设图片大小
     /// - Parameter reSize: 目标 size.
     /// - Returns: 目标 image.
     func reSizeImage(reSize: CGSize) -> UIImage {
@@ -502,8 +502,8 @@ public extension EnolaGayWrapper where Base: UIImage {
         return reSizeImage
     }
 
-    /// 等比缩放。
-    /// - Parameter scaleSize: 缩放倍数。
+    /// 等比缩放
+    /// - Parameter scaleSize: 缩放倍数
     /// - Returns: 目标 image.
     func scaleImage(scaleSize: CGFloat) -> UIImage {
         let reSize = CGSize(width: base.size.width * scaleSize, height: base.size.height * scaleSize)
@@ -511,9 +511,9 @@ public extension EnolaGayWrapper where Base: UIImage {
         return reSizeImage(reSize: reSize)
     }
     
-    /// 压缩图像的体积。
+    /// 压缩图像的体积
     ///
-    /// 此函数将返回 UIImage 对象通过此函数得到一个小于原始体积的 Data，通常用于图片上传时限制体积。
+    /// 此函数将返回 UIImage 对象通过此函数得到一个小于原始体积的 Data，通常用于图片上传时限制体积
     /// 大小的计算（图像不得超过128K时）如：
     /// if image.pngData()!.count/1024 >= 128 { resetImgSize(maxImageLenght:131072, maxSizeKB: 128) }
     /// - Parameters:
@@ -549,7 +549,7 @@ public extension EnolaGayWrapper where Base: UIImage {
         var imageData = newImage!.jpegData(compressionQuality: 1.0)
         var sizeOriginKB : CGFloat = CGFloat((imageData?.count)!) / 1024.0;
         
-        // 调整大小。
+        // 调整大小
         var resizeRate = 0.9;
         while (sizeOriginKB > maxSize && resizeRate > 0.1) {
             
@@ -563,24 +563,24 @@ public extension EnolaGayWrapper where Base: UIImage {
         return imageData!
     }
 
-    /// 生成圆形图片。
+    /// 生成圆形图片
     func imageCircle() -> UIImage {
-        // 取最短边长。
+        // 取最短边长
         let shotest = min(base.size.width, base.size.height)
-        // 输出尺寸。
+        // 输出尺寸
         let outputRect = CGRect(x: 0, y: 0, width: shotest, height: shotest)
-        // 开始图片处理上下文（由于输出的图不会进行缩放，所以缩放因子等于屏幕的scale即可）。
+        // 开始图片处理上下文（由于输出的图不会进行缩放，所以缩放因子等于屏幕的scale即可）
         UIGraphicsBeginImageContextWithOptions(outputRect.size, false, 0)
         let context = UIGraphicsGetCurrentContext()!
-        // 添加圆形裁剪区域。
+        // 添加圆形裁剪区域
         context.addEllipse(in: outputRect)
         context.clip()
-        // 绘制图片。
+        // 绘制图片
         base.draw(in: CGRect(x: (shotest-base.size.width)/2,
                         y: (shotest-base.size.height)/2,
                         width: base.size.width,
                         height: base.size.height))
-        // 获得处理后的图片。
+        // 获得处理后的图片
         let maskedImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return maskedImage
@@ -590,8 +590,8 @@ public extension EnolaGayWrapper where Base: UIImage {
 
 public extension UIImage {
     
-    /// 通过颜色生成一张图片。
-    /// - Parameter color: 该颜色用于直接生成一张图像。
+    /// 通过颜色生成一张图片
+    /// - Parameter color: 该颜色用于直接生成一张图像
     convenience init(color: UIColor) {
         
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
@@ -610,7 +610,7 @@ public extension UIImage {
         self.init(cgImage: image!.cgImage!)
     }
     
-    /// 通过渐变颜色生成一张图片，渐变色方向为从左往右。
+    /// 通过渐变颜色生成一张图片，渐变色方向为从左往右
     /// - Parameters:
     ///   - startColor: 渐变起始颜色，默认 red.
     ///   - endColor: 渐变结束颜色，默认 blue.
@@ -643,8 +643,8 @@ public extension UIImage {
 
 public extension UIImageView {
     
-    /// 标识该 imageView 是否需要设置为正圆，需要的话请确保其为正方形，否则不生效。
-    /// - Warning: 若在 Cell 中不能正常显示正圆，请覆盖 Cell 中 layoutIfNeeded() 设置正圆，或在父 View 中设置。
+    /// 标识该 imageView 是否需要设置为正圆，需要的话请确保其为正方形，否则不生效
+    /// - Warning: 若在 Cell 中不能正常显示正圆，请覆盖 Cell 中 layoutIfNeeded() 设置正圆，或在父 View 中设置
     @IBInspectable private(set) var isRound: Bool {
         set {
             if newValue {
@@ -653,7 +653,7 @@ public extension UIImageView {
                     return
                 }
                 layer.masksToBounds = true
-                contentMode = .scaleAspectFill  // 设为等比拉伸。
+                contentMode = .scaleAspectFill  // 设为等比拉伸
                 layer.cornerRadius = frame.size.height / 2
             }
         }
@@ -724,31 +724,31 @@ public extension UIScrollView {
 
 public extension EnolaGayWrapper where Base: UILabel {
     
-    /// 为当前 Label 显示的文本中设置部分文字高亮。
+    /// 为当前 Label 显示的文本中设置部分文字高亮
     /// - Parameters:
-    ///   - textColor: 默认文本颜色。
-    ///   - highlightedText: label 中需要要高亮的文本。
-    ///   - highlightedColor: 高亮部分文本颜色，默认 nil，即使用原有颜色。
-    ///   - highlightedFont: 高亮部分文本字体，默认为 nil，即使用原有字体。
-    /// - Warning: 在调用此函数前 label.text 不能为 nil。
+    ///   - textColor: 默认文本颜色
+    ///   - highlightedText: label 中需要要高亮的文本
+    ///   - highlightedColor: 高亮部分文本颜色，默认 nil，即使用原有颜色
+    ///   - highlightedFont: 高亮部分文本字体，默认为 nil，即使用原有字体
+    /// - Warning: 在调用此函数前 label.text 不能为 nil
     func setHighlighted(text highlightedText: String, color highlightedColor: UIColor? = nil, font highlightedFont: UIFont? = nil) {
-        // attributedText 即 label.text，所以直接判断 attributedText 不为 nil 即可。
+        // attributedText 即 label.text，所以直接判断 attributedText 不为 nil 即可
         guard base.text != nil, base.attributedText != nil else { return }
-        //  attributedText: 为该属性分配新值也会将 text 属性的值替换为相同的字符串数据，但不包含任何格式化信息。此外，分配一个新值将更新字体、textColor 和其他与样式相关的属性中的值，以便它们反映从带属性字符串的位置 0 开始的样式信息。
+        //  attributedText: 为该属性分配新值也会将 text 属性的值替换为相同的字符串数据，但不包含任何格式化信息此外，分配一个新值将更新字体、textColor 和其他与样式相关的属性中的值，以便它们反映从带属性字符串的位置 0 开始的样式信息
         
         var attrs = [NSAttributedString.Key : Any]()
-        // 高亮文本颜色。
+        // 高亮文本颜色
         attrs[.foregroundColor] = highlightedColor
-        // 高亮文本字体。
+        // 高亮文本字体
         attrs[.font] = highlightedFont
-        // 将 label 的 NSAttributedString 转换成 NSMutableAttributedString。
+        // 将 label 的 NSAttributedString 转换成 NSMutableAttributedString
         let attributedString = NSMutableAttributedString(attributedString: base.attributedText!)
         //  let attributedString = NSMutableAttributedString(text: text!, textColor: textColor, textFont: font, highlightText: highlightedText, highlightTextColor: highlightedColor, highlightTextFont: highlightedFont)
-        // 添加到指定范围。
+        // 添加到指定范围
         let highlightedRange = attributedString.mutableString.range(of: highlightedText)
         attributedString.addAttributes(attrs, range: highlightedRange)
         
-        // 重新给 label 的 attributedText 赋值。
+        // 重新给 label 的 attributedText 赋值
         base.attributedText = attributedString
     }
 }
@@ -757,23 +757,23 @@ public extension UILabel {
     
     @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.setHighlighted")
     func judy_setHighlighted(text highlightedText: String, color highlightedColor: UIColor? = nil, font highlightedFont: UIFont? = nil) {
-        // attributedText 即 label.text，所以直接判断 attributedText 不为 nil 即可。
+        // attributedText 即 label.text，所以直接判断 attributedText 不为 nil 即可
         guard text != nil, attributedText != nil else { return }
-        //  attributedText: 为该属性分配新值也会将 text 属性的值替换为相同的字符串数据，但不包含任何格式化信息。此外，分配一个新值将更新字体、textColor 和其他与样式相关的属性中的值，以便它们反映从带属性字符串的位置 0 开始的样式信息。
+        //  attributedText: 为该属性分配新值也会将 text 属性的值替换为相同的字符串数据，但不包含任何格式化信息此外，分配一个新值将更新字体、textColor 和其他与样式相关的属性中的值，以便它们反映从带属性字符串的位置 0 开始的样式信息
         
         var attrs = [NSAttributedString.Key : Any]()
-        // 高亮文本颜色。
+        // 高亮文本颜色
         attrs[.foregroundColor] = highlightedColor
-        // 高亮文本字体。
+        // 高亮文本字体
         attrs[.font] = highlightedFont
-        // 将 label 的 NSAttributedString 转换成 NSMutableAttributedString。
+        // 将 label 的 NSAttributedString 转换成 NSMutableAttributedString
          let attributedString = NSMutableAttributedString(attributedString: attributedText!)
         //  let attributedString = NSMutableAttributedString(text: text!, textColor: textColor, textFont: font, highlightText: highlightedText, highlightTextColor: highlightedColor, highlightTextFont: highlightedFont)
-        // 添加到指定范围。
+        // 添加到指定范围
         let highlightedRange = attributedString.mutableString.range(of: highlightedText)
         attributedString.addAttributes(attrs, range: highlightedRange)
         
-        // 重新给 label 的 attributedText 赋值。
+        // 重新给 label 的 attributedText 赋值
         attributedText = attributedString
     }
     
@@ -791,40 +791,40 @@ public extension NSMutableAttributedString {
 
     /// 生成一个高配版 NSMutableAttributedString.
     /// - Parameters:
-    ///   - text: 要显示的文本信息。
+    ///   - text: 要显示的文本信息
     ///   - textColor: 文本颜色，默认为 nil.
     ///   - textFont: 文本的字体，默认为 nil.
-    ///   - highlightText: 高亮的文本，该文本应该是 text 的一部分。
+    ///   - highlightText: 高亮的文本，该文本应该是 text 的一部分
     ///   - highlightTextColor: 高亮文本的颜色，该值默认为 nil.
     ///   - highlightTextFont: 高亮状态文本的字体，默认为 nil.
     /// - Returns: attributedString.
-    /// - Warning: addAttribute() 或 addAttributes() 均需要指定一个 range，如需扩展，可模拟此函数创建新的自定义函数。
+    /// - Warning: addAttribute() 或 addAttributes() 均需要指定一个 range，如需扩展，可模拟此函数创建新的自定义函数
     convenience init(text: String, textColor: UIColor? = nil, textFont: UIFont? = nil, highlightText: String? = nil, highlightTextColor: UIColor? = nil, highlightTextFont: UIFont? = nil) {
-        // 默认配置。
+        // 默认配置
         var defaultAttrs = [NSAttributedString.Key : Any]()
-        // 高亮文本颜色。
+        // 高亮文本颜色
         defaultAttrs[.foregroundColor] = textColor
-        // 高亮文本字体。
+        // 高亮文本字体
         defaultAttrs[.font] = textFont
         
         self.init(string: text, attributes: defaultAttrs)
         
-        // 指定范围添加 attributes。
+        // 指定范围添加 attributes
         if highlightText != nil {
             var attrs = [NSAttributedString.Key : Any]()
-            // 高亮文本颜色。
+            // 高亮文本颜色
             attrs[.foregroundColor] = highlightTextColor
-            // 高亮文本字体。
+            // 高亮文本字体
             attrs[.font] = highlightTextFont
-            // 添加到指定范围。
+            // 添加到指定范围
             addAttributes(attrs, range: mutableString.range(of: highlightText!))
         }
         
-        // 基线对齐方式。
+        // 基线对齐方式
         // NSBaselineOffsetAttributeName:@(([UIFont systemFontOfSize:30].lineHeight - [UIFont systemFontOfSize:15].lineHeight)/2 + (([UIFont systemFontOfSize:30].descender - [UIFont systemFontOfSize:15].descender))),
         //                                  NSParagraphStyleAttributeName
         
-        // 指定范围单个添加 addAttribute。
+        // 指定范围单个添加 addAttribute
         /*
          attributed.addAttribute(.foregroundColor, value: highlightedColor, range: attributedString.mutableString.range(of: highlightedText))
          attributed.addAttribute(.foregroundColor, value: highlightTextColor, range: attributedString.mutableString.range(of: highlightText!))
@@ -855,7 +855,7 @@ public extension EnolaGayWrapper where Base: UIView {
         get { base.frame.origin.y }
     }
     
-    /// 设置 view 的边框样式。
+    /// 设置 view 的边框样式
     /// - Parameters:
     ///   - border: 边框大小，默认0.
     ///   - color: 边框颜色，默认 .darkGray.
@@ -864,12 +864,12 @@ public extension EnolaGayWrapper where Base: UIView {
         base.borderColor = color
     }
     
-    /// 给当前操作的 View 设置正圆，该函数会验证 View 是否为正方形，若不是正方形则圆角不生效。
-    /// - Warning: 请在 viewDidLayout 函数或涉及到布局的函数中调用，否则可能出现问题。
+    /// 给当前操作的 View 设置正圆，该函数会验证 View 是否为正方形，若不是正方形则圆角不生效
+    /// - Warning: 请在 viewDidLayout 函数或涉及到布局的函数中调用，否则可能出现问题
     /// - Parameters:
     ///   - border: 边框大小，默认 0.
-    ///   - color: 边框颜色，默认深灰色。
-    /// - Returns: 是否成功设置正圆。
+    ///   - color: 边框颜色，默认深灰色
+    /// - Returns: 是否成功设置正圆
     @discardableResult
     func viewRound(border: CGFloat = 0, color: UIColor? = .darkGray) -> Bool {
         viewBorder(border: border, color: color)
@@ -880,22 +880,22 @@ public extension EnolaGayWrapper where Base: UIView {
         return true
     }
     
-    /// 给当前操作的 View 设置圆角。
+    /// 给当前操作的 View 设置圆角
     ///
     /// - Parameters:
     ///   - radiu: 圆角大小，默认 10.
     ///   - border: 边框大小，默认 0.
-    ///   - color: 边框颜色，默认深灰色。
+    ///   - color: 边框颜色，默认深灰色
     func viewRadiu(radiu: CGFloat = 10, border: CGFloat = 0, color: UIColor? = .darkGray) {
         viewBorder(border: border, color: color)
         base.cornerRadius = radiu
     }
     
-    /// 为指定的角设置圆角。
+    /// 为指定的角设置圆角
     ///
     /// - Parameters:
     ///   - rectCorner: 需要设置的圆角，若有多个可以为数组，如：[.topLeft, .topRight ]
-    ///   - cornerRadii: 圆角的大小。
+    ///   - cornerRadii: 圆角的大小
     func viewRadiu(rectCorner: UIRectCorner, cornerRadii: CGSize) {
         let path = UIBezierPath(roundedRect: base.bounds,
                                 byRoundingCorners: rectCorner,
@@ -906,12 +906,12 @@ public extension EnolaGayWrapper where Base: UIView {
         base.layer.mask = maskLayer
     }
 
-    /// 给当前操作的 View 设置阴影效果。
+    /// 给当前操作的 View 设置阴影效果
     /// * 注意：该函数会将 layer.masksToBounds = false.
     /// - Parameters:
     ///   - offset: 阴影偏移量，默认（0,0）.
     ///   - opacity: 阴影可见度，默认 0.6.
-    ///   - color: 阴影颜色，默认黑色。
+    ///   - color: 阴影颜色，默认黑色
     ///   - radius: 阴影圆角，默认 3.
     func viewShadow(offset: CGSize = CGSize(width: 0, height: 0), opacity: Float = 0.6, color: UIColor = .black, radius: CGFloat = 3) {
         
@@ -924,9 +924,9 @@ public extension EnolaGayWrapper where Base: UIView {
         base.layer.shadowRadius = radius
     }
     
-    /// 给当前操作的 View 设置边框。
+    /// 给当前操作的 View 设置边框
     /// - Parameter borderWidth: 边框大小，默认 1.
-    /// - Parameter borderColor: 边框颜色，默认红色。
+    /// - Parameter borderColor: 边框颜色，默认红色
     @available(*, unavailable, message: "此函数尚未完善，待修复")
     func viewBorder(borderWidth: CGFloat = 1, borderColor: UIColor = .red){
         let borderLayer = CALayer()
@@ -936,7 +936,7 @@ public extension EnolaGayWrapper where Base: UIView {
         base.layer.insertSublayer(borderLayer, at: 0)
     }
     
-    /// 给 View 设置渐变背景色，改背景色的方向为从左往右。
+    /// 给 View 设置渐变背景色，改背景色的方向为从左往右
     ///
     /// 此方法中会先移除最底层的 CAGradientLayer.
     /// - Parameters:
@@ -944,13 +944,13 @@ public extension EnolaGayWrapper where Base: UIView {
     ///   - endColor: 渐变结束颜色，默认 blue.
     @discardableResult
     func gradientView(startColor: UIColor = .red, endColor: UIColor = .blue) -> CAGradientLayer {
-        // 渐变 Layer 层。
+        // 渐变 Layer 层
         let gradientLayer = CAGradientLayer()
         gradientLayer.name = EMERANA.Key.gradientViewName
         gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
-        gradientLayer.locations = [0, 1] // 对应 colors 的 alpha 值。
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5) // 渐变色起始点。
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5) // 渐变色终止点。
+        gradientLayer.locations = [0, 1] // 对应 colors 的 alpha 值
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5) // 渐变色起始点
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5) // 渐变色终止点
         gradientLayer.frame = base.bounds
         // layer.addSublayer(gradient1)
         if base.layer.sublayers?[0].name == EMERANA.Key.gradientViewName {
@@ -961,7 +961,7 @@ public extension EnolaGayWrapper where Base: UIView {
         //  // 先移除再插入！
         //  layer.sublayers?[0].removeFromSuperlayer()
         //  }
-        // 插入到最底层。
+        // 插入到最底层
         base.layer.insertSublayer(gradientLayer, at: 0)
         return gradientLayer
     }
@@ -983,10 +983,10 @@ public extension EnolaGayWrapper where Base: UIView {
         }
     }
     
-    /// 执行一次发光效果。
+    /// 执行一次发光效果
     ///
-    /// 该函数以 View 为中心执行一个烟花爆炸动效。
-    /// - Warning: 如有必要可参考此函数创建新的扩展函数。
+    /// 该函数以 View 为中心执行一个烟花爆炸动效
+    /// - Warning: 如有必要可参考此函数创建新的扩展函数
     /// - Parameter finishededAction: 动画完成后执行的事件，默认为 nil.
     func blingBling(finishededAction: (()->Void)? = nil) {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
@@ -1031,38 +1031,38 @@ public extension EnolaGayWrapper where Base: UIView {
         })
     }
     
-    /// 模拟抖音双击视频点赞效果。
+    /// 模拟抖音双击视频点赞效果
     /// - Parameters:
-    ///   - duration: 动画的执行时长，默认 0.3 秒。
-    ///   - spring: 弹簧阻尼，默认 0.5，值越小震动效果越明显。
+    ///   - duration: 动画的执行时长，默认 0.3 秒
+    ///   - spring: 弹簧阻尼，默认 0.5，值越小震动效果越明显
     func doubleClickThumbUp(duration: TimeInterval = 0.3, spring: CGFloat = 0.5) {
         var transform = base.transform
         /// 随机偏转角度 control 点，该值限制为 0 和 1.
         let j = CGFloat(arc4random_uniform(2)) 
-        /// 随机方向，-1/1 代表了顺时针或逆时针。
+        /// 随机方向，-1/1 代表了顺时针或逆时针
         let travelDirection = CGFloat(1 - 2*j)
         let angle = CGFloat(Double.pi/4)
-        // 顺时针或逆时针旋转。
+        // 顺时针或逆时针旋转
         transform = transform.rotated(by: travelDirection*angle)
         base.transform = transform
         /*
          1. withDuration: TimeInterval  动画执行时间
          2. delay: TimeInterval 动画延迟执行时间
-         3. usingSpringWithDamping: CGFloat 弹簧阻力，取值范围为0.0-1.0，数值越小“弹簧”振动效果越明显。
-         4. initialSpringVelocity: CGFloat  动画初始的速度（pt/s），数值越大初始速度越快。但要注意的是，初始速度取值较高而时间较短时，也会出现反弹情况。
+         3. usingSpringWithDamping: CGFloat 弹簧阻力，取值范围为0.0-1.0，数值越小“弹簧”振动效果越明显
+         4. initialSpringVelocity: CGFloat  动画初始的速度（pt/s），数值越大初始速度越快但要注意的是，初始速度取值较高而时间较短时，也会出现反弹情况
          5. options: UIViewAnimationOptions 运动动画速度曲线
          6. animations: () -> Void  执行动画的函数，也是本动画的核心
          7. completion: ((Bool) -> Void)?   动画完成时执行的回调，可选性，可以为 nil
          */
-        /// 出现动画：变大->变小。
+        /// 出现动画：变大->变小
         UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: spring, initialSpringVelocity: 3) {
-            // 缩放。
+            // 缩放
             transform = transform.scaledBy(x: 0.8, y: 0.8)
             base.transform = transform
         } completion: { finished in
-            // 消失过程动画。停留 0.5 秒再消失。
+            // 消失过程动画停留 0.5 秒再消失
             UIView.animate(withDuration: 0.5, delay: 0.5) {
-                // 缩放。
+                // 缩放
                 transform = transform.scaledBy(x: 8, y: 8)
                 base.transform = transform
                 base.alpha = 0
@@ -1075,13 +1075,13 @@ public extension EnolaGayWrapper where Base: UIView {
 
 // MARK: - UIView IBDesignable 扩展
 public extension UIView {
-    /// 边框宽度。
+    /// 边框宽度
     @IBInspectable var borderWidth: CGFloat {
         set { layer.borderWidth = newValue }
         get { return layer.borderWidth }
     }
 
-    /// 边框颜色。
+    /// 边框颜色
     @IBInspectable var borderColor: UIColor? {
         set { layer.borderColor = newValue?.cgColor }
         get {
@@ -1091,7 +1091,7 @@ public extension UIView {
         }
     }
     
-    /// 圆角程度。
+    /// 圆角程度
     @IBInspectable var cornerRadius: CGFloat {
         set {
             layer.cornerRadius = newValue
@@ -1109,26 +1109,26 @@ public extension UIView {
 // MARK: - UITextFieldDelegate 扩展函数
 
 public extension UITextFieldDelegate {
-    /// 限制当前输入的字符为整数。
-    /// - Warning: 此函数仅限在输入阶段的 shouldChangeCharactersIn() 使用。
+    /// 限制当前输入的字符为整数
+    /// - Warning: 此函数仅限在输入阶段的 shouldChangeCharactersIn() 使用
     /// - Parameters:
-    ///   - textField: 输入框对象。
+    ///   - textField: 输入框对象
     ///   - string: 输入的字符，即代理方法中的 string.
-    ///   - maxNumber: 允许输入的最大数值，默认为0，不限制。
-    /// - Returns: 是否符合验证，若输入的值不合符该值将不会出现在输入框中。
+    ///   - maxNumber: 允许输入的最大数值，默认为0，不限制
+    /// - Returns: 是否符合验证，若输入的值不合符该值将不会出现在输入框中
     func numberRestriction(textField: UITextField, inputString string: String, maxNumber: Int = 0) -> Bool {
-        // 回退。
+        // 回退
         guard string != "" else { return true }
-        /// 仅允许输入指定的字符。
+        /// 仅允许输入指定的字符
         let cs = CharacterSet(charactersIn: "0123456789\n").inverted
-        /// 过滤输入的字符。
+        /// 过滤输入的字符
         let filtered: String = (string.components(separatedBy: cs) as NSArray).componentsJoined(by: "")
         guard (string as String) == filtered  else { Judy.logWarning("只能输入数值"); return false }
         
-        // 最大值校验。
+        // 最大值校验
         if maxNumber != 0 {
             let textFieldString = (textField.text!) + string
-            // 将输入的整数值。
+            // 将输入的整数值
             let numberValue = Int(textFieldString) ?? 0
             if numberValue > maxNumber {
                 Judy.logWarning("只能输入小于\(maxNumber)的值")
@@ -1142,13 +1142,13 @@ public extension UITextFieldDelegate {
 
 // MARK: - Double 扩展
 
-/// 为空间包装对象 Double 添加扩展函数。
+/// 为空间包装对象 Double 添加扩展函数
 public extension EnolaGayWrapper where Base == Double {
     
     /// 将 double 四舍五入到指定小数位数并输出 String.
     ///
-    /// - Parameter f: 要保留的小数位数，默认为 2。
-    /// - Returns: 转换后的 String。
+    /// - Parameter f: 要保留的小数位数，默认为 2
+    /// - Returns: 转换后的 String
     func format(f: Int = 2) -> String {
         // String(format: "%.3f", 0.3030000000000000) ==> 0.303
         return String(format: "%.\(f)f", base)
@@ -1164,9 +1164,9 @@ public extension Double {
 
 public extension URL {
     
-    /// utf8 编码的 URL。适用于当URL地址中包含中文时无法正常加载等情况。
+    /// utf8 编码的 URL适用于当URL地址中包含中文时无法正常加载等情况
     ///
-    /// - Parameter utf8StringURL: 带有中文的链接，比如：http://api.tuoken.pro/api/product/qrDode?address=渠道商ETH地址。
+    /// - Parameter utf8StringURL: 带有中文的链接，比如：http://api.tuoken.pro/api/product/qrDode?address=渠道商ETH地址
     /// - Returns: 对应的 URL 对象，如：http://api.tuoken.pro/api/product/qrDode?address=%E6%B8%A0%E9%81%93%E5%95%86ECH%E5%9C%B0%E5%9D%80.
     @available(*, unavailable, message: "请使用构造函数", renamed: "init(stringUTF8:)")
     static func utf8URL(utf8StringURL: String) -> URL? {
@@ -1177,10 +1177,10 @@ public extension URL {
         return URL(dataRepresentation: data!, relativeTo: nil)
     }
     
-    /// 构造一个经过 utf8 编码的 URL. 若链接中包含了中文，请使用此函数构建 URL 对象。
+    /// 构造一个经过 utf8 编码的 URL. 若链接中包含了中文，请使用此函数构建 URL 对象
     ///
-    /// 通常情况下使用默认的 URL 构造器无法直接将带中文的链接转换成 URL，会得到一个 nil. 使用此构造函数能够将带有中文的 urlString 转成正常的链接，如："https://www.%E7%8E%8B%E4%BB%81%E6%B4%81.com". 当然即使 stringUTF8 不包含中文也没关系。
-    /// - Parameter stringUTF8: 要转换成 URL 的字符串链接，该链接中可能包含中文。如：http://www.王仁洁.com.
+    /// 通常情况下使用默认的 URL 构造器无法直接将带中文的链接转换成 URL，会得到一个 nil. 使用此构造函数能够将带有中文的 urlString 转成正常的链接，如："https://www.%E7%8E%8B%E4%BB%81%E6%B4%81.com". 当然即使 stringUTF8 不包含中文也没关系
+    /// - Parameter stringUTF8: 要转换成 URL 的字符串链接，该链接中可能包含中文如：http://www.王仁洁.com.
     init?(stringUTF8: String) {
         guard let data = stringUTF8.data(using: String.Encoding.utf8) else {
             self.init(string: stringUTF8)
@@ -1207,14 +1207,14 @@ public extension String {
         return "\(h):\(m):\(s)"
     }
     
-    /// 将字符串转换成时间格式。如将"2016-08-19 16:23:09" 转成 "16:23:09".
+    /// 将字符串转换成时间格式如将"2016-08-19 16:23:09" 转成 "16:23:09".
     ///
     /// - Parameters:
-    ///   - formatterIn: 该字符串的原始时间格式。默认 "yyyy-MM-dd HH:mm:ss".
+    ///   - formatterIn: 该字符串的原始时间格式默认 "yyyy-MM-dd HH:mm:ss".
     ///     - 可选
     ///        - yyyy-MM-dd'T'HH:mm:ssZ
     ///        - yyyy-MM-dd'T'HH:mm:ss.SSSXXX
-    ///   - formatterOut: 目标时间格式。默认 "HH:mm:ss"
+    ///   - formatterOut: 目标时间格式默认 "HH:mm:ss"
     /// - Returns: 目标格式的时间 String
     func dateFormatter(formatterIn: String = "yyyy-MM-dd HH:mm:ss", formatterOut: String = "HH:mm:ss") -> String {
 
@@ -1232,7 +1232,7 @@ public extension String {
 
     }
 
-    /// 清除字符串中的所有空格。
+    /// 清除字符串中的所有空格
     ///
     /// - Returns: 如："str abc", "strabc".
     func clean() -> String { replacingOccurrences(of: " ", with: "") }
@@ -1240,9 +1240,9 @@ public extension String {
     /// 计算文本的 size.
     ///
     /// - Parameters:
-    ///   - font: 以该字体作为计算尺寸的参考。
+    ///   - font: 以该字体作为计算尺寸的参考
     ///   - maxSize: 最大尺寸，默认为 CGSize(width: 320, height: 68).
-    /// - Returns: 文本所需宽度。
+    /// - Returns: 文本所需宽度
     func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(size: 16)) -> CGSize {
         // 根据文本内容获取尺寸，计算文字尺寸 UIFont.systemFont(ofSize: 14.0)
         return self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin],
@@ -1265,7 +1265,7 @@ public extension String {
         return textBouds.size
     }
     
-    /// 下标获取字符串。
+    /// 下标获取字符串
     subscript(i: Int) -> String {
         return String(self[index(startIndex, offsetBy: i)])
     }
@@ -1314,11 +1314,11 @@ public extension String {
 
 // MARK: - 为 tableView 增加滚动到底部函数
 public extension EnolaGayWrapper where Base: UITableView {
-    /// 将 tableView 滚动到最底部。
+    /// 将 tableView 滚动到最底部
     ///
-    /// 在此之前的方法可能会引起数组越界问题，此函数针对该问题修复。
-    /// - Parameter animated: 是否需要动画效果？默认为 true。
-    /// - warning: 在调用该函数之前请先调用 reloadData()。
+    /// 在此之前的方法可能会引起数组越界问题，此函数针对该问题修复
+    /// - Parameter animated: 是否需要动画效果？默认为 true
+    /// - warning: 在调用该函数之前请先调用 reloadData()
     func scrollToBottom(animated: Bool = true) {
         if base.numberOfSections > 0 {
             let lastSectionIndex = base.numberOfSections-1
@@ -1345,42 +1345,42 @@ import UIKit
  把结构体看做值，如位置（经纬度）坐标（二维坐标，三维坐标）温度……
  把类看做是物体，如人、车、动物……
  
- 结构较小，适用于复制操作，相比一个 class 的实例被多次引用，struct 更加安全，无须担心内存泄漏或者多线程冲突问题。
+ 结构较小，适用于复制操作，相比一个 class 的实例被多次引用，struct 更加安全，无须担心内存泄漏或者多线程冲突问题
  */
 
-/// EMERANA 结构体，项目中所有辅助性功能应该基于 EMERANA 模块化，可以通过 public extension 新增模块。
+/// EMERANA 结构体，项目中所有辅助性功能应该基于 EMERANA 模块化，可以通过 public extension 新增模块
 /// - Warning: 该结构体已禁用 init() 函数，请使用 judy 单例对象
 public struct EMERANA {
-    /// EMERANA 结构体的唯一实例。在单例模式下，只有该实例被首次访问时才会创建该对象（触发 init() ）。
+    /// EMERANA 结构体的唯一实例在单例模式下，只有该实例被首次访问时才会创建该对象（触发 init() ）
     public static let judy = EMERANA()
     
-    /// EnolaGay 框架全局适配器。
+    /// EnolaGay 框架全局适配器
     static let enolagayAdapter: EnolaGayAdapter? = UIApplication.shared as? EnolaGayAdapter
     
-    /// API 层适配器。
+    /// API 层适配器
     static let apiAdapter: ApiAdapter? = UIApplication.shared as? ApiAdapter
     
-    /// 刷新视图适配器。
+    /// 刷新视图适配器
     static let refreshAdapter: RefreshAdapter? = UIApplication.shared as? RefreshAdapter
     
-    /// 全局外观配置管理员。
+    /// 全局外观配置管理员
     // private var appearanceManager: Appearance?
     
     
-    // 私有化构造器；在单例模式下，只有该单例被首次访问时才会创建该对象。
+    // 私有化构造器；在单例模式下，只有该单例被首次访问时才会创建该对象
     private init() { }
     
-    /// 该数据结构的主要用来封装少量相关简单数据值。
+    /// 该数据结构的主要用来封装少量相关简单数据值
     /// - Warning: 注意
-    ///     * 项目中所有固定的可访问性字符都应该封装在此结构体内，在此结构体中定义所有可访问性数据（字符）。
-    ///     * 希望数据结构的实例被赋值给另一个实例时是拷贝而不是引用，封装的数据及其中存储的值也是拷贝而不是引用。
-    ///     * 该数据结构不需要使用继承。
+    ///     * 项目中所有固定的可访问性字符都应该封装在此结构体内，在此结构体中定义所有可访问性数据（字符）
+    ///     * 希望数据结构的实例被赋值给另一个实例时是拷贝而不是引用，封装的数据及其中存储的值也是拷贝而不是引用
+    ///     * 该数据结构不需要使用继承
     public struct Key {
         /// 状态栏 View 专用 tag.
         public static let statusBarViewTag = 20210727
         /// 该值用作于 EMERANA UIView 扩展函数 gradientView() 辨别 gradientLayer.name.
         public static let gradientViewName = "EMERANA_GRADIENT_LAYER_NAME"
-        /// 在 JudyBaseTableViewCtrl/JudyBaseCollectionViewCtrl 中 dequeueReusableCell 用到的 Cell 标识符。
+        /// 在 JudyBaseTableViewCtrl/JudyBaseCollectionViewCtrl 中 dequeueReusableCell 用到的 Cell 标识符
         public static let cell = "Cell"
         
         public static let title = "title"
@@ -1390,6 +1390,7 @@ public struct EMERANA {
         public static let placeholder = "placeholder"
         public static let value = "value"
         public static let input = "input"
+        public static let datas = "datas"
     }
     
     /// 定义 String 类型的 enum 样板，这种 enum 可以不用 rawValue.
@@ -1398,7 +1399,7 @@ public struct EMERANA {
         case 新增全局Cell代理管理
     }
     
-    /// 常用错误代码。
+    /// 常用错误代码
     public struct ErrorCode {
         /// 默认错误，代码 250.
         static let `default` = 250
@@ -1409,24 +1410,24 @@ public struct EMERANA {
 
 // MARK: - 正确地处理键盘遮挡输入框
 
-/// 防止键盘遮挡输入框的工具类，让指定 view 跟着键盘移动就像微信的键盘输入效果。
+/// 防止键盘遮挡输入框的工具类，让指定 view 跟着键盘移动就像微信的键盘输入效果
 ///
-/// 仅需通过 registerKeyBoardListener() 函数即可实现输入框跟随键盘位置移动从而保证输入框不被遮挡。
+/// 仅需通过 registerKeyBoardListener() 函数即可实现输入框跟随键盘位置移动从而保证输入框不被遮挡
 public final class KeyboardHelper {
     
     /// 此属性用于记录当下键盘的高度，若键盘已被收起则为 0.
     public private(set) var keyboardHeight: CGFloat = 0
     /// 输入框所在的 view,当键盘出现或隐藏，会根据键盘的高度移动该 view.
     private(set) var textFieldWrapperView = UIView()
-    /// 是否保留安全区域底部距离，默认 true，textFieldWrapperView 在跟随键盘弹出时会预留该距离是底部的安全区域可见，反之亦然。
+    /// 是否保留安全区域底部距离，默认 true，textFieldWrapperView 在跟随键盘弹出时会预留该距离是底部的安全区域可见，反之亦然
     private(set) var isKeepSafeAreaInsetsBottom = false
     
     public init() { }
     
-    /// 注册监听键盘弹出收起事件，该函数可使 inputView 跟随键盘弹出收起。
+    /// 注册监听键盘弹出收起事件，该函数可使 inputView 跟随键盘弹出收起
     ///
     /// - Warning:
-    /// 请注意与 IQKeyboardManagerSwift 的冲突导致键盘高度计算不准确，关闭之即可。
+    /// 请注意与 IQKeyboardManagerSwift 的冲突导致键盘高度计算不准确，关闭之即可
     /// 当需要实现点击空白区域即收起键盘时需要注意，参考如下代码确定点击的位置：
     /// ```
     /// if sender.location(in: view).y < view.bounds.height - keyboardHelper.keyboardHeight {
@@ -1434,8 +1435,8 @@ public final class KeyboardHelper {
     /// }
     /// ```
     /// - Parameters:
-    ///   - inputView: 输入框所在的 view,即需要跟随键盘的出现而移动的 view。
-    ///   - isKeepSafeAreaInsetsBottom: inputView 在往上移动时是否保留安全区域底部距离，默认 false.若将该值传入 true 请确保输入框的底部边距 ≥ 安全区域高度。
+    ///   - inputView: 输入框所在的 view,即需要跟随键盘的出现而移动的 view
+    ///   - isKeepSafeAreaInsetsBottom: inputView 在往上移动时是否保留安全区域底部距离，默认 false.若将该值传入 true 请确保输入框的底部边距 ≥ 安全区域高度
     public func registerKeyBoardListener(forView inputView: UIView, isKeepSafeAreaInsetsBottom: Bool = false) {
         NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -1443,23 +1444,23 @@ public final class KeyboardHelper {
         self.isKeepSafeAreaInsetsBottom = isKeepSafeAreaInsetsBottom
     }
 
-    /// 监听事件，键盘弹出或收起时均会触发此函数。
+    /// 监听事件，键盘弹出或收起时均会触发此函数
     @objc private func keyBoardShowHideAction(notification: NSNotification) {
         guard let userInfo = notification.userInfo,
               let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
         else { return }
         
-        /// 改变目标 textFieldWrapperView 的执行过程事件，更新其 2D 仿射变换矩阵。
+        /// 改变目标 textFieldWrapperView 的执行过程事件，更新其 2D 仿射变换矩阵
         let animations: (() -> Void) = { [weak self] in
             guard let strongSelf = self else { return }
-            // 键盘弹出事件。
+            // 键盘弹出事件
             if notification.name == UIResponder.keyboardWillShowNotification {
-                // 得到键盘高度。
+                // 得到键盘高度
                 strongSelf.keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect).size.height
                 
-                /// 键盘高度即 textFieldWrapperView.y 轴需要移动的距离。
+                /// 键盘高度即 textFieldWrapperView.y 轴需要移动的距离
                 var yDiff = -strongSelf.keyboardHeight
-                // 需要保留底部安全区域处理，需要再往上移动安全区域的高度。
+                // 需要保留底部安全区域处理，需要再往上移动安全区域的高度
                 if !strongSelf.isKeepSafeAreaInsetsBottom {
                     let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
                     let bottomPadding = window?.safeAreaInsets.bottom ?? 0
@@ -1467,19 +1468,19 @@ public final class KeyboardHelper {
                 }
                 strongSelf.textFieldWrapperView.transform = CGAffineTransform(translationX: 0,y: yDiff)
             }
-            // 键盘收起事件。
+            // 键盘收起事件
             if notification.name == UIResponder.keyboardWillHideNotification {
                 strongSelf.textFieldWrapperView.transform = CGAffineTransform.identity
                 strongSelf.keyboardHeight = 0
             }
         }
         
-        // 键盘弹出过程时长。
+        // 键盘弹出过程时长
         if duration > 0 {
             let options = UIView.AnimationOptions(rawValue: userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt)
             UIView.animate(withDuration: duration, delay: 0, options: options, animations: animations, completion: nil)
         } else {
-            // 键盘已经弹出，只是切换键盘，直接更新 textFieldWrapperView 2D 仿射变换矩阵。
+            // 键盘已经弹出，只是切换键盘，直接更新 textFieldWrapperView 2D 仿射变换矩阵
             animations()
         }
     }
@@ -1488,20 +1489,20 @@ public final class KeyboardHelper {
 
 // MARK: - 命名空间
 
-/// 在 EnolaGay 中的兼容包装类型，该包装类型为 EnolaGay 中的方便方法提供了一个扩展点。
+/// 在 EnolaGay 中的兼容包装类型，该包装类型为 EnolaGay 中的方便方法提供了一个扩展点
 public struct EnolaGayWrapper<Base> {
-    /// 包装对象在 EnolaGay 中对应的原始对象。
+    /// 包装对象在 EnolaGay 中对应的原始对象
     public var base: Base
     public init(_ base: Base) { self.base = base }
 }
 
-/// 表示与 EnolaGay 兼容的对象类型协议。
+/// 表示与 EnolaGay 兼容的对象类型协议
 ///
-/// 目标类型在实现该协议后即可使用`judy`属性在 EnolaGay 的名称空间中获得一个值包装后的对象。（不限制 AnyObject）
+/// 目标类型在实现该协议后即可使用`judy`属性在 EnolaGay 的名称空间中获得一个值包装后的对象（不限制 AnyObject）
 public protocol EnolaGayCompatible { }
 
 extension EnolaGayCompatible {
-    /// 获取在 EnolaGay 中的兼容类型包装对象，即 EnolaGay 空间持有者对象。
+    /// 获取在 EnolaGay 中的兼容类型包装对象，即 EnolaGay 空间持有者对象
     public var judy: EnolaGayWrapper<Self> {
         get { return EnolaGayWrapper(self) }
         set { }

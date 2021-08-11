@@ -38,7 +38,7 @@ class ___FILEBASENAMEASIDENTIFIER___: JudyBaseTableViewCtrl {
 
 // MARK: - private methods
 private extension ___FILEBASENAMEASIDENTIFIER___ {
-    /// 设置 JSON 数据源。
+    /// 设置 JSON 数据源
     func setDataSource() {
         dataSource = [
             [
@@ -56,7 +56,7 @@ private extension ___FILEBASENAMEASIDENTIFIER___ {
 // MARK: - tableView dataSource
 extension ___FILEBASENAMEASIDENTIFIER___ {
 
-    /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例。
+    /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath) // as! JudyBaseTableCell
 
