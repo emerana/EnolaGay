@@ -13,7 +13,6 @@ class ___FILEBASENAMEASIDENTIFIER___: ListSectionController {
         super.init()
         
         // 配置当前 section 相关属性
-
         inset = UIEdgeInsets(top: 0, left: 8, bottom: 8, right: 8)
         minimumLineSpacing = 8
         minimumInteritemSpacing = 8
