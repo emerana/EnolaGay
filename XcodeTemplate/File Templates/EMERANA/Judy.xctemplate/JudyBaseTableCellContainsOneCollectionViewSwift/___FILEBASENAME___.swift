@@ -2,6 +2,7 @@
 
 import UIKit
 import EnolaGay
+import SwiftyJSON
 
 /// 里面包含了一个 UICollectionView.
 class ___FILEBASENAMEASIDENTIFIER___: JudyBaseTableCell {
