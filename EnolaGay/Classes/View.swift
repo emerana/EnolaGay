@@ -66,7 +66,7 @@ import UIKit
         //角速度
         /*
          决定波的宽度和周期，比如，我们可以看到上面的例子中是一个周期的波曲线，
-         一个波峰、一个波谷，如果我们想在0到2π这个距离显示2个完整的波曲线，那么周期就是π。
+         一个波峰、一个波谷，如果我们想在0到2π这个距离显示2个完整的波曲线，那么周期就是π
          ω常量wavePalstance计算如下 可以根据自己的需求计算
          */
         wavePalstance = CGFloat(Double.pi/Double(bounds.width))
@@ -205,7 +205,7 @@ public class MarqueeView: UIView {
     private var isReversing = false
 
     open override func willMove(toSuperview newSuperview: UIView?) {
-        //骚操作：当视图将被移除父视图的时候，newSuperview就为nil。在这个时候，停止掉CADisplayLink，断开循环引用，视图就可以被正确释放掉了。
+        //骚操作：当视图将被移除父视图的时候，newSuperview就为nil。在这个时候，停止掉CADisplayLink，断开循环引用，视图就可以被正确释放掉了
         if newSuperview == nil {
             self.stopMarquee()
         }
@@ -279,7 +279,7 @@ public class MarqueeView: UIView {
         }
     }
 
-    //如果你的contentView的内容在初始化的时候，无法确定。需要通过网络等延迟获取，那么在内容赋值之后，在调用该方法即可。
+    //如果你的contentView的内容在初始化的时候，无法确定。需要通过网络等延迟获取，那么在内容赋值之后，在调用该方法即可
     public func reloadData() {
         self.setNeedsLayout()
     }
@@ -372,10 +372,10 @@ public class MarqueeView: UIView {
 }
 
 
-/// 圆形进度条。
+/// 圆形进度条
 ///
-/// 支持自定义相关属性的圆形进度条。
-/// - Warning: 仅限在 StoryBoard 中使用。
+/// 支持自定义相关属性的圆形进度条
+/// - Warning: 仅限在 StoryBoard 中使用
 open class CircularProgressView: UIView {
     // MARK: 公开属性
 
@@ -492,7 +492,7 @@ open class CircularProgressLiveView: CircularProgressView {
     open override func awakeFromNib() {
         super.awakeFromNib()
         
-        // 旋转 View, 将开始点设置在顶部，即（3/2）π 处，必须以重新赋值的方式设置。
+        // 旋转 View, 将开始点设置在顶部，即（3/2）π 处，必须以重新赋值的方式设置
         var transform = self.transform
         transform = transform.rotated(by: -CGFloat(Double.pi/2)) // 逆时针旋转90°
         self.transform = transform
@@ -502,12 +502,12 @@ open class CircularProgressLiveView: CircularProgressView {
         lineLayer.strokeColor = UIColor.purple.cgColor
         lineLayer.lineWidth  = CGFloat(lineWith)
         
-        // 用于画圆的贝塞尔曲线(矢量路径)。
+        // 用于画圆的贝塞尔曲线(矢量路径)
         let circleBezierPath = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: 0, y: 0), size: frame.size))
 
         lineLayer.path = circleBezierPath.cgPath
         layer.addSublayer(lineLayer)
-        // 设置。
+        // 设置
         lineLayer.strokeStart = 0
         lineLayer.strokeEnd = 0
     }
@@ -686,13 +686,13 @@ class MyScaleCircle: CircularProgressView {
 }
 
 
-/// 一个气泡动画类。
+/// 一个气泡动画类
 ///
 /// 通过在运行循环中不断调度 judy_popBubble 函数以达到不断有气泡往上升的动画效果，可参考如下代码：
 ///
 /// ```
 /// let judyPopBubble = JudyPopBubble()
-/// // 创建计时器，并以默认模式在当前运行循环中调度它。
+/// // 创建计时器，并以默认模式在当前运行循环中调度它
 /// animateTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
 ///     if let strongSelf = self {
 ///         let image = UIImage(named: imageNames[NSInteger(arc4random_uniform( UInt32((imageNames.count)) ))])
@@ -700,38 +700,38 @@ class MyScaleCircle: CircularProgressView {
 ///     }
 /// }
 /// ```
-/// - Warning: 通过调用 judy_popBubble 函数来弹出一个气泡动画。
+/// - Warning: 通过调用 judy_popBubble 函数来弹出一个气泡动画
 public class JudyPopBubble {
     
-    /// 指定气泡的中心点，默认为 bubble_belowView 的中心点。
+    /// 指定气泡的中心点，默认为 bubble_belowView 的中心点
     public var bubble_image_Center: CGPoint?
     
-    /// 气泡冒出时的动画所需时长。
+    /// 气泡冒出时的动画所需时长
     public var bubble_animate_showDuration = 0.2
-    /// 气泡旋转动画所需时长。
+    /// 气泡旋转动画所需时长
     public var bubble_animate_rotatedDuration: TimeInterval = 2
-    /// 气泡往上飘所需时长。
+    /// 气泡往上飘所需时长
     public var bubble_animate_windUp: TimeInterval = 3
-    /// 气泡消失时所需时长。
+    /// 气泡消失时所需时长
     public var bubble_animate_dissmiss: TimeInterval = 3
-    /// 气泡动画路径高度。
+    /// 气泡动画路径高度
     public var bubble_animate_height: CGFloat = 350
     
-    /// 气泡图片。
+    /// 气泡图片
     private(set) public var bubble_image: UIImage?
-    /// 气泡所在的 View。
+    /// 气泡所在的 View
     private(set) public var bubble_parentView: UIView?
-    /// 将该气泡放在该 View 下面，该 view 决定了气泡的起始位置，通常情况下是该对象是触发按钮。
+    /// 将该气泡放在该 View 下面，该 view 决定了气泡的起始位置，通常情况下是该对象是触发按钮
     private(set) public var bubble_belowView: UIView?
     
     
     public init() {}
     
-    /// 执行一个气泡图片动画。
+    /// 执行一个气泡图片动画
     /// - Parameters:
-    ///   - image: 气泡图片对象。
-    ///   - parentView: 执行气泡动画的 View。
-    ///   - belowView: 将该气泡放在该 View 下面，该 view 决定了气泡的起始位置。
+    ///   - image: 气泡图片对象
+    ///   - parentView: 执行气泡动画的 View
+    ///   - belowView: 将该气泡放在该 View 下面，该 view 决定了气泡的起始位置
     public func judy_popBubble(withImage image: UIImage?, inView parentView: UIView, belowSubview belowView: UIView) {
         guard image != nil else { return }
         
@@ -739,10 +739,10 @@ public class JudyPopBubble {
         bubble_parentView = parentView
         bubble_belowView = belowView
         
-        /// 气泡图片。
+        /// 气泡图片
         let bubbleImageView = UIImageView(image: bubble_image)
         
-        // 设置气泡图片的起始位置。
+        // 设置气泡图片的起始位置
         if bubble_image_Center == nil {
             if bubble_belowView!.superview == bubble_parentView {
                 bubbleImageView.center = CGPoint(x: bubble_belowView!.center.x, y: bubble_belowView!.frame.origin.y)
@@ -758,31 +758,31 @@ public class JudyPopBubble {
         }
         
         bubbleImageView.transform = CGAffineTransform(scaleX: 0, y: 0)
-        bubbleImageView.alpha = 0 // 初始为完全透明。
+        bubbleImageView.alpha = 0 // 初始为完全透明
         
-        // 气泡冒出动画。
+        // 气泡冒出动画
         UIView.animate(withDuration: bubble_animate_showDuration, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: UIView.AnimationOptions.curveEaseOut) {
             bubbleImageView.transform = CGAffineTransform.identity
             bubbleImageView.alpha = 1
         } completion: { isCompletion in }
         
-        // 随机偏转角度 control 点。
+        // 随机偏转角度 control 点
         let j = CGFloat(arc4random_uniform(2))
-        /// 随机方向，-1 OR 1 代表了顺时针或逆时针。
+        /// 随机方向，-1 OR 1 代表了顺时针或逆时针
         let travelDirection = CGFloat(1 - (2*j))
         
-        // 旋转气泡。
+        // 旋转气泡
         UIView.animate(withDuration: bubble_animate_rotatedDuration) {
             var transform = bubbleImageView.transform
             let rs = Double.pi/4 //(4+Double(rotationFraction)*0.2)
-            // 顺时针或逆时针旋转。
+            // 顺时针或逆时针旋转
             transform = transform.rotated(by: travelDirection*CGFloat(rs))
-            // transform = transform.translatedBy(x: 0, y: 200)//平移。
-            // transform = transform.scaledBy(x: 0.5, y: 0.5)//缩放。
+            // transform = transform.translatedBy(x: 0, y: 200)//平移
+            // transform = transform.scaledBy(x: 0.5, y: 0.5)//缩放
             bubbleImageView.transform = transform
         }
         
-        // 随机终点。
+        // 随机终点
         let ViewX = bubbleImageView.center.x
         let ViewY = bubbleImageView.center.y
         let endPoint = CGPoint(x: ViewX + travelDirection*10, y: ViewY - bubble_animate_height)
@@ -794,20 +794,20 @@ public class JudyPopBubble {
         let controlPoint1 = CGPoint(x: m1, y: n1)   //control 根据自己动画想要的效果做灵活的调整
         let controlPoint2 = CGPoint(x: m2, y: n2)
         
-        /// 气泡移动轨迹路径。
+        /// 气泡移动轨迹路径
         let travelPath = UIBezierPath()
         travelPath.move(to: bubbleImageView.center)
-        //根据贝塞尔曲线添加动画。
+        //根据贝塞尔曲线添加动画
         travelPath.addCurve(to: endPoint, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
         
-        // 关键帧动画,实现整体图片位移。
+        // 关键帧动画,实现整体图片位移
         let keyFrameAnimation = CAKeyframeAnimation(keyPath: "position")
         keyFrameAnimation.path = travelPath.cgPath
         keyFrameAnimation.timingFunction = CAMediaTimingFunction(name: .default)
-        keyFrameAnimation.duration = bubble_animate_windUp // 往上飘动画时长,可控制速度。
+        keyFrameAnimation.duration = bubble_animate_windUp // 往上飘动画时长,可控制速度
         bubbleImageView.layer.add(keyFrameAnimation, forKey: "positionOnPath")
         
-        // 消失动画。
+        // 消失动画
         UIView.animate(withDuration: bubble_animate_dissmiss) {
             bubbleImageView.alpha = 0.0
         } completion: { finished in
@@ -821,9 +821,9 @@ public class JudyPopBubble {
 
 // MARK: - 直播间送礼物功能
 
-/// 直播间送礼物控制面板。
+/// 直播间送礼物控制面板
 ///
-/// 通过 profferGiftMessageView() 函数来送出一个礼物，该礼物将显示在当前 View 上。
+/// 通过 profferGiftMessageView() 函数来送出一个礼物，该礼物将显示在当前 View 上
 open class GiftMessageCtrlPanel: UIView {
     
     // MARK: IBInspectables
@@ -839,18 +839,18 @@ open class GiftMessageCtrlPanel: UIView {
         }
     }
 
-    /// 询问目标 GiftView 对象成立暴击的条件。
+    /// 询问目标 GiftView 对象成立暴击的条件
     ///
-    /// 通过比较两个 GiftView 判断是否为需要暴击的 GiftView，其中，第一个参数为已存在的 GiftView，第二个参数为要送出去的 GiftView，若需要暴击请实现 criticalStrikeAction 函数。
+    /// 通过比较两个 GiftView 判断是否为需要暴击的 GiftView，其中，第一个参数为已存在的 GiftView，第二个参数为要送出去的 GiftView，若需要暴击请实现 criticalStrikeAction 函数
     public var critConditionsClosure: ((_ oldGiftView: GiftView, _ showGiftView: GiftView)->(Bool))?
-    /// 当发生暴击事件时通过此匿名函数更新被暴击的 giftView（更新已存在的礼物视图）。
+    /// 当发生暴击事件时通过此匿名函数更新被暴击的 giftView（更新已存在的礼物视图）
     public var criticalStrikeAction: ((GiftView)->Void)?
     
     /// 同屏显示的礼物间距，默认 10.
     public var giftViewSpace = 10
-    /// 出现过程动画时长，默认 1 秒。
+    /// 出现过程动画时长，默认 1 秒
     public var entranceDuration: TimeInterval = 1
-    /// 往上飘（消失过程的）动画时长，默认 3 秒。
+    /// 往上飘（消失过程的）动画时长，默认 3 秒
     public var disappearDuration: TimeInterval = 3
     
     /// 存储所有正在显示的礼物消息视图 view.
@@ -858,10 +858,10 @@ open class GiftMessageCtrlPanel: UIView {
     /// giftView 的桩点，只有存在 giftViewAnchors 里面的桩点才能显示 giftView.
     private var giftViewAnchors = [CGPoint]()
     
-    /// 最多允许多少个线程同时访问共享资源或者同时执行多少个任务，任务数量取决于 maxGiftViewCount。
-    /// - Warning: semaphore 处于 wait() 时， 若释放引起崩溃(EXC_BAD_INSTRUCTION)，需在释放前将当前信号量值大于等于初始信号量值。
+    /// 最多允许多少个线程同时访问共享资源或者同时执行多少个任务，任务数量取决于 maxGiftViewCount
+    /// - Warning: semaphore 处于 wait() 时， 若释放引起崩溃(EXC_BAD_INSTRUCTION)，需在释放前将当前信号量值大于等于初始信号量值
     private var semaphore = DispatchSemaphore(value: 3)
-    // 一个用于执行礼物动画的并发队列。
+    // 一个用于执行礼物动画的并发队列
     private let giftMessageQueue = DispatchQueue(label: "GiftMessageCtrlPanel", attributes: .concurrent)
     
     
@@ -875,13 +875,13 @@ open class GiftMessageCtrlPanel: UIView {
         commonInit()
     }
 
-    /// 初始化通用函数。
+    /// 初始化通用函数
     open func commonInit() {
         isUserInteractionEnabled = false
     }
 
     open override func didMoveToWindow() {
-        // 说明被移除。
+        // 说明被移除
         if window == nil {
             Judy.log("window 为 nil，控制面板被移除啦")
             for _ in 1...maxGiftViewCount {
@@ -894,22 +894,22 @@ open class GiftMessageCtrlPanel: UIView {
     }
     
     
-    /// 通过该函数送出一个 GiftView，即送出一个礼物。
+    /// 通过该函数送出一个 GiftView，即送出一个礼物
     ///
     /// 该函数会优先确认暴击条件函数 critConditionsClosure，如果送出的礼物符合暴击条件将不会弹出新 GiftView.
     /// - Parameter giftView: 要显示的 giftView
     public func profferGiftMessageView(giftView: GiftView) {
         
         if critConditionsClosure != nil {
-            /// 查找需要暴击的 giftView 索引。
+            /// 查找需要暴击的 giftView 索引
             var critConditionsIndex: Int? = nil
             let existlist = giftViews.enumerated().filter { (index, oldGiftView) -> Bool in
-                /// 是否符合暴击条件。
+                /// 是否符合暴击条件
                 let isEeligible = critConditionsClosure!(oldGiftView, giftView)
                 if isEeligible { critConditionsIndex = index }
                 return isEeligible
             }
-            // 判断是否存在相同特性的 GiftView,如果存在则直接触发暴击。
+            // 判断是否存在相同特性的 GiftView,如果存在则直接触发暴击
             guard existlist.isEmpty else {
                 criticalStrikeAction?(giftViews[critConditionsIndex!])
                 giftViews[critConditionsIndex!].criticalStrike()
@@ -932,7 +932,7 @@ open class GiftMessageCtrlPanel: UIView {
 
 private extension GiftMessageCtrlPanel {
     
-    /// 将目标 GiftView 以动画方式并排好队列显示在 containerView 容器视图中，此函数请务必在 main 线程运行。
+    /// 将目标 GiftView 以动画方式并排好队列显示在 containerView 容器视图中，此函数请务必在 main 线程运行
     func showGiftView(giftView: GiftView) {
         // 配置 giftView 基础信息
         giftView.defaultWaitTime = duringShow
@@ -940,15 +940,15 @@ private extension GiftMessageCtrlPanel {
             self.dismissGiftView(giftView: view)
         }
 
-        // 将 giftView 插入到 containerView 上方，同时存储到 giftViews 中。
+        // 将 giftView 插入到 containerView 上方，同时存储到 giftViews 中
         insertSubview(giftView, at: 0)
         giftViews.insert(giftView, at: 0)
         
-        // 如果 giftViewAnchors 有桩点就从里面拿一个，否则计算一个新桩点。
+        // 如果 giftViewAnchors 有桩点就从里面拿一个，否则计算一个新桩点
         if giftViewAnchors.isEmpty {
-            // 根据当前 giftViews 数量计算 giftView 所在桩点。
+            // 根据当前 giftViews 数量计算 giftView 所在桩点
             var centerY: CGFloat = 0
-            // 计算出一个桩点。
+            // 计算出一个桩点
             giftViews.enumerated().forEach { (index, giftView) in
                 centerY = frame.height - CGFloat(index+1)*giftView.frame.height
                 centerY -= CGFloat(index*giftViewSpace)
@@ -959,7 +959,7 @@ private extension GiftMessageCtrlPanel {
             giftView.center = giftViewAnchors.removeFirst()
         }
         
-        // 从左往右出现的动画。
+        // 从左往右出现的动画
         giftView.center.x = -giftView.frame.size.width
         giftView.transform = CGAffineTransform(scaleX: 0, y: 0)
         UIView.animate(withDuration: entranceDuration, delay: 0.0,
@@ -972,31 +972,31 @@ private extension GiftMessageCtrlPanel {
         
     }
     
-    /// 动画将指定 giftView 移除。
+    /// 动画将指定 giftView 移除
     func dismissGiftView(giftView: GiftView) {
-        // 先释放信号量，不必非得等到 giftView 移除后再释放。
+        // 先释放信号量，不必非得等到 giftView 移除后再释放
         if let index = giftViews.lastIndex(of: giftView) {
             giftViews.remove(at: index)
             giftViewAnchors.append(giftView.center)
         }
         semaphore.signal()
 
-        /// 往上飘气泡移动轨迹路径。
+        /// 往上飘气泡移动轨迹路径
         let travelPath = UIBezierPath()
         travelPath.move(to: giftView.center)
-        //根据贝塞尔曲线添加动画。
+        //根据贝塞尔曲线添加动画
         let endPoint = CGPoint(x: giftView.center.x, y: 0)
         travelPath.addQuadCurve(to: endPoint, controlPoint: endPoint)
 
-        // 关键帧动画,实现整体图片位移。
+        // 关键帧动画,实现整体图片位移
         let keyFrameAnimation = CAKeyframeAnimation(keyPath: "position")
         keyFrameAnimation.path = travelPath.cgPath
         keyFrameAnimation.timingFunction = CAMediaTimingFunction(name: .default)
-        // 往上飘动画时长,可控制速度。
+        // 往上飘动画时长,可控制速度
         keyFrameAnimation.duration = disappearDuration
         giftView.layer.add(keyFrameAnimation, forKey: "positionOnPath")
 
-        // 消失动画。
+        // 消失动画
         UIView.animate(withDuration: 1) {
             giftView.alpha = 0.0
         } completion: { finished in
@@ -1009,41 +1009,41 @@ private extension GiftMessageCtrlPanel {
 
 /* UIView 生命周期
  
- 1.UIView生命周期加载阶段。
- 在loadView阶段（内存加载阶段），先是把自己本身都加到superView上面，再去寻找自己的subView并依次添加。到此为止，只和addSubview操作有关，和是否显示无关。等到所有的subView都在内存层面加载完成了，会调用一次viewWillAppear，然后会把加载好的一层层view，分别绘制到window上面。然后layoutSubview，DrawRect，加载即完成。
+ 1.UIView生命周期加载阶段
+ 在loadView阶段（内存加载阶段），先是把自己本身都加到superView上面，再去寻找自己的subView并依次添加。到此为止，只和addSubview操作有关，和是否显示无关。等到所有的subView都在内存层面加载完成了，会调用一次viewWillAppear，然后会把加载好的一层层view，分别绘制到window上面。然后layoutSubview，DrawRect，加载即完成
  
- 2.UIView生命周期移除阶段。
+ 2.UIView生命周期移除阶段
  会先依次移除本view的moveToWindow，然后依次移除所有子视图，掉他们的moveToWindow，view就在window上消失不见了，然后在removeFromSuperView，然后dealloc，dealloc之后再removeSubview。（但不理解为什么dealloc之后再removeSubview）
  
- 3.如果没有子视图，则不会接收到didAddSubview和willRemoveSubview消息。
+ 3.如果没有子视图，则不会接收到didAddSubview和willRemoveSubview消息
  
- 4.和superView，window相关的方法，可以通过参数（superView/window）或者self.superView/self.window,判断是创建还是销毁，如果指针不为空，是创建，如果为空，就是销毁。这四个方法，在整个view的生命周期中，都会被调用2次，一共是8次。
+ 4.和superView，window相关的方法，可以通过参数（superView/window）或者self.superView/self.window,判断是创建还是销毁，如果指针不为空，是创建，如果为空，就是销毁。这四个方法，在整个view的生命周期中，都会被调用2次，一共是8次
  
  5.removeFromSuperview和dealloc在view的生命周期中，调且只调用一次，可以用来removeObserver，移除计时器等操作。（layoutSubview可能会因为子视图的调整，多次调用)
  
- 6.UIView是在被加到自己的父视图上之后，才开始会寻找添加自己的子视图（数据层面的添加，并不是加到window上面）。UIView是在调用dealloc中，移除自己的子视图，所有子视图移除并销毁内存之后，才会销毁自己的内存，dealloc完成。
+ 6.UIView是在被加到自己的父视图上之后，才开始会寻找添加自己的子视图（数据层面的添加，并不是加到window上面）。UIView是在调用dealloc中，移除自己的子视图，所有子视图移除并销毁内存之后，才会销毁自己的内存，dealloc完成
  
  */
 
-/// 直播间刷礼物弹出的消息视图。
+/// 直播间刷礼物弹出的消息视图
 open class GiftView: UIView {
-    /// 计时器完成的事件处理，通过此函数执行将本视图移除的相关操作。
+    /// 计时器完成的事件处理，通过此函数执行将本视图移除的相关操作
     var completeHandle: ((GiftView)->Void)?
     
     /// 默认倒计时时长，该时长决定触发 completeHandle 前的等待时间。该属性默认值为 3.
     var defaultWaitTime = 3
-    /// 实际倒计时时长。
+    /// 实际倒计时时长
     private var waitTime = 5
     
-    /// 计时器对象。
+    /// 计时器对象
     private var countdownTimer: Timer?
-    /// 是否开始计时，默认否。
+    /// 是否开始计时，默认否
     private var isCounting = false {
         willSet {
             guard newValue != isCounting else { return }
             if newValue {
                 waitTime = defaultWaitTime
-                // 初始化计时器对象，每隔1秒执行一次。
+                // 初始化计时器对象，每隔1秒执行一次
                 countdownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
                     if let strongSelf = self {
                         strongSelf.waitTime -= 1
@@ -1060,7 +1060,7 @@ open class GiftView: UIView {
 
     
     open override func didMoveToWindow() {
-        // 说明被移除。
+        // 说明被移除
         if window == nil {
             removeFromSuperview()
         } else {
@@ -1071,7 +1071,7 @@ open class GiftView: UIView {
     /// 发生暴击事件（显示相同的已存在礼物视图）时重置 waitTime.
     final func criticalStrike() { waitTime = defaultWaitTime }
     
-    /// 结束倒计时，并将计时器设为无效。
+    /// 结束倒计时，并将计时器设为无效
     private func endCountdown() {
         countdownTimer?.invalidate()
         countdownTimer = nil

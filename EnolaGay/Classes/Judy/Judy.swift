@@ -1,6 +1,5 @@
 //
 //  Judy.swift
-//  通用文件。常用但又繁琐的方法，在这里做了一些简化。
 //
 //  Created by Judy-王仁洁 on 2017/6/6.
 //  Copyright © 2017年 Judy.ICBC All rights reserved.
@@ -16,15 +15,15 @@ import SwiftyJSON
 
 /// 常用系统级相关工具类
 ///
-/// 在 EnolaGay 中最早的工具类，后演变成 struct，起源于 2017 年，在深圳数睿科技 8891 部门，极具收藏意义，非必要不移除任何成员。
+/// 在 EnolaGay 中最早的工具类，后演变成 struct，起源于 2017 年，在深圳数睿科技 8891 部门，极具收藏意义，非必要不移除任何成员
 public struct Judy {
     
     /// 私有init,不允许构建对象
     private init() {}
     
-    /// 获取最顶层的 ViewController，不包含 navigationCtrl。
+    /// 获取最顶层的 ViewController，不包含 navigationCtrl
     ///
-    /// - Warning: 调用时请注意在 App 启动后再调用，否则有可能出现 keyWindow 为空，就会返回一个新的 UIViewController。
+    /// - Warning: 调用时请注意在 App 启动后再调用，否则有可能出现 keyWindow 为空，就会返回一个新的 UIViewController
     public static var topViewCtrl: UIViewController {
         //  UIApplication.shared.windows.last!.rootViewController
         guard Judy.keyWindow?.rootViewController != nil else {
@@ -34,7 +33,7 @@ public struct Judy {
         return getTopViewCtrl(rootVC: Judy.keyWindow!.rootViewController!)
     }
     
-    /// 获取 App 中最开始使用的 tabBarController。
+    /// 获取 App 中最开始使用的 tabBarController
     ///
     /// - warning: 请在 App 启动后再调用，否则可能出现 keyWindow 为空并返回 UITabBarController()
     public static var tabBarCtrl: UITabBarController? {
@@ -45,10 +44,10 @@ public struct Judy {
         return Judy.keyWindow?.rootViewController as? UITabBarController
     }
     
-    /// 获取 App 的 window 而不是 keyWindow，也就是呈现故事板时用到的 window。
+    /// 获取 App 的 window 而不是 keyWindow，也就是呈现故事板时用到的 window
     ///
     /// 在呈现故事板时使用的 Window。该属性包含用于在设备主屏幕上显示应用程序的可视内容的窗口。（UIApplication.shared.delegate!.window!!）
-    /// - Warning: 如果调用太早（如程序刚启动）这个 window 可能正被隐藏中，并不活跃。
+    /// - Warning: 如果调用太早（如程序刚启动）这个 window 可能正被隐藏中，并不活跃
     public static var appWindow: UIWindow {
         guard UIApplication.shared.delegate?.window! != nil else {
             logWarning("app?.window 为 nil，调用太早！")
@@ -62,7 +61,7 @@ public struct Judy {
         return UIApplication.shared.delegate!.window!!
     }
     
-    /// 获取当前活跃的 window，如 alertview、键盘等关键的 Window。
+    /// 获取当前活跃的 window，如 alertview、键盘等关键的 Window
     public static var keyWindow: UIWindow? {
         return UIApplication.shared.connectedScenes
             .map({$0 as? UIWindowScene})
@@ -70,21 +69,21 @@ public struct Judy {
             .first?.windows.first
     }
     
-    /// 获取 App 代理对象。即 UIApplication.shared.delegate。
+    /// 获取 App 代理对象。即 UIApplication.shared.delegate
     @available(*, unavailable, message: "此属性已废弃重命名", renamed: "UIApplication.shared.delegate")
     public static var app: UIApplicationDelegate { UIApplication.shared.delegate! }
 
-    /// 当前是否有alert弹出，主要是提醒更新版本的Alert。
+    /// 当前是否有alert弹出，主要是提醒更新版本的Alert
     fileprivate static var isAlerting = false {
         didSet{
             logWarning("哎呀，isAlerting 被设置为\(isAlerting)")
         }
     }
     
-    /// 从指定故事板中获取 ViewCtrl 实例。
+    /// 从指定故事板中获取 ViewCtrl 实例
     ///
     /// - Parameters:
-    ///   - storyboardName: 故事板 name。
+    ///   - storyboardName: 故事板 name
     ///   - ident: viewCtrl ident
     /// - Returns: UIViewController
     public static func getViewCtrl(storyboardName: String, ident: String) -> UIViewController {
@@ -100,11 +99,11 @@ public struct Judy {
     
     // MARK: 系统、常用事件
     
-    /// 打开路由/浏览器，若不需要闭包请使用 openSafari 函数。
+    /// 打开路由/浏览器，若不需要闭包请使用 openSafari 函数
     ///
     /// - Parameters:
-    ///   - urlStr: 要转成 URL 的 String,如果该 String 无法转成 URL 将不会打开。
-    ///   - closure: 闭包,(success: Bool)。
+    ///   - urlStr: 要转成 URL 的 String,如果该 String 无法转成 URL 将不会打开
+    ///   - closure: 闭包,(success: Bool)
     public static func openURL(_ urlStr: String, completionHandler closure: @escaping ((Bool) -> Void)) {
         guard let url = URL(string: urlStr) else {
             logWarning("无效 URL ->\(urlStr)")
@@ -118,15 +117,15 @@ public struct Judy {
                 closure(success)
             })
         } else {
-            //  入口协议：从其他App跳转到当前App的协议。在配置文件的URL Types中URL Schemes设定，如：tc。
-            //  出口协议：当前App跳转到其他App的协议。需要将目标App的入口协议添加到当前App中配置文件的LSApplicationQueriesSchemes白名单里。
+            //  入口协议：从其他App跳转到当前App的协议。在配置文件的URL Types中URL Schemes设定，如：tc
+            //  出口协议：当前App跳转到其他App的协议。需要将目标App的入口协议添加到当前App中配置文件的LSApplicationQueriesSchemes白名单里
             logWarning("未安装路由->\(url)或没有在plist文件中添加LSApplicationQueriesSchemes白名单(出口失败)")
             closure(false)
         }
     }
     
-    /// 在浏览器中打开该地址，此函数不带完成闭包，若有需要请使用 openURL 函数。
-    /// - Parameter urlStr: 目标 url。
+    /// 在浏览器中打开该地址，此函数不带完成闭包，若有需要请使用 openURL 函数
+    /// - Parameter urlStr: 目标 url
     public static func openSafari(urlStr: String) {
         openURL(urlStr) { rs in }
     }
@@ -146,7 +145,7 @@ public struct Judy {
         return false
     }
     
-    /// 毫秒转时间。
+    /// 毫秒转时间
     ///
     /// - Parameters:
     ///   - time: 时间的毫秒数，如：1525653777000.
@@ -162,8 +161,8 @@ public struct Judy {
         return timeString
     }
     
-    /// 时间长度单位转化，将毫秒数转换为具体时间长度的时分秒。
-    /// - Parameter ms: 具体秒数。
+    /// 时间长度单位转化，将毫秒数转换为具体时间长度的时分秒
+    /// - Parameter ms: 具体秒数
     /// - Returns: 格式化后的 string, 如："01:01:38"
     public static func timeMillisecond(secondValue: Int) -> String {
         let format_time = String(format: "%@:%@:%@",
@@ -173,8 +172,8 @@ public struct Judy {
         return format_time
     }
     
-    /// 时间长度单位转化，将毫秒数转换为具体时间长度的时分秒。
-    /// - Parameter secondValue: 具体秒数。
+    /// 时间长度单位转化，将毫秒数转换为具体时间长度的时分秒
+    /// - Parameter secondValue: 具体秒数
     /// - Returns: 格式化后的单个 string, 如：("01", "01", "38")
     public static func timeMilliseconds(secondValue: Int) -> (String, String, String) {
         let str_hour = String(format: "%02d", timeCount(secondValue: secondValue).0)
@@ -183,8 +182,8 @@ public struct Judy {
         return (str_hour, str_minute, str_second)
     }
 
-    /// 时间长度单位转化，将毫秒数转换为具体时间长度的时分秒。
-    /// - Parameter secondValue: 具体秒数。
+    /// 时间长度单位转化，将毫秒数转换为具体时间长度的时分秒
+    /// - Parameter secondValue: 具体秒数
     /// - Returns: (时，分，秒)
     public static func timeCount(secondValue: Int) -> (Int,Int,Int) {
         let hour = secondValue/3600
@@ -193,7 +192,7 @@ public struct Judy {
         return (hour, minute, second)
     }
 
-    /// dictionary 转成 String。服务器需要 String 类型的参数时使用此方法方便地转换数据。
+    /// dictionary 转成 String。服务器需要 String 类型的参数时使用此方法方便地转换数据
     @available(*, unavailable, message: "此函数已禁用，请使用 SwiftyJSON 的 json.rawString() ")
     public static func string(withDictionary: [String: Any]) -> String { "" }
 
@@ -222,66 +221,63 @@ public extension Judy {
 // MARK: - 自定义输出、限制输入
 public extension Judy {
     
-    /// log 函数打印的可选级别。通过该级别可能更好地区分打印的信息等级以便于调试。
+    /// log 函数打印的可选级别。通过该级别可能更好地区分打印的信息等级以便于调试
     enum LogLevel: String {
-        /// 默认级别，通常代表普通信息。
+        /// 默认级别，通常代表普通信息
         case 🟡
-        /// 该级别通常表示警告、错误等需要重视的信息。
+        /// 该级别通常表示警告、错误等需要重视的信息
         case 🔴
-        /// 该级别通常代表好消息、令人愉悦的信息。
+        /// 该级别通常代表好消息或令人愉悦的信息
         case 🟢
-        /// 没有特别定义，用于强调、区分日志信息等级而已。
-        case 🟠, 🔵, 🟣, 🟤, 🔘, 🟦, 🟪, 🅰️, 🅱️, 🅾️, 📀,
-             💧, 💙, 💜, 🤎, 🍑, 🥭, 🍅, 🖼, 🔱, 🚫, 🔆, 🌐, 👑, 🔔, 🦠
+        /// 没有特别定义，用于强调、区分日志信息等级而已
+        case 🟣, 🕸, 🔘, 📀, 😀, 🦠, 😜, 💧, 🤪, 🧯, 😎, 🕘, 🍑, 🥭, 🚫, 🔆, 🌐, 👑, 🔔
     }
     
-    /**
-     - 如果发现不能正常打印，请在Build Settings -> Active Compilation Conditions 的 Debug 项中添加一个 DEBUG 即可。
-     */
+    // 如果发现不能正常打印，请在Build Settings -> Active Compilation Conditions 的 Debug 项中添加一个 DEBUG 即可
 
-    /// 该打印函数将依次打印文件名、触发函数所在行及函数名的信息，最常用的日志式的信息输出。
+    /// 该打印函数将依次打印文件名、触发函数所在行及函数名的信息，最常用的日志式的信息输出
     static func log<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
         print("\(type) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
         #endif
     }
     
-    /// 极简打印，该函数仅输出要打印的消息体。
+    /// 极简打印，该函数仅输出要打印的消息体
     static func logs<msg>(type: LogLevel = .🔘, _ message: @autoclosure () -> msg) {
         #if DEBUG
         print("\(type) \(message())")
         #endif
     }
     
-    /// 该函数强制以换行的方式将消息体打印，打印消息体等同于 log() 函数。
+    /// 该函数强制以换行的方式将消息体打印，打印消息体等同于 log() 函数
     static func logn<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
         print("\(type) \((file as NSString).lastPathComponent) [\(line)] \(method) \n \(message())")
         #endif
     }
 
-    /// 该打印函数仅输出文件名及所在行信息。
+    /// 该打印函数仅输出文件名及所在行信息
     static func logl<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, line: Int = #line) {
         #if DEBUG
         print("\(type) \((file as NSString).lastPathComponent)[\(line)] ⚓️ \(message())")
         #endif
     }
 
-    /// 该函数仅输出线程相关信息，所在函数名及所在行。
+    /// 该函数仅输出线程相关信息，所在函数名及所在行
     static func logt<msg>(type: LogLevel = .🟣, _ message: @autoclosure () -> msg, method: String = #function, line: Int = #line) {
         #if DEBUG
         print("\(type) \(Thread.current) [\(line)] \(method) ⚓️ \(message())")
         #endif
     }
     
-    /// 该函数强制打印好消息级别的标识符输出，打印消息体等同于 log() 函数，但消息体放在最前面。
+    /// 该函数强制打印好消息级别的标识符输出，打印消息体等同于 log() 函数，但消息体放在最前面
     static func logHappy<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
         print("\(LogLevel.🟢) \(message()) ⚓️ \((file as NSString).lastPathComponent) [\(line)] \(method)")
         #endif
     }
     
-    /// 该函数强制打印警告或错误级别的标识符输出，打印消息体等同于 log() 函数。
+    /// 该函数强制打印警告或错误级别的标识符输出，打印消息体等同于 log() 函数
     static func logWarning<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
         print("\(LogLevel.🔴) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
@@ -290,15 +286,15 @@ public extension Judy {
 
     // MARK: 自定义方法输入
     
-    /// 对要输入的数值进行小数验证。比如只能输入2.1之类的，用于价格、里程数等。
+    /// 对要输入的数值进行小数验证。比如只能输入2.1之类的，用于价格、里程数等
     ///
-    /// - warning: 此方法限textField shouldChangeCharactersInRange代理方法中调用。
+    /// - warning: 此方法限textField shouldChangeCharactersInRange代理方法中调用
     /// - Parameters:
     ///   - textFieldText: 代理方法的 textField.text! as NSString
     ///   - range: 代理方法的range
     ///   - string: 代理方法的string
-    ///   - num: 限制输入小数点后几位？0为不限制，默认为两位。
-    ///   - prefix: 限制小数点前面只能输入的位数，默认0，不限制。
+    ///   - num: 限制输入小数点后几位？0为不限制，默认为两位
+    ///   - prefix: 限制小数点前面只能输入的位数，默认0，不限制
     /// - Returns: 是否验证通过
     static func decimal(textFieldText: NSString, range: NSRange, string: String, num: Int = 2, prefix: Int = 0) -> Bool {
         
@@ -317,7 +313,7 @@ public extension Judy {
         
         if NSNotFound == nDotLoc && 0 != range.location {   // 没有输入小数点时匹配这里
             cs = CharacterSet(charactersIn: "0123456789.\n").inverted
-        } else {    // 当已输入的内容中有小数点，则匹配此处。
+        } else {    // 当已输入的内容中有小数点，则匹配此处
             cs = CharacterSet(charactersIn: "0123456789\n").inverted
         }
         
@@ -737,54 +733,54 @@ fileprivate extension Judy {
 
 
 /*
- 既然静态方法和实例化方式的区分是为了解决模式的问题，如果我们考虑不需要继承和多态的时候，就可以使用静态方法，但就算不考虑继承和多态，就一概使用静态方法也不是好的编程思想。
- 从另一个角度考虑，如果一个方法和他所在类的实例对象无关，那么它就应该是静态的，否则就应该是非静态。因此像工具类，一般都是静态的。
+ 既然静态方法和实例化方式的区分是为了解决模式的问题，如果我们考虑不需要继承和多态的时候，就可以使用静态方法，但就算不考虑继承和多态，就一概使用静态方法也不是好的编程思想
+ 从另一个角度考虑，如果一个方法和他所在类的实例对象无关，那么它就应该是静态的，否则就应该是非静态。因此像工具类，一般都是静态的
  */
 
-/// 对 ProgressHUD 的封装，常用于活动指示器的管理工具类。
+/// 对 ProgressHUD 的封装，常用于活动指示器的管理工具类
 ///
-/// - Warning: 使用时请确保在 main 线程执行。
+/// - Warning: 使用时请确保在 main 线程执行
 public struct JudyTip {
     
-    /// HUD 消息类型。
+    /// HUD 消息类型
     public enum MessageType {
-        /// 静态效果显示。
+        /// 静态效果显示
         case success,error
-        /// 支持动画显示。
+        /// 支持动画显示
         case successed, failed
     }
     
     
-    // 私有化 init()，禁止构建对象。
+    // 私有化 init()，禁止构建对象
     private init() {}
     
-    /// 设置 HUD 的颜色，此函数已经调用将该改变所有 HUD 的颜色。
+    /// 设置 HUD 的颜色，此函数已经调用将该改变所有 HUD 的颜色
     public static func setColorForHUD(color: UIColor) {
         ProgressHUD.colorAnimation = color
         ProgressHUD.colorProgress = color
     }
     
-    /// 弹出一个等待的转圈 HUD，通常用于执行某个耗时过程，请调用 dismiss() 或弹出其他 HUD 使其消失。
-    /// - Parameter animationType: 等待指示器类型，默认为常见的系统转圈。
+    /// 弹出一个等待的转圈 HUD，通常用于执行某个耗时过程，请调用 dismiss() 或弹出其他 HUD 使其消失
+    /// - Parameter animationType: 等待指示器类型，默认为常见的系统转圈
     public static func wait(animationType: AnimationType = .systemActivityIndicator) {
         ProgressHUD.animationType = animationType
         ProgressHUD.show()
     }
     
-    /// 等待的消息提示 HUD。
+    /// 等待的消息提示 HUD
     /// - Parameters:
-    ///   - animationType: 等待类型，默认为常见的系统转圈等待。
-    ///   - text: 消息体。
-    ///   - interaction: 是否允许用户交互，默认 true。
+    ///   - animationType: 等待类型，默认为常见的系统转圈等待
+    ///   - text: 消息体
+    ///   - interaction: 是否允许用户交互，默认 true
     public static func wait(animationType: AnimationType = .systemActivityIndicator, text: String, interaction: Bool = true) {
         ProgressHUD.animationType = animationType
         ProgressHUD.show(text, interaction: interaction)
     }
 
-    /// 弹出一个消息体。
+    /// 弹出一个消息体
     /// - Parameters:
-    ///   - messageType: 该 HUD 类型，默认为 failed。
-    ///   - text: 消息内容，默认为 nil。
+    ///   - messageType: 该 HUD 类型，默认为 failed
+    ///   - text: 消息内容，默认为 nil
     public static func message(messageType: MessageType = .failed, text: String? = nil) {
         
         switch messageType {
@@ -800,11 +796,11 @@ public struct JudyTip {
 
     }
     
-    /// 弹出显示一个进度条的等待指示器，该函数支持暴力调用。
+    /// 弹出显示一个进度条的等待指示器，该函数支持暴力调用
     /// - Parameters:
-    ///   - text: 要显示的文本，默认为 nil。
-    ///   - fractionCompleted: 当前完成的进度，该值大于或等于1时即代表完成了。
-    ///   - completed: 事件完成的回调，默认为 nil，在该回调中请注意需要在 DispatchQueue.main UI 线程处理。
+    ///   - text: 要显示的文本，默认为 nil
+    ///   - fractionCompleted: 当前完成的进度，该值大于或等于1时即代表完成了
+    ///   - completed: 事件完成的回调，默认为 nil，在该回调中请注意需要在 DispatchQueue.main UI 线程处理
     public static func progress(text: String? = nil, fractionCompleted: CGFloat, completed: ()? = nil) {
         
         ProgressHUD.showProgress(text, fractionCompleted)
@@ -819,7 +815,7 @@ public struct JudyTip {
         }
     }
 
-    /// 使 HUD 消失。
+    /// 使 HUD 消失
     public static func dismiss() { ProgressHUD.dismiss() }
     
 }

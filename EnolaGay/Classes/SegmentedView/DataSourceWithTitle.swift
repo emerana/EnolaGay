@@ -1,7 +1,7 @@
 //
-//  title 样式的数据源相关文件。
-//  此样式即最常用的、普通的以标题为主的数据源样式。
-//  如果需要高度自定义 SegmentedView 请参考此文件的实现方式。
+//  title 样式的数据源相关文件
+//  此样式即最常用的、普通的以标题为主的数据源样式
+//  如果需要高度自定义 SegmentedView 请参考此文件的实现方式
 //
 //  Created by 王仁洁 on 2021/3/22.
 //
@@ -10,42 +10,42 @@
 /// 以 title 为主的实体数据
 open class SegmentedItemTitleModel: SegmentedItemModel {
     
-    /// 标题文本。
+    /// 标题文本
     open var title: String?
-    /// label的numberOfLines，默认为 1。
+    /// label的numberOfLines，默认为 1
     open var titleNumberOfLines: Int = 1
     
     /// title 普通状态的 textColor.
     open var titleNormalColor: UIColor = .black
-    /// 当前显示的颜色。
+    /// 当前显示的颜色
     open var titleCurrentColor: UIColor = .black
     /// title 选中状态的 textColor.
     open var titleSelectedColor: UIColor = .red
     
-    /// title 普通状态时的字体。
+    /// title 普通状态时的字体
     open var titleNormalFont: UIFont = UIFont.systemFont(ofSize: 15)
-    /// 选中状态下的字体。
+    /// 选中状态下的字体
     open var titleSelectedFont: UIFont = UIFont.systemFont(ofSize: 15)
     
-    /// title 是否缩放。使用该效果时，务必保证 titleNormalFont 和 titleSelectedFont 值相同。
+    /// title 是否缩放。使用该效果时，务必保证 titleNormalFont 和 titleSelectedFont 值相同
     open var isTitleZoomEnabled: Bool = false
     open var titleNormalZoomScale: CGFloat = 0
     open var titleCurrentZoomScale: CGFloat = 0
     
     /// isTitleZoomEnabled 为 true 才生效。是对字号的缩放，比如 titleNormalFont 的 pointSize 为10，放大之后字号就是10*1.2=12.
     open var titleSelectedZoomScale: CGFloat = 0
-    /// title 的线宽是否允许粗细。使用该效果时，务必保证 titleNormalFont 和 titleSelectedFont 值相同。
+    /// title 的线宽是否允许粗细。使用该效果时，务必保证 titleNormalFont 和 titleSelectedFont 值相同
     open var isTitleStrokeWidthEnabled: Bool = false
     open var titleNormalStrokeWidth: CGFloat = 0
     
-    /// 用于控制字体的粗细（底层通过NSStrokeWidthAttributeName实现），负数越小字体越粗。
+    /// 用于控制字体的粗细（底层通过NSStrokeWidthAttributeName实现），负数越小字体越粗
     open var titleCurrentStrokeWidth: CGFloat = 0
-    /// 选中状态下字体的粗细。
+    /// 选中状态下字体的粗细
     open var titleSelectedStrokeWidth: CGFloat = 0
     
-    /// title 是否使用遮罩过渡。
+    /// title 是否使用遮罩过渡
     open var isTitleMaskEnabled: Bool = false
-    /// title 普通状态下文本的宽度。
+    /// title 普通状态下文本的宽度
     open var textWidth: CGFloat {
         let textWidth = NSString(string: title ?? "")
             .boundingRect(with: CGSize(width: CGFloat.infinity, height: CGFloat.infinity),
@@ -55,14 +55,14 @@ open class SegmentedItemTitleModel: SegmentedItemModel {
         return CGFloat(ceilf(Float(textWidth)))
     }
     
-    /// item 左右滚动过渡时，是否允许渐变。比如 titleZoom、titleNormalColor、titleStrokeWidth 等渐变。
+    /// item 左右滚动过渡时，是否允许渐变。比如 titleZoom、titleNormalColor、titleStrokeWidth 等渐变
     open var isItemTransitionEnabled: Bool = true
 
 
 }
 
 
-/// 适用于以标题为主的 Cell。
+/// 适用于以标题为主的 Cell
 open class SegmentedTitleCell: SegmentedCell {
     
     /// 主要 label
@@ -84,7 +84,7 @@ open class SegmentedTitleCell: SegmentedCell {
     open override func layoutSubviews() {
         super.layoutSubviews()
 
-        // 在 numberOfLines 大于 0 的时候，cell 进行重用的时候通过`sizeToFit`，label 设置成错误的 size，用`sizeThatFits`可以规避掉这个问题。
+        // 在 numberOfLines 大于 0 的时候，cell 进行重用的时候通过`sizeToFit`，label 设置成错误的 size，用`sizeThatFits`可以规避掉这个问题
         let labelSize = titleLabel.sizeThatFits(self.contentView.bounds.size)
         let labelBounds = CGRect(x: 0, y: 0, width: labelSize.width, height: labelSize.height)
         titleLabel.bounds = labelBounds
@@ -124,7 +124,7 @@ open class SegmentedTitleCell: SegmentedCell {
 //            })
 //            }
         } else {
-            // 处理选中情况。
+            // 处理选中情况
             if myItemModel.isSelected {
                 titleLabel.font = myItemModel.titleSelectedFont
                 maskTitleLabel.font = myItemModel.titleSelectedFont
@@ -232,7 +232,7 @@ open class IndicatorLineView: IndicatorView {
     open override func refreshIndicatorState(model: IndicatorSelectedParams) {
         // 确定背景色
         backgroundColor = indicatorColor
-        // 确定 frame。
+        // 确定 frame
         let width = indicatorWidth == SegmentedAutomaticDimension ?
             model.contentWidth + indicatorWidthIncrement:indicatorWidth
 
@@ -326,8 +326,8 @@ open class IndicatorLineView: IndicatorView {
 
 // MARK: 内置可直接使用的数据源
 
-/// 可直接使用的适用于 SegmentedItemTitleModel 、SegmentedTitleCell 类型的数据源。
-/// - 自定义数据源可参考本类实现。
+/// 可直接使用的适用于 SegmentedItemTitleModel 、SegmentedTitleCell 类型的数据源
+/// - 自定义数据源可参考本类实现
 open class SegmentedViewTitleDataSource: SegmentedViewDataSource {
     
     // MARK: - 协议属性
@@ -339,22 +339,22 @@ open class SegmentedViewTitleDataSource: SegmentedViewDataSource {
 
     // MARK: - 自有属性
     
-    /// 该 title 数组用于确定 dataSource。
+    /// 该 title 数组用于确定 dataSource
     open var titles = ["大家好", "我是", "VAE", "，", "这是我即将发表的首张独创专辑", "自定义", "里面的一首", "推荐曲目", "词曲编曲都是我自己", "-->", "有何不可"]
 
-    /// 真实的 item 宽度 = itemWidth + itemWidthIncrement。
+    /// 真实的 item 宽度 = itemWidth + itemWidthIncrement
     open var itemWidthIncrement: CGFloat = 0
-    /// 如果将 SegmentedView 嵌套进 UITableView 的 cell，每次重用的时候，SegmentedView 进行 reloadData 时，会重新计算所有的 title 宽度。所以该应用场景，需要 UITableView 的 cellModel 缓存 titles 的文字宽度，再通过该闭包方法返回给 SegmentedView。
+    /// 如果将 SegmentedView 嵌套进 UITableView 的 cell，每次重用的时候，SegmentedView 进行 reloadData 时，会重新计算所有的 title 宽度。所以该应用场景，需要 UITableView 的 cellModel 缓存 titles 的文字宽度，再通过该闭包方法返回给 SegmentedView
     // open var widthForTitleClosure: ((String)->(CGFloat))?
 
-    /// title 普通状态时的颜色，默认为 black。
+    /// title 普通状态时的颜色，默认为 black
     open var titleNormalColor: UIColor = .black
-    /// title 选中状态下的颜色，默认为 red。
+    /// title 选中状态下的颜色，默认为 red
     open var titleSelectedColor: UIColor = .red
 
-    /// title 普通状态时的字体，默认为 systemFont(ofSize: 15)。
+    /// title 普通状态时的字体，默认为 systemFont(ofSize: 15)
     open var titleNormalFont: UIFont = UIFont.systemFont(ofSize: 15)
-    /// title 选中状态下的字体，默认为 systemFont(ofSize: 15)。
+    /// title 选中状态下的字体，默认为 systemFont(ofSize: 15)
     open var titleSelectedFont: UIFont = UIFont.systemFont(ofSize: 15)
 
     
@@ -394,7 +394,7 @@ open class SegmentedViewTitleDataSource: SegmentedViewDataSource {
         model.titleSelectedZoomScale = 1.2
         model.titleSelectedStrokeWidth = -2
         model.titleNormalStrokeWidth = 0
-        // 确定选中的模型。
+        // 确定选中的模型
         if index == selectedIndex {
             model.titleCurrentColor = titleSelectedColor
             model.titleCurrentZoomScale = 1.2
