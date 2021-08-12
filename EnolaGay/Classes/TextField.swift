@@ -27,7 +27,7 @@ open class JudyBaseTextField: UITextField, FontStyle {
     }
     */
     
-    /// 使用 JudyBaseTextField() 构造器将触发此构造函数。
+    /// 使用 JudyBaseTextField() 构造器将触发此构造函数
     public override init(frame: CGRect) {
         super.init(frame: frame)
         initFont()
@@ -125,7 +125,7 @@ private extension JudyBaseTextField {
 // MARK: - UITextFieldDelegate
 //public extension JudyBaseTextField: UITextFieldDelegate {
 //    
-//    // 输入验证。当值发生更改时的确认。
+//    // 输入验证。当值发生更改时的确认
 //    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 ////        if textField.tag == 101 {
 ////            return Judy.number(textField: textField, range: range, string: string, num: 11, maxNumber: 0)

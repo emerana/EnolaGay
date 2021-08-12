@@ -10,65 +10,65 @@ import UIKit
 
 // MARK: - SegmentedViewDataSource
 
-/// SegmentedView 中的数据源协议，通过实现此协议来配置 SegmentedView。
+/// SegmentedView 中的数据源协议，通过实现此协议来配置 SegmentedView
 public protocol SegmentedViewDataSource: AnyObject {
     
-    /// 该值用于确定 item 的间距。
+    /// 该值用于确定 item 的间距
     var itemSpacing: CGFloat { get }
-    /// 当 collectionView.contentSize.width 小于 SegmentedView 的宽度时，是否将 itemSpacing 均分。
+    /// 当 collectionView.contentSize.width 小于 SegmentedView 的宽度时，是否将 itemSpacing 均分
     var isItemSpacingAverageEnabled: Bool { get }
-    /// 该值用于表示 item（ cell ） 是否允许宽度缩放，该值直接对应 SegmentedItemModel.isItemWidthZoomEnabled。
+    /// 该值用于表示 item（ cell ） 是否允许宽度缩放，该值直接对应 SegmentedItemModel.isItemWidthZoomEnabled
     var isItemWidthZoomEnabled: Bool { get }
-    /// 选中动画的时长。
+    /// 选中动画的时长
     var selectedAnimationDuration: TimeInterval { get }
 
     
-    /// 此函数要求对指定 collectionView 注册重用 Cell，并返回其重用标识符。
+    /// 此函数要求对指定 collectionView 注册重用 Cell，并返回其重用标识符
     ///
-    /// 参考 UICollectionView.register 函数。
-    /// - Parameter collectionView: 需要注册重用 Cell 的目标 collectionView。
-    /// - Returns: 注册 Cell 用到的唯一重用标识符。
+    /// 参考 UICollectionView.register 函数
+    /// - Parameter collectionView: 需要注册重用 Cell 的目标 collectionView
+    /// - Returns: 注册 Cell 用到的唯一重用标识符
     func segmentedView(registerCellForCollectionViewAt collectionView: UICollectionView) -> String
 
-    /// 询问用于展示的 entity 数量。
+    /// 询问用于展示的 entity 数量
     func numberOfItems(in segmentedView: SegmentedView) -> Int
         
-    /// 询问目标 index 实体及详细信息。
+    /// 询问目标 index 实体及详细信息
     ///
-    /// 请在该代理函数中设置实体的属性，注意 index、isSelected、itemWidth、isItemWidthZoomEnabled 属性会在该函数返回后自动设置。
+    /// 请在该代理函数中设置实体的属性，注意 index、isSelected、itemWidth、isItemWidthZoomEnabled 属性会在该函数返回后自动设置
     /// - Parameters:
-    ///   - segmentedView: 发起该请求的 segmentedView 对象。
-    ///   - entity: 需要更新信息的目标实体，若该实体为 nil，请自行实例化并更新该实体信息确保其准确性。
-    ///   - index: 目标实体对应的 index，此参数用于确保目标实体的准确性。
-    ///   - selectedIndex: 被选中的索引，由该索引来确定被选中的实体。
-    /// - Warning: 若传入参数 entity 不为 nil，请务必返回该 entity 实体对象本身。
+    ///   - segmentedView: 发起该请求的 segmentedView 对象
+    ///   - entity: 需要更新信息的目标实体，若该实体为 nil，请自行实例化并更新该实体信息确保其准确性
+    ///   - index: 目标实体对应的 index，此参数用于确保目标实体的准确性
+    ///   - selectedIndex: 被选中的索引，由该索引来确定被选中的实体
+    /// - Warning: 若传入参数 entity 不为 nil，请务必返回该 entity 实体对象本身
     func segmentedView(_ segmentedView: SegmentedView, entityForItem entity: SegmentedItemModel?, entityForItemAt index: Int, selectedIndex: Int) -> SegmentedItemModel
     
-    /// 询问指定实体的宽度（即 Cell 的宽度）。
+    /// 询问指定实体的宽度（即 Cell 的宽度）
     ///
-    /// 比如当前使用的是 SegmentedItemTitleModel，就需要计算实体的宽度为 (entity as! SegmentedItemTitleModel).textWidth。
+    /// 比如当前使用的是 SegmentedItemTitleModel，就需要计算实体的宽度为 (entity as! SegmentedItemTitleModel).textWidth
     /// - Parameters:
-    ///   - segmentedView: 所属 segmentedView 对象。
-    ///   - entity: 目标实体。
+    ///   - segmentedView: 所属 segmentedView 对象
+    ///   - entity: 目标实体
     func segmentedView(_ segmentedView: SegmentedView, widthForItem entity: SegmentedItemModel) -> CGFloat
 
-    /// 询问指定 index 对应实体的 content 宽度，等同于 Cell 上面内容的宽度。
-    /// - Warning: 与代理方法 widthForItem 不同，需要注意辨别，部分使用场景下，cell。 的宽度比较大，但是内容的宽度比较小。这个时候指示器又需要和实体的 content 等宽。所以添加了此代理方法。
+    /// 询问指定 index 对应实体的 content 宽度，等同于 Cell 上面内容的宽度
+    /// - Warning: 与代理方法 widthForItem 不同，需要注意辨别，部分使用场景下，cell。 的宽度比较大，但是内容的宽度比较小。这个时候指示器又需要和实体的 content 等宽。所以添加了此代理方法
     func segmentedView(_ segmentedView: SegmentedView, widthForItemContent entity: SegmentedItemModel) -> CGFloat
     
-    /// 更新选中事件的相关实体。
+    /// 更新选中事件的相关实体
     ///
-    /// 在选中 item 时此函数将被触发，在此函数中更新选中前和选中后的两个实体。
+    /// 在选中 item 时此函数将被触发，在此函数中更新选中前和选中后的两个实体
     /// - Parameters:
-    ///   - segmentedView: segmentedView 对象。
-    ///   - currentSelectedItemModel: 在作出选择之前的被选中项。
-    ///   - willSelectedItemModel: 被选择之后的选中项。
-    /// - Warning: 此函数中修改实体的 isSelected 属性无效，其将被强制更改为对应的选中状态。
+    ///   - segmentedView: segmentedView 对象
+    ///   - currentSelectedItemModel: 在作出选择之前的被选中项
+    ///   - willSelectedItemModel: 被选择之后的选中项
+    /// - Warning: 此函数中修改实体的 isSelected 属性无效，其将被强制更改为对应的选中状态
     func refreshItemModel(_ segmentedView: SegmentedView, currentSelectedItemModel: SegmentedItemModel, willSelectedItemModel: SegmentedItemModel)
 
 }
 
-/// 提供 SegmentedViewDataSource 的默认实现，这样对于遵从 SegmentedViewDataSource 的类来说，所有代理方法都是可选实现的。
+/// 提供 SegmentedViewDataSource 的默认实现，这样对于遵从 SegmentedViewDataSource 的类来说，所有代理方法都是可选实现的
 public extension SegmentedViewDataSource {
 
     func refreshItemModel(_ segmentedView: SegmentedView, currentSelectedItemModel: SegmentedItemModel, willSelectedItemModel: SegmentedItemModel) { }
@@ -77,21 +77,21 @@ public extension SegmentedViewDataSource {
 
 // MARK: - SegmentedViewDelegate
 
-/// SegmentedView 相关事件代理协议。
+/// SegmentedView 相关事件代理协议
 public protocol SegmentedViewDelegate: AnyObject {
     /// 询问是否允许点击选中目标 index 的 item，该函数已默认实现返回 true.
     func segmentedView(_ segmentedView: SegmentedView, canClickItemAt index: Int) -> Bool
     
-    /// 选中目标 item 后的代理事件，此函数发生在完成选中指定项之后。
+    /// 选中目标 item 后的代理事件，此函数发生在完成选中指定项之后
     /// - Parameters:
-    ///   - segmentedView: 操作的 segmentedView 对象。
-    ///   - index: 被选中的索引。
+    ///   - segmentedView: 操作的 segmentedView 对象
+    ///   - index: 被选中的索引
     func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int)
 }
 
 // MARK: SegmentedViewDelegate 默认实现
 
-/// 提供 SegmentedViewDelegate 的默认实现，这样对于遵从 SegmentedViewDelegate 的类来说，所有代理方法都是可选实现的。
+/// 提供 SegmentedViewDelegate 的默认实现，这样对于遵从 SegmentedViewDelegate 的类来说，所有代理方法都是可选实现的
 public extension SegmentedViewDelegate {
     func segmentedView(_ segmentedView: SegmentedView, canClickItemAt index: Int) -> Bool { true }
 
@@ -101,24 +101,24 @@ public extension SegmentedViewDelegate {
 
 // MARK: 指示器专用协议
 
-/// 指示器专用协议。
+/// 指示器专用协议
 public protocol IndicatorProtocol {
     
-    /// 是否需要将当前的 indicator 的 frame 转换到 Cell。辅助 SegmentedTitleDataSourced 的 isTitleMaskEnabled 属性使用。
-    /// 如果添加了多个 indicator，仅能有一个 indicator 的 isIndicatorConvertToItemFrameEnabled 为 true。
-    /// 如果有多个 indicator 的 isIndicatorConvertToItemFrameEnabled 为 true，则以最后一个 isIndicatorConvertToItemFrameEnabled 为 true 的 indicator 为准。
+    /// 是否需要将当前的 indicator 的 frame 转换到 Cell。辅助 SegmentedTitleDataSourced 的 isTitleMaskEnabled 属性使用
+    /// 如果添加了多个 indicator，仅能有一个 indicator 的 isIndicatorConvertToItemFrameEnabled 为 true
+    /// 如果有多个 indicator 的 isIndicatorConvertToItemFrameEnabled 为 true，则以最后一个 isIndicatorConvertToItemFrameEnabled 为 true 的 indicator 为准
     var isIndicatorConvertToItemFrameEnabled: Bool { get }
     
     
-    /// 重置指示器，以当前选中的 index 更新状态，使其所有信息恢复至默认值。
+    /// 重置指示器，以当前选中的 index 更新状态，使其所有信息恢复至默认值
     ///
-    /// 通常情况下，需要在此函数中更新背景色、圆角、frame 等关键属性。
-    /// - Parameter model: 指示器详细参数。
+    /// 通常情况下，需要在此函数中更新背景色、圆角、frame 等关键属性
+    /// - Parameter model: 指示器详细参数
     func refreshIndicatorState(model: IndicatorSelectedParams)
 
-    /// 点击选中了某一个 item 通过此函数更新指示器信息。
+    /// 点击选中了某一个 item 通过此函数更新指示器信息
     ///
-    /// 通常情况下，主要在此函数中更新 frame 属性。
+    /// 通常情况下，主要在此函数中更新 frame 属性
     /// - Parameter model: 指示器详细参数
     func selectItem(model: IndicatorSelectedParams)
 
