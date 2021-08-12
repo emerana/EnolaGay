@@ -8,8 +8,8 @@ import SwiftyJSON
 
 /// 遵循统一标准的核心 ViewController.
 ///
-/// * 重写 viewTitle 属性为当前界面设置标题。
-/// * 本类中包含一个 json，用好它。
+/// * 重写 viewTitle 属性为当前界面设置标题
+/// * 本类中包含一个 json，用好它
 /// * 本类中已集成 Api 层，通过设置 requestConfig 对象以配置请求信息，请求流详见 reqApi().
 open class JudyBaseViewCtrl: UIViewController {
 
@@ -17,7 +17,7 @@ open class JudyBaseViewCtrl: UIViewController {
 
     /// 为当前设置一个标题。**当前界面的标题显示优先顺序为 viewTitle > title > navigationItem.title.**
     ///
-    /// 如需更改显示的标题请在 viewDidLoad 之后设置 navigationItem.title 即可。
+    /// 如需更改显示的标题请在 viewDidLoad 之后设置 navigationItem.title 即可
     /// - Warning: 重写读写属性方式为实现 get、set，且里面最好全调用 super，尤其是 set.
     open var viewTitle: String? { nil }
     /// 当前界面包含的 json 数据，设置该值将触发 jsonDidSet() 函数，初值为 JSON().
@@ -25,9 +25,9 @@ open class JudyBaseViewCtrl: UIViewController {
 
     // MARK: Api 相关属性
     
-    /// 请求配置对象。
+    /// 请求配置对象
     open lazy var requestConfig = ApiRequestConfig()
-    /// 服务器响应的 JSON 数据。
+    /// 服务器响应的 JSON 数据
     final lazy private(set) public var apiData = JSON()
     
     /// 当前界面网络请求成功的标识，默认 false.
@@ -61,17 +61,17 @@ open class JudyBaseViewCtrl: UIViewController {
             navigationItem.title = title
         }
         
-        // 设置背景色。
+        // 设置背景色
         view.backgroundColor = EMERANA.enolagayAdapter?.viewBackgroundColor() ?? .white
     }
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // 若请求失败，则需在每次视图出现时重新发起请求。
+        // 若请求失败，则需在每次视图出现时重新发起请求
         if !isReqSuccess { reqApi() }
         
-        // Judy-mark: 正确的修改导航条方式。
+        // Judy-mark: 正确的修改导航条方式
         /*
          navigationController?.navigationBar.barTintColor = .white
          navigationController?.navigationBar.tintColor = .black
@@ -81,7 +81,7 @@ open class JudyBaseViewCtrl: UIViewController {
     
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // 在界面即将消失（包含所有界面跳转）时关闭所有键盘。
+        // 在界面即将消失（包含所有界面跳转）时关闭所有键盘
         UIApplication.shared.windows.last?.endEditing(true)
     }
         
@@ -92,16 +92,16 @@ open class JudyBaseViewCtrl: UIViewController {
         Judy.topViewCtrl.view.endEditing(true)
     }
     
-    /// 重写此函数以配置当 json 被设置的事件。
-    /// - Warning: 若要在此函数中设置 UI 需要注意 json 的设置一定要在 viewDidLoad 之后。
+    /// 重写此函数以配置当 json 被设置的事件
+    /// - Warning: 若要在此函数中设置 UI 需要注意 json 的设置一定要在 viewDidLoad 之后
     open func jsonDidSet() {}
 
     // MARK: Api 相关函数
     
-    /// 发起网络请求。
+    /// 发起网络请求
     ///
     /// 通过调用此函数发起一个完整的请求流，此方法中将更新 apiData.
-    /// - Warning: 此方法中会更改 isReqSuccess 对应状态。
+    /// - Warning: 此方法中会更改 isReqSuccess 对应状态
     /// - 请求结果在此函数中分流，此函数内部将依次执行以下函数，请重写相关函数以实现对应操作
     ///     - setApi()
     ///     - reqResult()
@@ -109,10 +109,10 @@ open class JudyBaseViewCtrl: UIViewController {
     ///     - reqOver()
     /// - Parameters:
     ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi().
-    ///   - isSupportWaitingHUD: 该请求是否允许显示等待过程的 HUD，默认 true，若该值为 false，即使 isGlobalHideWaitingHUD 为 true 也将无效。
+    ///   - isSupportWaitingHUD: 该请求是否允许显示等待过程的 HUD，默认 true，若该值为 false，即使 isGlobalHideWaitingHUD 为 true 也将无效
     public final func reqApi(isSetApi: Bool = true, isSupportWaitingHUD: Bool = true) {
         if isSetApi { setApi() }
-        // 为设置 api 直接不发起请求。
+        // 为设置 api 直接不发起请求
         guard requestConfig.api != nil else {
             isReqSuccess = true
             reqNotApi()
@@ -123,7 +123,7 @@ open class JudyBaseViewCtrl: UIViewController {
             if !Self.isGlobalHideWaitingHUD() { JudyTip.wait() }
         }
         
-        /// 接收响应的闭包。
+        /// 接收响应的闭包
         let responseClosure: ((JSON) -> Void) = { [weak self] json in
             guard let `self` = self else {
                 JudyTip.dismiss()
@@ -133,9 +133,9 @@ open class JudyBaseViewCtrl: UIViewController {
             self.apiData = json
             self.reqResult()
             
-            // 先处理失败情况。
+            // 先处理失败情况
             if let error = self.apiData.ApiERROR {
-                // 如果是未设置 api 则视为请求成功处理。
+                // 如果是未设置 api 则视为请求成功处理
                 self.isReqSuccess = error[.code].intValue == EMERANA.ErrorCode.notSetApi
                 self.reqFailed()
             } else {
@@ -147,13 +147,13 @@ open class JudyBaseViewCtrl: UIViewController {
             self.reqOver()
         }
 
-        // 发起请求。
+        // 发起请求
         requestConfig.request(withCallBack: responseClosure)
     }
     
-    /// 设置 requestConfig 及其它任何需要在发起请求前处理的事情。
+    /// 设置 requestConfig 及其它任何需要在发起请求前处理的事情
     ///
-    /// 在整个 reqApi() 请求流程中最先执行的方法。
+    /// 在整个 reqApi() 请求流程中最先执行的方法
     /// - Warning: 在此方法中配置好 requestConfig 对象，一般情况子类可以不调用 super.setApi().
     ///
     /// ```
@@ -171,27 +171,27 @@ open class JudyBaseViewCtrl: UIViewController {
     
     /// 当 api 为 nil 时调用了 reqApi() ，请求流将终止在此方法中，不会进行网络请求，且 isReqSuccess 将被设为 true.
     ///
-    /// 此方法应主要执行在上下拉刷新界面时需要中断 header、footer 刷新状态，更改 isReqSuccess 等操作。
+    /// 此方法应主要执行在上下拉刷新界面时需要中断 header、footer 刷新状态，更改 isReqSuccess 等操作
     open func reqNotApi() {}
     
-    /// 当服务器有响应时，最先执行此方法，无论请求是否成功。**此时 apiData 为服务器返回的元数据**。
+    /// 当服务器有响应时，最先执行此方法，无论请求是否成功。**此时 apiData 为服务器返回的元数据**
     open func reqResult() {}
     
-    /// 请求成功的消息处理。
+    /// 请求成功的消息处理
     ///
-    /// - Warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则。
+    /// - Warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则
     open func reqSuccess() {}
     
-    /// 请求失败或服务器响应为失败信息时的处理，在父类该函数将弹出失败消息体。若无需弹出请重写此函数并不调用 super 即可。
+    /// 请求失败或服务器响应为失败信息时的处理，在父类该函数将弹出失败消息体。若无需弹出请重写此函数并不调用 super 即可
     open func reqFailed() {
         if let error = apiData.ApiERROR {
             JudyTip.message(text: error[.msg].stringValue)
         }
     }
     
-    /// 在整个请求流程中最后执行的方法。
+    /// 在整个请求流程中最后执行的方法
     ///
-    /// - Warning: 执行到此方法时，setApi() -> [ reqResult() -> reqFailed() / reqSuccess() ] 整个流程已经全部执行完毕。
+    /// - Warning: 执行到此方法时，setApi() -> [ reqResult() -> reqFailed() / reqSuccess() ] 整个流程已经全部执行完毕
     open func reqOver() {}
     
     deinit {
@@ -204,7 +204,7 @@ open class JudyBaseViewCtrl: UIViewController {
 // MARK: - WKWebView
 import WebKit
 
-/// 内置一个 WKWebView 的基础控制器。
+/// 内置一个 WKWebView 的基础控制器
 ///
 /// 内置的 WKWebView 已经具备以下功能：
 /// * 若未设置界面标题将默认使用网页附带的 title;
@@ -212,7 +212,7 @@ import WebKit
 /// * 禁止长按/选择 网页内容；
 open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
 
-    /// 目标 url,webView 将打开该路径。
+    /// 目标 url,webView 将打开该路径
     public var url: String?
 
     /// 核心 webView.
@@ -221,7 +221,7 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
         let preferences = WKPreferences()
         // 是否支持 JavaScript.
         preferences.javaScriptEnabled = true
-        // 不通过用户交互，是否可以打开窗口。
+        // 不通过用户交互，是否可以打开窗口
         preferences.javaScriptCanOpenWindowsAutomatically = false
 
         let myWebView = judy.webView()
@@ -230,7 +230,7 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
         return myWebView
     }()
     
-    /// 网页加载进度指示条，允许更改该 progressView 的外观。
+    /// 网页加载进度指示条，允许更改该 progressView 的外观
     public private(set) lazy var progressView = UIProgressView()
 
     
@@ -266,14 +266,14 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
     
     // KVO.
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        // 监听网页加载进度。
+        // 监听网页加载进度
         progressView.progress = Float(webView.estimatedProgress)
     }
     
     
     // MARK: - WKNavigationDelegate
     
-    // 网页内容加载完成之后触发。
+    // 网页内容加载完成之后触发
     open func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         
         // 获取网页 title.
@@ -283,13 +283,13 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
             self?.progressView.isHidden = true
         }
         
-        // 禁止长按/选择 事件。
+        // 禁止长按/选择 事件
         webView.evaluateJavaScript("document.documentElement.style.webkitTouchCallout='none';", completionHandler: nil)
         webView.evaluateJavaScript("document.documentElement.style.webkitUserSelect='none';", completionHandler: nil)
 
     }
     
-    // 页面加载失败时调用。
+    // 页面加载失败时调用
     open func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         UIView.animate(withDuration: 0.5) { [weak self] in
             self?.progressView.progress = 0.0
@@ -302,7 +302,7 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
 
 // MARK: - 为 UIViewController 提供的包装对象函数
 
-/// 由 EnolaGay 为 UIViewController 提供的函数。
+/// 由 EnolaGay 为 UIViewController 提供的函数
 public extension EnolaGayWrapper where Base: UIViewController {
     
     /// 此函数将在系统的 present 函数基础上强化，使目标 viewController 的 modalPresentationStyle 属性为 fullScreen.
@@ -314,7 +314,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
     }
 
     
-    /// 生成一个 WKWebView，该 webView 的 frame 为 view.bounds，且已加载自适应屏幕宽度脚本。
+    /// 生成一个 WKWebView，该 webView 的 frame 为 view.bounds，且已加载自适应屏幕宽度脚本
     ///
     /// 参考以下代码加载 html 字符:
     /// ```
@@ -325,7 +325,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
     /// - Returns: WKWebView.
     func webView() -> WKWebView {
         let config = WKWebViewConfiguration()
-        // 创建 UserContentController（提供 JavaScript 向 webView 发送消息的方法）。
+        // 创建 UserContentController（提供 JavaScript 向 webView 发送消息的方法）
         let userContent = WKUserContentController()
         // 添加消息处理，注意：self 指代的对象需要遵守 WKScriptMessageHandler 协议，结束时需要移除
         // userContent.add(self, name: "NativeMethod")
@@ -337,9 +337,9 @@ public extension EnolaGayWrapper where Base: UIViewController {
         // 自适应屏幕宽度 js.
         let jSString = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta); var imgs = document.getElementsByTagName('img');for (var i in imgs){imgs[i].style.maxWidth='100%';imgs[i].style.height='auto';}"
         let wkUserScript = WKUserScript(source: jSString, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
-        // 添加自适应屏幕宽度 js 调用的方法。
+        // 添加自适应屏幕宽度 js 调用的方法
         userContent.addUserScript(wkUserScript)
-        // 将 UserConttentController 设置到配置文件。
+        // 将 UserConttentController 设置到配置文件
         config.userContentController = userContent
 
         return WKWebView(frame: base.view.bounds, configuration: config)
@@ -348,18 +348,18 @@ public extension EnolaGayWrapper where Base: UIViewController {
 
     // MARK: - gradientLayer 渐变
 
-    /// 获取一个 CAGradientLayer 渐变。
+    /// 获取一个 CAGradientLayer 渐变
     /// * 使用方式如下：
     /// ```
     /// self.view.layer.insertSublayer(gradientLayer, at: 0)
     /// ```
     ///
     /// - Parameters:
-    ///   - vertical: 是否垂直方向的渐变，默认是。否则为横向渐变。
+    ///   - vertical: 是否垂直方向的渐变，默认是。否则为横向渐变
     ///   - frame: 默认为屏幕 frame.
     ///   - startColor: 起始颜色，默认为 red.
     ///   - endColor: 终止颜色，默认为 green.
-    /// - Returns: CAGradientLayer 对象。
+    /// - Returns: CAGradientLayer 对象
     func getGradient(vertical: Bool = true, frame: CGRect = UIScreen.main.bounds, startColor: UIColor = .red, endColor: UIColor = .green) -> CAGradientLayer {
         //create gradientLayer
         let gradientLayer : CAGradientLayer = CAGradientLayer()
@@ -381,14 +381,14 @@ public extension EnolaGayWrapper where Base: UIViewController {
 
     // MARK: - 截图功能
 
-    /// 截取指定 UIScrollView 生成图片。
+    /// 截取指定 UIScrollView 生成图片
     ///
     /// - Parameters:
     ///   - targetScrollView: 要保存为图片的 UIScrollView.
-    ///   - transparent: 是否透明，默认 false，如果背景颜色可能是部分透明我们必须用白色填充。
+    ///   - transparent: 是否透明，默认 false，如果背景颜色可能是部分透明我们必须用白色填充
     ///   - savedPhotosAlbum: 是否保存到相册，默认 false.
-    /// - Warning: 调用此方法务必在 viewDidAppear 函数之后。
-    /// - Returns: 你要的图像。
+    /// - Warning: 调用此方法务必在 viewDidAppear 函数之后
+    /// - Returns: 你要的图像
     func captureScreenImage(targetScrollView: UIScrollView, transparent: Bool = false, savedPhotosAlbum: Bool = false ) -> UIImage? {
         
         UIGraphicsBeginImageContextWithOptions(targetScrollView.contentSize, false, 0.0)
@@ -431,14 +431,14 @@ public extension EnolaGayWrapper where Base: UIViewController {
         return image
     }
 
-    /// 截取指定 View 生成图片。
+    /// 截取指定 View 生成图片
     ///
     /// - Parameters:
     ///   - targetView: 要保存为图片的 View.
-    ///   - transparent: 是否透明，默认 false，如果背景颜色可能是部分透明我们必须用白色填充。
+    ///   - transparent: 是否透明，默认 false，如果背景颜色可能是部分透明我们必须用白色填充
     ///   - complete: 是否需要截取完整视图层次结构（包含状态栏），默认 false.
-    /// - Warning: 调用此方法务必在 viewDidAppear 函数之后。
-    /// - Returns: 你要的图像。
+    /// - Warning: 调用此方法务必在 viewDidAppear 函数之后
+    /// - Returns: 你要的图像
     func captureScreenImage(targetView: UIView, transparent: Bool = false, complete: Bool = false) -> UIImage? {
         
         UIGraphicsBeginImageContextWithOptions(targetView.bounds.size, false, 0.0)
@@ -475,13 +475,13 @@ public extension EnolaGayWrapper where Base: UIViewController {
         return image
     }
     
-    /// 截取指定 View 生成图片，并保存到相册。
+    /// 截取指定 View 生成图片，并保存到相册
     ///
     /// - Parameters:
     ///   - targetView: 要保存为图片的 View.
-    ///   - transparent: 是否透明。
-    /// - Warning: 调用此方法务必在 viewDidAppear 函数之后。
-    /// - Returns: 保存结果。
+    ///   - transparent: 是否透明
+    /// - Warning: 调用此方法务必在 viewDidAppear 函数之后
+    /// - Returns: 保存结果
     @discardableResult
     func captureImageSavedPhotosAlbum(targetView: UIView, transparent: Bool = false) -> Bool {
         
@@ -519,10 +519,10 @@ public extension EnolaGayWrapper where Base: UIViewController {
     
     // MARK: 将导航栏移出屏幕外
     
-    /// 移动导航条，将导航栏移出屏幕外（或恢复原位置）。
+    /// 移动导航条，将导航栏移出屏幕外（或恢复原位置）
     ///
     /// - Parameter isHihe: 是否隐藏。默认值应该为 false.
-    /// - Warning: 该方法一般要调用两次（移动之后需要恢复）。
+    /// - Warning: 该方法一般要调用两次（移动之后需要恢复）
     func moveNavigationBar(isHihe: Bool = false) {
         guard base.navigationController != nil else { return }
         
@@ -531,7 +531,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
             let statusBarHeight = UIApplication.shared.judy.statusBarView?.frame.size.height ?? 0
             
             let yDiff = isHihe ? base.navigationController!.navigationBar.frame.origin.y - base.navigationController!.navigationBar.frame.size.height - statusBarHeight :base.navigationController!.navigationBar.frame.origin.y + base.navigationController!.navigationBar.frame.size.height + statusBarHeight
-            // 重设 navigationBar.frame。
+            // 重设 navigationBar.frame
             base.navigationController!.navigationBar.frame =
                 CGRect(x: 0, y: yDiff,
                        width: base.navigationController!.navigationBar.frame.size.width,
@@ -539,11 +539,11 @@ public extension EnolaGayWrapper where Base: UIViewController {
         }
     }
     
-    /// 弹出一个系统警告框，只包含一个取消类型的按钮。通常用于临时性提醒、警告作用。
+    /// 弹出一个系统警告框，只包含一个取消类型的按钮。通常用于临时性提醒、警告作用
     /// - Parameters:
-    ///   - title: alert的标题，默认为"提示"。
-    ///   - msg: 消息文字。
-    ///   - cancelButtonTitle: 取消按钮的标题，默认为"确定"。
+    ///   - title: alert的标题，默认为"提示"
+    ///   - msg: 消息文字
+    ///   - cancelButtonTitle: 取消按钮的标题，默认为"确定"
     ///   - cancelAction: 取消按钮点击事件，默认为 nil.
     func alert(title: String = "提示", msg: String? = nil, cancelButtonTitle: String = "确定", cancelAction: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
@@ -555,9 +555,9 @@ public extension EnolaGayWrapper where Base: UIViewController {
         base.present(alertController, animated: false, completion: nil)
     }
     
-    /// 获取当前 UIViewController 的导航控制器。
+    /// 获取当前 UIViewController 的导航控制器
     ///
-    /// - Returns: UIViewController的导航控制器对象。
+    /// - Returns: UIViewController的导航控制器对象
     func navigationCtrller() -> UINavigationController {
         var navigationController: UINavigationController!
         
@@ -650,28 +650,28 @@ public extension UIViewController {
 }
 
 
-/// 此方式处理键盘遮挡输入框方式已废弃。
+/// 此方式处理键盘遮挡输入框方式已废弃
 /*
 private extension UIViewController {
 
-    /// 在 extension 中新增存储属性相关的key。
+    /// 在 extension 中新增存储属性相关的key
     private struct AssociatedKey {
         static var keyBoardHeight: CGFloat = 0
         static var keyBoardView: UIView?
         static var isSafeAreaInsetsBottom = false
     }
 
-    /// 键盘的高度（如果有弹出键盘）。
+    /// 键盘的高度（如果有弹出键盘）
     private(set) var keyBoardHeight: CGFloat {
         get {
             return objc_getAssociatedObject(self, &AssociatedKey.keyBoardHeight) as? CGFloat ?? 0
         }
-        set {   // Bugfix: OBJC_ASSOCIATION_ASSIGN 会崩溃，用 OBJC_ASSOCIATION_COPY 就可以。
+        set {   // Bugfix: OBJC_ASSOCIATION_ASSIGN 会崩溃，用 OBJC_ASSOCIATION_COPY 就可以
             objc_setAssociatedObject(self, &AssociatedKey.keyBoardHeight, newValue, .OBJC_ASSOCIATION_COPY)
         }
     }
     
-    /// 需要跟随键盘移动的目标 View，通常为输入框的父视图。
+    /// 需要跟随键盘移动的目标 View，通常为输入框的父视图
     private(set) weak var quoteKeyBoardView: UIView? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKey.keyBoardView) as? UIView
@@ -681,7 +681,7 @@ private extension UIViewController {
         }
     }
     
-    /// keyBoardView 是否有保留安全区域底部内边距。
+    /// keyBoardView 是否有保留安全区域底部内边距
     private var isSafeAreaInsetsBottom: Bool {
         get {
             return objc_getAssociatedObject(self, &AssociatedKey.isSafeAreaInsetsBottom) as? Bool ?? false
@@ -691,9 +691,9 @@ private extension UIViewController {
         }
     }
 
-    /// 注册监听键盘弹出收起事件，该函数可使 quoteKeyBoardView 跟随键盘弹出收起。
+    /// 注册监听键盘弹出收起事件，该函数可使 quoteKeyBoardView 跟随键盘弹出收起
     /// - Parameter keyBoardView: 需要跟随键盘移动的 view，一般为输入框所在的父 View.
-    /// - Parameter isSafeAreaInsetsBottom: keyBoardView 是否保留安全区域底部内边距，默认 true，keyBoardView 在跟随键盘弹出时会自动扣除安全区域的高度距离，反之亦然。
+    /// - Parameter isSafeAreaInsetsBottom: keyBoardView 是否保留安全区域底部内边距，默认 true，keyBoardView 在跟随键盘弹出时会自动扣除安全区域的高度距离，反之亦然
     func registerKeyBoardListener(forView keyBoardView: UIView, isSafeAreaInsetsBottom: Bool = true) {
         NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -701,22 +701,22 @@ private extension UIViewController {
         self.isSafeAreaInsetsBottom = isSafeAreaInsetsBottom
     }
     
-    /// 监听事件，键盘弹出或收起时均会触发此函数。
+    /// 监听事件，键盘弹出或收起时均会触发此函数
     @objc private func keyBoardShowHideAction(notification: NSNotification) {
         guard let userInfo = notification.userInfo,
               let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
         else { return }
         
-        /// 改变目标 keyBoardView 的执行过程事件，更新其 2D 仿射变换矩阵。
+        /// 改变目标 keyBoardView 的执行过程事件，更新其 2D 仿射变换矩阵
         let animations: (() -> Void) = { [weak self] in
-            // 键盘弹出事件。
+            // 键盘弹出事件
             if notification.name == UIResponder.keyboardWillShowNotification {
-                // 得到键盘高度。
+                // 得到键盘高度
                 self?.keyBoardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect).size.height
                 
-                /// quoteKeyBoardView y 轴需要移动的距离。
+                /// quoteKeyBoardView y 轴需要移动的距离
                 var yDiff = -self!.keyBoardHeight
-                // 判断是否有底部安全区域。
+                // 判断是否有底部安全区域
                 if self!.isSafeAreaInsetsBottom {
                     let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
                     let bottomPadding = window?.safeAreaInsets.bottom ?? 0
@@ -724,18 +724,18 @@ private extension UIViewController {
                 }
                 self?.quoteKeyBoardView?.transform = CGAffineTransform(translationX: 0,y: yDiff)
             }
-            // 键盘收起事件。
+            // 键盘收起事件
             if notification.name == UIResponder.keyboardWillHideNotification {
                 self?.quoteKeyBoardView?.transform = CGAffineTransform.identity
             }
         }
         
-        // 键盘弹出过程时长。
+        // 键盘弹出过程时长
         if duration > 0 {
             let options = UIView.AnimationOptions(rawValue: userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt)
             UIView.animate(withDuration: duration, delay: 0, options: options, animations: animations, completion: nil)
         } else {
-            // 键盘已经弹出，只是切换键盘，直接更新 keyBoardView 2D仿射变换矩阵。
+            // 键盘已经弹出，只是切换键盘，直接更新 keyBoardView 2D仿射变换矩阵
             animations()
         }
 

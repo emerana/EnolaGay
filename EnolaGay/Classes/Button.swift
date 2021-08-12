@@ -10,10 +10,10 @@
 
 import UIKit
 
-/// EMERANA框架中所用到的Button，默认 FontStyle 为均码。
+/// EMERANA框架中所用到的Button，默认 FontStyle 为均码
 open class JudyBaseButton: UIButton, FontStyle {
 
-    /// 图像方位。
+    /// 图像方位
     private enum ImageDirection: Int {
         case left = 0
         case up
@@ -34,7 +34,7 @@ open class JudyBaseButton: UIButton, FontStyle {
     }
     */
     
-    /// 使用 JudyBaseButton() 构造器将触发此构造函数。
+    /// 使用 JudyBaseButton() 构造器将触发此构造函数
     public override init(frame: CGRect) {
         super.init(frame: frame)
         initFont()
@@ -111,7 +111,7 @@ public extension UIButton {
      
      */
     
-    /// 以动画的方式显示该按钮。
+    /// 以动画的方式显示该按钮
     func show() {
         
         guard isHidden == true else { return }
@@ -138,9 +138,9 @@ public extension UIButton {
 // MARK: - UIButton扩展，支持调整图片和文字的排序及间距
 public extension UIButton {
     
-    /// 设置文字在左，图片在右。
+    /// 设置文字在左，图片在右
     ///
-    /// - Warning: 直接在 Storyboard 使用 semanticContentAttribute 属性设为从右向左即可。
+    /// - Warning: 直接在 Storyboard 使用 semanticContentAttribute 属性设为从右向左即可
     /// - Parameter spacing: 间距
     func setImageRight(spacing: CGFloat = 0) {
         semanticContentAttribute = .forceRightToLeft
@@ -157,10 +157,10 @@ public extension UIButton {
          */
     }
     
-    /// 设置按钮中图片在文字的正上方。
+    /// 设置按钮中图片在文字的正上方
     ///
-    /// 此函数将重新计算按钮尺寸并将图片放置在文本的上方。
-    /// - Warning: 在设置字体、文本、尺寸大小后需要重新调用此函数已确保正确将图片显示在文本上方。
+    /// 此函数将重新计算按钮尺寸并将图片放置在文本的上方
+    /// - Warning: 在设置字体、文本、尺寸大小后需要重新调用此函数已确保正确将图片显示在文本上方
     /// - Parameter spacing: 图片与文本的间隔，默认0，此属性决定了图片和文字各偏移spacing/2.
     func setImageTop(spacing: CGFloat = 0) {
         
@@ -177,9 +177,9 @@ public extension UIButton {
         imageEdgeInsets = UIEdgeInsets(top: -titleLabel!.bounds.size.height, left: 0, bottom: spacing/2, right: -titleWidth)
     }
     
-    /// 设置左右结构的间距。正常情况下图片在左，文字在右，但间距太小。
+    /// 设置左右结构的间距。正常情况下图片在左，文字在右，但间距太小
     ///
-    /// - Warning: 若按钮发生变化需重新调用此函数。
+    /// - Warning: 若按钮发生变化需重新调用此函数
     /// - Parameter spacing: 间距值，默认2，此属性决定了图片和文字各偏移 spacing/2.
     func setImageTextSpacing(spacing: CGFloat = 2) {
         guard imageView != nil, titleLabel != nil else { return }
@@ -210,26 +210,26 @@ public extension UIButton {
 
 /**
  * 验证码倒计时按钮，字体样式默认为小码，请在 storyboard 中将按钮类型改为 Custom.
- * * 配置 clickActionClosure 设置按钮点击事件(可选)。
- * * 通过 star() 方法启动倒计时以及配置按钮的颜色。
+ * * 配置 clickActionClosure 设置按钮点击事件(可选)
+ * * 通过 star() 方法启动倒计时以及配置按钮的颜色
  */
 open class JudyVerifyButton: JudyBaseButton {
     
-    /// 按钮点击事件的回调，JudyVerifyButton: 该按钮对象。
+    /// 按钮点击事件的回调，JudyVerifyButton: 该按钮对象
     public var clickActionClosure:((JudyVerifyButton) -> Void)?
 
-    /// 计时状态改变回调，Bool: 是否开始计时。
+    /// 计时状态改变回调，Bool: 是否开始计时
     private var countingStatuClosure:((Bool) -> Void)?
     
     // MARK: 计时器相关属性
     
-    /// 等待时长，默认为60秒。
+    /// 等待时长，默认为60秒
     private var waitTime = 60
     
-    /// 计时器对象。
+    /// 计时器对象
     private var countdownTimer: Timer?
     
-    /// 剩余秒数。
+    /// 剩余秒数
     private var remainingSeconds = 0 {
         willSet {
             setTitle("\(newValue)秒", for: .normal)
@@ -237,12 +237,12 @@ open class JudyVerifyButton: JudyBaseButton {
                 setTitle("重新获取", for: .normal)
                 isCounting = false
             }
-            // 计时过程中保持按钮不可点击状态。
+            // 计时过程中保持按钮不可点击状态
             isEnabled = newValue <= 0
         }
     }
     
-    /// 是否开始计时，默认否。
+    /// 是否开始计时，默认否
     private var isCounting = false {
         willSet {
             if newValue {
@@ -269,24 +269,24 @@ open class JudyVerifyButton: JudyBaseButton {
         self.addTarget(self, action: #selector(verificationButtonAction), for: .touchUpInside)
     }
     
-    /// 启动倒计时。
+    /// 启动倒计时
     ///
     /// - Parameters:
-    ///   - waitTime: 允许再次点击时的等待时长，默认60秒。
-    ///   - countingChangedAction: 计时状态改变回调，isCounting: Bool 是否正在计时。
+    ///   - waitTime: 允许再次点击时的等待时长，默认60秒
+    ///   - countingChangedAction: 计时状态改变回调，isCounting: Bool 是否正在计时
     public func star(waitTime: Int = 60, _ countingChangedAction: ((Bool) -> Void)? = nil) {
         self.waitTime = waitTime
         countingStatuClosure = countingChangedAction
-        // 启动倒计时。
+        // 启动倒计时
         isCounting = true
     }
     
-    /// 验证码按钮点击事件。
+    /// 验证码按钮点击事件
     @objc private func verificationButtonAction(_ sender: Any) {
         clickActionClosure?(self)
     }
     
-    /// 逐秒递减。
+    /// 逐秒递减
     ///
     /// - Parameter timer: timer.
     @objc private func updateTime(timer: Timer) {

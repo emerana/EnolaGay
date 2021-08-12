@@ -8,16 +8,16 @@
 
 import UIKit
 
-/// 覆盖层。
+/// 覆盖层
 public class PickerViewOverlay: UIView {
     
-    /// 三角形所在位置上或下。
+    /// 三角形所在位置上或下
     public enum TriangleLocation {
         case up
         case down
     }
     
-    /// 三角形方向。
+    /// 三角形方向
     public var triangleViewLocation = TriangleLocation.up {
         didSet {
             updateConstraints()
@@ -25,7 +25,7 @@ public class PickerViewOverlay: UIView {
         }
     }
 
-    /// 三角形。
+    /// 三角形
     public let triangleView = PickerViewOverlayTriangleView()
     
     // Computed Properties
@@ -66,13 +66,13 @@ public class PickerViewOverlay: UIView {
     
     public override func updateConstraints() {
         if triangleViewLocation == .up {
-            // 在顶部。
+            // 在顶部
             self.addConstraint(
                 NSLayoutConstraint(item: triangleView, attribute: .top,
                                    relatedBy: .equal, toItem: self,
                                    attribute: .top, multiplier: 1, constant: 0))
         } else {
-            // 在底部。
+            // 在底部
             self.addConstraint(
                 NSLayoutConstraint(item: triangleView, attribute: .bottom,
                                    relatedBy: .equal, toItem: self,
@@ -84,7 +84,7 @@ public class PickerViewOverlay: UIView {
 }
 
 // This is the downward pointing arrow in the OverlayView
-/// OverlayView 中的向下箭头。
+/// OverlayView 中的向下箭头
 public class PickerViewOverlayTriangleView: UIView {
     
     var triangleLocation = PickerViewOverlay.TriangleLocation.up {
@@ -115,14 +115,14 @@ public class PickerViewOverlayTriangleView: UIView {
         }
     }
     
-    // 重写此函数来画三角形。
+    // 重写此函数来画三角形
     public override func draw(_ rect: CGRect) {
         UIColor.clear.setFill()
         let frame = frameToFill ?? layer.frame
         UIBezierPath(rect: frame).fill()
         color.setFill()
         let bezierPath = UIBezierPath()
-        // 画三角形。
+        // 画三角形
         if triangleLocation == .up {
             downwardTriangleView(bezierPath: bezierPath)
         } else {
@@ -132,7 +132,7 @@ public class PickerViewOverlayTriangleView: UIView {
         bezierPath.fill()
     }
     
-    /// 画向下的箭头。
+    /// 画向下的箭头
     private func downwardTriangleView(bezierPath: UIBezierPath) {
         bezierPath.move(to: CGPoint(x: 0, y: 0))
         bezierPath.addLine(to: CGPoint(x: frame.width, y: 0))
@@ -140,7 +140,7 @@ public class PickerViewOverlayTriangleView: UIView {
         bezierPath.addLine(to: CGPoint(x: 0, y: 0))
     }
     
-    /// 画向上的箭头。
+    /// 画向上的箭头
     private func upwardTriangleView(bezierPath: UIBezierPath) {
         bezierPath.move(to: CGPoint(x: frame.width / 2, y: 0))
         bezierPath.addLine(to: CGPoint(x: frame.width, y: frame.height))

@@ -10,14 +10,14 @@ import UIKit
 import SwiftyJSON
 
 /**
- *  - 文件操作类。
- *      - !!! 默认操作都是在documents文件夹下。
+ *  - 文件操作类
+ *      - !!! 默认操作都是在documents文件夹下
  */
 public class JudyFile: NSObject {
     /// 单例
     public static let judy = JudyFile()
     
-    private override init() {} // 这可以防止其他人使用默认的()对这个类的初始化。
+    private override init() {} // 这可以防止其他人使用默认的()对这个类的初始化
     
     private let manager = FileManager.default
     

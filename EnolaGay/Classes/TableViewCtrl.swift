@@ -12,7 +12,7 @@ import UIKit
 import SwiftyJSON
 
 /**
- *  该类包含一个 tableView，请将 tableView 与故事板关联。
+ *  该类包含一个 tableView，请将 tableView 与故事板关联
  *  * 该 tableView 已经实现 dataSource 和 delegate.
  *  * 默认 tableViewCellidentitier 为 "Cell".
  */
@@ -48,12 +48,12 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
         
         if isHideFooter { tableView?.tableFooterView = UIView() }
         
-        // 滑动时关闭键盘。
+        // 滑动时关闭键盘
         tableView?.keyboardDismissMode = .onDrag
-        // 设置 tableView 的背景色。
+        // 设置 tableView 的背景色
         tableView?.backgroundColor = EMERANA.enolagayAdapter?.scrollViewBackGroundColor()
 
-        // 配置 tableView 的背景色。
+        // 配置 tableView 的背景色
         /*
         if #available(iOS 13.0, *) {
             if tableView?.backgroundColor == UIColor.systemBackground {
@@ -106,7 +106,7 @@ extension JudyBaseTableViewCtrl: UITableViewDelegate {
     }
     */
     
-    /// 选中事件。默认在父类里 deselectRow，实现此函数覆盖 super 即可。
+    /// 选中事件。默认在父类里 deselectRow，实现此函数覆盖 super 即可
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !tableView.isEditing {
             tableView.deselectRow(at: indexPath, animated: true)
@@ -142,7 +142,7 @@ extension JudyBaseTableViewCtrl: UITableViewDelegate {
 
 extension JudyBaseTableViewCtrl: UITableViewDataSource {
     /*
-     /// 询问 tableView 中的 section 数量。
+     /// 询问 tableView 中的 section 数量
      func numberOfSections(in tableView: UITableView) -> Int { 2 }
      */
     
@@ -151,7 +151,7 @@ extension JudyBaseTableViewCtrl: UITableViewDataSource {
         return dataSource.count
     }
     
-    /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例。
+    /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 此方法可以不判断 Cell 是否为 nil.
         return tableView.dequeueReusableCell(withIdentifier: EMERANA.Key.cell, for: indexPath)
@@ -162,9 +162,9 @@ extension JudyBaseTableViewCtrl: UITableViewDataSource {
 
 // MARK: - JudyBaseTableRefreshViewCtrl
 
-/// 在 JudyBaseTableViewCtrl 的基础上加上刷新控件，以支持分页加载数据。
+/// 在 JudyBaseTableViewCtrl 的基础上加上刷新控件，以支持分页加载数据
 ///
-/// 请实现刷新控件适配器 extension UIApplication: RefreshAdapter ；重写 setSumPage() 函数以设置总页数。
+/// 请实现刷新控件适配器 extension UIApplication: RefreshAdapter ；重写 setSumPage() 函数以设置总页数
 /// - Warning: reqApi() 周期主要匹配分页加载功能，若存在无关分页请求需重写以下函数：
 ///     * reqResult()，此函数中影响上下拉状态，无需控制 UI 状态时需要在此函数中排除
 ///     * reqSuccess()，此函数中影响设置总页数函数 setSumPage(), 无关的逻辑应该在此排除
@@ -194,7 +194,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
         super.viewDidLoad()
 
         resetStatus()
-        // 配置刷新控件。
+        // 配置刷新控件
         initHeaderRefresh()
         initFooterRefresh()
     }
@@ -209,25 +209,25 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     ///requestConfig.api = .???
     ///requestConfig.parameters?["userName"] = "Judy"
     ///```
-    /// - Warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage，子类请务必调用父类方法。
+    /// - Warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage，子类请务必调用父类方法
     open override func setApi() {
         requestConfig.parameters?[pageParameterString()] = currentPage
         requestConfig.parameters?[pageSizeParameterString()] = pageSize
     }
 
-    /// 未设置 requestConfig.api 却发起了请求时的消息处理。
+    /// 未设置 requestConfig.api 却发起了请求时的消息处理
     ///
     /// 当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1.
-    /// - Warning: 重写此方法务必调用父类方法。
+    /// - Warning: 重写此方法务必调用父类方法
     open override func reqNotApi() {
         if isAddMore { currentPage -= 1 }
         reqResult()
     }
     
-    /// 当服务器响应时首先执行此函数。
+    /// 当服务器响应时首先执行此函数
     ///
-    /// 此函数中会调用 endRefresh()，即结束 header、footer 的刷新状态。
-    /// - Warning: 此函数影响上下拉状态，请确认只有在分页相关请求条件下调用 super.reqResult()。
+    /// 此函数中会调用 endRefresh()，即结束 header、footer 的刷新状态
+    /// - Warning: 此函数影响上下拉状态，请确认只有在分页相关请求条件下调用 super.reqResult()
     /// ```
     /// if  requestConfig.api?.value == ApiActions.Live.getAnchorLibraries.rawValue {
     ///     super.reqResult()
@@ -235,24 +235,24 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     /// ```
     open override func reqResult() { EMERANA.refreshAdapter?.endRefresh(scrollView: tableView) }
     
-    /// 请求成功的消息处理，子类请务必调用父类函数。
+    /// 请求成功的消息处理，子类请务必调用父类函数
     ///
-    /// 此函数已经处理是否有更多数据，需自行根据服务器响应数据更改数据源及刷新 tableView。
-    /// - Warning: 此函数中影响设置总页数函数 setSumPage(), 与分页无关的逻辑应该在此排除。
+    /// 此函数已经处理是否有更多数据，需自行根据服务器响应数据更改数据源及刷新 tableView
+    /// - Warning: 此函数中影响设置总页数函数 setSumPage(), 与分页无关的逻辑应该在此排除
     open override func reqSuccess() {
-        // 设置总页数。
+        // 设置总页数
         let sumPage = setSumPage()
-        // 在此判断是否有更多数据。结束刷新已经在 reqResult() 中完成。
-        if sumPage <= currentPage {    // 最后一页了，没有更多。
-            // 当没有更多数据的时候要将当前页设置为总页数或默认页数。
+        // 在此判断是否有更多数据。结束刷新已经在 reqResult() 中完成
+        if sumPage <= currentPage {    // 最后一页了，没有更多
+            // 当没有更多数据的时候要将当前页设置为总页数或默认页数
             currentPage = sumPage <= defaultPageIndex ? defaultPageIndex:sumPage
             EMERANA.refreshAdapter?.endRefreshingWithNoMoreData(scrollView: tableView)
         }
     }
     
-    /// 请求失败的消息处理，此函数中会触发 reqNotApi 函数。
+    /// 请求失败的消息处理，此函数中会触发 reqNotApi 函数
     ///
-    /// - Warning: 重写此方法务必调用父类方法。
+    /// - Warning: 重写此方法务必调用父类方法
     open override func reqFailed() {
         super.reqFailed()
         reqNotApi()
@@ -298,10 +298,10 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     open func refreshHeader() {}
     open func refreshFooter() {}
 
-    /// 询问分页接口数据总页数，该函数已实现自动计算总页数。
+    /// 询问分页接口数据总页数，该函数已实现自动计算总页数
     ///
-    /// 一般用当前页返回到数量与 pageSize 作比较来判断是否还有下一页。
-    /// - Warning: 若 apiData["data"].arrayValue 字段不同请覆盖此函数配置正确的总页数。
+    /// 一般用当前页返回到数量与 pageSize 作比较来判断是否还有下一页
+    /// - Warning: 若 apiData["data"].arrayValue 字段不同请覆盖此函数配置正确的总页数
     open func setSumPage() -> Int {
         apiData["data"].arrayValue.count != pageSize ? currentPage:currentPage+1
     }
@@ -318,7 +318,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
 /// * labelsForColor 中的 labels 会配置颜色 foreground.
 open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     
-    /// 是否需要解决 UITableView 有 footerView 时最后一个 cell 不显示分割线问题，默认 false。
+    /// 是否需要解决 UITableView 有 footerView 时最后一个 cell 不显示分割线问题，默认 false
     @IBInspectable lazy var isShowSeparatorAtFooter: Bool = false
 
     // MARK: - let property and IBOutlet
@@ -332,7 +332,7 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
 
     /**
      didSet 时重新定义 super.frame.
-     # 切记是要更改 super.frame，而不是 self，否则会进入死循环。
+     # 切记是要更改 super.frame，而不是 self，否则会进入死循环
      */
     open override var frame: CGRect {
         didSet{
@@ -346,26 +346,26 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     
     // MARK: - Life Cycle
     
-    // Cell 准备重用时执行的方法。
+    // Cell 准备重用时执行的方法
     open override func prepareForReuse() {
         super.prepareForReuse()
         
-        // 此处应重置 Cell 状态，清除在重用池里面设置的值。
+        // 此处应重置 Cell 状态，清除在重用池里面设置的值
     }
     
-    /// 重写了此方法必须调用 super.awakeFromNib()，里面实现了配置。
+    /// 重写了此方法必须调用 super.awakeFromNib()，里面实现了配置
     open override func awakeFromNib() {
         super.awakeFromNib()
         globalAwakeFromNib()
     }
     
-    /// 布局子视图。创建对象顺序一定是先有 frame，再 awakeFromNib，再调整布局。
+    /// 布局子视图。创建对象顺序一定是先有 frame，再 awakeFromNib，再调整布局
     open override func layoutSubviews() {
         super.layoutSubviews()
 
-        // 此处涉及到布局，因此必须放在 layoutSubviews() 中。
+        // 此处涉及到布局，因此必须放在 layoutSubviews() 中
         if isShowSeparatorAtFooter {
-            // 解决 UITableView 有 footerView 时最后一个 Cell 不显示分割线问题。
+            // 解决 UITableView 有 footerView 时最后一个 Cell 不显示分割线问题
             for var separatorView in self.contentView.superview!.subviews {
                 if NSStringFromClass(separatorView.classForCoder).hasSuffix("SeparatorView") {
                     separatorView.alpha = 1
@@ -379,10 +379,10 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
 
     }
     
-    // 如果布局更新挂起，则立即布局子视图。
+    // 如果布局更新挂起，则立即布局子视图
     open override func layoutIfNeeded() {
         super.layoutIfNeeded()
-        // 设置正圆。
+        // 设置正圆
         if masterImageView?.isRound ?? false {
             masterImageView?.judy.viewRound(
                 border: masterImageView!.borderWidth,
@@ -443,7 +443,7 @@ open class JudyInputCell: JudyBaseTableCell {
 
 
 /// 包含一个 indexPath 的 UITextField，该 UITextField 通常嵌于 TableViewCell 里，为此在里面指定一个 indexPath.
-/// - Warning: 此类必须独立出来。
+/// - Warning: 此类必须独立出来
 final public class JudyCellTextField: JudyBaseTextField {
     /// 对应 cell 中的 indexPath.
     public var indexPath: IndexPath!

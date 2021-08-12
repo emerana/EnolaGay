@@ -6,7 +6,7 @@
 //  Copyright (c) 2017 ag. All rights reserved.
 //
 
-/// 一款横向选择器。
+/// 一款横向选择器
 public class PickerView: UIView {
 
     /// The dataSource that, upon providing a set of `Selectable` items, reloads the UICollectionView
@@ -17,11 +17,11 @@ public class PickerView: UIView {
     /// The object that acts as a delegate
     public weak var delegate: PickerViewDelegate?
 
-    /// 通用的宽度。
+    /// 通用的宽度
     private var cellWidth: CGFloat {
         return dataSource?.width(for: self) ?? 0
     }
-    /// 数据源。
+    /// 数据源
     public private(set) var items = [PickerViewCellModel]()
     
     fileprivate var lastScrollProgress = CGFloat()
@@ -143,7 +143,7 @@ public class PickerView: UIView {
 }
 
 public extension PickerView {
-    /// 重新载入所有数据。
+    /// 重新载入所有数据
     final func reloadData() {
         guard let dataSource = self.dataSource else {
             Judy.logWarning("请设置 PickerView.dataSource")
@@ -154,7 +154,7 @@ public extension PickerView {
         collectionView.register(PickerViewCell.self, forCellWithReuseIdentifier: "DayCell")
 
         items.removeAll()
-        // 确定样式。
+        // 确定样式
         let titleNormalFont = dataSource.configNormalStyle(for: self).0
         let titleSelectedFont = dataSource.configSelectedStyle(for: self).0
         let titleNormalColor = dataSource.configNormalStyle(for: self).1
@@ -175,10 +175,10 @@ public extension PickerView {
         collectionView.collectionViewLayout.invalidateLayout()
     }
 
-    /// 选中指定项。
+    /// 选中指定项
     ///
     /// - Parameter index: 选中相关的目标 index.
-    /// - Warning: 请在视图树载入完毕之后再调用此函数，比如在 viewDidAppear 函数中调用。
+    /// - Warning: 请在视图树载入完毕之后再调用此函数，比如在 viewDidAppear 函数中调用
     final func select(at index: Int) {
         guard index < items.count else { return }
         let indexPath = IndexPath(row: index, section: 0)
@@ -195,9 +195,9 @@ public extension PickerView {
 
 // MARK: 私有函数
 private extension PickerView {
-    /// 设置一个三角形在中间位置。
+    /// 设置一个三角形在中间位置
     func setupTriangleView() {
-        /// 三角形。
+        /// 三角形
         let triangleView = PickerViewOverlayTriangleView()
         triangleView.frame = CGRect(origin: CGPoint(x: self.frame.size.width/2, y: 0), size: CGSize(width: 10, height: 5))
         triangleView.color = .red
@@ -208,15 +208,15 @@ private extension PickerView {
 
 // MARK: - PickerViewDataSource
 public protocol PickerViewDataSource: AnyObject {
-    /// 询问 pickerView 的标题列表。
+    /// 询问 pickerView 的标题列表
     func titles(for pickerView: PickerView) -> [String]
     
     /// 询问所有显示的标题中的最大宽度，该函数默认实现为 88.
     func width(for pickerView: PickerView) -> CGFloat
     
-    /// 询问普通状态下标题的字体及颜色，该函数默认实现为 15 号字体及透明白色。
+    /// 询问普通状态下标题的字体及颜色，该函数默认实现为 15 号字体及透明白色
     func configNormalStyle(for pickerView: PickerView) -> (UIFont, UIColor)
-    /// 询问选中状态下标题的字体及颜色，该函数默认实现为 16 加粗字体及纯白色。
+    /// 询问选中状态下标题的字体及颜色，该函数默认实现为 16 加粗字体及纯白色
     func configSelectedStyle(for pickerView: PickerView) -> (UIFont, UIColor)
 }
 public extension PickerViewDataSource {
@@ -233,7 +233,7 @@ public extension PickerViewDataSource {
 
 // MARK: - PickerViewDelegate
 public protocol PickerViewDelegate: AnyObject {
-    /// 当选中的数据发生实质性的变更时的处理。
+    /// 当选中的数据发生实质性的变更时的处理
     func pickerView(_ pickerView: PickerView, didSelectedItemAt index: Int)
 }
 
@@ -288,20 +288,20 @@ extension PickerView : UIScrollViewDelegate {
     // 自动对齐
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
-        // 您的应用程序可以更改targetContentOffset参数的值，以调整滚动视图完成滚动动画的位置。
-        // 滚动动作减速到停止时的预期偏移量。
+        // 您的应用程序可以更改targetContentOffset参数的值，以调整滚动视图完成滚动动画的位置
+        // 滚动动作减速到停止时的预期偏移量
         let targetXOffset = targetContentOffset.pointee.x
         // Judy.log(type: .🍅, "targetContentOffset = \(targetContentOffset.pointee)")
 
         // collectionView 预期显示的 rect
         let rect = CGRect(origin: targetContentOffset.pointee, size: collectionView.bounds.size)
         // Judy.log("预期显示的区域 = \(rect)")
-        // 检索指定矩形中所有单元格和视图的布局属性。
+        // 检索指定矩形中所有单元格和视图的布局属性
         guard let attributes = collectionView.collectionViewLayout.layoutAttributesForElements(in: rect) else { return }
         let xOffsets = attributes.map { $0.frame.origin.x }
         
         // Judy.log("selectedItemOverlay.frame.origin.x = \(selectedItemOverlay.frame.origin.x)")
-        // 左边距离。
+        // 左边距离
         let distanceToOverlayLeftEdge = selectedItemOverlay.frame.origin.x - collectionView.frame.origin.x
         // 目标Cell左边边缘
         let targetCellLeftEdge = targetXOffset + distanceToOverlayLeftEdge
@@ -352,7 +352,7 @@ extension PickerView : UIScrollViewDelegate {
         self.generateFeedback()
     }
     
-    // 只有在用户拖拽结束时才会触发此函数。
+    // 只有在用户拖拽结束时才会触发此函数
     public final func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         // 这才是正确地获取当前显示的 Cell 方式
         if scrollView == collectionView {
