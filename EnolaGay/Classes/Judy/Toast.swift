@@ -442,160 +442,95 @@ public extension UIView {
 
 // MARK: - Toast Style
 
-/**
- `ToastStyle` instances define the look and feel for toast views created via the
- `makeToast` methods as well for toast views created directly with
- `toastViewForMessage(message:title:image:style:)`.
-
- @warning `ToastStyle` offers relatively simple styling options for the default
- toast view. If you require a toast view with more complex UI, it probably makes more
- sense to create your own custom UIView subclass and present it with the `showToast`
- methods.
-*/
+/// ToastStyle 实例定义了通过 `makeToast` 方法创建的 toast 的外观和触觉，以及直接使用 `toastViewForMessage(message:title:image:style:)` 创建的 toast。
+/// - Warning: ToastStyle 为默认的 toast 视图提供了相对简单的样式选项。如果你需要一个带有更复杂 UI 的 toast 视图，它可能会提供更多创建你自己的自定义 UIView 子类，并用 `showToast` 方法呈现它。
 public struct ToastStyle {
 
     public init() {}
     
-    /**
-     The background color. Default is `.black` at 80% opacity.
-    */
-    public var backgroundColor: UIColor = UIColor.black.withAlphaComponent(0.8)
+    /// 背景颜色。默认为黑色，不透明度为 80%.
+    public var backgroundColor: UIColor = .black.withAlphaComponent(0.8)
     
-    /**
-     The title color. Default is `UIColor.whiteColor()`.
-    */
+    /// 标题颜色。默认为白色。
     public var titleColor: UIColor = .white
     
-    /**
-     The message color. Default is `.white`.
-    */
+    /// 消息颜色。默认为白色。
     public var messageColor: UIColor = .white
     
-    /**
-     A percentage value from 0.0 to 1.0, representing the maximum width of the toast
-     view relative to it's superview. Default is 0.8 (80% of the superview's width).
-    */
+    /// 从 0.0 ~ 1.0 的百分比值，表示 toast 的最大宽度。视图相对于它的父视图。默认值是0.8(父视图宽度的80%)。
     public var maxWidthPercentage: CGFloat = 0.8 {
         didSet {
             maxWidthPercentage = max(min(maxWidthPercentage, 1.0), 0.0)
         }
     }
     
-    /**
-     A percentage value from 0.0 to 1.0, representing the maximum height of the toast
-     view relative to it's superview. Default is 0.8 (80% of the superview's height).
-    */
+    /// 从 0.0 ~ 1.0 的百分比值，表示 toast 的最大高度。视图相对于它的父视图。默认值是0.8(父视图高度的80%)。
     public var maxHeightPercentage: CGFloat = 0.8 {
         didSet {
             maxHeightPercentage = max(min(maxHeightPercentage, 1.0), 0.0)
         }
     }
     
-    /**
-     The spacing from the horizontal edge of the toast view to the content. When an image
-     is present, this is also used as the padding between the image and the text.
-     Default is 10.0.
-     
-    */
+    /// 从 toast 视图的水平边缘到内容的间距。当有图像出现时，它也被用作图像和文本之间的填充。默认是10.0。
     public var horizontalPadding: CGFloat = 10.0
     
-    /**
-     The spacing from the vertical edge of the toast view to the content. When a title
-     is present, this is also used as the padding between the title and the message.
-     Default is 10.0. On iOS11+, this value is added added to the `safeAreaInset.top`
-     and `safeAreaInsets.bottom`.
-    */
+    /// 从 toast 视图的垂直边缘到内容的间距。当出现标题时，它也被用作标题和消息之间的填充。默认是10.0。在iOS11+上，这个值会加上 safeAreaInset.top 和 safeAreaInsets.bottom.
     public var verticalPadding: CGFloat = 10.0
     
-    /**
-     The corner radius. Default is 10.0.
-    */
+    /// 圆角程度，默认为 10.
     public var cornerRadius: CGFloat = 10.0;
     
-    /**
-     The title font. Default is `.boldSystemFont(16.0)`.
-    */
-    public var titleFont: UIFont = .boldSystemFont(ofSize: 16.0)
+    /// 标题字体，默认为 UIFont(name: .苹方_中粗体, size: 16)
+    public var titleFont: UIFont = UIFont(name: .苹方_中粗体, size: 16)
     
-    /**
-     The message font. Default is `.systemFont(ofSize: 16.0)`.
-    */
-    public var messageFont: UIFont = .systemFont(ofSize: 16.0)
+    /// 消息字体，默认为 UIFont(size: 16)
+    public var messageFont: UIFont = UIFont(size: 16)
     
-    /**
-     The title text alignment. Default is `NSTextAlignment.Left`.
-    */
+    /// 标题对齐方式。默认为 .left
     public var titleAlignment: NSTextAlignment = .left
     
-    /**
-     The message text alignment. Default is `NSTextAlignment.Left`.
-    */
+    /// 消息文本对齐方式。默认为 .left
     public var messageAlignment: NSTextAlignment = .left
-    
-    /**
-     The maximum number of lines for the title. The default is 0 (no limit).
-    */
+        
+    /// 标题的最大行数。默认值是0(没有限制)。
     public var titleNumberOfLines = 0
     
-    /**
-     The maximum number of lines for the message. The default is 0 (no limit).
-    */
+    /// 消息的最大行数。默认值是0(没有限制)。
     public var messageNumberOfLines = 0
     
-    /**
-     Enable or disable a shadow on the toast view. Default is `false`.
-    */
+    /// 启用或禁用 toast 上的阴影。默认为 false.
     public var displayShadow = false
     
-    /**
-     The shadow color. Default is `.black`.
-     */
+    /// 阴影颜色，默认 .black
     public var shadowColor: UIColor = .black
     
-    /**
-     A value from 0.0 to 1.0, representing the opacity of the shadow.
-     Default is 0.8 (80% opacity).
-    */
+    /// 一个从0.0到1.0的值，表示阴影的不透明度。默认值是0.8(不透明度80%)。
     public var shadowOpacity: Float = 0.8 {
         didSet {
             shadowOpacity = max(min(shadowOpacity, 1.0), 0.0)
         }
     }
 
-    /**
-     The shadow radius. Default is 6.0.
-    */
+    /// 阴影圆角半径。默认是6.0.
     public var shadowRadius: CGFloat = 6.0
     
-    /**
-     The shadow offset. The default is 4 x 4.
-    */
+    
+    /// 阴影偏移量。默认值是4 * 4.
     public var shadowOffset = CGSize(width: 4.0, height: 4.0)
     
-    /**
-     The image size. The default is 80 x 80.
-    */
+    /// 图像大小。默认为80 x 80.
     public var imageSize = CGSize(width: 80.0, height: 80.0)
     
-    /**
-     The size of the toast activity view when `makeToastActivity(position:)` is called.
-     Default is 68 x 68.
-    */
+    /// 当 makeToastActivity(position:) 被调用时，toast 活动视图的大小。默认为68 x 68.
     public var activitySize = CGSize(width: 68.0, height: 68.0)
     
-    /**
-     The fade in/out animation duration. Default is 0.2.
-     */
+    /// 淡入/淡出动画持续时间。默认是0.2。
     public var fadeDuration: TimeInterval = 0.2
     
-    /**
-     Activity indicator color. Default is `.white`.
-     */
+    /// 活动指示器的颜色。默认设置是“.white”.
     public var activityIndicatorColor: UIColor = .white
     
-    /**
-     Activity background color. Default is `.black` at 80% opacity.
-     */
+    /// 活动指示器背景颜色。默认为黑色，不透明度为80%.
     public var activityBackgroundColor: UIColor = UIColor.black.withAlphaComponent(0.8)
     
 }
