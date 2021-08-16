@@ -34,6 +34,8 @@ Pod::Spec.new do |s|
   s.subspec 'EMERANA' do |emerana|
       emerana.source_files = 'EnolaGay/Classes/*'
       # emerana.exclude_files = 'EnolaGay/Classes/*'
+      emerana.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
+
   end
   
   s.subspec 'Judy' do |judy|

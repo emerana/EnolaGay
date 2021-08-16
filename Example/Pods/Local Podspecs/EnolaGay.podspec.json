@@ -28,7 +28,12 @@
   "subspecs": [
     {
       "name": "EMERANA",
-      "source_files": "EnolaGay/Classes/*"
+      "source_files": "EnolaGay/Classes/*",
+      "resource_bundles": {
+        "EnolaGay": [
+          "EnolaGay/Classes/*.xib"
+        ]
+      }
     },
     {
       "name": "Judy",

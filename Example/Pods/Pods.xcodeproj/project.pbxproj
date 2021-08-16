@@ -7,158 +7,160 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0029A9A88F30984B6A36F897380F2B41 /* JudyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190CC19F4D2E0F344C5185C35AD0285C /* JudyFile.swift */; };
 		030F2AC677591D7B138D81E2CB94071D /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCB52839279B1F7CD3D5B00375A89C /* MJRefreshAutoNormalFooter.m */; };
 		032A65EE57DEDDE2F1A1DDA4C7B63704 /* MJRefreshTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8602D568C2426DD551D61F8A9C485486 /* MJRefreshTrailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		045CC96AB175B6FC13D4402063A8E5A2 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0211CB4FCBA559B9172B79F8FBBA3 /* Button.swift */; };
+		0704DF4A063D26F57175EB205494F087 /* PickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7489552FE9DF9B3340860DC4AAFC9845 /* PickerViewCell.swift */; };
 		07156A5DC88281DDCDDDC08F2BA33BA6 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC00B21E4BB7AADD38C1E29F12AECEC /* UIView+MJExtension.m */; };
 		07988B66B5077EAD4C5066884499D694 /* MJRefreshStateTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = F942581D0111EDCC32DCAAFACB40E115 /* MJRefreshStateTrailer.m */; };
 		0B0278427518F7B5276C45603A91A9F3 /* MemoryCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A04E774B8E9A0A6A0F98B34390048C /* MemoryCapsule.swift */; };
-		0BF86C7908444B37DB9190A44F38308E /* PageViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC6147A522D3489AE651AED3A7FC59E /* PageViewCtrl.swift */; };
 		0C5E11DE24DAA737704B355F5F2F3426 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A59520F3E27FDEE43ED9A377B244EDE /* ParameterEncoding.swift */; };
 		0CBCEA603862BB5B828720B3B8CA06D6 /* Expiry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283E002F692DBA777BBBE03CF1F988E1 /* Expiry.swift */; };
 		0DBC014B68CEF98DD7C29AE041ECB4DD /* Pods-EnolaGay_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DAAE7783C106F9C664758E13033814 /* Pods-EnolaGay_Tests-dummy.m */; };
-		10A1192207D16C3C86C2E272DDEC566E /* JudyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7C97BCF70790057069F2A00D9ACA1D /* JudyFile.swift */; };
+		0DE7DF577FB66979A436E23E0CA31589 /* JudyMadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1C56BD3E12CD7A91ED303169EF7906 /* JudyMadokaTextField.swift */; };
 		1218E55A21A583689F065C9E60E21E85 /* MJRefreshAutoStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4673CE18F073E443F504A69B3D390875 /* MJRefreshAutoStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		132CD96E871E4AE9CEFF09A3950BDDE8 /* JudyYoshikoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34DA9C60456006FE822E2B66AF5DA6C /* JudyYoshikoTextField.swift */; };
 		132E0F619E4338E5D1B27E4C72076B3F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BA9E60787D2971B143F6E30C838ECE /* Notifications.swift */; };
-		142F2E315D77D01B04A9F3911E2E990F /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B3F297AD5E2AD7BEBC4B9A30AFBE00 /* Api.swift */; };
+		15748B167156D5288E42419750637C13 /* TabBarCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DADFBC0160F09EC71E279ED2D701184 /* TabBarCtrl.swift */; };
 		169094D297B643310BF2BD951A4684ED /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDFCF655C3986C2AA319922870F69DE /* MJRefreshBackFooter.m */; };
 		178B061B26ADEE4A1CB92FC204405079 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5CA53E5619DA3441E9C01C779D17A2 /* MJRefreshComponent.m */; };
 		18E5A6107749831708601D49ACCE7186 /* Player-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEDFA3C9EC77B9F77A0E86BF441F3C4 /* Player-dummy.m */; };
 		18EF68A63F897815E7651478AC683BFF /* MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = CCB2F6974D5431941C5F4DCC038AA780 /* MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1945CD5D63A1C164AEAAA9A33E85571E /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843E26CD0A6CC93364EF12A9EBE0357 /* Alamofire-dummy.m */; };
+		194B44662BC23CFDD7F92D514B28C99D /* EMERANA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C357B19C5B076C1C5ECF7268873FD33 /* EMERANA.swift */; };
 		1986B50C74F1697EA43F68335C93CEB3 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82798CAA67D081181F0E3D169EE35E4 /* MultipartFormData.swift */; };
 		1B29058712D83A2E9581516474123E81 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 488F6F64070E742B804AF9004CF117B8 /* MJRefreshAutoStateFooter.m */; };
-		1B7B5AEF2E8956B16834CBC2D2AF77D1 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C810D26DCA2ABDAACEF5DFD7A13242 /* TextField.swift */; };
 		202CACEE7D4DD43EC48D13F3579F52E2 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E7B9D67F463D9C2904B5F0251A6EBF /* MJRefreshAutoGifFooter.m */; };
 		2096D432BFD55ED3B67BDD897C31E0FA /* KeyObservationRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E1BD3B65F393999C961B36C3E441C0 /* KeyObservationRegistry.swift */; };
 		21D500735C884E5E12BA26ECE97A30EF /* TypeWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D9868A2C3A39E4093CF5BCEFED33A /* TypeWrapper.swift */; };
 		22F534202F1669607531DEB59A1509EF /* NSBundle+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 358390E8B8162E653F53C582942597C9 /* NSBundle+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24CD7F98BF2422F938DFA1B4D109F7A3 /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E869100E7C5A24516DB27DC3E8D1455 /* MJRefreshStateHeader.m */; };
 		2636AC58FFB864367B2C7DA814440673 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DFE8665CED2990444ADE5BEBE06337C5 /* MJRefresh.bundle */; };
-		27DC5D8BE252B3676C773E8AE9A7038C /* EMERANA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122DE2D30EF0272A2C574C140FB701C /* EMERANA.swift */; };
 		2829A172CF7718DF92F11F74FC30808C /* MJRefreshConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = B7202AD1F7DE2D9EEEA6E1220E4AAF25 /* MJRefreshConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		294F0ACFACC74E2153C08A72CB6306DA /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC99716B48EF7C6B9B7401CCA103B57 /* Player.swift */; };
-		2C46B8681FB37717DAF2E4694A8C42C8 /* PickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5303F9D2B46B6DE2878FF09DA38BC26 /* PickerViewCell.swift */; };
+		2BFFD0EBB7B0977B87A10F98198DA4B5 /* TableViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86794EA8AC7212C1FE807901D97DDCF /* TableViewCtrl.swift */; };
 		2C61B040BA6A9A7AE66C4D9BA26D5520 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3CA7313251D7FD5ED4E800B0CCCFDB /* SessionDelegate.swift */; };
 		2C71B3F1669E6F2FA27BFFF698F9888E /* Cache-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EE98DB3FB5717307E92F6D56DAFDBC /* Cache-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D84CC49CF8696C5FC0B4F97183757BA /* MJRefreshStateTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F2F2E16CD24DAB463410EBBCF83E682 /* MJRefreshStateTrailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2F44236F240D213E02C4BD3445600A18 /* UIScrollView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = B88D7D47294350F6D75939F1DC83BBAC /* UIScrollView+MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FF2193BF2D8FA70C560E30D31C92D79 /* DiskConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13EC9FBBB46E52A126EB4D2FAD98BBC /* DiskConfig.swift */; };
+		31141195BE5E69BECC9DCDBABB6FCFFB /* JudyKaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934EEFD83BAD4B14693E25A1C057E8EE /* JudyKaedeTextField.swift */; };
 		31EF91A23AAC06327EFF99407F58E4A1 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF76C6430552737950DFC2655435D198 /* MJRefreshFooter.m */; };
 		32875BD0D0C2023541F2FE9CB05433C9 /* MJRefreshAutoFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = EA6C6FCE052F12209FE3229D83466D0E /* MJRefreshAutoFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		328ACABFF941A9669CC2FB475FBEC32C /* Pods-EnolaGay_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F56889238F7C812D093C91BD258956C3 /* Pods-EnolaGay_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34090AFE83FC48EB870D4B3380064C89 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1189689C03150AB180184921490FF0CF /* SwiftyJSON.swift */; };
 		3571F958A3907B3A806E62D50C2550D4 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B894C253BF954C800196E28DFC6D475E /* NetworkReachabilityManager.swift */; };
 		35B82A74F1F0BCE58B96928E1017C7F1 /* JSONDecoder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE638A8E2F3D7E8C79ABC83A3DFB4E66 /* JSONDecoder+Extensions.swift */; };
 		37E6ED5EB8446C3C9D322E1E6F32BE05 /* Hasher+constantAccrossExecutions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78F07082383C23782E2C28BDD32EEB2 /* Hasher+constantAccrossExecutions.swift */; };
-		37F879E6339169D372B5078551FDB9C0 /* JudyJiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25F532F3475A3BC8097C06DCC83C006 /* JudyJiroTextField.swift */; };
+		37F5196AD804FB6D197AF1FEAF9252C2 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA08D4D02E59D629148033791DFAC5A /* PickerView.swift */; };
 		385F90BA89BB31BDA145258F0BCC5ADF /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554408E4C63A266E9995C55BAEAD9A2 /* Storage.swift */; };
+		38738BC1312F46DF0237BFE4D6A770AE /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DFB14D1C6863636A118D1382C4539F /* SwiftyJSON.framework */; };
+		3A83435A4533EAE84D3A6503A58E34F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
 		3AC30039F8DB48C548A1E56B955EA6F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
-		3DAC0CDAACF74386F63E3DF8018E0570 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BACCFC08C61706C8961CDDCA6C85FB /* PickerView.swift */; };
-		3DE435D3DB5F776F28465154D64E7DDC /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E904AEF14E52A5E96A419E88CC07D24F /* SegmentedView.swift */; };
+		3C9B2108897BF64CC118763A6094CA9A /* JudyYokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ECA07F427BFCC62B0DAB404D4B105D /* JudyYokoTextField.swift */; };
 		3F2D921D7A5D40779D7B494E1BE5CE9C /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB561EEA1D0E5E1AE90C03035E588F /* Types.swift */; };
 		3FB9F2CD1F082CE5F1F4EBA24F35CAB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
 		4122AC292D4B651638087C79FFFC57F7 /* Cache-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C511BDCCD9E6928021D18E9FF2141CD3 /* Cache-dummy.m */; };
-		422F85A80D95D4C94CEF213535CFE12C /* JudyTextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A05144DA4AE81E6F3DD0E5B65433400 /* JudyTextFieldsEffects.swift */; };
+		43E2158AA406F6F5D865CB19AC524B9D /* JudyMinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65BA6CB52F190FF9FABE4BA546F007 /* JudyMinoruTextField.swift */; };
 		44D61976CDABEE75A89BC987D836BA22 /* MJRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B34F0FC8FA8FDDC627B3797FCE8DCEE1 /* MJRefreshConfig.m */; };
+		4BA77855A883B7D0ADD44AAA6BF19E4B /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1174114CA9421171ABECE39BF55D085C /* Protocol.swift */; };
 		4C432B389802242037B7FDE012A84B16 /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2679BAAC40687A7E3A3CEB07347DB6E5 /* MJRefreshBackStateFooter.m */; };
+		4CC32E46BD42FE40D713630B07DF9983 /* TipViewCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46E7A85254D05B7D049F5ADC45BF62D6 /* TipViewCtrl.xib */; };
 		4DB426AE8F6A7872EA9980675937860C /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F250CE166F1297757A4883B4C54FF70 /* MJRefreshNormalHeader.m */; };
+		4E500A62BA93D3D8B8D19ABC6731D25A /* EnolaGay-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C36A29F015797701838EF0B9E8C3A3BE /* EnolaGay-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4ED1527DCD779C5DA562796D603E7AAE /* MJRefreshTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBEB3AE9E39E73E81AB677D8D17EEDD /* MJRefreshTrailer.m */; };
 		50013C33D35EBAF31ACF3A8B3A9A3FB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
 		5133331821D9D576A546B6ACF9A49829 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5841060FC526906FDE25EC36957C73 /* UIScrollView+MJExtension.m */; };
 		5233AC596540946B60444DE9AF0A299E /* JSONArrayWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABFA0F64AB5E7FFB92B01698FF0319 /* JSONArrayWrapper.swift */; };
 		53791F5E5F07400F92CFDFC89A432305 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBDFFED06BEF4938CDA1198DE54C4BA /* Validation.swift */; };
 		55C0AA01EFB38DB3E99E12871EAAA0CA /* UIScrollView+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = A3501D5368E5ABA95093E171217488CA /* UIScrollView+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		562BEC713AF7661CE642D119B1AD9742 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1327FC8092BEB844EA890893F2DA60 /* Protocol.swift */; };
 		575A6E5065B2D63D73D9D3093BFC8BA1 /* MJRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = D91BA673BAF4189102C23B4A0BBE43D9 /* MJRefreshComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5AC8DCD7A7B097C12706327C97B371C2 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA435C4EB4F5FCE675388D9178458 /* Button.swift */; };
-		5C7F72FFB2EA728EEB1D6A77F536C3B5 /* JudySearchView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 912458CCD186FAEE874623BDCA6C6958 /* JudySearchView.xib */; };
 		6051EC707F6A14437B4728B8D5CF0EAA /* Storage+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B6CE7FD3D221FA5D5D794922FDABCC /* Storage+Transform.swift */; };
 		616F00004F2D42AE1B4DF3730BE03377 /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F0C33A2D794E60F01A9CA27BBF490 /* Transformer.swift */; };
 		64744C911253C3E01461FAD7C935C8D7 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8509E74868F8385F2C8F453DB858E98 /* Result.swift */; };
 		671650B5306AC075C470A221F076DED0 /* MJRefreshBackNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = F71772FCB6E437CFFC04D825F4A436A1 /* MJRefreshBackNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6764DF41DC2F782D29765042D2FF4E31 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87177A33F6FCD3231E0596A4569C48B7 /* Core.swift */; };
 		67AACF041F18A7698B1A9383ECA2C427 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED7302321C1AC5A4178BD4F915B6A5 /* MD5.swift */; };
+		681A8AB692FCEA9982003E4AC148B552 /* EnolaGay-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9048BD073F8E19428A125C93A66D238C /* EnolaGay-dummy.m */; };
 		6901E5151E03821D15C0537788C36266 /* MemoryConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B95A046E8A306A038F0EF751DABE26 /* MemoryConfig.swift */; };
-		692294592ED6C6FA04F087071414C4B2 /* CollectionViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7B6CF385FF020E4F30FF0334DBF44 /* CollectionViewCtrl.swift */; };
+		6AE27ECF2C7DB438F398FA17F5F2EBC3 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1189689C03150AB180184921490FF0CF /* SwiftyJSON.swift */; };
 		6B15CB962DD6909799721040AC731E63 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3E5AF17DD9945161F7C8B827F301D0 /* MJRefreshAutoFooter.m */; };
 		6B5DE72C51A7ECFCA0F08938450FEF13 /* MJRefreshGifHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = F3AA82EC7C74C86F6AAAE4F0234FB22D /* MJRefreshGifHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C345503A305BE22F49CFA6AB7A9A632 /* DiskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0316A0C08960AAFD298404236E0670BD /* DiskStorage.swift */; };
-		6F01F5645DA0044412C3CCBA7B0A4A0E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2571DBD305B7F0B909868F531B102409 /* View.swift */; };
+		6CACEA8A3818A4FA7D27442DF2280FA7 /* DataSourceWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F812B2619ECC9FF5981A762B90CA148 /* DataSourceWithTitle.swift */; };
+		6DD56735725B7BD7C3AF408E7F04CBC4 /* JudySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7778790CD57BF5F601F8909AB650F663 /* JudySearchView.swift */; };
+		6FCFF5D741B79AE5BC1F666871CAE2DA /* JudyJiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F44E4FDF8B7E505DF28EA876B4E64 /* JudyJiroTextField.swift */; };
 		75D04978252C500B318546856D8226F9 /* StorageAware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4B5C286E72C26EA72B5D7D1143FCBE /* StorageAware.swift */; };
 		75F599A0810D049551460FD48BDDC63D /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A79A608EEDC988128026AA7E9E10660 /* MJRefreshGifHeader.m */; };
 		77582019152B8DA5A6439A7F5833C864 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
 		7F119A89ADDD8627DAD74F9DD2827B1F /* StorageObservationRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DB6A4B9506C19B33626ADA3A7BD0AA /* StorageObservationRegistry.swift */; };
 		7F8FDA8325037CF58454A6FCC72EF92E /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9739843C810894CBFAFE92B269CB1E15 /* MJRefreshBackGifFooter.m */; };
-		7FFE1BDFC4FCD8079E3EA8A714A3823C /* JudyYokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9958F45D8FB977E957C98CCF5C312F5D /* JudyYokoTextField.swift */; };
-		80E114F2A1A785CF603480E17FF044B5 /* JudySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FF382C6038ABA55B3BCD64FE0CBD5 /* JudySearchView.swift */; };
 		83956E20859CDBBE7BC38ABADE0170FB /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80390974F95D54C34C2E5E14A84AEC0 /* AFError.swift */; };
-		84FE4B35B3F17620F63D118AB0F74442 /* JudyIsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1AC73A48BDC54067103A2FA24EC11 /* JudyIsaoTextField.swift */; };
+		85A747632C697126937F07FDB44008D3 /* CollectionViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CEDA00971907EE07FC97714B62B66F /* CollectionViewCtrl.swift */; };
 		873E8E68290515F620EDA08C129B6CCB /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F7A8B349FF8322FB65AB891A8F3074 /* StorageError.swift */; };
 		889847E0741D019236E2E242705DF1CB /* DataSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A028210C5ED5F2F64DCEB117CF4A583 /* DataSerializer.swift */; };
 		89D56858A19FE3DACC8DFD186D8FE40F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD32ECA6BAAB7FDDD9404A92EBD959 /* UIImage+Extensions.swift */; };
+		8BD39DB350D1DB147BF269F88404FE46 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F67DB215F686789990D59A7625B8A4 /* Core.swift */; };
 		8C3A78CEAB3F62956CF5D2FCD3A3AF5E /* MJRefreshNormalTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = 230774273B56C58FD9035666905D1F66 /* MJRefreshNormalTrailer.m */; };
-		8DEF70FEF1D6B5DB7A96B5678A0AC975 /* NavigationCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27CD800ED73574E116DA0E76A93D6DF /* NavigationCtrl.swift */; };
 		8F7C84A5E6CA951DAB43143ECD09DA2B /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E72F57C1AA776464CCD9C6675E5274E /* MemoryStorage.swift */; };
-		8FE473A44E9B579F1970CA093C372C80 /* TableViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C54F46EE114E11546C2935A23EBB01E /* TableViewCtrl.swift */; };
-		908A403649DA2B07C364B5A0D4C7F546 /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 696B524CF15B3D4D9FA3DEE1314624FE /* SwiftyJSON-dummy.m */; };
+		905E5E5A97CD36979CC439594FEF02E6 /* ViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8701F7A57B8D3AAB3F4518D1AF5B27A5 /* ViewCtrl.swift */; };
 		931BBB8230A25161D5C37528A8F9FECF /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34680263C09BDCE58DA8DAA21D177F2 /* SessionManager.swift */; };
 		9334D6E49ECD248D005FB2A80F9D168C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
 		933FDA5970AA525D6CB92BFEBA2BAB4A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAEE24C13F42278D0D45BD4096C861 /* Timeline.swift */; };
 		9375AA78A2A110F76F5A42747B76A84C /* MJRefreshNormalHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = F107B7426F9D7A2E93A31A2661CC5A66 /* MJRefreshNormalHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		945A9BE25F8E6ABADEA3F04A7DDE9B08 /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EFFB8096C17EBB6ACC2B58F829F8EAD /* UIView+MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95838333AF3B751A4DF69EE1DD5789CA /* PickerViewOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA54A27BEB475C52FF3AFA13EEB1B464 /* PickerViewOverlay.swift */; };
-		97602DCB331732FF02471A51069F6240 /* DataSourceWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD51515B30409818D2AF4545CE6E8961 /* DataSourceWithTitle.swift */; };
+		94AC7FE01251396C3397AB59C3C7D978 /* PageViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12857DF0122712EDAC0270082C02B4C /* PageViewCtrl.swift */; };
 		98A929C8E9012AB167672714FFD2113C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7B377096D54232144C36E94466F910 /* Request.swift */; };
 		9A58CED56FB7C4FF08EAE155F254AF25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
 		9BE0BF265B893EF3A61083CA356D29C8 /* MJRefreshBackGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E309F53E0FAD6C7E8F8470802634223 /* MJRefreshBackGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CD2D140C582073FEAEB422D4351A367 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BE050F94859D966839D67FCDA77D8A /* UIScrollView+MJRefresh.m */; };
-		9FA32C8E2BED6FC44EE1EF53F61A0780 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B84AEC070AE9E55583AF64F93C0A44 /* Label.swift */; };
+		9E0FAAE682E35D0AA879E129CAECFB8E /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2E73E75F098CB6FA8691D1EB0729AA /* ProgressHUD.swift */; };
+		9FA2A09FBCD189E88BA7D729CC13DD06 /* JudyTextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E1E74244029494C7BA63A5EFF94AB /* JudyTextFieldsEffects.swift */; };
+		A2BDA4A771262FCE648FB4A55A79E1F5 /* JudyBaseSearchViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852FF0881572808289D142A1B9C4FBCC /* JudyBaseSearchViewCtrl.swift */; };
+		A4741401060208A723B8440E5E508F78 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7659969D2E818462B4541A76EA5FA56 /* Api.swift */; };
 		A4C55FAF1D7FBC98F45AEC4B6F401619 /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE47995BDA98A2B85E2AD77620D96BF /* Optional+Extension.swift */; };
-		A54B5AADA6339E68B1B4334F77047A44 /* TabBarCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA6BEF71D59A5B7EF8EC379B2923DB /* TabBarCtrl.swift */; };
-		AA8E7B7496AAD9DB6E472F02240A10C8 /* JudyMadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002009DAFBEC86865BF76E69001C0650 /* JudyMadokaTextField.swift */; };
+		A4F3B5503B380CEB841F421EAEBB2522 /* EnolaGay.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAD50BF75D341A139E129C19F58E7A32 /* EnolaGay.bundle */; };
+		A7C38788210E128D0499E8AC474E796A /* TipViewCtrl.xib in Sources */ = {isa = PBXBuildFile; fileRef = 46E7A85254D05B7D049F5ADC45BF62D6 /* TipViewCtrl.xib */; };
+		AB5527FDC945E854A9C1EE06866371D5 /* JudyAkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD77BD0BACDD172C607C38D34C5CDB04 /* JudyAkiraTextField.swift */; };
+		AD9F08A175C22782B2B14C347436AFD9 /* NavigationCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5150F2AE91CACF7E620484A782588D /* NavigationCtrl.swift */; };
 		AE3718BD052D50F1EB73A4FA5B6996B1 /* AsyncStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3025562AEEB9C480510869F46AD36188 /* AsyncStorage.swift */; };
 		AE860090BD86471B009B395C648A8354 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE11280545759E6253725B205F7423AA /* Date+Extensions.swift */; };
 		AF846B40C387D32AAACB38A3F922A461 /* MJRefreshNormalTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = CCE7F275307B77744BDA19747D959360 /* MJRefreshNormalTrailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFC64B1097F7355FF423D6A73E9C7210 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990EBC477D15767BA1569ED80819C81 /* TaskDelegate.swift */; };
+		B0FA28710EAE298C5FFD0CDCB22A22C3 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFC49443C5853D83F6498EF89A501E /* SegmentedView.swift */; };
 		B1E235113F74BB337D32950D0E62303C /* MJRefreshHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = FC2BC14FCC2B7B808A09C59134E45BCE /* MJRefreshHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B20666B25AFFE79A83B378AB75CCBCDA /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277BEEC44B72994E4FC9AF91C8240237 /* TextField.swift */; };
 		B22F07A4F9BF52507CD1132E70F908A1 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8CD38613CE5E0D94287E197B149FB6 /* Entry.swift */; };
 		B2FA7CF735801C899E309901D09D92CB /* MJRefresh-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 64B52F15144868F0A7897ACDEEF3F9FD /* MJRefresh-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4FBDAC9E51EAB79526C5EF7DEE48C45 /* PickerViewOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E270A5F0C32D62A2C652E85DA1F11CA4 /* PickerViewOverlay.swift */; };
 		B7B8322CDCEA00A4AC58F453546B6034 /* MJRefreshAutoGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 6468789FF116D7D970853F48343D5985 /* MJRefreshAutoGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B88C7AEAAE7803C71E658CAE243888C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
 		B8B85355D26D45C51B069BC841867565 /* SyncStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C03E4C56E07BE818E7A3109A2E0FF7 /* SyncStorage.swift */; };
+		B900E41A091A7ABF7192DD701926B86A /* JudySearchView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 810EA07E1A6E630BB42F0EFE932BA0D2 /* JudySearchView.xib */; };
 		BB09724AEBC9B724A6CE5483B1C35C2B /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = B31EC02F5881C78881D32F9559823385 /* MJRefreshConst.m */; };
+		BCC2A74AC450FD7A2D0B8161442F529B /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EB8454A897BF369AC651CF909F616E7 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BEC66177980C4A12683480952E5AE446 /* JSONDictionaryWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F3B073817D850E7AE1FC65BD39015 /* JSONDictionaryWrapper.swift */; };
 		BEE6B677416CA71C981D1D3F60B18C96 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE76D25D17F2FBA81F709F2B2A18008 /* Alamofire.swift */; };
 		BF659B71B5A58084930FC865B0403876 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = A1734560A349A0083382DEEB272808FD /* MJRefreshBackNormalFooter.m */; };
-		C348E6780EC31AFE53CE78759CCCB000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
+		C554BBC0AA7FCAB6482945EFD7E3FC0F /* JudyIsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1231ADE907A0988427C9C7440C019D97 /* JudyIsaoTextField.swift */; };
 		C59CCFDAD79400E8EBC04F27D2C8A181 /* TransformerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7C8FD4DB70BB09E41505429B792684 /* TransformerFactory.swift */; };
-		C78D498E10A6B1386B89006461E22E34 /* JudyAkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8FBA49FFFDBB313D0F6621810746EE /* JudyAkiraTextField.swift */; };
-		CB1DA464880B31DDDC7FF539A141BF33 /* JudyYoshikoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF9DB8CB08433314FC4298B18B6ABD /* JudyYoshikoTextField.swift */; };
 		D0AC2DC4D9332ACA5B9E135F2F9CB057 /* ExpirationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ADF2198ED4D37380AB793F7C3AA629 /* ExpirationMode.swift */; };
 		D1B2B52F37138B381F3E588F53620605 /* Pods-EnolaGay_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FFA159A99B3F1611D2AC9A82C5B6679 /* Pods-EnolaGay_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D29557C99F3C113049B0CDC77DCCC9F7 /* JudyBaseSearchViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E251036444E7F33723861E065EBE2F1 /* JudyBaseSearchViewCtrl.swift */; };
 		D3D8C379C6E4FB487E5ABD6800AD7B7E /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D0657514C86AD6C24E8B33EF820F4D /* DispatchQueue+Alamofire.swift */; };
-		D45EA140832DB3257E542762BBC0DC62 /* Judy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB5F67F528C1F48CC4BC1A9ECF5396 /* Judy.swift */; };
+		D58AB5A3DE5AAF8B4902E17830608427 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEC7265FACF817EEB054E111F14006E /* Label.swift */; };
 		D65C254F5ABF2CB5ECEE50FE8F8E1A80 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5B589FA5190A2E5DB12934B0AC7C3 /* Response.swift */; };
 		D6C1CEFEC819A1C02A973AC4B657C8C7 /* HybridStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EBD6CBE66C6A82368FE169519A336 /* HybridStorage.swift */; };
 		D7E85F3CC8531097F73467DB96D2C017 /* Player-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BBC665AB270B244754DDBE397F363B8B /* Player-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9785C7021E6C4E23702768F9055F120 /* MJRefreshAutoNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 888BECCAFB9B4F5ED48523985A5E515E /* MJRefreshAutoNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA86C74B839E6CB3E4E5824A8B679C47 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C7CD501ADFB5AE5E3869FCD1B69BA3 /* MJRefreshHeader.m */; };
-		DC2FCCAA902C5DAB810AD6DD00FE7DE5 /* JudyMinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71BDEF586B69A81BAAA47640E89202 /* JudyMinoruTextField.swift */; };
 		DFB3A97886B6F5B2F46409CE474E1E18 /* MJRefreshFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 40050E3D9B9864F6A1408FCD86BED2DC /* MJRefreshFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E0112B21ED7CE0C8423FFEC22220F085 /* JudyKaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E736BF5DB179654CA9C22FA3C0BEB /* JudyKaedeTextField.swift */; };
-		E106246134B17675D4D0414445D32657 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383ECD123DD7ED77FF9C1D1CD37446DF /* ProgressHUD.swift */; };
 		E33BAA3E1FB4299170447B7D1FE9DC69 /* MJRefreshStateHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = B4995BF08F5B1A270407C935F525D636 /* MJRefreshStateHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E3747EC31FCCA97D75A81FC700CF7E24 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7034921731B8828BF4B5F1952017022 /* ResponseSerialization.swift */; };
 		E3A0F7C4F57C9311032A4D27AB7C354D /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C77274965560BD700CDB9C0729AB2DC /* NSBundle+MJRefresh.m */; };
-		E3BBFE286800AE4FC591FC569A82C482 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DFB14D1C6863636A118D1382C4539F /* SwiftyJSON.framework */; };
+		E4319E09ACC29A4104AA72E660596D23 /* Judy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2308B27B3FC578205984CAEE15A8C880 /* Judy.swift */; };
 		E4B2EE0A477945116E640EC3B9040650 /* MJRefreshBackStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D563439A35AA9224E240A266AABF4A /* MJRefreshBackStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E54F8B2DDCB7F7C79BF24F6F0DE57314 /* MJRefreshConst.h in Headers */ = {isa = PBXBuildFile; fileRef = A801B3EAECA10E9D9D70297C64E0A449 /* MJRefreshConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E60B48633AD2145DE0C1630F19A90ABD /* ImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B10ECD752C3D849E566A646106445F /* ImageWrapper.swift */; };
-		E705EA883AE1706D909AACFCE41F2CBA /* EnolaGay-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 138CB8423A785A477539C3899D430CF4 /* EnolaGay-dummy.m */; };
-		EA9EE400A1C71A2ADBA7D055453F4B08 /* EnolaGay-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B18D3E5508C990383558454705F5AA5F /* EnolaGay-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC2DB064AF968346B496F51355AD26BE /* JudyHoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45ADE2A14D0A459B643B53491A75BFE /* JudyHoshiTextField.swift */; };
-		EFD9EBCCF0D6AD5551E02FB4C8D36F90 /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EB8454A897BF369AC651CF909F616E7 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E70A8A51988705C516EF2C3B255F16F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
+		ED7DC305F85D19BC58C68A6956BDD55D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7B5947E7869A03E9D447FCAB39ACE2 /* Toast.swift */; };
 		F0C3CB07FE84D11FB92C5CB56F9783D7 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA466D92275D42808C8ABC65639A8E /* Result.swift */; };
 		F13F2AA7F2E6D95A181CAB99B900D531 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1CCB1721022D8037953CA3CB0CE86 /* ServerTrustPolicy.swift */; };
 		F2322B939CB5FCFA4A58DC2AFD1EC0F0 /* MJRefresh-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2268F9E921F946A4D85BEF09EB6CC478 /* MJRefresh-dummy.m */; };
@@ -166,86 +168,99 @@
 		F4411E8297288AA2BF1A21CE4C563ED2 /* ObservationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35651B812F5448EE20D14C16E1543270 /* ObservationToken.swift */; };
 		F4F038602E8130DE7F0EE1F6DDDCAC7A /* Pods-EnolaGay_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE65C3DE36F3DB0B6A18C6951A85277 /* Pods-EnolaGay_Example-dummy.m */; };
 		F7B74645E07C39771156A1FA413B98D4 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0A94AF32E998D74907C2E423455BAC /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF2A3B71D52A0772C03B069297340D9E /* ViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A42F8F771DBC5A066A50DC23F65060C /* ViewCtrl.swift */; };
+		FAC141F0F1CC419D8B3540A60CB55201 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E79B0B19014CD77B0BED3FE811C440F /* View.swift */; };
+		FED404ACE8F1893235DAB3ADA9B6E76B /* JudyHoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F3D4027EEB81C4841AAEE36E61B3D7 /* JudyHoshiTextField.swift */; };
+		FEFBC5933015529412501061681E8FDB /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 696B524CF15B3D4D9FA3DEE1314624FE /* SwiftyJSON-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		174629B9A4974B1FF6FF49A8A8281476 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6934B6FC51054102D76B1C7EF05CE1E6;
-			remoteInfo = "Pods-EnolaGay_Example";
-		};
-		3DD9AF5B5CA2C1E781E0BAA327D0946E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D118A6A04828FD3CDA8640CD2B6796D2;
-			remoteInfo = SwiftyJSON;
-		};
-		86B2E00B0EF944201EF1A95E7DF7B095 /* PBXContainerItemProxy */ = {
+		29CCBF5F77932CD2811BBFB116445671 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3566CE7721250363BAE931141A0703B1;
 			remoteInfo = Player;
 		};
-		9932C63284345E01518C4D65C607D41C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
-			remoteInfo = Alamofire;
-		};
-		C72D28DD8B23E8897E10D79BC7CD8DE5 /* PBXContainerItemProxy */ = {
+		666D348B7A94732DF327266D133A1045 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D118A6A04828FD3CDA8640CD2B6796D2;
 			remoteInfo = SwiftyJSON;
 		};
-		DC2F1D82F0E155C1C7241161A847C7A0 /* PBXContainerItemProxy */ = {
+		68956F820403399ED2BE2EF7411B41EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
+			remoteInfo = Alamofire;
+		};
+		A6E1A2CC428C0B6791D3AF59AC0038E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1E9D7603B5FBB99ACA55AF2739F4CC7;
+			remoteInfo = "EnolaGay-EnolaGay";
+		};
+		C5E5073C6B29BE6972522F1D6C1E99B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6934B6FC51054102D76B1C7EF05CE1E6;
+			remoteInfo = "Pods-EnolaGay_Example";
+		};
+		CD05E60343C465FE0350FFC8406F4E3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D118A6A04828FD3CDA8640CD2B6796D2;
+			remoteInfo = SwiftyJSON;
+		};
+		CF0D6D91BFFE6CB8E6704C185B0EA675 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9513DC9A6C5DA07EDB2094920BC9EE79;
 			remoteInfo = Cache;
 		};
-		E53A9F6826BC69CA274E522D8FD1BF3D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6868056D761E163D10FDAF8CF1C4D9B8;
-			remoteInfo = MJRefresh;
-		};
-		FD281A744C36F17F81E709F4A0AB9DAF /* PBXContainerItemProxy */ = {
+		F83AE9961A41E776359802C0AB4D2F5D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CD5B562733C3004B1C10D9C1A0EEB84F;
 			remoteInfo = EnolaGay;
 		};
+		FE25ABA563C0A1C975A11A9FFB7BA8ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6868056D761E163D10FDAF8CF1C4D9B8;
+			remoteInfo = MJRefresh;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		002009DAFBEC86865BF76E69001C0650 /* JudyMadokaTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyMadokaTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyMadokaTextField.swift; sourceTree = "<group>"; };
 		002EBD6CBE66C6A82368FE169519A336 /* HybridStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HybridStorage.swift; path = Source/Shared/Storage/HybridStorage.swift; sourceTree = "<group>"; };
 		01C03E4C56E07BE818E7A3109A2E0FF7 /* SyncStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SyncStorage.swift; path = Source/Shared/Storage/SyncStorage.swift; sourceTree = "<group>"; };
 		031253DCF3AECAD4BEEF6BF8014049AB /* Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Player.debug.xcconfig; sourceTree = "<group>"; };
 		0316A0C08960AAFD298404236E0670BD /* DiskStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiskStorage.swift; path = Source/Shared/Storage/DiskStorage.swift; sourceTree = "<group>"; };
 		04EE98DB3FB5717307E92F6D56DAFDBC /* Cache-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cache-umbrella.h"; sourceTree = "<group>"; };
+		06DD202C65C4C314515A8981E48AB071 /* EnolaGay.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = EnolaGay.modulemap; sourceTree = "<group>"; };
 		0C8C149A2AC442655D8F8395A6139A62 /* Alamofire-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Alamofire-Info.plist"; sourceTree = "<group>"; };
-		0CC6147A522D3489AE651AED3A7FC59E /* PageViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PageViewCtrl.swift; path = EnolaGay/Classes/PageViewCtrl.swift; sourceTree = "<group>"; };
+		0DADFBC0160F09EC71E279ED2D701184 /* TabBarCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TabBarCtrl.swift; path = EnolaGay/Classes/TabBarCtrl.swift; sourceTree = "<group>"; };
+		0E79B0B19014CD77B0BED3FE811C440F /* View.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = View.swift; path = EnolaGay/Classes/View.swift; sourceTree = "<group>"; };
 		0E869100E7C5A24516DB27DC3E8D1455 /* MJRefreshStateHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateHeader.m; path = MJRefresh/Custom/Header/MJRefreshStateHeader.m; sourceTree = "<group>"; };
-		0F5E736BF5DB179654CA9C22FA3C0BEB /* JudyKaedeTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyKaedeTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyKaedeTextField.swift; sourceTree = "<group>"; };
+		0F812B2619ECC9FF5981A762B90CA148 /* DataSourceWithTitle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataSourceWithTitle.swift; path = EnolaGay/Classes/SegmentedView/DataSourceWithTitle.swift; sourceTree = "<group>"; };
+		1174114CA9421171ABECE39BF55D085C /* Protocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protocol.swift; path = EnolaGay/Classes/SegmentedView/Protocol.swift; sourceTree = "<group>"; };
 		1189689C03150AB180184921490FF0CF /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON/SwiftyJSON.swift; sourceTree = "<group>"; };
+		1231ADE907A0988427C9C7440C019D97 /* JudyIsaoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyIsaoTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyIsaoTextField.swift; sourceTree = "<group>"; };
 		12B810E7D6BF6FBBB97971C50609519F /* Pods-EnolaGay_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		138CB8423A785A477539C3899D430CF4 /* EnolaGay-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EnolaGay-dummy.m"; sourceTree = "<group>"; };
 		14A5B589FA5190A2E5DB12934B0AC7C3 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
 		14CCEBF6D7F4561C3EDB80A77B585EBA /* Cache.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cache.release.xcconfig; sourceTree = "<group>"; };
 		14DAAE7783C106F9C664758E13033814 /* Pods-EnolaGay_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Tests-dummy.m"; sourceTree = "<group>"; };
+		15F3D4027EEB81C4841AAEE36E61B3D7 /* JudyHoshiTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyHoshiTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyHoshiTextField.swift; sourceTree = "<group>"; };
 		18DA466D92275D42808C8ABC65639A8E /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Shared/Library/Result.swift; sourceTree = "<group>"; };
+		190CC19F4D2E0F344C5185C35AD0285C /* JudyFile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyFile.swift; path = EnolaGay/Classes/Judy/JudyFile.swift; sourceTree = "<group>"; };
 		1915D021DEEC89651C484B289867592C /* Pods-EnolaGay_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		19E1BD3B65F393999C961B36C3E441C0 /* KeyObservationRegistry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyObservationRegistry.swift; path = Source/Shared/Storage/KeyObservationRegistry.swift; sourceTree = "<group>"; };
 		1AC99716B48EF7C6B9B7401CCA103B57 /* Player.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Player.swift; path = Sources/Player.swift; sourceTree = "<group>"; };
@@ -253,34 +268,26 @@
 		1C77274965560BD700CDB9C0729AB2DC /* NSBundle+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+MJRefresh.m"; path = "MJRefresh/NSBundle+MJRefresh.m"; sourceTree = "<group>"; };
 		1CCF612DDC9A793A756319EAB527520C /* Cache-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cache-Info.plist"; sourceTree = "<group>"; };
 		1E309F53E0FAD6C7E8F8470802634223 /* MJRefreshBackGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackGifFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.h; sourceTree = "<group>"; };
-		1E8FBA49FFFDBB313D0F6621810746EE /* JudyAkiraTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyAkiraTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyAkiraTextField.swift; sourceTree = "<group>"; };
-		1FBB5F67F528C1F48CC4BC1A9ECF5396 /* Judy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Judy.swift; path = EnolaGay/Classes/Judy/Judy.swift; sourceTree = "<group>"; };
 		2268F9E921F946A4D85BEF09EB6CC478 /* MJRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MJRefresh-dummy.m"; sourceTree = "<group>"; };
 		230774273B56C58FD9035666905D1F66 /* MJRefreshNormalTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshNormalTrailer.m; path = MJRefresh/Custom/Trailer/MJRefreshNormalTrailer.m; sourceTree = "<group>"; };
+		2308B27B3FC578205984CAEE15A8C880 /* Judy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Judy.swift; path = EnolaGay/Classes/Judy/Judy.swift; sourceTree = "<group>"; };
 		23B95A046E8A306A038F0EF751DABE26 /* MemoryConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MemoryConfig.swift; path = Source/Shared/Configuration/MemoryConfig.swift; sourceTree = "<group>"; };
 		23C7CD501ADFB5AE5E3869FCD1B69BA3 /* MJRefreshHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshHeader.m; path = MJRefresh/Base/MJRefreshHeader.m; sourceTree = "<group>"; };
-		2571DBD305B7F0B909868F531B102409 /* View.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = View.swift; path = EnolaGay/Classes/View.swift; sourceTree = "<group>"; };
+		24040A5317B3C71D3A73C8DFBA9A0006 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		25950E2362DA0A9165A5243F66E15A20 /* Pods-EnolaGay_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Tests-Info.plist"; sourceTree = "<group>"; };
 		2679BAAC40687A7E3A3CEB07347DB6E5 /* MJRefreshBackStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackStateFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.m; sourceTree = "<group>"; };
 		26BB561EEA1D0E5E1AE90C03035E588F /* Types.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Types.swift; path = Source/Shared/Library/Types.swift; sourceTree = "<group>"; };
 		26E7B9D67F463D9C2904B5F0251A6EBF /* MJRefreshAutoGifFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoGifFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.m; sourceTree = "<group>"; };
+		277BEEC44B72994E4FC9AF91C8240237 /* TextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = EnolaGay/Classes/TextField.swift; sourceTree = "<group>"; };
 		283E002F692DBA777BBBE03CF1F988E1 /* Expiry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expiry.swift; path = Source/Shared/Library/Expiry.swift; sourceTree = "<group>"; };
 		2843E26CD0A6CC93364EF12A9EBE0357 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
-		2A42F8F771DBC5A066A50DC23F65060C /* ViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewCtrl.swift; path = EnolaGay/Classes/ViewCtrl.swift; sourceTree = "<group>"; };
 		2AD079B56620E64D131794EBF5107964 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		2DE5381CB29733E1946C81EB9269B8BF /* EnolaGay-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "EnolaGay-Info.plist"; sourceTree = "<group>"; };
-		2E251036444E7F33723861E065EBE2F1 /* JudyBaseSearchViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyBaseSearchViewCtrl.swift; path = EnolaGay/Classes/SearchViewCtrl/JudyBaseSearchViewCtrl.swift; sourceTree = "<group>"; };
 		2EFFB8096C17EBB6ACC2B58F829F8EAD /* UIView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MJExtension.h"; path = "MJRefresh/UIView+MJExtension.h"; sourceTree = "<group>"; };
 		3025562AEEB9C480510869F46AD36188 /* AsyncStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsyncStorage.swift; path = Source/Shared/Storage/AsyncStorage.swift; sourceTree = "<group>"; };
-		350DE6449A6EDA6272935DE4A6A58395 /* EnolaGay.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = EnolaGay.modulemap; sourceTree = "<group>"; };
+		32868CAAE67456B2D668A401C890FEF4 /* EnolaGay.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = EnolaGay.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		35651B812F5448EE20D14C16E1543270 /* ObservationToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObservationToken.swift; path = Source/Shared/Library/ObservationToken.swift; sourceTree = "<group>"; };
 		358390E8B8162E653F53C582942597C9 /* NSBundle+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+MJRefresh.h"; path = "MJRefresh/NSBundle+MJRefresh.h"; sourceTree = "<group>"; };
-		383ECD123DD7ED77FF9C1D1CD37446DF /* ProgressHUD.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProgressHUD.swift; path = EnolaGay/Classes/ProgressHUD.swift; sourceTree = "<group>"; };
-		38B3F297AD5E2AD7BEBC4B9A30AFBE00 /* Api.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Api.swift; path = EnolaGay/Classes/Api.swift; sourceTree = "<group>"; };
 		38B7BE27BA4B2DA8B746146F0B478062 /* Pods_EnolaGay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnolaGay_Example.framework; path = "Pods-EnolaGay_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A05144DA4AE81E6F3DD0E5B65433400 /* JudyTextFieldsEffects.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyTextFieldsEffects.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyTextFieldsEffects.swift; sourceTree = "<group>"; };
-		3A7C97BCF70790057069F2A00D9ACA1D /* JudyFile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyFile.swift; path = EnolaGay/Classes/Judy/JudyFile.swift; sourceTree = "<group>"; };
-		3C54F46EE114E11546C2935A23EBB01E /* TableViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableViewCtrl.swift; path = EnolaGay/Classes/TableViewCtrl.swift; sourceTree = "<group>"; };
 		3CAA96F1D6DBE1672DC87D75CB2AC90C /* Pods-EnolaGay_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example.release.xcconfig"; sourceTree = "<group>"; };
 		3EB8454A897BF369AC651CF909F616E7 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
 		3F7F769C150175B8E727B5F407C5BEC5 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
@@ -288,57 +295,69 @@
 		410155E148A07F3E090017A17EA533E2 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackFooter.h; path = MJRefresh/Base/MJRefreshBackFooter.h; sourceTree = "<group>"; };
 		4554408E4C63A266E9995C55BAEAD9A2 /* Storage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = Source/Shared/Storage/Storage.swift; sourceTree = "<group>"; };
 		4673CE18F073E443F504A69B3D390875 /* MJRefreshAutoStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoStateFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.h; sourceTree = "<group>"; };
+		46E7A85254D05B7D049F5ADC45BF62D6 /* TipViewCtrl.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TipViewCtrl.xib; path = EnolaGay/Classes/TipViewCtrl.xib; sourceTree = "<group>"; };
 		488F6F64070E742B804AF9004CF117B8 /* MJRefreshAutoStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoStateFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.m; sourceTree = "<group>"; };
 		4A028210C5ED5F2F64DCEB117CF4A583 /* DataSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataSerializer.swift; path = Source/Shared/Library/DataSerializer.swift; sourceTree = "<group>"; };
 		4DDD32ECA6BAAB7FDDD9404A92EBD959 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Extensions.swift"; path = "Source/iOS/UIImage+Extensions.swift"; sourceTree = "<group>"; };
-		52C7B6CF385FF020E4F30FF0334DBF44 /* CollectionViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CollectionViewCtrl.swift; path = EnolaGay/Classes/CollectionViewCtrl.swift; sourceTree = "<group>"; };
+		4E1C56BD3E12CD7A91ED303169EF7906 /* JudyMadokaTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyMadokaTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyMadokaTextField.swift; sourceTree = "<group>"; };
+		502C99266C975A30DE4F09498BF032ED /* EnolaGay-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "EnolaGay-Info.plist"; sourceTree = "<group>"; };
 		530F3B073817D850E7AE1FC65BD39015 /* JSONDictionaryWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONDictionaryWrapper.swift; path = Source/Shared/Library/JSONDictionaryWrapper.swift; sourceTree = "<group>"; };
+		55D0211CB4FCBA559B9172B79F8FBBA3 /* Button.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Button.swift; path = EnolaGay/Classes/Button.swift; sourceTree = "<group>"; };
 		56ADF2198ED4D37380AB793F7C3AA629 /* ExpirationMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpirationMode.swift; path = Source/Shared/Library/ExpirationMode.swift; sourceTree = "<group>"; };
 		5859B9C1800FBD755987BFA48533DDE4 /* Cache.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Cache.modulemap; sourceTree = "<group>"; };
 		5BBCB52839279B1F7CD3D5B00375A89C /* MJRefreshAutoNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoNormalFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.m; sourceTree = "<group>"; };
 		5C08AE3835639A2111ACBCE5382CE742 /* Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Player.framework; path = Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CBBAE54D884CBF5BE819D21CF3CB340 /* Pods-EnolaGay_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E7F44E4FDF8B7E505DF28EA876B4E64 /* JudyJiroTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyJiroTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyJiroTextField.swift; sourceTree = "<group>"; };
 		5F799698E5ECB61738113F37B4F58942 /* Pods-EnolaGay_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5FFA159A99B3F1611D2AC9A82C5B6679 /* Pods-EnolaGay_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-umbrella.h"; sourceTree = "<group>"; };
 		6468789FF116D7D970853F48343D5985 /* MJRefreshAutoGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoGifFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.h; sourceTree = "<group>"; };
 		64B52F15144868F0A7897ACDEEF3F9FD /* MJRefresh-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJRefresh-umbrella.h"; sourceTree = "<group>"; };
-		654D17A4C0C556613BAC3B31BECDA1D7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		65F1CCB1721022D8037953CA3CB0CE86 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		6780BCCD85D38E2EF800BA242FE76205 /* ResourceBundle-EnolaGay-EnolaGay-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-EnolaGay-EnolaGay-Info.plist"; sourceTree = "<group>"; };
 		696B524CF15B3D4D9FA3DEE1314624FE /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
 		6A59520F3E27FDEE43ED9A377B244EDE /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		6A79A608EEDC988128026AA7E9E10660 /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshGifHeader.m; path = MJRefresh/Custom/Header/MJRefreshGifHeader.m; sourceTree = "<group>"; };
+		6BA08D4D02E59D629148033791DFAC5A /* PickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerView.swift; path = EnolaGay/Classes/HPickerView/PickerView.swift; sourceTree = "<group>"; };
+		6BEC7265FACF817EEB054E111F14006E /* Label.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Label.swift; path = EnolaGay/Classes/Label.swift; sourceTree = "<group>"; };
 		6C3CA7313251D7FD5ED4E800B0CCCFDB /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
 		6D09D9C6C45ECC3AEC92D7E67B746729 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
-		6DF2B6ED44150A39389058A9E6E778AE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		6E132433C929096E7B864C23A91D6098 /* SwiftyJSON.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.release.xcconfig; sourceTree = "<group>"; };
 		6F250CE166F1297757A4883B4C54FF70 /* MJRefreshNormalHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshNormalHeader.m; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.m; sourceTree = "<group>"; };
 		70D838FA4A6CC422E5C95E450D3DAE24 /* Pods-EnolaGay_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Tests.modulemap"; sourceTree = "<group>"; };
-		71D938B48067A2177D2B7E026422200C /* EnolaGay.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = EnolaGay.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		736B64357A6C420C3A7062C6D479AC7F /* Cache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cache.framework; path = Cache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7489552FE9DF9B3340860DC4AAFC9845 /* PickerViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerViewCell.swift; path = EnolaGay/Classes/HPickerView/PickerViewCell.swift; sourceTree = "<group>"; };
 		74BE050F94859D966839D67FCDA77D8A /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJRefresh.m"; path = "MJRefresh/UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
+		7778790CD57BF5F601F8909AB650F663 /* JudySearchView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudySearchView.swift; path = EnolaGay/Classes/SearchViewCtrl/JudySearchView.swift; sourceTree = "<group>"; };
+		784497608E4614A6773E218E67B229D1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		7AAAEE24C13F42278D0D45BD4096C861 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
+		7D5150F2AE91CACF7E620484A782588D /* NavigationCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigationCtrl.swift; path = EnolaGay/Classes/NavigationCtrl.swift; sourceTree = "<group>"; };
 		7F4B5C286E72C26EA72B5D7D1143FCBE /* StorageAware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StorageAware.swift; path = Source/Shared/Storage/StorageAware.swift; sourceTree = "<group>"; };
+		810EA07E1A6E630BB42F0EFE932BA0D2 /* JudySearchView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = JudySearchView.xib; path = EnolaGay/Classes/SearchViewCtrl/JudySearchView.xib; sourceTree = "<group>"; };
+		82ECA07F427BFCC62B0DAB404D4B105D /* JudyYokoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyYokoTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyYokoTextField.swift; sourceTree = "<group>"; };
 		83BA9E60787D2971B143F6E30C838ECE /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
+		84BFC49443C5853D83F6498EF89A501E /* SegmentedView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SegmentedView.swift; path = EnolaGay/Classes/SegmentedView/SegmentedView.swift; sourceTree = "<group>"; };
 		84D563439A35AA9224E240A266AABF4A /* MJRefreshBackStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackStateFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.h; sourceTree = "<group>"; };
+		852FF0881572808289D142A1B9C4FBCC /* JudyBaseSearchViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyBaseSearchViewCtrl.swift; path = EnolaGay/Classes/SearchViewCtrl/JudyBaseSearchViewCtrl.swift; sourceTree = "<group>"; };
 		8602D568C2426DD551D61F8A9C485486 /* MJRefreshTrailer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshTrailer.h; path = MJRefresh/Base/MJRefreshTrailer.h; sourceTree = "<group>"; };
-		86F307C7CF9E5E36DA725184AD174CB2 /* EnolaGay-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EnolaGay-prefix.pch"; sourceTree = "<group>"; };
-		87177A33F6FCD3231E0596A4569C48B7 /* Core.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Core.swift; path = EnolaGay/Classes/SegmentedView/Core.swift; sourceTree = "<group>"; };
+		8701F7A57B8D3AAB3F4518D1AF5B27A5 /* ViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewCtrl.swift; path = EnolaGay/Classes/ViewCtrl.swift; sourceTree = "<group>"; };
 		888BECCAFB9B4F5ED48523985A5E515E /* MJRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoNormalFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
 		8990EBC477D15767BA1569ED80819C81 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		8C328049EE6829688E14041EE2C4075D /* MJRefresh-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MJRefresh-Info.plist"; sourceTree = "<group>"; };
+		8C357B19C5B076C1C5ECF7268873FD33 /* EMERANA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EMERANA.swift; path = EnolaGay/Classes/Judy/EMERANA.swift; sourceTree = "<group>"; };
 		8C7B377096D54232144C36E94466F910 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		8CFB6E496C1453BF75A98F535E2E3C38 /* Pods-EnolaGay_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-Info.plist"; sourceTree = "<group>"; };
-		8D71BDEF586B69A81BAAA47640E89202 /* JudyMinoruTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyMinoruTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyMinoruTextField.swift; sourceTree = "<group>"; };
 		8E5D9868A2C3A39E4093CF5BCEFED33A /* TypeWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TypeWrapper.swift; path = Source/Shared/Library/TypeWrapper.swift; sourceTree = "<group>"; };
 		8E72F57C1AA776464CCD9C6675E5274E /* MemoryStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MemoryStorage.swift; path = Source/Shared/Storage/MemoryStorage.swift; sourceTree = "<group>"; };
-		8F0D5E8B13536493E78F7EDCE93769C3 /* EnolaGay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EnolaGay.release.xcconfig; sourceTree = "<group>"; };
 		8F2F2E16CD24DAB463410EBBCF83E682 /* MJRefreshStateTrailer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshStateTrailer.h; path = MJRefresh/Custom/Trailer/MJRefreshStateTrailer.h; sourceTree = "<group>"; };
-		912458CCD186FAEE874623BDCA6C6958 /* JudySearchView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = JudySearchView.xib; path = EnolaGay/Classes/SearchViewCtrl/JudySearchView.xib; sourceTree = "<group>"; };
+		9048BD073F8E19428A125C93A66D238C /* EnolaGay-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EnolaGay-dummy.m"; sourceTree = "<group>"; };
+		91F67DB215F686789990D59A7625B8A4 /* Core.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Core.swift; path = EnolaGay/Classes/SegmentedView/Core.swift; sourceTree = "<group>"; };
+		934EEFD83BAD4B14693E25A1C057E8EE /* JudyKaedeTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyKaedeTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyKaedeTextField.swift; sourceTree = "<group>"; };
 		940C6237D47D2CCB3D563D358AD18473 /* Cache.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cache.debug.xcconfig; sourceTree = "<group>"; };
+		94AF160A132E47B4E8FE1F76CDFE9099 /* EnolaGay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EnolaGay.release.xcconfig; sourceTree = "<group>"; };
 		94D4D7FAC91E3129AAE65356E939D98A /* SwiftyJSON.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.debug.xcconfig; sourceTree = "<group>"; };
 		9739843C810894CBFAFE92B269CB1E15 /* MJRefreshBackGifFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackGifFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.m; sourceTree = "<group>"; };
-		9958F45D8FB977E957C98CCF5C312F5D /* JudyYokoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyYokoTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyYokoTextField.swift; sourceTree = "<group>"; };
 		999D261B98FE50592B77A3E7E6BFDA67 /* Player-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Player-Info.plist"; sourceTree = "<group>"; };
 		9AC45D583896B6543CE0EA15F4F51F99 /* SwiftyJSON-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyJSON-Info.plist"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -346,9 +365,9 @@
 		9E7C8FD4DB70BB09E41505429B792684 /* TransformerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformerFactory.swift; path = Source/Shared/Library/TransformerFactory.swift; sourceTree = "<group>"; };
 		9FE76D25D17F2FBA81F709F2B2A18008 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		A0780EEE5CA4154FFDE4BA3A2D167DE8 /* Player-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Player-prefix.pch"; sourceTree = "<group>"; };
-		A122DE2D30EF0272A2C574C140FB701C /* EMERANA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EMERANA.swift; path = EnolaGay/Classes/Judy/EMERANA.swift; sourceTree = "<group>"; };
 		A1734560A349A0083382DEEB272808FD /* MJRefreshBackNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackNormalFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.m; sourceTree = "<group>"; };
 		A1E4814A3C9A281D8807711CA6F30DBE /* Player.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Player.modulemap; sourceTree = "<group>"; };
+		A3003B1B9C521B65B1A20B89A6298F8C /* EnolaGay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EnolaGay.debug.xcconfig; sourceTree = "<group>"; };
 		A3501D5368E5ABA95093E171217488CA /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJRefresh.h"; path = "MJRefresh/UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
 		A3DB6A4B9506C19B33626ADA3A7BD0AA /* StorageObservationRegistry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StorageObservationRegistry.swift; path = Source/Shared/Storage/StorageObservationRegistry.swift; sourceTree = "<group>"; };
 		A4E7BF427E61D3EC0A06AB774BAF1476 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
@@ -357,8 +376,9 @@
 		A801B3EAECA10E9D9D70297C64E0A449 /* MJRefreshConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
 		A874A0D9E01CC4751D87818B9E62F5CB /* Pods-EnolaGay_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-frameworks.sh"; sourceTree = "<group>"; };
 		A98C0B69550D43E9A24ACD029F7F91F5 /* Pods_EnolaGay_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnolaGay_Tests.framework; path = "Pods-EnolaGay_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB8E1E74244029494C7BA63A5EFF94AB /* JudyTextFieldsEffects.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyTextFieldsEffects.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyTextFieldsEffects.swift; sourceTree = "<group>"; };
+		AD77BD0BACDD172C607C38D34C5CDB04 /* JudyAkiraTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyAkiraTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyAkiraTextField.swift; sourceTree = "<group>"; };
 		AEBDFFED06BEF4938CDA1198DE54C4BA /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
-		B18D3E5508C990383558454705F5AA5F /* EnolaGay-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EnolaGay-umbrella.h"; sourceTree = "<group>"; };
 		B31EC02F5881C78881D32F9559823385 /* MJRefreshConst.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshConst.m; path = MJRefresh/MJRefreshConst.m; sourceTree = "<group>"; };
 		B34003763FD5F583891A1E8D900F5124 /* Pods-EnolaGay_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example.modulemap"; sourceTree = "<group>"; };
 		B34680263C09BDCE58DA8DAA21D177F2 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
@@ -368,59 +388,53 @@
 		B88D7D47294350F6D75939F1DC83BBAC /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJExtension.h"; path = "MJRefresh/UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
 		B894C253BF954C800196E28DFC6D475E /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		BA8B9B13620C078126DE71C20BF128A3 /* MJRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.debug.xcconfig; sourceTree = "<group>"; };
+		BAD50BF75D341A139E129C19F58E7A32 /* EnolaGay.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = EnolaGay.bundle; path = "EnolaGay-EnolaGay.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD6EB115CE003CA56D6D86A794E39EE /* MJRefresh.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MJRefresh.modulemap; sourceTree = "<group>"; };
 		BBC665AB270B244754DDBE397F363B8B /* Player-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Player-umbrella.h"; sourceTree = "<group>"; };
 		BDBEB3AE9E39E73E81AB677D8D17EEDD /* MJRefreshTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshTrailer.m; path = MJRefresh/Base/MJRefreshTrailer.m; sourceTree = "<group>"; };
 		BE5841060FC526906FDE25EC36957C73 /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJExtension.m"; path = "MJRefresh/UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
-		C32FF382C6038ABA55B3BCD64FE0CBD5 /* JudySearchView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudySearchView.swift; path = EnolaGay/Classes/SearchViewCtrl/JudySearchView.swift; sourceTree = "<group>"; };
-		C3C810D26DCA2ABDAACEF5DFD7A13242 /* TextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = EnolaGay/Classes/TextField.swift; sourceTree = "<group>"; };
+		C34DA9C60456006FE822E2B66AF5DA6C /* JudyYoshikoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyYoshikoTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyYoshikoTextField.swift; sourceTree = "<group>"; };
+		C36A29F015797701838EF0B9E8C3A3BE /* EnolaGay-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EnolaGay-umbrella.h"; sourceTree = "<group>"; };
 		C441A02DF0C4469D965971B731AA0454 /* MJRefresh-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJRefresh-prefix.pch"; sourceTree = "<group>"; };
 		C511BDCCD9E6928021D18E9FF2141CD3 /* Cache-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cache-dummy.m"; sourceTree = "<group>"; };
-		C5303F9D2B46B6DE2878FF09DA38BC26 /* PickerViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerViewCell.swift; path = EnolaGay/Classes/HPickerView/PickerViewCell.swift; sourceTree = "<group>"; };
 		C6D41CA0941456EB72DC9D7A6A8437C2 /* MJRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.release.xcconfig; sourceTree = "<group>"; };
 		CA5CA53E5619DA3441E9C01C779D17A2 /* MJRefreshComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshComponent.m; path = MJRefresh/Base/MJRefreshComponent.m; sourceTree = "<group>"; };
 		CA871B4E1D7CE1316FCB1DF867753F7A /* Cache-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cache-prefix.pch"; sourceTree = "<group>"; };
 		CA8CBE0F1B82A2FE196C2E80B77595D6 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
-		CB1327FC8092BEB844EA890893F2DA60 /* Protocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protocol.swift; path = EnolaGay/Classes/SegmentedView/Protocol.swift; sourceTree = "<group>"; };
+		CC65BA6CB52F190FF9FABE4BA546F007 /* JudyMinoruTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyMinoruTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyMinoruTextField.swift; sourceTree = "<group>"; };
 		CCB2F6974D5431941C5F4DCC038AA780 /* MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefresh.h; path = MJRefresh/MJRefresh.h; sourceTree = "<group>"; };
 		CCE7F275307B77744BDA19747D959360 /* MJRefreshNormalTrailer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshNormalTrailer.h; path = MJRefresh/Custom/Trailer/MJRefreshNormalTrailer.h; sourceTree = "<group>"; };
-		CD51515B30409818D2AF4545CE6E8961 /* DataSourceWithTitle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataSourceWithTitle.swift; path = EnolaGay/Classes/SegmentedView/DataSourceWithTitle.swift; sourceTree = "<group>"; };
-		CDBF9DB8CB08433314FC4298B18B6ABD /* JudyYoshikoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyYoshikoTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyYoshikoTextField.swift; sourceTree = "<group>"; };
+		CE7BB1264C1292DCF88A96C69CBF2244 /* EnolaGay-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EnolaGay-prefix.pch"; sourceTree = "<group>"; };
 		CEABFA0F64AB5E7FFB92B01698FF0319 /* JSONArrayWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONArrayWrapper.swift; path = Source/Shared/Library/JSONArrayWrapper.swift; sourceTree = "<group>"; };
 		CED3E1FF76785E931FCCC265FBDF35E2 /* Alamofire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.release.xcconfig; sourceTree = "<group>"; };
 		CEDFCF655C3986C2AA319922870F69DE /* MJRefreshBackFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackFooter.m; path = MJRefresh/Base/MJRefreshBackFooter.m; sourceTree = "<group>"; };
 		CF76C6430552737950DFC2655435D198 /* MJRefreshFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshFooter.m; path = MJRefresh/Base/MJRefreshFooter.m; sourceTree = "<group>"; };
 		CFE47995BDA98A2B85E2AD77620D96BF /* Optional+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Optional+Extension.swift"; path = "Source/Shared/Library/Optional+Extension.swift"; sourceTree = "<group>"; };
-		D2C5828553494DBE142137019598B8ED /* EnolaGay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EnolaGay.debug.xcconfig; sourceTree = "<group>"; };
-		D45ADE2A14D0A459B643B53491A75BFE /* JudyHoshiTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyHoshiTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyHoshiTextField.swift; sourceTree = "<group>"; };
+		D12857DF0122712EDAC0270082C02B4C /* PageViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PageViewCtrl.swift; path = EnolaGay/Classes/PageViewCtrl.swift; sourceTree = "<group>"; };
 		D4B10ECD752C3D849E566A646106445F /* ImageWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageWrapper.swift; path = Source/Shared/Library/ImageWrapper.swift; sourceTree = "<group>"; };
-		D4BCA435C4EB4F5FCE675388D9178458 /* Button.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Button.swift; path = EnolaGay/Classes/Button.swift; sourceTree = "<group>"; };
 		D4F7A8B349FF8322FB65AB891A8F3074 /* StorageError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StorageError.swift; path = Source/Shared/Library/StorageError.swift; sourceTree = "<group>"; };
 		D7034921731B8828BF4B5F1952017022 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
 		D78F07082383C23782E2C28BDD32EEB2 /* Hasher+constantAccrossExecutions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Hasher+constantAccrossExecutions.swift"; path = "Source/Shared/Extensions/Hasher+constantAccrossExecutions.swift"; sourceTree = "<group>"; };
 		D7A04E774B8E9A0A6A0F98B34390048C /* MemoryCapsule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MemoryCapsule.swift; path = Source/Shared/Library/MemoryCapsule.swift; sourceTree = "<group>"; };
 		D7DFB14D1C6863636A118D1382C4539F /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D86794EA8AC7212C1FE807901D97DDCF /* TableViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableViewCtrl.swift; path = EnolaGay/Classes/TableViewCtrl.swift; sourceTree = "<group>"; };
 		D91BA673BAF4189102C23B4A0BBE43D9 /* MJRefreshComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshComponent.h; path = MJRefresh/Base/MJRefreshComponent.h; sourceTree = "<group>"; };
-		DA54A27BEB475C52FF3AFA13EEB1B464 /* PickerViewOverlay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerViewOverlay.swift; path = EnolaGay/Classes/HPickerView/PickerViewOverlay.swift; sourceTree = "<group>"; };
 		DA56B119339E1B164858FEB85DD9C962 /* Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Player.release.xcconfig; sourceTree = "<group>"; };
 		DAEDFA3C9EC77B9F77A0E86BF441F3C4 /* Player-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Player-dummy.m"; sourceTree = "<group>"; };
-		DBAA6BEF71D59A5B7EF8EC379B2923DB /* TabBarCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TabBarCtrl.swift; path = EnolaGay/Classes/TabBarCtrl.swift; sourceTree = "<group>"; };
 		DE11280545759E6253725B205F7423AA /* Date+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Extensions.swift"; path = "Source/Shared/Extensions/Date+Extensions.swift"; sourceTree = "<group>"; };
 		DEC00B21E4BB7AADD38C1E29F12AECEC /* UIView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+MJExtension.m"; path = "MJRefresh/UIView+MJExtension.m"; sourceTree = "<group>"; };
 		DEE65C3DE36F3DB0B6A18C6951A85277 /* Pods-EnolaGay_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-dummy.m"; sourceTree = "<group>"; };
 		DFE8665CED2990444ADE5BEBE06337C5 /* MJRefresh.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = MJRefresh.bundle; path = MJRefresh/MJRefresh.bundle; sourceTree = "<group>"; };
 		E0C507B4CF2D526AF35885F2260607B6 /* EnolaGay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = EnolaGay.framework; path = EnolaGay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E25F532F3475A3BC8097C06DCC83C006 /* JudyJiroTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyJiroTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyJiroTextField.swift; sourceTree = "<group>"; };
-		E27CD800ED73574E116DA0E76A93D6DF /* NavigationCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigationCtrl.swift; path = EnolaGay/Classes/NavigationCtrl.swift; sourceTree = "<group>"; };
+		E270A5F0C32D62A2C652E85DA1F11CA4 /* PickerViewOverlay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerViewOverlay.swift; path = EnolaGay/Classes/HPickerView/PickerViewOverlay.swift; sourceTree = "<group>"; };
 		E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MJRefresh.framework; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4B1AC73A48BDC54067103A2FA24EC11 /* JudyIsaoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyIsaoTextField.swift; path = EnolaGay/Classes/JudyTextFieldEffects/JudyIsaoTextField.swift; sourceTree = "<group>"; };
 		E7CFFAAF393A426856DAF9512F946C66 /* Pods-EnolaGay_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		E82798CAA67D081181F0E3D169EE35E4 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
-		E904AEF14E52A5E96A419E88CC07D24F /* SegmentedView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SegmentedView.swift; path = EnolaGay/Classes/SegmentedView/SegmentedView.swift; sourceTree = "<group>"; };
-		E9BACCFC08C61706C8961CDDCA6C85FB /* PickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerView.swift; path = EnolaGay/Classes/HPickerView/PickerView.swift; sourceTree = "<group>"; };
 		E9ED7302321C1AC5A4178BD4F915B6A5 /* MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MD5.swift; path = Source/Shared/Library/MD5.swift; sourceTree = "<group>"; };
 		EA6C6FCE052F12209FE3229D83466D0E /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoFooter.h; path = MJRefresh/Base/MJRefreshAutoFooter.h; sourceTree = "<group>"; };
+		EB7B5947E7869A03E9D447FCAB39ACE2 /* Toast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Toast.swift; path = EnolaGay/Classes/Judy/Toast.swift; sourceTree = "<group>"; };
+		F0CEDA00971907EE07FC97714B62B66F /* CollectionViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CollectionViewCtrl.swift; path = EnolaGay/Classes/CollectionViewCtrl.swift; sourceTree = "<group>"; };
 		F107B7426F9D7A2E93A31A2661CC5A66 /* MJRefreshNormalHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshNormalHeader.h; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.h; sourceTree = "<group>"; };
 		F13EC9FBBB46E52A126EB4D2FAD98BBC /* DiskConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiskConfig.swift; path = Source/Shared/Configuration/DiskConfig.swift; sourceTree = "<group>"; };
 		F2B6CE7FD3D221FA5D5D794922FDABCC /* Storage+Transform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Storage+Transform.swift"; path = "Source/Shared/Storage/Storage+Transform.swift"; sourceTree = "<group>"; };
@@ -429,10 +443,11 @@
 		F56889238F7C812D093C91BD258956C3 /* Pods-EnolaGay_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Tests-umbrella.h"; sourceTree = "<group>"; };
 		F6BE9F8B0EF1620A530C95AD02B2DD96 /* Alamofire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.debug.xcconfig; sourceTree = "<group>"; };
 		F71772FCB6E437CFFC04D825F4A436A1 /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackNormalFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
+		F7659969D2E818462B4541A76EA5FA56 /* Api.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Api.swift; path = EnolaGay/Classes/Api.swift; sourceTree = "<group>"; };
 		F80390974F95D54C34C2E5E14A84AEC0 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
 		F8509E74868F8385F2C8F453DB858E98 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		F942581D0111EDCC32DCAAFACB40E115 /* MJRefreshStateTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateTrailer.m; path = MJRefresh/Custom/Trailer/MJRefreshStateTrailer.m; sourceTree = "<group>"; };
-		F9B84AEC070AE9E55583AF64F93C0A44 /* Label.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Label.swift; path = EnolaGay/Classes/Label.swift; sourceTree = "<group>"; };
+		FB2E73E75F098CB6FA8691D1EB0729AA /* ProgressHUD.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProgressHUD.swift; path = EnolaGay/Classes/ProgressHUD.swift; sourceTree = "<group>"; };
 		FC2BC14FCC2B7B808A09C59134E45BCE /* MJRefreshHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshHeader.h; path = MJRefresh/Base/MJRefreshHeader.h; sourceTree = "<group>"; };
 		FC8CD38613CE5E0D94287E197B149FB6 /* Entry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = Source/Shared/Library/Entry.swift; sourceTree = "<group>"; };
 		FD3E5AF17DD9945161F7C8B827F301D0 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoFooter.m; path = MJRefresh/Base/MJRefreshAutoFooter.m; sourceTree = "<group>"; };
@@ -456,6 +471,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5A4DE4FB69775E3F3D1A44CB11640F72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		797CCE4EBB103212C914C97CB01111C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A83435A4533EAE84D3A6503A58E34F2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7B757F63ABEFE866D599735B10092CF8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -469,6 +499,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A58CED56FB7C4FF08EAE155F254AF25 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9ACE9620E4A7E87BAC2D3DD78741F107 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E70A8A51988705C516EF2C3B255F16F5 /* Foundation.framework in Frameworks */,
+				38738BC1312F46DF0237BFE4D6A770AE /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,36 +527,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E88925BE596BBFDA1966676BAF574A93 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C348E6780EC31AFE53CE78759CCCB000 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FF85D105244261FE174CA23AFE65150B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B88C7AEAAE7803C71E658CAE243888C3 /* Foundation.framework in Frameworks */,
-				E3BBFE286800AE4FC591FC569A82C482 /* SwiftyJSON.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0387693A82D9C1E3D607629EDBD50044 /* HPickerView */ = {
-			isa = PBXGroup;
-			children = (
-				E9BACCFC08C61706C8961CDDCA6C85FB /* PickerView.swift */,
-				C5303F9D2B46B6DE2878FF09DA38BC26 /* PickerViewCell.swift */,
-				DA54A27BEB475C52FF3AFA13EEB1B464 /* PickerViewOverlay.swift */,
-			);
-			name = HPickerView;
-			sourceTree = "<group>";
-		};
 		05B2C7BB040BB9A91EFD0C629B5BD2E5 /* Alamofire */ = {
 			isa = PBXGroup;
 			children = (
@@ -589,22 +601,6 @@
 			path = "../Target Support Files/Cache";
 			sourceTree = "<group>";
 		};
-		29CAE364B81481F583B610334C4E31C5 /* EnolaGay */ = {
-			isa = PBXGroup;
-			children = (
-				680F1BFE49B08ACA7131B506EC625382 /* EMERANA */,
-				0387693A82D9C1E3D607629EDBD50044 /* HPickerView */,
-				ABB84C2A8E9F883D934EFE8EC1DBB59A /* Judy */,
-				A25A5A99EFDC11583384838523AE88CE /* JudyTextFieldEffects */,
-				80C3A143592B9659948A8FE0F713F838 /* Pod */,
-				61825C0B4C58A0624B8E40AD6B5F0FCC /* SearchViewCtrl */,
-				FD3C1DBB8801478D9EF724A6A5CC452C /* SegmentedView */,
-				F6246E1D07FBB065FFEF7421EB195D6F /* Support Files */,
-			);
-			name = EnolaGay;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		362A56FFCB25CF1DC01557C26778024F /* Pods-EnolaGay_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,6 +618,22 @@
 			path = "Target Support Files/Pods-EnolaGay_Example";
 			sourceTree = "<group>";
 		};
+		46BB0EABE6FBE77C5F32D750077E0E8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */,
+				736B64357A6C420C3A7062C6D479AC7F /* Cache.framework */,
+				BAD50BF75D341A139E129C19F58E7A32 /* EnolaGay.bundle */,
+				E0C507B4CF2D526AF35885F2260607B6 /* EnolaGay.framework */,
+				E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh.framework */,
+				5C08AE3835639A2111ACBCE5382CE742 /* Player.framework */,
+				38B7BE27BA4B2DA8B746146F0B478062 /* Pods_EnolaGay_Example.framework */,
+				A98C0B69550D43E9A24ACD029F7F91F5 /* Pods_EnolaGay_Tests.framework */,
+				E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5978FFF6649AEA33777847C7A3D74D9C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -637,33 +649,35 @@
 			path = "../Target Support Files/Alamofire";
 			sourceTree = "<group>";
 		};
-		61825C0B4C58A0624B8E40AD6B5F0FCC /* SearchViewCtrl */ = {
+		5ECAF0E07DA85273FEF777CDD1E0B124 /* SearchViewCtrl */ = {
 			isa = PBXGroup;
 			children = (
-				2E251036444E7F33723861E065EBE2F1 /* JudyBaseSearchViewCtrl.swift */,
-				C32FF382C6038ABA55B3BCD64FE0CBD5 /* JudySearchView.swift */,
-				912458CCD186FAEE874623BDCA6C6958 /* JudySearchView.xib */,
+				852FF0881572808289D142A1B9C4FBCC /* JudyBaseSearchViewCtrl.swift */,
+				7778790CD57BF5F601F8909AB650F663 /* JudySearchView.swift */,
+				810EA07E1A6E630BB42F0EFE932BA0D2 /* JudySearchView.xib */,
 			);
 			name = SearchViewCtrl;
 			sourceTree = "<group>";
 		};
-		680F1BFE49B08ACA7131B506EC625382 /* EMERANA */ = {
+		6144D7200D05999B553ED9E6CCEBAE4D /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				38B3F297AD5E2AD7BEBC4B9A30AFBE00 /* Api.swift */,
-				D4BCA435C4EB4F5FCE675388D9178458 /* Button.swift */,
-				52C7B6CF385FF020E4F30FF0334DBF44 /* CollectionViewCtrl.swift */,
-				F9B84AEC070AE9E55583AF64F93C0A44 /* Label.swift */,
-				E27CD800ED73574E116DA0E76A93D6DF /* NavigationCtrl.swift */,
-				0CC6147A522D3489AE651AED3A7FC59E /* PageViewCtrl.swift */,
-				383ECD123DD7ED77FF9C1D1CD37446DF /* ProgressHUD.swift */,
-				DBAA6BEF71D59A5B7EF8EC379B2923DB /* TabBarCtrl.swift */,
-				3C54F46EE114E11546C2935A23EBB01E /* TableViewCtrl.swift */,
-				C3C810D26DCA2ABDAACEF5DFD7A13242 /* TextField.swift */,
-				2571DBD305B7F0B909868F531B102409 /* View.swift */,
-				2A42F8F771DBC5A066A50DC23F65060C /* ViewCtrl.swift */,
+				32868CAAE67456B2D668A401C890FEF4 /* EnolaGay.podspec */,
+				24040A5317B3C71D3A73C8DFBA9A0006 /* LICENSE */,
+				784497608E4614A6773E218E67B229D1 /* README.md */,
 			);
-			name = EMERANA;
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		79007022DB57F52CFAE06267AE2598FA /* Judy */ = {
+			isa = PBXGroup;
+			children = (
+				8C357B19C5B076C1C5ECF7268873FD33 /* EMERANA.swift */,
+				2308B27B3FC578205984CAEE15A8C880 /* Judy.swift */,
+				190CC19F4D2E0F344C5185C35AD0285C /* JudyFile.swift */,
+				EB7B5947E7869A03E9D447FCAB39ACE2 /* Toast.swift */,
+			);
+			name = Judy;
 			sourceTree = "<group>";
 		};
 		7A3970E1938BC35D28721AFBD362EC25 /* Frameworks */ = {
@@ -675,14 +689,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		80C3A143592B9659948A8FE0F713F838 /* Pod */ = {
+		7CE94D1C26CBCF00FC02454E9A444CD6 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				71D938B48067A2177D2B7E026422200C /* EnolaGay.podspec */,
-				6DF2B6ED44150A39389058A9E6E778AE /* LICENSE */,
-				654D17A4C0C556613BAC3B31BECDA1D7 /* README.md */,
+				06DD202C65C4C314515A8981E48AB071 /* EnolaGay.modulemap */,
+				9048BD073F8E19428A125C93A66D238C /* EnolaGay-dummy.m */,
+				502C99266C975A30DE4F09498BF032ED /* EnolaGay-Info.plist */,
+				CE7BB1264C1292DCF88A96C69CBF2244 /* EnolaGay-prefix.pch */,
+				C36A29F015797701838EF0B9E8C3A3BE /* EnolaGay-umbrella.h */,
+				A3003B1B9C521B65B1A20B89A6298F8C /* EnolaGay.debug.xcconfig */,
+				94AF160A132E47B4E8FE1F76CDFE9099 /* EnolaGay.release.xcconfig */,
+				6780BCCD85D38E2EF800BA242FE76205 /* ResourceBundle-EnolaGay-EnolaGay-Info.plist */,
 			);
-			name = Pod;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/EnolaGay";
 			sourceTree = "<group>";
 		};
 		8577642E3DD39F9982AF79CD9F612123 /* Pods-EnolaGay_Tests */ = {
@@ -737,31 +757,37 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		A25A5A99EFDC11583384838523AE88CE /* JudyTextFieldEffects */ = {
+		A81634B7BA9B936C5170DC6D1FBADC5A /* JudyTextFieldEffects */ = {
 			isa = PBXGroup;
 			children = (
-				1E8FBA49FFFDBB313D0F6621810746EE /* JudyAkiraTextField.swift */,
-				D45ADE2A14D0A459B643B53491A75BFE /* JudyHoshiTextField.swift */,
-				E4B1AC73A48BDC54067103A2FA24EC11 /* JudyIsaoTextField.swift */,
-				E25F532F3475A3BC8097C06DCC83C006 /* JudyJiroTextField.swift */,
-				0F5E736BF5DB179654CA9C22FA3C0BEB /* JudyKaedeTextField.swift */,
-				002009DAFBEC86865BF76E69001C0650 /* JudyMadokaTextField.swift */,
-				8D71BDEF586B69A81BAAA47640E89202 /* JudyMinoruTextField.swift */,
-				3A05144DA4AE81E6F3DD0E5B65433400 /* JudyTextFieldsEffects.swift */,
-				9958F45D8FB977E957C98CCF5C312F5D /* JudyYokoTextField.swift */,
-				CDBF9DB8CB08433314FC4298B18B6ABD /* JudyYoshikoTextField.swift */,
+				AD77BD0BACDD172C607C38D34C5CDB04 /* JudyAkiraTextField.swift */,
+				15F3D4027EEB81C4841AAEE36E61B3D7 /* JudyHoshiTextField.swift */,
+				1231ADE907A0988427C9C7440C019D97 /* JudyIsaoTextField.swift */,
+				5E7F44E4FDF8B7E505DF28EA876B4E64 /* JudyJiroTextField.swift */,
+				934EEFD83BAD4B14693E25A1C057E8EE /* JudyKaedeTextField.swift */,
+				4E1C56BD3E12CD7A91ED303169EF7906 /* JudyMadokaTextField.swift */,
+				CC65BA6CB52F190FF9FABE4BA546F007 /* JudyMinoruTextField.swift */,
+				AB8E1E74244029494C7BA63A5EFF94AB /* JudyTextFieldsEffects.swift */,
+				82ECA07F427BFCC62B0DAB404D4B105D /* JudyYokoTextField.swift */,
+				C34DA9C60456006FE822E2B66AF5DA6C /* JudyYoshikoTextField.swift */,
 			);
 			name = JudyTextFieldEffects;
 			sourceTree = "<group>";
 		};
-		ABB84C2A8E9F883D934EFE8EC1DBB59A /* Judy */ = {
+		B60B86D2A67E3C8AD99103A51ABEB740 /* EnolaGay */ = {
 			isa = PBXGroup;
 			children = (
-				A122DE2D30EF0272A2C574C140FB701C /* EMERANA.swift */,
-				1FBB5F67F528C1F48CC4BC1A9ECF5396 /* Judy.swift */,
-				3A7C97BCF70790057069F2A00D9ACA1D /* JudyFile.swift */,
+				E980503765D30E66F52D37371D8EFB03 /* EMERANA */,
+				FB15A9B1DB5D11F6B0F52BFA3C146538 /* HPickerView */,
+				79007022DB57F52CFAE06267AE2598FA /* Judy */,
+				A81634B7BA9B936C5170DC6D1FBADC5A /* JudyTextFieldEffects */,
+				6144D7200D05999B553ED9E6CCEBAE4D /* Pod */,
+				5ECAF0E07DA85273FEF777CDD1E0B124 /* SearchViewCtrl */,
+				F84E94BC8D5EC353924462D6C8377F0C /* SegmentedView */,
+				7CE94D1C26CBCF00FC02454E9A444CD6 /* Support Files */,
 			);
-			name = Judy;
+			name = EnolaGay;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		B60F2F63469C999A0477EC4E13E94742 /* SwiftyJSON */ = {
@@ -846,7 +872,7 @@
 				FDAA54610F83F4577CF145E32D7E9841 /* Development Pods */,
 				7A3970E1938BC35D28721AFBD362EC25 /* Frameworks */,
 				9591B99B9580F6CB24E0AC7065E567D6 /* Pods */,
-				ECEB25B9C53F76AFAF3C6780168F4AA4 /* Products */,
+				46BB0EABE6FBE77C5F32D750077E0E8A /* Products */,
 				96C366CDFD91AA7EC8834D62275F88FA /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -901,34 +927,35 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		ECEB25B9C53F76AFAF3C6780168F4AA4 /* Products */ = {
+		E980503765D30E66F52D37371D8EFB03 /* EMERANA */ = {
 			isa = PBXGroup;
 			children = (
-				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */,
-				736B64357A6C420C3A7062C6D479AC7F /* Cache.framework */,
-				E0C507B4CF2D526AF35885F2260607B6 /* EnolaGay.framework */,
-				E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh.framework */,
-				5C08AE3835639A2111ACBCE5382CE742 /* Player.framework */,
-				38B7BE27BA4B2DA8B746146F0B478062 /* Pods_EnolaGay_Example.framework */,
-				A98C0B69550D43E9A24ACD029F7F91F5 /* Pods_EnolaGay_Tests.framework */,
-				E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON.framework */,
+				F7659969D2E818462B4541A76EA5FA56 /* Api.swift */,
+				55D0211CB4FCBA559B9172B79F8FBBA3 /* Button.swift */,
+				F0CEDA00971907EE07FC97714B62B66F /* CollectionViewCtrl.swift */,
+				6BEC7265FACF817EEB054E111F14006E /* Label.swift */,
+				7D5150F2AE91CACF7E620484A782588D /* NavigationCtrl.swift */,
+				D12857DF0122712EDAC0270082C02B4C /* PageViewCtrl.swift */,
+				FB2E73E75F098CB6FA8691D1EB0729AA /* ProgressHUD.swift */,
+				0DADFBC0160F09EC71E279ED2D701184 /* TabBarCtrl.swift */,
+				D86794EA8AC7212C1FE807901D97DDCF /* TableViewCtrl.swift */,
+				277BEEC44B72994E4FC9AF91C8240237 /* TextField.swift */,
+				46E7A85254D05B7D049F5ADC45BF62D6 /* TipViewCtrl.xib */,
+				0E79B0B19014CD77B0BED3FE811C440F /* View.swift */,
+				8701F7A57B8D3AAB3F4518D1AF5B27A5 /* ViewCtrl.swift */,
 			);
-			name = Products;
+			name = EMERANA;
 			sourceTree = "<group>";
 		};
-		F6246E1D07FBB065FFEF7421EB195D6F /* Support Files */ = {
+		F84E94BC8D5EC353924462D6C8377F0C /* SegmentedView */ = {
 			isa = PBXGroup;
 			children = (
-				350DE6449A6EDA6272935DE4A6A58395 /* EnolaGay.modulemap */,
-				138CB8423A785A477539C3899D430CF4 /* EnolaGay-dummy.m */,
-				2DE5381CB29733E1946C81EB9269B8BF /* EnolaGay-Info.plist */,
-				86F307C7CF9E5E36DA725184AD174CB2 /* EnolaGay-prefix.pch */,
-				B18D3E5508C990383558454705F5AA5F /* EnolaGay-umbrella.h */,
-				D2C5828553494DBE142137019598B8ED /* EnolaGay.debug.xcconfig */,
-				8F0D5E8B13536493E78F7EDCE93769C3 /* EnolaGay.release.xcconfig */,
+				91F67DB215F686789990D59A7625B8A4 /* Core.swift */,
+				0F812B2619ECC9FF5981A762B90CA148 /* DataSourceWithTitle.swift */,
+				1174114CA9421171ABECE39BF55D085C /* Protocol.swift */,
+				84BFC49443C5853D83F6498EF89A501E /* SegmentedView.swift */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/EnolaGay";
+			name = SegmentedView;
 			sourceTree = "<group>";
 		};
 		F92DB30DB5B6197CFA92FFC0C5A1F61F /* Player */ = {
@@ -941,21 +968,20 @@
 			path = Player;
 			sourceTree = "<group>";
 		};
-		FD3C1DBB8801478D9EF724A6A5CC452C /* SegmentedView */ = {
+		FB15A9B1DB5D11F6B0F52BFA3C146538 /* HPickerView */ = {
 			isa = PBXGroup;
 			children = (
-				87177A33F6FCD3231E0596A4569C48B7 /* Core.swift */,
-				CD51515B30409818D2AF4545CE6E8961 /* DataSourceWithTitle.swift */,
-				CB1327FC8092BEB844EA890893F2DA60 /* Protocol.swift */,
-				E904AEF14E52A5E96A419E88CC07D24F /* SegmentedView.swift */,
+				6BA08D4D02E59D629148033791DFAC5A /* PickerView.swift */,
+				7489552FE9DF9B3340860DC4AAFC9845 /* PickerViewCell.swift */,
+				E270A5F0C32D62A2C652E85DA1F11CA4 /* PickerViewOverlay.swift */,
 			);
-			name = SegmentedView;
+			name = HPickerView;
 			sourceTree = "<group>";
 		};
 		FDAA54610F83F4577CF145E32D7E9841 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				29CAE364B81481F583B610334C4E31C5 /* EnolaGay */,
+				B60B86D2A67E3C8AD99103A51ABEB740 /* EnolaGay */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -979,19 +1005,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		300490B1CC6380C8FF9A64DF80044130 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EFD9EBCCF0D6AD5551E02FB4C8D36F90 /* SwiftyJSON-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		658CB65F5BAB908A23DDB8A6829466F9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D1B2B52F37138B381F3E588F53620605 /* Pods-EnolaGay_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7527E8CEDD8BBF14310BD64FC5C0291B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCC2A74AC450FD7A2D0B8161442F529B /* SwiftyJSON-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1043,11 +1069,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CDA06018F874F3763B5B1E201E75B1A8 /* Headers */ = {
+		A5E4542AB7687CF420B4C98FF41E6D52 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA9EE400A1C71A2ADBA7D055453F4B08 /* EnolaGay-umbrella.h in Headers */,
+				4E500A62BA93D3D8B8D19ABC6731D25A /* EnolaGay-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1102,12 +1128,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				E79CF01E97FD3D581AE718656F85A974 /* PBXTargetDependency */,
-				3EB75B387939F72185DE1ECFBA70130D /* PBXTargetDependency */,
-				5E3DADE19BDDF1C819E06E05BDB6D530 /* PBXTargetDependency */,
-				74262F9E3A18FFB68C0364A98E1B3CEC /* PBXTargetDependency */,
-				68E7F056E44818F0E3B6DDD9FC3C7BED /* PBXTargetDependency */,
-				8A87EB424519CFD1E923F3487896EE2E /* PBXTargetDependency */,
+				FEC8E52850B29DD6046BC54BC14C6E3E /* PBXTargetDependency */,
+				F9A81D4F7C19ACF731BC18867F273FD8 /* PBXTargetDependency */,
+				0F018B6BA2E369A1B42E6FBD36F2AE50 /* PBXTargetDependency */,
+				D5B32FB79270FE1A804E9984CED487DF /* PBXTargetDependency */,
+				AC91E40AA03502F9EFCAB994B5E2696D /* PBXTargetDependency */,
+				5E797B83AE11F5014FFF587C0A2B4025 /* PBXTargetDependency */,
 			);
 			name = "Pods-EnolaGay_Example";
 			productName = "Pods-EnolaGay_Example";
@@ -1144,7 +1170,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				208CD43D5ED0EB82F8AFA643093ED658 /* PBXTargetDependency */,
+				6D71D069143BF16D25FC1A3BAD02651A /* PBXTargetDependency */,
 			);
 			name = "Pods-EnolaGay_Tests";
 			productName = "Pods-EnolaGay_Tests";
@@ -1153,17 +1179,18 @@
 		};
 		CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A4972092E4193866EE7CA3D8A2781A2 /* Build configuration list for PBXNativeTarget "EnolaGay" */;
+			buildConfigurationList = 1F15FD0E7F42390C4151DC97E48F508C /* Build configuration list for PBXNativeTarget "EnolaGay" */;
 			buildPhases = (
-				CDA06018F874F3763B5B1E201E75B1A8 /* Headers */,
-				804A9F595F0084F98CCDA0E8078694ED /* Sources */,
-				FF85D105244261FE174CA23AFE65150B /* Frameworks */,
-				054A37C9B8FD648E5BA76A1F341A8982 /* Resources */,
+				A5E4542AB7687CF420B4C98FF41E6D52 /* Headers */,
+				B63F31BD49FA4DEAD9F09E8F32C53839 /* Sources */,
+				9ACE9620E4A7E87BAC2D3DD78741F107 /* Frameworks */,
+				E265DFFC77744A78F403AD59FFB5BEBE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F84A830CC4D438A08DCB37EBFFF51467 /* PBXTargetDependency */,
+				7DC5B5FE5FE23265859E5008AC11C08A /* PBXTargetDependency */,
+				5FC65D99E5DBA3833D8D7845DBB22B60 /* PBXTargetDependency */,
 			);
 			name = EnolaGay;
 			productName = EnolaGay;
@@ -1172,12 +1199,12 @@
 		};
 		D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3993930F4E8EAD1A93F83F03AF7D10E8 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
+			buildConfigurationList = D49373CFDE7720B3587CD73382E641F1 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
 			buildPhases = (
-				300490B1CC6380C8FF9A64DF80044130 /* Headers */,
-				3BD437AC0FD043460E4FB80E02EC93D1 /* Sources */,
-				E88925BE596BBFDA1966676BAF574A93 /* Frameworks */,
-				42B4E0FBE0E9F0805D2CF025D5FCD427 /* Resources */,
+				7527E8CEDD8BBF14310BD64FC5C0291B /* Headers */,
+				AD69C473BD42A7308E68DCF1E736F24A /* Sources */,
+				797CCE4EBB103212C914C97CB01111C0 /* Frameworks */,
+				6B7098F1AD89F6D7A1240A8C8431717A /* Resources */,
 			);
 			buildRules = (
 			);
@@ -1206,6 +1233,23 @@
 			productReference = 5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		F1E9D7603B5FBB99ACA55AF2739F4CC7 /* EnolaGay-EnolaGay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84AA10C3B001977E4428CE1CCC67D116 /* Build configuration list for PBXNativeTarget "EnolaGay-EnolaGay" */;
+			buildPhases = (
+				72F81682A213F039B3A92AA6C71CAB4F /* Sources */,
+				5A4DE4FB69775E3F3D1A44CB11640F72 /* Frameworks */,
+				7046AA485CDEFF5C490A36F7A423171C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "EnolaGay-EnolaGay";
+			productName = "EnolaGay-EnolaGay";
+			productReference = BAD50BF75D341A139E129C19F58E7A32 /* EnolaGay.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1224,13 +1268,14 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = ECEB25B9C53F76AFAF3C6780168F4AA4 /* Products */;
+			productRefGroup = 46BB0EABE6FBE77C5F32D750077E0E8A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */,
 				9513DC9A6C5DA07EDB2094920BC9EE79 /* Cache */,
 				CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */,
+				F1E9D7603B5FBB99ACA55AF2739F4CC7 /* EnolaGay-EnolaGay */,
 				6868056D761E163D10FDAF8CF1C4D9B8 /* MJRefresh */,
 				3566CE7721250363BAE931141A0703B1 /* Player */,
 				6934B6FC51054102D76B1C7EF05CE1E6 /* Pods-EnolaGay_Example */,
@@ -1241,20 +1286,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		054A37C9B8FD648E5BA76A1F341A8982 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42B4E0FBE0E9F0805D2CF025D5FCD427 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		473D3E892ABB6C798CFF290644259B34 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1277,6 +1308,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6B7098F1AD89F6D7A1240A8C8431717A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7046AA485CDEFF5C490A36F7A423171C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC32E46BD42FE40D713630B07DF9983 /* TipViewCtrl.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C74ABF23C05AC029CC634FF518CE0FB2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1295,6 +1341,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E265DFFC77744A78F403AD59FFB5BEBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4F3B5503B380CEB841F421EAEBB2522 /* EnolaGay.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1323,15 +1377,6 @@
 				AFC64B1097F7355FF423D6A73E9C7210 /* TaskDelegate.swift in Sources */,
 				933FDA5970AA525D6CB92BFEBA2BAB4A /* Timeline.swift in Sources */,
 				53791F5E5F07400F92CFDFC89A432305 /* Validation.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3BD437AC0FD043460E4FB80E02EC93D1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				908A403649DA2B07C364B5A0D4C7F546 /* SwiftyJSON-dummy.m in Sources */,
-				34090AFE83FC48EB870D4B3380064C89 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1385,46 +1430,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		804A9F595F0084F98CCDA0E8078694ED /* Sources */ = {
+		72F81682A213F039B3A92AA6C71CAB4F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				142F2E315D77D01B04A9F3911E2E990F /* Api.swift in Sources */,
-				5AC8DCD7A7B097C12706327C97B371C2 /* Button.swift in Sources */,
-				692294592ED6C6FA04F087071414C4B2 /* CollectionViewCtrl.swift in Sources */,
-				6764DF41DC2F782D29765042D2FF4E31 /* Core.swift in Sources */,
-				97602DCB331732FF02471A51069F6240 /* DataSourceWithTitle.swift in Sources */,
-				27DC5D8BE252B3676C773E8AE9A7038C /* EMERANA.swift in Sources */,
-				E705EA883AE1706D909AACFCE41F2CBA /* EnolaGay-dummy.m in Sources */,
-				D45EA140832DB3257E542762BBC0DC62 /* Judy.swift in Sources */,
-				C78D498E10A6B1386B89006461E22E34 /* JudyAkiraTextField.swift in Sources */,
-				D29557C99F3C113049B0CDC77DCCC9F7 /* JudyBaseSearchViewCtrl.swift in Sources */,
-				10A1192207D16C3C86C2E272DDEC566E /* JudyFile.swift in Sources */,
-				EC2DB064AF968346B496F51355AD26BE /* JudyHoshiTextField.swift in Sources */,
-				84FE4B35B3F17620F63D118AB0F74442 /* JudyIsaoTextField.swift in Sources */,
-				37F879E6339169D372B5078551FDB9C0 /* JudyJiroTextField.swift in Sources */,
-				E0112B21ED7CE0C8423FFEC22220F085 /* JudyKaedeTextField.swift in Sources */,
-				AA8E7B7496AAD9DB6E472F02240A10C8 /* JudyMadokaTextField.swift in Sources */,
-				DC2FCCAA902C5DAB810AD6DD00FE7DE5 /* JudyMinoruTextField.swift in Sources */,
-				80E114F2A1A785CF603480E17FF044B5 /* JudySearchView.swift in Sources */,
-				5C7F72FFB2EA728EEB1D6A77F536C3B5 /* JudySearchView.xib in Sources */,
-				422F85A80D95D4C94CEF213535CFE12C /* JudyTextFieldsEffects.swift in Sources */,
-				7FFE1BDFC4FCD8079E3EA8A714A3823C /* JudyYokoTextField.swift in Sources */,
-				CB1DA464880B31DDDC7FF539A141BF33 /* JudyYoshikoTextField.swift in Sources */,
-				9FA32C8E2BED6FC44EE1EF53F61A0780 /* Label.swift in Sources */,
-				8DEF70FEF1D6B5DB7A96B5678A0AC975 /* NavigationCtrl.swift in Sources */,
-				0BF86C7908444B37DB9190A44F38308E /* PageViewCtrl.swift in Sources */,
-				3DAC0CDAACF74386F63E3DF8018E0570 /* PickerView.swift in Sources */,
-				2C46B8681FB37717DAF2E4694A8C42C8 /* PickerViewCell.swift in Sources */,
-				95838333AF3B751A4DF69EE1DD5789CA /* PickerViewOverlay.swift in Sources */,
-				E106246134B17675D4D0414445D32657 /* ProgressHUD.swift in Sources */,
-				562BEC713AF7661CE642D119B1AD9742 /* Protocol.swift in Sources */,
-				3DE435D3DB5F776F28465154D64E7DDC /* SegmentedView.swift in Sources */,
-				A54B5AADA6339E68B1B4334F77047A44 /* TabBarCtrl.swift in Sources */,
-				8FE473A44E9B579F1970CA093C372C80 /* TableViewCtrl.swift in Sources */,
-				1B7B5AEF2E8956B16834CBC2D2AF77D1 /* TextField.swift in Sources */,
-				6F01F5645DA0044412C3CCBA7B0A4A0E /* View.swift in Sources */,
-				FF2A3B71D52A0772C03B069297340D9E /* ViewCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1475,60 +1484,152 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AD69C473BD42A7308E68DCF1E736F24A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEFBC5933015529412501061681E8FDB /* SwiftyJSON-dummy.m in Sources */,
+				6AE27ECF2C7DB438F398FA17F5F2EBC3 /* SwiftyJSON.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B63F31BD49FA4DEAD9F09E8F32C53839 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4741401060208A723B8440E5E508F78 /* Api.swift in Sources */,
+				045CC96AB175B6FC13D4402063A8E5A2 /* Button.swift in Sources */,
+				85A747632C697126937F07FDB44008D3 /* CollectionViewCtrl.swift in Sources */,
+				8BD39DB350D1DB147BF269F88404FE46 /* Core.swift in Sources */,
+				6CACEA8A3818A4FA7D27442DF2280FA7 /* DataSourceWithTitle.swift in Sources */,
+				194B44662BC23CFDD7F92D514B28C99D /* EMERANA.swift in Sources */,
+				681A8AB692FCEA9982003E4AC148B552 /* EnolaGay-dummy.m in Sources */,
+				E4319E09ACC29A4104AA72E660596D23 /* Judy.swift in Sources */,
+				AB5527FDC945E854A9C1EE06866371D5 /* JudyAkiraTextField.swift in Sources */,
+				A2BDA4A771262FCE648FB4A55A79E1F5 /* JudyBaseSearchViewCtrl.swift in Sources */,
+				0029A9A88F30984B6A36F897380F2B41 /* JudyFile.swift in Sources */,
+				FED404ACE8F1893235DAB3ADA9B6E76B /* JudyHoshiTextField.swift in Sources */,
+				C554BBC0AA7FCAB6482945EFD7E3FC0F /* JudyIsaoTextField.swift in Sources */,
+				6FCFF5D741B79AE5BC1F666871CAE2DA /* JudyJiroTextField.swift in Sources */,
+				31141195BE5E69BECC9DCDBABB6FCFFB /* JudyKaedeTextField.swift in Sources */,
+				0DE7DF577FB66979A436E23E0CA31589 /* JudyMadokaTextField.swift in Sources */,
+				43E2158AA406F6F5D865CB19AC524B9D /* JudyMinoruTextField.swift in Sources */,
+				6DD56735725B7BD7C3AF408E7F04CBC4 /* JudySearchView.swift in Sources */,
+				B900E41A091A7ABF7192DD701926B86A /* JudySearchView.xib in Sources */,
+				9FA2A09FBCD189E88BA7D729CC13DD06 /* JudyTextFieldsEffects.swift in Sources */,
+				3C9B2108897BF64CC118763A6094CA9A /* JudyYokoTextField.swift in Sources */,
+				132CD96E871E4AE9CEFF09A3950BDDE8 /* JudyYoshikoTextField.swift in Sources */,
+				D58AB5A3DE5AAF8B4902E17830608427 /* Label.swift in Sources */,
+				AD9F08A175C22782B2B14C347436AFD9 /* NavigationCtrl.swift in Sources */,
+				94AC7FE01251396C3397AB59C3C7D978 /* PageViewCtrl.swift in Sources */,
+				37F5196AD804FB6D197AF1FEAF9252C2 /* PickerView.swift in Sources */,
+				0704DF4A063D26F57175EB205494F087 /* PickerViewCell.swift in Sources */,
+				B4FBDAC9E51EAB79526C5EF7DEE48C45 /* PickerViewOverlay.swift in Sources */,
+				9E0FAAE682E35D0AA879E129CAECFB8E /* ProgressHUD.swift in Sources */,
+				4BA77855A883B7D0ADD44AAA6BF19E4B /* Protocol.swift in Sources */,
+				B0FA28710EAE298C5FFD0CDCB22A22C3 /* SegmentedView.swift in Sources */,
+				15748B167156D5288E42419750637C13 /* TabBarCtrl.swift in Sources */,
+				2BFFD0EBB7B0977B87A10F98198DA4B5 /* TableViewCtrl.swift in Sources */,
+				B20666B25AFFE79A83B378AB75CCBCDA /* TextField.swift in Sources */,
+				A7C38788210E128D0499E8AC474E796A /* TipViewCtrl.xib in Sources */,
+				ED7DC305F85D19BC58C68A6956BDD55D /* Toast.swift in Sources */,
+				FAC141F0F1CC419D8B3540A60CB55201 /* View.swift in Sources */,
+				905E5E5A97CD36979CC439594FEF02E6 /* ViewCtrl.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		208CD43D5ED0EB82F8AFA643093ED658 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-EnolaGay_Example";
-			target = 6934B6FC51054102D76B1C7EF05CE1E6 /* Pods-EnolaGay_Example */;
-			targetProxy = 174629B9A4974B1FF6FF49A8A8281476 /* PBXContainerItemProxy */;
-		};
-		3EB75B387939F72185DE1ECFBA70130D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Cache;
-			target = 9513DC9A6C5DA07EDB2094920BC9EE79 /* Cache */;
-			targetProxy = DC2F1D82F0E155C1C7241161A847C7A0 /* PBXContainerItemProxy */;
-		};
-		5E3DADE19BDDF1C819E06E05BDB6D530 /* PBXTargetDependency */ = {
+		0F018B6BA2E369A1B42E6FBD36F2AE50 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = EnolaGay;
 			target = CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */;
-			targetProxy = FD281A744C36F17F81E709F4A0AB9DAF /* PBXContainerItemProxy */;
+			targetProxy = F83AE9961A41E776359802C0AB4D2F5D /* PBXContainerItemProxy */;
 		};
-		68E7F056E44818F0E3B6DDD9FC3C7BED /* PBXTargetDependency */ = {
+		5E797B83AE11F5014FFF587C0A2B4025 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyJSON;
+			target = D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */;
+			targetProxy = CD05E60343C465FE0350FFC8406F4E3B /* PBXContainerItemProxy */;
+		};
+		5FC65D99E5DBA3833D8D7845DBB22B60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyJSON;
+			target = D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */;
+			targetProxy = 666D348B7A94732DF327266D133A1045 /* PBXContainerItemProxy */;
+		};
+		6D71D069143BF16D25FC1A3BAD02651A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-EnolaGay_Example";
+			target = 6934B6FC51054102D76B1C7EF05CE1E6 /* Pods-EnolaGay_Example */;
+			targetProxy = C5E5073C6B29BE6972522F1D6C1E99B0 /* PBXContainerItemProxy */;
+		};
+		7DC5B5FE5FE23265859E5008AC11C08A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "EnolaGay-EnolaGay";
+			target = F1E9D7603B5FBB99ACA55AF2739F4CC7 /* EnolaGay-EnolaGay */;
+			targetProxy = A6E1A2CC428C0B6791D3AF59AC0038E3 /* PBXContainerItemProxy */;
+		};
+		AC91E40AA03502F9EFCAB994B5E2696D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Player;
 			target = 3566CE7721250363BAE931141A0703B1 /* Player */;
-			targetProxy = 86B2E00B0EF944201EF1A95E7DF7B095 /* PBXContainerItemProxy */;
+			targetProxy = 29CCBF5F77932CD2811BBFB116445671 /* PBXContainerItemProxy */;
 		};
-		74262F9E3A18FFB68C0364A98E1B3CEC /* PBXTargetDependency */ = {
+		D5B32FB79270FE1A804E9984CED487DF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MJRefresh;
 			target = 6868056D761E163D10FDAF8CF1C4D9B8 /* MJRefresh */;
-			targetProxy = E53A9F6826BC69CA274E522D8FD1BF3D /* PBXContainerItemProxy */;
+			targetProxy = FE25ABA563C0A1C975A11A9FFB7BA8ED /* PBXContainerItemProxy */;
 		};
-		8A87EB424519CFD1E923F3487896EE2E /* PBXTargetDependency */ = {
+		F9A81D4F7C19ACF731BC18867F273FD8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = SwiftyJSON;
-			target = D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */;
-			targetProxy = C72D28DD8B23E8897E10D79BC7CD8DE5 /* PBXContainerItemProxy */;
+			name = Cache;
+			target = 9513DC9A6C5DA07EDB2094920BC9EE79 /* Cache */;
+			targetProxy = CF0D6D91BFFE6CB8E6704C185B0EA675 /* PBXContainerItemProxy */;
 		};
-		E79CF01E97FD3D581AE718656F85A974 /* PBXTargetDependency */ = {
+		FEC8E52850B29DD6046BC54BC14C6E3E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
 			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
-			targetProxy = 9932C63284345E01518C4D65C607D41C /* PBXContainerItemProxy */;
-		};
-		F84A830CC4D438A08DCB37EBFFF51467 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftyJSON;
-			target = D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */;
-			targetProxy = 3DD9AF5B5CA2C1E781E0BAA327D0946E /* PBXContainerItemProxy */;
+			targetProxy = 68956F820403399ED2BE2EF7411B41EE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0609BAC1502E0EFCD2C4AD9CCDECA57D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3003B1B9C521B65B1A20B89A6298F8C /* EnolaGay.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/EnolaGay/EnolaGay-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/EnolaGay/EnolaGay-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/EnolaGay/EnolaGay.modulemap";
+				PRODUCT_MODULE_NAME = EnolaGay;
+				PRODUCT_NAME = EnolaGay;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		0E5F340F6A634E20C7DB331674D9D739 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DA56B119339E1B164858FEB85DD9C962 /* Player.release.xcconfig */;
@@ -1594,6 +1695,22 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		249AA1FE13E81623929FC553DF5E585F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94AF160A132E47B4E8FE1F76CDFE9099 /* EnolaGay.release.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/EnolaGay";
+				IBSC_MODULE = EnolaGay;
+				INFOPLIST_FILE = "Target Support Files/EnolaGay/ResourceBundle-EnolaGay-EnolaGay-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_NAME = EnolaGay;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -1688,37 +1805,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3A87D3A2920B99EA81250EC7FE75838B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94D4D7FAC91E3129AAE65356E939D98A /* SwiftyJSON.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
-				PRODUCT_MODULE_NAME = SwiftyJSON;
-				PRODUCT_NAME = SwiftyJSON;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1824,9 +1910,57 @@
 			};
 			name = Release;
 		};
-		634A289C879427F676FD61ADABCCF6CE /* Debug */ = {
+		63991004F3881F2EC0F8CE7C66EDB5A8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2C5828553494DBE142137019598B8ED /* EnolaGay.debug.xcconfig */;
+			baseConfigurationReference = 6E132433C929096E7B864C23A91D6098 /* SwiftyJSON.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyJSON;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		64BFA807AB2D711BFF820C8A4B3AD6E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3003B1B9C521B65B1A20B89A6298F8C /* EnolaGay.debug.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/EnolaGay";
+				IBSC_MODULE = EnolaGay;
+				INFOPLIST_FILE = "Target Support Files/EnolaGay/ResourceBundle-EnolaGay-EnolaGay-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_NAME = EnolaGay;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		7C22B1BD2E9EC319041AA40E0B92486F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94AF160A132E47B4E8FE1F76CDFE9099 /* EnolaGay.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1846,6 +1980,38 @@
 				MODULEMAP_FILE = "Target Support Files/EnolaGay/EnolaGay.modulemap";
 				PRODUCT_MODULE_NAME = EnolaGay;
 				PRODUCT_NAME = EnolaGay;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7E5E03D7A111C31DBAA23C90D6F94348 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94D4D7FAC91E3129AAE65356E939D98A /* SwiftyJSON.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyJSON;
+				PRODUCT_NAME = SwiftyJSON;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -2048,71 +2214,6 @@
 			};
 			name = Release;
 		};
-		C0EFC71CB909EE12259DACD253191D0F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E132433C929096E7B864C23A91D6098 /* SwiftyJSON.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
-				PRODUCT_MODULE_NAME = SwiftyJSON;
-				PRODUCT_NAME = SwiftyJSON;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		D5BE91F487C92DA61193262612396683 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F0D5E8B13536493E78F7EDCE93769C3 /* EnolaGay.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/EnolaGay/EnolaGay-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/EnolaGay/EnolaGay-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/EnolaGay/EnolaGay.modulemap";
-				PRODUCT_MODULE_NAME = EnolaGay;
-				PRODUCT_NAME = EnolaGay;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		EEB031C2664DA8B1E89847656252F870 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1915D021DEEC89651C484B289867592C /* Pods-EnolaGay_Tests.debug.xcconfig */;
@@ -2191,20 +2292,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A4972092E4193866EE7CA3D8A2781A2 /* Build configuration list for PBXNativeTarget "EnolaGay" */ = {
+		1F15FD0E7F42390C4151DC97E48F508C /* Build configuration list for PBXNativeTarget "EnolaGay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				634A289C879427F676FD61ADABCCF6CE /* Debug */,
-				D5BE91F487C92DA61193262612396683 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3993930F4E8EAD1A93F83F03AF7D10E8 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3A87D3A2920B99EA81250EC7FE75838B /* Debug */,
-				C0EFC71CB909EE12259DACD253191D0F /* Release */,
+				0609BAC1502E0EFCD2C4AD9CCDECA57D /* Debug */,
+				7C22B1BD2E9EC319041AA40E0B92486F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2232,6 +2324,24 @@
 			buildConfigurations = (
 				4206E70B9753A135DE3998C5E7441B24 /* Debug */,
 				0E5F340F6A634E20C7DB331674D9D739 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84AA10C3B001977E4428CE1CCC67D116 /* Build configuration list for PBXNativeTarget "EnolaGay-EnolaGay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64BFA807AB2D711BFF820C8A4B3AD6E0 /* Debug */,
+				249AA1FE13E81623929FC553DF5E585F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D49373CFDE7720B3587CD73382E641F1 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E5E03D7A111C31DBAA23C90D6F94348 /* Debug */,
+				63991004F3881F2EC0F8CE7C66EDB5A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

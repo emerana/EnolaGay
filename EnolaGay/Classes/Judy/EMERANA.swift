@@ -839,7 +839,7 @@ public extension NSMutableAttributedString {
 }
 
 
-// MARK: - UIView frame 相关的扩展
+// MARK: - UIView frame 相关扩展
 
 public extension EnolaGayWrapper where Base: UIView {
     
@@ -1525,6 +1525,27 @@ extension Date: EnolaGayCompatible { }
 
 extension Calendar: EnolaGayCompatible { }
 
+
+// MARK: - EnolaGay 中为 UIView 新增 toast 函数
+/// 在 EnolaGay 中的 Toast 兼容包装类型，该包装类型为 EnolaGay 中的方便方法提供了一个扩展点
+public struct EnolaGayToastWrapper {
+    /// 包装对象在 EnolaGay 中对应的原始对象
+    public var base: UIView
+    public init(_ base: UIView) { self.base = base }
+}
+
+/// EnolaGay 中为 UIView 新增 toast 函数协议
+public protocol EnolaGayToastCompatible: UIView { }
+
+extension EnolaGayToastCompatible {
+    /// 获取在 EnolaGay 中的兼容类型包装对象，即 EnolaGay 空间持有者对象
+    public var toast: EnolaGayToastWrapper {
+        get { return EnolaGayToastWrapper(self) }
+        set { }
+    }
+}
+
+extension UIView: EnolaGayToastCompatible { }
 
 // MARK: - Swift提供的许多功能强大的全局函数
 

@@ -6,7 +6,65 @@
 import UIKit
 import SwiftyJSON
 
-open class JudyTipViewCtrl: UIViewController {
+public class Tip {
+    var title = "标题"
+    var subTitle = "副标题"
+    var toast: JudyTipViewCtrl?
+    var hostViewCtrl: UIViewController?
+
+    
+    public init(host: UIViewController) {
+        hostViewCtrl = host
+    }
+    
+    public func show(msg: String) {
+        let currentBundle = Bundle(for: JudyTipViewCtrl.classForCoder())
+        guard let tipViewCtrl = currentBundle.loadNibNamed("TipViewCtrl", owner: nil, options: nil)?.first as? JudyTipViewCtrl else {
+            return
+        }
+        hostViewCtrl?.addChild(tipViewCtrl)
+        hostViewCtrl?.view.addSubview(tipViewCtrl.view)
+        toast = tipViewCtrl
+    }
+    
+    public func dismiss() {
+        toast?.view.removeFromSuperview()
+        toast?.removeFromParent()
+    }
+    
+    deinit {
+        Judy.logHappy("Tip 已释放")
+    }
+
+}
+
+public class JudyTipViewCtrl: UIViewController {
+
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    internal required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    convenience init() {
+//        let nibNameOrNil = String(classForCoder.string)
+        let currentBundle = Bundle(for: JudyTipViewCtrl.classForCoder())
+        
+         // 考虑到 xib 文件可能不存在或被删，故加入判断
+//        [NSBundle bundleWithPath:[[NSBundle bundleForClass:[CHDatePickerView class]] pathForResource:@"CHDatePickerLocalizable" ofType:@"bundle"]];
+//        let s = Bundle(path:
+//                Bundle(for: JudyTipViewCtrl.classForCoder()).path(forResource: "JudyTipViewCtrl", ofType: "bundle")!
+//        )
+//
+        if currentBundle.path(forResource: "TipViewCtrl", ofType: "xib") != nil {
+             self.init(nibName: "TipViewCtrl", bundle: nil)
+         } else {
+             self.init(nibName: nil, bundle: nil)
+             view.backgroundColor = .white
+         }
+    }
     
     deinit { Judy.logHappy("\(classForCoder) - 已释放") }
 }
