@@ -161,7 +161,7 @@ extension ToastViewCtrl {
             navigationController?.view.makeToast("This is a piece of toast with an image", duration: 2.0, position: .center, title: nil, image: UIImage(named: "toast.png"))
         case 4:
             // Make toast with an image, title, and completion closure
-            navigationController?.view.makeToast("This is a piece of toast with a title, image, and completion closure", duration: 2.0, position: .bottom, title: "Toast Title", image: UIImage(named: "toast.png")) { didTap in
+            navigationController?.view.makeToast("This is a piece of toast with a title, image, and completion closure", duration: 2.0, position: .bottom, title: "Toast Title", image: nil) { didTap in
                 if didTap {
                     print("completion from tap")
                 } else {
@@ -171,10 +171,10 @@ extension ToastViewCtrl {
         case 5:
             // Make toast with a custom style
             var style = ToastStyle()
-            style.messageFont = UIFont(name: "Zapfino", size: 14.0)!
-            style.messageColor = UIColor.red
+            style.messageFont = UIFont(size: 13)
+            style.messageColor = .red
             style.messageAlignment = .center
-            style.backgroundColor = UIColor.yellow
+            style.backgroundColor = .purple
             navigationController?.view.makeToast("This is a piece of toast with a custom style", duration: 3.0, position: .bottom, style: style)
         case 6:
             // Show a custom view as toast
