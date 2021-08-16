@@ -12,7 +12,7 @@
 import UIKit
 
 /// 具有事件穿透效果的 view，即该视图不接收响应事件，常用于视图控制器中的根 view
-open class PenetrateView: UIView {
+public class PenetrateView: UIView {
     // 返回当前视图中最远的派生视图对象，它包含点。如果这个点完全位于接收器的视图层次结构之外，则返回 nil
     // 返回视图层次结构（包括其自身）中包含指定点的接收器的最远子体。
     /*
