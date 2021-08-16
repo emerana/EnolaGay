@@ -1,60 +1,28 @@
 //
 //  Toast.swift
-//  Toast-Swift
+//  Toast 是一个 Swift 扩展，它向 UIView 对象类添加 Toast 通知。它的目的是简单、轻量级和易于使用。大多数 toast 通知可以用一行代码触发。
 //
-//  Copyright (c) 2015-2019 Charles Scalesse.
+//  “makeToast”方法创建一个新视图，然后将其显示为 toast.
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a
-//  copy of this software and associated documentation files (the
-//  "Software"), to deal in the Software without restriction, including
-//  without limitation the rights to use, copy, modify, merge, publish,
-//  distribute, sublicense, and/or sell copies of the Software, and to
-//  permit persons to whom the Software is furnished to do so, subject to
-//  the following conditions:
+//  “showToast”方法将任何视图显示为 toast.
 //
-//  The above copyright notice and this permission notice shall be included
-//  in all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-//  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-//  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-//  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-//  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-//  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-//  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import UIKit
 
-/**
- Toast is a Swift extension that adds toast notifications to the `UIView` object class.
- It is intended to be simple, lightweight, and easy to use. Most toast notifications
- can be triggered with a single line of code.
- 
- The `makeToast` methods create a new view and then display it as toast.
- 
- The `showToast` methods display any view as toast.
- 
- */
 public extension UIView {
     
-    /**
-     Keys used for associated objects.
-     */
+    /** 用于关联对象的键 */
     private struct ToastKeys {
-        static var timer        = "com.toast-swift.timer"
-        static var duration     = "com.toast-swift.duration"
-        static var point        = "com.toast-swift.point"
-        static var completion   = "com.toast-swift.completion"
-        static var activeToasts = "com.toast-swift.activeToasts"
-        static var activityView = "com.toast-swift.activityView"
-        static var queue        = "com.toast-swift.queue"
+        static var timer        = "enolagay.toast.timer"
+        static var duration     = "enolagay.toast.duration"
+        static var point        = "enolagay.toast.point"
+        static var completion   = "enolagay.toast.completion"
+        static var activeToasts = "enolagay.toast.activeToasts"
+        static var activityView = "enolagay.toast.activityView"
+        static var queue        = "enolagay.toast.queue"
     }
     
-    /**
-     Swift closures can't be directly associated with objects via the
-     Objective-C runtime, so the (ugly) solution is to wrap them in a
-     class that can be used with associated objects.
-     */
+    /// Swift 闭包不能通过直接与对象关联 Objective-C 运行时，所以（不详的）解决方案是将它们包装在类，该类可与关联对象一起使用。
     private class ToastCompletionWrapper {
         let completion: ((Bool) -> Void)?
         
@@ -92,19 +60,16 @@ public extension UIView {
     }
     
     // MARK: - Make Toast Methods
-    
-    /**
-     Creates and presents a new toast view.
-     
-     @param message The message to be displayed
-     @param duration The toast duration
-     @param position The toast's position
-     @param title The title
-     @param image The image
-     @param style The style. The shared style will be used when nil
-     @param completion The completion closure, executed after the toast view disappears.
-            didTap will be `true` if the toast view was dismissed from a tap.
-     */
+
+    /// 创建并显示新的 toast
+    /// - Parameters:
+    ///   - message: 显示的消息体
+    ///   - duration: toast 显示的持续时间
+    ///   - position: toast 显示的位置
+    ///   - title: 标题
+    ///   - image: 在 toast 中添加一张图片
+    ///   - style: toast 风格。当为 nil 时，将使用共享样式。
+    ///   - completion: 完成闭包，在 toast 视图消失后执行。如果 toast 从 tap 中删除，则 didTap 将为 true.
     func makeToast(_ message: String?, duration: TimeInterval = ToastManager.shared.duration, position: ToastPosition = ToastManager.shared.position, title: String? = nil, image: UIImage? = nil, style: ToastStyle = ToastManager.shared.style, completion: ((_ didTap: Bool) -> Void)? = nil) {
         do {
             let toast = try toastViewForMessage(message, title: title, image: image, style: style)
@@ -114,18 +79,15 @@ public extension UIView {
         } catch {}
     }
     
-    /**
-     Creates a new toast view and presents it at a given center point.
-     
-     @param message The message to be displayed
-     @param duration The toast duration
-     @param point The toast's center point
-     @param title The title
-     @param image The image
-     @param style The style. The shared style will be used when nil
-     @param completion The completion closure, executed after the toast view disappears.
-            didTap will be `true` if the toast view was dismissed from a tap.
-     */
+    /// 创建新的 toast 视图并在给定的中心点显示它
+    /// - Parameters:
+    ///   - message: 显示的消息体
+    ///   - duration: toast 显示的持续时间
+    ///   - point: toast 的中心点
+    ///   - title: 标题
+    ///   - image: 在 toast 中添加一张图片
+    ///   - style: toast 风格。当为 nil 时，将使用共享样式。
+    ///   - completion: 完成闭包，在 toast 视图消失后执行。如果 toast 从 tap 中删除，则 didTap 将为 true.
     func makeToast(_ message: String?, duration: TimeInterval = ToastManager.shared.duration, point: CGPoint, title: String?, image: UIImage?, style: ToastStyle = ToastManager.shared.style, completion: ((_ didTap: Bool) -> Void)?) {
         do {
             let toast = try toastViewForMessage(message, title: title, image: image, style: style)
@@ -137,33 +99,23 @@ public extension UIView {
     
     // MARK: - Show Toast Methods
     
-    /**
-     Displays any view as toast at a provided position and duration. The completion closure
-     executes when the toast view completes. `didTap` will be `true` if the toast view was
-     dismissed from a tap.
-     
-     @param toast The view to be displayed as toast
-     @param duration The notification duration
-     @param position The toast's position
-     @param completion The completion block, executed after the toast view disappears.
-     didTap will be `true` if the toast view was dismissed from a tap.
-     */
+    /// 在指定的位置和持续时间将任何视图显示为 toast
+    /// - Parameters:
+    ///   - toast: 显示成 toast 的 view
+    ///   - duration: 持续时长
+    ///   - position: toast 要显示的位置
+    ///   - completion: toast 完成的闭包，在 toast 消失后，将执行 completion，如果 toast 已经消失 didTap 将为 true.
     func showToast(_ toast: UIView, duration: TimeInterval = ToastManager.shared.duration, position: ToastPosition = ToastManager.shared.position, completion: ((_ didTap: Bool) -> Void)? = nil) {
         let point = position.centerPoint(forToast: toast, inSuperview: self)
         showToast(toast, duration: duration, point: point, completion: completion)
     }
     
-    /**
-     Displays any view as toast at a provided center point and duration. The completion closure
-     executes when the toast view completes. `didTap` will be `true` if the toast view was
-     dismissed from a tap.
-     
-     @param toast The view to be displayed as toast
-     @param duration The notification duration
-     @param point The toast's center point
-     @param completion The completion block, executed after the toast view disappears.
-     didTap will be `true` if the toast view was dismissed from a tap.
-     */
+    /// 在提供的中心点和持续时间上将任何视图显示为 toast
+    /// - Parameters:
+    ///   - toast: 显示成 toast 的 view
+    ///   - duration: 持续时长
+    ///   - point: toast 的中心点
+    ///   - completion: toast 完成的闭包，在 toast 消失后，将执行 completion，如果 toast 已经消失 didTap 将为 true.
     func showToast(_ toast: UIView, duration: TimeInterval = ToastManager.shared.duration, point: CGPoint, completion: ((_ didTap: Bool) -> Void)? = nil) {
         objc_setAssociatedObject(toast, &ToastKeys.completion, ToastCompletionWrapper(completion), .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
@@ -178,41 +130,29 @@ public extension UIView {
     }
     
     // MARK: - Hide Toast Methods
-    
-    /**
-     Hides the active toast. If there are multiple toasts active in a view, this method
-     hides the oldest toast (the first of the toasts to have been presented).
-     
-     @see `hideAllToasts()` to remove all active toasts from a view.
-     
-     @warning This method has no effect on activity toasts. Use `hideToastActivity` to
-     hide activity toasts.
-     
-    */
+   
+    /// 隐藏活跃的 toast
+    ///
+    /// 如果一个视图中有多个活动的 toast，这个方法会隐藏最旧的的 toast(第一个已经出现的 toast)，
+    /// 你可以使用 `hideAllToasts()` 方法从视图中删除所有活动的 toast.
+    /// - Warning: 此方法对活跃的 toast 没有影响。使用 hideToastActivity 方法隐藏活跃的 toast.
     func hideToast() {
         guard let activeToast = activeToasts.firstObject as? UIView else { return }
         hideToast(activeToast)
     }
     
-    /**
-     Hides an active toast.
-     
-     @param toast The active toast view to dismiss. Any toast that is currently being displayed
-     on the screen is considered active.
-     
-     @warning this does not clear a toast view that is currently waiting in the queue.
-     */
+    /// 隐藏一个活跃的 toast
+    /// - Warning: 这并不能清除当前在队列中等待的 toast
+    /// - Parameter toast: 将被消失的 toast.任何当前显示在屏幕上的 toast 都被认为是活跃的。
     func hideToast(_ toast: UIView) {
         guard activeToasts.contains(toast) else { return }
         hideToast(toast, fromTap: false)
     }
     
-    /**
-     Hides all toast views.
-     
-     @param includeActivity If `true`, toast activity will also be hidden. Default is `false`.
-     @param clearQueue If `true`, removes all toast views from the queue. Default is `true`.
-    */
+    /// 隐藏所有 toast
+    /// - Parameters:
+    ///   - includeActivity: 如果 true，toast 活动也会被隐藏。该值默认为 false.
+    ///   - clearQueue: 如果 true，则从队列中删除所有 toast.该值默认为 true.
     func hideAllToasts(includeActivity: Bool = false, clearQueue: Bool = true) {
         if clearQueue {
             clearToastQueue()
@@ -226,29 +166,18 @@ public extension UIView {
         }
     }
     
-    /**
-     Removes all toast views from the queue. This has no effect on toast views that are
-     active. Use `hideAllToasts(clearQueue:)` to hide the active toasts views and clear
-     the queue.
-     */
+    /// 从队列中删除所有 toast 视图
+    /// - Warning: 这对活跃的 toast 没有影响。你可以使用 `hideAllToasts(clearQueue:)` 隐藏活跃的 toast 并清除队列。
     func clearToastQueue() {
         queue.removeAllObjects()
     }
     
     // MARK: - Activity Methods
     
-    /**
-     Creates and displays a new toast activity indicator view at a specified position.
-    
-     @warning Only one toast activity indicator view can be presented per superview. Subsequent
-     calls to `makeToastActivity(position:)` will be ignored until `hideToastActivity()` is called.
-    
-     @warning `makeToastActivity(position:)` works independently of the `showToast` methods. Toast
-     activity views can be presented and dismissed while toast views are being displayed.
-     `makeToastActivity(position:)` has no effect on the queueing behavior of the `showToast` methods.
-    
-     @param position The toast's position
-     */
+    /// 在指定位置创建并显示一个新的 toast 活动指示器视图
+    /// - Warning: 每个父视图只能显示一个 toast 活动指示器视图。随后对 makeToastActivity(position:) 函数的调用将被忽略，直到 hideToastActivity() 被调用。
+    /// - Warning: makeToastActivity(position:) 独立于 showToast 方法。toast 活动视图可以在 toast 视图被显示时显示和取消。makeToastActivity(position:) 对 showToast 方法的排队行为没有影响。
+    /// - Parameter position: toast 的位置
     func makeToastActivity(_ position: ToastPosition) {
         // sanity
         guard objc_getAssociatedObject(self, &ToastKeys.activityView) as? UIView == nil else { return }
@@ -258,18 +187,10 @@ public extension UIView {
         makeToastActivity(toast, point: point)
     }
     
-    /**
-     Creates and displays a new toast activity indicator view at a specified position.
-     
-     @warning Only one toast activity indicator view can be presented per superview. Subsequent
-     calls to `makeToastActivity(position:)` will be ignored until `hideToastActivity()` is called.
-     
-     @warning `makeToastActivity(position:)` works independently of the `showToast` methods. Toast
-     activity views can be presented and dismissed while toast views are being displayed.
-     `makeToastActivity(position:)` has no effect on the queueing behavior of the `showToast` methods.
-     
-     @param point The toast's center point
-     */
+    /// 在指定位置创建并显示一个新的 toast 活动指示器视图
+    /// - Warning: 每个父视图只能显示一个 toast 活动指示器视图。随后对 makeToastActivity(point:) 函数的调用将被忽略，直到 hideToastActivity() 被调用。
+    /// - Warning: makeToastActivity(point:) 独立于 showToast 方法。toast 活动视图可以在 toast 视图被显示时显示和取消。makeToastActivity(point:) 对 showToast 方法的排队行为没有影响。
+    /// - Parameter point: toast 的中心
     func makeToastActivity(_ point: CGPoint) {
         // sanity
         guard objc_getAssociatedObject(self, &ToastKeys.activityView) as? UIView == nil else { return }
@@ -278,9 +199,7 @@ public extension UIView {
         makeToastActivity(toast, point: point)
     }
     
-    /**
-     Dismisses the active toast activity indicator view.
-     */
+    /// 隐藏/使消失活跃的 toast 活动指示器视图
     func hideToastActivity() {
         if let toast = objc_getAssociatedObject(self, &ToastKeys.activityView) as? UIView {
             UIView.animate(withDuration: ToastManager.shared.style.fadeDuration, delay: 0.0, options: [.curveEaseIn, .beginFromCurrentState], animations: {
@@ -394,22 +313,14 @@ public extension UIView {
     
     // MARK: - Toast Construction
     
-    /**
-     Creates a new toast view with any combination of message, title, and image.
-     The look and feel is configured via the style. Unlike the `makeToast` methods,
-     this method does not present the toast view automatically. One of the `showToast`
-     methods must be used to present the resulting view.
-    
-     @warning if message, title, and image are all nil, this method will throw
-     `ToastError.missingParameters`
-    
-     @param message The message to be displayed
-     @param title The title
-     @param image The image
-     @param style The style. The shared style will be used when nil
-     @throws `ToastError.missingParameters` when message, title, and image are all nil
-     @return The newly created toast view
-    */
+    /// 创建一个包含消息、标题和图像的新 toast。外观是通过样式配置的。与' makeToast '方法不同，该方法不会自动显示 toast 视图。其中一个 `showToast` 方法必须用于显示结果视图。
+    /// - Parameters:
+    ///   - message: 显示的消息体
+    ///   - title: 标题
+    ///   - image: 在 toast 中添加一张图片
+    ///   - style: toast 风格。当为 nil 时，将使用共享样式。
+    /// - Throws: ToastError.missingParameters, 当 message、title、image 都为 nil 时抛出异常。
+    /// - Returns: 新创建的 toast
     func toastViewForMessage(_ message: String?, title: String?, image: UIImage?, style: ToastStyle) throws -> UIView {
         // sanity
         guard message != nil || title != nil || image != nil else {
