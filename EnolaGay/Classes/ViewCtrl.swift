@@ -6,7 +6,12 @@
 import UIKit
 import SwiftyJSON
 
-/// 遵循统一标准的核心 ViewController.
+open class JudyTipViewCtrl: UIViewController {
+    
+    deinit { Judy.logHappy("\(classForCoder) - 已释放") }
+}
+
+/// 遵循统一标准的核心 ViewController
 ///
 /// * 重写 viewTitle 属性为当前界面设置标题
 /// * 本类中包含一个 json，用好它
@@ -195,7 +200,7 @@ open class JudyBaseViewCtrl: UIViewController {
     open func reqOver() {}
     
     deinit {
-        Judy.logHappy("\(classForCoder) - \(viewTitle ?? title ?? navigationItem.title ?? "未命名界面") 已释放。")
+        Judy.logHappy("\(classForCoder) - \(viewTitle ?? title ?? navigationItem.title ?? "未命名界面") 已释放")
     }
     
 }

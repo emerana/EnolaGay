@@ -11,7 +11,27 @@
 
 import UIKit
 
-/// 波浪动画View
+/// 具有事件穿透效果的 view，即该视图不接收响应事件，常用于视图控制器中的根 view
+open class PenetrateView: UIView {
+    // 返回当前视图中最远的派生视图对象，它包含点。如果这个点完全位于接收器的视图层次结构之外，则返回 nil
+    // 返回视图层次结构（包括其自身）中包含指定点的接收器的最远子体。
+    /*
+     此方法通过调用每个子视图的point（inside:with:）方法来遍历视图层次结构，以确定哪个子视图应接收触摸事件。
+     如果point（inside:with:）返回true，则子视图的层次结构将被类似地遍历，直到找到包含指定点的最前面的视图为止。
+     如果视图不包含该点，则忽略其视图层次的分支。
+     您几乎不需要自己调用此方法，但可以重写它以隐藏子视图中的触摸事件。
+     此方法将忽略隐藏、禁用用户交互或alpha级别小于0.01的视图对象。在确定命中率时，此方法不考虑视图的内容。因此，即使指定的点位于视图内容的透明部分，也可以返回视图。
+     位于接收器边界之外的点永远不会报告为命中，即使它们实际上位于接收器的一个子视图内。如果当前视图的clipsToBounds属性设置为false，并且受影响的子视图超出了视图的边界，则可能会发生这种情况。
+     */
+    open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let hitView = super.hitTest(point, with: event)
+        // 当点击了 view 本身则不响应穿透事件
+        if hitView == self { return nil }
+        return super.hitTest(point, with: event)
+    }
+}
+
+/// 波浪动画 View
 @IBDesignable open class JudyWaterWaveView: UIView {
     
     /** 进度，已用容量百分比。默认为60% */
