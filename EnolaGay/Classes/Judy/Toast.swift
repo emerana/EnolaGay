@@ -668,9 +668,9 @@ public struct ToastStyle {
     
     /**
      The size of the toast activity view when `makeToastActivity(position:)` is called.
-     Default is 100 x 100.
+     Default is 68 x 68.
     */
-    public var activitySize = CGSize(width: 100.0, height: 100.0)
+    public var activitySize = CGSize(width: 68.0, height: 68.0)
     
     /**
      The fade in/out animation duration. Default is 0.2.
