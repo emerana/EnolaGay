@@ -39,6 +39,11 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
 
     }
 
+    @IBAction func showTipViewCtrl(_ sender: Any) {
+        let tip = Tip(host: self)
+        tip.show(msg: "")
+    }
+    
     override func reqNotApi() {
         //JudyTip.message(text: apiData.stringValue)
     }

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EnolaGay'
-  s.version          = '3.4.4'
+  s.version          = '3.4.5'
   s.summary          = '便携式 App 架构，由早期的 EMERANA 进化而成。'
 
 # This description is used to generate tags and improve search results.
@@ -28,8 +28,38 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '13.0'
   s.swift_version = '5.0'
+  s.requires_arc = true
+  #  s.default_subspec  = 'EMERANA'
 
-  s.source_files = 'EnolaGay/Classes/**/*'
+  s.subspec 'EMERANA' do |emerana|
+      emerana.source_files = 'EnolaGay/Classes/*'
+      # emerana.exclude_files = 'EnolaGay/Classes/*'
+      emerana.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
+
+  end
+  
+  s.subspec 'Judy' do |judy|
+      judy.source_files = 'EnolaGay/Classes/Judy/*'
+  end
+
+  s.subspec 'SegmentedView' do |segmentedView|
+      segmentedView.source_files = 'EnolaGay/Classes/SegmentedView/*'
+  end
+  
+  s.subspec 'HPickerView' do |hpickerView|
+      hpickerView.source_files = 'EnolaGay/Classes/HPickerView/*'
+  end
+  
+  s.subspec 'JudyTextFieldEffects' do |textFieldEffects|
+      textFieldEffects.source_files = 'EnolaGay/Classes/JudyTextFieldEffects/*'
+  end
+  
+  s.subspec 'SearchViewCtrl' do |searchViewCtrl|
+      searchViewCtrl.source_files = 'EnolaGay/Classes/SearchViewCtrl/*'
+  end
+  
+  #  emerana.resource_bundles = {'SwiftMessages' => ['SwiftMessages/Resources/**/*']}
+  #  s.source_files = 'EnolaGay/Classes/**/*' 包含所有子目录下的所有文件
   
   # s.resource_bundles = {
   #   'EnolaGay' => ['EnolaGay/Assets/*.png']
