@@ -20,6 +20,7 @@
   },
   "swift_versions": "5.0",
   "requires_arc": true,
+  "default_subspecs": "EMERANA",
   "dependencies": {
     "SwiftyJSON": [
 
@@ -28,47 +29,29 @@
   "subspecs": [
     {
       "name": "EMERANA",
-      "source_files": "EnolaGay/Classes/Core/*"
-    },
-    {
-      "name": "SegmentedView",
-      "dependencies": {
-        "EnolaGay/EMERANA": [
-
-        ]
-      },
-      "source_files": "EnolaGay/Classes/SegmentedView/*"
-    },
-    {
-      "name": "HPickerView",
-      "dependencies": {
-        "EnolaGay/EMERANA": [
-
-        ]
-      },
-      "source_files": "EnolaGay/Classes/HPickerView/*"
-    },
-    {
-      "name": "JudyTextFieldEffects",
-      "dependencies": {
-        "EnolaGay/EMERANA": [
-
-        ]
-      },
-      "source_files": "EnolaGay/Classes/JudyTextFieldEffects/*"
-    },
-    {
-      "name": "SearchViewCtrl",
-      "dependencies": {
-        "EnolaGay/EMERANA": [
-
-        ]
-      },
-      "source_files": "EnolaGay/Classes/SearchViewCtrl/*"
-    },
-    {
-      "name": "Judy",
-      "source_files": "EnolaGay/Classes/Judy/*"
+      "source_files": "EnolaGay/Classes/Core/*",
+      "subspecs": [
+        {
+          "name": "SegmentedView",
+          "source_files": "EnolaGay/Classes/SegmentedView/*"
+        },
+        {
+          "name": "HPickerView",
+          "source_files": "EnolaGay/Classes/HPickerView/*"
+        },
+        {
+          "name": "JudyTextFieldEffects",
+          "source_files": "EnolaGay/Classes/JudyTextFieldEffects/*"
+        },
+        {
+          "name": "SearchViewCtrl",
+          "source_files": "EnolaGay/Classes/SearchViewCtrl/*"
+        },
+        {
+          "name": "Judy",
+          "source_files": "EnolaGay/Classes/Judy/*"
+        }
+      ]
     }
   ],
   "swift_version": "5.0"
