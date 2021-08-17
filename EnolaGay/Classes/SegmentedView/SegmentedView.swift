@@ -498,3 +498,44 @@ extension SegmentedView: UICollectionViewDelegateFlowLayout {
         return innerItemSpacing
     }
 }
+
+
+// MARK: - 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl
+
+/// 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl.
+///  - warning: 本类中的 segmentedCtrl 已经和 pageViewCtrl 互相关联，无需手动配置二者关系
+open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDelegate {
+    
+    /// 内置的分段控制器，请自行配置其 dataSource.
+    public lazy private(set) var segmentedCtrl: SegmentedView = {
+        let segmentedView = SegmentedView()
+        segmentedView.delegate = self
+        return segmentedView
+    }()
+
+    // MARK: - UIPageViewControllerDelegate
+
+    open override func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+
+        super.pageViewController(pageViewController, didFinishAnimating: finished, previousViewControllers: previousViewControllers, transitionCompleted: completed)
+        
+        segmentedCtrl.selectItem(at: currentIndex)
+    }
+
+    // MARK: - SegmentedViewDelegate
+
+    open func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int) {
+        // segmentedCtrl 改变 viewControllers.
+        guard index < viewCtrlArray.count else {
+            Judy.logWarning("目标 index 不在 viewCtrlArray 范围!")
+            return
+        }
+        isDrag = false
+
+        let viewCtrls = [viewCtrlArray[index]]
+        // 不应该在 completion 里设置 lastSelectIndex，这样不及时
+        setViewControllers(viewCtrls, direction: ((currentIndex < index) ? .forward : .reverse), animated: true)
+        currentIndex = index
+    }
+    
+}
