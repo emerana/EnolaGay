@@ -134,7 +134,7 @@ extension UIView {
     /// 隐藏活跃的 toast
     ///
     /// 如果一个视图中有多个活动的 toast，这个方法会隐藏最旧的的 toast(第一个已经出现的 toast)，
-    /// 你可以使用 `hideAllToasts()` 方法从视图中删除所有活动的 toast.
+    /// 你可以使用 hideAllToasts() 方法从视图中删除所有活动的 toast.
     /// - Warning: 此方法对活跃的 toast 没有影响。使用 hideToastActivity 方法隐藏活跃的 toast.
     func hideToast() {
         guard let activeToast = activeToasts.firstObject as? UIView else { return }
@@ -151,7 +151,7 @@ extension UIView {
     
     /// 隐藏所有 toast
     /// - Parameters:
-    ///   - includeActivity: 如果 true，toast 活动也会被隐藏。该值默认为 false.
+    ///   - includeActivity: 如果 true，活跃的 toast 也会被隐藏。该值默认为 false.
     ///   - clearQueue: 如果 true，则从队列中删除所有 toast.该值默认为 true.
     func hideAllToasts(includeActivity: Bool = false, clearQueue: Bool = true) {
         if clearQueue {
@@ -167,7 +167,7 @@ extension UIView {
     }
     
     /// 从队列中删除所有 toast 视图
-    /// - Warning: 这对活跃的 toast 没有影响。你可以使用 `hideAllToasts(clearQueue:)` 隐藏活跃的 toast 并清除队列。
+    /// - Warning: 这对活跃的 toast 没有影响。你可以使用 hideAllToasts(clearQueue:) 隐藏活跃的 toast 并清除队列。
     func clearToastQueue() {
         queue.removeAllObjects()
     }

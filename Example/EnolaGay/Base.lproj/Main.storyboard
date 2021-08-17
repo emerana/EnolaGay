@@ -163,27 +163,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qHv-SK-pjM">
-                                <rect key="frame" x="158.66666666666666" y="369" width="73" height="106"/>
+                                <rect key="frame" x="16" y="331" width="86" height="182"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-wo-TZ8">
-                                        <rect key="frame" x="0.0" y="0.0" width="73" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="86" height="30"/>
                                         <state key="normal" title="reqApi()"/>
                                         <connections>
                                             <action selector="reqApiAction:" destination="M3B-a3-DV6" eventType="touchUpInside" id="3UD-1t-h3V"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azn-VA-DoB">
-                                        <rect key="frame" x="0.0" y="38" width="73" height="30"/>
+                                        <rect key="frame" x="0.0" y="38" width="86" height="30"/>
                                         <state key="normal" title="showToast"/>
                                         <connections>
                                             <action selector="showTipViewCtrl:" destination="M3B-a3-DV6" eventType="touchUpInside" id="z8g-98-d1N"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHv-Dq-C49">
-                                        <rect key="frame" x="0.0" y="76" width="73" height="30"/>
+                                        <rect key="frame" x="0.0" y="76" width="86" height="30"/>
                                         <state key="normal" title="HideToast"/>
                                         <connections>
                                             <action selector="hideToast:" destination="M3B-a3-DV6" eventType="touchUpInside" id="ehv-og-qtq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfW-8V-k9n">
+                                        <rect key="frame" x="0.0" y="114" width="86" height="30"/>
+                                        <state key="normal" title="showActivity"/>
+                                        <connections>
+                                            <action selector="showActivity:" destination="M3B-a3-DV6" eventType="touchUpInside" id="4qp-3o-6j2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ya-8c-ZYD">
+                                        <rect key="frame" x="0.0" y="152" width="86" height="30"/>
+                                        <state key="normal" title="hideActivity"/>
+                                        <connections>
+                                            <action selector="hideActivity:" destination="M3B-a3-DV6" eventType="touchUpInside" id="brw-Ye-0vl"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -192,7 +206,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="qHv-SK-pjM" firstAttribute="centerY" secondItem="c1r-BO-vh4" secondAttribute="centerY" id="ohy-YZ-7YW"/>
-                            <constraint firstItem="qHv-SK-pjM" firstAttribute="centerX" secondItem="c1r-BO-vh4" secondAttribute="centerX" id="sGc-Y1-dJA"/>
+                            <constraint firstItem="qHv-SK-pjM" firstAttribute="leading" secondItem="c1r-BO-vh4" secondAttribute="leadingMargin" id="voX-ss-VDJ"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -26,16 +26,24 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
         //         requestConfig.parameters?["userid"] = 323430
     }
     
+    override func reqNotApi() {
+        view.toast.makeToast(apiData.ApiERROR?[.msg].stringValue)
+    }
+    
+    override func reqOver() {
+        Judy.log("请求完毕：\n\(apiData)")
+    }
+    
     @IBAction func reqApiAction(_ sender: Any) {
-//        reqApi()
-                let requestConfig = ApiRequestConfig()
-//                requestConfig.api = Actions.createUserChatToken
-                requestConfig.method = .get
-                requestConfig.parameters?["userid"] = "323430"
+        //        reqApi()
+        let requestConfig = ApiRequestConfig()
+        //                requestConfig.api = Actions.createUserChatToken
+        requestConfig.method = .get
+        requestConfig.parameters?["userid"] = "323430"
         
-                requestConfig.request { json in
-        
-                }
+        requestConfig.request { json in
+            
+        }
     }
     
     @IBAction func showTipViewCtrl(_ sender: Any) {
@@ -45,18 +53,17 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
     }
     
     @IBAction func hideToast(_ sender: Any) {
-        
-        view.toast.hideToast()
+        view.toast.hideAllToasts()
     }
     
-    override func reqNotApi() {
-        view.toast.makeToast(apiData.ApiERROR?[.msg].stringValue)
+    @IBAction func showActivity(_ sender: Any) {
+        view.toast.makeToastActivity(.center)
     }
-    
-    override func reqOver() {
-        Judy.log("请求完毕：\n\(apiData)")
+
+    @IBAction func hideActivity(_ sender: Any) {
+        view.toast.hideToastActivity()
     }
-    
+
 }
 
 public enum Actions: String, ApiAction {

@@ -1597,7 +1597,7 @@ public extension EnolaGayToastWrapper {
     /// 隐藏活跃的 toast
     ///
     /// 如果一个视图中有多个活动的 toast，这个方法会隐藏最旧的的 toast(第一个已经出现的 toast)，
-    /// 你可以使用 `hideAllToasts()` 方法从视图中删除所有活动的 toast.
+    /// 你可以使用 hideAllToasts() 方法从视图中删除所有活动的 toast.
     /// - Warning: 此方法对活跃的 toast 没有影响。使用 hideToastActivity 方法隐藏活跃的 toast.
     func hideToast() {
         base.hideToast()
@@ -1612,14 +1612,14 @@ public extension EnolaGayToastWrapper {
     
     /// 隐藏所有 toast
     /// - Parameters:
-    ///   - includeActivity: 如果 true，toast 活动也会被隐藏。该值默认为 false.
+    ///   - includeActivity: 如果 true，活跃的 toast 也会被隐藏。该值默认为 false.
     ///   - clearQueue: 如果 true，则从队列中删除所有 toast.该值默认为 true.
     func hideAllToasts(includeActivity: Bool = false, clearQueue: Bool = true) {
         base.hideAllToasts(includeActivity: includeActivity, clearQueue: clearQueue)
     }
     
     /// 从队列中删除所有 toast 视图
-    /// - Warning: 这对活跃的 toast 没有影响。你可以使用 `hideAllToasts(clearQueue:)` 隐藏活跃的 toast 并清除队列。
+    /// - Warning: 这对活跃的 toast 没有影响。你可以使用 hideAllToasts(clearQueue:) 隐藏活跃的 toast 并清除队列。
     func clearToastQueue() {
         base.clearToastQueue()
     }
@@ -1653,7 +1653,6 @@ public extension EnolaGayToastWrapper {
 
 // MARK: - Activity Methods
 public extension EnolaGayToastWrapper {
-    
     /// 在指定位置创建并显示一个新的 toast 活动指示器视图
     /// - Warning: 每个父视图只能显示一个 toast 活动指示器视图。随后对 makeToastActivity(position:) 函数的调用将被忽略，直到 hideToastActivity() 被调用。
     /// - Warning: makeToastActivity(position:) 独立于 showToast 方法。toast 活动视图可以在 toast 视图被显示时显示和取消。makeToastActivity(position:) 对 showToast 方法的排队行为没有影响。
