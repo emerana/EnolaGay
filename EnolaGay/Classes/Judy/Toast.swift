@@ -9,7 +9,7 @@
 
 import UIKit
 
-public extension UIView {
+extension UIView {
     
     /// 用于关联对象的键
     private struct ToastKeys {
@@ -313,7 +313,7 @@ public extension UIView {
     
     // MARK: - Toast Construction
     
-    /// 创建一个包含消息、标题和图像的新 toast。外观是通过样式配置的。与' makeToast '方法不同，该方法不会自动显示 toast 视图。其中一个 `showToast` 方法必须用于显示结果视图。
+    /// 创建一个包含消息、标题和图像的新 toast。外观是通过样式配置的。与 makeToast 方法不同，该方法不会自动显示 toast 视图。其中一个 showToast 方法必须用于显示结果视图。
     /// - Parameters:
     ///   - message: 显示的消息体
     ///   - title: 标题
