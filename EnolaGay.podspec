@@ -32,30 +32,29 @@ Pod::Spec.new do |s|
   #  s.default_subspec  = 'EMERANA'
 
   s.subspec 'EMERANA' do |emerana|
-      emerana.source_files = 'EnolaGay/Classes/*'
+      emerana.source_files = 'EnolaGay/Classes/*.swift'
       # emerana.exclude_files = 'EnolaGay/Classes/*'
-      emerana.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
-
+      # emerana.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
   end
   
   s.subspec 'Judy' do |judy|
-      judy.source_files = 'EnolaGay/Classes/Judy/*'
+      judy.source_files = 'EnolaGay/Classes/Judy/*.swift'
   end
 
   s.subspec 'SegmentedView' do |segmentedView|
-      segmentedView.source_files = 'EnolaGay/Classes/SegmentedView/*'
+      segmentedView.source_files = 'EnolaGay/Classes/SegmentedView/*.swift'
   end
   
   s.subspec 'HPickerView' do |hpickerView|
-      hpickerView.source_files = 'EnolaGay/Classes/HPickerView/*'
+      hpickerView.source_files = 'EnolaGay/Classes/HPickerView/*.swift'
   end
   
   s.subspec 'JudyTextFieldEffects' do |textFieldEffects|
-      textFieldEffects.source_files = 'EnolaGay/Classes/JudyTextFieldEffects/*'
+      textFieldEffects.source_files = 'EnolaGay/Classes/JudyTextFieldEffects/*.swift'
   end
   
   s.subspec 'SearchViewCtrl' do |searchViewCtrl|
-      searchViewCtrl.source_files = 'EnolaGay/Classes/SearchViewCtrl/*'
+      searchViewCtrl.source_files = 'EnolaGay/Classes/SearchViewCtrl/*.swift'
   end
   
   #  emerana.resource_bundles = {'SwiftMessages' => ['SwiftMessages/Resources/**/*']}
