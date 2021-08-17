@@ -29,33 +29,36 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '13.0'
   s.swift_version = '5.0'
   s.requires_arc = true
-  s.default_subspec  = 'EMERANA'
+  # s.default_subspec = 'EMERANA'
 
   s.subspec 'EMERANA' do |emerana|
       emerana.source_files = 'EnolaGay/Classes/Core/*'
       # emerana.exclude_files = 'EnolaGay/Classes/*'
       # emerana.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
-      emerana.subspec 'SegmentedView' do |segmentedView|
-          #          segmentedView.dependency 'EnolaGay/EMERANA'
-          segmentedView.source_files = 'EnolaGay/Classes/SegmentedView/*'
-      end
+  end
+  
+  s.subspec 'SegmentedView' do |segmentedView|
+      segmentedView.dependency 'EnolaGay/EMERANA'
+      segmentedView.source_files = 'EnolaGay/Classes/SegmentedView/*'
+  end
 
-      emerana.subspec 'HPickerView' do |hpickerView|
-          hpickerView.source_files = 'EnolaGay/Classes/HPickerView/*'
-      end
-      
-      emerana.subspec 'JudyTextFieldEffects' do |textFieldEffects|
-          textFieldEffects.source_files = 'EnolaGay/Classes/JudyTextFieldEffects/*'
-      end
+  s.subspec 'HPickerView' do |hpickerView|
+      hpickerView.dependency 'EnolaGay/EMERANA'
+      hpickerView.source_files = 'EnolaGay/Classes/HPickerView/*'
+  end
+  
+  s.subspec 'JudyTextFieldEffects' do |textFieldEffects|
+      textFieldEffects.dependency 'EnolaGay/EMERANA'
+      textFieldEffects.source_files = 'EnolaGay/Classes/JudyTextFieldEffects/*'
+  end
 
-      emerana.subspec 'SearchViewCtrl' do |searchViewCtrl|
-          searchViewCtrl.source_files = 'EnolaGay/Classes/SearchViewCtrl/*'
-      end
+  s.subspec 'SearchViewCtrl' do |searchViewCtrl|
+      searchViewCtrl.dependency 'EnolaGay/EMERANA'
+      searchViewCtrl.source_files = 'EnolaGay/Classes/SearchViewCtrl/*'
+  end
 
-      emerana.subspec 'Judy' do |judy|
-          judy.source_files = 'EnolaGay/Classes/Judy/*'
-      end
-
+  s.subspec 'Judy' do |judy|
+      judy.source_files = 'EnolaGay/Classes/Judy/*'
   end
   
   #  emerana.resource_bundles = {'SwiftMessages' => ['SwiftMessages/Resources/**/*']}
