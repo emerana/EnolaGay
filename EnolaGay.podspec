@@ -52,15 +52,17 @@ Pod::Spec.new do |s|
     textFieldEffects.source_files = 'EnolaGay/Classes/JudyTextFieldEffects/*'
   end
   
-  s.subspec 'SearchViewCtrl' do |searchViewCtrl|
-    searchViewCtrl.dependency 'EnolaGay/EMERANA'
-    searchViewCtrl.source_files = 'EnolaGay/Classes/SearchViewCtrl/*'
-  end
+  # 这两先用不上
   
-  s.subspec 'Judy' do |judy|
-    judy.dependency 'EnolaGay/EMERANA'
-    judy.source_files = 'EnolaGay/Classes/Judy/*'
-  end
+  #  s.subspec 'SearchViewCtrl' do |searchViewCtrl|
+  #    searchViewCtrl.dependency 'EnolaGay/EMERANA'
+  #    searchViewCtrl.source_files = 'EnolaGay/Classes/SearchViewCtrl/*'
+  #  end
+  
+  #  s.subspec 'Judy' do |judy|
+  #    judy.dependency 'EnolaGay/EMERANA'
+  #    judy.source_files = 'EnolaGay/Classes/Judy/*'
+  #  end
   
   #  emerana.resource_bundles = {'SwiftMessages' => ['SwiftMessages/Resources/**/*']}
   #  s.source_files = 'EnolaGay/Classes/**/*' 包含所有子目录下的所有文件
@@ -68,7 +70,7 @@ Pod::Spec.new do |s|
   # s.resource_bundles = {
   #   'EnolaGay' => ['EnolaGay/Assets/*.png']
   # }
-
+  
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   

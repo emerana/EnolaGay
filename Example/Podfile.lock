@@ -4,9 +4,7 @@ PODS:
   - EnolaGay (3.5.0):
     - EnolaGay/EMERANA (= 3.5.0)
     - EnolaGay/HPickerView (= 3.5.0)
-    - EnolaGay/Judy (= 3.5.0)
     - EnolaGay/JudyTextFieldEffects (= 3.5.0)
-    - EnolaGay/SearchViewCtrl (= 3.5.0)
     - EnolaGay/SegmentedView (= 3.5.0)
     - SwiftyJSON
   - EnolaGay/EMERANA (3.5.0):
@@ -14,12 +12,7 @@ PODS:
   - EnolaGay/HPickerView (3.5.0):
     - EnolaGay/EMERANA
     - SwiftyJSON
-  - EnolaGay/Judy (3.5.0):
-    - SwiftyJSON
   - EnolaGay/JudyTextFieldEffects (3.5.0):
-    - EnolaGay/EMERANA
-    - SwiftyJSON
-  - EnolaGay/SearchViewCtrl (3.5.0):
     - EnolaGay/EMERANA
     - SwiftyJSON
   - EnolaGay/SegmentedView (3.5.0):
@@ -51,7 +44,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
-  EnolaGay: 819015a650db27d4e0d88dd2e52191ffa7b406f5
+  EnolaGay: d0700228a1275e7aa9104d9d1a6adced2f8f2171
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Player: 37e0acc16ea1495fc241df88fe9f089367513331
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7

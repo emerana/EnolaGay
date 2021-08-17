@@ -20,8 +20,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let color = UIColor.judy(.navigationBarTint)
-
         Judy.log("太爽了")
         
         segmentedView.dataSource = segmentedCtrlDataSoruce
@@ -37,7 +35,6 @@ class ViewController: UIViewController {
         segmentedView.indicators = [indicator1, indicator2]
     }
 
-
     @IBAction func goAction(_ sender: Any) {
         
         if theButton.isHidden {
@@ -47,11 +44,9 @@ class ViewController: UIViewController {
         }
     }
     
-    
     @IBAction func selectedAction(_ sender: Any) {
         segmentedView.selectItem(at: 6)
     }
-    
 }
 
 
