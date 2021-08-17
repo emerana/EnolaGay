@@ -6,6 +6,7 @@
 import UIKit
 import SwiftyJSON
 
+@available(*, unavailable, message: "暂不可用")
 public class Tip {
     var title = "标题"
     var subTitle = "副标题"
@@ -38,6 +39,7 @@ public class Tip {
 
 }
 
+@available(*, unavailable, message: "暂不可用")
 public class JudyTipViewCtrl: UIViewController {
 
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -177,32 +179,33 @@ open class JudyBaseViewCtrl: UIViewController {
         if isSetApi { setApi() }
         // 为设置 api 直接不发起请求
         guard requestConfig.api != nil else {
+            self.apiData = EMERANA.notsetApiERROR
             isReqSuccess = true
             reqNotApi()
             return
         }
         
         if isSupportWaitingHUD {
-            if !Self.isGlobalHideWaitingHUD() { JudyTip.wait() }
+            if !Self.isGlobalHideWaitingHUD() { view.toast.makeToastActivity(.center) }
         }
         
         /// 接收响应的闭包
         let responseClosure: ((JSON) -> Void) = { [weak self] json in
             guard let `self` = self else {
-                JudyTip.dismiss()
                 Judy.logWarning("发现逃逸对象！")
                 return
             }
+            self.view.toast.hideToastActivity()
+
             self.apiData = json
             self.reqResult()
-            
+
             // 先处理失败情况
             if let error = self.apiData.ApiERROR {
                 // 如果是未设置 api 则视为请求成功处理
                 self.isReqSuccess = error[.code].intValue == EMERANA.ErrorCode.notSetApi
                 self.reqFailed()
             } else {
-                JudyTip.dismiss()
                 self.isReqSuccess = true
                 self.reqSuccess()
             }
@@ -248,7 +251,7 @@ open class JudyBaseViewCtrl: UIViewController {
     /// 请求失败或服务器响应为失败信息时的处理，在父类该函数将弹出失败消息体。若无需弹出请重写此函数并不调用 super 即可
     open func reqFailed() {
         if let error = apiData.ApiERROR {
-            JudyTip.message(text: error[.msg].stringValue)
+            view.toast.makeToast(error[.msg].stringValue)
         }
     }
     

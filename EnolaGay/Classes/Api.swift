@@ -207,13 +207,9 @@ final public class ApiRequestConfig {
         configAffirm()
         
         guard api != nil else {
-            let msg = "api 为空，取消已请求!"
-            let json = JSON([APIERRKEY.error.rawValue:
-                                [APIERRKEY.msg.rawValue: msg,
-                                 APIERRKEY.code.rawValue: EMERANA.ErrorCode.notSetApi]
-            ])
+            let msg = EMERANA.notsetApiERROR[.error][.msg].stringValue
             Judy.logWarning(msg)
-            callback(json)
+            callback(EMERANA.notsetApiERROR)
             return
         }
         
@@ -262,10 +258,12 @@ public enum APIERRKEY: String {
 }
 
 public extension JSON {
-    /// 便携式访问 JSON 中的错误信息
+    /// 便携式访问 JSON 中 APIERRKEY 的对应信息
     subscript(key: APIERRKEY) -> JSON { self[key.rawValue] }
     
-    /// 访问 json 中是否包含访问 Api 请求中响应失败的信息。其核心是访问"APIJSONKEY.error" key.
+    /// 访问 Api 请求中响应失败的 error 对应信息值
+    ///
+    /// 其核心是访问"APIJSONKEY.error" key 所对应的字典值。
     var ApiERROR: JSON? { self[.error].isEmpty ? nil:self[.error] }
     
     /// 在质检 apiData 发现错误信息时调用此函数来设置相关信息，并返回包含该错误信息的新 JSON.

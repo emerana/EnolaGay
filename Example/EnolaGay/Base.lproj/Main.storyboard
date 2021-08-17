@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Q55-ID-8gh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M3B-a3-DV6">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -161,27 +162,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-wo-TZ8">
-                                <rect key="frame" x="167" y="407" width="56" height="30"/>
-                                <state key="normal" title="reqApi()"/>
-                                <connections>
-                                    <action selector="reqApiAction:" destination="M3B-a3-DV6" eventType="touchUpInside" id="3UD-1t-h3V"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHv-Dq-C49">
-                                <rect key="frame" x="162.66666666666666" y="505" width="65" height="30"/>
-                                <state key="normal" title="TipAction"/>
-                                <connections>
-                                    <action selector="showTipViewCtrl:" destination="M3B-a3-DV6" eventType="touchUpInside" id="h7o-RI-Fzj"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qHv-SK-pjM">
+                                <rect key="frame" x="158.66666666666666" y="369" width="73" height="106"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-wo-TZ8">
+                                        <rect key="frame" x="0.0" y="0.0" width="73" height="30"/>
+                                        <state key="normal" title="reqApi()"/>
+                                        <connections>
+                                            <action selector="reqApiAction:" destination="M3B-a3-DV6" eventType="touchUpInside" id="3UD-1t-h3V"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azn-VA-DoB">
+                                        <rect key="frame" x="0.0" y="38" width="73" height="30"/>
+                                        <state key="normal" title="showToast"/>
+                                        <connections>
+                                            <action selector="showTipViewCtrl:" destination="M3B-a3-DV6" eventType="touchUpInside" id="z8g-98-d1N"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHv-Dq-C49">
+                                        <rect key="frame" x="0.0" y="76" width="73" height="30"/>
+                                        <state key="normal" title="HideToast"/>
+                                        <connections>
+                                            <action selector="hideToast:" destination="M3B-a3-DV6" eventType="touchUpInside" id="ehv-og-qtq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="b7l-wo-TZ8" firstAttribute="centerX" secondItem="c1r-BO-vh4" secondAttribute="centerX" id="drx-Fc-1kM"/>
-                            <constraint firstItem="b7l-wo-TZ8" firstAttribute="centerY" secondItem="c1r-BO-vh4" secondAttribute="centerY" id="gNv-az-KT6"/>
-                            <constraint firstItem="tHv-Dq-C49" firstAttribute="centerX" secondItem="c1r-BO-vh4" secondAttribute="centerX" id="qID-GA-ERs"/>
-                            <constraint firstItem="tHv-Dq-C49" firstAttribute="top" secondItem="b7l-wo-TZ8" secondAttribute="bottom" constant="68" id="vvK-Ya-tTY"/>
+                            <constraint firstItem="qHv-SK-pjM" firstAttribute="centerY" secondItem="c1r-BO-vh4" secondAttribute="centerY" id="ohy-YZ-7YW"/>
+                            <constraint firstItem="qHv-SK-pjM" firstAttribute="centerX" secondItem="c1r-BO-vh4" secondAttribute="centerX" id="sGc-Y1-dJA"/>
                         </constraints>
                     </view>
                 </viewController>
