@@ -5,13 +5,10 @@
 //  Copyright © 2017年 Judy.ICBC All rights reserved.
 //
 //  JudySDK
+/* 主类需要加上 public，extension 前面加了 public，则该分类里面的方法默认都是公开的 */
 
 import UIKit
 import SwiftyJSON
-
-/* 主类需要加上 public，extension 前面加了 public，则该分类里面的方法默认都是公开的 */
-/* FIXME: 制作 framework 时当闭包参数大于1个时注释将会多余 -No description. */
-
 
 /// 常用系统级相关工具类
 ///
