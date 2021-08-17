@@ -11,7 +11,7 @@ import UIKit
 
 public extension UIView {
     
-    /** 用于关联对象的键 */
+    /// 用于关联对象的键
     private struct ToastKeys {
         static var timer        = "enolagay.toast.timer"
         static var duration     = "enolagay.toast.duration"
@@ -537,57 +537,27 @@ public struct ToastStyle {
 
 // MARK: - Toast Manager
 
-/**
- `ToastManager` provides general configuration options for all toast
- notifications. Backed by a singleton instance.
-*/
+/// ToastManager 提供了所有 toast 通知的一般配置选项。由单例实例支持。
 public class ToastManager {
-    
-    /**
-     The `ToastManager` singleton instance.
-     
-     */
+    /// ToastManager 唯一实例
     public static let shared = ToastManager()
     
-    /**
-     The shared style. Used whenever toastViewForMessage(message:title:image:style:) is called
-     with with a nil style.
-     
-     */
+    /// 共享的风格。当 toastViewForMessage(message:title:image:style:) 被调用时使用。
     public var style = ToastStyle()
     
-    /**
-     Enables or disables tap to dismiss on toast views. Default is `true`.
-     
-     */
-    public var isTapToDismissEnabled = true
+    /// 启用或禁用点击 toast 消失视图。默认值为 false.
+    public var isTapToDismissEnabled = false
     
-    /**
-     Enables or disables queueing behavior for toast views. When `true`,
-     toast views will appear one after the other. When `false`, multiple toast
-     views will appear at the same time (potentially overlapping depending
-     on their positions). This has no effect on the toast activity view,
-     which operates independently of normal toast views. Default is `false`.
-     
-     */
+    /// 启用或禁用 toast 视图的排队行为。默认值是 false.
+    /// - 当为 true 时，toast 的会一个接一个出现。
+    /// - 当为 false 时，多个 toast 视图将同时出现(可能会重叠，取决于他们的位置)。这对 toast 活跃的视图没有影响，该视图独立于普通 toast 视图操作。
     public var isQueueEnabled = false
     
-    /**
-     The default duration. Used for the `makeToast` and
-     `showToast` methods that don't require an explicit duration.
-     Default is 3.0.
-     
-     */
+    /// toast 显示的持续时间。用于不需要显式持续时间的 makeToast 和 showToast 方法。该值默认为3.0.
     public var duration: TimeInterval = 3.0
     
-    /**
-     Sets the default position. Used for the `makeToast` and
-     `showToast` methods that don't require an explicit position.
-     Default is `ToastPosition.Bottom`.
-     
-     */
-    public var position: ToastPosition = .bottom
-    
+    /// toast 默认位置。用于不需要显式位置的 makeToast 和 showToast 方法。该值默认为 ToastPosition.center.
+    public var position: ToastPosition = .center
 }
 
 // MARK: - ToastPosition
