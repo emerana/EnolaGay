@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Mej-3j-K98">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M3B-a3-DV6">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -161,24 +162,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-wo-TZ8">
-                                <rect key="frame" x="167" y="407" width="56" height="30"/>
-                                <state key="normal" title="reqApi()"/>
-                                <connections>
-                                    <action selector="reqApiAction:" destination="M3B-a3-DV6" eventType="touchUpInside" id="3UD-1t-h3V"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qHv-SK-pjM">
+                                <rect key="frame" x="16" y="331" width="86" height="182"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-wo-TZ8">
+                                        <rect key="frame" x="0.0" y="0.0" width="86" height="30"/>
+                                        <state key="normal" title="reqApi()"/>
+                                        <connections>
+                                            <action selector="reqApiAction:" destination="M3B-a3-DV6" eventType="touchUpInside" id="3UD-1t-h3V"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azn-VA-DoB">
+                                        <rect key="frame" x="0.0" y="38" width="86" height="30"/>
+                                        <state key="normal" title="showToast"/>
+                                        <connections>
+                                            <action selector="showTipViewCtrl:" destination="M3B-a3-DV6" eventType="touchUpInside" id="z8g-98-d1N"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHv-Dq-C49">
+                                        <rect key="frame" x="0.0" y="76" width="86" height="30"/>
+                                        <state key="normal" title="HideToast"/>
+                                        <connections>
+                                            <action selector="hideToast:" destination="M3B-a3-DV6" eventType="touchUpInside" id="ehv-og-qtq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfW-8V-k9n">
+                                        <rect key="frame" x="0.0" y="114" width="86" height="30"/>
+                                        <state key="normal" title="showActivity"/>
+                                        <connections>
+                                            <action selector="showActivity:" destination="M3B-a3-DV6" eventType="touchUpInside" id="4qp-3o-6j2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ya-8c-ZYD">
+                                        <rect key="frame" x="0.0" y="152" width="86" height="30"/>
+                                        <state key="normal" title="hideActivity"/>
+                                        <connections>
+                                            <action selector="hideActivity:" destination="M3B-a3-DV6" eventType="touchUpInside" id="brw-Ye-0vl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="b7l-wo-TZ8" firstAttribute="centerX" secondItem="c1r-BO-vh4" secondAttribute="centerX" id="drx-Fc-1kM"/>
-                            <constraint firstItem="b7l-wo-TZ8" firstAttribute="centerY" secondItem="c1r-BO-vh4" secondAttribute="centerY" id="gNv-az-KT6"/>
+                            <constraint firstItem="qHv-SK-pjM" firstAttribute="centerY" secondItem="c1r-BO-vh4" secondAttribute="centerY" id="ohy-YZ-7YW"/>
+                            <constraint firstItem="qHv-SK-pjM" firstAttribute="leading" secondItem="c1r-BO-vh4" secondAttribute="leadingMargin" id="voX-ss-VDJ"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nqh-Id-IUt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="854" y="1693"/>
+            <point key="canvasLocation" x="853.84615384615381" y="1692.654028436019"/>
+        </scene>
+        <!--Toast View Ctrl-->
+        <scene sceneID="jmR-4H-Cfo">
+            <objects>
+                <tableViewController id="LHi-2M-Fah" customClass="ToastViewCtrl" customModule="EnolaGay_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kgg-YT-OPL">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oGM-JI-lYx">
+                                <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oGM-JI-lYx" id="lNl-KQ-AxY">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LHi-2M-Fah" id="9bO-jm-Bbq"/>
+                            <outlet property="delegate" destination="LHi-2M-Fah" id="0Gz-qW-uLj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="zhz-Yw-3my"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hY3-GF-bk6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2710.7692307692305" y="1692.654028436019"/>
         </scene>
         <!--Double Click Thumb Up View Ctrl-->
         <scene sceneID="cku-dK-zqq">
@@ -210,6 +273,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lfn-P3-ttB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="854" y="2413"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UAh-RD-oUs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Q55-ID-8gh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vy3-0K-bdh">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LHi-2M-Fah" kind="relationship" relationship="rootViewController" id="3Vr-5e-cIR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VpJ-Ru-yQm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1781.5384615384614" y="1692.654028436019"/>
         </scene>
     </scenes>
     <resources>

@@ -21,32 +21,49 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
     
     override func setApi() {
         super.setApi()
-
-//         requestConfig.api = Actions.YouLikeByLiveFinish
-//         requestConfig.parameters?["userid"] = 323430
+        
+        //         requestConfig.api = Actions.YouLikeByLiveFinish
+        //         requestConfig.parameters?["userid"] = 323430
     }
     
-    @IBAction func reqApiAction(_ sender: Any) {
-        // reqApi()
-        let requestConfig = ApiRequestConfig()
-        requestConfig.api = Actions.createUserChatToken
-        requestConfig.method = .get
-        requestConfig.parameters?["userid"] = "323430"
-
-        requestConfig.request { json in
-           
-        }
-
-    }
-
     override func reqNotApi() {
-        //JudyTip.message(text: apiData.stringValue)
+        view.toast.makeToast(apiData.ApiERROR?[.msg].stringValue)
     }
     
     override func reqOver() {
         Judy.log("请求完毕：\n\(apiData)")
     }
     
+    @IBAction func reqApiAction(_ sender: Any) {
+        //        reqApi()
+        let requestConfig = ApiRequestConfig()
+        //                requestConfig.api = Actions.createUserChatToken
+        requestConfig.method = .get
+        requestConfig.parameters?["userid"] = "323430"
+        
+        requestConfig.request { json in
+            
+        }
+    }
+    
+    @IBAction func showTipViewCtrl(_ sender: Any) {
+        //        let tip = Tip(host: self)
+        //        tip.show(msg: "")
+        view.toast.makeToast("你说呢大家好第")
+    }
+    
+    @IBAction func hideToast(_ sender: Any) {
+        view.toast.hideAllToasts()
+    }
+    
+    @IBAction func showActivity(_ sender: Any) {
+        view.toast.makeToastActivity(.center)
+    }
+
+    @IBAction func hideActivity(_ sender: Any) {
+        view.toast.hideToastActivity()
+    }
+
 }
 
 public enum Actions: String, ApiAction {
