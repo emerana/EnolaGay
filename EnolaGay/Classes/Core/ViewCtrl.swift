@@ -177,6 +177,7 @@ open class JudyBaseViewCtrl: UIViewController {
     ///   - isSupportWaitingHUD: 该请求是否允许显示等待过程的 HUD，默认 true，若该值为 false，即使 isGlobalHideWaitingHUD 为 true 也将无效
     public final func reqApi(isSetApi: Bool = true, isSupportWaitingHUD: Bool = true) {
         if isSetApi { setApi() }
+        优化未设置 Api 的处理情况
         // 为设置 api 直接不发起请求
         guard requestConfig.api != nil else {
             self.apiData = EMERANA.notsetApiERROR
