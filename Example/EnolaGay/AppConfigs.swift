@@ -82,13 +82,13 @@ extension UIApplication: ApiAdapter {
 
         // 设置请求等待响应时间。
         // 这招已经没用了Modifying a URLSession's properties after it has been assigned to a URLSession isn't supported
-        alamofire.session.configuration.timeoutIntervalForRequest = 10
+        alamofire.session.configuration.timeoutIntervalForRequest = 3
         // alamofire.setValue("application/json", forHTTPHeaderField: "Content-Type")
         /// 响应适配函数
         /// - Parameter response: DataResponse
         func responseAdapter<T>(response: DataResponse<T>) {
 
-            var json = JSON([APIERRKEY.error: [APIERRKEY.msg: "系统错误!", APIERRKEY.code: 250]])
+            var json = JSON()
             //  Judy.log("收到 \(T.self) 类型响应")
             switch response.result {
             case .success(let value):   // 请求成功
@@ -101,7 +101,7 @@ extension UIApplication: ApiAdapter {
                 }
             case .failure(let error):   // 请求失败
                 Judy.log("请求失败:\(error)\n请求地址：\(String(describing: response.request))")
-                json = JSON(error)
+                json = json.setQCApiERROR(code: EMERANA.Code.default, msg: "请求失败")
             }
             callback(json)
         }
