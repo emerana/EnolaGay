@@ -21,15 +21,15 @@
   "swift_versions": "5.0",
   "requires_arc": true,
   "default_subspecs": "EMERANA",
-  "dependencies": {
-    "SwiftyJSON": [
-
-    ]
-  },
   "subspecs": [
     {
       "name": "EMERANA",
-      "source_files": "EnolaGay/Classes/Core/*"
+      "source_files": "EnolaGay/Classes/Core/*",
+      "dependencies": {
+        "SwiftyJSON": [
+
+        ]
+      }
     },
     {
       "name": "SegmentedView",
