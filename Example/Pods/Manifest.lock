@@ -1,41 +1,57 @@
 PODS:
   - Alamofire (4.9.1)
   - Cache (6.0.0)
-  - EnolaGay (3.5.0):
-    - EnolaGay/EMERANA (= 3.5.0)
-    - EnolaGay/HPickerView (= 3.5.0)
-    - EnolaGay/JudyTextFieldEffects (= 3.5.0)
-    - EnolaGay/SegmentedView (= 3.5.0)
+  - EnolaGay (3.5.2):
+    - EnolaGay/EMERANA (= 3.5.2)
     - SwiftyJSON
-  - EnolaGay/EMERANA (3.5.0):
+  - EnolaGay/CircularProgressView (3.5.2):
     - SwiftyJSON
-  - EnolaGay/HPickerView (3.5.0):
+  - EnolaGay/EMERANA (3.5.2):
+    - SwiftyJSON
+  - EnolaGay/GiftMessageCtrlPanel (3.5.2):
+    - SwiftyJSON
+  - EnolaGay/HPickerView (3.5.2):
     - EnolaGay/EMERANA
     - SwiftyJSON
-  - EnolaGay/JudyTextFieldEffects (3.5.0):
+  - EnolaGay/JudyPopBubble (3.5.2):
+    - SwiftyJSON
+  - EnolaGay/JudyWaterWaveView (3.5.2):
+    - SwiftyJSON
+  - EnolaGay/MarqueeView (3.5.2):
+    - SwiftyJSON
+  - EnolaGay/SegmentedView (3.5.2):
     - EnolaGay/EMERANA
     - SwiftyJSON
-  - EnolaGay/SegmentedView (3.5.0):
+  - EnolaGay/TextFieldEffects (3.5.2):
     - EnolaGay/EMERANA
     - SwiftyJSON
   - MJRefresh (3.5.0)
   - Player (0.14.0)
-  - SwiftyJSON (5.0.0)
+  - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.9.0)
   - Cache
   - EnolaGay (from `../`)
+  - EnolaGay/CircularProgressView (from `../`)
+  - EnolaGay/GiftMessageCtrlPanel (from `../`)
+  - EnolaGay/HPickerView (from `../`)
+  - EnolaGay/JudyPopBubble (from `../`)
+  - EnolaGay/JudyWaterWaveView (from `../`)
+  - EnolaGay/MarqueeView (from `../`)
+  - EnolaGay/SegmentedView (from `../`)
+  - EnolaGay/TextFieldEffects (from `../`)
   - MJRefresh
   - Player
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - SwiftyJSON
   trunk:
     - Alamofire
     - Cache
     - MJRefresh
     - Player
-    - SwiftyJSON
 
 EXTERNAL SOURCES:
   EnolaGay:
@@ -44,11 +60,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
-  EnolaGay: d0700228a1275e7aa9104d9d1a6adced2f8f2171
+  EnolaGay: c1aba98bb895142055ee090f5b00e91db630813b
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Player: 37e0acc16ea1495fc241df88fe9f089367513331
-  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: fa034ace349eae9e8e224f6668e46b5fb4beddb7
+PODFILE CHECKSUM: 5277ceb5644e3c4e74931564d2d9cce99d8d7fe0
 
 COCOAPODS: 1.10.2

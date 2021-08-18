@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EnolaGay'
-  s.version          = '3.5.1'
+  s.version          = '3.5.2'
   s.summary          = '便携式 App 架构，由早期的 EMERANA 进化而成。'
 
 # This description is used to generate tags and improve search results.
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = 'EMERANA 不再是当年艾美拉娜公主了，现如今已强化成足矣摧毁日本帝国的战士'
+  s.description      = '为了更高效地开发 iOS App, EMERANA 经过了几年的历练，在多个 App 中不断完善，最终进化成可适用于绝大部分场景的便携式框架。'
 
   s.homepage         = 'https://github.com/emerana/EnolaGay'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
@@ -29,27 +29,51 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '13.0'
   s.swift_version = '5.0'
   s.requires_arc = true
-  # s.default_subspec = 'EMERANA'
+  #  如果不指定默认的 spec，则将安装所有的 spec
+  s.default_subspec = 'EMERANA'
+  
+  s.subspec 'EMERANA' do |ss|
+      ss.source_files = 'EnolaGay/Classes/Core/*'
+      # ss.exclude_files = 'EnolaGay/Classes/*'
+      # ss.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
+  end
+  
+  s.subspec 'SegmentedView' do |ss|
+      # 使用到 JudyBasePageViewCtrl
+      ss.dependency 'EnolaGay/EMERANA'
+      ss.source_files = 'EnolaGay/Classes/SegmentedView/*'
+  end
+  
+  s.subspec 'HPickerView' do |ss|
+      # 使用到 NSMutableAttributedString 高配版生成器
+      ss.dependency 'EnolaGay/EMERANA'
+      ss.source_files = 'EnolaGay/Classes/HPickerView/*'
+  end
+  
+  s.subspec 'JudyPopBubble' do |ss|
+      ss.source_files = 'EnolaGay/Classes/JudyPopBubble/*'
+  end
 
-  s.subspec 'EMERANA' do |emerana|
-    emerana.source_files = 'EnolaGay/Classes/Core/*'
-    # emerana.exclude_files = 'EnolaGay/Classes/*'
-    # emerana.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
+  s.subspec 'JudyWaterWaveView' do |ss|
+      ss.source_files = 'EnolaGay/Classes/JudyWaterWaveView/*'
   end
   
-  s.subspec 'SegmentedView' do |segmentedView|
-    segmentedView.dependency 'EnolaGay/EMERANA'
-    segmentedView.source_files = 'EnolaGay/Classes/SegmentedView/*'
+  s.subspec 'MarqueeView' do |ss|
+      ss.source_files = 'EnolaGay/Classes/MarqueeView/*'
   end
   
-  s.subspec 'HPickerView' do |hpickerView|
-    hpickerView.dependency 'EnolaGay/EMERANA'
-    hpickerView.source_files = 'EnolaGay/Classes/HPickerView/*'
+  s.subspec 'CircularProgressView' do |ss|
+      ss.source_files = 'EnolaGay/Classes/CircularProgressView/*'
   end
   
-  s.subspec 'JudyTextFieldEffects' do |textFieldEffects|
-    textFieldEffects.dependency 'EnolaGay/EMERANA'
-    textFieldEffects.source_files = 'EnolaGay/Classes/JudyTextFieldEffects/*'
+  s.subspec 'GiftMessageCtrlPanel' do |ss|
+      ss.source_files = 'EnolaGay/Classes/GiftMessageCtrlPanel/*'
+  end
+  
+  s.subspec 'TextFieldEffects' do |ss|
+      # 全是 JudyBaseTextField 子类
+      ss.dependency 'EnolaGay/EMERANA'
+      ss.source_files = 'EnolaGay/Classes/TextFieldEffects/*'
   end
   
   # 这两先用不上

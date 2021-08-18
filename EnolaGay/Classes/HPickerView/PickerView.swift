@@ -145,10 +145,7 @@ public class PickerView: UIView {
 public extension PickerView {
     /// 重新载入所有数据
     final func reloadData() {
-        guard let dataSource = self.dataSource else {
-            Judy.logWarning("请设置 PickerView.dataSource")
-            return
-        }
+        guard let dataSource = self.dataSource else { return }
 
         // 注册 Cell.
         collectionView.register(PickerViewCell.self, forCellWithReuseIdentifier: "DayCell")
