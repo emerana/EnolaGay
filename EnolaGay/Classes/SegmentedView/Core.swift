@@ -7,7 +7,6 @@
 import Foundation
 import UIKit
 
-
 /// SegmentedCell 中的基础数据模型
 open class SegmentedItemModel {
 
