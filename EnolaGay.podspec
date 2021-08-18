@@ -35,7 +35,6 @@ Pod::Spec.new do |s|
   s.subspec 'EMERANA' do |ss|
       ss.source_files = 'EnolaGay/Classes/Core/*'
       ss.dependency 'SwiftyJSON'
-
       # ss.exclude_files = 'EnolaGay/Classes/*'
       # ss.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
   end
