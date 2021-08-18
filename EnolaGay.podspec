@@ -34,6 +34,8 @@ Pod::Spec.new do |s|
   
   s.subspec 'EMERANA' do |ss|
       ss.source_files = 'EnolaGay/Classes/Core/*'
+      ss.dependency 'SwiftyJSON'
+
       # ss.exclude_files = 'EnolaGay/Classes/*'
       # ss.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
   end
@@ -98,6 +100,5 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   
-  s.dependency 'SwiftyJSON'
 
 end
