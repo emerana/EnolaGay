@@ -177,15 +177,7 @@ open class JudyBaseViewCtrl: UIViewController {
     ///   - isSupportWaitingHUD: 该请求是否允许显示等待过程的 HUD，默认 true，若该值为 false，即使 isGlobalHideWaitingHUD 为 true 也将无效
     public final func reqApi(isSetApi: Bool = true, isSupportWaitingHUD: Bool = true) {
         if isSetApi { setApi() }
-        优化未设置 Api 的处理情况
-        // 为设置 api 直接不发起请求
-        guard requestConfig.api != nil else {
-            self.apiData = EMERANA.notsetApiERROR
-            isReqSuccess = true
-            reqNotApi()
-            return
-        }
-        
+
         if isSupportWaitingHUD {
             if !Self.isGlobalHideWaitingHUD() { view.toast.makeToastActivity(.center) }
         }
@@ -203,9 +195,14 @@ open class JudyBaseViewCtrl: UIViewController {
 
             // 先处理失败情况
             if let error = self.apiData.ApiERROR {
-                // 如果是未设置 api 则视为请求成功处理
-                self.isReqSuccess = error[.code].intValue == EMERANA.ErrorCode.notSetApi
-                self.reqFailed()
+                if error[.code].intValue == EMERANA.Code.notSetApi {
+                    // 如果是未设置 api 则视为请求成功处理
+                    self.isReqSuccess = true
+                    self.reqNotApi()
+                } else {
+                    self.isReqSuccess = false
+                    self.reqFailed()
+                }
             } else {
                 self.isReqSuccess = true
                 self.reqSuccess()
@@ -213,7 +210,6 @@ open class JudyBaseViewCtrl: UIViewController {
             
             self.reqOver()
         }
-
         // 发起请求
         requestConfig.request(withCallBack: responseClosure)
     }

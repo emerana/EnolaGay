@@ -187,17 +187,18 @@ final public class ApiRequestConfig {
         EMERANA.apiAdapter?.apiRequestConfigAffirm(requestConfig: self)
     }
     
-    /// 由当前对象向 Api 层发起请求，该函数中将触发 configAffirm() 确认函数，并且在得到响应数据后要求对该数据进行质检
+    /// 由当前对象向 Api 层发起请求
     ///
-    /// 在 callback 函数中，可以通过 JSON.ApiERROR 来判断是否存在错误信息
+    /// * 该函数中将触发 configAffirm() 确认函数
+    /// * 该函数在得到响应数据后会对该数据进行质检，并通过 callback 响应经过质检的 json.
     /// - Warning: 请确认实现 extension UIApplication: ApiAdapter.
-    /// - Parameter callback: 请求的回调函数
+    /// - Parameter callback: 请求的回调函数，你可以通过 JSON.ApiERROR 来判断是否存在错误信息。
     public func request(withCallBack callback: @escaping ((JSON) -> Void)) {
         guard EMERANA.apiAdapter != nil else {
             let msg = "未实现 extension UIApplication: ApiAdapter，ApiRequestConfig 拒绝发起网络请求"
             let json = JSON([APIERRKEY.error.rawValue:
                                 [APIERRKEY.msg.rawValue: msg,
-                                 APIERRKEY.code.rawValue: EMERANA.ErrorCode.default]
+                                 APIERRKEY.code.rawValue: EMERANA.Code.default]
             ])
             Judy.logWarning(msg)
             callback(json)
@@ -207,14 +208,25 @@ final public class ApiRequestConfig {
         configAffirm()
         
         guard api != nil else {
-            let msg = EMERANA.notsetApiERROR[.error][.msg].stringValue
+            let msg = "api 为空，取消本次请求！"
+            let jsonWithERROR = JSON([APIERRKEY.error.rawValue:
+                                        [APIERRKEY.msg.rawValue: msg,
+                                         APIERRKEY.code.rawValue: EMERANA.Code.notSetApi]
+            ])
             Judy.logWarning(msg)
-            callback(EMERANA.notsetApiERROR)
+            callback(jsonWithERROR)
             return
         }
         
         EMERANA.apiAdapter!.request(requestConfig: self) { json in
-            // 若原始 JSON 已包含一个错误信息，则无需质检直接返回该数据
+            // 说明 json 存在 SwiftyJSONError，没有其他任何值。
+            if json.error != nil {
+                // 直接设置一个质检失败的数据
+                callback(json.setQCApiERROR(code: json.error!.errorCode,
+                                            msg: "响应数据解析失败: \(json.error!.localizedDescription)"))
+                return
+            }
+            // 若原始 JSON 已包含 Api 响应数据质检失败信息，则无需质检直接返回该数据。
             if json.ApiERROR != nil {
                 callback(json)
                 return
@@ -261,26 +273,30 @@ public extension JSON {
     /// 便携式访问 JSON 中 APIERRKEY 的对应信息
     subscript(key: APIERRKEY) -> JSON { self[key.rawValue] }
     
-    /// 访问 Api 请求中响应失败的 error 对应信息值
+    /// 访问 json 中的 Api 响应数据质检失败信息
     ///
     /// 其核心是访问"APIJSONKEY.error" key 所对应的字典值。
     var ApiERROR: JSON? { self[.error].isEmpty ? nil:self[.error] }
     
-    /// 在质检 apiData 发现错误信息时调用此函数来设置相关信息，并返回包含该错误信息的新 JSON.
+    
+    /// 在当前 json 基础上设置一条质检错误信息并返回一个新的 json 对象
+    ///
+    /// 当拿到服务器响应的数据时，若该数据不符合自己的要求，通过此函数即可得到一个包含错误信息的 json，而后可通过 json.ApiERROR 访问该错误信息。
+    /// - Warning: 该函数会给当前 json 新增 APIERRKEY.error 字段，其内容为包含错误码和错误信息的 json. 通常情况下该函数只应该应用在 responseQC 质检函数中。
+    /// - Warning: 若当前 json 中已经包含 ApiERROR 错误信息，则返回自身，不做任何操作。
     /// - Parameters:
     ///   - code: 错误码
     ///   - msg: 错误消息体
-    /// - Returns: 一个经过质检后的 JSON，若存在错误，该 JSON 中会包含 QCJSON[.error] 数据
-    /// - Warning: 该函数会给当前 json 新增 APIERRKEY.error 字段，其内容为包含错误码和错误信息的 json. 通常情况下该函数只应该应用在 responseQC 质检函数中
+    /// - Returns: 一个经过质检后的 JSON，该 JSON 中会包含 QCJSON[.error] 数据，可通过 json.ApiERROR 访问该错误信息。
     func setQCApiERROR(code: Int, msg: String) -> JSON {
+        guard self.ApiERROR == nil else { return self }
         var QCJSON = self
         if QCJSON.error == nil {
-            QCJSON[APIERRKEY.error.rawValue] = JSON([APIERRKEY.code.rawValue: code,
-                                                     APIERRKEY.msg.rawValue: msg])
-        } else {
-            // 请求阶段就失败的质检信息
-            QCJSON = [APIERRKEY.error.rawValue: [APIERRKEY.code.rawValue: EMERANA.ErrorCode.default,
-                                                 APIERRKEY.msg.rawValue: "请求失败"]]
+                QCJSON[APIERRKEY.error.rawValue] = JSON([APIERRKEY.code.rawValue: code,
+                                                         APIERRKEY.msg.rawValue: msg])
+        } else { // 当 json 存在 SwiftyJSONError 时无法直接给其赋值
+            QCJSON = [APIERRKEY.error.rawValue: [APIERRKEY.code.rawValue: code,
+                                                 APIERRKEY.msg.rawValue: msg]]
         }
         return QCJSON
     }

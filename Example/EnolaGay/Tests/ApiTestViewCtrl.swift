@@ -22,8 +22,8 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
     override func setApi() {
         super.setApi()
         
-        //         requestConfig.api = Actions.YouLikeByLiveFinish
-        //         requestConfig.parameters?["userid"] = 323430
+        requestConfig.api = Actions.YouLikeByLiveFinish
+        requestConfig.parameters?["userid"] = 323430
     }
     
     override func reqNotApi() {
@@ -35,14 +35,17 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
     }
     
     @IBAction func reqApiAction(_ sender: Any) {
-        //        reqApi()
+//        reqApi()
         let requestConfig = ApiRequestConfig()
-        //                requestConfig.api = Actions.createUserChatToken
+//        requestConfig.api = Actions.createUserChatToken
         requestConfig.method = .get
         requestConfig.parameters?["userid"] = "323430"
         
         requestConfig.request { json in
-            
+            Judy.log("请求完毕：\n\(json)")
+            if let error = json.ApiERROR {
+                self.view.toast.makeToast(error[.msg].stringValue)
+            }
         }
     }
     
