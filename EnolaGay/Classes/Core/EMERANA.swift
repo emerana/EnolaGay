@@ -1399,24 +1399,13 @@ public struct EMERANA {
         case 新增全局Cell代理管理
     }
     
-    /// 常用错误代码
-    public struct ErrorCode {
-        /// 默认错误，代码 250.
-        static let `default` = 250
-        /// 在 ApiRequestConfig 中发起请求时没有设置 Api.
-        static let notSetApi = 2500
+    /// 常用代码
+    public struct Code {
+        /// 默认错误，代码 250
+        public static let `default` = 250
+        /// 在 ApiRequestConfig 中发起请求时没有设置 Api
+        public static let notSetApi = 2500
     }
-    
-    /// Api 层发起请求或调用 reqApi() 方法时没有设置 api 参数将返回的 JSON 数据
-    static let notsetApiERROR: JSON = { () -> JSON in
-        let msg = "api 为空，请求已取消！"
-        let json = JSON([APIERRKEY.error.rawValue:
-                            [APIERRKEY.msg.rawValue: msg,
-                             APIERRKEY.code.rawValue: EMERANA.ErrorCode.notSetApi]
-        ])
-        return json
-    }()
-
 }
 
 // MARK: - 正确地处理键盘遮挡输入框
