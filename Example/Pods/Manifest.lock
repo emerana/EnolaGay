@@ -3,27 +3,7 @@ PODS:
   - Cache (6.0.0)
   - EnolaGay (3.5.2):
     - EnolaGay/EMERANA (= 3.5.2)
-    - SwiftyJSON
-  - EnolaGay/CircularProgressView (3.5.2):
-    - SwiftyJSON
   - EnolaGay/EMERANA (3.5.2):
-    - SwiftyJSON
-  - EnolaGay/GiftMessageCtrlPanel (3.5.2):
-    - SwiftyJSON
-  - EnolaGay/HPickerView (3.5.2):
-    - EnolaGay/EMERANA
-    - SwiftyJSON
-  - EnolaGay/JudyPopBubble (3.5.2):
-    - SwiftyJSON
-  - EnolaGay/JudyWaterWaveView (3.5.2):
-    - SwiftyJSON
-  - EnolaGay/MarqueeView (3.5.2):
-    - SwiftyJSON
-  - EnolaGay/SegmentedView (3.5.2):
-    - EnolaGay/EMERANA
-    - SwiftyJSON
-  - EnolaGay/TextFieldEffects (3.5.2):
-    - EnolaGay/EMERANA
     - SwiftyJSON
   - MJRefresh (3.5.0)
   - Player (0.14.0)
@@ -33,14 +13,6 @@ DEPENDENCIES:
   - Alamofire (~> 4.9.0)
   - Cache
   - EnolaGay (from `../`)
-  - EnolaGay/CircularProgressView (from `../`)
-  - EnolaGay/GiftMessageCtrlPanel (from `../`)
-  - EnolaGay/HPickerView (from `../`)
-  - EnolaGay/JudyPopBubble (from `../`)
-  - EnolaGay/JudyWaterWaveView (from `../`)
-  - EnolaGay/MarqueeView (from `../`)
-  - EnolaGay/SegmentedView (from `../`)
-  - EnolaGay/TextFieldEffects (from `../`)
   - MJRefresh
   - Player
 
@@ -60,11 +32,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
-  EnolaGay: c1aba98bb895142055ee090f5b00e91db630813b
+  EnolaGay: c51e097dbfaad353fde07a013d844c0bc4777ed5
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Player: 37e0acc16ea1495fc241df88fe9f089367513331
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 5277ceb5644e3c4e74931564d2d9cce99d8d7fe0
+PODFILE CHECKSUM: 760585064d5201825fd87936a19cc548d3b68d66
 
 COCOAPODS: 1.10.2
