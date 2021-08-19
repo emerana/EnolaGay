@@ -31,7 +31,7 @@ class CacheViewCtrl: JudyBaseViewCtrl {
     @IBAction private func saveActin(_ sender: Any) {
         let user = User()
         user.userName = "醉翁之意"
-        // 10 秒后过期
+        // 10 秒后过期，需要手动删除过期的数据，不会自动删除。
         try? storage?.setObject(user, forKey: "user", expiry: .date(Date().addingTimeInterval(10)))
         Judy.logHappy("保存了 user 对象")
     }
