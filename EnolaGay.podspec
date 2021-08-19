@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EnolaGay'
-  s.version          = '3.5.2'
+  s.version          = '3.5.3'
   s.summary          = '便携式 App 架构，由早期的 EMERANA 进化而成。'
 
 # This description is used to generate tags and improve search results.
@@ -35,7 +35,6 @@ Pod::Spec.new do |s|
   s.subspec 'EMERANA' do |ss|
       ss.source_files = 'EnolaGay/Classes/Core/*'
       ss.dependency 'SwiftyJSON'
-
       # ss.exclude_files = 'EnolaGay/Classes/*'
       # ss.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
   end
