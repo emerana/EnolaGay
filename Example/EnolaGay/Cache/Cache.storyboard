@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cache View Ctrl-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="CacheViewCtrl" customModule="EnolaGay_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="unV-C2-oqm">
+                                <rect key="frame" x="28" y="338" width="123" height="220"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kA4-4X-V86" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="0.0" width="123" height="30"/>
+                                        <state key="normal" title="保存对象"/>
+                                        <connections>
+                                            <action selector="saveActin:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wul-Wz-sfz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Dw-3L-itc" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="38" width="123" height="30"/>
+                                        <state key="normal" title="删除对象"/>
+                                        <connections>
+                                            <action selector="deleteActin:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="GPp-VT-Q04"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfA-gZ-cI6" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="76" width="123" height="30"/>
+                                        <state key="normal" title="获取对象"/>
+                                        <connections>
+                                            <action selector="showActin:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dRK-ps-oAh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udg-v5-eZH" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="114" width="123" height="30"/>
+                                        <state key="normal" title="删除所有对象"/>
+                                        <connections>
+                                            <action selector="removeAllActin:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gtx-WG-vRE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5PC-sD-4Tl" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="152" width="123" height="30"/>
+                                        <state key="normal" title="删除所有过期对象"/>
+                                        <connections>
+                                            <action selector="removeExpiredObjectsActin:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3VB-1N-PLs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1C8-4U-6DL" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="190" width="123" height="30"/>
+                                        <state key="normal" title="获取 Entry 对象"/>
+                                        <connections>
+                                            <action selector="entryAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ke1-cK-5cH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="unV-C2-oqm" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="09h-Q6-xQe"/>
+                            <constraint firstItem="unV-C2-oqm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="qlS-zx-GwA"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="138"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -32,7 +32,6 @@ Api 层配置，ApiRequestConfig 部分属性及初值以及通用的请求接�
 #### extension ApiRequestConfig.Domain
 项目 Api 层中所用到的域名管理，无论项目中需要用到多少域名，ApiRequestConfig  会整理得井井有条。
 
-
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -51,6 +50,40 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'EnolaGay'
+```
+## 可选能力模块
+
+#### SegmentedView
+```ruby
+pod 'EnolaGay/SegmentedView'
+```
+#### HPickerView
+```ruby
+pod 'EnolaGay/HPickerView'
+```
+#### TextFieldEffects
+```ruby
+pod 'EnolaGay/TextFieldEffects'
+```
+#### JudyPopBubble
+```ruby
+pod 'EnolaGay/JudyPopBubble'
+```
+#### JudyWaterWaveView
+```ruby
+pod 'EnolaGay/JudyWaterWaveView'
+```
+#### CircularProgressView
+```ruby
+pod 'EnolaGay/CircularProgressView'
+```
+#### GiftMessageCtrlPanel
+```ruby
+pod 'EnolaGay/GiftMessageCtrlPanel'
+```
+#### MarqueeView
+```ruby
+pod 'EnolaGay/MarqueeView'
 ```
 
 ## Author
