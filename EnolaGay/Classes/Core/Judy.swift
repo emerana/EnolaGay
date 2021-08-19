@@ -267,10 +267,10 @@ public extension Judy {
         #endif
     }
     
-    /// 该函数强制打印好消息级别的标识符输出，打印消息体等同于 log() 函数，但消息体放在最前面
+    /// 该函数强制打印好消息级别的标识符输出，打印消息体等同于 log() 函数。
     static func logHappy<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
-        print("\(LogLevel.🟢) \(message()) ⚓️ \((file as NSString).lastPathComponent) [\(line)] \(method)")
+        print("\(LogLevel.🟢) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
         #endif
     }
     
