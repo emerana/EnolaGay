@@ -9,10 +9,8 @@
 import UIKit
 import SwiftyJSON
 
-/**
- *  - 文件操作类
- *      - !!! 默认操作都是在documents文件夹下
- */
+/// 文件操作类
+/// - Warning: 默认操作都是在 documents 文件夹下
 public class JudyFile: NSObject {
     /// 单例
     public static let judy = JudyFile()
@@ -69,7 +67,7 @@ public class JudyFile: NSObject {
                 Judy.log("\(dir)创建成功")
             }catch{
                 createRS = false
-                Judy.log("\(dir)创建失败")
+                Judy.logWarning("\(dir)创建失败")
             }
         }
         return createRS
