@@ -1,20 +1,22 @@
 PODS:
   - Alamofire (4.9.1)
   - Cache (6.0.0)
-  - EnolaGay (3.5.2):
-    - EnolaGay/EMERANA (= 3.5.2)
-  - EnolaGay/CircularProgressView (3.5.2)
-  - EnolaGay/EMERANA (3.5.2):
+  - EnolaGay (3.5.3):
+    - EnolaGay/EMERANA (= 3.5.3)
+  - EnolaGay/CircularProgressView (3.5.3)
+  - EnolaGay/EMERANA (3.5.3):
     - SwiftyJSON
-  - EnolaGay/GiftMessageCtrlPanel (3.5.2)
-  - EnolaGay/HPickerView (3.5.2):
+  - EnolaGay/GiftMessageCtrlPanel (3.5.3)
+  - EnolaGay/HPickerView (3.5.3):
     - EnolaGay/EMERANA
-  - EnolaGay/JudyPopBubble (3.5.2)
-  - EnolaGay/JudyWaterWaveView (3.5.2)
-  - EnolaGay/MarqueeView (3.5.2)
-  - EnolaGay/SegmentedView (3.5.2):
+  - EnolaGay/JudyPopBubble (3.5.3)
+  - EnolaGay/JudyWaterWaveView (3.5.3)
+  - EnolaGay/MarqueeView (3.5.3)
+  - EnolaGay/SearchViewCtrl (3.5.3):
     - EnolaGay/EMERANA
-  - EnolaGay/TextFieldEffects (3.5.2):
+  - EnolaGay/SegmentedView (3.5.3):
+    - EnolaGay/EMERANA
+  - EnolaGay/TextFieldEffects (3.5.3):
     - EnolaGay/EMERANA
   - MJRefresh (3.5.0)
   - Player (0.14.0)
@@ -30,6 +32,7 @@ DEPENDENCIES:
   - EnolaGay/JudyPopBubble (from `../`)
   - EnolaGay/JudyWaterWaveView (from `../`)
   - EnolaGay/MarqueeView (from `../`)
+  - EnolaGay/SearchViewCtrl (from `../`)
   - EnolaGay/SegmentedView (from `../`)
   - EnolaGay/TextFieldEffects (from `../`)
   - MJRefresh
@@ -51,11 +54,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
-  EnolaGay: c51e097dbfaad353fde07a013d844c0bc4777ed5
+  EnolaGay: 4924dfcf6472deafd8c67cbcea7c9ba363f31601
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Player: 37e0acc16ea1495fc241df88fe9f089367513331
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 5277ceb5644e3c4e74931564d2d9cce99d8d7fe0
+PODFILE CHECKSUM: 27dd8f133a3fddce60f16eb184796bc426ba77ee
 
 COCOAPODS: 1.10.2
