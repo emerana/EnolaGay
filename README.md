@@ -86,6 +86,11 @@ pod 'EnolaGay/GiftMessageCtrlPanel'
 pod 'EnolaGay/MarqueeView'
 ```
 
+#### SearchViewCtrl
+```ruby
+pod 'EnolaGay/SearchViewCtrl'
+```
+
 ## Author
 
 醉翁之意, Judy_u@163.com

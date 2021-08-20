@@ -14,7 +14,8 @@ target 'EnolaGay_Example' do
   pod 'EnolaGay/MarqueeView', :path => '../'
   pod 'EnolaGay/CircularProgressView', :path => '../'
   pod 'EnolaGay/GiftMessageCtrlPanel', :path => '../'
-  
+  pod 'EnolaGay/SearchViewCtrl', :path => '../'
+
   pod 'Cache'
   pod 'Alamofire', '~> 4.9.0'
   pod 'MJRefresh'
