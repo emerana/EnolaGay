@@ -91,6 +91,11 @@ pod 'EnolaGay/MarqueeView'
 pod 'EnolaGay/SearchViewCtrl'
 ```
 
+#### FileManager
+```ruby
+pod 'EnolaGay/FileManager'
+```
+
 ## Author
 
 醉翁之意, Judy_u@163.com
