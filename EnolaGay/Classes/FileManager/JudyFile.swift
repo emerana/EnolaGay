@@ -22,14 +22,14 @@ public class JudyFile: NSObject {
     /// 沙盒根目录
     private let home: String = NSHomeDirectory()
     
-    /// documents文件夹
+    /// documents 文件夹
     private let documents: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     
     // MARK: - 文件夹操作
     
-    /// 在Documents下遍历指定文件夹
+    /// 在 Documents 下遍历指定文件夹
     ///
-    /// - Parameter folder: 要遍历的文件夹名称，如果传入nil，遍历documents
+    /// - Parameter folder: 要遍历的文件夹名称，如果传入nil，遍历 documents.
     @discardableResult
     public func queryDocuments(folder: String?) -> [String] {
         // 浅搜索，返回指定路径下的子目录、文件、及符号链接列表
@@ -53,7 +53,7 @@ public class JudyFile: NSObject {
     /// 新建文件夹
     ///
     /// - Parameter folder: 文件夹名称
-    /// - Returns: 创建结果，true:创建成功,false:已经存在
+    /// - Returns: 创建结果,true: 创建成功, false: 已经存在
     @discardableResult
     public func createFloder(folder: String) -> Bool {
         var createRS = false
@@ -72,10 +72,8 @@ public class JudyFile: NSObject {
         }
         return createRS
     }
-    
-    // TODO: 重命名文件夹
-    
-    /// 删除。如果是删除文件夹，会将该文件夹内所有数据都删除
+        
+    /// 删除。如果是删除文件夹，会将该文件夹内所有数据都删除。
     ///
     /// - Parameter str: 文件夹或文件名
     public func remove(str: String) {
@@ -101,7 +99,7 @@ public class JudyFile: NSObject {
             return JSON([APIERRKEY.error.rawValue: [APIERRKEY.msg.rawValue: "请传入文件名"]])
         }
         var json = JSON()
-        //读取Json数据
+        //读取 Json 数据
         do {
             // Judy-mark: 如果 fileName 为""，则会返回上一次使用成功的文件名
             let path = Bundle.main.path(forResource: fileName, ofType: fileType)
