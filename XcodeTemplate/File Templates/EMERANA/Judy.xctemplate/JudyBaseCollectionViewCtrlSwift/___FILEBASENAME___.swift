@@ -53,7 +53,7 @@ private extension ___FILEBASENAMEASIDENTIFIER___ {
 // MARK: - UICollectionViewDataSource
 extension ___FILEBASENAMEASIDENTIFIER___ {
     /*
-     /// 询问指定 indexPath 的 cell 实例，默认取 identifier 为 cell 的实例
+     /// 询问指定 indexPath 的 cell 实例，默认取 identifier 为 cell 的实例。
 
      override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
      return collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)

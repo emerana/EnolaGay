@@ -4,7 +4,7 @@ import UIKit
 import EnolaGay
 import SwiftyJSON
 
-/// 里面包含了一个 UICollectionView.
+/// 该类型的 tableCell 里面包含了一个 UICollectionView
 class ___FILEBASENAMEASIDENTIFIER___: JudyBaseTableCell {
     
     // MARK: - let property and IBOutlet
@@ -117,7 +117,6 @@ extension ___FILEBASENAMEASIDENTIFIER___: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension ___FILEBASENAMEASIDENTIFIER___: UICollectionViewDelegate {
-    
     // MARK: scrollView delegate
     
     /// scrollView 滚动之后执行的代理方法，此方法实现了上拉隐藏下拉显示导航栏，重写此方法记得super可实现
@@ -144,8 +143,7 @@ extension ___FILEBASENAMEASIDENTIFIER___: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension ___FILEBASENAMEASIDENTIFIER___: UICollectionViewDelegateFlowLayout {
-    // 设置 headerView 的 size。一般用不上这个方法，在生成HeaderView中就可以设置高度或者在xib中设置高度即可
-
+    // 设置 headerView 的 size。一般用不上这个方法，在生成HeaderView中就可以设置高度或者在xib中设置高度即可。
     /*
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
      
@@ -156,7 +154,7 @@ extension ___FILEBASENAMEASIDENTIFIER___: UICollectionViewDelegateFlowLayout {
      */
     
     /// 询问 cell 大小，在此函数中计算好对应的 size.
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         /// 在一个 line 中需要显示的 cell 数量
         let countOfCells: CGFloat = <#3#>
         /// cell 参与计算的边长，初值为 line 的长度（包含间距）
