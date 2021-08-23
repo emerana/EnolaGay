@@ -1191,9 +1191,8 @@ public extension URL {
 }
 
 // MARK: - 针对 String 扩展的便携方法，这些方法尚未验证其准确性
-
-public extension String {
-    
+/// 为空间包装对象 String 添加扩展函数
+public extension EnolaGayWrapper where Base == String {
     /// 通过一个时间戳获取视频的总时长
     /// - Parameter duration: 视频的 player.duration，如 1942.2760000000001.
     /// - Returns: 如：00:32:22.
@@ -1222,20 +1221,19 @@ public extension String {
         dateFormatter.dateFormat = formatterIn
         dateFormatter.timeZone = .current
 
-        if let dated = dateFormatter.date(from: self) {
+        if let dated = dateFormatter.date(from: base) {
             dateFormatter.dateFormat = formatterOut
             return dateFormatter.string(from: dated)
         } else {
             Judy.log("时间转换失败")
             return "time error"
         }
-
     }
-
+    
     /// 清除字符串中的所有空格
     ///
     /// - Returns: 如："str abc", "strabc".
-    func clean() -> String { replacingOccurrences(of: " ", with: "") }
+    func clean() -> String { base.replacingOccurrences(of: " ", with: "") }
     
     /// 计算文本的 size.
     ///
@@ -1245,7 +1243,7 @@ public extension String {
     /// - Returns: 文本所需宽度
     func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(size: 16)) -> CGSize {
         // 根据文本内容获取尺寸，计算文字尺寸 UIFont.systemFont(ofSize: 14.0)
-        return self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin],
+        return base.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin],
                                  attributes: [NSAttributedString.Key.font: font],
                                  context: nil).size
     }
@@ -1260,10 +1258,28 @@ public extension String {
         var attributes = [NSAttributedString.Key : Any]()
         attributes[NSAttributedString.Key.font] = font
         attributes[NSAttributedString.Key.paragraphStyle] = paragraphStyle
-        let textBouds = self.boundingRect(with: maxSize, options: options, attributes: attributes, context: nil)
+        let textBouds = base.boundingRect(with: maxSize, options: options, attributes: attributes, context: nil)
         
         return textBouds.size
     }
+
+}
+
+public extension String {
+    @available(*, message: "请使用空间持有者 judy 对象")
+    static func getVideoTime(duration: TimeInterval) -> String { "" }
+    
+    @available(*, message: "请使用空间持有者 judy 对象")
+    func dateFormatter(formatterIn: String = "yyyy-MM-dd HH:mm:ss", formatterOut: String = "HH:mm:ss") -> String { "" }
+
+    @available(*, message: "请使用空间持有者 judy 对象")
+    func clean() -> String { "" }
+    
+    @available(*, message: "请使用空间持有者 judy 对象")
+    func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(size: 16)) -> CGSize { .zero }
+    
+    @available(*, message: "请使用空间持有者 judy 对象")
+    func sizeWith(font: UIFont = UIFont(size: 16) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize { .zero }
     
     /// 下标获取字符串
     subscript(i: Int) -> String {
@@ -1525,6 +1541,8 @@ extension UIApplication: EnolaGayCompatible { }
 extension Date: EnolaGayCompatible { }
 
 extension Calendar: EnolaGayCompatible { }
+
+extension String: EnolaGayCompatible { }
 
 
 // MARK: - EnolaGay 中为 UIView 新增 toast 函数

@@ -55,8 +55,7 @@ private extension ___FILEBASENAMEASIDENTIFIER___ {
 
 // MARK: - tableView dataSource
 extension ___FILEBASENAMEASIDENTIFIER___ {
-
-    /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例
+    /// 询问指定 indexPath 的 Cell 实例
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath) // as! JudyBaseTableCell
 
@@ -78,7 +77,6 @@ extension ___FILEBASENAMEASIDENTIFIER___ {
 
 // MARK: - tableView delegate
 extension ___FILEBASENAMEASIDENTIFIER___ {
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
         

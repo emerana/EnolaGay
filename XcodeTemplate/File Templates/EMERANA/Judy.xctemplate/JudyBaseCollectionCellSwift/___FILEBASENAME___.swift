@@ -20,7 +20,7 @@ class ___FILEBASENAMEASIDENTIFIER___: JudyBaseCollectionViewCell {
     
     // MARK: - override
     
-    /// 布局子视图。创建对象顺序一定是先有 frame，再 awakeFromNib，再调整布局
+    /// 布局子视图。创建对象顺序一定是先有 frame，再 awakeFromNib，再调整布局。
     override func layoutSubviews() {
         super.layoutSubviews()
         
