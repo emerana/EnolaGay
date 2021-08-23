@@ -373,20 +373,16 @@ public extension UICollectionViewLayoutAttributes {
     }
 }
 
-/// UICollectionViewFlowLayout 自定义版
+/// UICollectionViewFlowLayout 自定义版，该布局主要解决了在只有一个 Cell 时显示在中间而没有居左显示问题。使用了该布局可以不实现 cellSize函数。
 public class JudyCollectionViewLayout: UICollectionViewFlowLayout {
-
     public override func prepare() {
         super.prepare()
         // 设置一个非 0 的 size 以自动计算 Cell 大小
         estimatedItemSize = CGSize(width: 100, height: 28)
-
     }
-
-    /*
-     返回 UICollectionViewLayoutAttributes 类型的数组，UICollectionViewLayoutAttributes 对象包含 cell 或 view 的布局信息
-     子类必须重载该方法，并返回该区域内所有元素的布局信息，包括 cell,追加视图和装饰视图
-     */
+    
+    // 询问 UICollectionViewLayoutAttributes 类型的数组。
+    // rectUICollectionViewLayoutAttributes 对象包含 cell 或 view 的布局信息，子类必须重载该方法，并返回该区域内所有元素的布局信息，包括 cell,追加视图和装饰视图。
     public override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         
         let originalAttributes = super.layoutAttributesForElements(in: rect)!
@@ -403,7 +399,7 @@ public class JudyCollectionViewLayout: UICollectionViewFlowLayout {
     }
     
     /*
-     返回指定 indexPath 的 item 的布局信息。子类必须重载该方法,该方法只能为 cell 提供布局信息，不能为补充视图和装饰视图提供
+     返回指定 indexPath 的 item 的布局信息。子类必须重载该方法,该方法只能为 cell 提供布局信息，不能为补充视图和装饰视图提供。
      */
     open override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
                 
