@@ -16,7 +16,7 @@ class CacheViewCtrl: JudyBaseViewCtrl {
     /// Storage<String, User>
     private let storage: Storage? = { () -> (Storage<String, User>?) in
         let diskConfig = DiskConfig(name: "MyUsers")
-        let memoryConfig = MemoryConfig(expiry: .never, countLimit: 10, totalCostLimit: 10)
+        let memoryConfig = MemoryConfig(expiry: .seconds(1))
 
         return try? Storage<String, User>(diskConfig: diskConfig, memoryConfig: memoryConfig, transformer: TransformerFactory.forCodable(ofType: User.self))
     }()
@@ -26,14 +26,27 @@ class CacheViewCtrl: JudyBaseViewCtrl {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    @IBAction func pushAction(_ sender: Any) {
+        let viewCtrl = storyboard!.instantiateViewController(withIdentifier: "CacheViewCtrl") as! CacheViewCtrl
+        navigationController?.pushViewController(viewCtrl, animated: true)
+    }
+    
     /// 保存一个对象
     @IBAction private func saveActin(_ sender: Any) {
         let user = User()
         user.userName = "醉翁之意"
         // 10 秒后过期，需要手动删除过期的数据，不会自动删除。
-        try? storage?.setObject(user, forKey: "user", expiry: .date(Date().addingTimeInterval(10)))
-        Judy.logHappy("保存了 user 对象")
+        // try? storage?.setObject(user, forKey: "user", expiry: .date(Date().addingTimeInterval(10)))
+        storage?.async.setObject(user, forKey: "user") { result in
+            switch result {
+            case .value:
+                Judy.logHappy("保存了 user 对象")
+            case .error(let error):
+                Judy.logWarning("对象保存失败：\(error)")
+            }
+        }
+
     }
 
     /// 删除对象
