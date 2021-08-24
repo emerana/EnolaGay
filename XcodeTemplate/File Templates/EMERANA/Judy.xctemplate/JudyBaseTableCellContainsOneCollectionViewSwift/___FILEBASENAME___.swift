@@ -90,7 +90,7 @@ class ___FILEBASENAMEASIDENTIFIER___: JudyBaseTableCell {
 extension ___FILEBASENAMEASIDENTIFIER___: UICollectionViewDataSource {
     
     // section 数量
-    //    func numberOfSections(in collectionView: UICollectionView) -> Int{ 1 }
+    //    func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
 
     // cell 数量
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
