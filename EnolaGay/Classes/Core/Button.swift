@@ -170,7 +170,7 @@ public extension UIButton {
          2018年05月24日17:19
          他娘的，原来要用文本内容的宽度来计算，之前一直用titleLabel.frame.width，当实际内容大于按钮本身时就不准确了我操，搞了一下午突然发现用文本内容计算就贼他妈准确了！
          */
-        let titleWidth: CGFloat = titleLabel!.text!.textSize(font: titleLabel!.font).width
+        let titleWidth: CGFloat = titleLabel!.text!.judy.textSize(font: titleLabel!.font).width
         //设置文字偏移：向下偏移图片高度＋向左偏移图片宽度 （偏移量是根据［图片］大小来的，这点是关键）
         titleEdgeInsets = UIEdgeInsets.init(top: imageView!.frame.size.height + spacing/2, left: -imageView!.frame.size.width, bottom: 0, right: 0)
         //设置图片偏移：向上偏移文字高度＋向右偏移文字宽度 （偏移量是根据［文字］大小来的，这点是关键）

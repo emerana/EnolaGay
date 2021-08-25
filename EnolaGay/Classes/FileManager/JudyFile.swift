@@ -95,7 +95,7 @@ public class JudyFile: NSObject {
     ///   - fileType: 文件后缀，如plist、json、txt，默认为.json文件
     /// - Returns: 一个标准的JSON
     public func jsonFormFile(fileName: String, fileType: String = "json") -> JSON {
-        guard fileName.clean() != "" else {
+        guard fileName.judy.clean() != "" else {
             return JSON([APIERRKEY.error.rawValue: [APIERRKEY.msg.rawValue: "请传入文件名"]])
         }
         var json = JSON()
