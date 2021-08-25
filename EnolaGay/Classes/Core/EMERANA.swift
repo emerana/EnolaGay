@@ -1266,19 +1266,19 @@ public extension EnolaGayWrapper where Base == String {
 }
 
 public extension String {
-    @available(*, message: "请使用空间持有者 judy 对象")
+    @available(*, unavailable, message: "请使用空间持有者 judy 对象", renamed: "judy.getVideoTime")
     static func getVideoTime(duration: TimeInterval) -> String { "" }
     
-    @available(*, message: "请使用空间持有者 judy 对象")
+    @available(*, unavailable, message: "请使用空间持有者 judy 对象", renamed: "judy.dateFormatter")
     func dateFormatter(formatterIn: String = "yyyy-MM-dd HH:mm:ss", formatterOut: String = "HH:mm:ss") -> String { "" }
 
-    @available(*, message: "请使用空间持有者 judy 对象")
+    @available(*, unavailable, message: "请使用空间持有者 judy 对象", renamed: "judy.clean")
     func clean() -> String { "" }
     
-    @available(*, message: "请使用空间持有者 judy 对象")
+    @available(*, unavailable, message: "请使用空间持有者 judy 对象", renamed: "judy.textSize")
     func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(size: 16)) -> CGSize { .zero }
     
-    @available(*, message: "请使用空间持有者 judy 对象")
+    @available(*, unavailable, message: "请使用空间持有者 judy 对象", renamed: "judy.sizeWith")
     func sizeWith(font: UIFont = UIFont(size: 16) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize { .zero }
     
     /// 下标获取字符串
