@@ -71,9 +71,9 @@ public class JudyTipViewCtrl: UIViewController {
     deinit { Judy.logHappy("\(classForCoder) - 已释放") }
 }
 
-/// 具有事件穿透效果的 view，即该视图不接收响应事件，常用于视图控制器中的根 view
+/// 具有事件穿透效果的 view，即该视图不接收响应事件，常用于视图控制器中的根 view.
 open class PenetrateView: UIView {
-    // 返回当前视图中最远的派生视图对象，它包含点。如果这个点完全位于接收器的视图层次结构之外，则返回 nil
+    // 返回当前视图中最远的派生视图对象，它包含点。如果这个点完全位于接收器的视图层次结构之外，则返回 nil.
     // 返回视图层次结构（包括其自身）中包含指定点的接收器的最远子体。
     /*
      此方法通过调用每个子视图的point（inside:with:）方法来遍历视图层次结构，以确定哪个子视图应接收触摸事件。
@@ -96,18 +96,22 @@ open class PenetrateView: UIView {
 ///
 /// * 重写 viewTitle 属性为当前界面设置标题
 /// * 本类中包含一个 json，用好它
-/// * 本类中已集成 Api 层，通过设置 requestConfig 对象以配置请求信息，请求流详见 reqApi().
+/// * 本类自带 Api 层配置，通过设置 requestConfig 对象以配置请求信息，调用 reqApi() 方法发起请求。
 open class JudyBaseViewCtrl: UIViewController {
 
     // MARK: - public var property
 
     /// 为当前设置一个标题。**当前界面的标题显示优先顺序为 viewTitle > title > navigationItem.title.**
     ///
-    /// 如需更改显示的标题请在 viewDidLoad 之后设置 navigationItem.title 即可
+    /// 如需更改显示的标题请在 viewDidLoad 之后设置 navigationItem.title 即可。
     /// - Warning: 重写读写属性方式为实现 get、set，且里面最好全调用 super，尤其是 set.
     open var viewTitle: String? { nil }
     /// 当前界面包含的 json 数据，设置该值将触发 jsonDidSet() 函数，初值为 JSON().
     open var json = JSON() { didSet{ jsonDidSet() } }
+    
+    /// 自动触发 reqApi() 方法时是否显示等待 hud，该值默认为 true.
+    /// - Warning: 此属性仅在自动触发 reqApi() 方法时生效。
+    open var isAllowApiWaitingHUD: Bool { true }
 
     // MARK: Api 相关属性
     
@@ -154,8 +158,8 @@ open class JudyBaseViewCtrl: UIViewController {
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // 若请求失败，则需在每次视图出现时重新发起请求
-        if !isReqSuccess { reqApi() }
+        // 若请求失败，则需在每次视图出现时重新发起请求。
+        if !isReqSuccess { reqApi(showHUD: isAllowApiWaitingHUD) }
         
         // Judy-mark: 正确的修改导航条方式
         /*
@@ -195,13 +199,12 @@ open class JudyBaseViewCtrl: UIViewController {
     ///     - reqOver()
     /// - Parameters:
     ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi().
-    ///   - isSupportWaitingHUD: 该请求是否允许显示等待过程的 HUD，默认 true，若该值为 false，即使 isGlobalHideWaitingHUD 为 true 也将无效
-    public final func reqApi(isSetApi: Bool = true, isSupportWaitingHUD: Bool = true) {
+    ///   - showHUD: 是否需要弹出等待的 hud，默认为 true.
+    public final func reqApi(isSetApi: Bool = true, showHUD: Bool = true) {
+        // 判断是否需要弹出等待 hud
+        if showHUD { view.toast.makeToastActivity(.center) }
+        
         if isSetApi { setApi() }
-
-        if isSupportWaitingHUD {
-            if !Self.isGlobalHideWaitingHUD() { view.toast.makeToastActivity(.center) }
-        }
         
         /// 接收响应的闭包
         let responseClosure: ((JSON) -> Void) = { [weak self] json in
