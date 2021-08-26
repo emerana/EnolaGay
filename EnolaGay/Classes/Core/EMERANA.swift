@@ -17,15 +17,6 @@ public typealias ClosureJSON = ((JSON) -> Void)
 public typealias ClosureString = ((String) -> Void)
 
 
-// MARK: - 为 ViewCtrl 新增部分协议
-
-// 为 JudyBaseViewCtrl 扩展函数实现
-public extension JudyBaseViewCtrl {
-    /// 是否隐藏所有界面 reqApi() 时显示等待的 HUD，此函数已默认实现返回 false，通过 public extension JudyBaseViewCtrl 重写此函数以改变默认值
-    static func isGlobalHideWaitingHUD() -> Bool { false }
-}
-
-
 // MARK: - 刷新视图专用协议，主要用于 tableView、collectionView
 
 /// 刷新控件适配器协议
