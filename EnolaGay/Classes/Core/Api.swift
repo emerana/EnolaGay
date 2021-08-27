@@ -131,9 +131,9 @@ final public class ApiRequestConfig {
     /// 该值为用于与 domain 拼接的部分，初值为 nil. 定义Api接口详见 ApiAction.
     public lazy var api: ApiAction? = nil
     
-    /// 请求域名，默认为 Domain.default，该值将与 api 属性拼接成最终请求的完整 URL
+    /// 请求域名，默认为 Domain.default，该值将与 api 属性拼接成最终请求的完整 URL.
     ///
-    /// 配置默认值及配置多个域名详见 Domain
+    /// 配置默认值、其它多个域名详见 Domain.
     public var domain: Domain = .default
     
     /// 请求方式 HTTPMethod.
@@ -249,19 +249,18 @@ final public class ApiRequestConfig {
         /// 域名的实际可访问性字符串
         private(set) public var rawValue: String
         
-        public init(rawValue: String) {
-            self.rawValue = rawValue
-        }
+        public init(rawValue: String) { self.rawValue = rawValue }
         
         /// 项目中默认使用的主要域名，其值为 ApiAdapter.domain().
+        /// - Warning: 请确认实现 ApiAdapter 协议并覆盖 domain() 方法。
         public static let `default` = Domain(rawValue: EMERANA.apiAdapter?.domain() ?? "https://www.baidu.com")
     }
     
 }
 
-/// 在 Api 请求中常用到的 JSONKey，主要用于访问错误信息
+/// 在 Api 请求中常用到的 JSONKey，主要用于访问错误信息。
 public enum APIERRKEY: String {
-    /// 该字段通常用于访问包含错误信息集合的 json.
+    /// 该字段通常用于访问包含错误信息集合的 json
     case error = "EMERANA_KEY_API_ERROR"
     /// 访问 json 中的语义化响应消息体
     case msg = "EMERANA_KEY_API_MSG"
