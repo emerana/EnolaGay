@@ -254,7 +254,7 @@ final public class ApiRequestConfig {
         }
         
         /// 项目中默认使用的主要域名，其值为 ApiAdapter.domain().
-        static let `default` = Domain(rawValue: EMERANA.apiAdapter?.domain() ?? "https://www.baidu.com")
+        public static let `default` = Domain(rawValue: EMERANA.apiAdapter?.domain() ?? "https://www.baidu.com")
     }
     
 }
