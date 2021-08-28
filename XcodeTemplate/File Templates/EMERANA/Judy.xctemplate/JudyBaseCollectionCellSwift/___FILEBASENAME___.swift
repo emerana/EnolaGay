@@ -4,7 +4,6 @@ import UIKit
 import EnolaGay
 
 class ___FILEBASENAMEASIDENTIFIER___: JudyBaseCollectionViewCell {
-
     // MARK: - let property and IBOutlet
     
     // MARK: - var property
