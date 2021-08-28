@@ -101,3 +101,28 @@ class CacheViewCtrl: JudyBaseViewCtrl {
 class User: Codable {
     var userName = ""
 }
+// MARK: Api 请求相关
+
+override func setApi() {
+    super.setApi()
+    
+    requestConfig.api = <#ApiAction#>.
+    
+}
+
+override func reqSuccess() {
+    super.reqSuccess()
+    Judy.log("请求成功-\(apiData)")
+    /*
+     let list = apiData["<#data#>"].arrayValue
+     if isAddMore {
+     dataSource += list
+     } else {
+     dataSource = list
+     }
+     tableView?.reloadSections(IndexSet(integer: <#0#>), with: .fade)
+     或
+     tableView?.reloadData()
+     */
+}
+
