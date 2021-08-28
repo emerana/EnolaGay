@@ -121,6 +121,10 @@ import MJRefresh
 
 /// 刷新控件适配器实现。
 extension UIApplication: RefreshAdapter {
+    public var pageSizeParameter: String { "pageIndexAOO" }
+    
+    public var pageIndexParameter: String { "pageSizeAOO" }
+    
     
     public func initHeaderRefresh(scrollView: UIScrollView?, callback: @escaping (() -> Void)) {
         scrollView?.mj_header = MJRefreshNormalHeader(refreshingBlock: callback)
@@ -142,6 +146,4 @@ extension UIApplication: RefreshAdapter {
     public func resetNoMoreData(scrollView: UIScrollView?) {
         scrollView?.mj_footer?.resetNoMoreData()
     }
-    
-    public func pageParameterStrings() -> (String, String) { ("pageIndexAOO","pageSizeAOO") }
 }

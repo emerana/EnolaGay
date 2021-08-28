@@ -12,7 +12,7 @@ import UIKit
 import SwiftyJSON
 
 /**
- *  该类包含一个 tableView，请将 tableView 与故事板关联
+ *  该类包含一个 tableView，请将 tableView 与故事板关联。
  *  * 该 tableView 已经实现 dataSource 和 delegate.
  *  * 默认 tableViewCellidentitier 为 "Cell".
  */
@@ -78,7 +78,6 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
     }
 }
 
-
 // MARK: - UITableViewDelegate
 extension JudyBaseTableViewCtrl: UITableViewDelegate {
     
@@ -137,9 +136,7 @@ extension JudyBaseTableViewCtrl: UITableViewDelegate {
      */
 }
 
-
 // MARK: - UITableViewDataSource
-
 extension JudyBaseTableViewCtrl: UITableViewDataSource {
     /*
      /// 询问 tableView 中的 section 数量
@@ -158,7 +155,6 @@ extension JudyBaseTableViewCtrl: UITableViewDataSource {
     }
     
 }
-
 
 // MARK: - JudyBaseTableRefreshViewCtrl
 
@@ -181,12 +177,10 @@ extension JudyBaseTableViewCtrl: UITableViewDataSource {
 ///}
 ///```
 open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh {
-    
     open var pageSize: Int { 10 }
     open var defaultPageIndex: Int { 1 }
     final public private(set) var currentPage = 0 { didSet{ didSetCurrentPage() } }
     final lazy public private(set) var isAddMore = false
-
     
     // MARK: - Life Cycle
     
@@ -199,7 +193,6 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
         initFooterRefresh()
     }
 
-
     // MARK: Api相关
 
     /// 设置 api、param.
@@ -211,8 +204,8 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     ///```
     /// - Warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage，子类请务必调用父类方法
     open override func setApi() {
-        requestConfig.parameters?[pageParameterString()] = currentPage
-        requestConfig.parameters?[pageSizeParameterString()] = pageSize
+        requestConfig.parameters?[pageIndexParameter] = currentPage
+        requestConfig.parameters?[pageSizeParameter] = pageSize
     }
 
     /// 未设置 requestConfig.api 却发起了请求时的消息处理
@@ -243,7 +236,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
         // 设置总页数
         let sumPage = setSumPage()
         // 在此判断是否有更多数据。结束刷新已经在 reqResult() 中完成
-        if sumPage <= currentPage {    // 最后一页了，没有更多
+        if sumPage <= currentPage { // 最后一页了，没有更多
             // 当没有更多数据的时候要将当前页设置为总页数或默认页数
             currentPage = sumPage <= defaultPageIndex ? defaultPageIndex:sumPage
             EMERANA.refreshAdapter?.endRefreshingWithNoMoreData(scrollView: tableView)
@@ -284,13 +277,6 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
             
             self?.reqApi()
         })
-    }
-    
-    open func pageParameterString() -> String {
-        EMERANA.refreshAdapter?.pageParameterStrings().0 ?? "pageIndex"
-    }
-    open func pageSizeParameterString() -> String {
-        EMERANA.refreshAdapter?.pageParameterStrings().1 ?? "pageSize"
     }
     
     open func didSetCurrentPage() {}

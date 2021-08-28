@@ -11,7 +11,7 @@
 import UIKit
 import SwiftyJSON
 
-/// 该类包含一个 collectionView，请将 collectionView 与故事板关联
+/// 该类包含一个 collectionView，请将 collectionView 与故事板关联。
 /// * 该类已经实现了三个代理，UICollectionReusableView 在 dataSource 里
 /// * delegateFlowLayout 里面定义了布局系统
 /// * 默认 collectionViewCellidentitier 为 "Cell"
@@ -74,7 +74,6 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
 
 }
 
-
 // MARK: - UICollectionViewDataSource
 extension JudyBaseCollectionViewCtrl: UICollectionViewDataSource {
     /*
@@ -110,10 +109,8 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDataSource {
 
 }
 
-
 // MARK: - UICollectionViewDelegate
 extension JudyBaseCollectionViewCtrl: UICollectionViewDelegate {
-    
     // MARK: scrollView delegate
     /*
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -152,10 +149,8 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegate {
     
 }
 
-
 // MARK: - UICollectionViewDelegateFlowLayout
 extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
-        
     // 设置 headerView 的 size。一般用不上这个方法，在生成 headerView 中就可以设置高度或者在 xib 中设置高度即可
     /*
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -206,12 +201,11 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
 
 }
 
-
 // MARK: - JudyBaseCollectionRefreshViewCtrl
 
-/// 在 JudyBaseCollectionViewCtrl 的基础上加上刷新控件，以支持分页加载数据
+/// 在 JudyBaseCollectionViewCtrl 的基础上加上刷新控件，以支持分页加载数据。
 ///
-/// 请实现刷新控件适配器 extension UIApplication: RefreshAdapter ；重写 setSumPage() 函数以设置总页数
+/// 请实现刷新控件适配器 extension UIApplication: RefreshAdapter ；重写 setSumPage() 函数以设置总页数。
 /// - Warning: reqApi() 周期主要匹配分页加载功能，若存在无关分页请求需重写以下函数：
 ///     * reqResult()，此函数中影响上下拉状态，无需控制 UI 状态时需要在此函数中排除
 ///     * reqSuccess()，此函数中影响设置总页数函数 setSumPage(), 无关的逻辑应该在此排除
@@ -228,12 +222,10 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegateFlowLayout {
 ///}
 ///```
 open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERANA_Refresh {
-    
     open var pageSize: Int { 10 }
     open var defaultPageIndex: Int { 1 }
     final public private(set) var currentPage = 0 { didSet{ didSetCurrentPage() } }
     final lazy public private(set) var isAddMore = false
-
     
     // MARK: - Life Cycle
     
@@ -258,8 +250,8 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
     ///```
     /// - Warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage，子类请务必调用父类方法
     open override func setApi() {
-        requestConfig.parameters?[pageParameterString()] = currentPage
-        requestConfig.parameters?[pageSizeParameterString()] = pageSize
+        requestConfig.parameters?[pageIndexParameter] = currentPage
+        requestConfig.parameters?[pageSizeParameter] = pageSize
     }
     
     /// 未设置 requestConfig.api 却发起了请求时的消息处理
@@ -292,7 +284,7 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
         // 设置总页数
         let sumPage = setSumPage()
         // 在此判断是否有更多数据。结束刷新已经在 reqResult() 中完成
-        if sumPage <= currentPage {    // 最后一页了，没有更多
+        if sumPage <= currentPage { // 最后一页了，没有更多
             // 当没有更多数据的时候要将当前页设置为总页数或默认页数
             currentPage = sumPage <= defaultPageIndex ? defaultPageIndex:sumPage
             EMERANA.refreshAdapter?.endRefreshingWithNoMoreData(scrollView: collectionView)
@@ -306,7 +298,6 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
         super.reqFailed()
         reqNotApi()
     }
-    
     
     // MARK: - EMERANA_Refresh
 
@@ -335,13 +326,6 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
         })
     }
     
-    open func pageParameterString() -> String {
-        EMERANA.refreshAdapter?.pageParameterStrings().0 ?? "pageIndex"
-    }
-    open func pageSizeParameterString() -> String {
-        EMERANA.refreshAdapter?.pageParameterStrings().1 ?? "pageSize"
-    }
-    
     open func didSetCurrentPage() {}
     
     open func refreshHeader() {}
@@ -363,15 +347,14 @@ open class JudyBaseCollectionRefreshViewCtrl: JudyBaseCollectionViewCtrl, EMERAN
 
 
 // MARK: - JudyCollectionViewLayout
-
 public extension UICollectionViewLayoutAttributes {
-    
     func leftAlignFrameWithSectionInset(sectionInset: UIEdgeInsets) {
         var frame = self.frame
         frame.origin.x = sectionInset.left
         self.frame = frame
     }
 }
+
 
 /// UICollectionViewFlowLayout 自定义版，该布局主要解决了在只有一个 Cell 时显示在中间而没有居左显示问题。使用了该布局可以不实现 cellSize函数。
 public class JudyCollectionViewLayout: UICollectionViewFlowLayout {
@@ -447,7 +430,6 @@ public class JudyCollectionViewLayout: UICollectionViewFlowLayout {
 }
 
 private extension JudyCollectionViewLayout {
-    
     /// 计算 Cell 间最小项间距
     func evaluatedMinimumInteritemSpacingForSectionAtIndex(sectionIndex: NSInteger) -> CGFloat {
 
@@ -478,7 +460,6 @@ private extension JudyCollectionViewLayout {
 
 /// collectionView 中的通用 cell，包含一张主要图片、副标题以及默认数据源 json
 open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
-
     // MARK: - let property and IBOutlet
     
     @IBOutlet weak public var titleLabel: UILabel?
