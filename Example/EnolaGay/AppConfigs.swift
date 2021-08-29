@@ -19,10 +19,7 @@ import Alamofire
 // ApiRequestConfig。
 
 extension UIApplication: ApiAdapter {
-
-    public func domain() -> String { "https://livepretest.jingmaiwang.com" }
-
-    public func globalMethodPOST() -> Bool { false }
+    public var domain: String { "https://livepretest.jingmaiwang.com" }
     
     public func responseQC(apiData: JSON) -> JSON {
         var rs: (error: Bool, code: Int, message: String) = (false, 0, "尚未发现错误")
