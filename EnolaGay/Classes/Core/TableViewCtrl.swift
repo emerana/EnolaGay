@@ -214,10 +214,9 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     /// - Warning: 重写此方法务必调用父类方法
     open override func reqNotApi() {
         if isAddMore { currentPage -= 1 }
-        reqResult()
     }
     
-    /// 当服务器响应时首先执行此函数
+    /// 当请求得到响应时首先执行此函数
     ///
     /// 此函数中会调用 endRefresh()，即结束 header、footer 的刷新状态
     /// - Warning: 此函数影响上下拉状态，请确认只有在分页相关请求条件下调用 super.reqResult()
