@@ -19,11 +19,11 @@ public typealias ClosureString = ((String) -> Void)
 
 // MARK: - 刷新视图专用协议，主要用于 tableView、collectionView
 
-/// 刷新控件适配器协议
+/// EMERANA 中的刷新控件适配器协议
 public protocol RefreshAdapter where Self: UIApplication {
-    /// 请求参数 pageSize 字段名，该值默认为 EMERANA.Key.pageSizeParameter，即”pageSize“。
+    /// 默认的请求参数 pageSize 字段名，该值默认为 EMERANA.Key.pageSizeParameter，即”pageSize“。
     var pageSizeParameter: String { get }
-    /// 请求参数 pageIndex 字段名，该值默认为 EMERANA.Key.pageSizeParameter，即”pageIndex“。
+    /// 默认的请求参数 pageIndex 字段名，该值默认为 EMERANA.Key.pageSizeParameter，即”pageIndex“。
     var pageIndexParameter: String { get }
 
     /// 配置头部刷新控件（即下拉刷新）
@@ -94,13 +94,7 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     func resetStatus()
 }
 
-/*
- # 注意：协议扩展是针对抽象类的，而协议本身是针对具体对象的
- */
 extension EMERANA_Refresh {
-    public var pageSizeParameter: String { EMERANA.refreshAdapter?.pageSizeParameter ?? EMERANA.Key.pageSizeParameter }
-    public var pageIndexParameter: String { EMERANA.refreshAdapter?.pageIndexParameter ?? EMERANA.Key.pageIndexParameter }
-
     /// 是否隐藏上拉刷新控件？默认 false.
     /// - warning: 所有实现 EMERANA_Refresh 协议的对象均能触发此扩展函数
     ///     * 在此函数中补充所需操作，扩展对应的类并重写此函数

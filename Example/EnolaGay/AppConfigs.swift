@@ -118,9 +118,9 @@ import MJRefresh
 
 /// 刷新控件适配器实现。
 extension UIApplication: RefreshAdapter {
-    public var pageSizeParameter: String { "pageIndexAOO" }
-    
-    public var pageIndexParameter: String { "pageSizeAOO" }
+    public var pageSizeParameter: String { "SIZE" }
+
+    public var pageIndexParameter: String { "INDEX" }
     
     
     public func initHeaderRefresh(scrollView: UIScrollView?, callback: @escaping (() -> Void)) {

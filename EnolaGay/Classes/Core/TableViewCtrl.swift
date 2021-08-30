@@ -179,6 +179,13 @@ extension JudyBaseTableViewCtrl: UITableViewDataSource {
 open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh {
     open var pageSize: Int { 10 }
     open var defaultPageIndex: Int { 1 }
+    open var pageSizeParameter: String {
+        EMERANA.refreshAdapter?.pageSizeParameter ?? EMERANA.Key.pageSizeParameter
+    }
+    open var pageIndexParameter: String {
+        EMERANA.refreshAdapter?.pageIndexParameter ?? EMERANA.Key.pageIndexParameter
+    }
+    
     final public private(set) var currentPage = 0 { didSet{ didSetCurrentPage() } }
     final lazy public private(set) var isAddMore = false
     
