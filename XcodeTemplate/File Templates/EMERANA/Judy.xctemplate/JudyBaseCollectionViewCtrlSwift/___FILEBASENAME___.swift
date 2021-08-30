@@ -75,7 +75,7 @@ extension ___FILEBASENAMEASIDENTIFIER___ {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension ___FILEBASENAMEASIDENTIFIER___ {
     /// 询问 cell 大小，在此函数中计算好对应的 size.
-    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         /// 在一个 line 中需要显示的 cell 数量
         let countOfCells: CGFloat = <#3#>
         /// cell 参与计算的边长，初值为 line 的长度（包含间距）

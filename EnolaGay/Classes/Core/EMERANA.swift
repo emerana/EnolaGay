@@ -19,8 +19,13 @@ public typealias ClosureString = ((String) -> Void)
 
 // MARK: - 刷新视图专用协议，主要用于 tableView、collectionView
 
-/// 刷新控件适配器协议
+/// EMERANA 中的刷新控件适配器协议
 public protocol RefreshAdapter where Self: UIApplication {
+    /// 默认的请求参数 pageSize 字段名，该值默认为 EMERANA.Key.pageSizeParameter，即”pageSize“。
+    var pageSizeParameter: String { get }
+    /// 默认的请求参数 pageIndex 字段名，该值默认为 EMERANA.Key.pageSizeParameter，即”pageIndex“。
+    var pageIndexParameter: String { get }
+
     /// 配置头部刷新控件（即下拉刷新）
     func initHeaderRefresh(scrollView: UIScrollView?, callback: @escaping (()->Void))
     /// 配置底部刷新控件（即上拉加载）
@@ -34,40 +39,36 @@ public protocol RefreshAdapter where Self: UIApplication {
     /// 重置没有更多数据
     func resetNoMoreData(scrollView: UIScrollView?)
     
-    /// 询问分页请求中页码和页大小字段名，默认实现为 "pageIndex","pageSize"
-    /// - Warning: 第一个元素为页码，第二个元素为页大小
-    func pageParameterStrings() -> (String, String)
 }
 
 /// 默认实现
 public extension RefreshAdapter {
-    func pageParameterStrings() -> (String, String) { ("pageIndex","pageSize") }
+    var pageSizeParameter: String { EMERANA.Key.pageSizeParameter }
+    var pageIndexParameter: String { EMERANA.Key.pageIndexParameter }
 }
 
 /// tableView、collectionView 专用刷新协议
 /// - Warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
 public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
-    
     /// 缺省请求页码，通常第一页码为1，但有的情况可能为 0.
     var defaultPageIndex: Int { get }
     /// 请求页码初始化、下拉刷新时会重置到默认值 defaultPageIndex.
     var currentPage: Int { get }
-    
     /// 每页的数据大小
     var pageSize: Int { get }
 
-    /// 该属性标识最后操作是否为上拉加载，通常在获取到服务器数据后需要判断该值进行数据的处理
+    /// 请求参数 pageSize 字段名，该值默认为 RefreshAdapter 协议中的 pageSizeParameter 属性，重写此属性以重新设置。
+    var pageSizeParameter: String { get }
+    /// 请求参数 pageIndex 字段名，该值默认为 RefreshAdapter 协议中的 pageIndexParameter 属性，重写此属性以重新设置。
+    var pageIndexParameter: String { get }
+
+    /// 该属性标识最后操作是否为上拉加载，通常在获取到服务器数据后需要判断该值进行数据的处理。
     var isAddMore: Bool { get }
     
     /// 请在此函数中配置头部（下拉）刷新控件
     func initHeaderRefresh()
     /// 请在此函数中配置底部（上拉）加加载控件
     func initFooterRefresh()
-    
-    /// 询问分页请求中的当前页码字段名，默认实现为 "pageIndex"，否则请重写此函数以配置正确的字段名
-    func pageParameterString() -> String
-    /// 询问分页请求中的每页大小的字段名，默认实现为 "pageSize"，否则请重写此函数以配置正确的字段名
-    func pageSizeParameterString() -> String
     
     /// 当 currentPage 发生变化的操作
     func didSetCurrentPage()
@@ -93,9 +94,6 @@ public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
     func resetStatus()
 }
 
-/*
- # 注意：协议扩展是针对抽象类的，而协议本身是针对具体对象的
- */
 extension EMERANA_Refresh {
     /// 是否隐藏上拉刷新控件？默认 false.
     /// - warning: 所有实现 EMERANA_Refresh 协议的对象均能触发此扩展函数
@@ -1377,12 +1375,17 @@ public struct EMERANA {
     // 私有化构造器；在单例模式下，只有该单例被首次访问时才会创建该对象
     private init() { }
     
-    /// 该数据结构的主要用来封装少量相关简单数据值
+    /// 该数据结构为 EMERANA 中可访问性数据的封装
     /// - Warning: 注意
     ///     * 项目中所有固定的可访问性字符都应该封装在此结构体内，在此结构体中定义所有可访问性数据（字符）
     ///     * 希望数据结构的实例被赋值给另一个实例时是拷贝而不是引用，封装的数据及其中存储的值也是拷贝而不是引用
     ///     * 该数据结构不需要使用继承
     public struct Key {
+        /// 在分页加载的界面中用于表示 pageIndex 的字段名
+        public static let pageIndexParameter = "pageIndex"
+        /// 在分页加载的界面中用于表示 pageSize 的字段名
+        public static let pageSizeParameter = "pageSize"
+
         /// 状态栏 View 专用 tag.
         public static let statusBarViewTag = 20210727
         /// 该值用作于 EMERANA UIView 扩展函数 gradientView() 辨别 gradientLayer.name.
