@@ -46,16 +46,13 @@ public final class JudyApi {
 /// ApiRequestConfig 专用初始化协议，该协议定义了 ApiRequestConfig 部分属性的初值，及通用的请求接口
 /// - Warning: 该协议主要针对 ApiRequestConfig 进行全局性的配置，可单独设置其属性
 public protocol ApiAdapter where Self: UIApplication {
+    /// ApiRequestConfig.domain 的默认值
+    var domain: String { get }
+    /// ApiRequestConfig.method 的默认值是否为 POST? 默认实现为 true.
+    var isMethodPOST: Bool { get }
+    /// ApiRequestConfig.isResponseJSON 的默认值是否为 responseJSON？默认实现为 true.
+    var isResponseJSON: Bool { get }
     
-    /// 询问请求的主要（默认）域名
-    /// - Warning: 该函数主要针对全局配置，如需变更请单独设置 apiConfig.domain.
-    func domain() -> String
-    
-    /// 询问全局默认的请求方法是否为 POST? 该函数默认实现为 true.
-    func globalMethodPOST() -> Bool
-    
-    /// 询问 apiRequestConfig 请求的响应方式是否为 responseJSON？默认实现为 true，否则为 responseString.
-    func responseJSON() -> Bool
     
     /// 确认 apiRequestConfig 最终配置，此函数为触发请求（调用 request() ）前的最后操作
     /// - Parameter requestConfig: 当前 apiConfig 对象
@@ -82,15 +79,15 @@ public protocol ApiAdapter where Self: UIApplication {
 
 // ApiAdapter 的部分默认实现，使其变成可选协议函数
 public extension ApiAdapter {
-    func domain() -> String {
+    var domain: String {
         Judy.logWarning("ApiAdapter.domain() 未实现，默认域名将使用 www.baidu.com")
         return "https://www.baidu.com"
     }
     
-    func globalMethodPOST() -> Bool { true }
-    
-    func responseJSON() -> Bool { true }
-    
+    var isMethodPOST: Bool { true }
+
+    var isResponseJSON: Bool { true }
+
     func apiRequestConfigAffirm(requestConfig: ApiRequestConfig) { }
     
     func responseQC(apiData: JSON) -> JSON {
@@ -125,21 +122,16 @@ public extension ApiAction {
 /// ApiRequestConfig 对象在初始化时就已经通过 ApiAdapter 协议中的函数配置好了必须属性，关于 domain 和 api 属性的使用请参考其自身说明
 /// - Warning: 请 extension UIApplication: ApiAdapter 并覆盖指定函数以配置属性的初始值
 final public class ApiRequestConfig {
-    
-    /// 请求的 api.
+    /// 请求的 api
     ///
     /// 该值为用于与 domain 拼接的部分，初值为 nil. 定义Api接口详见 ApiAction.
     public lazy var api: ApiAction? = nil
     
-    /// 请求域名，默认为 Domain.default，该值将与 api 属性拼接成最终请求的完整 URL
-    ///
-    /// 配置默认值及配置多个域名详见 Domain
+    /// 请求域名，默认为 Domain.default，该值将与 api 属性拼接成最终请求的完整 URL.
     public var domain: Domain = .default
     
-    /// 请求方式 HTTPMethod.
-    ///
-    /// 请通过实现 ApiAdapter.globalMethodPOST() 以配置全局通用值
-    public var method: Method = (EMERANA.apiAdapter?.globalMethodPOST() ?? true) ? .post:.get
+    /// 请求方式 HTTPMethod
+    public var method: Method = (EMERANA.apiAdapter?.isMethodPOST ?? true) ? .post:.get
     
     /// 请求参数，初值是一个空数组
     public var parameters: [String: Any]? = [String: Any]()
@@ -154,9 +146,7 @@ final public class ApiRequestConfig {
     public lazy var header = [String: String]()
     
     /// 请求的响应数据格式是否为 responseJSON，默认值为 true.反之响应为 responseString.
-    ///
-    /// 请通过实现 ApiAdapter.responseJSON() 以修改默认值
-    public var isResponseJSON: Bool = EMERANA.apiAdapter?.responseJSON() ?? true
+    public var isResponseJSON: Bool = EMERANA.apiAdapter?.isResponseJSON ?? true
     
     /// 最终的请求 URL. 该值为 domain、api 拼接而成
     public var reqURL: String { domain.rawValue + (api?.value ?? "") }
@@ -249,19 +239,18 @@ final public class ApiRequestConfig {
         /// 域名的实际可访问性字符串
         private(set) public var rawValue: String
         
-        public init(rawValue: String) {
-            self.rawValue = rawValue
-        }
+        public init(rawValue: String) { self.rawValue = rawValue }
         
         /// 项目中默认使用的主要域名，其值为 ApiAdapter.domain().
-        public static let `default` = Domain(rawValue: EMERANA.apiAdapter?.domain() ?? "https://www.baidu.com")
+        /// - Warning: 请确认实现 ApiAdapter 协议并覆盖 domain() 方法。
+        public static let `default` = Domain(rawValue: EMERANA.apiAdapter?.domain ?? "https://www.baidu.com")
     }
     
 }
 
-/// 在 Api 请求中常用到的 JSONKey，主要用于访问错误信息
+/// 在 Api 请求中常用到的 JSONKey，主要用于访问错误信息。
 public enum APIERRKEY: String {
-    /// 该字段通常用于访问包含错误信息集合的 json.
+    /// 该字段通常用于访问包含错误信息集合的 json
     case error = "EMERANA_KEY_API_ERROR"
     /// 访问 json 中的语义化响应消息体
     case msg = "EMERANA_KEY_API_MSG"

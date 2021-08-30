@@ -12,7 +12,10 @@ import EnolaGay
 class TestTableRefreshTableViewCtrl: JudyBaseTableRefreshViewCtrl {
     
     override var viewTitle: String? { return "上下拉刷新测试" }
-
+    override var defaultPageIndex: Int {0}
+    
+    override var pageIndexParameter: String { "JUDY" }
+    override var pageSizeParameter: String { "EMERANA" }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +32,7 @@ class TestTableRefreshTableViewCtrl: JudyBaseTableRefreshViewCtrl {
     override func setApi() {
         super.setApi()
         
-//        requestConfig.api = Actions.createUserChatToken
+        requestConfig.api = Actions.createUserChatToken
         requestConfig.parameters?["userid"] = 323430
 
     }

@@ -10,15 +10,18 @@ import UIKit
 import EnolaGay
 
 class TestCollectionRefreshCollectionViewCtrl: JudyBaseCollectionRefreshViewCtrl {
-    
     override var viewTitle: String? { return "CollectionView" }
     
+    override var pageSizeParameter: String {"thisSIZE"}
+    override var pageIndexParameter: String {"thisINDEZX"}
+
     override var itemSpacing: CGFloat { return 8 }
         
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+
     
     // MARK: - override
     
@@ -36,7 +39,6 @@ class TestCollectionRefreshCollectionViewCtrl: JudyBaseCollectionRefreshViewCtrl
     }
     
 }
-
 
 // MARK: - UICollectionViewDataSource
 extension TestCollectionRefreshCollectionViewCtrl {

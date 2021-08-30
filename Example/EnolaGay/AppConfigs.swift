@@ -19,10 +19,7 @@ import Alamofire
 // ApiRequestConfig。
 
 extension UIApplication: ApiAdapter {
-
-    public func domain() -> String { "https://livepretest.jingmaiwang.com" }
-
-    public func globalMethodPOST() -> Bool { false }
+    public var domain: String { "https://livepretest.jingmaiwang.com" }
     
     public func responseQC(apiData: JSON) -> JSON {
         var rs: (error: Bool, code: Int, message: String) = (false, 0, "尚未发现错误")
@@ -121,6 +118,10 @@ import MJRefresh
 
 /// 刷新控件适配器实现。
 extension UIApplication: RefreshAdapter {
+    public var pageSizeParameter: String { "SIZE" }
+
+    public var pageIndexParameter: String { "INDEX" }
+    
     
     public func initHeaderRefresh(scrollView: UIScrollView?, callback: @escaping (() -> Void)) {
         scrollView?.mj_header = MJRefreshNormalHeader(refreshingBlock: callback)
@@ -142,6 +143,4 @@ extension UIApplication: RefreshAdapter {
     public func resetNoMoreData(scrollView: UIScrollView?) {
         scrollView?.mj_footer?.resetNoMoreData()
     }
-    
-    public func pageParameterStrings() -> (String, String) { ("pageIndexAOO","pageSizeAOO") }
 }

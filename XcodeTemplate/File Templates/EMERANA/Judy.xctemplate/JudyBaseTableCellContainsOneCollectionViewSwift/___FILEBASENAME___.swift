@@ -6,7 +6,6 @@ import SwiftyJSON
 
 /// 该类型的 tableCell 里面包含了一个 UICollectionView
 class ___FILEBASENAMEASIDENTIFIER___: JudyBaseTableCell {
-    
     // MARK: - let property and IBOutlet
     
     @IBOutlet weak private var collectionView: UICollectionView!
@@ -41,10 +40,10 @@ class ___FILEBASENAMEASIDENTIFIER___: JudyBaseTableCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        // 配置 collectionView.
+        // 配置 collectionView
         collectionView.dataSource = self
         collectionView.delegate = self
-        // 注册 collectionViewCell.
+        // 注册 collectionViewCell
         let nib = UINib(nibName: "<#CollectionCell#>", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "<#CollectionCell#>")
     }

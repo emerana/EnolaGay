@@ -449,7 +449,7 @@ public struct ToastStyle {
     public init() {}
     
     /// 背景颜色。默认为黑色，不透明度为 80%.
-    public var backgroundColor: UIColor = .black.withAlphaComponent(0.8)
+    public var backgroundColor: UIColor = UIColor.black.withAlphaComponent(0.8)
     
     /// 标题颜色。默认为白色。
     public var titleColor: UIColor = .white

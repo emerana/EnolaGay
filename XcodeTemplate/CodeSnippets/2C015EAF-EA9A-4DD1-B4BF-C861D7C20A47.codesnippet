@@ -9,7 +9,7 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>// MARK: Api 相关
+	<string>// MARK: Api 请求相关方法
 
 override func setApi() {
     super.setApi()
@@ -20,20 +20,19 @@ override func setApi() {
 
 override func reqSuccess() {
     super.reqSuccess()
-    
-    Judy.log("请求成功-\(apiData)")
-    
+    Judy.log("请求成功：\(apiData)")
     /*
+    let list = apiData["&lt;#data#&gt;"].arrayValue
     if isAddMore {
-     dataSource += apiData["data", "&lt;#rows#&gt;"].arrayValue
+        dataSource += list
     } else {
-     dataSource = apiData["data", "&lt;#rows#&gt;"].arrayValue
+        dataSource = list
     }
-     tableView?.reloadSections(IndexSet(integer: &lt;#0#&gt;), with: .fade)
-     或
-     tableView?.reloadData()
-     
+    tableView?.reloadSections(IndexSet(integer: &lt;#0#&gt;), with: .fade)
+    或
+    tableView?.reloadData()
     */
+    
 }
 </string>
 	<key>IDECodeSnippetIdentifier</key>
@@ -43,7 +42,7 @@ override func reqSuccess() {
 	<key>IDECodeSnippetSummary</key>
 	<string>设置Api及请求结果</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>重写Api请求相关方法</string>
+	<string>重写Api请求流相关方法</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

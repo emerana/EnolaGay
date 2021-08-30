@@ -212,8 +212,6 @@ open class JudyBaseViewCtrl: UIViewController {
                 Judy.logWarning("发现逃逸对象！")
                 return
             }
-            self.view.toast.hideToastActivity()
-
             self.apiData = json
             self.reqResult()
 
@@ -233,6 +231,7 @@ open class JudyBaseViewCtrl: UIViewController {
             }
             
             self.reqOver()
+            self.view.toast.hideToastActivity()
         }
         // 发起请求
         requestConfig.request(withCallBack: responseClosure)
@@ -261,7 +260,7 @@ open class JudyBaseViewCtrl: UIViewController {
     /// 此方法应主要执行在上下拉刷新界面时需要中断 header、footer 刷新状态，更改 isReqSuccess 等操作
     open func reqNotApi() {}
     
-    /// 当服务器有响应时，最先执行此方法，无论请求是否成功。**此时 apiData 为服务器返回的元数据**
+    /// 当请求得到响应时最先执行此方法，无论请求是啥结果。**此时 apiData 为服务器返回的元数据**
     open func reqResult() {}
     
     /// 请求成功的消息处理
