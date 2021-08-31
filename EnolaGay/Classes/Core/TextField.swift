@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// EMERANA框架中所用到的 TextField.
+/// EMERANA 框架中所用到的 TextField
 open class JudyBaseTextField: UITextField, FontStyle {
 
     @IBInspectable private(set) public var disableFont: Bool = false
