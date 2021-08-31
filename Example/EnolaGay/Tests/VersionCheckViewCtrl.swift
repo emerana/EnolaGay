@@ -22,15 +22,11 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
         bundleIDTextField.text = Judy.bundleIdentifier
         versionTextField.text = Judy.versionShort
         infoLabel.text = ""
     }
+
     
     @IBAction private func checkAction(_ sender: Any) {
         infoLabel.text = "查询中……"

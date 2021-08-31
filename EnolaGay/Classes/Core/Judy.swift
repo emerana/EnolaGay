@@ -383,19 +383,28 @@ public extension Judy {
     /// 同步请求检查当前App状态,此方法将返回一个status:Int
     ///
     /// - Returns: status 当前App状态，-4:data转json失败，-3:版本检查失败，-2:没有找到，-1:审核状态，0：最新版本，1:有新版本，请更新
-    static func versionSynchronous() -> Int{
-        var rs = 0
-        // Judy-mark: 创建信号量
+    static func versionSynchronous() -> AppVersionStatus {
+        var rs = AppVersionStatus.latest
+        // 创建信号量
         let semaphore = DispatchSemaphore(value: 0)
         
-        versionCheck { (status: Int, newVersion: Bool, msg: String, url: String?) in
-            rs = status
-            // Judy-mark: 发送信号量
+        queryVersionInfoAtAppStore(bundleIdentifier: bundleIdentifier,
+                                   version: versionShort) { versionStatus, url in
+            rs = versionStatus
+            // 信号量 +1
             semaphore.signal()
         }
-        // Judy-mark: 等待信号量
-        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
         
+        // 信号量发现总量为0，便停在此处，程序不往下执行，10 秒超时时间，10秒内无人将信号量+1将直接往下执行。
+        switch semaphore.wait(timeout: DispatchTime.now()+10) {
+        case .success:
+            Judy.logHappy("未超时")
+            break
+        case .timedOut:
+            Judy.logWarning("发现超时，直接返回数据")
+            break
+        }
+
         return rs
     }
     
@@ -480,8 +489,6 @@ public extension Judy {
         // AppStore 请求 URL
         guard let storeURL = URL(string: requestURLStr) else { return }
         
-        // timeoutInterval: 网络请求超时时间(单位：秒)
-        // var request = URLRequest(url: storeURL!)
         var request = URLRequest(url: storeURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 8)
         // 设置请求方式为POST，默认是GET.
         request.httpMethod = "POST"
@@ -512,7 +519,7 @@ public extension Judy {
             
             // 得到服务器的版本
             let versionOnLine: String = dic["version"] as! String
-            var appStoreUrl: String?    //, msg: String?
+            var appStoreUrl: String?
             
             let rs = versionCompare(localVersion: version, onLineVersion: versionOnLine)
             if rs == .older {
@@ -526,12 +533,7 @@ public extension Judy {
     
     // MARK: private method
     
-    /// 从AppStore检查版本状态
-    /// - status: Int    当前App状态，-4: data转json失败，-3: 版本检查失败，-2: 没有找到，-1: 审核状态，0：最新版本，1: 有新版本，请更新
-    /// - newVersion: Bool   是否有新版本，是=true
-    /// - msg: String    对应消息体
-    /// - url: String    AppStore 链接,只有发现新版本时候有值
-    /// - Parameter callBack: 需传入闭包
+    @available(*, unavailable, message: "该函数已废弃")
     private static func versionCheck(callBack: @escaping ((Int, Bool, String, String?) -> Void)) {
         // 得到 CFBundleIdentifier
         let bundleIdentifier = Bundle.main.infoDictionary!["CFBundleIdentifier"] as! String
