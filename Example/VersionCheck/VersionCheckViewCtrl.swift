@@ -43,16 +43,19 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
 
         Judy.queryVersionInfoAtAppStore(bundleIdentifier: bundleID,
                                         version: version) { [weak self] (versionStatus, AppStoreURL) in
-            var infoString = "查询结果：\n"
+            var infoString = "查询结果\n"
             infoString += "Bundle ID: \(bundleID)\n"
             infoString += "Version: \(version)\n"
             infoString += versionStatus.rawValue
-
+            
+            let highlightedColor = UIColor.darkText
+            let highlightedFont = UIFont(name: FontName.HlvtcNeue, size: 16)
+            
             DispatchQueue.main.async {
                 self?.infoLabel.text = infoString
-                self?.infoLabel.judy.setHighlighted(text: "查询结果", color: .darkText, font: UIFont(name: FontName.HlvtcNeue, size: 16))
-                self?.infoLabel.judy.setHighlighted(text: "Bundle ID:", color: .darkText, font: UIFont(name: FontName.HlvtcNeue, size: 16))
-                self?.infoLabel.judy.setHighlighted(text: "Version:", color: .darkText, font: UIFont(name: FontName.HlvtcNeue, size: 16))
+                self?.infoLabel.judy.setHighlighted(text: "查询结果", color: highlightedColor, font: highlightedFont)
+                self?.infoLabel.judy.setHighlighted(text: "Bundle ID:", color: highlightedColor, font: highlightedFont)
+                self?.infoLabel.judy.setHighlighted(text: "Version:", color: highlightedColor, font: highlightedFont)
 
             }
         }
