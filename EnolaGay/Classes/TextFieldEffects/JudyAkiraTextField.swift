@@ -9,7 +9,7 @@
 import UIKit
 
 /**
- An AkiraTextField is a subclass of theJudyTextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the edges of the control.
+ An AkiraTextField is a subclass of the JudyTextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the edges of the control.
  */
 @IBDesignable open class JudyAkiraTextField : JudyTextFieldEffects {
     
