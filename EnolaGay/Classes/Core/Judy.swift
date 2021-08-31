@@ -378,55 +378,7 @@ public extension Judy {
     
     /// 获取 App 的 Bundle Identifier
     static var bundleIdentifier: String { Bundle.main.infoDictionary!["CFBundleIdentifier"] as! String }
-
-    /// 检查是否有新版本,如果有新版本则会弹出一个 AlertController ,引导用户去更新 App.
-    ///
-    /// - Parameters:
-    ///   - alertTitle: 弹出视图的标题
-    ///   - alertMsg: 弹出视图的消息体,如果nil则为AppStore更新文字。
-    ///   - btnText: 更新按钮文字信息
-    ///   - cancel: 取消按钮文字信息
-    static func versionNormal(alertTitle: String = "发现新版本", alertMsg: String?, btnText: String = "前往更新", cancel: String = "不，谢谢") {
-        versionCheck { (status:Int, newVersion:Bool, msg:String, appStroeUrl:String?) in
-            if newVersion {
-                if appStroeUrl != nil {
-                    // 更新时的提示消息
-                    alertOpenURL(force: false, alertTitle: alertTitle, alertMsg: alertMsg ?? msg,
-                                 btnText: btnText, cancel: cancel, trackURL: appStroeUrl!)
-                } else {
-                    Judy.log("有新版本，但appStoreURL为nil导致没有弹出更新提示")
-                }
-            } else {
-                Judy.log("没有发现新版本->\(msg)")
-            }
-        }
-    }
     
-    /// 检测新版本并强制式要求用户进行版本更新，只有一个按钮，用户只能点击跳转到 AppStore.
-    ///
-    /// - Parameters:
-    ///   - alertTitle: 弹出视图的标题
-    ///   - alertMsg: 弹出视图的消息体, 如果传入 nil 则为 AppStore 的更新文字。
-    ///   - btnText: 更新按钮文字信息
-    static func versionForce(alertTitle: String = "请更新版本", alertMsg: String?, btnText: String = "好的") {
-        versionCheck { (status:Int, newVersion:Bool, msg:String, appStroeUrl:String?) in
-            if newVersion && appStroeUrl != nil {
-                // 更新时的提示消息
-                alertOpenURL(force: true, alertTitle: alertTitle, alertMsg: alertMsg ?? msg,
-                             btnText: btnText, cancel: "无用", trackURL: appStroeUrl!)
-            }
-        }
-    }
-    
-    /// 从AppStore检查当前App状态,此方法将会在闭包里传入一个status:Int.
-    ///
-    /// - Parameter closure: 传入回调函数，里面只有一个Int
-    ///     - status 当前App状态，-4:data转json失败，-3:版本检查失败，-2:没有找到，-1:审核状态，0：最新版本，1:有新版本，请更新
-    static func version(status closure: @escaping ((Int) -> Void)){
-        versionCheck { (status: Int, newVersion: Bool, msg: String, url: String?) in
-            closure(status)
-        }
-    }
     
     /// 同步请求检查当前App状态,此方法将返回一个status:Int
     ///
@@ -447,28 +399,6 @@ public extension Judy {
         return rs
     }
     
-    /// 从 AppStore 检查当前 App 状态
-    ///
-    /// - Warning: 此方法会在闭包参数里传入一个JSON字典，字段如下
-    ///     - newVersion: Bool    是否有新版本
-    ///     - msg: String 消息体
-    ///     - URL: String?    AppStore URL:(AppStore URL只在有新版本时有值，默认没有此字段)
-    ///     - status: Int 当前App状态，-4:data转json失败，-3:版本检查失败，-2:没有找到，-1:审核状态，0：最新版本，1:有新版本，请更新
-    /// - Parameter closure: 回调函数
-    static func versionCheck(completionHandler closure: @escaping ((JSON) -> Void)){
-        versionCheck { (status: Int, newVersion: Bool, msg: String, url: String?) in
-            var json = JSON(["status":0])
-            if newVersion {
-                json["URL"] = JSON(url ?? "")
-            }
-            json["newVersion"] = JSON(newVersion)
-            json["msg"] = JSON(msg)
-            json["status"] = JSON(status)
-            
-            closure(json)
-        }
-    }
-    
     /// 当前App版本状态
     ///
     /// - latest: 当前为最新版本
@@ -486,7 +416,7 @@ public extension Judy {
         case notFound = "在 AppStore 中没有发现您当前使用的 App"
     }
     
-    /// 检查当前 App 版本状态，通过传入一个线上版本号与当前版本进行比较。
+    /// 版本状态比较，通过传入一个线上版本号与当前版本进行比较。
     ///
     /// - Parameter localVersion: 本地版本号
     /// - Parameter onLineVersion: 线上版本号
@@ -534,55 +464,6 @@ public extension Judy {
         }
         
         return versionStatus
-    }
-    
-    /// 弹出更新提示框，或用以询问用户打开链接的UIAlertController
-    ///
-    /// **isAlerting 会被设置成true两遍为正常现象**
-    /// - Parameters:
-    ///   - force: 是否强制更新
-    ///   - alertTitle: 弹出视图的标题
-    ///   - alertMsg: 弹出视图的消息体
-    ///   - btnText: 主要(更新)按钮文字
-    ///   - cancel: 取消按钮文字，当force为true时此按钮不会显示
-    ///   - trackURL: URL，点击红色按钮后打开的链接
-    static func alertOpenURL(force: Bool,
-                             alertTitle: String,
-                             alertMsg: String,
-                             btnText: String,
-                             cancel: String,
-                             trackURL: String){
-        if isAlerting {
-            return
-        }
-        isAlerting = true
-        let alertController = UIAlertController(title: alertTitle,
-                                                message: alertMsg,
-                                                preferredStyle: .alert)
-        // 创建UIAlertAction空间， style: .destructive 红色字体
-        let okAction = UIAlertAction(title: btnText, style: .destructive, handler: {(_ action: UIAlertAction) -> Void in
-            
-            openURL(trackURL, completionHandler: { rs in })
-            isAlerting = false
-            
-            if force {
-                topViewCtrl.present(alertController, animated: true, completion: {
-                    isAlerting = true
-                })
-            }
-        })
-        
-        if !force { // 不强制，加上取消按钮
-            let cancelAction = UIAlertAction(title: cancel, style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
-                isAlerting = false
-            })
-            alertController.addAction(cancelAction)
-        }
-        
-        alertController.addAction(okAction)
-        topViewCtrl.present(alertController, animated: true, completion: {
-            isAlerting = true
-        })
     }
     
     /// 从 AppStore 查询 App 的版本信息
@@ -727,6 +608,59 @@ public extension Judy {
         }
         task.resume()
     }
+    
+    @available(*, unavailable, message: "该函数已废弃")
+    static func versionCheck(completionHandler closure: @escaping ((JSON) -> Void)) { }
+
+    @available(*, unavailable, message: "该函数已废弃")
+    static func alertOpenURL(force: Bool,
+                             alertTitle: String,
+                             alertMsg: String,
+                             btnText: String,
+                             cancel: String,
+                             trackURL: String) {
+        if isAlerting {
+            return
+        }
+        isAlerting = true
+        let alertController = UIAlertController(title: alertTitle,
+                                                message: alertMsg,
+                                                preferredStyle: .alert)
+        // 创建UIAlertAction空间， style: .destructive 红色字体
+        let okAction = UIAlertAction(title: btnText, style: .destructive, handler: {(_ action: UIAlertAction) -> Void in
+            
+            openURL(trackURL, completionHandler: { rs in })
+            isAlerting = false
+            
+            if force {
+                topViewCtrl.present(alertController, animated: true, completion: {
+                    isAlerting = true
+                })
+            }
+        })
+        
+        if !force { // 不强制，加上取消按钮
+            let cancelAction = UIAlertAction(title: cancel, style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+                isAlerting = false
+            })
+            alertController.addAction(cancelAction)
+        }
+        
+        alertController.addAction(okAction)
+        topViewCtrl.present(alertController, animated: true, completion: {
+            isAlerting = true
+        })
+    }
+    
+
+    @available(*, unavailable, message: "该函数已废弃")
+    static func versionNormal(alertTitle: String = "发现新版本", alertMsg: String?, btnText: String = "前往更新", cancel: String = "不，谢谢") { }
+    
+    @available(*, unavailable, message: "该函数已废弃")
+    static func versionForce(alertTitle: String = "请更新版本", alertMsg: String?, btnText: String = "好的") { }
+    
+    @available(*, unavailable, message: "该函数已废弃")
+    static func version(status closure: @escaping ((Int) -> Void)) { }
     
 }
 
