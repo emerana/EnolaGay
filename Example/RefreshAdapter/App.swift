@@ -1,22 +1,88 @@
 //
-//  AppConfigs.swift
-//  EnolaGay_Example
+//  App.swift
+//  Semaphore
 //
-//  Created by 王仁洁 on 2021/1/7.
+//  Created by 王仁洁 on 2021/9/1.
 //  Copyright © 2021 CocoaPods. All rights reserved.
 //
 
+import UIKit
 import EnolaGay
-import SwiftyJSON
 
-// 颜色配置
-extension UIColor {
-    static let myColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        return true
+    }
+
+    func applicationWillResignActive(_ application: UIApplication) {
+        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    }
+
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+
+
+}
+
+extension UIApplication: EnolaGayAdapter {
+    public func defaultFontName() -> UIFont { UIFont(name: "PingFangSC-Medium", size: 12)! }
+    
+}
+
+import MJRefresh
+
+/// 刷新控件适配器实现。
+extension UIApplication: RefreshAdapter {
+    public var pageSizeParameter: String { "SIZE" }
+
+    public var pageIndexParameter: String { "INDEX" }
+    
+    
+    public func initHeaderRefresh(scrollView: UIScrollView?, callback: @escaping (() -> Void)) {
+        scrollView?.mj_header = MJRefreshNormalHeader(refreshingBlock: callback)
+    }
+    
+    public func initFooterRefresh(scrollView: UIScrollView?, callback: @escaping (() -> Void)) {
+        scrollView?.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: callback)
+    }
+    
+    public func endRefresh(scrollView: UIScrollView?) {
+        scrollView?.mj_header?.endRefreshing()
+        scrollView?.mj_footer?.endRefreshing()
+    }
+    
+    public func endRefreshingWithNoMoreData(scrollView: UIScrollView?) {
+        scrollView?.mj_footer?.endRefreshingWithNoMoreData()
+    }
+    
+    public func resetNoMoreData(scrollView: UIScrollView?) {
+        scrollView?.mj_footer?.resetNoMoreData()
+    }
 }
 
 import Alamofire
-
-// ApiRequestConfig。
+import SwiftyJSON
 
 extension UIApplication: ApiAdapter {
     public var domain: String { "https://livepretest.jingmaiwang.com" }
@@ -111,6 +177,16 @@ extension UIApplication: ApiAdapter {
         }
 
     }
+
+}
+
+enum Actions: String, ApiAction {
+    public var value: String { rawValue }
+    
+    /// 生成融云token get
+    case createUserChatToken = "/api/liveapp/GetToken"
+    /// 猜你喜欢。 get
+    case YouLikeByLiveFinish = "/api/liveapp/YouLikeByLiveFinish"
 
 }
 

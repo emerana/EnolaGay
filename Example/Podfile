@@ -18,7 +18,6 @@ target 'EnolaGay_Example' do
   pod 'EnolaGay/FileManager', :path => '../'
   
   pod 'Alamofire', '~> 4.9.0'
-  pod 'MJRefresh'
 #  pod "SnapKit"
 
 #  target 'EnolaGay_Tests' do
@@ -42,4 +41,11 @@ end
 target 'PlayerDemo' do
   pod 'EnolaGay', :path => '../'
   pod "Player"
+end
+
+target 'RefreshAdapter' do
+  pod 'EnolaGay', :path => '../'
+  pod 'MJRefresh'
+  pod 'Alamofire', '~> 4.9.0'
+
 end
