@@ -15,7 +15,8 @@ class SemaphoreViewCtrl: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        saleTickets()
+        // saleTickets()
+        onstart()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,7 +37,7 @@ private extension SemaphoreViewCtrl {
         DispatchQueue.global().async {
             var numbers = 100 {
                 didSet {
-                    print("卖出一张票了，还有\(numbers)张票！")
+                    Judy.log(type: .🔔, "卖出一张票了，还有\(numbers)张票！")
                 }
             }
             // 最多允许多少个线程同时访问共享资源或者同时执行多少个任务。
@@ -45,10 +46,10 @@ private extension SemaphoreViewCtrl {
             for index in 1...102 {
                 DispatchQueue.global().async {
                     semaphore.wait()
-                    print("第\(index)位用户开始抢票……")
+                    Judy.log(type: .😀, "第\(index)位用户开始抢票……")
                     
                     if numbers <= 0 {
-                        print("没票啦！！！")
+                        Judy.log(type: .🚫, "没票啦！！！")
                         semaphore.signal()
                         return
                     }
@@ -150,6 +151,189 @@ private extension SemaphoreViewCtrl {
         }
         
     }
-    
-    
+
+}
+
+extension SemaphoreViewCtrl {
+    // MARK: - 并发队列，模拟多线程下载数据
+
+    /// 用并发队列模拟多个线程下载数据
+    func concurrentDispatchQueue() {
+        let downloadQueue = DispatchQueue(label: "downloadQueue", attributes: .concurrent)
+
+        for _ in 0...100 {
+            downloadAction(dispatchQueue: downloadQueue)
+        }
+        print("下载任务完成")
+    }
+
+    /// 使用目标队列执行一个下载任务。
+    func downloadAction(dispatchQueue: DispatchQueue) {
+        dispatchQueue.async {
+            //Thread.current.name = "线程任务"
+            print("\(Thread.current) 任务开始……")
+            sleep(3)
+            print("\(Thread.current) 任务完成……")
+        }
+
+    }
+
+    // MARK: - 并发队列测试
+
+    /// 监听任务的执行是否完成。
+    func notify() {
+        
+        // 创建一个并发队列
+        let downloadQueue = DispatchQueue(label: "downloadQueue", attributes: .concurrent)
+
+        /// 下载任务。
+        let downloadAction = DispatchWorkItem {
+            Thread.current.name = "下载线程"
+            let s = arc4random()%9
+            print("\(Thread.current) 开始下载任务，预计耗时：\(s) 秒")
+            sleep(s)
+        }
+        
+        downloadQueue.async(execute: downloadAction)
+        
+        downloadAction.notify(queue: downloadQueue) {
+            print("\(Thread.current) 下载任务全部完成！")
+        }
+
+        print("\(Thread.current)")
+    }
+
+
+    /// 模拟下载多个数据。
+    func downloadAction(maxSemaphore: Int = 3) {
+        
+        let semaphore = DispatchSemaphore(value: maxSemaphore)
+
+        // 创建一个并发队列
+        let downloadQueue = DispatchQueue(label: "downloadQueue", attributes: .concurrent)
+
+        /// 下载任务
+        let downloadAction = DispatchWorkItem {
+            let actionCount = 1
+            for _ in 1...actionCount {
+                semaphore.wait()
+                
+                downloadQueue.async {
+                    Thread.current.name = "下载线程"
+                    let s = arc4random()%9
+                    print("\(Thread.current) 开始下载任务，预计耗时：\(s) 秒")
+                    sleep(s)
+                    print("\(Thread.current) 下载完成，耗时：\(s) 秒")
+                    semaphore.signal()
+                }
+            }
+            
+            // 按最大同时执行任务数量等待。
+            for _ in 1...maxSemaphore {
+                semaphore.wait()
+            }
+        }
+        
+        downloadAction.notify(queue: downloadQueue) {
+            print("\(Thread.current) 下载任务全部完成！")
+        }
+        
+        downloadQueue.async(execute: downloadAction)
+
+        print("\(Thread.current)")
+    }
+
+
+    // MARK: - 队列组
+
+    /// 自动任务组测试。
+    func autoDispatchGroup() {
+        let group = DispatchGroup()
+        
+        DispatchQueue.global().async(group: group) {
+            print("任务1执行中……")
+            sleep(3)
+        }
+        DispatchQueue.global().async(group: group) {
+            print("任务2执行中……")
+            sleep(2)
+        }
+        DispatchQueue.global().async(group: group) {
+            print("任务3执行中……")
+            sleep(4)
+        }
+
+        group.notify(queue: DispatchQueue.main) {
+            print("任务组中所有任务均已完成！")
+        }
+        print("\(Thread.current)")
+    }
+
+    /// 手动任务组测试。
+    func manualDispatchGroup() {
+        let manualGroup = DispatchGroup()
+
+        manualGroup.enter()
+
+        DispatchQueue.global().async {
+            print("任务1执行中……")
+            sleep(3)
+            manualGroup.leave()
+        }
+        DispatchQueue.global().async {
+            print("任务2执行中……")
+            sleep(2)
+            manualGroup.leave()
+        }
+        DispatchQueue.global().async {
+            print("任务3执行中……")
+            sleep(4)
+            manualGroup.leave()
+        }
+
+        manualGroup.notify(queue: DispatchQueue.main) {
+            print("任务组中所有任务均已完成！")
+        }
+        print("\(Thread.current)")
+    }
+
+
+    // MARK: - 模拟下载多个追加数据
+
+
+    /// 模拟下载多个追加数据。
+    func appendDownloadAction(maxSemaphore: Int = 3) {
+        
+        let semaphore = DispatchSemaphore(value: maxSemaphore)
+        /// 下载的任务组。
+        let manualGroup = DispatchGroup()
+
+        // 创建一个并发队列。
+        let downloadQueue = DispatchQueue(label: "downloadQueue", attributes: .concurrent)
+        
+        for _ in 1...30 {
+            addDownload(group: manualGroup, dispatchQueue: downloadQueue, semaphore: semaphore)
+        }
+        
+        manualGroup.notify(queue: DispatchQueue.main) {
+            print("任务组中所有任务均已完成！")
+        }
+        
+        print("\(Thread.current)")
+    }
+
+    func addDownload(group: DispatchGroup, dispatchQueue: DispatchQueue, semaphore: DispatchSemaphore) {
+        group.enter()
+        dispatchQueue.async {
+            semaphore.wait()
+            Thread.current.name = "下载线程"
+            let s = arc4random()%9
+            print("\(Thread.current) 开始下载任务，预计耗时：\(s) 秒")
+            sleep(s)
+            print("\(Thread.current) 下载完成")
+            group.leave()
+            semaphore.signal()
+        }
+    }
+
 }
