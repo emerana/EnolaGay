@@ -52,10 +52,10 @@
 		8BBD55342670AE7000C7B48E /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BBD55332670AE7000C7B48E /* VideoCell.xib */; };
 		8BBD55362670AE8C00C7B48E /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD55352670AE8C00C7B48E /* VideoCell.swift */; };
 		8BC3DA0726DDF70100A2A405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		8BC3DA0E26DDF70100A2A405 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		8BC3DA1126DDF70100A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		8BC3DA2C26DDF81600A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B620EA626DDF492001E1A9D /* Main.storyboard */; };
+		8BC3DA0E26DDF70100A2A405 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8BC3DA2D26DDF88C00A2A405 /* VersionCheckViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */; };
+		8BC3DA3226DDFA6E00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA3026DDFA6E00A2A405 /* Main.storyboard */; };
+		8BC3DA3326DDFAAC00A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */; };
 		8BD7AE4E26A6746F00A07EB6 /* FontExtension.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD7AE4D26A6746F00A07EB6 /* FontExtension.storyboard */; };
 		8BD7AE5026A6747C00A07EB6 /* FontExtensionViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD7AE4F26A6747C00A07EB6 /* FontExtensionViewCtrl.swift */; };
 		8BD8C6952628636B006738E6 /* TestCollectionRefreshCollectionViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8C6942628636B006738E6 /* TestCollectionRefreshCollectionViewCtrl.swift */; };
@@ -63,7 +63,7 @@
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
 		92E76B5AE2899FEC6A444941 /* Pods_VersionCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D26CCC4592C86376C0A6015A /* Pods_VersionCheck.framework */; };
-		9DC7BC7100ED3705BDB81B72 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		9DC7BC7100ED3705BDB81B72 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		EE2859873D7E7BE3629FC128 /* Pods_EnolaGay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,7 +118,6 @@
 		8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DouYin.storyboard; sourceTree = "<group>"; };
 		8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DouYonHomeViewCtrl.swift; sourceTree = "<group>"; };
 		8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VersionCheck-Info.plist"; sourceTree = "<group>"; };
-		8B620EA626DDF492001E1A9D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
 		8B8038772687F253006745A6 /* 深圳东站东广场.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "深圳东站东广场.gpx"; sourceTree = "<group>"; };
@@ -136,6 +135,8 @@
 		8BBD55332670AE7000C7B48E /* VideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		8BBD55352670AE8C00C7B48E /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		8BC3DA2A26DDF70100A2A405 /* VersionCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VersionCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BC3DA2F26DDFA5100A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		8BC3DA3126DDFA6E00A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BD0919526AA978A004DE842 /* 温州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "温州.gpx"; sourceTree = "<group>"; };
 		8BD0919626AA9D3A004DE842 /* 杭州五联东苑.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "杭州五联东苑.gpx"; sourceTree = "<group>"; };
 		8BD7AE4D26A6746F00A07EB6 /* FontExtension.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FontExtension.storyboard; sourceTree = "<group>"; };
@@ -163,7 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DC7BC7100ED3705BDB81B72 /* BuildFile in Frameworks */,
+				9DC7BC7100ED3705BDB81B72 /* (null) in Frameworks */,
 				EE2859873D7E7BE3629FC128 /* Pods_EnolaGay_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,7 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC3DA0E26DDF70100A2A405 /* BuildFile in Frameworks */,
+				8BC3DA0E26DDF70100A2A405 /* (null) in Frameworks */,
 				92E76B5AE2899FEC6A444941 /* Pods_VersionCheck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,7 +408,8 @@
 			children = (
 				8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */,
 				8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */,
-				8B620EA626DDF492001E1A9D /* Main.storyboard */,
+				8BC3DA3026DDFA6E00A2A405 /* Main.storyboard */,
+				8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */,
 			);
 			path = VersionCheck;
 			sourceTree = "<group>";
@@ -637,8 +639,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC3DA2C26DDF81600A2A405 /* Main.storyboard in Resources */,
-				8BC3DA1126DDF70100A2A405 /* LaunchScreen.xib in Resources */,
+				8BC3DA3326DDFAAC00A2A405 /* LaunchScreen.xib in Resources */,
+				8BC3DA3226DDFA6E00A2A405 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -836,6 +838,22 @@
 				607FACDF1AFB9204008FA782 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BC3DA2F26DDFA5100A2A405 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		8BC3DA3026DDFA6E00A2A405 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BC3DA3126DDFA6E00A2A405 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
