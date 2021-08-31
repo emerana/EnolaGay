@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WSG-Cc-fNP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JEb-Qz-RLH">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -285,120 +285,6 @@
             </objects>
             <point key="canvasLocation" x="854" y="1693"/>
         </scene>
-        <!--Version Check View Ctrl-->
-        <scene sceneID="2G4-oq-xhq">
-            <objects>
-                <viewController id="3aK-so-XUp" customClass="VersionCheckViewCtrl" customModule="EnolaGay_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="12A-nr-0gP"/>
-                        <viewControllerLayoutGuide type="bottom" id="fkY-wG-KFd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ehN-9g-Kju">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="mZS-pZ-uXe">
-                                <rect key="frame" x="16" y="96" width="358" height="96"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rbq-hr-N8r">
-                                        <rect key="frame" x="0.0" y="0.0" width="358" height="34"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bundle ID:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oT-XF-chF" customClass="JudyBaseLabel" customModule="EnolaGay">
-                                                <rect key="frame" x="0.0" y="0.0" width="78" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="oUZ-Dm-r7f" customClass="JudyBaseTextField" customModule="EnolaGay">
-                                                <rect key="frame" x="86" y="0.0" width="272" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" systemColor="systemPurpleColor"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lfj-oC-3hj">
-                                        <rect key="frame" x="0.0" y="62" width="358" height="34"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qoc-XQ-g6U" customClass="JudyBaseLabel" customModule="EnolaGay">
-                                                <rect key="frame" x="0.0" y="0.0" width="78" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="tdm-zr-e9p" customClass="JudyBaseTextField" customModule="EnolaGay">
-                                                <rect key="frame" x="86" y="0.0" width="272" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" systemColor="systemPurpleColor"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="3oT-XF-chF" firstAttribute="width" secondItem="Qoc-XQ-g6U" secondAttribute="width" id="yUZ-DU-5yD"/>
-                                </constraints>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWC-F7-VrO" customClass="JudyBaseButton" customModule="EnolaGay">
-                                <rect key="frame" x="121.66666666666669" y="250" width="147" height="34"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
-                                <inset key="contentEdgeInsets" minX="58" minY="8" maxX="58" maxY="8"/>
-                                <state key="normal" title="查询">
-                                    <color key="titleColor" systemColor="systemRedColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="checkAction:" destination="3aK-so-XUp" eventType="touchUpInside" id="Fdk-N5-PZt"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuT-Te-qez" customClass="JudyBaseLabel" customModule="EnolaGay">
-                                <rect key="frame" x="16" y="312" width="358" height="20.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemPurpleColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="tWC-F7-VrO" firstAttribute="centerX" secondItem="ehN-9g-Kju" secondAttribute="centerX" id="7mK-YW-UU4"/>
-                            <constraint firstItem="HuT-Te-qez" firstAttribute="trailing" secondItem="mZS-pZ-uXe" secondAttribute="trailing" id="EvF-N0-mLU"/>
-                            <constraint firstItem="HuT-Te-qez" firstAttribute="leading" secondItem="mZS-pZ-uXe" secondAttribute="leading" id="F15-Th-kRc"/>
-                            <constraint firstItem="tWC-F7-VrO" firstAttribute="top" secondItem="mZS-pZ-uXe" secondAttribute="bottom" constant="58" id="HLq-UO-Xke"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mZS-pZ-uXe" secondAttribute="trailing" id="M0d-io-HEd"/>
-                            <constraint firstItem="mZS-pZ-uXe" firstAttribute="top" secondItem="12A-nr-0gP" secondAttribute="bottom" constant="8" symbolic="YES" id="aOd-nZ-A0u"/>
-                            <constraint firstItem="HuT-Te-qez" firstAttribute="top" secondItem="tWC-F7-VrO" secondAttribute="bottom" constant="28" id="cNE-JG-byU"/>
-                            <constraint firstItem="mZS-pZ-uXe" firstAttribute="leading" secondItem="ehN-9g-Kju" secondAttribute="leadingMargin" id="wTS-E9-k3z"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="lXf-W5-hvg"/>
-                    <connections>
-                        <outlet property="bundleIDTextField" destination="oUZ-Dm-r7f" id="tlk-nI-gva"/>
-                        <outlet property="infoLabel" destination="HuT-Te-qez" id="MLF-3S-ELB"/>
-                        <outlet property="versionTextField" destination="tdm-zr-e9p" id="kmC-zS-RGJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3QS-SO-fiO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1783.0769230769231" y="2444.7867298578199"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="UAh-RD-oUs">
             <objects>
@@ -417,33 +303,7 @@
             </objects>
             <point key="canvasLocation" x="1781.5384615384614" y="1692.654028436019"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="P4u-Ad-tkW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WSG-Cc-fNP" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6OI-Cf-bfP">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="3aK-so-XUp" kind="relationship" relationship="rootViewController" id="sQh-Vl-Nt6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KCo-mi-bHz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="853.84615384615381" y="2444.7867298578199"/>
-        </scene>
     </scenes>
-    <designables>
-        <designable name="oUZ-Dm-r7f">
-            <size key="intrinsicContentSize" width="32" height="34"/>
-        </designable>
-        <designable name="tdm-zr-e9p">
-            <size key="intrinsicContentSize" width="32" height="34"/>
-        </designable>
-    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -459,9 +319,6 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

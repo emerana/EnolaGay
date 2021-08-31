@@ -14,8 +14,8 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
 
     // MARK: - let property and IBOutlet
     
-    @IBOutlet weak private var bundleIDTextField: JudyAkiraTextField!
-    @IBOutlet weak private var versionTextField: JudyAkiraTextField!
+    @IBOutlet weak private var bundleIDTextField: JudyBaseTextField!
+    @IBOutlet weak private var versionTextField: JudyBaseTextField!
     @IBOutlet weak private var infoLabel: UILabel!
 
     
@@ -25,6 +25,12 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
         bundleIDTextField.text = Judy.bundleIdentifier
         versionTextField.text = Judy.versionShort
         infoLabel.text = ""
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        isReqSuccess = true
+        super.viewWillAppear(animated)
     }
 
     
@@ -37,16 +43,19 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
 
         Judy.queryVersionInfoAtAppStore(bundleIdentifier: bundleID,
                                         version: version) { [weak self] (versionStatus, AppStoreURL) in
-            var infoString = "查询结果：\n"
+            var infoString = "查询结果\n"
             infoString += "Bundle ID: \(bundleID)\n"
             infoString += "Version: \(version)\n"
             infoString += versionStatus.rawValue
-
+            
+            let highlightedColor = UIColor.darkText
+            let highlightedFont = UIFont(name: FontName.HlvtcNeue, size: 16)
+            
             DispatchQueue.main.async {
                 self?.infoLabel.text = infoString
-                self?.infoLabel.judy.setHighlighted(text: "查询结果", color: .darkText, font: UIFont(name: FontName.HlvtcNeue, size: 16))
-                self?.infoLabel.judy.setHighlighted(text: "Bundle ID:", color: .darkText, font: UIFont(name: FontName.HlvtcNeue, size: 16))
-                self?.infoLabel.judy.setHighlighted(text: "Version:", color: .darkText, font: UIFont(name: FontName.HlvtcNeue, size: 16))
+                self?.infoLabel.judy.setHighlighted(text: "查询结果", color: highlightedColor, font: highlightedFont)
+                self?.infoLabel.judy.setHighlighted(text: "Bundle ID:", color: highlightedColor, font: highlightedFont)
+                self?.infoLabel.judy.setHighlighted(text: "Version:", color: highlightedColor, font: highlightedFont)
 
             }
         }
