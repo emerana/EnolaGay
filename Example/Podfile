@@ -4,7 +4,6 @@ use_frameworks!
 platform :ios, '13.0'
 
 target 'EnolaGay_Example' do
-
   pod 'EnolaGay', :path => '../'
   pod 'EnolaGay/SegmentedView', :path => '../'
   pod 'EnolaGay/HPickerView', :path => '../'
@@ -18,34 +17,34 @@ target 'EnolaGay_Example' do
   pod 'EnolaGay/FileManager', :path => '../'
   
   pod 'Alamofire', '~> 4.9.0'
-#  pod "SnapKit"
-
-#  target 'EnolaGay_Tests' do
-#    inherit! :search_paths
-#  end
+  #  pod "SnapKit"
+  
+  #  target 'EnolaGay_Tests' do
+  #    inherit! :search_paths
+  #  end
+  target 'VersionCheck' do
+    pod 'EnolaGay', :path => '../'
+  end
+  
+  target 'Semaphore' do
+    pod 'EnolaGay', :path => '../'
+  end
+  
+  target 'CacheDemo' do
+    pod 'EnolaGay', :path => '../'
+    pod 'Cache'
+  end
+  
+  target 'PlayerDemo' do
+    pod 'EnolaGay', :path => '../'
+    pod "Player"
+  end
+  
+  target 'RefreshAdapter' do
+    pod 'EnolaGay', :path => '../'
+    pod 'MJRefresh'
+    pod 'Alamofire', '~> 4.9.0'
+  end
+  
 end
 
-target 'VersionCheck' do
-  pod 'EnolaGay', :path => '../'
-end
-
-target 'Semaphore' do
-  pod 'EnolaGay', :path => '../'
-end
-
-target 'CacheDemo' do
-  pod 'EnolaGay', :path => '../'
-  pod 'Cache'
-end
-
-target 'PlayerDemo' do
-  pod 'EnolaGay', :path => '../'
-  pod "Player"
-end
-
-target 'RefreshAdapter' do
-  pod 'EnolaGay', :path => '../'
-  pod 'MJRefresh'
-  pod 'Alamofire', '~> 4.9.0'
-
-end

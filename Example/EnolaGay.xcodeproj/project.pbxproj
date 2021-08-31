@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21245403214D9E2E74BEFBD6 /* Pods_RefreshAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B599836D502CCDF702891F /* Pods_RefreshAdapter.framework */; };
-		3326EADEA17E26569C66AEAE /* Pods_PlayerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E681AA57CDB743B58661255 /* Pods_PlayerDemo.framework */; };
-		467A090C63D26D7F4EED67E3 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		3F9530AFC002A12137368DA5 /* Pods_EnolaGay_Example_PlayerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8E6ADF73C74767C29A45E2 /* Pods_EnolaGay_Example_PlayerDemo.framework */; };
+		5F7C27A755EFFA889EBEA67B /* Pods_EnolaGay_Example_RefreshAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DCA67CF9D81CAE91A6AED11 /* Pods_EnolaGay_Example_RefreshAdapter.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		8A6EC9B433251D26A994F17B /* Pods_EnolaGay_Example_VersionCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2235E508AC7733ECB6444EE9 /* Pods_EnolaGay_Example_VersionCheck.framework */; };
 		8B1A499025C8354700FDA57A /* LangRenSha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1A498F25C8354700FDA57A /* LangRenSha.storyboard */; };
 		8B1AA67325A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */; };
 		8B1AA67925A74B600063BE04 /* JudyLivePageViewCtrl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */; };
@@ -41,7 +41,6 @@
 		8BA9AA05260EDAB8008B1803 /* AttributedString.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA9AA04260EDAB8008B1803 /* AttributedString.storyboard */; };
 		8BB8861E265CF30A00E8836D /* GiftMessageViewCtrlTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */; };
 		8BB88621265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BB88620265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard */; };
-		8BC3DA0E26DDF70100A2A405 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8BC3DA2D26DDF88C00A2A405 /* VersionCheckViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */; };
 		8BC3DA3226DDFA6E00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA3026DDFA6E00A2A405 /* Main.storyboard */; };
 		8BC3DA3326DDFAAC00A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */; };
@@ -70,22 +69,21 @@
 		8BE7F82C26CA4000001CE7EA /* ToastViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */; };
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
-		92E76B5AE2899FEC6A444941 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		9DC7BC7100ED3705BDB81B72 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		A1A0A57F791BCA99D669FC23 /* Pods_CacheDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA380B86B9CDEF5F859D860 /* Pods_CacheDemo.framework */; };
-		A74504D25EB1D2F67E461560 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		B648D94DE7249103664959EC /* Pods_Semaphore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64D51EFA12476A8C1890B97 /* Pods_Semaphore.framework */; };
+		93ABEB9893981EB588536176 /* Pods_EnolaGay_Example_Semaphore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643EA2A76EAACA640FC02CD1 /* Pods_EnolaGay_Example_Semaphore.framework */; };
+		B50D17D8D986765C81AE086C /* Pods_EnolaGay_Example_CacheDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE7544F2E609AE3D7ABB860 /* Pods_EnolaGay_Example_CacheDemo.framework */; };
 		EE2859873D7E7BE3629FC128 /* Pods_EnolaGay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */; };
-		F14B859CD02C08B8FDCE1242 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		FE08A3A6B07B5B0BB230CC70 /* Pods_VersionCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F868E648196FAF1825698AFA /* Pods_VersionCheck.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2235E508AC7733ECB6444EE9 /* Pods_EnolaGay_Example_VersionCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_VersionCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F1A9FFE10BA8A787D6AA62 /* Pods-EnolaGay_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		27654828554D9863B54DECB5 /* Pods-Semaphore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Semaphore.release.xcconfig"; path = "Target Support Files/Pods-Semaphore/Pods-Semaphore.release.xcconfig"; sourceTree = "<group>"; };
 		2CD54E83D77C67DDFC2B05FE /* Pods-RefreshAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefreshAdapter.release.xcconfig"; path = "Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter.release.xcconfig"; sourceTree = "<group>"; };
+		2CF84AB23DA8850D1B61D207 /* Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-PlayerDemo/Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		3448F43C0484DBEAC0D6AB18 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		4E681AA57CDB743B58661255 /* Pods_PlayerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AE7544F2E609AE3D7ABB860 /* Pods_EnolaGay_Example_CacheDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_CacheDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C14081734AB32DA5BCC5228 /* Pods-EnolaGay_Example-VersionCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-VersionCheck.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-VersionCheck/Pods-EnolaGay_Example-VersionCheck.release.xcconfig"; sourceTree = "<group>"; };
+		545F67098F044C7D30826C6D /* Pods-EnolaGay_Example-PlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-PlayerDemo.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-PlayerDemo/Pods-EnolaGay_Example-PlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		5AA036FFF17B806B78243C7D /* Pods-Semaphore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Semaphore.debug.xcconfig"; path = "Target Support Files/Pods-Semaphore/Pods-Semaphore.debug.xcconfig"; sourceTree = "<group>"; };
 		5D849979F9CC82D37AB0E47D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* EnolaGay_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnolaGay_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,10 +94,13 @@
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6201FCA98E6A1E322AE97610 /* Pods-Cache.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cache.debug.xcconfig"; path = "Target Support Files/Pods-Cache/Pods-Cache.debug.xcconfig"; sourceTree = "<group>"; };
+		643EA2A76EAACA640FC02CD1 /* Pods_EnolaGay_Example_Semaphore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_Semaphore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B22D07C72A5E55D8964FEAB /* Pods-EnolaGay_Example-VersionCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-VersionCheck.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-VersionCheck/Pods-EnolaGay_Example-VersionCheck.debug.xcconfig"; sourceTree = "<group>"; };
 		6DD7B6EDF1F358418BB576F8 /* Pods-Cache.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cache.release.xcconfig"; path = "Target Support Files/Pods-Cache/Pods-Cache.release.xcconfig"; sourceTree = "<group>"; };
 		7747A34155239783B6CF9842 /* EnolaGay.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = EnolaGay.podspec; path = ../EnolaGay.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7A38E719664EBF8ECF3FA540 /* Pods-PlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerDemo.debug.xcconfig"; path = "Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7B318DF63D7C7D8043B55DC8 /* Pods-CacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CacheDemo.release.xcconfig"; path = "Target Support Files/Pods-CacheDemo/Pods-CacheDemo.release.xcconfig"; sourceTree = "<group>"; };
+		7DCA67CF9D81CAE91A6AED11 /* Pods_EnolaGay_Example_RefreshAdapter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_RefreshAdapter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1A498F25C8354700FDA57A /* LangRenSha.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LangRenSha.storyboard; sourceTree = "<group>"; };
 		8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudyLivePageViewTest.swift; sourceTree = "<group>"; };
 		8B1AA67825A74B600063BE04 /* JudyLivePageViewCtrl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JudyLivePageViewCtrl.storyboard; sourceTree = "<group>"; };
@@ -177,15 +178,18 @@
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerticalScrollView.storyboard; sourceTree = "<group>"; };
 		9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB49768BBFE5ED8D35C118E8 /* Pods-EnolaGay_Example-CacheDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-CacheDemo.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-CacheDemo/Pods-EnolaGay_Example-CacheDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		ABEEA2C9E2C543D4F6523F7C /* Pods-VersionCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VersionCheck.debug.xcconfig"; path = "Target Support Files/Pods-VersionCheck/Pods-VersionCheck.debug.xcconfig"; sourceTree = "<group>"; };
 		AD88C934145EF53E6CEA1572 /* Pods-RefreshAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefreshAdapter.debug.xcconfig"; path = "Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter.debug.xcconfig"; sourceTree = "<group>"; };
 		AFFBD26E76B3E2A72218B906 /* Pods-CacheDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CacheDemo.debug.xcconfig"; path = "Target Support Files/Pods-CacheDemo/Pods-CacheDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		B6B599836D502CCDF702891F /* Pods_RefreshAdapter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RefreshAdapter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C09D71ACF70700316AAD7CCD /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-Semaphore.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-Semaphore/Pods-EnolaGay_Example-Semaphore.debug.xcconfig"; sourceTree = "<group>"; };
 		CD1DE04F1997751A15C4B0A0 /* Pods-EnolaGay_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example.release.xcconfig"; sourceTree = "<group>"; };
+		CF8E6ADF73C74767C29A45E2 /* Pods_EnolaGay_Example_PlayerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_PlayerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EBBBD394FA93CFC6BF2E19 /* Pods-PlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerDemo.release.xcconfig"; path = "Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
-		D64D51EFA12476A8C1890B97 /* Pods_Semaphore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Semaphore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECA380B86B9CDEF5F859D860 /* Pods_CacheDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CacheDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F868E648196FAF1825698AFA /* Pods_VersionCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VersionCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D579A6721E3EA8F9EE60A31A /* Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-RefreshAdapter/Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig"; sourceTree = "<group>"; };
+		D84BAD74741852C41151DA81 /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-Semaphore.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-Semaphore/Pods-EnolaGay_Example-Semaphore.release.xcconfig"; sourceTree = "<group>"; };
+		DE964337EB4974F80D9E2D1A /* Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-RefreshAdapter/Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig"; sourceTree = "<group>"; };
+		EF1B7871C2D5B6F4AFBE3453 /* Pods-EnolaGay_Example-CacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-CacheDemo.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-CacheDemo/Pods-EnolaGay_Example-CacheDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F98BD9BA7538AEBFD8F12C47 /* Pods-VersionCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VersionCheck.release.xcconfig"; path = "Target Support Files/Pods-VersionCheck/Pods-VersionCheck.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,7 +198,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DC7BC7100ED3705BDB81B72 /* (null) in Frameworks */,
 				EE2859873D7E7BE3629FC128 /* Pods_EnolaGay_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,9 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC3DA0E26DDF70100A2A405 /* (null) in Frameworks */,
-				92E76B5AE2899FEC6A444941 /* (null) in Frameworks */,
-				FE08A3A6B07B5B0BB230CC70 /* Pods_VersionCheck.framework in Frameworks */,
+				8A6EC9B433251D26A994F17B /* Pods_EnolaGay_Example_VersionCheck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,8 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F14B859CD02C08B8FDCE1242 /* (null) in Frameworks */,
-				B648D94DE7249103664959EC /* Pods_Semaphore.framework in Frameworks */,
+				93ABEB9893981EB588536176 /* Pods_EnolaGay_Example_Semaphore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,8 +222,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A74504D25EB1D2F67E461560 /* (null) in Frameworks */,
-				A1A0A57F791BCA99D669FC23 /* Pods_CacheDemo.framework in Frameworks */,
+				B50D17D8D986765C81AE086C /* Pods_EnolaGay_Example_CacheDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,8 +230,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				467A090C63D26D7F4EED67E3 /* (null) in Frameworks */,
-				3326EADEA17E26569C66AEAE /* Pods_PlayerDemo.framework in Frameworks */,
+				3F9530AFC002A12137368DA5 /* Pods_EnolaGay_Example_PlayerDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +238,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21245403214D9E2E74BEFBD6 /* Pods_RefreshAdapter.framework in Frameworks */,
+				5F7C27A755EFFA889EBEA67B /* Pods_EnolaGay_Example_RefreshAdapter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +262,16 @@
 				D2EBBBD394FA93CFC6BF2E19 /* Pods-PlayerDemo.release.xcconfig */,
 				AD88C934145EF53E6CEA1572 /* Pods-RefreshAdapter.debug.xcconfig */,
 				2CD54E83D77C67DDFC2B05FE /* Pods-RefreshAdapter.release.xcconfig */,
+				AB49768BBFE5ED8D35C118E8 /* Pods-EnolaGay_Example-CacheDemo.debug.xcconfig */,
+				EF1B7871C2D5B6F4AFBE3453 /* Pods-EnolaGay_Example-CacheDemo.release.xcconfig */,
+				2CF84AB23DA8850D1B61D207 /* Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig */,
+				545F67098F044C7D30826C6D /* Pods-EnolaGay_Example-PlayerDemo.release.xcconfig */,
+				DE964337EB4974F80D9E2D1A /* Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig */,
+				D579A6721E3EA8F9EE60A31A /* Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig */,
+				C09D71ACF70700316AAD7CCD /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */,
+				D84BAD74741852C41151DA81 /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */,
+				6B22D07C72A5E55D8964FEAB /* Pods-EnolaGay_Example-VersionCheck.debug.xcconfig */,
+				4C14081734AB32DA5BCC5228 /* Pods-EnolaGay_Example-VersionCheck.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -559,11 +567,11 @@
 			isa = PBXGroup;
 			children = (
 				9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */,
-				F868E648196FAF1825698AFA /* Pods_VersionCheck.framework */,
-				D64D51EFA12476A8C1890B97 /* Pods_Semaphore.framework */,
-				ECA380B86B9CDEF5F859D860 /* Pods_CacheDemo.framework */,
-				B6B599836D502CCDF702891F /* Pods_RefreshAdapter.framework */,
-				4E681AA57CDB743B58661255 /* Pods_PlayerDemo.framework */,
+				3AE7544F2E609AE3D7ABB860 /* Pods_EnolaGay_Example_CacheDemo.framework */,
+				CF8E6ADF73C74767C29A45E2 /* Pods_EnolaGay_Example_PlayerDemo.framework */,
+				7DCA67CF9D81CAE91A6AED11 /* Pods_EnolaGay_Example_RefreshAdapter.framework */,
+				643EA2A76EAACA640FC02CD1 /* Pods_EnolaGay_Example_Semaphore.framework */,
+				2235E508AC7733ECB6444EE9 /* Pods_EnolaGay_Example_VersionCheck.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -852,7 +860,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VersionCheck-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-EnolaGay_Example-VersionCheck-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -865,18 +873,20 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VersionCheck/Pods-VersionCheck-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-VersionCheck/Pods-EnolaGay_Example-VersionCheck-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VersionCheck/Pods-VersionCheck-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-VersionCheck/Pods-EnolaGay_Example-VersionCheck-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8BC3DA3526DE962800A2A405 /* [CP] Check Pods Manifest.lock */ = {
@@ -894,7 +904,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Semaphore-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-EnolaGay_Example-Semaphore-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -907,18 +917,20 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Semaphore/Pods-Semaphore-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-Semaphore/Pods-EnolaGay_Example-Semaphore-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Semaphore/Pods-Semaphore-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-Semaphore/Pods-EnolaGay_Example-Semaphore-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8BC3DA5D26DEB1A200A2A405 /* [CP] Check Pods Manifest.lock */ = {
@@ -936,7 +948,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CacheDemo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-EnolaGay_Example-CacheDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -949,20 +961,22 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CacheDemo/Pods-CacheDemo-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-CacheDemo/Pods-EnolaGay_Example-CacheDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CacheDemo/Pods-CacheDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-CacheDemo/Pods-EnolaGay_Example-CacheDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8BC3DA7A26DEB40300A2A405 /* [CP] Check Pods Manifest.lock */ = {
@@ -980,7 +994,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PlayerDemo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-EnolaGay_Example-PlayerDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -993,20 +1007,22 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-PlayerDemo/Pods-EnolaGay_Example-PlayerDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Player/Player.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Player.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-PlayerDemo/Pods-EnolaGay_Example-PlayerDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8BC3DA9B26DEB71800A2A405 /* [CP] Check Pods Manifest.lock */ = {
@@ -1024,7 +1040,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RefreshAdapter-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-EnolaGay_Example-RefreshAdapter-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1037,7 +1053,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-RefreshAdapter/Pods-EnolaGay_Example-RefreshAdapter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -1052,7 +1068,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-RefreshAdapter/Pods-EnolaGay_Example-RefreshAdapter-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E4767C32285CA50D12D8B6C5 /* [CP] Embed Pods Frameworks */ = {
@@ -1063,7 +1079,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-0171744a/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1397,7 +1413,7 @@
 		};
 		8BC3DA2826DDF70100A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABEEA2C9E2C543D4F6523F7C /* Pods-VersionCheck.debug.xcconfig */;
+			baseConfigurationReference = 6B22D07C72A5E55D8964FEAB /* Pods-EnolaGay_Example-VersionCheck.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -1414,7 +1430,7 @@
 		};
 		8BC3DA2926DDF70100A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F98BD9BA7538AEBFD8F12C47 /* Pods-VersionCheck.release.xcconfig */;
+			baseConfigurationReference = 4C14081734AB32DA5BCC5228 /* Pods-EnolaGay_Example-VersionCheck.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -1431,7 +1447,7 @@
 		};
 		8BC3DA4126DE962800A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AA036FFF17B806B78243C7D /* Pods-Semaphore.debug.xcconfig */;
+			baseConfigurationReference = C09D71ACF70700316AAD7CCD /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -1448,7 +1464,7 @@
 		};
 		8BC3DA4226DE962800A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27654828554D9863B54DECB5 /* Pods-Semaphore.release.xcconfig */;
+			baseConfigurationReference = D84BAD74741852C41151DA81 /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -1465,7 +1481,7 @@
 		};
 		8BC3DA6826DEB1A200A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AFFBD26E76B3E2A72218B906 /* Pods-CacheDemo.debug.xcconfig */;
+			baseConfigurationReference = AB49768BBFE5ED8D35C118E8 /* Pods-EnolaGay_Example-CacheDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -1482,7 +1498,7 @@
 		};
 		8BC3DA6926DEB1A200A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B318DF63D7C7D8043B55DC8 /* Pods-CacheDemo.release.xcconfig */;
+			baseConfigurationReference = EF1B7871C2D5B6F4AFBE3453 /* Pods-EnolaGay_Example-CacheDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -1499,7 +1515,7 @@
 		};
 		8BC3DA8526DEB40300A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A38E719664EBF8ECF3FA540 /* Pods-PlayerDemo.debug.xcconfig */;
+			baseConfigurationReference = 2CF84AB23DA8850D1B61D207 /* Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -1516,7 +1532,7 @@
 		};
 		8BC3DA8626DEB40300A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2EBBBD394FA93CFC6BF2E19 /* Pods-PlayerDemo.release.xcconfig */;
+			baseConfigurationReference = 545F67098F044C7D30826C6D /* Pods-EnolaGay_Example-PlayerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -1533,7 +1549,7 @@
 		};
 		8BC3DAA826DEB71800A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD88C934145EF53E6CEA1572 /* Pods-RefreshAdapter.debug.xcconfig */;
+			baseConfigurationReference = DE964337EB4974F80D9E2D1A /* Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -1550,7 +1566,7 @@
 		};
 		8BC3DAA926DEB71800A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CD54E83D77C67DDFC2B05FE /* Pods-RefreshAdapter.release.xcconfig */;
+			baseConfigurationReference = D579A6721E3EA8F9EE60A31A /* Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
