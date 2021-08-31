@@ -14,8 +14,8 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
 
     // MARK: - let property and IBOutlet
     
-    @IBOutlet weak private var bundleIDTextField: JudyAkiraTextField!
-    @IBOutlet weak private var versionTextField: JudyAkiraTextField!
+    @IBOutlet weak private var bundleIDTextField: JudyBaseTextField!
+    @IBOutlet weak private var versionTextField: JudyBaseTextField!
     @IBOutlet weak private var infoLabel: UILabel!
 
     
@@ -25,6 +25,12 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
         bundleIDTextField.text = Judy.bundleIdentifier
         versionTextField.text = Judy.versionShort
         infoLabel.text = ""
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        isReqSuccess = true
+        super.viewWillAppear(animated)
     }
 
     

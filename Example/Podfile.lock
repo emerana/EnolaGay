@@ -1,24 +1,24 @@
 PODS:
   - Alamofire (4.9.1)
   - Cache (6.0.0)
-  - EnolaGay (3.6.0):
-    - EnolaGay/EMERANA (= 3.6.0)
-  - EnolaGay/CircularProgressView (3.6.0)
-  - EnolaGay/EMERANA (3.6.0):
+  - EnolaGay (3.7.7):
+    - EnolaGay/EMERANA (= 3.7.7)
+  - EnolaGay/CircularProgressView (3.7.7)
+  - EnolaGay/EMERANA (3.7.7):
     - SwiftyJSON
-  - EnolaGay/FileManager (3.6.0):
+  - EnolaGay/FileManager (3.7.7):
     - EnolaGay/EMERANA
-  - EnolaGay/GiftMessageCtrlPanel (3.6.0)
-  - EnolaGay/HPickerView (3.6.0):
+  - EnolaGay/GiftMessageCtrlPanel (3.7.7)
+  - EnolaGay/HPickerView (3.7.7):
     - EnolaGay/EMERANA
-  - EnolaGay/JudyPopBubble (3.6.0)
-  - EnolaGay/JudyWaterWaveView (3.6.0)
-  - EnolaGay/MarqueeView (3.6.0)
-  - EnolaGay/SearchViewCtrl (3.6.0):
+  - EnolaGay/JudyPopBubble (3.7.7)
+  - EnolaGay/JudyWaterWaveView (3.7.7)
+  - EnolaGay/MarqueeView (3.7.7)
+  - EnolaGay/SearchViewCtrl (3.7.7):
     - EnolaGay/EMERANA
-  - EnolaGay/SegmentedView (3.6.0):
+  - EnolaGay/SegmentedView (3.7.7):
     - EnolaGay/EMERANA
-  - EnolaGay/TextFieldEffects (3.6.0):
+  - EnolaGay/TextFieldEffects (3.7.7):
     - EnolaGay/EMERANA
   - MJRefresh (3.5.0)
   - Player (0.14.0)
@@ -57,11 +57,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
-  EnolaGay: f2720c153b5ab193fa78711569a5700985367f63
+  EnolaGay: c6ed74a376c69ff34b079d5cd5193675c8ab3615
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Player: 37e0acc16ea1495fc241df88fe9f089367513331
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 5d8e513ad598850b399e572c3e536b4134a9f138
+PODFILE CHECKSUM: c22599dbc71446b2022d6126669fe51fe83818e3
 
 COCOAPODS: 1.10.2
