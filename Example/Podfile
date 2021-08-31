@@ -17,10 +17,8 @@ target 'EnolaGay_Example' do
   pod 'EnolaGay/SearchViewCtrl', :path => '../'
   pod 'EnolaGay/FileManager', :path => '../'
   
-  pod 'Cache'
   pod 'Alamofire', '~> 4.9.0'
   pod 'MJRefresh'
-  pod "Player"
 #  pod "SnapKit"
 
 #  target 'EnolaGay_Tests' do
@@ -29,13 +27,19 @@ target 'EnolaGay_Example' do
 end
 
 target 'VersionCheck' do
-
   pod 'EnolaGay', :path => '../'
-  
 end
 
 target 'Semaphore' do
-
   pod 'EnolaGay', :path => '../'
-  
+end
+
+target 'CacheDemo' do
+  pod 'EnolaGay', :path => '../'
+  pod 'Cache'
+end
+
+target 'PlayerDemo' do
+  pod 'EnolaGay', :path => '../'
+  pod "Player"
 end

@@ -27,6 +27,11 @@ class CacheViewCtrl: JudyBaseViewCtrl {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        isReqSuccess = true
+        super.viewWillAppear(animated)
+    }
+    
     @IBAction func pushAction(_ sender: Any) {
         let viewCtrl = storyboard!.instantiateViewController(withIdentifier: "CacheViewCtrl") as! CacheViewCtrl
         navigationController?.pushViewController(viewCtrl, animated: true)

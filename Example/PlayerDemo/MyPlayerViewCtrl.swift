@@ -29,6 +29,11 @@ class MyPlayerViewCtrl: JudyBaseTableViewCtrl {
 
         setDataSoruce()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        isReqSuccess = true
+        super.viewWillAppear(animated)
+    }
 
     override func registerReuseComponents() {
         let nib = UINib(nibName: "VideoCell", bundle: nil)
