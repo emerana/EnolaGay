@@ -16,7 +16,9 @@ class SemaphoreViewCtrl: UIViewController {
         super.viewDidLoad()
         
         // saleTickets()
-        onstart()
+        // onstart()
+//        notify()
+        downloadAction(maxSemaphore: 3)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -180,13 +182,12 @@ extension SemaphoreViewCtrl {
 
     // MARK: - 并发队列测试
 
-    /// 监听任务的执行是否完成。
+    /// 监听任务的执行是否完成
     func notify() {
-        
         // 创建一个并发队列
         let downloadQueue = DispatchQueue(label: "downloadQueue", attributes: .concurrent)
 
-        /// 下载任务。
+        /// 下载任务
         let downloadAction = DispatchWorkItem {
             Thread.current.name = "下载线程"
             let s = arc4random()%9
@@ -194,52 +195,47 @@ extension SemaphoreViewCtrl {
             sleep(s)
         }
         
-        downloadQueue.async(execute: downloadAction)
-        
         downloadAction.notify(queue: downloadQueue) {
             print("\(Thread.current) 下载任务全部完成！")
         }
+        downloadQueue.async(execute: downloadAction)
 
         print("\(Thread.current)")
     }
 
 
-    /// 模拟下载多个数据。
+    /// 模拟下载多个数据
     func downloadAction(maxSemaphore: Int = 3) {
-        
-        let semaphore = DispatchSemaphore(value: maxSemaphore)
-
         // 创建一个并发队列
         let downloadQueue = DispatchQueue(label: "downloadQueue", attributes: .concurrent)
-
+        
         /// 下载任务
         let downloadAction = DispatchWorkItem {
-            let actionCount = 1
-            for _ in 1...actionCount {
-                semaphore.wait()
-                
+            let semaphore = DispatchSemaphore(value: 0)
+
+            for i in 1...maxSemaphore {
                 downloadQueue.async {
-                    Thread.current.name = "下载线程"
+                    Thread.current.name = "下载线程\(i)"
                     let s = arc4random()%9
                     print("\(Thread.current) 开始下载任务，预计耗时：\(s) 秒")
                     sleep(s)
                     print("\(Thread.current) 下载完成，耗时：\(s) 秒")
                     semaphore.signal()
                 }
+                Judy.log("执行了第\(i)个下载任务")
             }
-            
-            // 按最大同时执行任务数量等待。
-            for _ in 1...maxSemaphore {
+            for i in 1...maxSemaphore {
                 semaphore.wait()
+                Judy.log("等待第\(i)次")
             }
         }
         
         downloadAction.notify(queue: downloadQueue) {
-            print("\(Thread.current) 下载任务全部完成！")
+            Judy.logHappy("\(Thread.current) 下载任务全部完成！")
         }
         
         downloadQueue.async(execute: downloadAction)
-
+        
         print("\(Thread.current)")
     }
 
