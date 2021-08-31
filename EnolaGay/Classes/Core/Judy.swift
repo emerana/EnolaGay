@@ -477,10 +477,10 @@ public extension Judy {
     
     /// 从 AppStore 查询 App 的版本信息
     /// - Parameters:
-    ///   - bundleIdentifier: 要查询的目标 App 的 Bundle Identifier
-    ///   - version: 要查询的目标 App 的 Version，通过此 version 来判断是否有更新。
+    ///   - bundleIdentifier: 要查询的目标 App 的 Bundle Identifier，默认取当前 App 的标识符。
+    ///   - version: 要查询的目标 App 的 Version，通过此 version 来判断是否有更新。默认取当前 App 的版本号。
     ///   - callBack: 查询结果回调函数，该函数传入 AppVersionStatus 和目标 App 在 App Store 对应的 URL(若有)。
-    static func queryVersionInfoAtAppStore(bundleIdentifier: String, version: String, callBack: @escaping ((AppVersionStatus, String?) -> Void)) {
+    static func queryVersionInfoAtAppStore(bundleIdentifier: String = bundleIdentifier, version: String = versionShort, callBack: @escaping ((AppVersionStatus, String?) -> Void)) {
         // 请求地址
         var requestURLStr = "https://itunes.apple.com/cn/lookup?bundleId=\(bundleIdentifier)"
         // 解决 UTF-8 乱码问题
