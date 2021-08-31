@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		21245403214D9E2E74BEFBD6 /* Pods_RefreshAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B599836D502CCDF702891F /* Pods_RefreshAdapter.framework */; };
 		3326EADEA17E26569C66AEAE /* Pods_PlayerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E681AA57CDB743B58661255 /* Pods_PlayerDemo.framework */; };
-		467A090C63D26D7F4EED67E3 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		467A090C63D26D7F4EED67E3 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -41,7 +41,7 @@
 		8BA9AA05260EDAB8008B1803 /* AttributedString.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA9AA04260EDAB8008B1803 /* AttributedString.storyboard */; };
 		8BB8861E265CF30A00E8836D /* GiftMessageViewCtrlTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */; };
 		8BB88621265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BB88620265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard */; };
-		8BC3DA0E26DDF70100A2A405 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		8BC3DA0E26DDF70100A2A405 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8BC3DA2D26DDF88C00A2A405 /* VersionCheckViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */; };
 		8BC3DA3226DDFA6E00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA3026DDFA6E00A2A405 /* Main.storyboard */; };
 		8BC3DA3326DDFAAC00A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */; };
@@ -70,13 +70,13 @@
 		8BE7F82C26CA4000001CE7EA /* ToastViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */; };
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
-		92E76B5AE2899FEC6A444941 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		9DC7BC7100ED3705BDB81B72 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		92E76B5AE2899FEC6A444941 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		9DC7BC7100ED3705BDB81B72 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		A1A0A57F791BCA99D669FC23 /* Pods_CacheDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA380B86B9CDEF5F859D860 /* Pods_CacheDemo.framework */; };
-		A74504D25EB1D2F67E461560 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		A74504D25EB1D2F67E461560 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		B648D94DE7249103664959EC /* Pods_Semaphore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64D51EFA12476A8C1890B97 /* Pods_Semaphore.framework */; };
 		EE2859873D7E7BE3629FC128 /* Pods_EnolaGay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */; };
-		F14B859CD02C08B8FDCE1242 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		F14B859CD02C08B8FDCE1242 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		FE08A3A6B07B5B0BB230CC70 /* Pods_VersionCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F868E648196FAF1825698AFA /* Pods_VersionCheck.framework */; };
 /* End PBXBuildFile section */
 
@@ -194,7 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DC7BC7100ED3705BDB81B72 /* BuildFile in Frameworks */,
+				9DC7BC7100ED3705BDB81B72 /* (null) in Frameworks */,
 				EE2859873D7E7BE3629FC128 /* Pods_EnolaGay_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,8 +203,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC3DA0E26DDF70100A2A405 /* BuildFile in Frameworks */,
-				92E76B5AE2899FEC6A444941 /* BuildFile in Frameworks */,
+				8BC3DA0E26DDF70100A2A405 /* (null) in Frameworks */,
+				92E76B5AE2899FEC6A444941 /* (null) in Frameworks */,
 				FE08A3A6B07B5B0BB230CC70 /* Pods_VersionCheck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,7 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F14B859CD02C08B8FDCE1242 /* BuildFile in Frameworks */,
+				F14B859CD02C08B8FDCE1242 /* (null) in Frameworks */,
 				B648D94DE7249103664959EC /* Pods_Semaphore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,7 +222,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A74504D25EB1D2F67E461560 /* BuildFile in Frameworks */,
+				A74504D25EB1D2F67E461560 /* (null) in Frameworks */,
 				A1A0A57F791BCA99D669FC23 /* Pods_CacheDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,7 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				467A090C63D26D7F4EED67E3 /* BuildFile in Frameworks */,
+				467A090C63D26D7F4EED67E3 /* (null) in Frameworks */,
 				3326EADEA17E26569C66AEAE /* Pods_PlayerDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1541,7 +1541,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.PlayerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.RefreshAdapter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -1558,7 +1558,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.PlayerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.RefreshAdapter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
