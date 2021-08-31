@@ -13,7 +13,6 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		6F337C824DB7574EEDA8C564 /* Pods_EnolaGay_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E3731438F1EBC192427EC6 /* Pods_EnolaGay_Tests.framework */; };
 		8B0B90AB262832830059B992 /* TestTableRefreshTableViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0B90AA262832830059B992 /* TestTableRefreshTableViewCtrl.swift */; };
 		8B0B90B12628328E0059B992 /* Refresh.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B0B90B02628328E0059B992 /* Refresh.storyboard */; };
 		8B1A499025C8354700FDA57A /* LangRenSha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1A498F25C8354700FDA57A /* LangRenSha.storyboard */; };
@@ -51,20 +50,26 @@
 		8BBD55322670A0C900C7B48E /* MyPlayerViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD55312670A0C900C7B48E /* MyPlayerViewCtrl.swift */; };
 		8BBD55342670AE7000C7B48E /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BBD55332670AE7000C7B48E /* VideoCell.xib */; };
 		8BBD55362670AE8C00C7B48E /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD55352670AE8C00C7B48E /* VideoCell.swift */; };
-		8BC3DA0726DDF70100A2A405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		8BC3DA0E26DDF70100A2A405 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		8BC3DA0E26DDF70100A2A405 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		8BC3DA2D26DDF88C00A2A405 /* VersionCheckViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */; };
 		8BC3DA3226DDFA6E00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA3026DDFA6E00A2A405 /* Main.storyboard */; };
 		8BC3DA3326DDFAAC00A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */; };
+		8BC3DA4626DE965A00A2A405 /* SemaphoreViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DA4526DE965800A2A405 /* SemaphoreViewCtrl.swift */; };
+		8BC3DA5426DE97B100A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA5226DE97B100A2A405 /* Main.storyboard */; };
+		8BC3DA5526DE97C700A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA5026DE97A000A2A405 /* LaunchScreen.xib */; };
+		8BC3DA5926DE989D00A2A405 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DA5826DE989D00A2A405 /* App.swift */; };
+		8BC3DA5B26DE98FF00A2A405 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DA5A26DE98E800A2A405 /* App.swift */; };
 		8BD7AE4E26A6746F00A07EB6 /* FontExtension.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD7AE4D26A6746F00A07EB6 /* FontExtension.storyboard */; };
 		8BD7AE5026A6747C00A07EB6 /* FontExtensionViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD7AE4F26A6747C00A07EB6 /* FontExtensionViewCtrl.swift */; };
 		8BD8C6952628636B006738E6 /* TestCollectionRefreshCollectionViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8C6942628636B006738E6 /* TestCollectionRefreshCollectionViewCtrl.swift */; };
 		8BE7F82C26CA4000001CE7EA /* ToastViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */; };
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
-		92E76B5AE2899FEC6A444941 /* Pods_VersionCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D26CCC4592C86376C0A6015A /* Pods_VersionCheck.framework */; };
-		9DC7BC7100ED3705BDB81B72 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		92E76B5AE2899FEC6A444941 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		9DC7BC7100ED3705BDB81B72 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		EE2859873D7E7BE3629FC128 /* Pods_EnolaGay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */; };
+		F14B859CD02C08B8FDCE1242 /* Pods_Semaphore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 062CA073DBF8C7D62241EF93 /* Pods_Semaphore.framework */; };
+		FE08A3A6B07B5B0BB230CC70 /* Pods_VersionCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F868E648196FAF1825698AFA /* Pods_VersionCheck.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,10 +83,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		062CA073DBF8C7D62241EF93 /* Pods_Semaphore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Semaphore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F1A9FFE10BA8A787D6AA62 /* Pods-EnolaGay_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		27654828554D9863B54DECB5 /* Pods-Semaphore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Semaphore.release.xcconfig"; path = "Target Support Files/Pods-Semaphore/Pods-Semaphore.release.xcconfig"; sourceTree = "<group>"; };
 		3448F43C0484DBEAC0D6AB18 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		39E3731438F1EBC192427EC6 /* Pods_EnolaGay_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		505B9E48BD5047D8ED862E68 /* Pods-EnolaGay_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Tests.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Tests/Pods-EnolaGay_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		5AA036FFF17B806B78243C7D /* Pods-Semaphore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Semaphore.debug.xcconfig"; path = "Target Support Files/Pods-Semaphore/Pods-Semaphore.debug.xcconfig"; sourceTree = "<group>"; };
 		5D849979F9CC82D37AB0E47D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* EnolaGay_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnolaGay_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,6 +143,13 @@
 		8BC3DA2A26DDF70100A2A405 /* VersionCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VersionCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC3DA2F26DDFA5100A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8BC3DA3126DDFA6E00A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8BC3DA4326DE962800A2A405 /* Semaphore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Semaphore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BC3DA4526DE965800A2A405 /* SemaphoreViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemaphoreViewCtrl.swift; sourceTree = "<group>"; };
+		8BC3DA4726DE96FF00A2A405 /* Semaphore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Semaphore-Info.plist"; sourceTree = "<group>"; };
+		8BC3DA5126DE97A000A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		8BC3DA5326DE97B100A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8BC3DA5826DE989D00A2A405 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		8BC3DA5A26DE98E800A2A405 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		8BD0919526AA978A004DE842 /* 温州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "温州.gpx"; sourceTree = "<group>"; };
 		8BD0919626AA9D3A004DE842 /* 杭州五联东苑.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "杭州五联东苑.gpx"; sourceTree = "<group>"; };
 		8BD7AE4D26A6746F00A07EB6 /* FontExtension.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FontExtension.storyboard; sourceTree = "<group>"; };
@@ -154,8 +167,7 @@
 		9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABEEA2C9E2C543D4F6523F7C /* Pods-VersionCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VersionCheck.debug.xcconfig"; path = "Target Support Files/Pods-VersionCheck/Pods-VersionCheck.debug.xcconfig"; sourceTree = "<group>"; };
 		CD1DE04F1997751A15C4B0A0 /* Pods-EnolaGay_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example.release.xcconfig"; sourceTree = "<group>"; };
-		D26CCC4592C86376C0A6015A /* Pods_VersionCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VersionCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F610A598021A3B0C943B999E /* Pods-EnolaGay_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Tests.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Tests/Pods-EnolaGay_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		F868E648196FAF1825698AFA /* Pods_VersionCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VersionCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98BD9BA7538AEBFD8F12C47 /* Pods-VersionCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VersionCheck.release.xcconfig"; path = "Target Support Files/Pods-VersionCheck/Pods-VersionCheck.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,7 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DC7BC7100ED3705BDB81B72 /* (null) in Frameworks */,
+				9DC7BC7100ED3705BDB81B72 /* BuildFile in Frameworks */,
 				EE2859873D7E7BE3629FC128 /* Pods_EnolaGay_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,7 +185,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F337C824DB7574EEDA8C564 /* Pods_EnolaGay_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,8 +192,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC3DA0E26DDF70100A2A405 /* (null) in Frameworks */,
-				92E76B5AE2899FEC6A444941 /* Pods_VersionCheck.framework in Frameworks */,
+				8BC3DA0E26DDF70100A2A405 /* BuildFile in Frameworks */,
+				92E76B5AE2899FEC6A444941 /* BuildFile in Frameworks */,
+				FE08A3A6B07B5B0BB230CC70 /* Pods_VersionCheck.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BC3DA3926DE962800A2A405 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F14B859CD02C08B8FDCE1242 /* Pods_Semaphore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,10 +214,10 @@
 			children = (
 				23F1A9FFE10BA8A787D6AA62 /* Pods-EnolaGay_Example.debug.xcconfig */,
 				CD1DE04F1997751A15C4B0A0 /* Pods-EnolaGay_Example.release.xcconfig */,
-				F610A598021A3B0C943B999E /* Pods-EnolaGay_Tests.debug.xcconfig */,
-				505B9E48BD5047D8ED862E68 /* Pods-EnolaGay_Tests.release.xcconfig */,
 				ABEEA2C9E2C543D4F6523F7C /* Pods-VersionCheck.debug.xcconfig */,
 				F98BD9BA7538AEBFD8F12C47 /* Pods-VersionCheck.release.xcconfig */,
+				5AA036FFF17B806B78243C7D /* Pods-Semaphore.debug.xcconfig */,
+				27654828554D9863B54DECB5 /* Pods-Semaphore.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -208,6 +228,7 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for EnolaGay */,
 				8B620EA326DDF347001E1A9D /* VersionCheck */,
+				8BC3DA4426DE965700A2A405 /* Semaphore */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				48F58D42A596E8C4AFE02DEE /* Pods */,
@@ -221,6 +242,7 @@
 				607FACD01AFB9204008FA782 /* EnolaGay_Example.app */,
 				607FACE51AFB9204008FA782 /* EnolaGay_Tests.xctest */,
 				8BC3DA2A26DDF70100A2A405 /* VersionCheck.app */,
+				8BC3DA4326DE962800A2A405 /* Semaphore.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -407,8 +429,9 @@
 			isa = PBXGroup;
 			children = (
 				8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */,
-				8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */,
 				8BC3DA3026DDFA6E00A2A405 /* Main.storyboard */,
+				8BC3DA5A26DE98E800A2A405 /* App.swift */,
+				8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */,
 				8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */,
 			);
 			path = VersionCheck;
@@ -463,6 +486,18 @@
 			path = MyPlayer;
 			sourceTree = "<group>";
 		};
+		8BC3DA4426DE965700A2A405 /* Semaphore */ = {
+			isa = PBXGroup;
+			children = (
+				8BC3DA4526DE965800A2A405 /* SemaphoreViewCtrl.swift */,
+				8BC3DA5226DE97B100A2A405 /* Main.storyboard */,
+				8BC3DA5826DE989D00A2A405 /* App.swift */,
+				8BC3DA4726DE96FF00A2A405 /* Semaphore-Info.plist */,
+				8BC3DA5026DE97A000A2A405 /* LaunchScreen.xib */,
+			);
+			path = Semaphore;
+			sourceTree = "<group>";
+		};
 		8BD7AE4C26A6745B00A07EB6 /* FontExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,9 +519,9 @@
 		C2843BD89BA8C609ED35D6C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				39E3731438F1EBC192427EC6 /* Pods_EnolaGay_Tests.framework */,
-				D26CCC4592C86376C0A6015A /* Pods_VersionCheck.framework */,
 				9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */,
+				062CA073DBF8C7D62241EF93 /* Pods_Semaphore.framework */,
+				F868E648196FAF1825698AFA /* Pods_VersionCheck.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -517,7 +552,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "EnolaGay_Tests" */;
 			buildPhases = (
-				95AEF9803F872925FC283020 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
@@ -551,6 +585,25 @@
 			productReference = 8BC3DA2A26DDF70100A2A405 /* VersionCheck.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8BC3DA3426DE962800A2A405 /* Semaphore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BC3DA4026DE962800A2A405 /* Build configuration list for PBXNativeTarget "Semaphore" */;
+			buildPhases = (
+				8BC3DA3526DE962800A2A405 /* [CP] Check Pods Manifest.lock */,
+				8BC3DA3626DE962800A2A405 /* Sources */,
+				8BC3DA3926DE962800A2A405 /* Frameworks */,
+				8BC3DA3C26DE962800A2A405 /* Resources */,
+				8BC3DA3F26DE962800A2A405 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Semaphore;
+			productName = EnolaGay;
+			productReference = 8BC3DA4326DE962800A2A405 /* Semaphore.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -575,6 +628,9 @@
 					8BC3D9F226DDF70100A2A405 = {
 						DevelopmentTeam = 325J3J39TM;
 					};
+					8BC3DA3426DE962800A2A405 = {
+						DevelopmentTeam = 325J3J39TM;
+					};
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "EnolaGay" */;
@@ -593,6 +649,7 @@
 				607FACCF1AFB9204008FA782 /* EnolaGay_Example */,
 				607FACE41AFB9204008FA782 /* EnolaGay_Tests */,
 				8BC3D9F226DDF70100A2A405 /* VersionCheck */,
+				8BC3DA3426DE962800A2A405 /* Semaphore */,
 			);
 		};
 /* End PBXProject section */
@@ -641,6 +698,15 @@
 			files = (
 				8BC3DA3326DDFAAC00A2A405 /* LaunchScreen.xib in Resources */,
 				8BC3DA3226DDFA6E00A2A405 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BC3DA3C26DE962800A2A405 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BC3DA5526DE97C700A2A405 /* LaunchScreen.xib in Resources */,
+				8BC3DA5426DE97B100A2A405 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,7 +777,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VersionCheck/Pods-VersionCheck-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		95AEF9803F872925FC283020 /* [CP] Check Pods Manifest.lock */ = {
+		8BC3DA3526DE962800A2A405 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -726,11 +792,31 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-EnolaGay_Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Semaphore-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BC3DA3F26DE962800A2A405 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Semaphore/Pods-Semaphore-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Semaphore/Pods-Semaphore-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E4767C32285CA50D12D8B6C5 /* [CP] Embed Pods Frameworks */ = {
@@ -808,8 +894,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC3DA0726DDF70100A2A405 /* AppDelegate.swift in Sources */,
+				8BC3DA5B26DE98FF00A2A405 /* App.swift in Sources */,
 				8BC3DA2D26DDF88C00A2A405 /* VersionCheckViewCtrl.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BC3DA3626DE962800A2A405 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BC3DA5926DE989D00A2A405 /* App.swift in Sources */,
+				8BC3DA4626DE965A00A2A405 /* SemaphoreViewCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,6 +947,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				8BC3DA3126DDFA6E00A2A405 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8BC3DA5026DE97A000A2A405 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BC3DA5126DE97A000A2A405 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		8BC3DA5226DE97B100A2A405 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BC3DA5326DE97B100A2A405 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1002,7 +1113,6 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F610A598021A3B0C943B999E /* Pods-EnolaGay_Tests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 325J3J39TM;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1025,7 +1135,6 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 505B9E48BD5047D8ED862E68 /* Pods-EnolaGay_Tests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 325J3J39TM;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1076,6 +1185,40 @@
 			};
 			name = Release;
 		};
+		8BC3DA4126DE962800A2A405 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AA036FFF17B806B78243C7D /* Pods-Semaphore.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Semaphore-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.Semaphore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8BC3DA4226DE962800A2A405 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27654828554D9863B54DECB5 /* Pods-Semaphore.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Semaphore-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.Semaphore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1111,6 +1254,15 @@
 			buildConfigurations = (
 				8BC3DA2826DDF70100A2A405 /* Debug */,
 				8BC3DA2926DDF70100A2A405 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BC3DA4026DE962800A2A405 /* Build configuration list for PBXNativeTarget "Semaphore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BC3DA4126DE962800A2A405 /* Debug */,
+				8BC3DA4226DE962800A2A405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -23,12 +23,18 @@ target 'EnolaGay_Example' do
   pod "Player"
 #  pod "SnapKit"
 
-  target 'EnolaGay_Tests' do
-    inherit! :search_paths    
-  end
+#  target 'EnolaGay_Tests' do
+#    inherit! :search_paths
+#  end
 end
 
 target 'VersionCheck' do
+
+  pod 'EnolaGay', :path => '../'
+  
+end
+
+target 'Semaphore' do
 
   pod 'EnolaGay', :path => '../'
   
