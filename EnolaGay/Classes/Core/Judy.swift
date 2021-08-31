@@ -368,29 +368,22 @@ public extension Judy {
     
 }
 
-/****************************************  ****************************************/
 // MARK: - App版本相关
 public extension Judy {
-    
-    /// 获取 version,即 CFBundleShortVersionString
-    ///
-    /// - Returns: 如：2.5.8
-    static func versionShort() -> String {
-        Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
-    }
+    /// 获取 version,即 CFBundleShortVersionString. 如：2.5.8
+    static var versionShort: String { Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String }
     
     /// 获取 Build 版本号
-    ///
-    /// - Returns: 如：1
-    static func versionBuild() -> String {
-        Bundle.main.infoDictionary!["CFBundleVersion"] as! String
-    }
+    static var versionBuild: String { Bundle.main.infoDictionary!["CFBundleVersion"] as! String }
     
-    /// 检查是否有新版本,如果有新版本则会弹出一个AlertController,引导用户去更新App
+    /// 获取 App 的 Bundle Identifier
+    static var bundleIdentifier: String { Bundle.main.infoDictionary!["CFBundleIdentifier"] as! String }
+
+    /// 检查是否有新版本,如果有新版本则会弹出一个 AlertController ,引导用户去更新 App.
     ///
     /// - Parameters:
     ///   - alertTitle: 弹出视图的标题
-    ///   - alertMsg: 弹出视图的消息体,如果nil则为AppStore更新文字
+    ///   - alertMsg: 弹出视图的消息体,如果nil则为AppStore更新文字。
     ///   - btnText: 更新按钮文字信息
     ///   - cancel: 取消按钮文字信息
     static func versionNormal(alertTitle: String = "发现新版本", alertMsg: String?, btnText: String = "前往更新", cancel: String = "不，谢谢") {
@@ -409,11 +402,11 @@ public extension Judy {
         }
     }
     
-    /// 检测新版本并强制式要求用户进行版本更新，只有一个按钮，用户只能点击跳转到AppStore
+    /// 检测新版本并强制式要求用户进行版本更新，只有一个按钮，用户只能点击跳转到 AppStore.
     ///
     /// - Parameters:
     ///   - alertTitle: 弹出视图的标题
-    ///   - alertMsg: 弹出视图的消息体,如果传入nil则为AppStore的更新文字
+    ///   - alertMsg: 弹出视图的消息体, 如果传入 nil 则为 AppStore 的更新文字。
     ///   - btnText: 更新按钮文字信息
     static func versionForce(alertTitle: String = "请更新版本", alertMsg: String?, btnText: String = "好的") {
         versionCheck { (status:Int, newVersion:Bool, msg:String, appStroeUrl:String?) in
@@ -425,8 +418,7 @@ public extension Judy {
         }
     }
     
-    
-    /// 从AppStore检查当前App状态,此方法将会在闭包里传入一个status:Int
+    /// 从AppStore检查当前App状态,此方法将会在闭包里传入一个status:Int.
     ///
     /// - Parameter closure: 传入回调函数，里面只有一个Int
     ///     - status 当前App状态，-4:data转json失败，-3:版本检查失败，-2:没有找到，-1:审核状态，0：最新版本，1:有新版本，请更新
@@ -455,9 +447,9 @@ public extension Judy {
         return rs
     }
     
-    /// 从AppStore检查当前App状态
+    /// 从 AppStore 检查当前 App 状态
     ///
-    /// - warning: 此方法会在闭包参数里传入一个JSON字典，字段如下
+    /// - Warning: 此方法会在闭包参数里传入一个JSON字典，字段如下
     ///     - newVersion: Bool    是否有新版本
     ///     - msg: String 消息体
     ///     - URL: String?    AppStore URL:(AppStore URL只在有新版本时有值，默认没有此字段)
@@ -483,27 +475,28 @@ public extension Judy {
     /// - older: 当前使用的为较旧版本，可以更新到新版本
     /// - review: 当前使用的为审核版本
     /// - notFound: 没有找到该应用
-    enum AppVersionStatus {
+    enum AppVersionStatus: String {
         /// 最新版本
-        case latest
+        case latest = "您使用的是最新版本"
         /// 当前使用的为较旧版本，可以更新到新版本
-        case older
+        case older = "发现最新版本，请及时更新"
         /// 当前使用的为审核版本
-        case review
-        /// 当前App尚未出现在AppStore
-        case notFound
+        case review = "您当前使用的版本正在审核……"
+        /// 当前 App 尚未出现在 AppStore
+        case notFound = "在 AppStore 中没有发现您当前使用的 App"
     }
     
-    /// 检查当前App版本状态，通过传入一个线上版本号与当前版本进行比较
+    /// 检查当前 App 版本状态，通过传入一个线上版本号与当前版本进行比较。
     ///
-    /// - Parameter versionOnLine: 线上版本号，如:2.6.0
-    /// - Returns: App版本状态
-    static func versionCompare(versionOnLine: String) -> AppVersionStatus {
+    /// - Parameter localVersion: 本地版本号
+    /// - Parameter onLineVersion: 线上版本号
+    /// - Returns: App 版本状态
+    static func versionCompare(localVersion: String, onLineVersion: String) -> AppVersionStatus {
         var versionStatus = AppVersionStatus.latest
         
-        // Judy-mark: 以""切割字符串并返回数组
-        var versionLocalList = versionShort().components(separatedBy: ".")
-        var versionOnLineList = versionOnLine.components(separatedBy: ".")
+        // 切割字符串并返回数组
+        var versionLocalList = localVersion.components(separatedBy: ".")
+        var versionOnLineList = onLineVersion.components(separatedBy: ".")
         
         // 当要比较的两个数组长度不一致
         if versionLocalList.count != versionOnLineList.count {
@@ -521,7 +514,7 @@ public extension Judy {
         // 比较版本
         for i in 0..<versionLocalList.count {
             guard (Int(versionLocalList[i]) != nil), (Int(versionOnLineList[i]) != nil) else {
-                Judy.log("错误：版本号中存在非Int字符！")
+                Judy.logWarning("版本号中存在非 Int 字符")
                 return .latest
             }
             verL = Int(versionLocalList[i])!
@@ -530,7 +523,7 @@ public extension Judy {
                 versionStatus = .latest
                 continue
             }
-            if verL < verS{  // 有更新
+            if verL < verS {
                 versionStatus = .older
                 break
             }
@@ -539,6 +532,7 @@ public extension Judy {
                 break
             }
         }
+        
         return versionStatus
     }
     
@@ -591,35 +585,90 @@ public extension Judy {
         })
     }
     
-    // MARK: private method
-    
-    /// 从AppStore检查版本状态
-    /// - status: Int    当前App状态，-4:data转json失败，-3:版本检查失败，-2:没有找到，-1:审核状态，0：最新版本，1:有新版本，请更新
-    /// - newVersion: Bool   是否有新版本，是=true
-    /// - msg: String    对应消息体
-    /// - url: String    AppStore链接,只有发现新版本时候有值
-    /// - Parameter callBack: 需传入闭包
-    private static func versionCheck(callBack: @escaping ((Int, Bool,String,String?) -> Void)) {
-        
-        // 得到CFBundleIdentifier
-        let bundleIdentifier = Bundle.main.infoDictionary!["CFBundleIdentifier"] as! String
-        //设置请求地址
+    /// 从 AppStore 查询 App 的版本信息
+    /// - Parameters:
+    ///   - bundleIdentifier: 要查询的目标 App 的 Bundle Identifier
+    ///   - version: 要查询的目标 App 的 Version，通过此 version 来判断是否有更新。
+    ///   - callBack: 查询结果回调函数，该函数传入 AppVersionStatus 和目标 App 在 App Store 对应的 URL(若有)。
+    static func queryVersionInfoAtAppStore(bundleIdentifier: String, version: String, callBack: @escaping ((AppVersionStatus, String?) -> Void)) {
+        // 请求地址
         var requestURLStr = "https://itunes.apple.com/cn/lookup?bundleId=\(bundleIdentifier)"
-        
-        //解决UTF-8乱码问题
+        // 解决 UTF-8 乱码问题
         requestURLStr = requestURLStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        // 独立版更新方式
-        let storeURL = URL(string: requestURLStr)
+        
+        // AppStore 请求 URL
+        guard let storeURL = URL(string: requestURLStr) else { return }
         
         // timeoutInterval: 网络请求超时时间(单位：秒)
         // var request = URLRequest(url: storeURL!)
-        var request = URLRequest.init(url: storeURL!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 8)
-        
-        // 设置请求方式为POST，默认是GET
+        var request = URLRequest(url: storeURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 8)
+        // 设置请求方式为POST，默认是GET.
         request.httpMethod = "POST"
         
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, res: URLResponse?, err: Error?) in
-
+            if (data?.count == nil) || (err != nil) {
+                callBack(AppVersionStatus.notFound, nil)
+                return
+            }
+            
+            // Success  返回 data 转 json
+            let dataDic: [String: Any]? = try! JSONSerialization.jsonObject(with: data!,
+                                                                            options: .allowFragments) as? [String : Any]
+            
+            if dataDic == nil {
+                callBack(AppVersionStatus.notFound, nil)
+                return
+            }
+            
+            let resultCount = dataDic!["resultCount"] as? Int
+            if resultCount == 0 {
+                callBack(AppVersionStatus.notFound, nil)
+                return
+            }
+            
+            let array: [Any] = dataDic!["results"]as! [Any]
+            let dic: [String: Any] = array[0] as! [String: Any]
+            
+            // 得到服务器的版本
+            let versionOnLine: String = dic["version"] as! String
+            var appStoreUrl: String?    //, msg: String?
+            
+            let rs = versionCompare(localVersion: version, onLineVersion: versionOnLine)
+            if rs == .older {
+                appStoreUrl = dic["trackViewUrl"] as? String
+            }
+            
+            callBack(rs, appStoreUrl)
+        }
+        task.resume()
+    }
+    
+    // MARK: private method
+    
+    /// 从AppStore检查版本状态
+    /// - status: Int    当前App状态，-4: data转json失败，-3: 版本检查失败，-2: 没有找到，-1: 审核状态，0：最新版本，1: 有新版本，请更新
+    /// - newVersion: Bool   是否有新版本，是=true
+    /// - msg: String    对应消息体
+    /// - url: String    AppStore 链接,只有发现新版本时候有值
+    /// - Parameter callBack: 需传入闭包
+    private static func versionCheck(callBack: @escaping ((Int, Bool, String, String?) -> Void)) {
+        // 得到 CFBundleIdentifier
+        let bundleIdentifier = Bundle.main.infoDictionary!["CFBundleIdentifier"] as! String
+        // 请求地址
+        var requestURLStr = "https://itunes.apple.com/cn/lookup?bundleId=\(bundleIdentifier)"
+        // 解决 UTF-8 乱码问题
+        requestURLStr = requestURLStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        
+        // AppStore 请求 URL
+        guard let storeURL = URL(string: requestURLStr) else { return }
+        
+        // timeoutInterval: 网络请求超时时间(单位：秒)
+        // var request = URLRequest(url: storeURL!)
+        var request = URLRequest(url: storeURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 8)
+        // 设置请求方式为POST，默认是GET.
+        request.httpMethod = "POST"
+        
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, res: URLResponse?, err: Error?) in
             if (data?.count == nil) || (err != nil) {
                 callBack(-3, false, "App版本检查失败", nil)
                 return
@@ -649,7 +698,7 @@ public extension Judy {
             var bNewVersion = false // 是否有新版本的标志，默认false
             var msg = "Judy", appStoreUrl: String? = nil, status: Int = 0
             
-            let rs = versionCompare(versionOnLine: versionOnLine)
+            let rs = versionCompare(localVersion: versionShort, onLineVersion: versionOnLine)
             switch rs {
             case .latest:
                 msg = "当前使用的版本为最新版本"
