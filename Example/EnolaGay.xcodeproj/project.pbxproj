@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FB64120439EAAB58D710A35 /* Pods_EnolaGay_Example_KeyBoardPop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58240537127568FC484655FC /* Pods_EnolaGay_Example_KeyBoardPop.framework */; };
+		02EACE8EBE2AFC647907C3BA /* Pods_EnolaGay_Example_KeyBoardPop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B11BE9C599E48CB93DE875D0 /* Pods_EnolaGay_Example_KeyBoardPop.framework */; };
 		25FF93C8EDB18CBB9CF7A695 /* Pods_EnolaGay_Example_RefreshAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCD965789503CDC417E43BF /* Pods_EnolaGay_Example_RefreshAdapter.framework */; };
 		3F9530AFC002A12137368DA5 /* Pods_EnolaGay_Example_PlayerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8E6ADF73C74767C29A45E2 /* Pods_EnolaGay_Example_PlayerDemo.framework */; };
+		416B4EDD4177CB6FD1C8BD86 /* Pods_EnolaGay_Example_CastSurelyCalculation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21A509A84DC406DD883CE9B /* Pods_EnolaGay_Example_CastSurelyCalculation.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -24,8 +25,6 @@
 		8B372D12268E9F3E004840FC /* rescheduler.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D09268E9F3E004840FC /* rescheduler.gif */; };
 		8B372D1D268EA105004840FC /* MandolineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D1A268EA104004840FC /* MandolineViewController.swift */; };
 		8B372D1F268EA105004840FC /* Mandoline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D1C268EA105004840FC /* Mandoline.storyboard */; };
-		8B491DA72698749E00BA782C /* CastSurelyCalculation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B491DA62698749E00BA782C /* CastSurelyCalculation.storyboard */; };
-		8B491DA9269874F200BA782C /* CastSurelyCalculationViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B491DA8269874F200BA782C /* CastSurelyCalculationViewCtrl.swift */; };
 		8B4A4DE3266E0E37007D6DC5 /* NavigatinCtrl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */; };
 		8B4A4DE5266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */; };
 		8B4A4DEB266F0B8C007D6DC5 /* DouYin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */; };
@@ -70,6 +69,10 @@
 		8BC3DAFF26DF3CCF00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DAF726DF3C6700A2A405 /* Main.storyboard */; };
 		8BC3DB0026DF3CCF00A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DAF926DF3C6700A2A405 /* LaunchScreen.xib */; };
 		8BC3DB0226DF3DD800A2A405 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DB0126DF3DD800A2A405 /* Media.xcassets */; };
+		8BC3DB2126DF3F6D00A2A405 /* CastSurelyCalculationViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB1426DF3F0F00A2A405 /* CastSurelyCalculationViewCtrl.swift */; };
+		8BC3DB2326DF3F6D00A2A405 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB1826DF3F2300A2A405 /* App.swift */; };
+		8BC3DB2426DF3F7A00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DB1B26DF3F2300A2A405 /* Main.storyboard */; };
+		8BC3DB2526DF3F7A00A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DB1D26DF3F2300A2A405 /* LaunchScreen.xib */; };
 		8BD7AE4E26A6746F00A07EB6 /* FontExtension.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD7AE4D26A6746F00A07EB6 /* FontExtension.storyboard */; };
 		8BD7AE5026A6747C00A07EB6 /* FontExtensionViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD7AE4F26A6747C00A07EB6 /* FontExtensionViewCtrl.swift */; };
 		8BE7F82C26CA4000001CE7EA /* ToastViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */; };
@@ -95,9 +98,9 @@
 		3AE7544F2E609AE3D7ABB860 /* Pods_EnolaGay_Example_CacheDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_CacheDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C14081734AB32DA5BCC5228 /* Pods-EnolaGay_Example-VersionCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-VersionCheck.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-VersionCheck/Pods-EnolaGay_Example-VersionCheck.release.xcconfig"; sourceTree = "<group>"; };
 		545F67098F044C7D30826C6D /* Pods-EnolaGay_Example-PlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-PlayerDemo.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-PlayerDemo/Pods-EnolaGay_Example-PlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
-		58240537127568FC484655FC /* Pods_EnolaGay_Example_KeyBoardPop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_KeyBoardPop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA036FFF17B806B78243C7D /* Pods-Semaphore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Semaphore.debug.xcconfig"; path = "Target Support Files/Pods-Semaphore/Pods-Semaphore.debug.xcconfig"; sourceTree = "<group>"; };
 		5D849979F9CC82D37AB0E47D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		5ED3BA207D1C68A85C93AAFF /* Pods-EnolaGay_Example-CastSurelyCalculation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-CastSurelyCalculation.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-CastSurelyCalculation/Pods-EnolaGay_Example-CastSurelyCalculation.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* EnolaGay_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnolaGay_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,8 +126,6 @@
 		8B372D1A268EA104004840FC /* MandolineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandolineViewController.swift; sourceTree = "<group>"; };
 		8B372D1C268EA105004840FC /* Mandoline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mandoline.storyboard; sourceTree = "<group>"; };
 		8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTestViewCtrl.swift; sourceTree = "<group>"; };
-		8B491DA62698749E00BA782C /* CastSurelyCalculation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CastSurelyCalculation.storyboard; sourceTree = "<group>"; };
-		8B491DA8269874F200BA782C /* CastSurelyCalculationViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastSurelyCalculationViewCtrl.swift; sourceTree = "<group>"; };
 		8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigatinCtrl.storyboard; sourceTree = "<group>"; };
 		8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatinMainViewCtrl.swift; sourceTree = "<group>"; };
 		8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DouYin.storyboard; sourceTree = "<group>"; };
@@ -185,6 +186,12 @@
 		8BC3DAF826DF3C6700A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BC3DAFA26DF3C6700A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8BC3DB0126DF3DD800A2A405 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		8BC3DB1226DF3EC100A2A405 /* CastSurelyCalculation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CastSurelyCalculation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BC3DB1426DF3F0F00A2A405 /* CastSurelyCalculationViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastSurelyCalculationViewCtrl.swift; sourceTree = "<group>"; };
+		8BC3DB1826DF3F2300A2A405 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		8BC3DB1A26DF3F2300A2A405 /* CastSurelyCalculation.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CastSurelyCalculation.plist; sourceTree = "<group>"; };
+		8BC3DB1C26DF3F2300A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8BC3DB1E26DF3F2300A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8BD0919526AA978A004DE842 /* 温州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "温州.gpx"; sourceTree = "<group>"; };
 		8BD0919626AA9D3A004DE842 /* 杭州五联东苑.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "杭州五联东苑.gpx"; sourceTree = "<group>"; };
 		8BD7AE4D26A6746F00A07EB6 /* FontExtension.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FontExtension.storyboard; sourceTree = "<group>"; };
@@ -199,10 +206,12 @@
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerticalScrollView.storyboard; sourceTree = "<group>"; };
 		9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21A509A84DC406DD883CE9B /* Pods_EnolaGay_Example_CastSurelyCalculation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_CastSurelyCalculation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB49768BBFE5ED8D35C118E8 /* Pods-EnolaGay_Example-CacheDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-CacheDemo.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-CacheDemo/Pods-EnolaGay_Example-CacheDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		ABEEA2C9E2C543D4F6523F7C /* Pods-VersionCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VersionCheck.debug.xcconfig"; path = "Target Support Files/Pods-VersionCheck/Pods-VersionCheck.debug.xcconfig"; sourceTree = "<group>"; };
 		AD88C934145EF53E6CEA1572 /* Pods-RefreshAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefreshAdapter.debug.xcconfig"; path = "Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter.debug.xcconfig"; sourceTree = "<group>"; };
 		AFFBD26E76B3E2A72218B906 /* Pods-CacheDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CacheDemo.debug.xcconfig"; path = "Target Support Files/Pods-CacheDemo/Pods-CacheDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		B11BE9C599E48CB93DE875D0 /* Pods_EnolaGay_Example_KeyBoardPop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_KeyBoardPop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09D71ACF70700316AAD7CCD /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-Semaphore.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-Semaphore/Pods-EnolaGay_Example-Semaphore.debug.xcconfig"; sourceTree = "<group>"; };
 		CD1DE04F1997751A15C4B0A0 /* Pods-EnolaGay_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example.release.xcconfig"; sourceTree = "<group>"; };
 		CF8E6ADF73C74767C29A45E2 /* Pods_EnolaGay_Example_PlayerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_PlayerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,6 +219,7 @@
 		D579A6721E3EA8F9EE60A31A /* Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-RefreshAdapter/Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig"; sourceTree = "<group>"; };
 		D84BAD74741852C41151DA81 /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-Semaphore.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-Semaphore/Pods-EnolaGay_Example-Semaphore.release.xcconfig"; sourceTree = "<group>"; };
 		DE964337EB4974F80D9E2D1A /* Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-RefreshAdapter/Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig"; sourceTree = "<group>"; };
+		E0B0EBA1D1F716C7B86861AA /* Pods-EnolaGay_Example-CastSurelyCalculation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-CastSurelyCalculation.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-CastSurelyCalculation/Pods-EnolaGay_Example-CastSurelyCalculation.debug.xcconfig"; sourceTree = "<group>"; };
 		EF1B7871C2D5B6F4AFBE3453 /* Pods-EnolaGay_Example-CacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-CacheDemo.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-CacheDemo/Pods-EnolaGay_Example-CacheDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F8005BD33F05A9C078F23875 /* Pods-EnolaGay_Example-HPickerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-HPickerDemo.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-HPickerDemo/Pods-EnolaGay_Example-HPickerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		F98BD9BA7538AEBFD8F12C47 /* Pods-VersionCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VersionCheck.release.xcconfig"; path = "Target Support Files/Pods-VersionCheck/Pods-VersionCheck.release.xcconfig"; sourceTree = "<group>"; };
@@ -276,7 +286,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FB64120439EAAB58D710A35 /* Pods_EnolaGay_Example_KeyBoardPop.framework in Frameworks */,
+				02EACE8EBE2AFC647907C3BA /* Pods_EnolaGay_Example_KeyBoardPop.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BC3DB0826DF3EC100A2A405 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				416B4EDD4177CB6FD1C8BD86 /* Pods_EnolaGay_Example_CastSurelyCalculation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +332,8 @@
 				0005672A43BF38EEA236113A /* Pods-EnolaGay_Example-HPickerDemo.release.xcconfig */,
 				0267796B2E9E9A73B13950C3 /* Pods-EnolaGay_Example-KeyBoardPop.debug.xcconfig */,
 				73E29F90BD7E27E821D96A1D /* Pods-EnolaGay_Example-KeyBoardPop.release.xcconfig */,
+				E0B0EBA1D1F716C7B86861AA /* Pods-EnolaGay_Example-CastSurelyCalculation.debug.xcconfig */,
+				5ED3BA207D1C68A85C93AAFF /* Pods-EnolaGay_Example-CastSurelyCalculation.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -324,6 +344,7 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for EnolaGay */,
 				8BC3DA6B26DEB1AF00A2A405 /* CacheDemo */,
+				8BC3DB1326DF3F0F00A2A405 /* CastSurelyCalculation */,
 				8BC3DAEF26DF3C4100A2A405 /* KeyBoardPop */,
 				8BC3DACD26DF29B900A2A405 /* HPickerDemo */,
 				8BC3DAAB26DEB74A00A2A405 /* RefreshAdapter */,
@@ -347,6 +368,7 @@
 				8BC3DAAA26DEB71800A2A405 /* RefreshAdapter.app */,
 				8BC3DACC26DF29A800A2A405 /* HPickerDemo.app */,
 				8BC3DAEE26DF3C2A00A2A405 /* KeyBoardPop.app */,
+				8BC3DB1226DF3EC100A2A405 /* CastSurelyCalculation.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -355,7 +377,6 @@
 			isa = PBXGroup;
 			children = (
 				8BD7AE4C26A6745B00A07EB6 /* FontExtension */,
-				8B491DA52698742300BA782C /* CastSurelyCalculation */,
 				8B372D13268EA06F004840FC /* Mandoline */,
 				8B4A4DE9266F0B7B007D6DC5 /* DouYinHome */,
 				8B4A4DE1266E0E23007D6DC5 /* NavigationCtrl */,
@@ -449,15 +470,6 @@
 				8B372D1A268EA104004840FC /* MandolineViewController.swift */,
 			);
 			path = Mandoline;
-			sourceTree = "<group>";
-		};
-		8B491DA52698742300BA782C /* CastSurelyCalculation */ = {
-			isa = PBXGroup;
-			children = (
-				8B491DA62698749E00BA782C /* CastSurelyCalculation.storyboard */,
-				8B491DA8269874F200BA782C /* CastSurelyCalculationViewCtrl.swift */,
-			);
-			path = CastSurelyCalculation;
 			sourceTree = "<group>";
 		};
 		8B4A4DE1266E0E23007D6DC5 /* NavigationCtrl */ = {
@@ -596,6 +608,18 @@
 			path = KeyBoardPop;
 			sourceTree = "<group>";
 		};
+		8BC3DB1326DF3F0F00A2A405 /* CastSurelyCalculation */ = {
+			isa = PBXGroup;
+			children = (
+				8BC3DB1426DF3F0F00A2A405 /* CastSurelyCalculationViewCtrl.swift */,
+				8BC3DB1B26DF3F2300A2A405 /* Main.storyboard */,
+				8BC3DB1826DF3F2300A2A405 /* App.swift */,
+				8BC3DB1A26DF3F2300A2A405 /* CastSurelyCalculation.plist */,
+				8BC3DB1D26DF3F2300A2A405 /* LaunchScreen.xib */,
+			);
+			path = CastSurelyCalculation;
+			sourceTree = "<group>";
+		};
 		8BD7AE4C26A6745B00A07EB6 /* FontExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -623,8 +647,9 @@
 				643EA2A76EAACA640FC02CD1 /* Pods_EnolaGay_Example_Semaphore.framework */,
 				2235E508AC7733ECB6444EE9 /* Pods_EnolaGay_Example_VersionCheck.framework */,
 				2CCD965789503CDC417E43BF /* Pods_EnolaGay_Example_RefreshAdapter.framework */,
-				58240537127568FC484655FC /* Pods_EnolaGay_Example_KeyBoardPop.framework */,
 				10668B896E19D40B93D802F0 /* Pods_EnolaGay_Example_HPickerDemo.framework */,
+				A21A509A84DC406DD883CE9B /* Pods_EnolaGay_Example_CastSurelyCalculation.framework */,
+				B11BE9C599E48CB93DE875D0 /* Pods_EnolaGay_Example_KeyBoardPop.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -784,6 +809,25 @@
 			productReference = 8BC3DAEE26DF3C2A00A2A405 /* KeyBoardPop.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8BC3DB0326DF3EC100A2A405 /* CastSurelyCalculation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BC3DB0F26DF3EC100A2A405 /* Build configuration list for PBXNativeTarget "CastSurelyCalculation" */;
+			buildPhases = (
+				8BC3DB0426DF3EC100A2A405 /* [CP] Check Pods Manifest.lock */,
+				8BC3DB0526DF3EC100A2A405 /* Sources */,
+				8BC3DB0826DF3EC100A2A405 /* Frameworks */,
+				8BC3DB0A26DF3EC100A2A405 /* Resources */,
+				8BC3DB0E26DF3EC100A2A405 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CastSurelyCalculation;
+			productName = EnolaGay;
+			productReference = 8BC3DB1226DF3EC100A2A405 /* CastSurelyCalculation.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -820,6 +864,9 @@
 					8BC3DADF26DF3C2A00A2A405 = {
 						DevelopmentTeam = 325J3J39TM;
 					};
+					8BC3DB0326DF3EC100A2A405 = {
+						DevelopmentTeam = 325J3J39TM;
+					};
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "EnolaGay" */;
@@ -843,6 +890,7 @@
 				8BC3DA9A26DEB71800A2A405 /* RefreshAdapter */,
 				8BC3DABD26DF29A800A2A405 /* HPickerDemo */,
 				8BC3DADF26DF3C2A00A2A405 /* KeyBoardPop */,
+				8BC3DB0326DF3EC100A2A405 /* CastSurelyCalculation */,
 			);
 		};
 /* End PBXProject section */
@@ -854,7 +902,6 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				8B491DA72698749E00BA782C /* CastSurelyCalculation.storyboard in Resources */,
 				8BB88621265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard in Resources */,
 				8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */,
 				8B372D11268E9F3E004840FC /* Assets.xcassets in Resources */,
@@ -933,6 +980,15 @@
 				8BC3DAFF26DF3CCF00A2A405 /* Main.storyboard in Resources */,
 				8BC3DB0226DF3DD800A2A405 /* Media.xcassets in Resources */,
 				8BC3DB0026DF3CCF00A2A405 /* LaunchScreen.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BC3DB0A26DF3EC100A2A405 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BC3DB2426DF3F7A00A2A405 /* Main.storyboard in Resources */,
+				8BC3DB2526DF3F7A00A2A405 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1277,6 +1333,50 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-KeyBoardPop/Pods-EnolaGay_Example-KeyBoardPop-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8BC3DB0426DF3EC100A2A405 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EnolaGay_Example-CastSurelyCalculation-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BC3DB0E26DF3EC100A2A405 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-CastSurelyCalculation/Pods-EnolaGay_Example-CastSurelyCalculation-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-CastSurelyCalculation/Pods-EnolaGay_Example-CastSurelyCalculation-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E4767C32285CA50D12D8B6C5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1306,7 +1406,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B491DA9269874F200BA782C /* CastSurelyCalculationViewCtrl.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				8BE7F82C26CA4000001CE7EA /* ToastViewCtrl.swift in Sources */,
 				8B4A4DE5266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift in Sources */,
@@ -1387,6 +1486,15 @@
 			files = (
 				8BC3DAFD26DF3CC200A2A405 /* KeyBoardPopUpViewCtrl.swift in Sources */,
 				8BC3DAFE26DF3CC200A2A405 /* App.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BC3DB0526DF3EC100A2A405 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BC3DB2126DF3F6D00A2A405 /* CastSurelyCalculationViewCtrl.swift in Sources */,
+				8BC3DB2326DF3F6D00A2A405 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1517,6 +1625,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				8BC3DAFA26DF3C6700A2A405 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		8BC3DB1B26DF3F2300A2A405 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BC3DB1C26DF3F2300A2A405 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8BC3DB1D26DF3F2300A2A405 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BC3DB1E26DF3F2300A2A405 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -1901,6 +2025,38 @@
 			};
 			name = Release;
 		};
+		8BC3DB1026DF3EC100A2A405 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0B0EBA1D1F716C7B86861AA /* Pods-EnolaGay_Example-CastSurelyCalculation.debug.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				INFOPLIST_FILE = "$(TARGET_NAME)/$(TARGET_NAME).plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.CastSurelyCalculation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8BC3DB1126DF3EC100A2A405 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ED3BA207D1C68A85C93AAFF /* Pods-EnolaGay_Example-CastSurelyCalculation.release.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				INFOPLIST_FILE = "$(TARGET_NAME)/$(TARGET_NAME).plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.CastSurelyCalculation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1981,6 +2137,15 @@
 			buildConfigurations = (
 				8BC3DAEC26DF3C2A00A2A405 /* Debug */,
 				8BC3DAED26DF3C2A00A2A405 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BC3DB0F26DF3EC100A2A405 /* Build configuration list for PBXNativeTarget "CastSurelyCalculation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BC3DB1026DF3EC100A2A405 /* Debug */,
+				8BC3DB1126DF3EC100A2A405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

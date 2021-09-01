@@ -54,5 +54,9 @@ target 'EnolaGay_Example' do
   target 'KeyBoardPop' do
     pod 'EnolaGay', :path => '../'
   end
-  
+
+  target 'CastSurelyCalculation' do
+    pod 'EnolaGay', :path => '../'
+  end
+
 end
