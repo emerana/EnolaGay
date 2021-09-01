@@ -24,9 +24,7 @@ class FuckerCtrl {
     /// 剩余秒数
     private var remainingSeconds = 0 {
         didSet {
-            if remainingSeconds <= 0 {
-                self.alertFuckerView(isAutoHide: true)
-            }
+            if remainingSeconds <= 0 { alertFuckerView(isAutoHide: true) }
         }
     }
     
@@ -56,10 +54,10 @@ class FuckerCtrl {
         let fuckType = Int(arc4random_uniform(UInt32(100)))
         if fuckType <= 20 { // 自动隐藏的 Fuck
             // 会自动隐藏的 FuckerView()
-            self.alertFuckerView(isAutoHide: true)
-            self.isCounting = true
+            alertFuckerView(isAutoHide: true)
+            isCounting = true
         } else if fuckType <= 50 { // 不隐藏的 Fuck
-            self.alertFuckerView()
+            alertFuckerView()
         } else { // 聊天界面
             let chatVC = ChatViewCtrl()
             let root = UINavigationController(rootViewController: chatVC)
