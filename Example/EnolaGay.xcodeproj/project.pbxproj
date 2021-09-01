@@ -236,6 +236,23 @@
 		8BC3DD2526DF58FB00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD2326DF58FB00A2A405 /* Main.storyboard */; };
 		8BC3DD2726DF58FC00A2A405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD2626DF58FC00A2A405 /* Assets.xcassets */; };
 		8BC3DD2A26DF58FC00A2A405 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD2826DF58FC00A2A405 /* LaunchScreen.storyboard */; };
+		8BC3DD4E26DF5CE700A2A405 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD3326DF5CE700A2A405 /* NSDate+Utils.m */; };
+		8BC3DD4F26DF5CE700A2A405 /* me.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD3526DF5CE700A2A405 /* me.jpg */; };
+		8BC3DD5026DF5CE700A2A405 /* unohacha.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD3626DF5CE700A2A405 /* unohacha.jpg */; };
+		8BC3DD5126DF5CE700A2A405 /* ChatViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD3826DF5CE700A2A405 /* ChatViewCtrl.m */; };
+		8BC3DD5226DF5CE700A2A405 /* UUAVAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD3A26DF5CE700A2A405 /* UUAVAudioPlayer.m */; };
+		8BC3DD5326DF5CE700A2A405 /* UUInputFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD3B26DF5CE700A2A405 /* UUInputFunctionView.m */; };
+		8BC3DD5426DF5CE700A2A405 /* UUMessageContentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD3D26DF5CE700A2A405 /* UUMessageContentButton.m */; };
+		8BC3DD5526DF5CE700A2A405 /* UUMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD4326DF5CE700A2A405 /* UUMessageFrame.m */; };
+		8BC3DD5626DF5CE700A2A405 /* UUChatTableView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD4726DF5CE700A2A405 /* UUChatTableView.bundle */; };
+		8BC3DD5726DF5CE700A2A405 /* UUMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD4826DF5CE700A2A405 /* UUMessageCell.m */; };
+		8BC3DD5826DF5CE700A2A405 /* UUProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD4926DF5CE700A2A405 /* UUProgressHUD.m */; };
+		8BC3DD5926DF5CE700A2A405 /* UUMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD4A26DF5CE700A2A405 /* UUMessage.m */; };
+		8BC3DD5A26DF5CE700A2A405 /* UUImageAvatarBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD4B26DF5CE700A2A405 /* UUImageAvatarBrowser.m */; };
+		8BC3DD5B26DF5CE700A2A405 /* UUChatCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD4C26DF5CE700A2A405 /* UUChatCategory.m */; };
+		8BC3DD5C26DF5CE700A2A405 /* ChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD4D26DF5CE700A2A405 /* ChatModel.m */; };
+		8BC3DD5F26DF5D4E00A2A405 /* 板砖.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD5D26DF5D4E00A2A405 /* 板砖.gif */; };
+		8BC3DD6026DF5D4E00A2A405 /* 睡你麻痹起来嗨.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD5E26DF5D4E00A2A405 /* 睡你麻痹起来嗨.gif */; };
 		8BE7F82C26CA4000001CE7EA /* ToastViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */; };
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
@@ -579,6 +596,35 @@
 		8BC3DD2626DF58FC00A2A405 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BC3DD2926DF58FC00A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BC3DD2B26DF58FC00A2A405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BC3DD3026DF5CE700A2A405 /* ChatViewCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewCtrl.h; sourceTree = "<group>"; };
+		8BC3DD3226DF5CE700A2A405 /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
+		8BC3DD3326DF5CE700A2A405 /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
+		8BC3DD3526DF5CE700A2A405 /* me.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = me.jpg; sourceTree = "<group>"; };
+		8BC3DD3626DF5CE700A2A405 /* unohacha.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = unohacha.jpg; sourceTree = "<group>"; };
+		8BC3DD3726DF5CE700A2A405 /* ChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatModel.h; sourceTree = "<group>"; };
+		8BC3DD3826DF5CE700A2A405 /* ChatViewCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewCtrl.m; sourceTree = "<group>"; };
+		8BC3DD3A26DF5CE700A2A405 /* UUAVAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUAVAudioPlayer.m; sourceTree = "<group>"; };
+		8BC3DD3B26DF5CE700A2A405 /* UUInputFunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUInputFunctionView.m; sourceTree = "<group>"; };
+		8BC3DD3C26DF5CE700A2A405 /* UUMessageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUMessageFrame.h; sourceTree = "<group>"; };
+		8BC3DD3D26DF5CE700A2A405 /* UUMessageContentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUMessageContentButton.m; sourceTree = "<group>"; };
+		8BC3DD3E26DF5CE700A2A405 /* UUProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUProgressHUD.h; sourceTree = "<group>"; };
+		8BC3DD3F26DF5CE700A2A405 /* UUMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUMessageCell.h; sourceTree = "<group>"; };
+		8BC3DD4026DF5CE700A2A405 /* UUChatCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatCategory.h; sourceTree = "<group>"; };
+		8BC3DD4126DF5CE700A2A405 /* UUImageAvatarBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUImageAvatarBrowser.h; sourceTree = "<group>"; };
+		8BC3DD4226DF5CE700A2A405 /* UUMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUMessage.h; sourceTree = "<group>"; };
+		8BC3DD4326DF5CE700A2A405 /* UUMessageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUMessageFrame.m; sourceTree = "<group>"; };
+		8BC3DD4426DF5CE700A2A405 /* UUInputFunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUInputFunctionView.h; sourceTree = "<group>"; };
+		8BC3DD4526DF5CE700A2A405 /* UUAVAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUAVAudioPlayer.h; sourceTree = "<group>"; };
+		8BC3DD4626DF5CE700A2A405 /* UUMessageContentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUMessageContentButton.h; sourceTree = "<group>"; };
+		8BC3DD4726DF5CE700A2A405 /* UUChatTableView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UUChatTableView.bundle; sourceTree = "<group>"; };
+		8BC3DD4826DF5CE700A2A405 /* UUMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUMessageCell.m; sourceTree = "<group>"; };
+		8BC3DD4926DF5CE700A2A405 /* UUProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUProgressHUD.m; sourceTree = "<group>"; };
+		8BC3DD4A26DF5CE700A2A405 /* UUMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUMessage.m; sourceTree = "<group>"; };
+		8BC3DD4B26DF5CE700A2A405 /* UUImageAvatarBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUImageAvatarBrowser.m; sourceTree = "<group>"; };
+		8BC3DD4C26DF5CE700A2A405 /* UUChatCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatCategory.m; sourceTree = "<group>"; };
+		8BC3DD4D26DF5CE700A2A405 /* ChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatModel.m; sourceTree = "<group>"; };
+		8BC3DD5D26DF5D4E00A2A405 /* 板砖.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "板砖.gif"; sourceTree = "<group>"; };
+		8BC3DD5E26DF5D4E00A2A405 /* 睡你麻痹起来嗨.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "睡你麻痹起来嗨.gif"; sourceTree = "<group>"; };
 		8BD0919526AA978A004DE842 /* 温州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "温州.gpx"; sourceTree = "<group>"; };
 		8BD0919626AA9D3A004DE842 /* 杭州五联东苑.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "杭州五联东苑.gpx"; sourceTree = "<group>"; };
 		8BD7AE4F26A6747C00A07EB6 /* FontExtensionViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensionViewCtrl.swift; sourceTree = "<group>"; };
@@ -1655,14 +1701,75 @@
 		8BC3DD1C26DF58FB00A2A405 /* AGUL */ = {
 			isa = PBXGroup;
 			children = (
+				8BC3DD2F26DF5CE700A2A405 /* Chat */,
 				8BC3DD1D26DF58FB00A2A405 /* AppDelegate.swift */,
 				8BC3DD2126DF58FB00A2A405 /* ViewController.swift */,
+				8BC3DD5D26DF5D4E00A2A405 /* 板砖.gif */,
+				8BC3DD5E26DF5D4E00A2A405 /* 睡你麻痹起来嗨.gif */,
 				8BC3DD2326DF58FB00A2A405 /* Main.storyboard */,
 				8BC3DD2626DF58FC00A2A405 /* Assets.xcassets */,
 				8BC3DD2826DF58FC00A2A405 /* LaunchScreen.storyboard */,
 				8BC3DD2B26DF58FC00A2A405 /* Info.plist */,
 			);
 			path = AGUL;
+			sourceTree = "<group>";
+		};
+		8BC3DD2F26DF5CE700A2A405 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				8BC3DD3026DF5CE700A2A405 /* ChatViewCtrl.h */,
+				8BC3DD3126DF5CE700A2A405 /* OtherResources */,
+				8BC3DD3726DF5CE700A2A405 /* ChatModel.h */,
+				8BC3DD3826DF5CE700A2A405 /* ChatViewCtrl.m */,
+				8BC3DD3926DF5CE700A2A405 /* Class */,
+				8BC3DD4D26DF5CE700A2A405 /* ChatModel.m */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		8BC3DD3126DF5CE700A2A405 /* OtherResources */ = {
+			isa = PBXGroup;
+			children = (
+				8BC3DD3226DF5CE700A2A405 /* NSDate+Utils.h */,
+				8BC3DD3326DF5CE700A2A405 /* NSDate+Utils.m */,
+				8BC3DD3426DF5CE700A2A405 /* photo */,
+			);
+			path = OtherResources;
+			sourceTree = "<group>";
+		};
+		8BC3DD3426DF5CE700A2A405 /* photo */ = {
+			isa = PBXGroup;
+			children = (
+				8BC3DD3526DF5CE700A2A405 /* me.jpg */,
+				8BC3DD3626DF5CE700A2A405 /* unohacha.jpg */,
+			);
+			path = photo;
+			sourceTree = "<group>";
+		};
+		8BC3DD3926DF5CE700A2A405 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				8BC3DD3A26DF5CE700A2A405 /* UUAVAudioPlayer.m */,
+				8BC3DD3B26DF5CE700A2A405 /* UUInputFunctionView.m */,
+				8BC3DD3C26DF5CE700A2A405 /* UUMessageFrame.h */,
+				8BC3DD3D26DF5CE700A2A405 /* UUMessageContentButton.m */,
+				8BC3DD3E26DF5CE700A2A405 /* UUProgressHUD.h */,
+				8BC3DD3F26DF5CE700A2A405 /* UUMessageCell.h */,
+				8BC3DD4026DF5CE700A2A405 /* UUChatCategory.h */,
+				8BC3DD4126DF5CE700A2A405 /* UUImageAvatarBrowser.h */,
+				8BC3DD4226DF5CE700A2A405 /* UUMessage.h */,
+				8BC3DD4326DF5CE700A2A405 /* UUMessageFrame.m */,
+				8BC3DD4426DF5CE700A2A405 /* UUInputFunctionView.h */,
+				8BC3DD4526DF5CE700A2A405 /* UUAVAudioPlayer.h */,
+				8BC3DD4626DF5CE700A2A405 /* UUMessageContentButton.h */,
+				8BC3DD4726DF5CE700A2A405 /* UUChatTableView.bundle */,
+				8BC3DD4826DF5CE700A2A405 /* UUMessageCell.m */,
+				8BC3DD4926DF5CE700A2A405 /* UUProgressHUD.m */,
+				8BC3DD4A26DF5CE700A2A405 /* UUMessage.m */,
+				8BC3DD4B26DF5CE700A2A405 /* UUImageAvatarBrowser.m */,
+				8BC3DD4C26DF5CE700A2A405 /* UUChatCategory.m */,
+			);
+			path = Class;
 			sourceTree = "<group>";
 		};
 		8BFCC83125E385F9000B1611 /* 垂直轮播图 */ = {
@@ -2155,9 +2262,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BC3DD6026DF5D4E00A2A405 /* 睡你麻痹起来嗨.gif in Resources */,
+				8BC3DD5026DF5CE700A2A405 /* unohacha.jpg in Resources */,
 				8BC3DD2A26DF58FC00A2A405 /* LaunchScreen.storyboard in Resources */,
 				8BC3DD2726DF58FC00A2A405 /* Assets.xcassets in Resources */,
+				8BC3DD5626DF5CE700A2A405 /* UUChatTableView.bundle in Resources */,
 				8BC3DD2526DF58FB00A2A405 /* Main.storyboard in Resources */,
+				8BC3DD4F26DF5CE700A2A405 /* me.jpg in Resources */,
+				8BC3DD5F26DF5D4E00A2A405 /* 板砖.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2920,7 +3032,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BC3DD2226DF58FB00A2A405 /* ViewController.swift in Sources */,
+				8BC3DD5A26DF5CE700A2A405 /* UUImageAvatarBrowser.m in Sources */,
+				8BC3DD5126DF5CE700A2A405 /* ChatViewCtrl.m in Sources */,
+				8BC3DD5226DF5CE700A2A405 /* UUAVAudioPlayer.m in Sources */,
+				8BC3DD4E26DF5CE700A2A405 /* NSDate+Utils.m in Sources */,
+				8BC3DD5C26DF5CE700A2A405 /* ChatModel.m in Sources */,
+				8BC3DD5826DF5CE700A2A405 /* UUProgressHUD.m in Sources */,
+				8BC3DD5726DF5CE700A2A405 /* UUMessageCell.m in Sources */,
 				8BC3DD1E26DF58FB00A2A405 /* AppDelegate.swift in Sources */,
+				8BC3DD5526DF5CE700A2A405 /* UUMessageFrame.m in Sources */,
+				8BC3DD5326DF5CE700A2A405 /* UUInputFunctionView.m in Sources */,
+				8BC3DD5B26DF5CE700A2A405 /* UUChatCategory.m in Sources */,
+				8BC3DD5426DF5CE700A2A405 /* UUMessageContentButton.m in Sources */,
+				8BC3DD5926DF5CE700A2A405 /* UUMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,9 +12,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         FuckerCtrl.judy.star()
     }
-    
     
 }
 
