@@ -231,6 +231,11 @@
 		8BC3DD1426DF481100A2A405 /* HSDrawLayerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DC7B26DF481100A2A405 /* HSDrawLayerProtocol.swift */; };
 		8BC3DD1526DF481100A2A405 /* HSStockChartNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DC7D26DF481100A2A405 /* HSStockChartNameSpace.swift */; };
 		8BC3DD1626DF481100A2A405 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DC7E26DF481100A2A405 /* Extension.swift */; };
+		8BC3DD1E26DF58FB00A2A405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD1D26DF58FB00A2A405 /* AppDelegate.swift */; };
+		8BC3DD2226DF58FB00A2A405 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD2126DF58FB00A2A405 /* ViewController.swift */; };
+		8BC3DD2526DF58FB00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD2326DF58FB00A2A405 /* Main.storyboard */; };
+		8BC3DD2726DF58FC00A2A405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD2626DF58FC00A2A405 /* Assets.xcassets */; };
+		8BC3DD2A26DF58FC00A2A405 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD2826DF58FC00A2A405 /* LaunchScreen.storyboard */; };
 		8BE7F82C26CA4000001CE7EA /* ToastViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */; };
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
@@ -567,6 +572,13 @@
 		8BC3DC7B26DF481100A2A405 /* HSDrawLayerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSDrawLayerProtocol.swift; sourceTree = "<group>"; };
 		8BC3DC7D26DF481100A2A405 /* HSStockChartNameSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSStockChartNameSpace.swift; sourceTree = "<group>"; };
 		8BC3DC7E26DF481100A2A405 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		8BC3DD1B26DF58FB00A2A405 /* AGUL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGUL.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BC3DD1D26DF58FB00A2A405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8BC3DD2126DF58FB00A2A405 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8BC3DD2426DF58FB00A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8BC3DD2626DF58FC00A2A405 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8BC3DD2926DF58FC00A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8BC3DD2B26DF58FC00A2A405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BD0919526AA978A004DE842 /* 温州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "温州.gpx"; sourceTree = "<group>"; };
 		8BD0919626AA9D3A004DE842 /* 杭州五联东苑.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "杭州五联东苑.gpx"; sourceTree = "<group>"; };
 		8BD7AE4F26A6747C00A07EB6 /* FontExtensionViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensionViewCtrl.swift; sourceTree = "<group>"; };
@@ -690,6 +702,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BC3DD1826DF58FB00A2A405 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -749,6 +768,7 @@
 				8BC3DA4426DE965700A2A405 /* Semaphore */,
 				8BC3DB5326DF414D00A2A405 /* FontExtension */,
 				8BC3DB6C26DF479200A2A405 /* EMERANA */,
+				8BC3DD1C26DF58FB00A2A405 /* AGUL */,
 				607FACD11AFB9204008FA782 /* Products */,
 				48F58D42A596E8C4AFE02DEE /* Pods */,
 				C2843BD89BA8C609ED35D6C4 /* Frameworks */,
@@ -769,6 +789,7 @@
 				8BC3DB1226DF3EC100A2A405 /* CastSurelyCalculation.app */,
 				8BC3DB5226DF414D00A2A405 /* FontExtension.app */,
 				8BC3DB6B26DF479200A2A405 /* EMERANA.app */,
+				8BC3DD1B26DF58FB00A2A405 /* AGUL.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1631,6 +1652,19 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		8BC3DD1C26DF58FB00A2A405 /* AGUL */ = {
+			isa = PBXGroup;
+			children = (
+				8BC3DD1D26DF58FB00A2A405 /* AppDelegate.swift */,
+				8BC3DD2126DF58FB00A2A405 /* ViewController.swift */,
+				8BC3DD2326DF58FB00A2A405 /* Main.storyboard */,
+				8BC3DD2626DF58FC00A2A405 /* Assets.xcassets */,
+				8BC3DD2826DF58FC00A2A405 /* LaunchScreen.storyboard */,
+				8BC3DD2B26DF58FC00A2A405 /* Info.plist */,
+			);
+			path = AGUL;
+			sourceTree = "<group>";
+		};
 		8BFCC83125E385F9000B1611 /* 垂直轮播图 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1870,6 +1904,23 @@
 			productReference = 8BC3DB6B26DF479200A2A405 /* EMERANA.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8BC3DD1A26DF58FB00A2A405 /* AGUL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BC3DD2C26DF58FC00A2A405 /* Build configuration list for PBXNativeTarget "AGUL" */;
+			buildPhases = (
+				8BC3DD1726DF58FB00A2A405 /* Sources */,
+				8BC3DD1826DF58FB00A2A405 /* Frameworks */,
+				8BC3DD1926DF58FB00A2A405 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AGUL;
+			productName = AGUL;
+			productReference = 8BC3DD1B26DF58FB00A2A405 /* AGUL.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1919,6 +1970,11 @@
 						DevelopmentTeam = 325J3J39TM;
 						ProvisioningStyle = Automatic;
 					};
+					8BC3DD1A26DF58FB00A2A405 = {
+						CreatedOnToolsVersion = 12.5.1;
+						DevelopmentTeam = 325J3J39TM;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "EnolaGay" */;
@@ -1945,6 +2001,7 @@
 				8BC3DB0326DF3EC100A2A405 /* CastSurelyCalculation */,
 				8BC3DB5126DF414D00A2A405 /* FontExtension */,
 				8BC3DB6A26DF479200A2A405 /* EMERANA */,
+				8BC3DD1A26DF58FB00A2A405 /* AGUL */,
 			);
 		};
 /* End PBXProject section */
@@ -2091,6 +2148,16 @@
 				8BC3DCCE26DF481100A2A405 /* Fund.plist in Resources */,
 				8BC3DB7726DF479400A2A405 /* Assets.xcassets in Resources */,
 				8BC3DCA926DF481100A2A405 /* kLineForWeek.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BC3DD1926DF58FB00A2A405 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BC3DD2A26DF58FC00A2A405 /* LaunchScreen.storyboard in Resources */,
+				8BC3DD2726DF58FC00A2A405 /* Assets.xcassets in Resources */,
+				8BC3DD2526DF58FB00A2A405 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2848,6 +2915,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BC3DD1726DF58FB00A2A405 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BC3DD2226DF58FB00A2A405 /* ViewController.swift in Sources */,
+				8BC3DD1E26DF58FB00A2A405 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -3015,6 +3091,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				8BC3DB7926DF479400A2A405 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8BC3DD2326DF58FB00A2A405 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BC3DD2426DF58FB00A2A405 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8BC3DD2826DF58FC00A2A405 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BC3DD2926DF58FC00A2A405 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -3549,6 +3641,59 @@
 			};
 			name = Release;
 		};
+		8BC3DD2D26DF58FC00A2A405 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AGUL/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = enolagay.AGUL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8BC3DD2E26DF58FC00A2A405 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AGUL/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = enolagay.AGUL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3656,6 +3801,15 @@
 			buildConfigurations = (
 				8BC3DB7D26DF479400A2A405 /* Debug */,
 				8BC3DB7E26DF479400A2A405 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BC3DD2C26DF58FC00A2A405 /* Build configuration list for PBXNativeTarget "AGUL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BC3DD2D26DF58FC00A2A405 /* Debug */,
+				8BC3DD2E26DF58FC00A2A405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

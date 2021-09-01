@@ -8,7 +8,6 @@
 
 import UIKit
 import EnolaGay
-import IJKMediaFramework
 import Alamofire
 
 /// 直播拉流效果测试
@@ -20,7 +19,7 @@ class LiveViewCtrl: JudyBaseViewCtrl {
     @IBOutlet weak private var playerView: UIView!
         
     // MARK: - public var property
-    var player: IJKFFMoviePlayerController!
+//    var player: IJKFFMoviePlayerController!
     
     /// 网络监听对象
     fileprivate let net = NetworkReachabilityManager()
@@ -61,16 +60,16 @@ class LiveViewCtrl: JudyBaseViewCtrl {
         //        let url = URL.init(string: "rtmp://live.tuiyizx.com/tuiyizx/e068933e")
         let url = URL.init(string: "http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8")
         
-        let options = IJKFFOptions.byDefault()
-        //初始化播放器，播放在线视频或直播（RTMP）
-        player = IJKFFMoviePlayerController.init(contentURL: url, with: options)
-        //播放页面视图宽高自适应
-        let autoresize = UIView.AutoresizingMask.flexibleWidth.rawValue |
-            UIView.AutoresizingMask.flexibleHeight.rawValue
-        player.view.autoresizingMask = UIView.AutoresizingMask(rawValue: autoresize)
-        
-        player.scalingMode = .aspectFit //缩放模式
-        player.shouldAutoplay = true //开启自动播放
+//        let options = IJKFFOptions.byDefault()
+//        //初始化播放器，播放在线视频或直播（RTMP）
+//        player = IJKFFMoviePlayerController.init(contentURL: url, with: options)
+//        //播放页面视图宽高自适应
+//        let autoresize = UIView.AutoresizingMask.flexibleWidth.rawValue |
+//            UIView.AutoresizingMask.flexibleHeight.rawValue
+//        player.view.autoresizingMask = UIView.AutoresizingMask(rawValue: autoresize)
+//
+//        player.scalingMode = .aspectFit //缩放模式
+//        player.shouldAutoplay = true //开启自动播放
         // 显示信息
         //        player.shouldShowHudView = true
         
@@ -81,9 +80,9 @@ class LiveViewCtrl: JudyBaseViewCtrl {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //准备播放
-        player.prepareToPlay()
-        player.view.frame = playerView.bounds
-        playerView.addSubview(player.view)
+//        player.prepareToPlay()
+//        player.view.frame = playerView.bounds
+//        playerView.addSubview(player.view)
     }
     
     override func viewDidLayoutSubviews() {
@@ -102,16 +101,16 @@ class LiveViewCtrl: JudyBaseViewCtrl {
     }
     
     deinit {
-        player.shutdown()
+//        player.shutdown()
         net?.stopListening()
     }
 
     @IBAction private func startLive(_ sender: Any) {
-        player.play()
+//        player.play()
     }
     
     @IBAction private func endLive(_ sender: Any) {
-        player.pause()
+//        player.pause()
     }
     
     // MARK: - override
@@ -129,7 +128,7 @@ class LiveViewCtrl: JudyBaseViewCtrl {
         if segue.identifier == "showFullViewCtrl" {
             let viewCtrl = segue.destination as! FullViewController
             // 直接使用当前 veiwCtrl 中的对象
-            viewCtrl.player = player
+//            viewCtrl.player = player
         }
     }
     

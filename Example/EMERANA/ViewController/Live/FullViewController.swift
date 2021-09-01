@@ -8,11 +8,10 @@
 
 import UIKit
 import EnolaGay
-import IJKMediaFramework
 
 class FullViewController: UIViewController {
 
-    var player: IJKFFMoviePlayerController!
+    //var player: IJKFFMoviePlayerController!
     
     // MARK: 单个界面需要横屏的标准方式
     // 这里一定要弄成false
@@ -28,11 +27,11 @@ class FullViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        player.view.frame = self.view.bounds
+//        player.view.frame = self.view.bounds
         self.view.autoresizesSubviews = true
-        self.view.addSubview(player.view)
+//        self.view.addSubview(player.view)
         // 将某个View调整至最下面
-        self.view.sendSubviewToBack(player.view)
+//        self.view.sendSubviewToBack(player.view)
     }
     
     /*
