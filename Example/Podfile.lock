@@ -1,6 +1,11 @@
 PODS:
   - Alamofire (4.9.1)
+  - BadgeHub (1.0.0)
   - Cache (6.0.0)
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
+  - DZNEmptyDataSet (1.8.1)
   - EnolaGay (3.7.7):
     - EnolaGay/EMERANA (= 3.7.7)
   - EnolaGay/CircularProgressView (3.7.7)
@@ -20,13 +25,35 @@ PODS:
     - EnolaGay/EMERANA
   - EnolaGay/TextFieldEffects (3.7.7):
     - EnolaGay/EMERANA
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - IGListDiffKit (4.0.0)
+  - IGListKit (4.0.0):
+    - IGListDiffKit (= 4.0.0)
+  - IQKeyboardManagerSwift (6.5.6)
   - MJRefresh (3.5.0)
   - Player (0.14.0)
+  - SDCycleScrollView (1.82):
+    - SDWebImage (>= 5.0.0)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+  - SwiftMessages (9.0.3):
+    - SwiftMessages/App (= 9.0.3)
+  - SwiftMessages/App (9.0.3)
   - SwiftyJSON (5.0.1)
+  - SwiftyUserDefaults (5.0.0-beta.5)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.9.0)
+  - BadgeHub
   - Cache
+  - Charts
+  - DZNEmptyDataSet
   - EnolaGay (from `../`)
   - EnolaGay/CircularProgressView (from `../`)
   - EnolaGay/FileManager (from `../`)
@@ -38,12 +65,32 @@ DEPENDENCIES:
   - EnolaGay/SearchViewCtrl (from `../`)
   - EnolaGay/SegmentedView (from `../`)
   - EnolaGay/TextFieldEffects (from `../`)
+  - FMDB
+  - IGListKit (~> 4.0.0)
+  - IQKeyboardManagerSwift
   - MJRefresh
   - Player
+  - SDCycleScrollView
+  - SDWebImage
+  - SwiftMessages
+  - SwiftyUserDefaults (= 5.0.0-beta.5)
+  - YYImage
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - BadgeHub
+    - Charts
+    - DZNEmptyDataSet
+    - FMDB
+    - IGListDiffKit
+    - IGListKit
+    - IQKeyboardManagerSwift
+    - SDCycleScrollView
+    - SDWebImage
+    - SwiftMessages
     - SwiftyJSON
+    - SwiftyUserDefaults
+    - YYImage
   trunk:
     - Alamofire
     - Cache
@@ -56,12 +103,24 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  BadgeHub: b227771329f78c37a2dae7502607ec6d00a50bd4
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   EnolaGay: c6ed74a376c69ff34b079d5cd5193675c8ab3615
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
+  IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Player: 37e0acc16ea1495fc241df88fe9f089367513331
+  SDCycleScrollView: a0d74c3384caa72bdfc81470bdbc8c14b3e1fbcf
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SwiftMessages: 077f19126c24033fe24042237ecc20261adb46e4
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: 7379158b9dccd569f56c8c810bb90a81ff46f14f
+PODFILE CHECKSUM: 3af17d1a2d181a7a59e9e8c1ad8d9be030c455bf
 
 COCOAPODS: 1.10.2

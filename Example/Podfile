@@ -62,5 +62,38 @@ target 'EnolaGay_Example' do
   target 'FontExtension' do
     pod 'EnolaGay', :path => '../'
   end
+  
+  target 'EMERANA' do
+    pod 'EnolaGay', :path => '../'
+    pod 'IQKeyboardManagerSwift'
+    pod 'Alamofire', '~> 4.9.0'
+
+#    pod 'MBProgressHUD'
+    pod 'SwiftMessages'
+    pod 'MJRefresh'
+    pod 'SDWebImage'
+    pod 'YYImage'
+    pod 'SDCycleScrollView'
+    
+    pod 'Charts'
+    
+#    pod 'SocketRocket'    # https://github.com/facebook/SocketRocket.git
+#    pod 'RESideMenu', '~> 4.0.7' #侧边菜单
+    
+#    pod 'RxSwift',    '~> 4.0'
+#    pod 'RxCocoa',    '~> 4.0'
+    
+#    pod 'ResponseDetective'
+#    pod 'DeviceKit', '~> 1.3'
+    pod 'SwiftyUserDefaults', '5.0.0-beta.5'
+    pod 'DZNEmptyDataSet'
+
+    pod 'FMDB'
+    
+    pod 'BadgeHub'
+
+    pod 'IGListKit', '~> 4.0.0'
+
+  end
 
 end

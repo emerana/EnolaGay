@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="63C-Sg-0NN">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="hZE-zb-jRi">
+            <objects>
+                <viewController id="LJd-Xz-Gbl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PSD-UB-9jt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="gyu-w6-1vR"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Gzx-8i-jIl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bDh-8r-f6R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902.89855072463774" y="101.78571428571428"/>
+        </scene>
+        <!--免息期-->
+        <scene sceneID="9mC-4j-LOA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="63C-Sg-0NN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="免息期" image="Product" selectedImage="Product-H" id="F7z-Bv-8OW"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xqh-lr-IZG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LJd-Xz-Gbl" kind="relationship" relationship="rootViewController" id="UDj-Rf-4zb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5D0-w7-9di" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7.2463768115942031" y="101.78571428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Product" width="27" height="27"/>
+        <image name="Product-H" width="27" height="27"/>
+    </resources>
+</document>
