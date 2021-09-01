@@ -218,7 +218,6 @@
 		8BC3DD0526DF481100A2A405 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DC6626DF481100A2A405 /* AFURLRequestSerialization.m */; };
 		8BC3DD0626DF481100A2A405 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DC6826DF481100A2A405 /* AFNetworkReachabilityManager.m */; };
 		8BC3DD0726DF481100A2A405 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DC6926DF481100A2A405 /* AFSecurityPolicy.m */; };
-		8BC3DD0926DF481100A2A405 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC3DC6C26DF481100A2A405 /* IJKMediaFramework.framework */; };
 		8BC3DD0A26DF481100A2A405 /* HSKLineCoordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DC6F26DF481100A2A405 /* HSKLineCoordModel.swift */; };
 		8BC3DD0B26DF481100A2A405 /* HSKLineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DC7026DF481100A2A405 /* HSKLineStyle.swift */; };
 		8BC3DD0C26DF481100A2A405 /* HSKLineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DC7126DF481100A2A405 /* HSKLineModel.swift */; };
@@ -555,7 +554,6 @@
 		8BC3DC6826DF481100A2A405 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		8BC3DC6926DF481100A2A405 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
 		8BC3DC6A26DF481100A2A405 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		8BC3DC6C26DF481100A2A405 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		8BC3DC6F26DF481100A2A405 /* HSKLineCoordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSKLineCoordModel.swift; sourceTree = "<group>"; };
 		8BC3DC7026DF481100A2A405 /* HSKLineStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSKLineStyle.swift; sourceTree = "<group>"; };
 		8BC3DC7126DF481100A2A405 /* HSKLineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSKLineModel.swift; sourceTree = "<group>"; };
@@ -688,7 +686,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC3DD0926DF481100A2A405 /* IJKMediaFramework.framework in Frameworks */,
 				740AFFD09508D0D7AB47EA8F /* Pods_EnolaGay_Example_EMERANA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1277,7 +1274,6 @@
 			isa = PBXGroup;
 			children = (
 				8BC3DBEC26DF481000A2A405 /* MyY_KLine */,
-				8BC3DC6C26DF481100A2A405 /* IJKMediaFramework.framework */,
 				8BC3DC6D26DF481100A2A405 /* HSStockChart */,
 			);
 			path = Vendor;
