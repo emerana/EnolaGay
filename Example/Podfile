@@ -58,5 +58,9 @@ target 'EnolaGay_Example' do
   target 'CastSurelyCalculation' do
     pod 'EnolaGay', :path => '../'
   end
+  
+  target 'FontExtension' do
+    pod 'EnolaGay', :path => '../'
+  end
 
 end
