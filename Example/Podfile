@@ -46,5 +46,11 @@ target 'EnolaGay_Example' do
     pod 'Alamofire', '~> 4.9.0'
   end
   
+  target 'HPickerDemo' do
+    pod 'EnolaGay', :path => '../'
+    pod 'MJRefresh'
+    pod 'Alamofire', '~> 4.9.0'
+  end
+
 end
 
