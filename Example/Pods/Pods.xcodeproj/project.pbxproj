@@ -22,7 +22,7 @@
 		1147A8B52D94768BF1AD0F5831F213EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
 		1218E55A21A583689F065C9E60E21E85 /* MJRefreshAutoStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FCD4857B5B7C181AD68CEE2736A64F6 /* MJRefreshAutoStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		132E0F619E4338E5D1B27E4C72076B3F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = E337427CD728C2993306D0ED459E986A /* Notifications.swift */; };
-		164CD8E64CC3D92F17E38237DED08CAD /* Pods-EnolaGay_Example-CacheDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3560EAD8C93EB50748685F731169E4 /* Pods-EnolaGay_Example-CacheDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		164CD8E64CC3D92F17E38237DED08CAD /* Pods-EnolaGay_Example-CacheDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB655C02FC6C6A68F75E17774FB25DA /* Pods-EnolaGay_Example-CacheDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		169094D297B643310BF2BD951A4684ED /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F16F1A0D7E20A9C828F68334684D295 /* MJRefreshBackFooter.m */; };
 		16AFC41C049846E762C37AF8C0FCAA89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
 		178B061B26ADEE4A1CB92FC204405079 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 934E3944099953043B595746741B6EAD /* MJRefreshComponent.m */; };
@@ -31,6 +31,7 @@
 		1945CD5D63A1C164AEAAA9A33E85571E /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5F896AD09D93757E5CAE992AE62B90 /* Alamofire-dummy.m */; };
 		1986B50C74F1697EA43F68335C93CEB3 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEC8FCECB64947A177B37A768BF3937 /* MultipartFormData.swift */; };
 		1B29058712D83A2E9581516474123E81 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F937BCDE4DD20549D17FF839C2C11FB /* MJRefreshAutoStateFooter.m */; };
+		1EA50D6E53AF7BC7F40383E02792C585 /* Pods-EnolaGay_Example-KeyBoardPop-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E6B73C83FE2CA487F57AAAA6241A90F /* Pods-EnolaGay_Example-KeyBoardPop-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		202CACEE7D4DD43EC48D13F3579F52E2 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 082C0AA0499390AB6E8C154B8707145C /* MJRefreshAutoGifFooter.m */; };
 		2096D432BFD55ED3B67BDD897C31E0FA /* KeyObservationRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71F5C7EDBEB311DEFD8625720CF5235 /* KeyObservationRegistry.swift */; };
 		21D500735C884E5E12BA26ECE97A30EF /* TypeWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445E3DBBDBC4E9A395BE8E20747089D3 /* TypeWrapper.swift */; };
@@ -56,10 +57,10 @@
 		385F90BA89BB31BDA145258F0BCC5ADF /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A4D799FEABDD601A8B3C6D1C14C3AB /* Storage.swift */; };
 		3AC30039F8DB48C548A1E56B955EA6F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
 		3BAAD37679D0D15E8353AE8EB5335C43 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933245F53182C52F614E09C1173C5EF0 /* SegmentedView.swift */; };
-		3C7FC7A059E393560D8CC4C9924A7761 /* Pods-EnolaGay_Example-RefreshAdapter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 21501D6E4A0F27F6B02F64371C3CC527 /* Pods-EnolaGay_Example-RefreshAdapter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3C7FC7A059E393560D8CC4C9924A7761 /* Pods-EnolaGay_Example-RefreshAdapter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BE03DC9718A893D5AB8707074D8DB637 /* Pods-EnolaGay_Example-RefreshAdapter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F2D921D7A5D40779D7B494E1BE5CE9C /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58427DABE219A3F61F7DB83A604585E1 /* Types.swift */; };
 		4122AC292D4B651638087C79FFFC57F7 /* Cache-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A02F4DE4D51E000C18DEEA433C566619 /* Cache-dummy.m */; };
-		428553C908530B66B80E9E33AB181D02 /* Pods-EnolaGay_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD078B2F540EE81B13BF161F24E868D /* Pods-EnolaGay_Example-dummy.m */; };
+		428553C908530B66B80E9E33AB181D02 /* Pods-EnolaGay_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED9EDB6E09D9B0593ABF4D861A07A2D /* Pods-EnolaGay_Example-dummy.m */; };
 		4319284EC55C0B1F37E40277FE221AA7 /* JudyWaterWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4820762CDEB80168578F4B601CB1FA /* JudyWaterWaveView.swift */; };
 		44D61976CDABEE75A89BC987D836BA22 /* MJRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B44D19935A51F20003124ED89034BD8 /* MJRefreshConfig.m */; };
 		4991E8233F5933A2170CE8D28D7CC6F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
@@ -67,7 +68,7 @@
 		4DB426AE8F6A7872EA9980675937860C /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FED066FB2DA8874190D4FCDB2BD84C /* MJRefreshNormalHeader.m */; };
 		4ED1527DCD779C5DA562796D603E7AAE /* MJRefreshTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = DBA2AAD7FBF4FFB01D497357CF6B646D /* MJRefreshTrailer.m */; };
 		50013C33D35EBAF31ACF3A8B3A9A3FB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
-		5011421DA0D5C0BA23A74DE942074F9A /* Pods-EnolaGay_Example-RefreshAdapter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E0367096594B35DA599A95F199A68767 /* Pods-EnolaGay_Example-RefreshAdapter-dummy.m */; };
+		5011421DA0D5C0BA23A74DE942074F9A /* Pods-EnolaGay_Example-RefreshAdapter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F33284909A4451F57CF2615EB9F82597 /* Pods-EnolaGay_Example-RefreshAdapter-dummy.m */; };
 		5133331821D9D576A546B6ACF9A49829 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 43CAA6703ABB4849A35AD599CBB3819D /* UIScrollView+MJExtension.m */; };
 		5233AC596540946B60444DE9AF0A299E /* JSONArrayWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B993043CBAA9DA85AD481EA60DE054E /* JSONArrayWrapper.swift */; };
 		53791F5E5F07400F92CFDFC89A432305 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A7108630300A5AACB1CBBC5E8BB0D /* Validation.swift */; };
@@ -81,10 +82,10 @@
 		63787E104522CF0E216AD2AF91BBEE8B /* PickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910FDCCBC086ED5D8BF5D9C58DF3FD1 /* PickerViewCell.swift */; };
 		64744C911253C3E01461FAD7C935C8D7 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296F687ECA8BF9CF00384C787169FA9F /* Result.swift */; };
 		64771D513B0845B4BF9EA25023CF404B /* DataSourceWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DE034F4D037C6D0CEBE3514DA7DB43 /* DataSourceWithTitle.swift */; };
-		6629A6F732C61225EC0DA7FEE8A3843F /* Pods-EnolaGay_Example-CacheDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD9162973DE7E51228A12F64F9F484E /* Pods-EnolaGay_Example-CacheDemo-dummy.m */; };
+		6629A6F732C61225EC0DA7FEE8A3843F /* Pods-EnolaGay_Example-CacheDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E46714BCC8137D1B7812470E3DFF249A /* Pods-EnolaGay_Example-CacheDemo-dummy.m */; };
 		66B8ADCE37CBD5E8BD0FCF33752149D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
 		671650B5306AC075C470A221F076DED0 /* MJRefreshBackNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = BE7CA7666F3418C3448EDD2A242AD9E1 /* MJRefreshBackNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		678188EDF9B9B7ED3F7AF8E8524EFCFA /* Pods-EnolaGay_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 293A52E6ABB9324359EDE12EFCB4E02D /* Pods-EnolaGay_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		678188EDF9B9B7ED3F7AF8E8524EFCFA /* Pods-EnolaGay_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C5BBDBE52A80487432573E6E6D71663F /* Pods-EnolaGay_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67AACF041F18A7698B1A9383ECA2C427 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9368A977A05DC9DF44B81D3B6CB947F7 /* MD5.swift */; };
 		6901E5151E03821D15C0537788C36266 /* MemoryConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2200578A46D08B12E784ACBDD216452F /* MemoryConfig.swift */; };
 		6B15CB962DD6909799721040AC731E63 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF6D5E377DD70BE5408E56D841FEB58 /* MJRefreshAutoFooter.m */; };
@@ -94,7 +95,7 @@
 		75D04978252C500B318546856D8226F9 /* StorageAware.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AF0291AD977FDDD1BE5A89FAF019D /* StorageAware.swift */; };
 		75F599A0810D049551460FD48BDDC63D /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E67EAD3A8A2A6C6ADD104C1E876E64F4 /* MJRefreshGifHeader.m */; };
 		77582019152B8DA5A6439A7F5833C864 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
-		7D38F7E0239E43F392A7733CB059558E /* Pods-EnolaGay_Example-VersionCheck-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F441C4D3D98679B33F0A1E98993F0C7 /* Pods-EnolaGay_Example-VersionCheck-dummy.m */; };
+		7D38F7E0239E43F392A7733CB059558E /* Pods-EnolaGay_Example-VersionCheck-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 816D76F68CF0A71DA0A67C01251D65CB /* Pods-EnolaGay_Example-VersionCheck-dummy.m */; };
 		7E30B3FE55F92C1AE6E0232DB7C203C9 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82213DE63EB9500847562378165F0DA /* CircularProgressView.swift */; };
 		7F119A89ADDD8627DAD74F9DD2827B1F /* StorageObservationRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC8C10A0DA6D81E7448BB4313D0F49F /* StorageObservationRegistry.swift */; };
 		7F8FDA8325037CF58454A6FCC72EF92E /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 78830AAC79E81EF4A1164C0E97E96641 /* MJRefreshBackGifFooter.m */; };
@@ -118,7 +119,7 @@
 		9A58CED56FB7C4FF08EAE155F254AF25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
 		9BE0BF265B893EF3A61083CA356D29C8 /* MJRefreshBackGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 467DCD6FE6AB8B5304B3662F2AE5D976 /* MJRefreshBackGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CD2D140C582073FEAEB422D4351A367 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7384E1C1F7622819D467D81C1395E0 /* UIScrollView+MJRefresh.m */; };
-		A0E9D4B3AE31D02ADB5C77AA3990439C /* Pods-EnolaGay_Example-HPickerDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B9B2151C93327C0E9453D09642F566 /* Pods-EnolaGay_Example-HPickerDemo-dummy.m */; };
+		A0E9D4B3AE31D02ADB5C77AA3990439C /* Pods-EnolaGay_Example-HPickerDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F72D2C257182423C587D467F7476C68 /* Pods-EnolaGay_Example-HPickerDemo-dummy.m */; };
 		A226EF6818688AD8DAA20ED93439D4A5 /* JudyHoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A219083A10B3BFE910111ACCB02C75 /* JudyHoshiTextField.swift */; };
 		A44C9756586B0627A28B8A1F8C37DE0E /* Judy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56253CCECF547A531A8246415985833E /* Judy.swift */; };
 		A4542B3297B8549D28189CF16CD47432 /* JudyBaseSearchViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A213032AB3BB0BA7E74140813533F96 /* JudyBaseSearchViewCtrl.swift */; };
@@ -131,14 +132,15 @@
 		AF846B40C387D32AAACB38A3F922A461 /* MJRefreshNormalTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F50C9EAA6FF3EE1E98BC574FB113482 /* MJRefreshNormalTrailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFC64B1097F7355FF423D6A73E9C7210 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ABC940B6663799A4ACD92F38480912 /* TaskDelegate.swift */; };
 		B1E235113F74BB337D32950D0E62303C /* MJRefreshHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = CDB519D9D831568D7EBDA8B0AD03C65A /* MJRefreshHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B226E94678FBBAF8E04880A21ABCB0A1 /* Pods-EnolaGay_Example-PlayerDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E200264D06A3A98C2F19E23C4E004AD /* Pods-EnolaGay_Example-PlayerDemo-dummy.m */; };
+		B226E94678FBBAF8E04880A21ABCB0A1 /* Pods-EnolaGay_Example-PlayerDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34849AB2296AEDB7B84F60FB1F11E98F /* Pods-EnolaGay_Example-PlayerDemo-dummy.m */; };
 		B22F07A4F9BF52507CD1132E70F908A1 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E39294AB03F00FA4A7A198791599621 /* Entry.swift */; };
 		B25AC3E4F83D2A60B6F144BF6B9313E1 /* PickerViewOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09B873AD659339DC9CABDC56B455B4A /* PickerViewOverlay.swift */; };
 		B2FA7CF735801C899E309901D09D92CB /* MJRefresh-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C2CA7F692D39E5F82C7ED8AE61C9F9BE /* MJRefresh-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B49EE3064483DB42AB6DBD3419BCCA48 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DFB14D1C6863636A118D1382C4539F /* SwiftyJSON.framework */; };
 		B7B8322CDCEA00A4AC58F453546B6034 /* MJRefreshAutoGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = E17C9BE67B6F5126DBCA7AE50FD7DDC6 /* MJRefreshAutoGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B86FA95E674E273EB465E53F089C4E01 /* Pods-EnolaGay_Example-HPickerDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F97B1448B532BFB90B7255E00F1A3B0 /* Pods-EnolaGay_Example-HPickerDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B86FA95E674E273EB465E53F089C4E01 /* Pods-EnolaGay_Example-HPickerDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3738C950EC998FB990DF45696DE41D57 /* Pods-EnolaGay_Example-HPickerDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8B85355D26D45C51B069BC841867565 /* SyncStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B547F857960A71B74E69919D07D8DAB /* SyncStorage.swift */; };
+		B8E6C4E47F179BEC982601222D88F4B6 /* Pods-EnolaGay_Example-KeyBoardPop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3044D33B7F2BA9C57DC97A74D3581271 /* Pods-EnolaGay_Example-KeyBoardPop-dummy.m */; };
 		B9679A212E065F25647FAA0E0A3A1854 /* JudyYokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCEAC461D969BA7DE971F631BCA33BC /* JudyYokoTextField.swift */; };
 		BB09724AEBC9B724A6CE5483B1C35C2B /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2397E06828B26A4F38E1B48B5C9A9C /* MJRefreshConst.m */; };
 		BC275F13C05356DCFCBF564AA5E318C6 /* JudyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683820B44D7EF844CCD79E1A6930FBA7 /* JudyFile.swift */; };
@@ -146,12 +148,12 @@
 		BEE6B677416CA71C981D1D3F60B18C96 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC388C92E2D7DB7EBA4D65E09A8B2B4 /* Alamofire.swift */; };
 		BF659B71B5A58084930FC865B0403876 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 986AFA45DC247C810BBE973087C9EA6A /* MJRefreshBackNormalFooter.m */; };
 		C317D77F9BBF703969BBBB8372894F0C /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE88BAAAFF1E07B43F3AE0D38E8C13B /* Label.swift */; };
-		C574002E1C7E1FA8F04BC8503BC39983 /* Pods-EnolaGay_Example-PlayerDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C1A6EBAC1AD060C4E577924DF57BD91D /* Pods-EnolaGay_Example-PlayerDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C574002E1C7E1FA8F04BC8503BC39983 /* Pods-EnolaGay_Example-PlayerDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4368ECF7EB54C2758947F025A1F67CB3 /* Pods-EnolaGay_Example-PlayerDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C580AD05D5B5AB15A9F7323D595B63F9 /* JudySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07CB83AB2F3F779D0540836D087C696 /* JudySearchView.swift */; };
 		C59CCFDAD79400E8EBC04F27D2C8A181 /* TransformerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C83CD9748ABC76E8E41D7464D25A9CD /* TransformerFactory.swift */; };
-		C686AC8C029DFCA1249E0C49795C49B8 /* Pods-EnolaGay_Example-VersionCheck-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FFD35030A830E4AD3F667714AADAA685 /* Pods-EnolaGay_Example-VersionCheck-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C686AC8C029DFCA1249E0C49795C49B8 /* Pods-EnolaGay_Example-VersionCheck-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 74DB68B34E93E36D207F7941800B0E59 /* Pods-EnolaGay_Example-VersionCheck-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C8F4205FDF2815B261E603D43E8ACEFF /* JudyAkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CEA02FBA72C75E38A6FD947CDD17E /* JudyAkiraTextField.swift */; };
-		CAFE3166D5FE9FFA165BDA0F04714737 /* Pods-EnolaGay_Example-Semaphore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 25F61D1294E2E66E5CF2392ED77AC8AF /* Pods-EnolaGay_Example-Semaphore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CAFE3166D5FE9FFA165BDA0F04714737 /* Pods-EnolaGay_Example-Semaphore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B614F01CEF520EFC7179DFA4314211C /* Pods-EnolaGay_Example-Semaphore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0AC2DC4D9332ACA5B9E135F2F9CB057 /* ExpirationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43BB22D476E5B9536FD22BD64DBB6E /* ExpirationMode.swift */; };
 		D2483CD1ABC9078DD565FF86EC6958FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
 		D2BC9E121178993748B304B31DD0113B /* MarqueeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C66760E871649BE35F0C785A2EE9A0 /* MarqueeView.swift */; };
@@ -165,6 +167,7 @@
 		D9CD7AB94B29FD371F49E5C06689A702 /* JudyYoshikoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C5CB50697DFB8460D435F11E540FC0 /* JudyYoshikoTextField.swift */; };
 		DA86C74B839E6CB3E4E5824A8B679C47 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 011ECA1CEB70F3B052AC68BEE02C5E82 /* MJRefreshHeader.m */; };
 		DB234150AD074E8798B9423E0C3E7F7C /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229CC6838F15BB3045A08F3E6785867 /* Protocol.swift */; };
+		DD00C8089D753B576C1771F68FAD7188 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
 		DFB3A97886B6F5B2F46409CE474E1E18 /* MJRefreshFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 857597C15C9FB57F403FC6872447D739 /* MJRefreshFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E33BAA3E1FB4299170447B7D1FE9DC69 /* MJRefreshStateHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = B2AE8CA00ADE57FFD9B4934379A5007A /* MJRefreshStateHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E3747EC31FCCA97D75A81FC700CF7E24 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5806656E89A06152A52A7ABB82F7549C /* ResponseSerialization.swift */; };
@@ -187,7 +190,7 @@
 		F8A5B82BB68280F6A62CB213212AA10F /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756AA0EC97C458E09020C8BB0476CA5E /* Api.swift */; };
 		F94677EE2C9CA535410D4D0DC38BA0CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD079B56620E64D131794EBF5107964 /* Foundation.framework */; };
 		F95DE92D9779AFD6100E67A71C30AF25 /* GiftMessageCtrlPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF156694C4EC6508BAA611491A67256 /* GiftMessageCtrlPanel.swift */; };
-		FED5C47E2125330CC605E9233F8C7D14 /* Pods-EnolaGay_Example-Semaphore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A142F6A202D03F0CFF47B87F555D48 /* Pods-EnolaGay_Example-Semaphore-dummy.m */; };
+		FED5C47E2125330CC605E9233F8C7D14 /* Pods-EnolaGay_Example-Semaphore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 028D99D6CB327CD5D48A3D60E5D88ABE /* Pods-EnolaGay_Example-Semaphore-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,6 +271,13 @@
 			remoteGlobalIDString = CD5B562733C3004B1C10D9C1A0EEB84F;
 			remoteInfo = EnolaGay;
 		};
+		819C17BE0F7F6DB9ECBB0E7CEB9E04D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
+			remoteInfo = Alamofire;
+		};
 		81E2FAF5B85A8D13A50251041A101D85 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -281,6 +291,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3566CE7721250363BAE931141A0703B1;
 			remoteInfo = Player;
+		};
+		842AFF76BBF9AAC7E09610FDDD6F13D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD5B562733C3004B1C10D9C1A0EEB84F;
+			remoteInfo = EnolaGay;
 		};
 		8592CB22F95354BD48D50464BAB7F1C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -345,6 +362,13 @@
 			remoteGlobalIDString = D118A6A04828FD3CDA8640CD2B6796D2;
 			remoteInfo = SwiftyJSON;
 		};
+		C59D3ED864B6AB5E04D271E16A768B96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D118A6A04828FD3CDA8640CD2B6796D2;
+			remoteInfo = SwiftyJSON;
+		};
 		DCB60059EA061F6107DA8FE9780410FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -376,86 +400,91 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0068FEAF321E7D83D23B58A43EC18432 /* Pods-EnolaGay_Example-Semaphore-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-Semaphore-Info.plist"; sourceTree = "<group>"; };
 		011ECA1CEB70F3B052AC68BEE02C5E82 /* MJRefreshHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshHeader.m; path = MJRefresh/Base/MJRefreshHeader.m; sourceTree = "<group>"; };
 		01AF86D27A30BE5897B0E62B4FE70C1C /* Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Player.debug.xcconfig; sourceTree = "<group>"; };
 		027641241955E2B432BA81E0F3F54DBD /* TipViewCtrl.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TipViewCtrl.xib; path = EnolaGay/Classes/Core/TipViewCtrl.xib; sourceTree = "<group>"; };
+		028D99D6CB327CD5D48A3D60E5D88ABE /* Pods-EnolaGay_Example-Semaphore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-Semaphore-dummy.m"; sourceTree = "<group>"; };
 		036B2DC9F3E1B1E573B658FBF74C31BB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		05618898E19D962F1BCA84B5185B4687 /* Pods-EnolaGay_Example-HPickerDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-HPickerDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
 		05699338D084F53625612E8ADAC86C38 /* MJRefresh-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJRefresh-prefix.pch"; sourceTree = "<group>"; };
-		0649C85DB71CCE97382F7D2B74BCF112 /* Pods-EnolaGay_Example-RefreshAdapter-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-RefreshAdapter-acknowledgements.markdown"; sourceTree = "<group>"; };
+		071E5440FB842F301740C1D1A63E418B /* Pods-EnolaGay_Example-PlayerDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-PlayerDemo-Info.plist"; sourceTree = "<group>"; };
 		082C0AA0499390AB6E8C154B8707145C /* MJRefreshAutoGifFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoGifFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.m; sourceTree = "<group>"; };
 		0830568CCFB8B1D0853BA9AAB5DE1284 /* Pods_EnolaGay_Example_HPickerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnolaGay_Example_HPickerDemo.framework; path = "Pods-EnolaGay_Example-HPickerDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0877A8198E0E6BA08652E0F8549928CE /* MJRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MJRefresh-dummy.m"; sourceTree = "<group>"; };
 		092845EAA01CC7F9737115E916400AA9 /* MJRefresh.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MJRefresh.modulemap; sourceTree = "<group>"; };
-		0A42E6E5C8BB16E14846660406044A91 /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-Semaphore.debug.xcconfig"; sourceTree = "<group>"; };
+		0B3E1641647477D739B3F15DBBFE16C9 /* Pods-EnolaGay_Example-RefreshAdapter-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-RefreshAdapter-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0B614F01CEF520EFC7179DFA4314211C /* Pods-EnolaGay_Example-Semaphore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-Semaphore-umbrella.h"; sourceTree = "<group>"; };
 		0BC042083E207BB3F6A03EDF42466A50 /* Cache.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Cache.modulemap; sourceTree = "<group>"; };
 		0BE88BAAAFF1E07B43F3AE0D38E8C13B /* Label.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Label.swift; path = EnolaGay/Classes/Core/Label.swift; sourceTree = "<group>"; };
-		0C2D21FFB9420D29DEC39DED9627934C /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-Semaphore.release.xcconfig"; sourceTree = "<group>"; };
-		0C7F70FA12027FDC46C0519210756649 /* Pods-EnolaGay_Example-VersionCheck-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-VersionCheck-acknowledgements.plist"; sourceTree = "<group>"; };
-		0DAD2C401EF465D902F99454009C540D /* Pods-EnolaGay_Example-Semaphore-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-Semaphore-frameworks.sh"; sourceTree = "<group>"; };
+		0C537225F00F962CBB77010A1F6D8230 /* Pods-EnolaGay_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example.modulemap"; sourceTree = "<group>"; };
 		0F937BCDE4DD20549D17FF839C2C11FB /* MJRefreshAutoStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoStateFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.m; sourceTree = "<group>"; };
 		0FF156694C4EC6508BAA611491A67256 /* GiftMessageCtrlPanel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GiftMessageCtrlPanel.swift; path = EnolaGay/Classes/GiftMessageCtrlPanel/GiftMessageCtrlPanel.swift; sourceTree = "<group>"; };
-		112DD6A280DC33DCCD472CE11B39611A /* Pods-EnolaGay_Example-PlayerDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-PlayerDemo-frameworks.sh"; sourceTree = "<group>"; };
+		1068BE8BAD18938FCD6F80EFD7B922AD /* Pods-EnolaGay_Example-KeyBoardPop-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-KeyBoardPop-frameworks.sh"; sourceTree = "<group>"; };
 		1158D81A6CF403F6826CB8AC5A27E527 /* MJRefreshTrailer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshTrailer.h; path = MJRefresh/Base/MJRefreshTrailer.h; sourceTree = "<group>"; };
 		11EAD5385F5AF47FF4B15AC31D908BBA /* MJRefreshBackStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackStateFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.h; sourceTree = "<group>"; };
 		11F50F521128901D5AE79F283770F378 /* Date+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Extensions.swift"; path = "Source/Shared/Extensions/Date+Extensions.swift"; sourceTree = "<group>"; };
-		14A142F6A202D03F0CFF47B87F555D48 /* Pods-EnolaGay_Example-Semaphore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-Semaphore-dummy.m"; sourceTree = "<group>"; };
+		135297BE2BAA4A123B58EFA7B33FDF4D /* Pods-EnolaGay_Example-Semaphore-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-Semaphore-acknowledgements.markdown"; sourceTree = "<group>"; };
 		17197583FDC4E198A4EF1C3BE6EB02CD /* JSONDecoder+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JSONDecoder+Extensions.swift"; path = "Source/Shared/Extensions/JSONDecoder+Extensions.swift"; sourceTree = "<group>"; };
-		18262C83FBEDBD70FCD32FC8F9EB05B4 /* Pods-EnolaGay_Example-HPickerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-HPickerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		18B79C81B63844A225A646C3A16BDA18 /* Pods-EnolaGay_Example-RefreshAdapter-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-RefreshAdapter-acknowledgements.plist"; sourceTree = "<group>"; };
 		19C5CB50697DFB8460D435F11E540FC0 /* JudyYoshikoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyYoshikoTextField.swift; path = EnolaGay/Classes/TextFieldEffects/JudyYoshikoTextField.swift; sourceTree = "<group>"; };
-		1A19F7CEB6DC658E49EA2B7A19BD610A /* Pods-EnolaGay_Example-Semaphore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example-Semaphore.modulemap"; sourceTree = "<group>"; };
 		1AD0F2DC25BE7CBC7FCF170E0E5DBC53 /* Storage+Transform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Storage+Transform.swift"; path = "Source/Shared/Storage/Storage+Transform.swift"; sourceTree = "<group>"; };
 		1C51AFEC947D3C77715528A52567A25A /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoFooter.h; path = MJRefresh/Base/MJRefreshAutoFooter.h; sourceTree = "<group>"; };
-		1DC6806205E8565CA176F82753AA3C37 /* Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig"; sourceTree = "<group>"; };
-		1F441C4D3D98679B33F0A1E98993F0C7 /* Pods-EnolaGay_Example-VersionCheck-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-VersionCheck-dummy.m"; sourceTree = "<group>"; };
 		204DEC50005D3065189567A7F2C65941 /* Cache-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cache-umbrella.h"; sourceTree = "<group>"; };
 		20A219083A10B3BFE910111ACCB02C75 /* JudyHoshiTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyHoshiTextField.swift; path = EnolaGay/Classes/TextFieldEffects/JudyHoshiTextField.swift; sourceTree = "<group>"; };
-		20B9B2151C93327C0E9453D09642F566 /* Pods-EnolaGay_Example-HPickerDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-HPickerDemo-dummy.m"; sourceTree = "<group>"; };
-		21501D6E4A0F27F6B02F64371C3CC527 /* Pods-EnolaGay_Example-RefreshAdapter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-RefreshAdapter-umbrella.h"; sourceTree = "<group>"; };
 		2200578A46D08B12E784ACBDD216452F /* MemoryConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MemoryConfig.swift; path = Source/Shared/Configuration/MemoryConfig.swift; sourceTree = "<group>"; };
 		24437237648CAE8B0E97DB7C52502682 /* JudyJiroTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyJiroTextField.swift; path = EnolaGay/Classes/TextFieldEffects/JudyJiroTextField.swift; sourceTree = "<group>"; };
 		247BBEBFDAC174D4A2E20F1F449BA839 /* JudyIsaoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyIsaoTextField.swift; path = EnolaGay/Classes/TextFieldEffects/JudyIsaoTextField.swift; sourceTree = "<group>"; };
-		25DDF1690FE19A88EA1E51BBEE2DDD3C /* Pods-EnolaGay_Example-HPickerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-HPickerDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		25F61D1294E2E66E5CF2392ED77AC8AF /* Pods-EnolaGay_Example-Semaphore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-Semaphore-umbrella.h"; sourceTree = "<group>"; };
-		293A52E6ABB9324359EDE12EFCB4E02D /* Pods-EnolaGay_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-umbrella.h"; sourceTree = "<group>"; };
+		25DC0F6FB705078BAB49DDF7E0E5E70D /* Pods-EnolaGay_Example-Semaphore-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-Semaphore-frameworks.sh"; sourceTree = "<group>"; };
+		2623718C068B76CA63BA34EB985DB3D3 /* Pods-EnolaGay_Example-CacheDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example-CacheDemo.modulemap"; sourceTree = "<group>"; };
+		26CBD28064DF366BD9866A34CEE4CE34 /* Pods-EnolaGay_Example-RefreshAdapter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-RefreshAdapter-Info.plist"; sourceTree = "<group>"; };
+		26F6B04B81FDEA4A45EB073A7F4F5BC0 /* Pods-EnolaGay_Example-KeyBoardPop-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-KeyBoardPop-Info.plist"; sourceTree = "<group>"; };
+		274CA794FE385114201DB3C513052A42 /* Pods-EnolaGay_Example-HPickerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-HPickerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		296F687ECA8BF9CF00384C787169FA9F /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
+		29B77D3195272FBE953FEA9EA5227E58 /* Pods-EnolaGay_Example-VersionCheck-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-VersionCheck-acknowledgements.plist"; sourceTree = "<group>"; };
 		2A8737B7BD17535ED351A14E21056794 /* Core.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Core.swift; path = EnolaGay/Classes/SegmentedView/Core.swift; sourceTree = "<group>"; };
 		2AD079B56620E64D131794EBF5107964 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		2CEBBDCF96921FB3984D0398C63EED8F /* Pods-EnolaGay_Example-VersionCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-VersionCheck.release.xcconfig"; sourceTree = "<group>"; };
 		2D4306FED85092A1958AC4988B323AC3 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
-		2F97B1448B532BFB90B7255E00F1A3B0 /* Pods-EnolaGay_Example-HPickerDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-HPickerDemo-umbrella.h"; sourceTree = "<group>"; };
+		3044D33B7F2BA9C57DC97A74D3581271 /* Pods-EnolaGay_Example-KeyBoardPop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-KeyBoardPop-dummy.m"; sourceTree = "<group>"; };
 		308D10C8F5A181523231809E2D1F0E44 /* Player.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Player.modulemap; sourceTree = "<group>"; };
+		318C8825774504842DB123231476C220 /* Pods-EnolaGay_Example-VersionCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-VersionCheck.release.xcconfig"; sourceTree = "<group>"; };
+		34849AB2296AEDB7B84F60FB1F11E98F /* Pods-EnolaGay_Example-PlayerDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-PlayerDemo-dummy.m"; sourceTree = "<group>"; };
+		34F5E27BC593CB0C519E1EAEA3602DED /* Pods-EnolaGay_Example-KeyBoardPop.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example-KeyBoardPop.modulemap"; sourceTree = "<group>"; };
+		3738C950EC998FB990DF45696DE41D57 /* Pods-EnolaGay_Example-HPickerDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-HPickerDemo-umbrella.h"; sourceTree = "<group>"; };
+		377413DCAFC9BE472A680312870ECBB1 /* Pods-EnolaGay_Example-CacheDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-CacheDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		38B7BE27BA4B2DA8B746146F0B478062 /* Pods_EnolaGay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnolaGay_Example.framework; path = "Pods-EnolaGay_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C3BC4EA8F327A57D2C80A2AFAD2FFD /* MJRefreshConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
 		3A5103E748F110A8F2D187917A9CE253 /* HybridStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HybridStorage.swift; path = Source/Shared/Storage/HybridStorage.swift; sourceTree = "<group>"; };
 		3B2397E06828B26A4F38E1B48B5C9A9C /* MJRefreshConst.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshConst.m; path = MJRefresh/MJRefreshConst.m; sourceTree = "<group>"; };
 		3B34C37361D32B84AE978BD458C77D7A /* SwiftyJSON.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.debug.xcconfig; sourceTree = "<group>"; };
+		3BF321CDF1660146BB4A58826C7BFA40 /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-Semaphore.debug.xcconfig"; sourceTree = "<group>"; };
 		3D4B6D72EA0DE14C90F8AF5415C3BB90 /* ViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewCtrl.swift; path = EnolaGay/Classes/Core/ViewCtrl.swift; sourceTree = "<group>"; };
 		3D5802CC94CACB36E93C215C30F5FBD7 /* MJRefreshNormalHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshNormalHeader.h; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.h; sourceTree = "<group>"; };
-		3D6A1B4BC5776BD477F7803AD813081F /* Pods-EnolaGay_Example-CacheDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-CacheDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3E200264D06A3A98C2F19E23C4E004AD /* Pods-EnolaGay_Example-PlayerDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-PlayerDemo-dummy.m"; sourceTree = "<group>"; };
 		3E5F896AD09D93757E5CAE992AE62B90 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
-		3EE0D0FBC511D807C31CC2132D00EB6C /* Pods-EnolaGay_Example-PlayerDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-PlayerDemo-Info.plist"; sourceTree = "<group>"; };
+		3FAEB66ECC32ACE76FB797E6757DD0AF /* Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig"; sourceTree = "<group>"; };
+		3FF45E433D032B7A38D3DC88D4B8A72D /* Pods-EnolaGay_Example-PlayerDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-PlayerDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		4000D04FA3CBB7B9C8B7FCF799D9456A /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
 		415E17FB8C148CC12DF9C44F655FE65D /* MJRefreshBackStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackStateFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.m; sourceTree = "<group>"; };
+		4368ECF7EB54C2758947F025A1F67CB3 /* Pods-EnolaGay_Example-PlayerDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-PlayerDemo-umbrella.h"; sourceTree = "<group>"; };
 		43CAA6703ABB4849A35AD599CBB3819D /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJExtension.m"; path = "MJRefresh/UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
 		445E3DBBDBC4E9A395BE8E20747089D3 /* TypeWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TypeWrapper.swift; path = Source/Shared/Library/TypeWrapper.swift; sourceTree = "<group>"; };
+		44661D126216918932B95A1772E634BA /* Pods-EnolaGay_Example-HPickerDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example-HPickerDemo.modulemap"; sourceTree = "<group>"; };
 		467DCD6FE6AB8B5304B3662F2AE5D976 /* MJRefreshBackGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackGifFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.h; sourceTree = "<group>"; };
 		468E9840DA7DF585EE863C187C96BF90 /* Pods_EnolaGay_Example_PlayerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnolaGay_Example_PlayerDemo.framework; path = "Pods-EnolaGay_Example-PlayerDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		486FFE3F5FA2CFDE6D86F53E37760E49 /* Alamofire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.release.xcconfig; sourceTree = "<group>"; };
 		4AF6D5E377DD70BE5408E56D841FEB58 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoFooter.m; path = MJRefresh/Base/MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		4B8BFA421046AC8B03F1189A14605EE2 /* Pods_EnolaGay_Example_RefreshAdapter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnolaGay_Example_RefreshAdapter.framework; path = "Pods-EnolaGay_Example-RefreshAdapter.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BFE6BC1826497D464D16EB904D89785 /* Pods-EnolaGay_Example-CacheDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-CacheDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		4BD2AB3F93DDC29979A32D273C66EA69 /* Pods_EnolaGay_Example_KeyBoardPop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnolaGay_Example_KeyBoardPop.framework; path = "Pods-EnolaGay_Example-KeyBoardPop.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C3FCF1E30B23D8867BF706D263C5431 /* NSBundle+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+MJRefresh.h"; path = "MJRefresh/NSBundle+MJRefresh.h"; sourceTree = "<group>"; };
 		4C5A106ECD4476DDAE7C4462869FFF1D /* JudyMinoruTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyMinoruTextField.swift; path = EnolaGay/Classes/TextFieldEffects/JudyMinoruTextField.swift; sourceTree = "<group>"; };
 		4C83CD9748ABC76E8E41D7464D25A9CD /* TransformerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformerFactory.swift; path = Source/Shared/Library/TransformerFactory.swift; sourceTree = "<group>"; };
 		4CA5EF0EF9B1AB5CAC3EF3C5783BDD76 /* Cache-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cache-prefix.pch"; sourceTree = "<group>"; };
-		4CD860927A6F577D6A7DE06E1EE9292B /* Pods-EnolaGay_Example-CacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-CacheDemo.release.xcconfig"; sourceTree = "<group>"; };
+		4CD325162668EAAD9778C669F5E44CF0 /* Pods-EnolaGay_Example-KeyBoardPop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-KeyBoardPop.debug.xcconfig"; sourceTree = "<group>"; };
+		4E6B73C83FE2CA487F57AAAA6241A90F /* Pods-EnolaGay_Example-KeyBoardPop-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-KeyBoardPop-umbrella.h"; sourceTree = "<group>"; };
+		4E88460616210FBCE1007933A0D76A5B /* Pods-EnolaGay_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4E8B2A13A2ADBE5793E4FE3A738CFFC1 /* PickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerView.swift; path = EnolaGay/Classes/HPickerView/PickerView.swift; sourceTree = "<group>"; };
 		4EA85E3C93C3FBEB5942BC9569243225 /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
 		4FA002DDF0327C9D8916FEEDD9399148 /* MJRefreshComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshComponent.h; path = MJRefresh/Base/MJRefreshComponent.h; sourceTree = "<group>"; };
 		50D89D53321D0E896051EF4BA68554B8 /* Player-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Player-dummy.m"; sourceTree = "<group>"; };
-		518C008EA574A7B4E36C1789107AE363 /* Pods-EnolaGay_Example-RefreshAdapter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-RefreshAdapter-Info.plist"; sourceTree = "<group>"; };
 		539220D86D5D0C465555063241049D1E /* MJRefreshStateTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateTrailer.m; path = MJRefresh/Custom/Trailer/MJRefreshStateTrailer.m; sourceTree = "<group>"; };
 		555B4FA3EF1052FD11F321FA56254244 /* Cache.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cache.release.xcconfig; sourceTree = "<group>"; };
 		56253CCECF547A531A8246415985833E /* Judy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Judy.swift; path = EnolaGay/Classes/Core/Judy.swift; sourceTree = "<group>"; };
@@ -466,16 +495,18 @@
 		5A6D591D6CE60F598F87443C96977A40 /* EMERANA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EMERANA.swift; path = EnolaGay/Classes/Core/EMERANA.swift; sourceTree = "<group>"; };
 		5AC388C92E2D7DB7EBA4D65E09A8B2B4 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		5B44D19935A51F20003124ED89034BD8 /* MJRefreshConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshConfig.m; path = MJRefresh/MJRefreshConfig.m; sourceTree = "<group>"; };
-		5B530B8744752A83B6DDE3CDC628F9C2 /* Pods-EnolaGay_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-Info.plist"; sourceTree = "<group>"; };
 		5C0023AA761A5CBF7D6B00F44EC856D6 /* Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Player.release.xcconfig; sourceTree = "<group>"; };
 		5C08AE3835639A2111ACBCE5382CE742 /* Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Player.framework; path = Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C50E7D99357A70BE2A1DE5D506AF87D /* Pods-EnolaGay_Example-VersionCheck-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-VersionCheck-Info.plist"; sourceTree = "<group>"; };
 		5C96309F77042C8356872DD1A89A6E7A /* MJRefreshFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshFooter.m; path = MJRefresh/Base/MJRefreshFooter.m; sourceTree = "<group>"; };
 		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E27EC35445434363EFD9AEFE4E413CD /* Pods-EnolaGay_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5E39294AB03F00FA4A7A198791599621 /* Entry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = Source/Shared/Library/Entry.swift; sourceTree = "<group>"; };
 		5E7CAF91297DE34CF42C2309076B6EDE /* Player.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Player.swift; path = Sources/Player.swift; sourceTree = "<group>"; };
 		611AA870A3B3F97B205147CC93547DBA /* Player-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Player-Info.plist"; sourceTree = "<group>"; };
 		61AD07C35ECBEEB828078C7D97DFE0F9 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		622A5847FDDD78B22090235529E46714 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		62FB9AA51560C343DA330CC24BAFA2EA /* Pods-EnolaGay_Example-PlayerDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example-PlayerDemo.modulemap"; sourceTree = "<group>"; };
 		63A4D799FEABDD601A8B3C6D1C14C3AB /* Storage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = Source/Shared/Storage/Storage.swift; sourceTree = "<group>"; };
 		6465D91C4D430681E66FE2C4E7959381 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
 		66314940709A309CE4DA665D41E334D1 /* PageViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PageViewCtrl.swift; path = EnolaGay/Classes/Core/PageViewCtrl.swift; sourceTree = "<group>"; };
@@ -484,40 +515,44 @@
 		6B319818BC63089EC5A52DE01CE724D5 /* ProgressHUD.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProgressHUD.swift; path = EnolaGay/Classes/Core/ProgressHUD.swift; sourceTree = "<group>"; };
 		6C4567966DC857FDB82C3EE403923C34 /* MJRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.release.xcconfig; sourceTree = "<group>"; };
 		6C662DB3C60CDD46DD3E7F5E9D986CD6 /* DiskStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiskStorage.swift; path = Source/Shared/Storage/DiskStorage.swift; sourceTree = "<group>"; };
+		6D6D644D1E3596E989BA4BAE92E71210 /* Pods-EnolaGay_Example-PlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-PlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		6DEC8FCECB64947A177B37A768BF3937 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
 		6F32ACFF7D257554297A48C78737D0E3 /* Hasher+constantAccrossExecutions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Hasher+constantAccrossExecutions.swift"; path = "Source/Shared/Extensions/Hasher+constantAccrossExecutions.swift"; sourceTree = "<group>"; };
 		6FDB5BA144723DDD9E943BD328C338F2 /* Button.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Button.swift; path = EnolaGay/Classes/Core/Button.swift; sourceTree = "<group>"; };
+		717074769045185300F2AD48F8D6593A /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-Semaphore.release.xcconfig"; sourceTree = "<group>"; };
 		736B64357A6C420C3A7062C6D479AC7F /* Cache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cache.framework; path = Cache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		752BD2DBC9BCB42D045F28973ED60719 /* Pods-EnolaGay_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		74DB68B34E93E36D207F7941800B0E59 /* Pods-EnolaGay_Example-VersionCheck-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-VersionCheck-umbrella.h"; sourceTree = "<group>"; };
+		7504137136E6FC6554AC06E02F085A12 /* Pods-EnolaGay_Example-Semaphore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example-Semaphore.modulemap"; sourceTree = "<group>"; };
 		756AA0EC97C458E09020C8BB0476CA5E /* Api.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Api.swift; path = EnolaGay/Classes/Core/Api.swift; sourceTree = "<group>"; };
 		75E2BE3A78980A08AF81BC8E1A3F1A4A /* ObservationToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObservationToken.swift; path = Source/Shared/Library/ObservationToken.swift; sourceTree = "<group>"; };
-		75F44FCDC360484C95CF20ED325D5903 /* Pods-EnolaGay_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		764854AA9C19958FAA26F0DF90BA57A3 /* Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig"; sourceTree = "<group>"; };
+		75FB1810BA1BDDE5429A3EF639E2D7BD /* Pods-EnolaGay_Example-VersionCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-VersionCheck.debug.xcconfig"; sourceTree = "<group>"; };
+		7764D9F7F1467ADDA8766FEF1C57FBDC /* Pods-EnolaGay_Example-CacheDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-CacheDemo-Info.plist"; sourceTree = "<group>"; };
 		787BC3473F8F69BE000342E4EFABC6A5 /* Player-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Player-umbrella.h"; sourceTree = "<group>"; };
 		78830AAC79E81EF4A1164C0E97E96641 /* MJRefreshBackGifFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackGifFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.m; sourceTree = "<group>"; };
 		7949684781C5CDAAB731BB9A4F20D30A /* EnolaGay.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = EnolaGay.modulemap; sourceTree = "<group>"; };
+		7950BCA2FB991A1ED6BBCAE8902BD206 /* Pods-EnolaGay_Example-KeyBoardPop-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-KeyBoardPop-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7A213032AB3BB0BA7E74140813533F96 /* JudyBaseSearchViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyBaseSearchViewCtrl.swift; path = EnolaGay/Classes/SearchViewCtrl/JudyBaseSearchViewCtrl.swift; sourceTree = "<group>"; };
 		7B547F857960A71B74E69919D07D8DAB /* SyncStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SyncStorage.swift; path = Source/Shared/Storage/SyncStorage.swift; sourceTree = "<group>"; };
+		7CC5A3BDDD7C75DFC7A127CF785AE1FE /* Pods-EnolaGay_Example-VersionCheck-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-VersionCheck-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7D3AD211BF4D2A6A59A70FBA06F751D6 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
 		7D5FC867017CC3512A8F3AA11342A464 /* SwiftyJSON-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyJSON-Info.plist"; sourceTree = "<group>"; };
-		7E349A5DB7E0E718D683BD6E46C47D3F /* Pods-EnolaGay_Example-PlayerDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example-PlayerDemo.modulemap"; sourceTree = "<group>"; };
-		81CB3DF99A98C3C35E4786D333615A4B /* Pods-EnolaGay_Example-HPickerDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-HPickerDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7EA3BF5030187E01F2E5D67A882ECCCA /* Pods-EnolaGay_Example-PlayerDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-PlayerDemo-frameworks.sh"; sourceTree = "<group>"; };
+		816D76F68CF0A71DA0A67C01251D65CB /* Pods-EnolaGay_Example-VersionCheck-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-VersionCheck-dummy.m"; sourceTree = "<group>"; };
+		81ACF75CB534D9D02AF687944607DEF8 /* Pods-EnolaGay_Example-PlayerDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-PlayerDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
 		81FED066FB2DA8874190D4FCDB2BD84C /* MJRefreshNormalHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshNormalHeader.m; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.m; sourceTree = "<group>"; };
 		82792EA9E726E3C3D405B5457055F247 /* AsyncStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsyncStorage.swift; path = Source/Shared/Storage/AsyncStorage.swift; sourceTree = "<group>"; };
-		839188CD473D0294F9AFF64D663905CF /* Pods-EnolaGay_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example.release.xcconfig"; sourceTree = "<group>"; };
+		83E8F9149E636CF2B0A502B8BFAD4C94 /* Pods-EnolaGay_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-Info.plist"; sourceTree = "<group>"; };
 		857597C15C9FB57F403FC6872447D739 /* MJRefreshFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshFooter.h; path = MJRefresh/Base/MJRefreshFooter.h; sourceTree = "<group>"; };
 		862CFCEDA8CE89B4870B0D713C1A1AD1 /* DiskConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiskConfig.swift; path = Source/Shared/Configuration/DiskConfig.swift; sourceTree = "<group>"; };
+		871278F8036EAB218CA98B673FBB4FA3 /* Pods-EnolaGay_Example-RefreshAdapter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example-RefreshAdapter.modulemap"; sourceTree = "<group>"; };
 		884B5F28E84CB70C012AAB910F3EEBC2 /* MemoryCapsule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MemoryCapsule.swift; path = Source/Shared/Library/MemoryCapsule.swift; sourceTree = "<group>"; };
-		8876FACB1B95BA24F59EFCC43E490256 /* Pods-EnolaGay_Example-PlayerDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-PlayerDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
 		88F41CC4FA6FD2D24E73B480FAEB9257 /* MJRefreshStateHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateHeader.m; path = MJRefresh/Custom/Header/MJRefreshStateHeader.m; sourceTree = "<group>"; };
 		8B993043CBAA9DA85AD481EA60DE054E /* JSONArrayWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONArrayWrapper.swift; path = Source/Shared/Library/JSONArrayWrapper.swift; sourceTree = "<group>"; };
-		8BD078B2F540EE81B13BF161F24E868D /* Pods-EnolaGay_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-dummy.m"; sourceTree = "<group>"; };
 		8D2C919A0002D3E635FB6B1B9A2EFFE2 /* EnolaGay.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = EnolaGay.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8D43BB22D476E5B9536FD22BD64DBB6E /* ExpirationMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpirationMode.swift; path = Source/Shared/Library/ExpirationMode.swift; sourceTree = "<group>"; };
 		8E95101612AA5CA96E90BE5E7E640C37 /* Pods_EnolaGay_Example_VersionCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnolaGay_Example_VersionCheck.framework; path = "Pods-EnolaGay_Example-VersionCheck.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E97FE76298BA0E4842324A0D6459710 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		8F27B433F5E386057258585FD438C1CB /* EnolaGay-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "EnolaGay-Info.plist"; sourceTree = "<group>"; };
-		8F373D51CCC65459492926A6194BFA7D /* Pods-EnolaGay_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example.modulemap"; sourceTree = "<group>"; };
 		8FCD4857B5B7C181AD68CEE2736A64F6 /* MJRefreshAutoStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoStateFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.h; sourceTree = "<group>"; };
 		903ACA6092E36797F9AE54AAE74E85B3 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		91802AACC7BFDDAE313564C50A885A5C /* Cache-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cache-Info.plist"; sourceTree = "<group>"; };
@@ -526,29 +561,30 @@
 		934A8040FB5E251E7C21E62CAF54B51D /* CollectionViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CollectionViewCtrl.swift; path = EnolaGay/Classes/Core/CollectionViewCtrl.swift; sourceTree = "<group>"; };
 		934E3944099953043B595746741B6EAD /* MJRefreshComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshComponent.m; path = MJRefresh/Base/MJRefreshComponent.m; sourceTree = "<group>"; };
 		9368A977A05DC9DF44B81D3B6CB947F7 /* MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MD5.swift; path = Source/Shared/Library/MD5.swift; sourceTree = "<group>"; };
-		93E33008F54242DCAC54EA0C764919E2 /* Pods-EnolaGay_Example-HPickerDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-HPickerDemo-acknowledgements.plist"; sourceTree = "<group>"; };
-		95BAE1C5F95EF9FE377F46BD656435AA /* Pods-EnolaGay_Example-Semaphore-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-Semaphore-acknowledgements.markdown"; sourceTree = "<group>"; };
+		942EAFCB442127F09266A0F74C1C6665 /* Pods-EnolaGay_Example-CacheDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-CacheDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
 		986AFA45DC247C810BBE973087C9EA6A /* MJRefreshBackNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackNormalFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.m; sourceTree = "<group>"; };
-		99453830C19F95E1CB54C4B94EE9147F /* Pods-EnolaGay_Example-HPickerDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-HPickerDemo-frameworks.sh"; sourceTree = "<group>"; };
 		9A20ED195089A8ED50DACC81FFAAA357 /* Cache.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cache.debug.xcconfig; sourceTree = "<group>"; };
 		9A65B2B1441E17583B6DEF1F9AEA5BAB /* JudyKaedeTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyKaedeTextField.swift; path = EnolaGay/Classes/TextFieldEffects/JudyKaedeTextField.swift; sourceTree = "<group>"; };
 		9A99A23C4992324364A4DBFE1F15186F /* MJRefresh-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MJRefresh-Info.plist"; sourceTree = "<group>"; };
-		9AAB18055C56634E7950102C2A82FF66 /* Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		9B75AD06D45F0387D317C956B9EA5982 /* Pods-EnolaGay_Example-VersionCheck-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-VersionCheck-frameworks.sh"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DBA22D672BA98963AEE3CF8C22973D7 /* MJRefreshGifHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshGifHeader.h; path = MJRefresh/Custom/Header/MJRefreshGifHeader.h; sourceTree = "<group>"; };
 		9DCEAC461D969BA7DE971F631BCA33BC /* JudyYokoTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyYokoTextField.swift; path = EnolaGay/Classes/TextFieldEffects/JudyYokoTextField.swift; sourceTree = "<group>"; };
-		9E8A850991BD0D9B2978FCED84A7E337 /* Pods-EnolaGay_Example-PlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-PlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		9ED9EDB6E09D9B0593ABF4D861A07A2D /* Pods-EnolaGay_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-dummy.m"; sourceTree = "<group>"; };
 		9F16F1A0D7E20A9C828F68334684D295 /* MJRefreshBackFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackFooter.m; path = MJRefresh/Base/MJRefreshBackFooter.m; sourceTree = "<group>"; };
 		9F50C9EAA6FF3EE1E98BC574FB113482 /* MJRefreshNormalTrailer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshNormalTrailer.h; path = MJRefresh/Custom/Trailer/MJRefreshNormalTrailer.h; sourceTree = "<group>"; };
+		9F72D2C257182423C587D467F7476C68 /* Pods-EnolaGay_Example-HPickerDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-HPickerDemo-dummy.m"; sourceTree = "<group>"; };
 		A02F4DE4D51E000C18DEEA433C566619 /* Cache-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cache-dummy.m"; sourceTree = "<group>"; };
+		A15A50A62003EB7460EFC011CBA37863 /* Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		A3C66760E871649BE35F0C785A2EE9A0 /* MarqueeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MarqueeView.swift; path = EnolaGay/Classes/MarqueeView/MarqueeView.swift; sourceTree = "<group>"; };
 		A4041FB1FBBCF42FBD2D4923512E3179 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON/SwiftyJSON.swift; sourceTree = "<group>"; };
 		A65AF0291AD977FDDD1BE5A89FAF019D /* StorageAware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StorageAware.swift; path = Source/Shared/Storage/StorageAware.swift; sourceTree = "<group>"; };
 		A6E32ABAC2B8FEC3172F589187A7DCC9 /* TableViewCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableViewCtrl.swift; path = EnolaGay/Classes/Core/TableViewCtrl.swift; sourceTree = "<group>"; };
+		A859EEFCB1F239BC197D6E4E0848B274 /* Pods-EnolaGay_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		AA4820762CDEB80168578F4B601CB1FA /* JudyWaterWaveView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyWaterWaveView.swift; path = EnolaGay/Classes/JudyWaterWaveView/JudyWaterWaveView.swift; sourceTree = "<group>"; };
 		AA56EBB883DFEEAFC66C4A41DD1438A8 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
-		ADD9162973DE7E51228A12F64F9F484E /* Pods-EnolaGay_Example-CacheDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-CacheDemo-dummy.m"; sourceTree = "<group>"; };
-		AF86016917017958FBEBC42127EE465B /* Pods-EnolaGay_Example-VersionCheck-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-VersionCheck-frameworks.sh"; sourceTree = "<group>"; };
+		AADCD863C8B8DEAFB7C04BB199E9111F /* Pods-EnolaGay_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example.release.xcconfig"; sourceTree = "<group>"; };
+		AE68D038F5145FDF985C1AF9781746B0 /* Pods-EnolaGay_Example-CacheDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-CacheDemo-frameworks.sh"; sourceTree = "<group>"; };
 		B045D9FD877ABF6D141133C24809B2DE /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJRefresh.h"; path = "MJRefresh/UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
 		B09B873AD659339DC9CABDC56B455B4A /* PickerViewOverlay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerViewOverlay.swift; path = EnolaGay/Classes/HPickerView/PickerViewOverlay.swift; sourceTree = "<group>"; };
 		B25EF99973A4018C047186E7BB5B1BA4 /* Alamofire-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Alamofire-Info.plist"; sourceTree = "<group>"; };
@@ -557,90 +593,88 @@
 		B487EB33003C4FA6A9ECEF2B1D4C0975 /* JudyPopBubble.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyPopBubble.swift; path = EnolaGay/Classes/JudyPopBubble/JudyPopBubble.swift; sourceTree = "<group>"; };
 		B5AE7837AD67DD55B980B2E39D62EA22 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
 		B64A7108630300A5AACB1CBBC5E8BB0D /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		B667429BC621EF36E0C191E7DD18457A /* Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig"; sourceTree = "<group>"; };
+		B723561B72AF5EDE5DB3DF5C0B1773EF /* Pods-EnolaGay_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-frameworks.sh"; sourceTree = "<group>"; };
 		B77F3A014F231CD51E2F9BEC984AAA30 /* ImageWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageWrapper.swift; path = Source/Shared/Library/ImageWrapper.swift; sourceTree = "<group>"; };
 		B923E61D3249180E2AC3AE34BCA70B67 /* Alamofire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.debug.xcconfig; sourceTree = "<group>"; };
-		B9CFD326A5C00738AF189C15A7B6DA42 /* Pods-EnolaGay_Example-RefreshAdapter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example-RefreshAdapter.modulemap"; sourceTree = "<group>"; };
-		BB8F5CED7621974CCBCF6DD58E28D254 /* Pods-EnolaGay_Example-VersionCheck-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-VersionCheck-Info.plist"; sourceTree = "<group>"; };
 		BCC41AC8B16A5DCD4293491892379CF9 /* MJRefreshAutoNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoNormalFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.m; sourceTree = "<group>"; };
+		BE03DC9718A893D5AB8707074D8DB637 /* Pods-EnolaGay_Example-RefreshAdapter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-RefreshAdapter-umbrella.h"; sourceTree = "<group>"; };
 		BE5E2C41BEC031A5626B55AD88DE6BA5 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
 		BE7ACCD169D29F8A1CB5E04617B6DB9D /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
 		BE7CA7666F3418C3448EDD2A242AD9E1 /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackNormalFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
-		C00D61F505171A59AEB1EC72DCF80060 /* Pods-EnolaGay_Example-VersionCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-VersionCheck.debug.xcconfig"; sourceTree = "<group>"; };
 		C0530F8AFE0B05924CB55EA7BDCABA59 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackFooter.h; path = MJRefresh/Base/MJRefreshBackFooter.h; sourceTree = "<group>"; };
 		C0A4D702116D1698FB4B4AF93CDFEB98 /* Transformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Transformer.swift; path = Source/Shared/Library/Transformer.swift; sourceTree = "<group>"; };
-		C1A6EBAC1AD060C4E577924DF57BD91D /* Pods-EnolaGay_Example-PlayerDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-PlayerDemo-umbrella.h"; sourceTree = "<group>"; };
+		C14293CC66120CDC847DF7B07DDD0FDD /* Pods-EnolaGay_Example-HPickerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-HPickerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		C220C5D247A8CA60E561903D8A4D5B2A /* UIView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MJExtension.h"; path = "MJRefresh/UIView+MJExtension.h"; sourceTree = "<group>"; };
-		C22E63D73A1BC74C1DFCA6C2C2DC990D /* Pods-EnolaGay_Example-CacheDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example-CacheDemo.modulemap"; sourceTree = "<group>"; };
 		C2CA7F692D39E5F82C7ED8AE61C9F9BE /* MJRefresh-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJRefresh-umbrella.h"; sourceTree = "<group>"; };
-		C2EC7D395F5DFE97B8470634CF41C2E2 /* Pods-EnolaGay_Example-RefreshAdapter-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-RefreshAdapter-frameworks.sh"; sourceTree = "<group>"; };
 		C4ABC940B6663799A4ACD92F38480912 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		C511BB95D338F62C48FFBCE4D97BF863 /* Toast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Toast.swift; path = EnolaGay/Classes/Core/Toast.swift; sourceTree = "<group>"; };
-		C537EC27CFBA5258B2450FE5EE9662DD /* Pods-EnolaGay_Example-HPickerDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-HPickerDemo-Info.plist"; sourceTree = "<group>"; };
+		C5BBDBE52A80487432573E6E6D71663F /* Pods-EnolaGay_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-umbrella.h"; sourceTree = "<group>"; };
+		C7E1F4E263DA44618552034BD9963129 /* Pods-EnolaGay_Example-Semaphore-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-Semaphore-acknowledgements.plist"; sourceTree = "<group>"; };
 		C804CFECCB40DCE4C8AB40BC060163B0 /* MJRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoNormalFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
 		C8701DB71F0661E6740C25D657ABB386 /* EnolaGay-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EnolaGay-umbrella.h"; sourceTree = "<group>"; };
 		CA14E89305A7F68D06293CE394778F24 /* Pods_EnolaGay_Example_CacheDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnolaGay_Example_CacheDemo.framework; path = "Pods-EnolaGay_Example-CacheDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB22B0DF2A7B8EC8C179F64C8054D861 /* Pods-EnolaGay_Example-CacheDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-CacheDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		CB70CE029A560C6CF99E5310860F7A9C /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		CBC8C10A0DA6D81E7448BB4313D0F49F /* StorageObservationRegistry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StorageObservationRegistry.swift; path = Source/Shared/Storage/StorageObservationRegistry.swift; sourceTree = "<group>"; };
+		CBD5C9A6AF5EB074EAFF9520F5584618 /* Pods-EnolaGay_Example-KeyBoardPop-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-KeyBoardPop-acknowledgements.plist"; sourceTree = "<group>"; };
 		CD6D4AB05B31D5AA04FC700C4D598174 /* StorageError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StorageError.swift; path = Source/Shared/Library/StorageError.swift; sourceTree = "<group>"; };
-		CD95F497C6C9A91D92BC4CD8CD199E0C /* Pods-EnolaGay_Example-CacheDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-CacheDemo-Info.plist"; sourceTree = "<group>"; };
 		CDB1E2AF14DA514890496A1895DFCC89 /* MJRefreshConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConfig.h; path = MJRefresh/MJRefreshConfig.h; sourceTree = "<group>"; };
 		CDB519D9D831568D7EBDA8B0AD03C65A /* MJRefreshHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshHeader.h; path = MJRefresh/Base/MJRefreshHeader.h; sourceTree = "<group>"; };
-		CF7383D0FFAC59062C6C43D0DA3233DD /* Pods-EnolaGay_Example-VersionCheck-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EnolaGay_Example-VersionCheck-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D075E8A6CDA0FA5150C2594E36001233 /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJExtension.h"; path = "MJRefresh/UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
-		D12059374AB401B207C024709E19D598 /* Pods-EnolaGay_Example-VersionCheck.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example-VersionCheck.modulemap"; sourceTree = "<group>"; };
 		D229CC6838F15BB3045A08F3E6785867 /* Protocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protocol.swift; path = EnolaGay/Classes/SegmentedView/Protocol.swift; sourceTree = "<group>"; };
+		D317C9533DC1494C2DABC0ECFC6A9C27 /* Pods-EnolaGay_Example-HPickerDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-HPickerDemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		D5B2DB1F222BADBF2B9BD8086953C1BC /* Pods-EnolaGay_Example-VersionCheck.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example-VersionCheck.modulemap"; sourceTree = "<group>"; };
 		D6CA51E7C3982B617691A9888495DAD4 /* Expiry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expiry.swift; path = Source/Shared/Library/Expiry.swift; sourceTree = "<group>"; };
 		D71DB1C3B83D1E15F375F5BD6C718779 /* Pods_EnolaGay_Example_Semaphore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EnolaGay_Example_Semaphore.framework; path = "Pods-EnolaGay_Example-Semaphore.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7B94CD52C01B513FA483DC3064F3DC6 /* Pods-EnolaGay_Example-CacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-CacheDemo.release.xcconfig"; sourceTree = "<group>"; };
 		D7DFB14D1C6863636A118D1382C4539F /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D81BD44E81462C01BF249E5D7FCF730A /* Pods-EnolaGay_Example-RefreshAdapter-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-RefreshAdapter-acknowledgements.plist"; sourceTree = "<group>"; };
 		D82213DE63EB9500847562378165F0DA /* CircularProgressView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CircularProgressView.swift; path = EnolaGay/Classes/CircularProgressView/CircularProgressView.swift; sourceTree = "<group>"; };
 		D82917CFD8330AD568F3B37CDC906978 /* MJRefreshStateTrailer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshStateTrailer.h; path = MJRefresh/Custom/Trailer/MJRefreshStateTrailer.h; sourceTree = "<group>"; };
 		D9DE034F4D037C6D0CEBE3514DA7DB43 /* DataSourceWithTitle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataSourceWithTitle.swift; path = EnolaGay/Classes/SegmentedView/DataSourceWithTitle.swift; sourceTree = "<group>"; };
+		DA05977BEBA7B99803C2ACFFECA07735 /* Pods-EnolaGay_Example-CacheDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-CacheDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		DA27380488E1AE65A86A461CB24B3C7C /* EnolaGay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EnolaGay.release.xcconfig; sourceTree = "<group>"; };
 		DAD607A2B85BB881A27CAB51485C062E /* Optional+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Optional+Extension.swift"; path = "Source/Shared/Library/Optional+Extension.swift"; sourceTree = "<group>"; };
 		DBA2AAD7FBF4FFB01D497357CF6B646D /* MJRefreshTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshTrailer.m; path = MJRefresh/Base/MJRefreshTrailer.m; sourceTree = "<group>"; };
-		DC3560EAD8C93EB50748685F731169E4 /* Pods-EnolaGay_Example-CacheDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-CacheDemo-umbrella.h"; sourceTree = "<group>"; };
-		DC52F67884E9FA093024569D3F29005D /* Pods-EnolaGay_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-frameworks.sh"; sourceTree = "<group>"; };
 		DC8483CEA87AA534C8200C5E01F61120 /* MJRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.debug.xcconfig; sourceTree = "<group>"; };
 		DD7384E1C1F7622819D467D81C1395E0 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJRefresh.m"; path = "MJRefresh/UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
-		E0367096594B35DA599A95F199A68767 /* Pods-EnolaGay_Example-RefreshAdapter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-RefreshAdapter-dummy.m"; sourceTree = "<group>"; };
-		E06F1FE27D241E6869E8353CDF3EC627 /* Pods-EnolaGay_Example-CacheDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-CacheDemo-frameworks.sh"; sourceTree = "<group>"; };
+		DDFAA5D427950C1378CC5A04B16654E5 /* Pods-EnolaGay_Example-HPickerDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-HPickerDemo-frameworks.sh"; sourceTree = "<group>"; };
 		E07CB83AB2F3F779D0540836D087C696 /* JudySearchView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudySearchView.swift; path = EnolaGay/Classes/SearchViewCtrl/JudySearchView.swift; sourceTree = "<group>"; };
 		E0C507B4CF2D526AF35885F2260607B6 /* EnolaGay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = EnolaGay.framework; path = EnolaGay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E107D929751CBC893BB63783BC86DF27 /* JudyTextFieldsEffects.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyTextFieldsEffects.swift; path = EnolaGay/Classes/TextFieldEffects/JudyTextFieldsEffects.swift; sourceTree = "<group>"; };
 		E17C9BE67B6F5126DBCA7AE50FD7DDC6 /* MJRefreshAutoGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoGifFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.h; sourceTree = "<group>"; };
-		E1F35C6D5A2D8C0E7D038EE046552CAC /* Pods-EnolaGay_Example-Semaphore-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-Semaphore-acknowledgements.plist"; sourceTree = "<group>"; };
 		E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E337427CD728C2993306D0ED459E986A /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		E391A1CEC37E4963EE478D4BB2062C6F /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		E3C6DE2FFE22B2F563EABC64DB971984 /* JudyMadokaTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyMadokaTextField.swift; path = EnolaGay/Classes/TextFieldEffects/JudyMadokaTextField.swift; sourceTree = "<group>"; };
 		E3DD6F2C79DB81F2A287A96C45DB5117 /* TabBarCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TabBarCtrl.swift; path = EnolaGay/Classes/Core/TabBarCtrl.swift; sourceTree = "<group>"; };
 		E3FBF6E0024DEF412253F9F44F98AEB4 /* SwiftyJSON.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.release.xcconfig; sourceTree = "<group>"; };
+		E46714BCC8137D1B7812470E3DFF249A /* Pods-EnolaGay_Example-CacheDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-CacheDemo-dummy.m"; sourceTree = "<group>"; };
 		E4730E398E1A0686234C598C1F5C8AE5 /* MJRefreshNormalTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshNormalTrailer.m; path = MJRefresh/Custom/Trailer/MJRefreshNormalTrailer.m; sourceTree = "<group>"; };
 		E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MJRefresh.framework; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F91E63AFA055AE1B9012DCE80FECF9 /* NavigationCtrl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigationCtrl.swift; path = EnolaGay/Classes/Core/NavigationCtrl.swift; sourceTree = "<group>"; };
 		E67EAD3A8A2A6C6ADD104C1E876E64F4 /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshGifHeader.m; path = MJRefresh/Custom/Header/MJRefreshGifHeader.m; sourceTree = "<group>"; };
+		E6B8DE21377BA7908456824F20746D70 /* Pods-EnolaGay_Example-RefreshAdapter-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EnolaGay_Example-RefreshAdapter-frameworks.sh"; sourceTree = "<group>"; };
 		E71F5C7EDBEB311DEFD8625720CF5235 /* KeyObservationRegistry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyObservationRegistry.swift; path = Source/Shared/Storage/KeyObservationRegistry.swift; sourceTree = "<group>"; };
-		E7B442BB411EF54B836C75FD3C36B2A0 /* Pods-EnolaGay_Example-PlayerDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-PlayerDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		E910FDCCBC086ED5D8BF5D9C58DF3FD1 /* PickerViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerViewCell.swift; path = EnolaGay/Classes/HPickerView/PickerViewCell.swift; sourceTree = "<group>"; };
 		E9D4523B0A81B37D073BC6ED7AB06053 /* TextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = EnolaGay/Classes/Core/TextField.swift; sourceTree = "<group>"; };
+		EAADBADDCE3C0F4A78019FB500D617EA /* Pods-EnolaGay_Example-HPickerDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-HPickerDemo-Info.plist"; sourceTree = "<group>"; };
 		EB269B589613B51CA5E1CB46EEF4BAD7 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
 		EB961D404F9D91FF003CD8B8511C5571 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
 		EE4CEA02FBA72C75E38A6FD947CDD17E /* JudyAkiraTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JudyAkiraTextField.swift; path = EnolaGay/Classes/TextFieldEffects/JudyAkiraTextField.swift; sourceTree = "<group>"; };
 		EF47C2B7B6EB21500EADA95ABC16829D /* Player-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Player-prefix.pch"; sourceTree = "<group>"; };
 		F0D641BF97E70FF6C0112BA2E6102453 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Shared/Library/Result.swift; sourceTree = "<group>"; };
 		F1EB37F9A7D7FC7C1E61D142B46875BB /* JudySearchView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = JudySearchView.xib; path = EnolaGay/Classes/SearchViewCtrl/JudySearchView.xib; sourceTree = "<group>"; };
+		F33284909A4451F57CF2615EB9F82597 /* Pods-EnolaGay_Example-RefreshAdapter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EnolaGay_Example-RefreshAdapter-dummy.m"; sourceTree = "<group>"; };
 		F36EC357A26194088304E837E1113EB2 /* MJRefresh.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = MJRefresh.bundle; path = MJRefresh/MJRefresh.bundle; sourceTree = "<group>"; };
+		F3BE3E585D120CD222216F74AB09F3A9 /* Pods-EnolaGay_Example-KeyBoardPop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EnolaGay_Example-KeyBoardPop.release.xcconfig"; sourceTree = "<group>"; };
 		F50FA9075F5DF02FB64D243D37EAEA35 /* MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefresh.h; path = MJRefresh/MJRefresh.h; sourceTree = "<group>"; };
 		F6D711A88E639A015CD7C720F0CB8928 /* UIView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+MJExtension.m"; path = "MJRefresh/UIView+MJExtension.m"; sourceTree = "<group>"; };
 		F8D1C3617E8277122F42E5D32B3FA424 /* MemoryStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MemoryStorage.swift; path = Source/Shared/Storage/MemoryStorage.swift; sourceTree = "<group>"; };
-		F921A7DF8FCD07EBDA2171D287EF7B80 /* Pods-EnolaGay_Example-HPickerDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EnolaGay_Example-HPickerDemo.modulemap"; sourceTree = "<group>"; };
 		FAEF4D6137E88056291C638D916E6404 /* EnolaGay-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EnolaGay-dummy.m"; sourceTree = "<group>"; };
 		FB9D653A4B065C558664292EB2893F4A /* EnolaGay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EnolaGay.debug.xcconfig; sourceTree = "<group>"; };
-		FC24A0BFD88665652480728733F48E61 /* Pods-EnolaGay_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		FDD31184DBCFC77BC415F6EBCB36B1BB /* Pods-EnolaGay_Example-Semaphore-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EnolaGay_Example-Semaphore-Info.plist"; sourceTree = "<group>"; };
 		FFA56B59D368415D68EC86681FBF3DD6 /* DataSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataSerializer.swift; path = Source/Shared/Library/DataSerializer.swift; sourceTree = "<group>"; };
-		FFD35030A830E4AD3F667714AADAA685 /* Pods-EnolaGay_Example-VersionCheck-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-VersionCheck-umbrella.h"; sourceTree = "<group>"; };
+		FFB655C02FC6C6A68F75E17774FB25DA /* Pods-EnolaGay_Example-CacheDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EnolaGay_Example-CacheDemo-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -717,6 +751,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AD748FBDFB719E7299FE75FB4235150B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD00C8089D753B576C1771F68FAD7188 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C923CC30A24BFED3758DE22953B0BDF3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -762,20 +804,6 @@
 			path = Player;
 			sourceTree = "<group>";
 		};
-		048CFC56A14DA83DF538CD3908C8FE2A /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F1DE0EAA9BEB1D85D3FC425FFF09666A /* Pods-EnolaGay_Example */,
-				5B79A052A7558136FB503060B546F53E /* Pods-EnolaGay_Example-CacheDemo */,
-				51893AD6C529D9150967753A79BAD033 /* Pods-EnolaGay_Example-HPickerDemo */,
-				282188F2561332793DFC6FA618493FD1 /* Pods-EnolaGay_Example-PlayerDemo */,
-				D5A10053179F12B37AB826A89C01788B /* Pods-EnolaGay_Example-RefreshAdapter */,
-				77F46EA08DFD261E04C9061C14F27154 /* Pods-EnolaGay_Example-Semaphore */,
-				89E2B2476C8A6376BAD84000DC89905F /* Pods-EnolaGay_Example-VersionCheck */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
 		04AB8BDBC547C648FCF60564F59D4282 /* TextFieldEffects */ = {
 			isa = PBXGroup;
 			children = (
@@ -812,6 +840,23 @@
 			name = GiftMessageCtrlPanel;
 			sourceTree = "<group>";
 		};
+		1B0B0F19412F61B6EA2360BC6450019D /* Pods-EnolaGay_Example-RefreshAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				871278F8036EAB218CA98B673FBB4FA3 /* Pods-EnolaGay_Example-RefreshAdapter.modulemap */,
+				0B3E1641647477D739B3F15DBBFE16C9 /* Pods-EnolaGay_Example-RefreshAdapter-acknowledgements.markdown */,
+				18B79C81B63844A225A646C3A16BDA18 /* Pods-EnolaGay_Example-RefreshAdapter-acknowledgements.plist */,
+				F33284909A4451F57CF2615EB9F82597 /* Pods-EnolaGay_Example-RefreshAdapter-dummy.m */,
+				E6B8DE21377BA7908456824F20746D70 /* Pods-EnolaGay_Example-RefreshAdapter-frameworks.sh */,
+				26CBD28064DF366BD9866A34CEE4CE34 /* Pods-EnolaGay_Example-RefreshAdapter-Info.plist */,
+				BE03DC9718A893D5AB8707074D8DB637 /* Pods-EnolaGay_Example-RefreshAdapter-umbrella.h */,
+				B667429BC621EF36E0C191E7DD18457A /* Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig */,
+				3FAEB66ECC32ACE76FB797E6757DD0AF /* Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig */,
+			);
+			name = "Pods-EnolaGay_Example-RefreshAdapter";
+			path = "Target Support Files/Pods-EnolaGay_Example-RefreshAdapter";
+			sourceTree = "<group>";
+		};
 		23B7899803C08F5CB9DE421B2618D66C /* SearchViewCtrl */ = {
 			isa = PBXGroup;
 			children = (
@@ -820,43 +865,6 @@
 				F1EB37F9A7D7FC7C1E61D142B46875BB /* JudySearchView.xib */,
 			);
 			name = SearchViewCtrl;
-			sourceTree = "<group>";
-		};
-		282188F2561332793DFC6FA618493FD1 /* Pods-EnolaGay_Example-PlayerDemo */ = {
-			isa = PBXGroup;
-			children = (
-				7E349A5DB7E0E718D683BD6E46C47D3F /* Pods-EnolaGay_Example-PlayerDemo.modulemap */,
-				8876FACB1B95BA24F59EFCC43E490256 /* Pods-EnolaGay_Example-PlayerDemo-acknowledgements.markdown */,
-				E7B442BB411EF54B836C75FD3C36B2A0 /* Pods-EnolaGay_Example-PlayerDemo-acknowledgements.plist */,
-				3E200264D06A3A98C2F19E23C4E004AD /* Pods-EnolaGay_Example-PlayerDemo-dummy.m */,
-				112DD6A280DC33DCCD472CE11B39611A /* Pods-EnolaGay_Example-PlayerDemo-frameworks.sh */,
-				3EE0D0FBC511D807C31CC2132D00EB6C /* Pods-EnolaGay_Example-PlayerDemo-Info.plist */,
-				C1A6EBAC1AD060C4E577924DF57BD91D /* Pods-EnolaGay_Example-PlayerDemo-umbrella.h */,
-				9AAB18055C56634E7950102C2A82FF66 /* Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig */,
-				9E8A850991BD0D9B2978FCED84A7E337 /* Pods-EnolaGay_Example-PlayerDemo.release.xcconfig */,
-			);
-			name = "Pods-EnolaGay_Example-PlayerDemo";
-			path = "Target Support Files/Pods-EnolaGay_Example-PlayerDemo";
-			sourceTree = "<group>";
-		};
-		2BC861D4712ACF1C6A6E75E0E24E0659 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */,
-				736B64357A6C420C3A7062C6D479AC7F /* Cache.framework */,
-				E0C507B4CF2D526AF35885F2260607B6 /* EnolaGay.framework */,
-				E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh.framework */,
-				5C08AE3835639A2111ACBCE5382CE742 /* Player.framework */,
-				38B7BE27BA4B2DA8B746146F0B478062 /* Pods_EnolaGay_Example.framework */,
-				CA14E89305A7F68D06293CE394778F24 /* Pods_EnolaGay_Example_CacheDemo.framework */,
-				0830568CCFB8B1D0853BA9AAB5DE1284 /* Pods_EnolaGay_Example_HPickerDemo.framework */,
-				468E9840DA7DF585EE863C187C96BF90 /* Pods_EnolaGay_Example_PlayerDemo.framework */,
-				4B8BFA421046AC8B03F1189A14605EE2 /* Pods_EnolaGay_Example_RefreshAdapter.framework */,
-				D71DB1C3B83D1E15F375F5BD6C718779 /* Pods_EnolaGay_Example_Semaphore.framework */,
-				8E95101612AA5CA96E90BE5E7E640C37 /* Pods_EnolaGay_Example_VersionCheck.framework */,
-				E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		32E12D3398EE5421F3C4BF8EA79E2C4E /* HPickerView */ = {
@@ -885,6 +893,27 @@
 				B487EB33003C4FA6A9ECEF2B1D4C0975 /* JudyPopBubble.swift */,
 			);
 			name = JudyPopBubble;
+			sourceTree = "<group>";
+		};
+		385022A9D2904102992883B3E66EAFD2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */,
+				736B64357A6C420C3A7062C6D479AC7F /* Cache.framework */,
+				E0C507B4CF2D526AF35885F2260607B6 /* EnolaGay.framework */,
+				E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh.framework */,
+				5C08AE3835639A2111ACBCE5382CE742 /* Player.framework */,
+				38B7BE27BA4B2DA8B746146F0B478062 /* Pods_EnolaGay_Example.framework */,
+				CA14E89305A7F68D06293CE394778F24 /* Pods_EnolaGay_Example_CacheDemo.framework */,
+				0830568CCFB8B1D0853BA9AAB5DE1284 /* Pods_EnolaGay_Example_HPickerDemo.framework */,
+				4BD2AB3F93DDC29979A32D273C66EA69 /* Pods_EnolaGay_Example_KeyBoardPop.framework */,
+				468E9840DA7DF585EE863C187C96BF90 /* Pods_EnolaGay_Example_PlayerDemo.framework */,
+				4B8BFA421046AC8B03F1189A14605EE2 /* Pods_EnolaGay_Example_RefreshAdapter.framework */,
+				D71DB1C3B83D1E15F375F5BD6C718779 /* Pods_EnolaGay_Example_Semaphore.framework */,
+				8E95101612AA5CA96E90BE5E7E640C37 /* Pods_EnolaGay_Example_VersionCheck.framework */,
+				E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		42638E4151C35459436D23510DF0F1FE /* Alamofire */ = {
@@ -943,21 +972,21 @@
 			name = EMERANA;
 			sourceTree = "<group>";
 		};
-		51893AD6C529D9150967753A79BAD033 /* Pods-EnolaGay_Example-HPickerDemo */ = {
+		541686DC9866996BB91C6C7CEB72D043 /* Pods-EnolaGay_Example-PlayerDemo */ = {
 			isa = PBXGroup;
 			children = (
-				F921A7DF8FCD07EBDA2171D287EF7B80 /* Pods-EnolaGay_Example-HPickerDemo.modulemap */,
-				81CB3DF99A98C3C35E4786D333615A4B /* Pods-EnolaGay_Example-HPickerDemo-acknowledgements.markdown */,
-				93E33008F54242DCAC54EA0C764919E2 /* Pods-EnolaGay_Example-HPickerDemo-acknowledgements.plist */,
-				20B9B2151C93327C0E9453D09642F566 /* Pods-EnolaGay_Example-HPickerDemo-dummy.m */,
-				99453830C19F95E1CB54C4B94EE9147F /* Pods-EnolaGay_Example-HPickerDemo-frameworks.sh */,
-				C537EC27CFBA5258B2450FE5EE9662DD /* Pods-EnolaGay_Example-HPickerDemo-Info.plist */,
-				2F97B1448B532BFB90B7255E00F1A3B0 /* Pods-EnolaGay_Example-HPickerDemo-umbrella.h */,
-				25DDF1690FE19A88EA1E51BBEE2DDD3C /* Pods-EnolaGay_Example-HPickerDemo.debug.xcconfig */,
-				18262C83FBEDBD70FCD32FC8F9EB05B4 /* Pods-EnolaGay_Example-HPickerDemo.release.xcconfig */,
+				62FB9AA51560C343DA330CC24BAFA2EA /* Pods-EnolaGay_Example-PlayerDemo.modulemap */,
+				81ACF75CB534D9D02AF687944607DEF8 /* Pods-EnolaGay_Example-PlayerDemo-acknowledgements.markdown */,
+				3FF45E433D032B7A38D3DC88D4B8A72D /* Pods-EnolaGay_Example-PlayerDemo-acknowledgements.plist */,
+				34849AB2296AEDB7B84F60FB1F11E98F /* Pods-EnolaGay_Example-PlayerDemo-dummy.m */,
+				7EA3BF5030187E01F2E5D67A882ECCCA /* Pods-EnolaGay_Example-PlayerDemo-frameworks.sh */,
+				071E5440FB842F301740C1D1A63E418B /* Pods-EnolaGay_Example-PlayerDemo-Info.plist */,
+				4368ECF7EB54C2758947F025A1F67CB3 /* Pods-EnolaGay_Example-PlayerDemo-umbrella.h */,
+				A15A50A62003EB7460EFC011CBA37863 /* Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig */,
+				6D6D644D1E3596E989BA4BAE92E71210 /* Pods-EnolaGay_Example-PlayerDemo.release.xcconfig */,
 			);
-			name = "Pods-EnolaGay_Example-HPickerDemo";
-			path = "Target Support Files/Pods-EnolaGay_Example-HPickerDemo";
+			name = "Pods-EnolaGay_Example-PlayerDemo";
+			path = "Target Support Files/Pods-EnolaGay_Example-PlayerDemo";
 			sourceTree = "<group>";
 		};
 		5B5ADF96C864F7488280C3C433EF4A46 /* CircularProgressView */ = {
@@ -968,21 +997,21 @@
 			name = CircularProgressView;
 			sourceTree = "<group>";
 		};
-		5B79A052A7558136FB503060B546F53E /* Pods-EnolaGay_Example-CacheDemo */ = {
+		67B77A6251E780076A1CA5E1D8B72515 /* Pods-EnolaGay_Example-KeyBoardPop */ = {
 			isa = PBXGroup;
 			children = (
-				C22E63D73A1BC74C1DFCA6C2C2DC990D /* Pods-EnolaGay_Example-CacheDemo.modulemap */,
-				3D6A1B4BC5776BD477F7803AD813081F /* Pods-EnolaGay_Example-CacheDemo-acknowledgements.markdown */,
-				CB22B0DF2A7B8EC8C179F64C8054D861 /* Pods-EnolaGay_Example-CacheDemo-acknowledgements.plist */,
-				ADD9162973DE7E51228A12F64F9F484E /* Pods-EnolaGay_Example-CacheDemo-dummy.m */,
-				E06F1FE27D241E6869E8353CDF3EC627 /* Pods-EnolaGay_Example-CacheDemo-frameworks.sh */,
-				CD95F497C6C9A91D92BC4CD8CD199E0C /* Pods-EnolaGay_Example-CacheDemo-Info.plist */,
-				DC3560EAD8C93EB50748685F731169E4 /* Pods-EnolaGay_Example-CacheDemo-umbrella.h */,
-				4BFE6BC1826497D464D16EB904D89785 /* Pods-EnolaGay_Example-CacheDemo.debug.xcconfig */,
-				4CD860927A6F577D6A7DE06E1EE9292B /* Pods-EnolaGay_Example-CacheDemo.release.xcconfig */,
+				34F5E27BC593CB0C519E1EAEA3602DED /* Pods-EnolaGay_Example-KeyBoardPop.modulemap */,
+				7950BCA2FB991A1ED6BBCAE8902BD206 /* Pods-EnolaGay_Example-KeyBoardPop-acknowledgements.markdown */,
+				CBD5C9A6AF5EB074EAFF9520F5584618 /* Pods-EnolaGay_Example-KeyBoardPop-acknowledgements.plist */,
+				3044D33B7F2BA9C57DC97A74D3581271 /* Pods-EnolaGay_Example-KeyBoardPop-dummy.m */,
+				1068BE8BAD18938FCD6F80EFD7B922AD /* Pods-EnolaGay_Example-KeyBoardPop-frameworks.sh */,
+				26F6B04B81FDEA4A45EB073A7F4F5BC0 /* Pods-EnolaGay_Example-KeyBoardPop-Info.plist */,
+				4E6B73C83FE2CA487F57AAAA6241A90F /* Pods-EnolaGay_Example-KeyBoardPop-umbrella.h */,
+				4CD325162668EAAD9778C669F5E44CF0 /* Pods-EnolaGay_Example-KeyBoardPop.debug.xcconfig */,
+				F3BE3E585D120CD222216F74AB09F3A9 /* Pods-EnolaGay_Example-KeyBoardPop.release.xcconfig */,
 			);
-			name = "Pods-EnolaGay_Example-CacheDemo";
-			path = "Target Support Files/Pods-EnolaGay_Example-CacheDemo";
+			name = "Pods-EnolaGay_Example-KeyBoardPop";
+			path = "Target Support Files/Pods-EnolaGay_Example-KeyBoardPop";
 			sourceTree = "<group>";
 		};
 		67B89A6580B049138CD4EC147899F460 /* Support Files */ = {
@@ -1044,23 +1073,6 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		77F46EA08DFD261E04C9061C14F27154 /* Pods-EnolaGay_Example-Semaphore */ = {
-			isa = PBXGroup;
-			children = (
-				1A19F7CEB6DC658E49EA2B7A19BD610A /* Pods-EnolaGay_Example-Semaphore.modulemap */,
-				95BAE1C5F95EF9FE377F46BD656435AA /* Pods-EnolaGay_Example-Semaphore-acknowledgements.markdown */,
-				E1F35C6D5A2D8C0E7D038EE046552CAC /* Pods-EnolaGay_Example-Semaphore-acknowledgements.plist */,
-				14A142F6A202D03F0CFF47B87F555D48 /* Pods-EnolaGay_Example-Semaphore-dummy.m */,
-				0DAD2C401EF465D902F99454009C540D /* Pods-EnolaGay_Example-Semaphore-frameworks.sh */,
-				0068FEAF321E7D83D23B58A43EC18432 /* Pods-EnolaGay_Example-Semaphore-Info.plist */,
-				25F61D1294E2E66E5CF2392ED77AC8AF /* Pods-EnolaGay_Example-Semaphore-umbrella.h */,
-				0A42E6E5C8BB16E14846660406044A91 /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */,
-				0C2D21FFB9420D29DEC39DED9627934C /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */,
-			);
-			name = "Pods-EnolaGay_Example-Semaphore";
-			path = "Target Support Files/Pods-EnolaGay_Example-Semaphore";
-			sourceTree = "<group>";
-		};
 		7A3970E1938BC35D28721AFBD362EC25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1078,23 +1090,6 @@
 			name = JudyWaterWaveView;
 			sourceTree = "<group>";
 		};
-		89E2B2476C8A6376BAD84000DC89905F /* Pods-EnolaGay_Example-VersionCheck */ = {
-			isa = PBXGroup;
-			children = (
-				D12059374AB401B207C024709E19D598 /* Pods-EnolaGay_Example-VersionCheck.modulemap */,
-				CF7383D0FFAC59062C6C43D0DA3233DD /* Pods-EnolaGay_Example-VersionCheck-acknowledgements.markdown */,
-				0C7F70FA12027FDC46C0519210756649 /* Pods-EnolaGay_Example-VersionCheck-acknowledgements.plist */,
-				1F441C4D3D98679B33F0A1E98993F0C7 /* Pods-EnolaGay_Example-VersionCheck-dummy.m */,
-				AF86016917017958FBEBC42127EE465B /* Pods-EnolaGay_Example-VersionCheck-frameworks.sh */,
-				BB8F5CED7621974CCBCF6DD58E28D254 /* Pods-EnolaGay_Example-VersionCheck-Info.plist */,
-				FFD35030A830E4AD3F667714AADAA685 /* Pods-EnolaGay_Example-VersionCheck-umbrella.h */,
-				C00D61F505171A59AEB1EC72DCF80060 /* Pods-EnolaGay_Example-VersionCheck.debug.xcconfig */,
-				2CEBBDCF96921FB3984D0398C63EED8F /* Pods-EnolaGay_Example-VersionCheck.release.xcconfig */,
-			);
-			name = "Pods-EnolaGay_Example-VersionCheck";
-			path = "Target Support Files/Pods-EnolaGay_Example-VersionCheck";
-			sourceTree = "<group>";
-		};
 		8D26E0ACA6CB674C9F22576BCD1F0459 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1110,12 +1105,97 @@
 			path = "../Target Support Files/MJRefresh";
 			sourceTree = "<group>";
 		};
+		902EBF7F72593BFE8BA8A33DEE49B9A8 /* Pods-EnolaGay_Example */ = {
+			isa = PBXGroup;
+			children = (
+				0C537225F00F962CBB77010A1F6D8230 /* Pods-EnolaGay_Example.modulemap */,
+				4E88460616210FBCE1007933A0D76A5B /* Pods-EnolaGay_Example-acknowledgements.markdown */,
+				A859EEFCB1F239BC197D6E4E0848B274 /* Pods-EnolaGay_Example-acknowledgements.plist */,
+				9ED9EDB6E09D9B0593ABF4D861A07A2D /* Pods-EnolaGay_Example-dummy.m */,
+				B723561B72AF5EDE5DB3DF5C0B1773EF /* Pods-EnolaGay_Example-frameworks.sh */,
+				83E8F9149E636CF2B0A502B8BFAD4C94 /* Pods-EnolaGay_Example-Info.plist */,
+				C5BBDBE52A80487432573E6E6D71663F /* Pods-EnolaGay_Example-umbrella.h */,
+				5E27EC35445434363EFD9AEFE4E413CD /* Pods-EnolaGay_Example.debug.xcconfig */,
+				AADCD863C8B8DEAFB7C04BB199E9111F /* Pods-EnolaGay_Example.release.xcconfig */,
+			);
+			name = "Pods-EnolaGay_Example";
+			path = "Target Support Files/Pods-EnolaGay_Example";
+			sourceTree = "<group>";
+		};
+		9C3B41F9F325DC5435B327D3FAB90419 /* Pods-EnolaGay_Example-CacheDemo */ = {
+			isa = PBXGroup;
+			children = (
+				2623718C068B76CA63BA34EB985DB3D3 /* Pods-EnolaGay_Example-CacheDemo.modulemap */,
+				942EAFCB442127F09266A0F74C1C6665 /* Pods-EnolaGay_Example-CacheDemo-acknowledgements.markdown */,
+				DA05977BEBA7B99803C2ACFFECA07735 /* Pods-EnolaGay_Example-CacheDemo-acknowledgements.plist */,
+				E46714BCC8137D1B7812470E3DFF249A /* Pods-EnolaGay_Example-CacheDemo-dummy.m */,
+				AE68D038F5145FDF985C1AF9781746B0 /* Pods-EnolaGay_Example-CacheDemo-frameworks.sh */,
+				7764D9F7F1467ADDA8766FEF1C57FBDC /* Pods-EnolaGay_Example-CacheDemo-Info.plist */,
+				FFB655C02FC6C6A68F75E17774FB25DA /* Pods-EnolaGay_Example-CacheDemo-umbrella.h */,
+				377413DCAFC9BE472A680312870ECBB1 /* Pods-EnolaGay_Example-CacheDemo.debug.xcconfig */,
+				D7B94CD52C01B513FA483DC3064F3DC6 /* Pods-EnolaGay_Example-CacheDemo.release.xcconfig */,
+			);
+			name = "Pods-EnolaGay_Example-CacheDemo";
+			path = "Target Support Files/Pods-EnolaGay_Example-CacheDemo";
+			sourceTree = "<group>";
+		};
+		A4F102F3BBF4937B6A42DF0BD5B3C280 /* Pods-EnolaGay_Example-VersionCheck */ = {
+			isa = PBXGroup;
+			children = (
+				D5B2DB1F222BADBF2B9BD8086953C1BC /* Pods-EnolaGay_Example-VersionCheck.modulemap */,
+				7CC5A3BDDD7C75DFC7A127CF785AE1FE /* Pods-EnolaGay_Example-VersionCheck-acknowledgements.markdown */,
+				29B77D3195272FBE953FEA9EA5227E58 /* Pods-EnolaGay_Example-VersionCheck-acknowledgements.plist */,
+				816D76F68CF0A71DA0A67C01251D65CB /* Pods-EnolaGay_Example-VersionCheck-dummy.m */,
+				9B75AD06D45F0387D317C956B9EA5982 /* Pods-EnolaGay_Example-VersionCheck-frameworks.sh */,
+				5C50E7D99357A70BE2A1DE5D506AF87D /* Pods-EnolaGay_Example-VersionCheck-Info.plist */,
+				74DB68B34E93E36D207F7941800B0E59 /* Pods-EnolaGay_Example-VersionCheck-umbrella.h */,
+				75FB1810BA1BDDE5429A3EF639E2D7BD /* Pods-EnolaGay_Example-VersionCheck.debug.xcconfig */,
+				318C8825774504842DB123231476C220 /* Pods-EnolaGay_Example-VersionCheck.release.xcconfig */,
+			);
+			name = "Pods-EnolaGay_Example-VersionCheck";
+			path = "Target Support Files/Pods-EnolaGay_Example-VersionCheck";
+			sourceTree = "<group>";
+		};
+		B695D346435CA6F90EDC7193D6C04801 /* Pods-EnolaGay_Example-HPickerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				44661D126216918932B95A1772E634BA /* Pods-EnolaGay_Example-HPickerDemo.modulemap */,
+				05618898E19D962F1BCA84B5185B4687 /* Pods-EnolaGay_Example-HPickerDemo-acknowledgements.markdown */,
+				D317C9533DC1494C2DABC0ECFC6A9C27 /* Pods-EnolaGay_Example-HPickerDemo-acknowledgements.plist */,
+				9F72D2C257182423C587D467F7476C68 /* Pods-EnolaGay_Example-HPickerDemo-dummy.m */,
+				DDFAA5D427950C1378CC5A04B16654E5 /* Pods-EnolaGay_Example-HPickerDemo-frameworks.sh */,
+				EAADBADDCE3C0F4A78019FB500D617EA /* Pods-EnolaGay_Example-HPickerDemo-Info.plist */,
+				3738C950EC998FB990DF45696DE41D57 /* Pods-EnolaGay_Example-HPickerDemo-umbrella.h */,
+				274CA794FE385114201DB3C513052A42 /* Pods-EnolaGay_Example-HPickerDemo.debug.xcconfig */,
+				C14293CC66120CDC847DF7B07DDD0FDD /* Pods-EnolaGay_Example-HPickerDemo.release.xcconfig */,
+			);
+			name = "Pods-EnolaGay_Example-HPickerDemo";
+			path = "Target Support Files/Pods-EnolaGay_Example-HPickerDemo";
+			sourceTree = "<group>";
+		};
 		BFDBB800FB1ECF260A614D39A8DA58FA /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
 				6E77262E6024CE227A896F5BBBA98197 /* EnolaGay */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		C543C1A024301AAEDDD64FAF52C164CD /* Pods-EnolaGay_Example-Semaphore */ = {
+			isa = PBXGroup;
+			children = (
+				7504137136E6FC6554AC06E02F085A12 /* Pods-EnolaGay_Example-Semaphore.modulemap */,
+				135297BE2BAA4A123B58EFA7B33FDF4D /* Pods-EnolaGay_Example-Semaphore-acknowledgements.markdown */,
+				C7E1F4E263DA44618552034BD9963129 /* Pods-EnolaGay_Example-Semaphore-acknowledgements.plist */,
+				028D99D6CB327CD5D48A3D60E5D88ABE /* Pods-EnolaGay_Example-Semaphore-dummy.m */,
+				25DC0F6FB705078BAB49DDF7E0E5E70D /* Pods-EnolaGay_Example-Semaphore-frameworks.sh */,
+				FDD31184DBCFC77BC415F6EBCB36B1BB /* Pods-EnolaGay_Example-Semaphore-Info.plist */,
+				0B614F01CEF520EFC7179DFA4314211C /* Pods-EnolaGay_Example-Semaphore-umbrella.h */,
+				3BF321CDF1660146BB4A58826C7BFA40 /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */,
+				717074769045185300F2AD48F8D6593A /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */,
+			);
+			name = "Pods-EnolaGay_Example-Semaphore";
+			path = "Target Support Files/Pods-EnolaGay_Example-Semaphore";
 			sourceTree = "<group>";
 		};
 		CA9076FF07B430D381D39839D0CBDB55 /* iOS */ = {
@@ -1133,8 +1213,8 @@
 				BFDBB800FB1ECF260A614D39A8DA58FA /* Development Pods */,
 				7A3970E1938BC35D28721AFBD362EC25 /* Frameworks */,
 				D0BDDCF05B2EB843201EFBB16BE56081 /* Pods */,
-				2BC861D4712ACF1C6A6E75E0E24E0659 /* Products */,
-				048CFC56A14DA83DF538CD3908C8FE2A /* Targets Support Files */,
+				385022A9D2904102992883B3E66EAFD2 /* Products */,
+				E8F0DC0DFB4215DC2CFF33F3DBD200F3 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1148,23 +1228,6 @@
 				333B6C863F55EE0F3BC186AA14FF7579 /* SwiftyJSON */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		D5A10053179F12B37AB826A89C01788B /* Pods-EnolaGay_Example-RefreshAdapter */ = {
-			isa = PBXGroup;
-			children = (
-				B9CFD326A5C00738AF189C15A7B6DA42 /* Pods-EnolaGay_Example-RefreshAdapter.modulemap */,
-				0649C85DB71CCE97382F7D2B74BCF112 /* Pods-EnolaGay_Example-RefreshAdapter-acknowledgements.markdown */,
-				D81BD44E81462C01BF249E5D7FCF730A /* Pods-EnolaGay_Example-RefreshAdapter-acknowledgements.plist */,
-				E0367096594B35DA599A95F199A68767 /* Pods-EnolaGay_Example-RefreshAdapter-dummy.m */,
-				C2EC7D395F5DFE97B8470634CF41C2E2 /* Pods-EnolaGay_Example-RefreshAdapter-frameworks.sh */,
-				518C008EA574A7B4E36C1789107AE363 /* Pods-EnolaGay_Example-RefreshAdapter-Info.plist */,
-				21501D6E4A0F27F6B02F64371C3CC527 /* Pods-EnolaGay_Example-RefreshAdapter-umbrella.h */,
-				764854AA9C19958FAA26F0DF90BA57A3 /* Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig */,
-				1DC6806205E8565CA176F82753AA3C37 /* Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig */,
-			);
-			name = "Pods-EnolaGay_Example-RefreshAdapter";
-			path = "Target Support Files/Pods-EnolaGay_Example-RefreshAdapter";
 			sourceTree = "<group>";
 		};
 		D970435C7761823EEEEEBD0EDD6C7D36 /* Support Files */ = {
@@ -1272,21 +1335,19 @@
 			path = Cache;
 			sourceTree = "<group>";
 		};
-		F1DE0EAA9BEB1D85D3FC425FFF09666A /* Pods-EnolaGay_Example */ = {
+		E8F0DC0DFB4215DC2CFF33F3DBD200F3 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				8F373D51CCC65459492926A6194BFA7D /* Pods-EnolaGay_Example.modulemap */,
-				752BD2DBC9BCB42D045F28973ED60719 /* Pods-EnolaGay_Example-acknowledgements.markdown */,
-				FC24A0BFD88665652480728733F48E61 /* Pods-EnolaGay_Example-acknowledgements.plist */,
-				8BD078B2F540EE81B13BF161F24E868D /* Pods-EnolaGay_Example-dummy.m */,
-				DC52F67884E9FA093024569D3F29005D /* Pods-EnolaGay_Example-frameworks.sh */,
-				5B530B8744752A83B6DDE3CDC628F9C2 /* Pods-EnolaGay_Example-Info.plist */,
-				293A52E6ABB9324359EDE12EFCB4E02D /* Pods-EnolaGay_Example-umbrella.h */,
-				75F44FCDC360484C95CF20ED325D5903 /* Pods-EnolaGay_Example.debug.xcconfig */,
-				839188CD473D0294F9AFF64D663905CF /* Pods-EnolaGay_Example.release.xcconfig */,
+				902EBF7F72593BFE8BA8A33DEE49B9A8 /* Pods-EnolaGay_Example */,
+				9C3B41F9F325DC5435B327D3FAB90419 /* Pods-EnolaGay_Example-CacheDemo */,
+				B695D346435CA6F90EDC7193D6C04801 /* Pods-EnolaGay_Example-HPickerDemo */,
+				67B77A6251E780076A1CA5E1D8B72515 /* Pods-EnolaGay_Example-KeyBoardPop */,
+				541686DC9866996BB91C6C7CEB72D043 /* Pods-EnolaGay_Example-PlayerDemo */,
+				1B0B0F19412F61B6EA2360BC6450019D /* Pods-EnolaGay_Example-RefreshAdapter */,
+				C543C1A024301AAEDDD64FAF52C164CD /* Pods-EnolaGay_Example-Semaphore */,
+				A4F102F3BBF4937B6A42DF0BD5B3C280 /* Pods-EnolaGay_Example-VersionCheck */,
 			);
-			name = "Pods-EnolaGay_Example";
-			path = "Target Support Files/Pods-EnolaGay_Example";
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		F9FC7DE574CE209F38ED8326C4BFB3DE /* MJRefresh */ = {
@@ -1349,6 +1410,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		0EC0A039FDD8369E5BFDBD72DE72E41E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EA50D6E53AF7BC7F40383E02792C585 /* Pods-EnolaGay_Example-KeyBoardPop-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13F04756D7E306646FD0553B314397A6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1480,6 +1549,27 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		03A1ECB9CA8C49B2302F9ABFAE934D17 /* Pods-EnolaGay_Example-KeyBoardPop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09898679683B09E5062A1DECC5AC0D09 /* Build configuration list for PBXNativeTarget "Pods-EnolaGay_Example-KeyBoardPop" */;
+			buildPhases = (
+				0EC0A039FDD8369E5BFDBD72DE72E41E /* Headers */,
+				CD9C38CF72305BA3A4324043CDD2D90B /* Sources */,
+				AD748FBDFB719E7299FE75FB4235150B /* Frameworks */,
+				2380CA698E5F47E35F6228CDFA51EC0B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A0110DE1065F6112F54F828B05F8D03 /* PBXTargetDependency */,
+				8DB0B15CD2A3E64D64D0AD9C274BBD2B /* PBXTargetDependency */,
+				62FB433710B1CCE99E36B2D95757974B /* PBXTargetDependency */,
+			);
+			name = "Pods-EnolaGay_Example-KeyBoardPop";
+			productName = "Pods-EnolaGay_Example-KeyBoardPop";
+			productReference = 4BD2AB3F93DDC29979A32D273C66EA69 /* Pods_EnolaGay_Example_KeyBoardPop.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		3566CE7721250363BAE931141A0703B1 /* Player */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58F06BD8A6EFA0DC8644E52C1E0F1B20 /* Build configuration list for PBXNativeTarget "Player" */;
@@ -1758,7 +1848,7 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 2BC861D4712ACF1C6A6E75E0E24E0659 /* Products */;
+			productRefGroup = 385022A9D2904102992883B3E66EAFD2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -1770,6 +1860,7 @@
 				6934B6FC51054102D76B1C7EF05CE1E6 /* Pods-EnolaGay_Example */,
 				EAC214881441ECEEEF6BCB678C021054 /* Pods-EnolaGay_Example-CacheDemo */,
 				451C7F7C7689FA295B52C55623F8C266 /* Pods-EnolaGay_Example-HPickerDemo */,
+				03A1ECB9CA8C49B2302F9ABFAE934D17 /* Pods-EnolaGay_Example-KeyBoardPop */,
 				47AE22BCA7375816CCEB0B4A5B803679 /* Pods-EnolaGay_Example-PlayerDemo */,
 				BB7D74768F0CA311D5573DCCD6BA9723 /* Pods-EnolaGay_Example-RefreshAdapter */,
 				DDC87E26B9F35CEF8FB01BA76BCC9A5C /* Pods-EnolaGay_Example-Semaphore */,
@@ -1788,6 +1879,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1CA263AD58EF937A736613CC4E22055F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2380CA698E5F47E35F6228CDFA51EC0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2070,6 +2168,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CD9C38CF72305BA3A4324043CDD2D90B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8E6C4E47F179BEC982601222D88F4B6 /* Pods-EnolaGay_Example-KeyBoardPop-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D8D48E01EF46DD201130D591E6CAD021 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2134,6 +2240,12 @@
 			target = CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */;
 			targetProxy = 296447330897F011C8BBDF132B18D48D /* PBXContainerItemProxy */;
 		};
+		4A0110DE1065F6112F54F828B05F8D03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
+			targetProxy = 819C17BE0F7F6DB9ECBB0E7CEB9E04D6 /* PBXContainerItemProxy */;
+		};
 		509C58A76C1C0128988D1D2DAACBE157 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
@@ -2151,6 +2263,12 @@
 			name = SwiftyJSON;
 			target = D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */;
 			targetProxy = F204053B22B692AE2195D6FCA05C179D /* PBXContainerItemProxy */;
+		};
+		62FB433710B1CCE99E36B2D95757974B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyJSON;
+			target = D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */;
+			targetProxy = C59D3ED864B6AB5E04D271E16A768B96 /* PBXContainerItemProxy */;
 		};
 		68CD5C4F23C0A3ADF276AC61C66116EE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2175,6 +2293,12 @@
 			name = EnolaGay;
 			target = CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */;
 			targetProxy = E49085882864A9632882EC45B738E984 /* PBXContainerItemProxy */;
+		};
+		8DB0B15CD2A3E64D64D0AD9C274BBD2B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EnolaGay;
+			target = CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */;
+			targetProxy = 842AFF76BBF9AAC7E09610FDDD6F13D2 /* PBXContainerItemProxy */;
 		};
 		936B4F66C0A29156C55CB1B9DBA3B11F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2257,6 +2381,40 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		01DB5C135BDC2B4C6143871204FD4346 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CD325162668EAAD9778C669F5E44CF0 /* Pods-EnolaGay_Example-KeyBoardPop.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-EnolaGay_Example-KeyBoardPop/Pods-EnolaGay_Example-KeyBoardPop-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EnolaGay_Example-KeyBoardPop/Pods-EnolaGay_Example-KeyBoardPop.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		0DF557F59D00FDD5E9FD02A1082E9C4F /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DA27380488E1AE65A86A461CB24B3C7C /* EnolaGay.release.xcconfig */;
@@ -2325,7 +2483,7 @@
 		};
 		20C3B08DF51D224FD8786E4310C60072 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18262C83FBEDBD70FCD32FC8F9EB05B4 /* Pods-EnolaGay_Example-HPickerDemo.release.xcconfig */;
+			baseConfigurationReference = C14293CC66120CDC847DF7B07DDD0FDD /* Pods-EnolaGay_Example-HPickerDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -2360,7 +2518,7 @@
 		};
 		26991C1F1F4C3BEEC60CA356DE2F4F7C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DC6806205E8565CA176F82753AA3C37 /* Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig */;
+			baseConfigurationReference = 3FAEB66ECC32ACE76FB797E6757DD0AF /* Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -2395,7 +2553,7 @@
 		};
 		2A695CB0CDB2F50C216D80ED67F62625 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A42E6E5C8BB16E14846660406044A91 /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */;
+			baseConfigurationReference = 3BF321CDF1660146BB4A58826C7BFA40 /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -2460,7 +2618,7 @@
 		};
 		2F0E5BDC903936F4E06CB013B729E5C1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C2D21FFB9420D29DEC39DED9627934C /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */;
+			baseConfigurationReference = 717074769045185300F2AD48F8D6593A /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -2622,7 +2780,7 @@
 		};
 		4C6146B141DA05FC5D4A83C743452A84 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25DDF1690FE19A88EA1E51BBEE2DDD3C /* Pods-EnolaGay_Example-HPickerDemo.debug.xcconfig */;
+			baseConfigurationReference = 274CA794FE385114201DB3C513052A42 /* Pods-EnolaGay_Example-HPickerDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -2688,7 +2846,7 @@
 		};
 		59908E7EEA0B31A4569EEBDF5367FB8A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CD860927A6F577D6A7DE06E1EE9292B /* Pods-EnolaGay_Example-CacheDemo.release.xcconfig */;
+			baseConfigurationReference = D7B94CD52C01B513FA483DC3064F3DC6 /* Pods-EnolaGay_Example-CacheDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -2723,7 +2881,7 @@
 		};
 		615F87EDB28483CC928DA128FC5AC25B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75F44FCDC360484C95CF20ED325D5903 /* Pods-EnolaGay_Example.debug.xcconfig */;
+			baseConfigurationReference = 5E27EC35445434363EFD9AEFE4E413CD /* Pods-EnolaGay_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -2757,7 +2915,7 @@
 		};
 		77275EC98B30F57CD1336EA455315893 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C00D61F505171A59AEB1EC72DCF80060 /* Pods-EnolaGay_Example-VersionCheck.debug.xcconfig */;
+			baseConfigurationReference = 75FB1810BA1BDDE5429A3EF639E2D7BD /* Pods-EnolaGay_Example-VersionCheck.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -2791,7 +2949,7 @@
 		};
 		7CBBCA8AC6905E8BE4AAA41CC3345769 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E8A850991BD0D9B2978FCED84A7E337 /* Pods-EnolaGay_Example-PlayerDemo.release.xcconfig */;
+			baseConfigurationReference = 6D6D644D1E3596E989BA4BAE92E71210 /* Pods-EnolaGay_Example-PlayerDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -2892,7 +3050,7 @@
 		};
 		90F379027FE563CF6C4BBF2874DB4700 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CEBBDCF96921FB3984D0398C63EED8F /* Pods-EnolaGay_Example-VersionCheck.release.xcconfig */;
+			baseConfigurationReference = 318C8825774504842DB123231476C220 /* Pods-EnolaGay_Example-VersionCheck.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -2927,7 +3085,7 @@
 		};
 		91B003BBBAD82C649086F2F2AFEEE587 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4BFE6BC1826497D464D16EB904D89785 /* Pods-EnolaGay_Example-CacheDemo.debug.xcconfig */;
+			baseConfigurationReference = 377413DCAFC9BE472A680312870ECBB1 /* Pods-EnolaGay_Example-CacheDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -2961,7 +3119,7 @@
 		};
 		936CB2B7D56208FBB5DA91D85B394726 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 764854AA9C19958FAA26F0DF90BA57A3 /* Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig */;
+			baseConfigurationReference = B667429BC621EF36E0C191E7DD18457A /* Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -3120,7 +3278,7 @@
 		};
 		A7A2181B06B83985FC10FF136066F90F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 839188CD473D0294F9AFF64D663905CF /* Pods-EnolaGay_Example.release.xcconfig */;
+			baseConfigurationReference = AADCD863C8B8DEAFB7C04BB199E9111F /* Pods-EnolaGay_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -3186,9 +3344,44 @@
 			};
 			name = Release;
 		};
+		EB08AC9C8ECC0E9E9BF3A287C7731110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3BE3E585D120CD222216F74AB09F3A9 /* Pods-EnolaGay_Example-KeyBoardPop.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-EnolaGay_Example-KeyBoardPop/Pods-EnolaGay_Example-KeyBoardPop-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EnolaGay_Example-KeyBoardPop/Pods-EnolaGay_Example-KeyBoardPop.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		F2C26E05C38D9E6C3A9F287552039E22 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9AAB18055C56634E7950102C2A82FF66 /* Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig */;
+			baseConfigurationReference = A15A50A62003EB7460EFC011CBA37863 /* Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -3260,6 +3453,15 @@
 			buildConfigurations = (
 				98477E67679F5BA78B777F8A7C614DC2 /* Debug */,
 				FF60800AD0BFA37A7285C138D4903832 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09898679683B09E5062A1DECC5AC0D09 /* Build configuration list for PBXNativeTarget "Pods-EnolaGay_Example-KeyBoardPop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01DB5C135BDC2B4C6143871204FD4346 /* Debug */,
+				EB08AC9C8ECC0E9E9BF3A287C7731110 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

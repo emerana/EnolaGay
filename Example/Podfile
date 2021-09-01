@@ -49,8 +49,10 @@ target 'EnolaGay_Example' do
   target 'HPickerDemo' do
     pod 'EnolaGay', :path => '../'
     pod 'MJRefresh'
-    pod 'Alamofire', '~> 4.9.0'
   end
-
+  
+  target 'KeyBoardPop' do
+    pod 'EnolaGay', :path => '../'
+  end
+  
 end
-
