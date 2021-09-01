@@ -18,3 +18,11 @@ class ViewController: UIViewController {
     
 }
 
+import SwiftMessages
+import EnolaGay
+
+class FuckerView: MessageView {
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var scrollTitle: MarqueeView!
+    
+}

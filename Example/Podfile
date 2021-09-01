@@ -72,7 +72,6 @@ target 'EnolaGay_Example' do
     pod 'SwiftMessages'
     pod 'MJRefresh'
     pod 'SDWebImage'
-    pod 'YYImage'
     pod 'SDCycleScrollView'
     
     pod 'Charts'
@@ -99,10 +98,10 @@ target 'EnolaGay_Example' do
   target 'AGUL' do
     pod 'EnolaGay', :path => '../'
     pod 'EnolaGay/MarqueeView', :path => '../'
-
+    
+    pod 'Kingfisher'
     pod 'SwiftMessages'
     pod 'SDWebImage'
-    pod 'YYImage'
   end
 
 end

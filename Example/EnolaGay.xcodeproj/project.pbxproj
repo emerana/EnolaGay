@@ -235,7 +235,6 @@
 		8BC3DD2226DF58FB00A2A405 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD2126DF58FB00A2A405 /* ViewController.swift */; };
 		8BC3DD2526DF58FB00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD2326DF58FB00A2A405 /* Main.storyboard */; };
 		8BC3DD2726DF58FC00A2A405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD2626DF58FC00A2A405 /* Assets.xcassets */; };
-		8BC3DD2A26DF58FC00A2A405 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD2826DF58FC00A2A405 /* LaunchScreen.storyboard */; };
 		8BC3DD4E26DF5CE700A2A405 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD3326DF5CE700A2A405 /* NSDate+Utils.m */; };
 		8BC3DD4F26DF5CE700A2A405 /* me.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD3526DF5CE700A2A405 /* me.jpg */; };
 		8BC3DD5026DF5CE700A2A405 /* unohacha.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD3626DF5CE700A2A405 /* unohacha.jpg */; };
@@ -255,7 +254,7 @@
 		8BC3DD6026DF5D4E00A2A405 /* 睡你麻痹起来嗨.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD5E26DF5D4E00A2A405 /* 睡你麻痹起来嗨.gif */; };
 		8BC3DD6426DF5DC300A2A405 /* FuckerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD6126DF5DC300A2A405 /* FuckerView.xib */; };
 		8BC3DD6526DF5DC300A2A405 /* FuckerCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD6226DF5DC300A2A405 /* FuckerCtrl.swift */; };
-		8BC3DD6626DF5DC300A2A405 /* FuckerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD6326DF5DC300A2A405 /* FuckerView.swift */; };
+		8BC3DD6A26DF69B100A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD6826DF698000A2A405 /* LaunchScreen.xib */; };
 		8BE7F82C26CA4000001CE7EA /* ToastViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */; };
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
@@ -600,7 +599,6 @@
 		8BC3DD2126DF58FB00A2A405 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8BC3DD2426DF58FB00A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BC3DD2626DF58FC00A2A405 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8BC3DD2926DF58FC00A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BC3DD2B26DF58FC00A2A405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BC3DD3026DF5CE700A2A405 /* ChatViewCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewCtrl.h; sourceTree = "<group>"; };
 		8BC3DD3226DF5CE700A2A405 /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
@@ -633,8 +631,8 @@
 		8BC3DD5E26DF5D4E00A2A405 /* 睡你麻痹起来嗨.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "睡你麻痹起来嗨.gif"; sourceTree = "<group>"; };
 		8BC3DD6126DF5DC300A2A405 /* FuckerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FuckerView.xib; sourceTree = "<group>"; };
 		8BC3DD6226DF5DC300A2A405 /* FuckerCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuckerCtrl.swift; sourceTree = "<group>"; };
-		8BC3DD6326DF5DC300A2A405 /* FuckerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuckerView.swift; sourceTree = "<group>"; };
 		8BC3DD6726DF5F6400A2A405 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		8BC3DD6926DF698000A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8BD0919526AA978A004DE842 /* 温州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "温州.gpx"; sourceTree = "<group>"; };
 		8BD0919626AA9D3A004DE842 /* 杭州五联东苑.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "杭州五联东苑.gpx"; sourceTree = "<group>"; };
 		8BD7AE4F26A6747C00A07EB6 /* FontExtensionViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensionViewCtrl.swift; sourceTree = "<group>"; };
@@ -1716,17 +1714,16 @@
 			isa = PBXGroup;
 			children = (
 				8BC3DD2F26DF5CE700A2A405 /* Chat */,
-				8BC3DD1D26DF58FB00A2A405 /* AppDelegate.swift */,
-				8BC3DD6726DF5F6400A2A405 /* Bridging-Header.h */,
-				8BC3DD2126DF58FB00A2A405 /* ViewController.swift */,
 				8BC3DD6226DF5DC300A2A405 /* FuckerCtrl.swift */,
-				8BC3DD6326DF5DC300A2A405 /* FuckerView.swift */,
+				8BC3DD2126DF58FB00A2A405 /* ViewController.swift */,
 				8BC3DD6126DF5DC300A2A405 /* FuckerView.xib */,
 				8BC3DD5D26DF5D4E00A2A405 /* 板砖.gif */,
 				8BC3DD5E26DF5D4E00A2A405 /* 睡你麻痹起来嗨.gif */,
+				8BC3DD1D26DF58FB00A2A405 /* AppDelegate.swift */,
+				8BC3DD6726DF5F6400A2A405 /* Bridging-Header.h */,
 				8BC3DD2326DF58FB00A2A405 /* Main.storyboard */,
 				8BC3DD2626DF58FC00A2A405 /* Assets.xcassets */,
-				8BC3DD2826DF58FC00A2A405 /* LaunchScreen.storyboard */,
+				8BC3DD6826DF698000A2A405 /* LaunchScreen.xib */,
 				8BC3DD2B26DF58FC00A2A405 /* Info.plist */,
 			);
 			path = AGUL;
@@ -2286,11 +2283,11 @@
 				8BC3DD6426DF5DC300A2A405 /* FuckerView.xib in Resources */,
 				8BC3DD6026DF5D4E00A2A405 /* 睡你麻痹起来嗨.gif in Resources */,
 				8BC3DD5026DF5CE700A2A405 /* unohacha.jpg in Resources */,
-				8BC3DD2A26DF58FC00A2A405 /* LaunchScreen.storyboard in Resources */,
 				8BC3DD2726DF58FC00A2A405 /* Assets.xcassets in Resources */,
 				8BC3DD5626DF5CE700A2A405 /* UUChatTableView.bundle in Resources */,
 				8BC3DD2526DF58FB00A2A405 /* Main.storyboard in Resources */,
 				8BC3DD4F26DF5CE700A2A405 /* me.jpg in Resources */,
+				8BC3DD6A26DF69B100A2A405 /* LaunchScreen.xib in Resources */,
 				8BC3DD5F26DF5D4E00A2A405 /* 板砖.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2342,7 +2339,6 @@
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
-				"${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -2361,7 +2357,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2850,7 +2845,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
-				"${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -2859,7 +2854,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3109,7 +3104,6 @@
 				8BC3DD5226DF5CE700A2A405 /* UUAVAudioPlayer.m in Sources */,
 				8BC3DD4E26DF5CE700A2A405 /* NSDate+Utils.m in Sources */,
 				8BC3DD5C26DF5CE700A2A405 /* ChatModel.m in Sources */,
-				8BC3DD6626DF5DC300A2A405 /* FuckerView.swift in Sources */,
 				8BC3DD5826DF5CE700A2A405 /* UUProgressHUD.m in Sources */,
 				8BC3DD5726DF5CE700A2A405 /* UUMessageCell.m in Sources */,
 				8BC3DD1E26DF58FB00A2A405 /* AppDelegate.swift in Sources */,
@@ -3301,12 +3295,12 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		8BC3DD2826DF58FC00A2A405 /* LaunchScreen.storyboard */ = {
+		8BC3DD6826DF698000A2A405 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8BC3DD2926DF58FC00A2A405 /* Base */,
+				8BC3DD6926DF698000A2A405 /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
