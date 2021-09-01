@@ -253,6 +253,9 @@
 		8BC3DD5C26DF5CE700A2A405 /* ChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD4D26DF5CE700A2A405 /* ChatModel.m */; };
 		8BC3DD5F26DF5D4E00A2A405 /* 板砖.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD5D26DF5D4E00A2A405 /* 板砖.gif */; };
 		8BC3DD6026DF5D4E00A2A405 /* 睡你麻痹起来嗨.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD5E26DF5D4E00A2A405 /* 睡你麻痹起来嗨.gif */; };
+		8BC3DD6426DF5DC300A2A405 /* FuckerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD6126DF5DC300A2A405 /* FuckerView.xib */; };
+		8BC3DD6526DF5DC300A2A405 /* FuckerCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD6226DF5DC300A2A405 /* FuckerCtrl.swift */; };
+		8BC3DD6626DF5DC300A2A405 /* FuckerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD6326DF5DC300A2A405 /* FuckerView.swift */; };
 		8BE7F82C26CA4000001CE7EA /* ToastViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */; };
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
@@ -260,6 +263,7 @@
 		AE4C906A9FC35F064F0A2073 /* Pods_EnolaGay_Example_HPickerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10668B896E19D40B93D802F0 /* Pods_EnolaGay_Example_HPickerDemo.framework */; };
 		B50D17D8D986765C81AE086C /* Pods_EnolaGay_Example_CacheDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE7544F2E609AE3D7ABB860 /* Pods_EnolaGay_Example_CacheDemo.framework */; };
 		EE2859873D7E7BE3629FC128 /* Pods_EnolaGay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */; };
+		FD2BF1C1E58BD6F9609DDA99 /* Pods_EnolaGay_Example_AGUL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1F91CA9F27435144DFABFF /* Pods_EnolaGay_Example_AGUL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -275,6 +279,7 @@
 		2CF84AB23DA8850D1B61D207 /* Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-PlayerDemo/Pods-EnolaGay_Example-PlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		3448F43C0484DBEAC0D6AB18 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		3AE7544F2E609AE3D7ABB860 /* Pods_EnolaGay_Example_CacheDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_CacheDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BEF63E80633E7AB0E78136F /* Pods-EnolaGay_Example-AGUL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-AGUL.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-AGUL/Pods-EnolaGay_Example-AGUL.release.xcconfig"; sourceTree = "<group>"; };
 		4C14081734AB32DA5BCC5228 /* Pods-EnolaGay_Example-VersionCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-VersionCheck.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-VersionCheck/Pods-EnolaGay_Example-VersionCheck.release.xcconfig"; sourceTree = "<group>"; };
 		545F67098F044C7D30826C6D /* Pods-EnolaGay_Example-PlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-PlayerDemo.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-PlayerDemo/Pods-EnolaGay_Example-PlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		56B7C7FD9432457229EF842E /* Pods_EnolaGay_Example_FontExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_FontExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -294,6 +299,7 @@
 		6DD7B6EDF1F358418BB576F8 /* Pods-Cache.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cache.release.xcconfig"; path = "Target Support Files/Pods-Cache/Pods-Cache.release.xcconfig"; sourceTree = "<group>"; };
 		73E29F90BD7E27E821D96A1D /* Pods-EnolaGay_Example-KeyBoardPop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-KeyBoardPop.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-KeyBoardPop/Pods-EnolaGay_Example-KeyBoardPop.release.xcconfig"; sourceTree = "<group>"; };
 		7747A34155239783B6CF9842 /* EnolaGay.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = EnolaGay.podspec; path = ../EnolaGay.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7A1F91CA9F27435144DFABFF /* Pods_EnolaGay_Example_AGUL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_AGUL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A38E719664EBF8ECF3FA540 /* Pods-PlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerDemo.debug.xcconfig"; path = "Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7B318DF63D7C7D8043B55DC8 /* Pods-CacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CacheDemo.release.xcconfig"; path = "Target Support Files/Pods-CacheDemo/Pods-CacheDemo.release.xcconfig"; sourceTree = "<group>"; };
 		7D1C228B6498FDEC924256A9 /* Pods-EnolaGay_Example-EMERANA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-EMERANA.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-EMERANA/Pods-EnolaGay_Example-EMERANA.debug.xcconfig"; sourceTree = "<group>"; };
@@ -625,6 +631,10 @@
 		8BC3DD4D26DF5CE700A2A405 /* ChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatModel.m; sourceTree = "<group>"; };
 		8BC3DD5D26DF5D4E00A2A405 /* 板砖.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "板砖.gif"; sourceTree = "<group>"; };
 		8BC3DD5E26DF5D4E00A2A405 /* 睡你麻痹起来嗨.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "睡你麻痹起来嗨.gif"; sourceTree = "<group>"; };
+		8BC3DD6126DF5DC300A2A405 /* FuckerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FuckerView.xib; sourceTree = "<group>"; };
+		8BC3DD6226DF5DC300A2A405 /* FuckerCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuckerCtrl.swift; sourceTree = "<group>"; };
+		8BC3DD6326DF5DC300A2A405 /* FuckerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuckerView.swift; sourceTree = "<group>"; };
+		8BC3DD6726DF5F6400A2A405 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		8BD0919526AA978A004DE842 /* 温州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "温州.gpx"; sourceTree = "<group>"; };
 		8BD0919626AA9D3A004DE842 /* 杭州五联东苑.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "杭州五联东苑.gpx"; sourceTree = "<group>"; };
 		8BD7AE4F26A6747C00A07EB6 /* FontExtensionViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensionViewCtrl.swift; sourceTree = "<group>"; };
@@ -651,6 +661,7 @@
 		D2EBBBD394FA93CFC6BF2E19 /* Pods-PlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerDemo.release.xcconfig"; path = "Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		D579A6721E3EA8F9EE60A31A /* Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-RefreshAdapter/Pods-EnolaGay_Example-RefreshAdapter.release.xcconfig"; sourceTree = "<group>"; };
 		D84BAD74741852C41151DA81 /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-Semaphore.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-Semaphore/Pods-EnolaGay_Example-Semaphore.release.xcconfig"; sourceTree = "<group>"; };
+		DA30384362E444B599985A40 /* Pods-EnolaGay_Example-AGUL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-AGUL.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-AGUL/Pods-EnolaGay_Example-AGUL.debug.xcconfig"; sourceTree = "<group>"; };
 		DE964337EB4974F80D9E2D1A /* Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-RefreshAdapter/Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig"; sourceTree = "<group>"; };
 		E0B0EBA1D1F716C7B86861AA /* Pods-EnolaGay_Example-CastSurelyCalculation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-CastSurelyCalculation.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-CastSurelyCalculation/Pods-EnolaGay_Example-CastSurelyCalculation.debug.xcconfig"; sourceTree = "<group>"; };
 		EF1B7871C2D5B6F4AFBE3453 /* Pods-EnolaGay_Example-CacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-CacheDemo.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-CacheDemo/Pods-EnolaGay_Example-CacheDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -752,6 +763,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD2BF1C1E58BD6F9609DDA99 /* Pods_EnolaGay_Example_AGUL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,6 +807,8 @@
 				F12B3360D6A8243A1430AD22 /* Pods-EnolaGay_Example-FontExtension.release.xcconfig */,
 				7D1C228B6498FDEC924256A9 /* Pods-EnolaGay_Example-EMERANA.debug.xcconfig */,
 				881C812160C084706BF055D0 /* Pods-EnolaGay_Example-EMERANA.release.xcconfig */,
+				DA30384362E444B599985A40 /* Pods-EnolaGay_Example-AGUL.debug.xcconfig */,
+				4BEF63E80633E7AB0E78136F /* Pods-EnolaGay_Example-AGUL.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1703,7 +1717,11 @@
 			children = (
 				8BC3DD2F26DF5CE700A2A405 /* Chat */,
 				8BC3DD1D26DF58FB00A2A405 /* AppDelegate.swift */,
+				8BC3DD6726DF5F6400A2A405 /* Bridging-Header.h */,
 				8BC3DD2126DF58FB00A2A405 /* ViewController.swift */,
+				8BC3DD6226DF5DC300A2A405 /* FuckerCtrl.swift */,
+				8BC3DD6326DF5DC300A2A405 /* FuckerView.swift */,
+				8BC3DD6126DF5DC300A2A405 /* FuckerView.xib */,
 				8BC3DD5D26DF5D4E00A2A405 /* 板砖.gif */,
 				8BC3DD5E26DF5D4E00A2A405 /* 睡你麻痹起来嗨.gif */,
 				8BC3DD2326DF58FB00A2A405 /* Main.storyboard */,
@@ -1795,6 +1813,7 @@
 				B11BE9C599E48CB93DE875D0 /* Pods_EnolaGay_Example_KeyBoardPop.framework */,
 				56B7C7FD9432457229EF842E /* Pods_EnolaGay_Example_FontExtension.framework */,
 				0AF7FCDF38734E083B095500 /* Pods_EnolaGay_Example_EMERANA.framework */,
+				7A1F91CA9F27435144DFABFF /* Pods_EnolaGay_Example_AGUL.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2015,9 +2034,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BC3DD2C26DF58FC00A2A405 /* Build configuration list for PBXNativeTarget "AGUL" */;
 			buildPhases = (
+				3A9591FD73A75A8B8EA4952E /* [CP] Check Pods Manifest.lock */,
 				8BC3DD1726DF58FB00A2A405 /* Sources */,
 				8BC3DD1826DF58FB00A2A405 /* Frameworks */,
 				8BC3DD1926DF58FB00A2A405 /* Resources */,
+				ECE5F300E6F576282D5E6634 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2262,6 +2283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BC3DD6426DF5DC300A2A405 /* FuckerView.xib in Resources */,
 				8BC3DD6026DF5D4E00A2A405 /* 睡你麻痹起来嗨.gif in Resources */,
 				8BC3DD5026DF5CE700A2A405 /* unohacha.jpg in Resources */,
 				8BC3DD2A26DF58FC00A2A405 /* LaunchScreen.storyboard in Resources */,
@@ -2276,6 +2298,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3A9591FD73A75A8B8EA4952E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EnolaGay_Example-AGUL-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4D8023E299CF091570C755F5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2794,6 +2838,34 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ECE5F300E6F576282D5E6634 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-AGUL/Pods-EnolaGay_Example-AGUL-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
+				"${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-AGUL/Pods-EnolaGay_Example-AGUL-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -3037,6 +3109,7 @@
 				8BC3DD5226DF5CE700A2A405 /* UUAVAudioPlayer.m in Sources */,
 				8BC3DD4E26DF5CE700A2A405 /* NSDate+Utils.m in Sources */,
 				8BC3DD5C26DF5CE700A2A405 /* ChatModel.m in Sources */,
+				8BC3DD6626DF5DC300A2A405 /* FuckerView.swift in Sources */,
 				8BC3DD5826DF5CE700A2A405 /* UUProgressHUD.m in Sources */,
 				8BC3DD5726DF5CE700A2A405 /* UUMessageCell.m in Sources */,
 				8BC3DD1E26DF58FB00A2A405 /* AppDelegate.swift in Sources */,
@@ -3045,6 +3118,7 @@
 				8BC3DD5B26DF5CE700A2A405 /* UUChatCategory.m in Sources */,
 				8BC3DD5426DF5CE700A2A405 /* UUMessageContentButton.m in Sources */,
 				8BC3DD5926DF5CE700A2A405 /* UUMessage.m in Sources */,
+				8BC3DD6526DF5DC300A2A405 /* FuckerCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3767,6 +3841,7 @@
 		};
 		8BC3DD2D26DF58FC00A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA30384362E444B599985A40 /* Pods-EnolaGay_Example-AGUL.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -3788,6 +3863,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = enolagay.AGUL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(TARGET_NAME)/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3795,6 +3871,7 @@
 		};
 		8BC3DD2E26DF58FC00A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BEF63E80633E7AB0E78136F /* Pods-EnolaGay_Example-AGUL.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -3813,6 +3890,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = enolagay.AGUL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(TARGET_NAME)/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

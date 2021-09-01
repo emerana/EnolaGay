@@ -95,5 +95,14 @@ target 'EnolaGay_Example' do
     pod 'IGListKit', '~> 4.0.0'
 
   end
+  
+  target 'AGUL' do
+    pod 'EnolaGay', :path => '../'
+    pod 'EnolaGay/MarqueeView', :path => '../'
+
+    pod 'SwiftMessages'
+    pod 'SDWebImage'
+    pod 'YYImage'
+  end
 
 end
