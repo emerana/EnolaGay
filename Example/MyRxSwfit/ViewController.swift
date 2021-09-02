@@ -19,28 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var infoLabel: JudyBaseLabel!
     
     @IBOutlet weak var actionButton: JudyBaseButton!
-    
-    /// 用 Rx 封装接口
-    enum API {
 
-        static func userName() -> Observable<String> {
-
-            return Observable.create { observer -> Disposable in
-                observer.onNext("Judy")
-                sleep(6)
-                // observer.onCompleted()
-                return Disposables.create()
-            }
-        }
-
-        static func password() -> Observable<String> {
-            return Observable.create { observer -> Disposable in
-                observer.onNext("EMERANA")
-                return Disposables.create()
-            }
-        }
-    }
-    
     let dispost = DisposeBag()
 
     override func viewDidLoad() {
@@ -76,7 +55,7 @@ class ViewController: UIViewController {
     }
     
     func getInfo() {
-        Observable.zip(API.userName(), API.password())
+        Observable.zip(userName(), password())
             .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] (teacher, comments) in
@@ -86,5 +65,22 @@ class ViewController: UIViewController {
             })
             .disposed(by: dispost)
     }
+    
+    func userName() -> Observable<String> {
+        return Observable.create { observer -> Disposable in
+            observer.onNext("Judy")
+            sleep(6)
+            // observer.onCompleted()
+            return Disposables.create()
+        }
+    }
+
+    func password() -> Observable<String> {
+        return Observable.create { observer -> Disposable in
+            observer.onNext("EMERANA")
+            return Disposables.create()
+        }
+    }
+
     
 }
