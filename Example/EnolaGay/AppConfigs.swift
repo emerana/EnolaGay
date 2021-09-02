@@ -113,4 +113,3 @@ extension UIApplication: ApiAdapter {
     }
 
 }
-

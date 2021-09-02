@@ -22,7 +22,7 @@ class ApiTestViewCtrl: JudyBaseViewCtrl {
     override func setApi() {
         super.setApi()
         
-//        requestConfig.api = Actions.YouLikeByLiveFinish
+        requestConfig.api = Actions.YouLikeByLiveFinish
         requestConfig.parameters?["userid"] = 323430
     }
     

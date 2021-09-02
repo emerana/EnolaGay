@@ -51,11 +51,10 @@ class ViewController: UIViewController {
                 self?.getInfo()
             })
             .disposed(by: dispost)
-
     }
     
     func getInfo() {
-        Observable.zip(userName(), password())
+        Observable.zip(getVersionInfo(), password())
             .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] (teacher, comments) in
@@ -66,10 +65,13 @@ class ViewController: UIViewController {
             .disposed(by: dispost)
     }
     
-    func userName() -> Observable<String> {
+    func getVersionInfo() -> Observable<String> {
         return Observable.create { observer -> Disposable in
-            observer.onNext("Judy")
-            sleep(6)
+            Judy.queryVersionInfoAtAppStore(bundleIdentifier: "com.shengda.whalemall", version: "1.6.2") { versionStatus, appStoreURL in
+                Judy.log("查询到的 versionStatus：\(versionStatus)")
+                Judy.log("对应的URL：\(String(describing: appStoreURL))")
+                observer.onNext(versionStatus.rawValue)
+            }
             // observer.onCompleted()
             return Disposables.create()
         }
