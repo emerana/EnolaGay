@@ -107,5 +107,9 @@ target 'EnolaGay_Example' do
   target 'SegmentedDemo' do
     pod 'EnolaGay/SegmentedView', :path => '../'
   end
-
+  
+  target 'AttributedStringDemo' do
+    pod 'EnolaGay', :path => '../'
+  end
+  
 end
