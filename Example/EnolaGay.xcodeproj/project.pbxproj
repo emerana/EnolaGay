@@ -276,7 +276,7 @@
 		8BC3DDF126E06BA000A2A405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DDF026E06BA000A2A405 /* AppDelegate.swift */; };
 		8BC3DDF826E06BA100A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDF626E06BA100A2A405 /* Main.storyboard */; };
 		8BC3DDFA26E06BA300A2A405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDF926E06BA300A2A405 /* Assets.xcassets */; };
-		8BC3DDFD26E06BA300A2A405 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDFB26E06BA300A2A405 /* LaunchScreen.storyboard */; };
+		8BC3DE0C26E0798D00A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DE0A26E0795C00A2A405 /* LaunchScreen.xib */; };
 		8BE7F82C26CA4000001CE7EA /* ToastViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */; };
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
@@ -700,8 +700,8 @@
 		8BC3DDF026E06BA000A2A405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BC3DDF726E06BA100A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BC3DDF926E06BA300A2A405 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8BC3DDFC26E06BA300A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BC3DDFE26E06BA300A2A405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BC3DE0B26E0795C00A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8BD7AE4F26A6747C00A07EB6 /* FontExtensionViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensionViewCtrl.swift; sourceTree = "<group>"; };
 		8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
@@ -1948,7 +1948,7 @@
 				8BC3DDF026E06BA000A2A405 /* AppDelegate.swift */,
 				8BC3DDF626E06BA100A2A405 /* Main.storyboard */,
 				8BC3DDF926E06BA300A2A405 /* Assets.xcassets */,
-				8BC3DDFB26E06BA300A2A405 /* LaunchScreen.storyboard */,
+				8BC3DE0A26E0795C00A2A405 /* LaunchScreen.xib */,
 				8BC3DDFE26E06BA300A2A405 /* Info.plist */,
 			);
 			path = MyRxSwfit;
@@ -2630,7 +2630,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC3DDFD26E06BA300A2A405 /* LaunchScreen.storyboard in Resources */,
+				8BC3DE0C26E0798D00A2A405 /* LaunchScreen.xib in Resources */,
 				8BC3DDFA26E06BA300A2A405 /* Assets.xcassets in Resources */,
 				8BC3DDF826E06BA100A2A405 /* Main.storyboard in Resources */,
 			);
@@ -3986,12 +3986,12 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		8BC3DDFB26E06BA300A2A405 /* LaunchScreen.storyboard */ = {
+		8BC3DE0A26E0795C00A2A405 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8BC3DDFC26E06BA300A2A405 /* Base */,
+				8BC3DE0B26E0795C00A2A405 /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
