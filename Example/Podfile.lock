@@ -35,6 +35,12 @@ PODS:
   - Kingfisher (6.3.1)
   - MJRefresh (3.5.0)
   - Player (0.14.0)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
   - SDCycleScrollView (1.82):
     - SDWebImage (>= 5.0.0)
   - SDWebImage (5.11.1):
@@ -69,6 +75,8 @@ DEPENDENCIES:
   - Kingfisher
   - MJRefresh
   - Player
+  - RxCocoa
+  - RxSwift
   - SDCycleScrollView
   - SDWebImage
   - SwiftMessages
@@ -84,6 +92,9 @@ SPEC REPOS:
     - IGListKit
     - IQKeyboardManagerSwift
     - Kingfisher
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SDCycleScrollView
     - SDWebImage
     - SwiftMessages
@@ -113,12 +124,15 @@ SPEC CHECKSUMS:
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Player: 37e0acc16ea1495fc241df88fe9f089367513331
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SDCycleScrollView: a0d74c3384caa72bdfc81470bdbc8c14b3e1fbcf
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SwiftMessages: 077f19126c24033fe24042237ecc20261adb46e4
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: b3995a3a974114493b3a6d1ba014df920a70714a
+PODFILE CHECKSUM: a2f42e81e64153cd20ff730f2e3724476fc543be
 
 COCOAPODS: 1.10.2
