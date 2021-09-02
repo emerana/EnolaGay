@@ -116,5 +116,9 @@ target 'EnolaGay_Example' do
     pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
   end
 
+  target 'JudyLivePageViewCtrl' do
+    pod 'EnolaGay', :path => '../'
+  end
+
   
 end
