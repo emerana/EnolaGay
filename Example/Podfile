@@ -103,5 +103,9 @@ target 'EnolaGay_Example' do
     pod 'SwiftMessages'
     pod 'SDWebImage'
   end
+  
+  target 'SegmentedDemo' do
+    pod 'EnolaGay/SegmentedView', :path => '../'
+  end
 
 end
