@@ -111,5 +111,10 @@ target 'EnolaGay_Example' do
   target 'AttributedStringDemo' do
     pod 'EnolaGay', :path => '../'
   end
+
+  target 'GiftMessageViewCtrlDemo' do
+    pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
+  end
+
   
 end

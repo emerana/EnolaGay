@@ -36,8 +36,6 @@
 		8B620EA526DDF347001E1A9D /* VersionCheck-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */; };
 		8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76428F25A702C400A418F8 /* AppConfigs.swift */; };
 		8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */; };
-		8BB8861E265CF30A00E8836D /* GiftMessageViewCtrlTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */; };
-		8BB88621265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BB88620265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard */; };
 		8BC3DA2D26DDF88C00A2A405 /* VersionCheckViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */; };
 		8BC3DA3226DDFA6E00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA3026DDFA6E00A2A405 /* Main.storyboard */; };
 		8BC3DA3326DDFAAC00A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */; };
@@ -265,6 +263,11 @@
 		8BC3DDA526E05E5200A2A405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDA426E05E5200A2A405 /* Assets.xcassets */; };
 		8BC3DDAD26E05EBD00A2A405 /* AttributedStringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */; };
 		8BC3DDB026E05F3700A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDAE26E05F1500A2A405 /* LaunchScreen.xib */; };
+		8BC3DDB826E05F9100A2A405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DDB726E05F9100A2A405 /* AppDelegate.swift */; };
+		8BC3DDBF26E05F9100A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDBD26E05F9100A2A405 /* Main.storyboard */; };
+		8BC3DDC126E05F9300A2A405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDC026E05F9300A2A405 /* Assets.xcassets */; };
+		8BC3DDCB26E05FD500A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDC926E05FAE00A2A405 /* LaunchScreen.xib */; };
+		8BC3DDCC26E05FF200A2A405 /* GiftMessageViewCtrlTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */; };
 		8BE7F82C26CA4000001CE7EA /* ToastViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */; };
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
@@ -272,14 +275,17 @@
 		AE4C906A9FC35F064F0A2073 /* Pods_EnolaGay_Example_HPickerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10668B896E19D40B93D802F0 /* Pods_EnolaGay_Example_HPickerDemo.framework */; };
 		B50D17D8D986765C81AE086C /* Pods_EnolaGay_Example_CacheDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE7544F2E609AE3D7ABB860 /* Pods_EnolaGay_Example_CacheDemo.framework */; };
 		EE2859873D7E7BE3629FC128 /* Pods_EnolaGay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */; };
+		F1E101BD8D92D20F45ED0338 /* Pods_EnolaGay_Example_GiftMessageViewCtrlDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B94CF2DC9FF3616B095D6E /* Pods_EnolaGay_Example_GiftMessageViewCtrlDemo.framework */; };
 		FD2BF1C1E58BD6F9609DDA99 /* Pods_EnolaGay_Example_AGUL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1F91CA9F27435144DFABFF /* Pods_EnolaGay_Example_AGUL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0005672A43BF38EEA236113A /* Pods-EnolaGay_Example-HPickerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-HPickerDemo.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-HPickerDemo/Pods-EnolaGay_Example-HPickerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		0267796B2E9E9A73B13950C3 /* Pods-EnolaGay_Example-KeyBoardPop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-KeyBoardPop.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-KeyBoardPop/Pods-EnolaGay_Example-KeyBoardPop.debug.xcconfig"; sourceTree = "<group>"; };
+		034DFC872F0702F70BA01839 /* Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.release.xcconfig"; sourceTree = "<group>"; };
 		0AF7FCDF38734E083B095500 /* Pods_EnolaGay_Example_EMERANA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_EMERANA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10668B896E19D40B93D802F0 /* Pods_EnolaGay_Example_HPickerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_HPickerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12B94CF2DC9FF3616B095D6E /* Pods_EnolaGay_Example_GiftMessageViewCtrlDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_GiftMessageViewCtrlDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CC0A4766FAB395BE63A866 /* Pods_EnolaGay_Example_AttributedStringDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_AttributedStringDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2235E508AC7733ECB6444EE9 /* Pods_EnolaGay_Example_VersionCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_VersionCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F1A9FFE10BA8A787D6AA62 /* Pods-EnolaGay_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -338,7 +344,6 @@
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
 		8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftMessageViewCtrlTest.swift; sourceTree = "<group>"; };
-		8BB88620265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GiftMessageViewCtrlTest.storyboard; sourceTree = "<group>"; };
 		8BC3DA2A26DDF70100A2A405 /* VersionCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VersionCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC3DA2F26DDFA5100A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8BC3DA3126DDFA6E00A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -668,6 +673,12 @@
 		8BC3DDA426E05E5200A2A405 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BC3DDA926E05E5200A2A405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BC3DDAF26E05F1500A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		8BC3DDB526E05F9100A2A405 /* GiftMessageViewCtrlDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftMessageViewCtrlDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BC3DDB726E05F9100A2A405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8BC3DDBE26E05F9100A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8BC3DDC026E05F9300A2A405 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8BC3DDC526E05F9300A2A405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BC3DDCA26E05FAE00A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8BD7AE4F26A6747C00A07EB6 /* FontExtensionViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensionViewCtrl.swift; sourceTree = "<group>"; };
 		8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
@@ -691,6 +702,7 @@
 		E0B0EBA1D1F716C7B86861AA /* Pods-EnolaGay_Example-CastSurelyCalculation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-CastSurelyCalculation.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-CastSurelyCalculation/Pods-EnolaGay_Example-CastSurelyCalculation.debug.xcconfig"; sourceTree = "<group>"; };
 		EF1B7871C2D5B6F4AFBE3453 /* Pods-EnolaGay_Example-CacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-CacheDemo.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-CacheDemo/Pods-EnolaGay_Example-CacheDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F12B3360D6A8243A1430AD22 /* Pods-EnolaGay_Example-FontExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-FontExtension.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-FontExtension/Pods-EnolaGay_Example-FontExtension.release.xcconfig"; sourceTree = "<group>"; };
+		F17AF534EDE8F540CDD3CB5C /* Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		F8005BD33F05A9C078F23875 /* Pods-EnolaGay_Example-HPickerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-HPickerDemo.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-HPickerDemo/Pods-EnolaGay_Example-HPickerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		F98BD9BA7538AEBFD8F12C47 /* Pods-VersionCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VersionCheck.release.xcconfig"; path = "Target Support Files/Pods-VersionCheck/Pods-VersionCheck.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -808,6 +820,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BC3DDB226E05F9100A2A405 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1E101BD8D92D20F45ED0338 /* Pods_EnolaGay_Example_GiftMessageViewCtrlDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -854,6 +874,8 @@
 				554BB4616143A27C6D99AAD7 /* Pods-EnolaGay_Example-SegmentedDemo.release.xcconfig */,
 				81C934946DB1302D7D1E0F7F /* Pods-EnolaGay_Example-AttributedStringDemo.debug.xcconfig */,
 				24FBEA9EE9646A4D140FFFDA /* Pods-EnolaGay_Example-AttributedStringDemo.release.xcconfig */,
+				F17AF534EDE8F540CDD3CB5C /* Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.debug.xcconfig */,
+				034DFC872F0702F70BA01839 /* Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -877,6 +899,7 @@
 				8BC3DD1C26DF58FB00A2A405 /* AGUL */,
 				8BC3DD7E26E05C8E00A2A405 /* SegmentedDemo */,
 				8BC3DD9A26E05E5000A2A405 /* AttributedStringDemo */,
+				8BC3DDB626E05F9100A2A405 /* GiftMessageViewCtrlDemo */,
 				607FACD11AFB9204008FA782 /* Products */,
 				48F58D42A596E8C4AFE02DEE /* Pods */,
 				C2843BD89BA8C609ED35D6C4 /* Frameworks */,
@@ -900,6 +923,7 @@
 				8BC3DD1B26DF58FB00A2A405 /* AGUL.app */,
 				8BC3DD7D26E05C8D00A2A405 /* SegmentedDemo.app */,
 				8BC3DD9926E05E5000A2A405 /* AttributedStringDemo.app */,
+				8BC3DDB526E05F9100A2A405 /* GiftMessageViewCtrlDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -914,7 +938,6 @@
 				8B1A498E25C8353100FDA57A /* LangRenSha */,
 				8B1AA67725A74B350063BE04 /* JudyLivePageViewCtrl */,
 				8B76428E25A702C400A418F8 /* Tests */,
-				8BB8861F265CF31200E8836D /* GiftMessageViewCtrlTest */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				8B76428F25A702C400A418F8 /* AppConfigs.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -1027,15 +1050,6 @@
 				8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		8BB8861F265CF31200E8836D /* GiftMessageViewCtrlTest */ = {
-			isa = PBXGroup;
-			children = (
-				8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */,
-				8BB88620265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard */,
-			);
-			path = GiftMessageViewCtrlTest;
 			sourceTree = "<group>";
 		};
 		8BC3DA4426DE965700A2A405 /* Semaphore */ = {
@@ -1862,6 +1876,19 @@
 			path = AttributedStringDemo;
 			sourceTree = "<group>";
 		};
+		8BC3DDB626E05F9100A2A405 /* GiftMessageViewCtrlDemo */ = {
+			isa = PBXGroup;
+			children = (
+				8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */,
+				8BC3DDB726E05F9100A2A405 /* AppDelegate.swift */,
+				8BC3DDBD26E05F9100A2A405 /* Main.storyboard */,
+				8BC3DDC026E05F9300A2A405 /* Assets.xcassets */,
+				8BC3DDC926E05FAE00A2A405 /* LaunchScreen.xib */,
+				8BC3DDC526E05F9300A2A405 /* Info.plist */,
+			);
+			path = GiftMessageViewCtrlDemo;
+			sourceTree = "<group>";
+		};
 		8BFCC83125E385F9000B1611 /* 垂直轮播图 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1888,6 +1915,7 @@
 				7A1F91CA9F27435144DFABFF /* Pods_EnolaGay_Example_AGUL.framework */,
 				6A5C20B4BCEF626DB9267C95 /* Pods_EnolaGay_Example_SegmentedDemo.framework */,
 				16CC0A4766FAB395BE63A866 /* Pods_EnolaGay_Example_AttributedStringDemo.framework */,
+				12B94CF2DC9FF3616B095D6E /* Pods_EnolaGay_Example_GiftMessageViewCtrlDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2161,6 +2189,25 @@
 			productReference = 8BC3DD9926E05E5000A2A405 /* AttributedStringDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8BC3DDB426E05F9100A2A405 /* GiftMessageViewCtrlDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BC3DDC626E05F9300A2A405 /* Build configuration list for PBXNativeTarget "GiftMessageViewCtrlDemo" */;
+			buildPhases = (
+				21997874D8B0F642E4690878 /* [CP] Check Pods Manifest.lock */,
+				8BC3DDB126E05F9100A2A405 /* Sources */,
+				8BC3DDB226E05F9100A2A405 /* Frameworks */,
+				8BC3DDB326E05F9100A2A405 /* Resources */,
+				4A51C1A7598C2E3580C72A94 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GiftMessageViewCtrlDemo;
+			productName = GiftMessageViewCtrlDemo;
+			productReference = 8BC3DDB526E05F9100A2A405 /* GiftMessageViewCtrlDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2225,6 +2272,11 @@
 						DevelopmentTeam = 325J3J39TM;
 						ProvisioningStyle = Automatic;
 					};
+					8BC3DDB426E05F9100A2A405 = {
+						CreatedOnToolsVersion = 12.5.1;
+						DevelopmentTeam = 325J3J39TM;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "EnolaGay" */;
@@ -2254,6 +2306,7 @@
 				8BC3DD1A26DF58FB00A2A405 /* AGUL */,
 				8BC3DD7C26E05C8D00A2A405 /* SegmentedDemo */,
 				8BC3DD9826E05E5000A2A405 /* AttributedStringDemo */,
+				8BC3DDB426E05F9100A2A405 /* GiftMessageViewCtrlDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -2265,7 +2318,6 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				8BB88621265CF32800E8836D /* GiftMessageViewCtrlTest.storyboard in Resources */,
 				8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */,
 				8B372D11268E9F3E004840FC /* Assets.xcassets in Resources */,
 				8B372D1F268EA105004840FC /* Mandoline.storyboard in Resources */,
@@ -2438,9 +2490,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BC3DDB326E05F9100A2A405 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BC3DDCB26E05FD500A2A405 /* LaunchScreen.xib in Resources */,
+				8BC3DDC126E05F9300A2A405 /* Assets.xcassets in Resources */,
+				8BC3DDBF26E05F9100A2A405 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		21997874D8B0F642E4690878 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3A9591FD73A75A8B8EA4952E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2483,6 +2567,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-SegmentedDemo/Pods-EnolaGay_Example-SegmentedDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A51C1A7598C2E3580C72A94 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4D8023E299CF091570C755F5 /* [CP] Embed Pods Frameworks */ = {
@@ -3109,7 +3215,6 @@
 				8B1AA67325A74AE60063BE04 /* JudyLivePageViewTest.swift in Sources */,
 				8B4A4DED266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift in Sources */,
 				8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */,
-				8BB8861E265CF30A00E8836D /* GiftMessageViewCtrlTest.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				8B372D1D268EA105004840FC /* MandolineViewController.swift in Sources */,
 				8B1AA68025A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */,
@@ -3367,6 +3472,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BC3DDB126E05F9100A2A405 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BC3DDB826E05F9100A2A405 /* AppDelegate.swift in Sources */,
+				8BC3DDCC26E05FF200A2A405 /* GiftMessageViewCtrlTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -3582,6 +3696,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				8BC3DDAF26E05F1500A2A405 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		8BC3DDBD26E05F9100A2A405 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BC3DDBE26E05F9100A2A405 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8BC3DDC926E05FAE00A2A405 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BC3DDCA26E05FAE00A2A405 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -4283,6 +4413,61 @@
 			};
 			name = Release;
 		};
+		8BC3DDC726E05F9300A2A405 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F17AF534EDE8F540CDD3CB5C /* Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = GiftMessageViewCtrlDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.GiftMessageViewCtrlDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8BC3DDC826E05F9300A2A405 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 034DFC872F0702F70BA01839 /* Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = GiftMessageViewCtrlDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.GiftMessageViewCtrlDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -4417,6 +4602,15 @@
 			buildConfigurations = (
 				8BC3DDAB26E05E5200A2A405 /* Debug */,
 				8BC3DDAC26E05E5200A2A405 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BC3DDC626E05F9300A2A405 /* Build configuration list for PBXNativeTarget "GiftMessageViewCtrlDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BC3DDC726E05F9300A2A405 /* Debug */,
+				8BC3DDC826E05F9300A2A405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
