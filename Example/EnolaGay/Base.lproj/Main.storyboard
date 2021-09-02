@@ -89,7 +89,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gC9-CJ-Aja" customClass="JudySegmentedCtrl">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gC9-CJ-Aja" customClass="SegmentedView" customModule="EnolaGay">
                                 <rect key="frame" x="0.0" y="96" width="390" height="68"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
@@ -116,7 +116,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="2Re-rg-PXo"/>
                     <connections>
-                        <outlet property="segmentCtrl" destination="gC9-CJ-Aja" id="ok6-ht-g9F"/>
                         <outlet property="segmentedView" destination="MDI-LX-mTY" id="kfT-fb-GX4"/>
                     </connections>
                 </viewController>

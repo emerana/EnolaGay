@@ -255,6 +255,7 @@
 		8BC3DD6426DF5DC300A2A405 /* FuckerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD6126DF5DC300A2A405 /* FuckerView.xib */; };
 		8BC3DD6526DF5DC300A2A405 /* FuckerCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD6226DF5DC300A2A405 /* FuckerCtrl.swift */; };
 		8BC3DD6A26DF69B100A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD6826DF698000A2A405 /* LaunchScreen.xib */; };
+		8BC3DD6B26E05B5B00A2A405 /* SegmentedTestViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */; };
 		8BE7F82C26CA4000001CE7EA /* ToastViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */; };
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
@@ -320,10 +321,6 @@
 		8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VersionCheck-Info.plist"; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
-		8B8038772687F253006745A6 /* 深圳东站东广场.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "深圳东站东广场.gpx"; sourceTree = "<group>"; };
-		8B8038782687F290006745A6 /* 深圳北站.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "深圳北站.gpx"; sourceTree = "<group>"; };
-		8B8E2BF92660920200B16E49 /* 深圳龙岗天安数码城.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "深圳龙岗天安数码城.gpx"; sourceTree = "<group>"; };
-		8B8E2BFA2660929100B16E49 /* 陆港电商小镇.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "陆港电商小镇.gpx"; sourceTree = "<group>"; };
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
 		8BA9AA04260EDAB8008B1803 /* AttributedString.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AttributedString.storyboard; sourceTree = "<group>"; };
 		8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftMessageViewCtrlTest.swift; sourceTree = "<group>"; };
@@ -633,15 +630,19 @@
 		8BC3DD6226DF5DC300A2A405 /* FuckerCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuckerCtrl.swift; sourceTree = "<group>"; };
 		8BC3DD6726DF5F6400A2A405 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		8BC3DD6926DF698000A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		8BD0919526AA978A004DE842 /* 温州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "温州.gpx"; sourceTree = "<group>"; };
-		8BD0919626AA9D3A004DE842 /* 杭州五联东苑.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "杭州五联东苑.gpx"; sourceTree = "<group>"; };
+		8BC3DD6D26E05BC900A2A405 /* 温州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "温州.gpx"; sourceTree = "<group>"; };
+		8BC3DD6E26E05BC900A2A405 /* 浙江台州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "浙江台州.gpx"; sourceTree = "<group>"; };
+		8BC3DD6F26E05BC900A2A405 /* 陆港电商小镇.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "陆港电商小镇.gpx"; sourceTree = "<group>"; };
+		8BC3DD7026E05BC900A2A405 /* 深圳北站.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "深圳北站.gpx"; sourceTree = "<group>"; };
+		8BC3DD7126E05BC900A2A405 /* 天津.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "天津.gpx"; sourceTree = "<group>"; };
+		8BC3DD7226E05BC900A2A405 /* 杭州五联东苑.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "杭州五联东苑.gpx"; sourceTree = "<group>"; };
+		8BC3DD7326E05BC900A2A405 /* 广东清远.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "广东清远.gpx"; sourceTree = "<group>"; };
+		8BC3DD7426E05BC900A2A405 /* 湖南郴州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "湖南郴州.gpx"; sourceTree = "<group>"; };
+		8BC3DD7526E05BC900A2A405 /* 深圳东站东广场.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "深圳东站东广场.gpx"; sourceTree = "<group>"; };
+		8BC3DD7626E05BC900A2A405 /* 福建龙岩.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "福建龙岩.gpx"; sourceTree = "<group>"; };
+		8BC3DD7726E05BC900A2A405 /* 深圳龙岗天安数码城.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "深圳龙岗天安数码城.gpx"; sourceTree = "<group>"; };
+		8BC3DD7826E05BC900A2A405 /* 广东韶关.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "广东韶关.gpx"; sourceTree = "<group>"; };
 		8BD7AE4F26A6747C00A07EB6 /* FontExtensionViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensionViewCtrl.swift; sourceTree = "<group>"; };
-		8BE5C0512667563700FEAF52 /* 湖南郴州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "湖南郴州.gpx"; sourceTree = "<group>"; };
-		8BE5C0522667563800FEAF52 /* 福建龙岩.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "福建龙岩.gpx"; sourceTree = "<group>"; };
-		8BE5C0532667563A00FEAF52 /* 广东清远.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "广东清远.gpx"; sourceTree = "<group>"; };
-		8BE5C0542667570F00FEAF52 /* 广东韶关.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "广东韶关.gpx"; sourceTree = "<group>"; };
-		8BE5C0552667583200FEAF52 /* 浙江台州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "浙江台州.gpx"; sourceTree = "<group>"; };
-		8BE5C0562667592D00FEAF52 /* 天津.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "天津.gpx"; sourceTree = "<group>"; };
 		8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerticalScrollView.storyboard; sourceTree = "<group>"; };
@@ -827,6 +828,7 @@
 				8BC3DB5326DF414D00A2A405 /* FontExtension */,
 				8BC3DB6C26DF479200A2A405 /* EMERANA */,
 				8BC3DD1C26DF58FB00A2A405 /* AGUL */,
+				8BC3DD6C26E05BC900A2A405 /* GPX */,
 				607FACD11AFB9204008FA782 /* Products */,
 				48F58D42A596E8C4AFE02DEE /* Pods */,
 				C2843BD89BA8C609ED35D6C4 /* Frameworks */,
@@ -878,18 +880,6 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8B8E2BF92660920200B16E49 /* 深圳龙岗天安数码城.gpx */,
-				8B8038772687F253006745A6 /* 深圳东站东广场.gpx */,
-				8B8038782687F290006745A6 /* 深圳北站.gpx */,
-				8B8E2BFA2660929100B16E49 /* 陆港电商小镇.gpx */,
-				8BE5C0512667563700FEAF52 /* 湖南郴州.gpx */,
-				8BE5C0522667563800FEAF52 /* 福建龙岩.gpx */,
-				8BE5C0532667563A00FEAF52 /* 广东清远.gpx */,
-				8BE5C0542667570F00FEAF52 /* 广东韶关.gpx */,
-				8BE5C0552667583200FEAF52 /* 浙江台州.gpx */,
-				8BE5C0562667592D00FEAF52 /* 天津.gpx */,
-				8BD0919526AA978A004DE842 /* 温州.gpx */,
-				8BD0919626AA9D3A004DE842 /* 杭州五联东苑.gpx */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -1785,6 +1775,26 @@
 				8BC3DD4C26DF5CE700A2A405 /* UUChatCategory.m */,
 			);
 			path = Class;
+			sourceTree = "<group>";
+		};
+		8BC3DD6C26E05BC900A2A405 /* GPX */ = {
+			isa = PBXGroup;
+			children = (
+				8BC3DD6D26E05BC900A2A405 /* 温州.gpx */,
+				8BC3DD6E26E05BC900A2A405 /* 浙江台州.gpx */,
+				8BC3DD6F26E05BC900A2A405 /* 陆港电商小镇.gpx */,
+				8BC3DD7026E05BC900A2A405 /* 深圳北站.gpx */,
+				8BC3DD7126E05BC900A2A405 /* 天津.gpx */,
+				8BC3DD7226E05BC900A2A405 /* 杭州五联东苑.gpx */,
+				8BC3DD7326E05BC900A2A405 /* 广东清远.gpx */,
+				8BC3DD7426E05BC900A2A405 /* 湖南郴州.gpx */,
+				8BC3DD7526E05BC900A2A405 /* 深圳东站东广场.gpx */,
+				8BC3DD7626E05BC900A2A405 /* 福建龙岩.gpx */,
+				8BC3DD7726E05BC900A2A405 /* 深圳龙岗天安数码城.gpx */,
+				8BC3DD7826E05BC900A2A405 /* 广东韶关.gpx */,
+			);
+			name = GPX;
+			path = EnolaGay/GPX;
 			sourceTree = "<group>";
 		};
 		8BFCC83125E385F9000B1611 /* 垂直轮播图 */ = {
@@ -2878,6 +2888,7 @@
 				8BB8861E265CF30A00E8836D /* GiftMessageViewCtrlTest.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				8B372D1D268EA105004840FC /* MandolineViewController.swift in Sources */,
+				8BC3DD6B26E05B5B00A2A405 /* SegmentedTestViewCtrl.swift in Sources */,
 				8BA9AA01260EDAAC008B1803 /* AttributedStringViewController.swift in Sources */,
 				8B1AA68025A74C1B0063BE04 /* LiveModelViewCtrl.swift in Sources */,
 				8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */,
