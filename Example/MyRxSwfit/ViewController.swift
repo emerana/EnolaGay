@@ -20,37 +20,20 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var actionButton: JudyBaseButton!
 
-    let dispost = DisposeBag()
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        textField_A.rx.text.orEmpty.subscribe { [weak self] str in
-            self?.textField_B.text = str
-        } onError: { error in
-            Judy.log("错误:\(error)")
-        } onCompleted: {
-            Judy.log("onCompleted")
-        } onDisposed: {
-            Judy.log("onDisposed")
-        }.disposed(by: dispost)
-        
-        textField_B.rx.text.orEmpty.subscribe { [weak self] str in
-            self?.textField_A.text = str
-        } onError: { error in
-            Judy.log("错误:\(error)")
-        } onCompleted: {
-            Judy.log("onCompleted")
-        } onDisposed: {
-            Judy.log("onDisposed")
-        }.disposed(by: dispost)
+        // textField_B 作为观察者
+        textField_A.rx.text.bind(to: textField_B.rx.text).disposed(by: disposeBag)
+        // textField_A 作为观察者
+        textField_B.rx.text.bind(to: textField_A.rx.text).disposed(by: disposeBag)
 
-        actionButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
+        actionButton.rx.tap.subscribe(onNext: { [weak self] _ in
                 self?.infoLabel.text = "正在获取信息……"
                 self?.getInfo()
-            })
-            .disposed(by: dispost)
+            }).disposed(by: disposeBag)
     }
     
     func getInfo() {
@@ -62,7 +45,7 @@ class ViewController: UIViewController {
             }, onError: { error in
                 print("获取老师信息或评论失败: \(error)")
             })
-            .disposed(by: dispost)
+            .disposed(by: disposeBag)
     }
     
     func getVersionInfo() -> Observable<String> {
