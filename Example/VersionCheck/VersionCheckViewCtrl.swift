@@ -8,6 +8,8 @@
 
 import UIKit
 import EnolaGay
+import RxSwift
+import RxCocoa
 
 class VersionCheckViewCtrl: JudyBaseViewCtrl {
     override var viewTitle: String? { "版本查询" }
@@ -18,13 +20,56 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
     @IBOutlet weak private var versionTextField: JudyBaseTextField!
     @IBOutlet weak private var infoLabel: UILabel!
 
+    @IBOutlet weak private var queryButton: JudyBaseButton!
     
+    private let disposeBag = DisposeBag()
+
+    private var bundleID = ""
+    private var version = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        bundleIDTextField.text = Judy.bundleIdentifier
-        versionTextField.text = Judy.versionShort
         infoLabel.text = ""
+        bundleIDTextField.text = "com.shengda.whalemall"
+        versionTextField.text = Judy.versionShort
+        
+        bundleIDTextField.rx.text.orEmpty.subscribe (onNext: { [weak self] string in
+            Judy.log("bundleID 新元素:\(string)")
+            self?.bundleID = string
+        }).disposed(by: disposeBag)
+        versionTextField.rx.text.orEmpty.subscribe (onNext: { [weak self] string in
+            Judy.log("version 新元素:\(string)")
+            self?.version = string
+        }).disposed(by: disposeBag)
+
+        // bundleID 是否有效
+        let bundleIDValid = bundleIDTextField.rx.text.orEmpty
+            .map { $0.count >= 5 }
+            .share(replay: 1)
+        // bundleID 是否有效 -> 版本号输入框是否可用
+        // bundleIDValid.bind(to: versionTextField.rx.isEnabled).disposed(by: disposeBag)
+        
+        // versionValid 是否有效
+        let versionValid = versionTextField.rx.text.orEmpty
+            .map { $0.count >= 1 }
+            .share(replay: 1)
+        
+        // 所有输入是否有效
+        let everyValid = Observable.combineLatest(bundleIDValid, versionValid)
+            .map { $0 && $1 }
+            .share(replay: 1)
+        
+        // 所有输入是否有效 -> 绿色按钮是否可点击
+        everyValid.bind(to: queryButton.rx.isEnabled).disposed(by: disposeBag)
+
+        // 按钮点击事件
+        queryButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let `self` = self else { return }
+            self.infoLabel.text = "查询中……"
+            self.view.endEditing(true)
+            self.versionCheck()
+        }).disposed(by: disposeBag)
+
     }
     
     
@@ -32,33 +77,83 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
         isReqSuccess = true
         super.viewWillAppear(animated)
     }
+}
 
-    
-    @IBAction private func checkAction(_ sender: Any) {
-        infoLabel.text = "查询中……"
-        view.endEditing(true)
+private extension VersionCheckViewCtrl {
+    /// 查询版本是否有强制更新
+    func versionCheck() {
+        queryButton.isHidden = true
+        let _ = Observable.zip(getVersionInfo(), getVersionForce())
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] (versionStatus, force) in
+                guard let `self` = self else { return }
+                self.queryButton.isHidden = false
 
-        let bundleID = bundleIDTextField.text ?? Judy.bundleIdentifier
-        let version = versionTextField.text ?? Judy.versionShort
+                Judy.log("查询到的 versionStatus：\(versionStatus)")
+                Judy.log("查询强制更新响应的 isHot = \(force)")
+                
+                var infoString = "查询结果\n"
+                infoString += "Bundle ID: \(self.bundleID)\n"
+                infoString += "Version: \(self.version)\n"
+                infoString += versionStatus.0.rawValue
+                
+                self.infoLabel.text = infoString
+                let highlightedColor = UIColor.darkText
+                let highlightedFont = UIFont(name: FontName.HlvtcNeue, size: 16)
+                self.infoLabel.judy.setHighlighted(text: "查询结果", color: highlightedColor, font: highlightedFont)
+                self.infoLabel.judy.setHighlighted(text: "Bundle ID:", color: highlightedColor, font: highlightedFont)
+                self.infoLabel.judy.setHighlighted(text: "Version:", color: highlightedColor, font: highlightedFont)
 
-        Judy.queryVersionInfoAtAppStore(bundleIdentifier: bundleID,
-                                        version: version) { [weak self] (versionStatus, AppStoreURL) in
-            var infoString = "查询结果\n"
-            infoString += "Bundle ID: \(bundleID)\n"
-            infoString += "Version: \(version)\n"
-            infoString += versionStatus.rawValue
-            
-            let highlightedColor = UIColor.darkText
-            let highlightedFont = UIFont(name: FontName.HlvtcNeue, size: 16)
-            
-            DispatchQueue.main.async {
-                self?.infoLabel.text = infoString
-                self?.infoLabel.judy.setHighlighted(text: "查询结果", color: highlightedColor, font: highlightedFont)
-                self?.infoLabel.judy.setHighlighted(text: "Bundle ID:", color: highlightedColor, font: highlightedFont)
-                self?.infoLabel.judy.setHighlighted(text: "Version:", color: highlightedColor, font: highlightedFont)
-
-            }
-        }
+                /// 只有要求强制更新且有新版本的时候弹出强制更新窗口
+                if versionStatus.0 == .older && force {
+                    let alertController = UIAlertController(title: "请更新版本",
+                                                            message: nil,
+                                                            preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "去更新", style: .destructive, handler: {(_ action: UIAlertAction) -> Void in
+                        if let url = URL(string: versionStatus.1 ?? "") {
+                            if UIApplication.shared.canOpenURL(url) {
+                                Judy.logHappy("正在打开：\(url)")
+                                UIApplication.shared.open(url, completionHandler: nil)
+                            } else {
+                                Judy.logWarning("不能打开该 URL")
+                            }
+                        }
+                    })
+                    alertController.addAction(okAction)
+                    
+                    Judy.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+                }
+            }, onError: { error in
+                print("获取信息失败: \(error)")
+            }, onCompleted: {
+                Judy.log("单纯得完成了序列")
+            })
     }
 
+    /// 查询是否有新版本
+    func getVersionInfo() -> Observable<(Judy.AppVersionStatus, String?)> {
+        return Observable.create { [weak self] observer -> Disposable in
+            guard let `self` = self else { return Disposables.create() }
+            Judy.queryVersionInfoAtAppStore(bundleIdentifier: self.bundleID, version: self.version) { versionStatus, appStoreURL in
+                observer.onNext((versionStatus, appStoreURL))
+            }
+            return Disposables.create()
+        }
+    }
+    
+    /// 从服务器查询是否强制更新
+    func getVersionForce() -> Observable<Bool> {
+        return Observable.create { observer -> Disposable in
+            let apiRequest = ApiRequestConfig()
+            apiRequest.api = Version.GetAppVersion
+            apiRequest.parameters?["client"] = "ios"
+            apiRequest.request { json in
+                let isForce = json["data","isHot"]
+                Judy.log("查询强制更新响应的 isHot = \(isForce)")
+                observer.onNext(isForce.boolValue)
+            }
+            return Disposables.create()
+        }
+    }
 }

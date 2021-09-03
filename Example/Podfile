@@ -24,6 +24,8 @@ target 'EnolaGay_Example' do
   #  end
   target 'VersionCheck' do
     pod 'EnolaGay', :path => '../'
+    pod 'RxSwift'
+    pod 'RxCocoa'
   end
   
   target 'Semaphore' do

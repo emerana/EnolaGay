@@ -105,7 +105,7 @@ class ViewController: UIViewController {
     /// 查询是否有新版本
     private func getVersionInfo() -> Observable<(Judy.AppVersionStatus, String?)> {
         return Observable.create { observer -> Disposable in
-            Judy.queryVersionInfoAtAppStore(bundleIdentifier: "com.shengda.whalemall", version: "1.6.2") { versionStatus, appStoreURL in
+            Judy.queryVersionInfoAtAppStore(bundleIdentifier: "com.shengda.whalemall", version: "1.6.3") { versionStatus, appStoreURL in
                 observer.onNext((versionStatus, appStoreURL))
             }
             return Disposables.create()

@@ -29,6 +29,7 @@ extension UIApplication: EnolaGayAdapter {
     }
     
 }
+
 /// 用于查询是否强制更新的接口
 enum Version: String, ApiAction {
     var value: String { rawValue }
