@@ -59,7 +59,7 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
             .map { $0 && $1 }
             .share(replay: 1)
         
-        // 所有输入是否有效 -> 绿色按钮是否可点击
+        // 所有输入是否有效 -> 按钮是否可点击
         everyValid.bind(to: queryButton.rx.isEnabled).disposed(by: disposeBag)
 
         // 按钮点击事件
@@ -69,7 +69,16 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
             self.view.endEditing(true)
             self.versionCheck()
         }).disposed(by: disposeBag)
+        
 
+        //        let isValidVersionTextField = versionTextField.rx.isEnabled
+//        let isValidBundleIDTextField = bundleIDTextField.rx.isEnabled
+//
+//        let _ = Observable.combineLatest(isValidVersionTextField, isValidBundleIDTextField)
+//            { $0 && $1 }
+//            .asDriver(onErrorJustReturn: false)
+//            .drive(queryButton.rx.isEnabled)
+//            .disposed(by: disposeBag)
     }
     
     
