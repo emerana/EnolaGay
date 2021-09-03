@@ -29,22 +29,27 @@ extension UIApplication: EnolaGayAdapter {
     }
     
 }
-
-public enum Actions: String, ApiAction {
-    public var value: String { rawValue }
-    
-    /// 生成融云token get
-    case createUserChatToken = "/api/liveapp/GetToken"
-    /// 猜你喜欢。 get
-    case YouLikeByLiveFinish = "/api/liveapp/YouLikeByLiveFinish"
+/// 用于查询是否强制更新的接口
+enum Version: String, ApiAction {
+    var value: String { rawValue }
+    /// 获取App版本号 post
+    case GetAppVersion = "/system/Version/GetAppVersion"
 }
 
 import Alamofire
 import SwiftyJSON
 
 extension UIApplication: ApiAdapter {
-    public var domain: String { "https://livepretest.jingmaiwang.com" }
+    public var domain: String { "https://jmwapi.jingmaiwang.com" }
     
+    public func apiRequestConfigAffirm(requestConfig: ApiRequestConfig) {
+        
+        if requestConfig.method == .get { requestConfig.encoding = .URLEncoding }
+        
+        if requestConfig.method == .post { requestConfig.encoding = .JSONEncoding }
+
+    }
+
     public func responseQC(apiData: JSON) -> JSON {
         var rs: (error: Bool, code: Int, message: String) = (false, 0, "尚未发现错误")
         // 兼容活动中心的接口响应格式
