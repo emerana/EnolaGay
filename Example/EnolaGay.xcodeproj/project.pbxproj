@@ -24,6 +24,11 @@
 		7E9B77A05137D19023EA45B6 /* Pods_EnolaGay_Example_MyRxSwfit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1B73BD02B327293361DDDE /* Pods_EnolaGay_Example_MyRxSwfit.framework */; };
 		8A6EC9B433251D26A994F17B /* Pods_EnolaGay_Example_VersionCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2235E508AC7733ECB6444EE9 /* Pods_EnolaGay_Example_VersionCheck.framework */; };
 		8B1A499025C8354700FDA57A /* LangRenSha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1A498F25C8354700FDA57A /* LangRenSha.storyboard */; };
+		8B26970626E5B68A0028ECFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B26970526E5B68A0028ECFF /* AppDelegate.swift */; };
+		8B26970A26E5B68A0028ECFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B26970926E5B68A0028ECFF /* ViewController.swift */; };
+		8B26970D26E5B68A0028ECFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B26970B26E5B68A0028ECFF /* Main.storyboard */; };
+		8B26970F26E5B68C0028ECFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B26970E26E5B68C0028ECFF /* Assets.xcassets */; };
+		8B26971226E5B68C0028ECFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B26971026E5B68C0028ECFF /* LaunchScreen.storyboard */; };
 		8B372D11268E9F3E004840FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D08268E9F3E004840FC /* Assets.xcassets */; };
 		8B372D12268E9F3E004840FC /* rescheduler.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D09268E9F3E004840FC /* rescheduler.gif */; };
 		8B372D1D268EA105004840FC /* MandolineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D1A268EA104004840FC /* MandolineViewController.swift */; };
@@ -342,6 +347,13 @@
 		8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudyLivePageViewTest.swift; sourceTree = "<group>"; };
 		8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveModelViewCtrl.swift; sourceTree = "<group>"; };
 		8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCheckViewCtrl.swift; sourceTree = "<group>"; };
+		8B26970326E5B68A0028ECFF /* KillSpamCalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KillSpamCalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B26970526E5B68A0028ECFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8B26970926E5B68A0028ECFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8B26970C26E5B68A0028ECFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8B26970E26E5B68C0028ECFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B26971126E5B68C0028ECFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8B26971326E5B68C0028ECFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B372D08268E9F3E004840FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B372D09268E9F3E004840FC /* rescheduler.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rescheduler.gif; sourceTree = "<group>"; };
 		8B372D1A268EA104004840FC /* MandolineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandolineViewController.swift; sourceTree = "<group>"; };
@@ -744,6 +756,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8B26970026E5B68A0028ECFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BC3DA0D26DDF70100A2A405 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -950,6 +969,7 @@
 				8BC3DDB626E05F9100A2A405 /* GiftMessageViewCtrlDemo */,
 				8BC3DDD226E0617400A2A405 /* JudyLivePageViewCtrl */,
 				8BC3DDEF26E06BA000A2A405 /* MyRxSwfit */,
+				8B26970426E5B68A0028ECFF /* KillSpamCalls */,
 				607FACD11AFB9204008FA782 /* Products */,
 				48F58D42A596E8C4AFE02DEE /* Pods */,
 				C2843BD89BA8C609ED35D6C4 /* Frameworks */,
@@ -976,6 +996,7 @@
 				8BC3DDB526E05F9100A2A405 /* GiftMessageViewCtrlDemo.app */,
 				8BC3DDD126E0617400A2A405 /* JudyLivePageViewCtrl.app */,
 				8BC3DDEE26E06BA000A2A405 /* MyRxSwfit.app */,
+				8B26970326E5B68A0028ECFF /* KillSpamCalls.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1024,6 +1045,19 @@
 				8B1A498F25C8354700FDA57A /* LangRenSha.storyboard */,
 			);
 			path = LangRenSha;
+			sourceTree = "<group>";
+		};
+		8B26970426E5B68A0028ECFF /* KillSpamCalls */ = {
+			isa = PBXGroup;
+			children = (
+				8B26970526E5B68A0028ECFF /* AppDelegate.swift */,
+				8B26970926E5B68A0028ECFF /* ViewController.swift */,
+				8B26970B26E5B68A0028ECFF /* Main.storyboard */,
+				8B26970E26E5B68C0028ECFF /* Assets.xcassets */,
+				8B26971026E5B68C0028ECFF /* LaunchScreen.storyboard */,
+				8B26971326E5B68C0028ECFF /* Info.plist */,
+			);
+			path = KillSpamCalls;
 			sourceTree = "<group>";
 		};
 		8B372CFD268E9F3E004840FC /* Mandoline */ = {
@@ -2012,6 +2046,23 @@
 			productReference = 607FACD01AFB9204008FA782 /* EnolaGay_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8B26970226E5B68A0028ECFF /* KillSpamCalls */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B26971426E5B68C0028ECFF /* Build configuration list for PBXNativeTarget "KillSpamCalls" */;
+			buildPhases = (
+				8B2696FF26E5B68A0028ECFF /* Sources */,
+				8B26970026E5B68A0028ECFF /* Frameworks */,
+				8B26970126E5B68A0028ECFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KillSpamCalls;
+			productName = KillSpamCalls;
+			productReference = 8B26970326E5B68A0028ECFF /* KillSpamCalls.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8BC3D9F226DDF70100A2A405 /* VersionCheck */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BC3DA2726DDF70100A2A405 /* Build configuration list for PBXNativeTarget "VersionCheck" */;
@@ -2331,6 +2382,11 @@
 						DevelopmentTeam = 325J3J39TM;
 						LastSwiftMigration = 0900;
 					};
+					8B26970226E5B68A0028ECFF = {
+						CreatedOnToolsVersion = 12.5.1;
+						DevelopmentTeam = 325J3J39TM;
+						ProvisioningStyle = Automatic;
+					};
 					8BC3D9F226DDF70100A2A405 = {
 						DevelopmentTeam = 325J3J39TM;
 					};
@@ -2427,6 +2483,7 @@
 				8BC3DDB426E05F9100A2A405 /* GiftMessageViewCtrlDemo */,
 				8BC3DDD026E0617400A2A405 /* JudyLivePageViewCtrl */,
 				8BC3DDED26E06BA000A2A405 /* MyRxSwfit */,
+				8B26970226E5B68A0028ECFF /* KillSpamCalls */,
 			);
 		};
 /* End PBXProject section */
@@ -2447,6 +2504,16 @@
 				8B4A4DEB266F0B8C007D6DC5 /* DouYin.storyboard in Resources */,
 				8B4A4DE3266E0E37007D6DC5 /* NavigatinCtrl.storyboard in Resources */,
 				8B1A499025C8354700FDA57A /* LangRenSha.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B26970126E5B68A0028ECFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B26971226E5B68C0028ECFF /* LaunchScreen.storyboard in Resources */,
+				8B26970F26E5B68C0028ECFF /* Assets.xcassets in Resources */,
+				8B26970D26E5B68A0028ECFF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3459,6 +3526,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8B2696FF26E5B68A0028ECFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B26970A26E5B68A0028ECFF /* ViewController.swift in Sources */,
+				8B26970626E5B68A0028ECFF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BC3D9F426DDF70100A2A405 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3754,6 +3830,22 @@
 				607FACDF1AFB9204008FA782 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		8B26970B26E5B68A0028ECFF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B26970C26E5B68A0028ECFF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8B26971026E5B68C0028ECFF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B26971126E5B68C0028ECFF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */ = {
@@ -4145,6 +4237,59 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		8B26971526E5B68C0028ECFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = KillSpamCalls/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.KillSpamCalls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B26971626E5B68C0028ECFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = KillSpamCalls/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.KillSpamCalls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -4883,6 +5028,15 @@
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
 				607FACF11AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B26971426E5B68C0028ECFF /* Build configuration list for PBXNativeTarget "KillSpamCalls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B26971526E5B68C0028ECFF /* Debug */,
+				8B26971626E5B68C0028ECFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
