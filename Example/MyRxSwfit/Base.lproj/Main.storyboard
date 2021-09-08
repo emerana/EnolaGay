@@ -55,8 +55,8 @@
                     <connections>
                         <outlet property="actionButton" destination="uWo-iL-vHk" id="Ao9-QL-7bp"/>
                         <outlet property="infoLabel" destination="GRI-PA-Zpp" id="pzj-1B-PbU"/>
-                        <outlet property="textField_A" destination="I37-ia-wnt" id="LeQ-O4-fI5"/>
-                        <outlet property="textField_B" destination="pvh-fG-Pqv" id="llV-OU-edX"/>
+                        <outlet property="passwordTextField" destination="pvh-fG-Pqv" id="d30-A0-TZt"/>
+                        <outlet property="userNameTextField" destination="I37-ia-wnt" id="heH-At-ONq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
