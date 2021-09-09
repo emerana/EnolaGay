@@ -11,20 +11,20 @@
         <!--基金浏览-->
         <scene sceneID="9q2-Dx-lKv">
             <objects>
-                <viewController storyboardIdentifier="FundViewController" title="基金浏览" id="yiR-tx-6gw" customClass="FundViewController" customModule="Test_Woodpecker" customModuleProvider="target" propertyAccessControl="all" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FundViewController" title="基金浏览" id="yiR-tx-6gw" customClass="FundViewController" customModule="EMERANA" customModuleProvider="target" propertyAccessControl="none" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h0t-Lp-nXX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kNy-aU-mqA">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Ida-sD-XAm" userLabel="tableHeaderView">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <searchBar contentMode="redraw" placeholder="输入基金关键字或代码以搜索" translatesAutoresizingMaskIntoConstraints="NO" id="sKJ-OH-8gq">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
                                                 <outlet property="delegate" destination="yiR-tx-6gw" id="CuP-MO-8Tk"/>
@@ -40,11 +40,11 @@
                                     </constraints>
                                 </view>
                                 <view key="tableFooterView" tag="101" contentMode="scaleToFill" id="KfW-gi-Pgs" userLabel="tableFooterView">
-                                    <rect key="frame" x="0.0" y="148.50000034679067" width="600" height="68"/>
+                                    <rect key="frame" x="0.0" y="148.50000034679067" width="414" height="68"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgs-cX-Oy3" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
-                                            <rect key="frame" x="278" y="23.5" width="44.5" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgs-cX-Oy3" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
+                                            <rect key="frame" x="185" y="23.5" width="44.5" height="21"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" systemColor="systemGrayColor"/>
                                             <nil key="highlightedColor"/>
@@ -57,10 +57,10 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="oGt-dE-XY8">
-                                        <rect key="frame" x="0.0" y="80.5" width="600" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="80.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oGt-dE-XY8" id="7c7-Dm-K2R">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -83,7 +83,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="GfE-UX-azW"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHideNotApiHUD" value="YES"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isNoFooter" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -99,12 +98,12 @@
         <!--基金详情-->
         <scene sceneID="TXf-35-qLg">
             <objects>
-                <viewController title="基金详情" id="sOJ-I6-1hW" customClass="FundDetailViewCtrl" customModule="Test_Woodpecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="基金详情" id="sOJ-I6-1hW" customClass="FundDetailViewCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bzA-x6-ZPS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基金名称" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUb-XZ-dIP" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基金名称" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUb-XZ-dIP" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="20" y="18" width="65.5" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -116,7 +115,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="精选情况" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fo-fN-JxA" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="精选情况" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fo-fN-JxA" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="93.5" y="20" width="49.5" height="14.5"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -146,7 +145,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基金代码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ung-eg-Rap" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基金代码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ung-eg-Rap" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="20" y="65.5" width="70" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -159,7 +158,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收益风险比" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yka-9X-ugb" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收益风险比" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yka-9X-ugb" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="20" y="212" width="87" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -170,19 +169,19 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收益风险比" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kli-BG-ScT" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收益风险比" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kli-BG-ScT" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="115" y="218.5" width="51.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="专业机构看法：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5p-wN-Rw0" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="专业机构看法：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5p-wN-Rw0" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="20" y="261" width="122" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="看法" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzZ-4e-0eb" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="看法" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzZ-4e-0eb" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="150" y="261" width="35" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -193,13 +192,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="投资升值潜力：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fic-0D-j7b" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="投资升值潜力：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fic-0D-j7b" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="20" y="310" width="122" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="潜力" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfc-SP-Pi2" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="潜力" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfc-SP-Pi2" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="150" y="310" width="35" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -210,13 +209,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基金类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2u-iD-45h" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基金类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2u-iD-45h" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="98" y="65.5" width="70" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="明星经理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjb-6h-oUC" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="明星经理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjb-6h-oUC" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="20" y="163.5" width="69.5" height="20.5"/>
                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -243,7 +242,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="remarkLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVH-Fo-7Ds" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="remarkLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVH-Fo-7Ds" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="20" y="359" width="95" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemBrownColor"/>
@@ -262,7 +261,7 @@
                                     <constraint firstAttribute="width" constant="68" id="Wkd-iG-z5h"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tch-IW-ImT" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tch-IW-ImT" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="148" y="407.5" width="118" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
@@ -287,7 +286,7 @@
                                     <action selector="addSelectAction:" destination="sOJ-I6-1hW" eventType="touchUpInside" id="55V-Xg-XFq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7V5-e6-f6n" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7V5-e6-f6n" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="148" y="453.5" width="118" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
@@ -312,7 +311,7 @@
                                     <action selector="investmentAction:" destination="sOJ-I6-1hW" eventType="touchUpInside" id="zkG-9E-VKk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiN-5w-Xcc" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiN-5w-Xcc" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="148" y="509.5" width="118" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="Jtt-OX-aYl"/>
@@ -341,7 +340,7 @@
                                     <action selector="updateAction:" destination="sOJ-I6-1hW" eventType="touchUpInside" id="1ln-Sg-IuQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjd-xq-1v9" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjd-xq-1v9" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="148" y="555.5" width="118" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
@@ -366,7 +365,7 @@
                                     <action selector="deleteAction:" destination="sOJ-I6-1hW" eventType="touchUpInside" id="VeO-XI-IeI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="similarDetail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9E-pD-B17" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="similarDetail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9E-pD-B17" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="39" y="122" width="54.5" height="11"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
@@ -377,7 +376,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxG-jh-8gz" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxG-jh-8gz" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="20" y="114.5" width="11" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -445,7 +444,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="LKR-Wt-Pg9"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHideNotApiHUD" value="YES"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHideWaitingHUD" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -477,7 +475,7 @@
         <!--基金管理-->
         <scene sceneID="SI9-JG-5Nc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1eg-wa-lPI" customClass="JudyNavigationCtrl" customModule="Test_Woodpecker" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1eg-wa-lPI" customClass="JudyNavigationCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="基金管理" image="Money" selectedImage="Money-H" id="5Qn-t0-sOR"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -497,24 +495,24 @@
         <!--基金检索-->
         <scene sceneID="LLG-Aq-EHg">
             <objects>
-                <viewController title="基金检索" id="2Fg-C4-FRX" customClass="FundSearchViewCtrl" customModule="Test_Woodpecker" customModuleProvider="target" propertyAccessControl="none" sceneMemberID="viewController">
+                <viewController title="基金检索" id="2Fg-C4-FRX" customClass="FundSearchViewCtrl" customModule="EMERANA" customModuleProvider="target" propertyAccessControl="none" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ojw-KU-e2y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FCh-4V-ijC">
-                                <rect key="frame" x="0.0" y="95" width="600" height="505"/>
+                                <rect key="frame" x="0.0" y="139" width="414" height="757"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" tag="101" contentMode="scaleToFill" id="SgJ-Jv-QXG" userLabel="Header">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </view>
                                 <view key="tableFooterView" tag="101" contentMode="scaleToFill" id="5iD-yv-iSQ" userLabel="tableFooterView">
-                                    <rect key="frame" x="0.0" y="92.500000346790671" width="600" height="68"/>
+                                    <rect key="frame" x="0.0" y="92.500000346790671" width="414" height="68"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzV-xT-cW0" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
-                                            <rect key="frame" x="278" y="23.5" width="44.5" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzV-xT-cW0" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
+                                            <rect key="frame" x="185" y="23.5" width="44.5" height="21"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" systemColor="systemGrayColor"/>
                                             <nil key="highlightedColor"/>
@@ -527,17 +525,17 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zwU-72-yOg">
-                                        <rect key="frame" x="0.0" y="24.5" width="600" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zwU-72-yOg" id="sgh-XX-fsN">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" text="" placeholder="全面检索" translatesAutoresizingMaskIntoConstraints="NO" id="eQQ-4e-MI4">
-                                <rect key="frame" x="0.0" y="44" width="600" height="51"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -555,7 +553,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="TAj-5E-5hg"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHideNotApiHUD" value="YES"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isNoFooter" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -572,7 +569,7 @@
         <!--Fund Page View Ctrller-->
         <scene sceneID="5lj-P4-usw">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="BNo-c1-Tqj" customClass="FundPageViewCtrller" customModule="Test_Woodpecker" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="BNo-c1-Tqj" customClass="FundPageViewCtrller" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="XnZ-pJ-0Ai">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="zwp-aU-Q64">
                             <color key="tintColor" systemColor="systemPinkColor"/>
@@ -602,20 +599,20 @@
         <!--自选基金-->
         <scene sceneID="vZA-6F-EQi">
             <objects>
-                <viewController storyboardIdentifier="FavoriteViewCtrl" title="自选基金" id="V6n-3Z-d5k" customClass="FundOptionViewCtrl" customModule="Test_Woodpecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteViewCtrl" title="自选基金" id="V6n-3Z-d5k" customClass="FundOptionViewCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ope-mu-w1f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zPo-7I-8LX">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" tag="101" contentMode="scaleToFill" id="rhw-9Y-niN" userLabel="tableFooterView">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="68"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYL-89-Rfa" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
-                                            <rect key="frame" x="278" y="23.5" width="44.5" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYL-89-Rfa" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
+                                            <rect key="frame" x="185" y="23.5" width="44.5" height="21"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" systemColor="systemGrayColor"/>
                                             <nil key="highlightedColor"/>
@@ -650,7 +647,6 @@
                     <navigationItem key="navigationItem" id="YR2-DD-f01"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isNoFooter" value="YES"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHideNotApiHUD" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="tableView" destination="zPo-7I-8LX" id="Yu0-Er-oSM"/>
@@ -665,19 +661,19 @@
         <scene sceneID="aVl-wI-ml2">
             <objects>
                 <viewController storyboardIdentifier="InvestmentViewCtrl" title="添加到定投临时界面" modalTransitionStyle="partialCurl" modalPresentationStyle="fullScreen" id="rx5-6n-EDz" propertyAccessControl="none" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="beB-fu-0Ap" customClass="InvestmentView" customModule="Test_Woodpecker" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="beB-fu-0Ap" customClass="InvestmentView" customModule="EMERANA" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8C-LQ-f6L" userLabel="maskView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="darkTextColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yeK-V1-6X1">
-                                <rect key="frame" x="18" y="129" width="564" height="342"/>
+                                <rect key="frame" x="18" y="277" width="378" height="342"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基金代码：168168" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4JB-8x-12S" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
-                                        <rect key="frame" x="221.5" y="28" width="121" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基金代码：168168" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4JB-8x-12S" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
+                                        <rect key="frame" x="128.5" y="28" width="121" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
@@ -686,17 +682,17 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="基金名称：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFq-bb-VCd" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
-                                        <rect key="frame" x="251" y="53" width="62" height="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="基金名称：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFq-bb-VCd" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
+                                        <rect key="frame" x="158" y="53" width="62" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="定投周期：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5F-gY-BrQ" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="定投周期：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5F-gY-BrQ" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="18" y="96" width="62" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" clipsSubviews="YES" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNT-lc-Ykr" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNT-lc-Ykr" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="200" y="90.5" width="48" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -723,7 +719,7 @@
                                             <action selector="selectInvestmentTypeAction:" destination="beB-fu-0Ap" eventType="touchUpInside" id="0PY-1Z-IrJ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLt-Oz-v2S" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLt-Oz-v2S" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="88" y="90.5" width="48" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -750,7 +746,7 @@
                                             <action selector="selectInvestmentTypeAction:" destination="beB-fu-0Ap" eventType="touchUpInside" id="cIO-9H-Llg"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoN-gq-E8i" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoN-gq-E8i" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="144" y="90.5" width="48" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -777,7 +773,7 @@
                                             <action selector="selectInvestmentTypeAction:" destination="beB-fu-0Ap" eventType="touchUpInside" id="UWc-Gc-Huj"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTg-Wp-9qV" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTg-Wp-9qV" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="256" y="90.5" width="48" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -804,12 +800,12 @@
                                             <action selector="selectInvestmentTypeAction:" destination="beB-fu-0Ap" eventType="touchUpInside" id="nfO-nd-5Ly"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="定投日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kt-Lh-3P0" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="定投日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kt-Lh-3P0" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="18" y="139" width="37" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sva-aX-WP7" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sva-aX-WP7" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="88" y="133.5" width="88" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -836,12 +832,12 @@
                                             <action selector="investmentDayAction:" destination="beB-fu-0Ap" eventType="touchUpInside" id="4rw-V0-agg"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="定投金额：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYc-bv-eS9" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="定投金额：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYc-bv-eS9" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="18" y="182" width="62" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" tag="2201" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入金额" textAlignment="right" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="aq8-01-YjQ" customClass="JudyBaseTextField" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <textField opaque="NO" tag="2201" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入金额" textAlignment="right" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="aq8-01-YjQ" customClass="JudyBaseTextField" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="88" y="178" width="68" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="68" id="Zo7-s6-LNX"/>
@@ -860,8 +856,8 @@
                                             <outlet property="delegate" destination="beB-fu-0Ap" id="923-H7-GHi"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" tag="6987" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncP-0e-5O7" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
-                                        <rect key="frame" x="238" y="276" width="88" height="38"/>
+                                    <button opaque="NO" tag="6987" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncP-0e-5O7" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
+                                        <rect key="frame" x="145" y="276" width="88" height="38"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="6Oo-xN-Z19"/>
@@ -883,8 +879,8 @@
                                             <action selector="completionAction:" destination="beB-fu-0Ap" eventType="touchUpInside" id="ftw-ps-g99"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UD7-hE-OfC" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
-                                        <rect key="frame" x="344" y="280.5" width="30" height="29"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UD7-hE-OfC" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
+                                        <rect key="frame" x="251" y="280.5" width="30" height="29"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                         <state key="normal" title="取消">
                                             <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -898,7 +894,7 @@
                                             <action selector="cancelEvent:" destination="beB-fu-0Ap" eventType="touchUpInside" id="Qcx-Qu-78P"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" tag="2202" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入备注" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="brw-Yv-RhW" customClass="JudyBaseTextField" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <textField opaque="NO" tag="2202" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入备注" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="brw-Yv-RhW" customClass="JudyBaseTextField" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="18" y="225" width="64.5" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="no"/>
@@ -955,10 +951,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nxa-hr-ko7">
-                                <rect key="frame" x="0.0" y="332" width="600" height="268"/>
+                                <rect key="frame" x="0.0" y="628" width="414" height="268"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRF-c6-eoY" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
-                                        <rect key="frame" x="528" y="18" width="64" height="48"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRF-c6-eoY" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
+                                        <rect key="frame" x="342" y="18" width="64" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="4kG-49-Hxf"/>
                                             <constraint firstAttribute="width" secondItem="dRF-c6-eoY" secondAttribute="height" multiplier="4:3" id="gE7-x9-5sI"/>
@@ -986,7 +982,7 @@
                                         </connections>
                                     </button>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdm-Ob-F8v">
-                                        <rect key="frame" x="216" y="84" width="168" height="156"/>
+                                        <rect key="frame" x="123" y="84" width="168" height="156"/>
                                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="168" id="fLV-tQ-rpR"/>
@@ -1057,7 +1053,7 @@
         <scene sceneID="QN9-Iv-F6Q">
             <objects>
                 <viewController storyboardIdentifier="AddFundViewCtrl" id="RNV-Rf-gpQ" propertyAccessControl="none" sceneMemberID="viewController">
-                    <view key="view" contentMode="center" id="iyR-kE-keu" userLabel="UpdateFundView" customClass="AddFundView" customModule="Test_Woodpecker" customModuleProvider="target">
+                    <view key="view" contentMode="center" id="iyR-kE-keu" userLabel="UpdateFundView" customClass="AddFundView" customModule="EMERANA" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -1076,12 +1072,12 @@
                                             <constraint firstAttribute="width" constant="98" id="OEI-dC-UmW"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="基金名称：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QW6-b7-x1y" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="基金名称：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QW6-b7-x1y" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="8" y="60.5" width="62" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" tag="2201" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入基金名称" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="blp-i8-agn" customClass="JudyBaseTextField" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <textField opaque="NO" tag="2201" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入基金名称" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="blp-i8-agn" customClass="JudyBaseTextField" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="74" y="56.5" width="316" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="no"/>
@@ -1097,12 +1093,12 @@
                                             <outlet property="delegate" destination="iyR-kE-keu" id="97I-Wf-YfS"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="基金类型：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sd2-0a-pCw" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="基金类型：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sd2-0a-pCw" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="8" y="103.5" width="62" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" clipsSubviews="YES" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rG-TX-H8i" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rG-TX-H8i" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="74" y="98" width="48" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1129,7 +1125,7 @@
                                             <action selector="selectFundTypeAction:" destination="iyR-kE-keu" eventType="touchUpInside" id="6L8-Mx-RHm"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIs-qS-ton" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIs-qS-ton" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="130" y="98" width="48" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1156,7 +1152,7 @@
                                             <action selector="selectFundTypeAction:" destination="iyR-kE-keu" eventType="touchUpInside" id="T9E-z7-Wdv"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8x-3P-gxL" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8x-3P-gxL" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="186" y="98" width="48" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1183,12 +1179,12 @@
                                             <action selector="selectFundTypeAction:" destination="iyR-kE-keu" eventType="touchUpInside" id="Ugl-ih-BZr"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="精选情况：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZ2-mQ-6xr" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="精选情况：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZ2-mQ-6xr" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="8" y="146.5" width="62" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" clipsSubviews="YES" tag="2001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AK1-Yt-0B9" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="2001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AK1-Yt-0B9" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="74" y="141" width="48" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1215,7 +1211,7 @@
                                             <action selector="精选Action:" destination="iyR-kE-keu" eventType="touchUpInside" id="j1v-en-gsk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="2002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biH-po-ePo" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="2002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biH-po-ePo" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="130" y="141" width="48" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1242,7 +1238,7 @@
                                             <action selector="精选Action:" destination="iyR-kE-keu" eventType="touchUpInside" id="Hef-iA-MVB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="2003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LN7-ID-L8y" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="2003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LN7-ID-L8y" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="186" y="141" width="68" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1269,12 +1265,12 @@
                                             <action selector="精选Action:" destination="iyR-kE-keu" eventType="touchUpInside" id="pNX-Qe-X7m"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="收益风险比：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wme-PY-TZD" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="收益风险比：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wme-PY-TZD" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="8" y="189.5" width="74" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" tag="2202" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入分数" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="4Sc-M0-SN7" customClass="JudyBaseTextField" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <textField opaque="NO" tag="2202" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入分数" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="4Sc-M0-SN7" customClass="JudyBaseTextField" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="88" y="185.5" width="64.5" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="64.5" id="nxD-BA-vRc"/>
@@ -1293,17 +1289,17 @@
                                             <outlet property="delegate" destination="iyR-kE-keu" id="1pm-Ga-I0M"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyT-dY-IEZ" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyT-dY-IEZ" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="154.5" y="189.5" width="13" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="专业机构看法：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMA-MR-5WK" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="专业机构看法：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMA-MR-5WK" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="8" y="232.5" width="86" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" clipsSubviews="YES" tag="3001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwy-m3-rwU" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="3001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwy-m3-rwU" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="98" y="227" width="58" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1330,7 +1326,7 @@
                                             <action selector="专业机构看法Action:" destination="iyR-kE-keu" eventType="touchUpInside" id="qoZ-3p-Qr6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="3002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqs-UP-Rb7" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="3002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqs-UP-Rb7" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="164" y="227" width="58" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1357,7 +1353,7 @@
                                             <action selector="专业机构看法Action:" destination="iyR-kE-keu" eventType="touchUpInside" id="s0i-Sr-hsY"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="3003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1B-9M-fTe" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="3003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1B-9M-fTe" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="230" y="227" width="58" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1384,7 +1380,7 @@
                                             <action selector="专业机构看法Action:" destination="iyR-kE-keu" eventType="touchUpInside" id="vIq-uo-cTl"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="3004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cn-RE-SmG" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="3004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cn-RE-SmG" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="98" y="261" width="58" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1411,7 +1407,7 @@
                                             <action selector="专业机构看法Action:" destination="iyR-kE-keu" eventType="touchUpInside" id="y0q-3f-bcN"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="3005" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38u-ge-yYt" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="3005" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38u-ge-yYt" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="164" y="261" width="58" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1438,7 +1434,7 @@
                                             <action selector="专业机构看法Action:" destination="iyR-kE-keu" eventType="touchUpInside" id="KkR-ob-JB2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="3006" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d15-x4-2Ns" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="3006" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d15-x4-2Ns" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="230" y="261" width="58" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1465,12 +1461,12 @@
                                             <action selector="专业机构看法Action:" destination="iyR-kE-keu" eventType="touchUpInside" id="2cz-TA-a0L"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="投资升值潜力：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coi-5m-hbN" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="投资升值潜力：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coi-5m-hbN" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="8" y="315" width="86" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" clipsSubviews="YES" tag="4001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IyY-8n-Og1" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="4001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IyY-8n-Og1" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="98" y="309.5" width="48" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1497,7 +1493,7 @@
                                             <action selector="投资升值潜力Action:" destination="iyR-kE-keu" eventType="touchUpInside" id="QzO-nf-Exp"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="4002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJm-eb-NQy" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="4002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJm-eb-NQy" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="154" y="309.5" width="48" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1524,7 +1520,7 @@
                                             <action selector="投资升值潜力Action:" destination="iyR-kE-keu" eventType="touchUpInside" id="JDL-MF-tVk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="4003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFA-Xk-zd3" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="4003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFA-Xk-zd3" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="210" y="309.5" width="48" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1551,7 +1547,7 @@
                                             <action selector="投资升值潜力Action:" destination="iyR-kE-keu" eventType="touchUpInside" id="urp-ad-eXD"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="4004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hh-pJ-Vta" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="4004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hh-pJ-Vta" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="266" y="309.5" width="48" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1578,12 +1574,12 @@
                                             <action selector="投资升值潜力Action:" destination="iyR-kE-keu" eventType="touchUpInside" id="zjz-VE-ALt"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="晨星评级：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JjJ-Tt-pco" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="晨星评级：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JjJ-Tt-pco" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="8" y="378" width="62" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" tag="6987" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTD-ac-aBW" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" tag="6987" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTD-ac-aBW" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="155" y="515" width="88" height="38"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1606,7 +1602,7 @@
                                             <action selector="completionAction:" destination="iyR-kE-keu" eventType="touchUpInside" id="f20-fu-t5X"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wO-0I-Lad" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wO-0I-Lad" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="255" y="515" width="88" height="38"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                         <state key="normal" title="取消">
@@ -1621,7 +1617,7 @@
                                             <action selector="cancelEvent:" destination="iyR-kE-keu" eventType="touchUpInside" id="C4D-27-f8U"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" tag="5001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MR-bK-ARg" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="5001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MR-bK-ARg" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="204" y="372.5" width="58" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1648,7 +1644,7 @@
                                             <action selector="明星经理Action:" destination="iyR-kE-keu" eventType="touchUpInside" id="rgV-mJ-Cjo"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" tag="2203" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入备注" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HxJ-Wl-xwR" customClass="JudyBaseTextField" customModule="Test_Woodpecker" customModuleProvider="target" propertyAccessControl="none">
+                                    <textField opaque="NO" tag="2203" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入备注" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HxJ-Wl-xwR" customClass="JudyBaseTextField" customModule="EMERANA" customModuleProvider="target" propertyAccessControl="none">
                                         <rect key="frame" x="8" y="464" width="64.5" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="no"/>
@@ -1664,12 +1660,12 @@
                                             <outlet property="delegate" destination="iyR-kE-keu" id="6kR-pR-Pq4"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基金代码:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOW-Vz-Swv" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基金代码:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOW-Vz-Swv" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="8" y="18" width="53" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" tag="2204" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入基金代码" textAlignment="center" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2VO-kl-EpX" customClass="JudyBaseTextField" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <textField opaque="NO" tag="2204" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入基金代码" textAlignment="center" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2VO-kl-EpX" customClass="JudyBaseTextField" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="65" y="14" width="128" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="128" id="Nxe-67-0cf"/>
@@ -1688,12 +1684,12 @@
                                             <outlet property="delegate" destination="iyR-kE-keu" id="P5B-mc-ctq"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="同类排名等级：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30D-ai-vA0" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="同类排名等级：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30D-ai-vA0" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="8" y="421" width="86" height="15"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" clipsSubviews="YES" tag="6001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oO-Qu-wK6" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="6001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oO-Qu-wK6" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="98" y="415.5" width="16" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1810,7 +1806,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8GK-Pq-L7I">
                                 <rect key="frame" x="0.0" y="628" width="414" height="268"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OET-pf-KWc" customClass="JudyBaseButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OET-pf-KWc" customClass="JudyBaseButton" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="342" y="18" width="64" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="T8n-en-qk3"/>
@@ -1941,7 +1937,7 @@
         <!--我的定投-->
         <scene sceneID="Qgu-Up-uFB">
             <objects>
-                <viewController storyboardIdentifier="PurchasedViewCtrl" title="我的定投" id="NqG-cE-hpg" customClass="InvestmentViewCtrl" customModule="Test_Woodpecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PurchasedViewCtrl" title="我的定投" id="NqG-cE-hpg" customClass="InvestmentViewCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PtR-Ie-YQ8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1953,7 +1949,7 @@
                                     <rect key="frame" x="0.0" y="152.00000034679067" width="414" height="68"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPk-GA-Mu6" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPk-GA-Mu6" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                             <rect key="frame" x="185" y="23.5" width="44.5" height="21"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" systemColor="systemGrayColor"/>
@@ -1971,14 +1967,14 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="103" id="CIw-E3-aNq" customClass="InvestmentCell" customModule="Test_Woodpecker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="103" id="CIw-E3-aNq" customClass="InvestmentCell" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CIw-E3-aNq" id="bwQ-eQ-JrF">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="103"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="基金名称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZi-93-vOv" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="基金名称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZi-93-vOv" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                                     <rect key="frame" x="12" y="8" width="65.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -1989,7 +1985,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基金代码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vh-8w-AgJ" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基金代码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vh-8w-AgJ" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                                     <rect key="frame" x="12" y="33.5" width="57.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -2008,7 +2004,7 @@
                                                         <constraint firstAttribute="height" constant="18" id="fMA-eh-wEE"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="机构看法" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1S9-V5-udd" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="机构看法" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1S9-V5-udd" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                                     <rect key="frame" x="107" y="56.5" width="57.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -2028,7 +2024,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="类型" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6A-tG-Wrx" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="类型" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6A-tG-Wrx" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                                     <rect key="frame" x="12" y="56.5" width="29" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -2042,7 +2038,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jg1-D3-rfd" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jg1-D3-rfd" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                                     <rect key="frame" x="49" y="56.5" width="29" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -2056,7 +2052,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每两周二定投188元" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNl-dF-LCR" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每两周二定投188元" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNl-dF-LCR" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                                     <rect key="frame" x="264.5" y="8" width="141.5" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -2067,7 +2063,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="精选" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CND-Kf-EbR" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="精选" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CND-Kf-EbR" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                                     <rect key="frame" x="172.5" y="58" width="25" height="14.5"/>
                                                     <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -2094,7 +2090,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="明星经理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dyl-oK-SM9" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="明星经理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dyl-oK-SM9" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                                     <rect key="frame" x="205.5" y="58" width="49.5" height="14.5"/>
                                                     <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -2121,7 +2117,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="remark" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rd2-c0-sRO" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="remark" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rd2-c0-sRO" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                                     <rect key="frame" x="12" y="73.5" width="45.5" height="23.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" systemColor="systemBrownColor"/>
@@ -2135,7 +2131,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="潜力" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqc-W5-SEm" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="潜力" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqc-W5-SEm" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                                     <rect key="frame" x="78" y="56.5" width="29" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -2155,7 +2151,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSW-uY-bQR" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSW-uY-bQR" customClass="JudyBaseLabel" customModule="EMERANA" customModuleProvider="target">
                                                     <rect key="frame" x="395.5" y="41.5" width="10.5" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -2242,10 +2238,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NeQ-X6-Rxk"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isNoFooter" value="YES"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHideNotApiHUD" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="tableView" destination="9LL-XA-I9k" id="LQI-HM-36f"/>
                         <segue destination="sOJ-I6-1hW" kind="presentation" identifier="showFundDetailViewCtrl" id="SLO-xf-Vun"/>
@@ -2257,7 +2249,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="b2w-6q-6vl"/>
+        <segue reference="SLO-xf-Vun"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Money" width="27" height="27"/>

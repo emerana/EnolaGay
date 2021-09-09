@@ -1291,13 +1291,13 @@
 		8BC3DB9F26DF480F00A2A405 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				8BC3DBA026DF480F00A2A405 /* LineChartViewCtrl.swift */,
-				8BC3DBA126DF480F00A2A405 /* ChartsViewCtrl.swift */,
 				8BC3DBA226DF480F00A2A405 /* Formatters */,
-				8BC3DBA726DF480F00A2A405 /* CandleStickChartViewCtrl.swift */,
-				8BC3DBA826DF480F00A2A405 /* BarChartViewCtrl.swift */,
 				8BC3DBA926DF480F00A2A405 /* Components */,
 				8BC3DBAD26DF480F00A2A405 /* KLine */,
+				8BC3DBA126DF480F00A2A405 /* ChartsViewCtrl.swift */,
+				8BC3DBA026DF480F00A2A405 /* LineChartViewCtrl.swift */,
+				8BC3DBA726DF480F00A2A405 /* CandleStickChartViewCtrl.swift */,
+				8BC3DBA826DF480F00A2A405 /* BarChartViewCtrl.swift */,
 				8BC3DBBA26DF480F00A2A405 /* ChartsBaseViewCtrl.swift */,
 				8BC3DBBB26DF480F00A2A405 /* PieChartViewCtrl.swift */,
 			);

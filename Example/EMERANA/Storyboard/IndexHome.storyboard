@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hPS-WA-RVU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hPS-WA-RVU">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,14 +10,14 @@
         <!--首页-->
         <scene sceneID="I5Q-6h-p82">
             <objects>
-                <viewController title="首页" id="OEW-6V-HCH" customClass="HomeViewCtrl" customModule="emerana" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="首页" id="OEW-6V-HCH" customClass="HomeViewCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gfP-N3-jlI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kHy-VB-rfh">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="syX-wf-ruS">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="58"/>
@@ -26,7 +25,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellA" id="SgY-e1-jfD" customClass="HomeCollectionCellAB" customModule="emerana" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellA" id="SgY-e1-jfD" customClass="HomeCollectionCellAB" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="58" width="142" height="145"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -62,7 +61,7 @@
                                             <outlet property="titleLabel" destination="Mfu-ch-6A6" id="KJO-wd-sGV"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellB" id="wUN-xM-R0p" customClass="HomeCollectionCellAB" customModule="emerana" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellB" id="wUN-xM-R0p" customClass="HomeCollectionCellAB" customModule="EMERANA" customModuleProvider="target">
                                         <rect key="frame" x="170" y="66" width="205" height="129"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -111,7 +110,7 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtS-wv-DPw" userLabel="line">
                                             <rect key="frame" x="0.0" y="57" width="375" height="1"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="vem-rg-axw"/>
                                             </constraints>
@@ -151,19 +150,15 @@
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="jWg-ZT-mpL"/>
                         <constraints>
                             <constraint firstItem="kHy-VB-rfh" firstAttribute="top" secondItem="gfP-N3-jlI" secondAttribute="top" id="3r0-a2-4dr"/>
                             <constraint firstAttribute="bottom" secondItem="kHy-VB-rfh" secondAttribute="bottom" id="67l-fJ-8Lu"/>
                             <constraint firstItem="kHy-VB-rfh" firstAttribute="leading" secondItem="jWg-ZT-mpL" secondAttribute="leading" id="Nxy-sB-1Zr"/>
                             <constraint firstItem="kHy-VB-rfh" firstAttribute="trailing" secondItem="jWg-ZT-mpL" secondAttribute="trailing" id="fcy-jR-Y1M"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="jWg-ZT-mpL"/>
                     </view>
                     <navigationItem key="navigationItem" title="Index" id="FyN-MN-Krt"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHideNotApiHUD" value="YES"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHideNavigationBarOnRoll" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="collectionView" destination="kHy-VB-rfh" id="1AH-pV-2V3"/>
                     </connections>
@@ -175,7 +170,7 @@
         <!--Navigation Controller Scene-->
         <scene sceneID="rnj-2s-H4Q">
             <objects>
-                <navigationController id="hPS-WA-RVU" userLabel="Navigation Controller Scene" customClass="JudyBaseNavigationCtrl" customModule="emerana" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="hPS-WA-RVU" userLabel="Navigation Controller Scene" customClass="JudyBaseNavigationCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" image="Home" selectedImage="Home-H" id="Y9b-Ay-ZQ9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ux0-Ga-yxn">
@@ -196,5 +191,8 @@
         <image name="Home" width="27" height="27"/>
         <image name="Home-H" width="27" height="27"/>
         <image name="向右箭头" width="8" height="14"/>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

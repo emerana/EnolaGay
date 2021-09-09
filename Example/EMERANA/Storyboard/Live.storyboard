@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="exN-3m-1Kk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="exN-3m-1Kk">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnr-FM-oa2">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnr-FM-oa2">
                                 <rect key="frame" x="176" y="216" width="62" height="30"/>
                                 <state key="normal" title="观看直播"/>
                                 <connections>
@@ -24,12 +24,12 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="bE1-kI-kiQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hnr-FM-oa2" firstAttribute="top" secondItem="bE1-kI-kiQ" secondAttribute="top" constant="128" id="7Vg-vu-fxH"/>
                             <constraint firstItem="hnr-FM-oa2" firstAttribute="centerX" secondItem="vuy-jZ-QPq" secondAttribute="centerX" id="oIG-z0-xno"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="bE1-kI-kiQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZFu-rh-eBd"/>
                 </viewController>
@@ -40,7 +40,7 @@
         <!--直播-->
         <scene sceneID="iWg-HO-9yW">
             <objects>
-                <viewController title="直播" id="rob-9P-mtW" customClass="LiveViewCtrl" customModule="Test_Woodpecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="直播" id="rob-9P-mtW" customClass="LiveViewCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FgV-YU-kJt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,14 +48,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gYX-nK-kae">
                                 <rect key="frame" x="176" y="442" width="62" height="68"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjb-n3-LCr">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjb-n3-LCr">
                                         <rect key="frame" x="0.0" y="0.0" width="62" height="30"/>
                                         <state key="normal" title="接着直播"/>
                                         <connections>
                                             <action selector="startLive:" destination="rob-9P-mtW" eventType="touchUpInside" id="s0t-Fn-9O4"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFe-fj-Fpt">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFe-fj-Fpt">
                                         <rect key="frame" x="0.0" y="38" width="62" height="30"/>
                                         <state key="normal" title="暂停直播"/>
                                         <connections>
@@ -64,7 +64,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vI-cX-HaB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vI-cX-HaB">
                                 <rect key="frame" x="176" y="374" width="62" height="30"/>
                                 <state key="normal" title="全屏横屏"/>
                                 <connections>
@@ -73,14 +73,15 @@
                             </button>
                             <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8dW-ua-7bW">
                                 <rect key="frame" x="0.0" y="88" width="414" height="218"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="218" id="IXW-e3-5kI"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="218" id="njN-LI-ukl"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="OzG-jp-HRp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="7vI-cX-HaB" firstAttribute="centerX" secondItem="OzG-jp-HRp" secondAttribute="centerX" id="2P1-Kg-J42"/>
                             <constraint firstItem="8dW-ua-7bW" firstAttribute="leading" secondItem="OzG-jp-HRp" secondAttribute="leading" id="7Fg-py-LSj"/>
@@ -90,13 +91,8 @@
                             <constraint firstItem="gYX-nK-kae" firstAttribute="top" secondItem="7vI-cX-HaB" secondAttribute="bottom" constant="38" id="uDP-Qm-Ill"/>
                             <constraint firstItem="8dW-ua-7bW" firstAttribute="top" secondItem="OzG-jp-HRp" secondAttribute="top" id="uJb-b7-JHz"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="OzG-jp-HRp"/>
                     </view>
                     <navigationItem key="navigationItem" title="直播测试" id="ZQl-BO-rbR"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHideWaitingHUD" value="YES"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHideNotApiHUD" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="playerView" destination="8dW-ua-7bW" id="TnH-M7-ksJ"/>
                     </connections>
@@ -128,12 +124,12 @@
         <!--Full View Controller-->
         <scene sceneID="qYh-Q9-yEw">
             <objects>
-                <viewController id="C1f-yc-a8V" customClass="FullViewController" customModule="Test_Woodpecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="C1f-yc-a8V" customClass="FullViewController" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Twf-7T-RiZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIZ-Ua-saq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIZ-Ua-saq">
                                 <rect key="frame" x="16" y="64" width="31" height="30"/>
                                 <state key="normal" title="退出"/>
                                 <connections>
@@ -141,13 +137,13 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="q1Q-Ne-bym"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="wIZ-Ua-saq" firstAttribute="leading" secondItem="q1Q-Ne-bym" secondAttribute="leading" constant="16" id="8I4-5l-kay"/>
                             <constraint firstItem="wIZ-Ua-saq" firstAttribute="top" secondItem="q1Q-Ne-bym" secondAttribute="top" constant="20" id="QGT-7D-I0F"/>
                             <constraint firstItem="q1Q-Ne-bym" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wIZ-Ua-saq" secondAttribute="trailing" symbolic="YES" id="srl-xv-TAa"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="q1Q-Ne-bym"/>
                     </view>
                     <navigationItem key="navigationItem" id="PEt-ac-XjG"/>
                 </viewController>
@@ -159,5 +155,11 @@
     <resources>
         <image name="Home" width="27" height="27"/>
         <image name="Home-H" width="27" height="27"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

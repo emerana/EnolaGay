@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ePa-sy-yoF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0q3-w5-1x3">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +10,7 @@
         <!--Charts View Ctrl-->
         <scene sceneID="Rhs-Fm-LMu">
             <objects>
-                <viewController id="ePa-sy-yoF" customClass="ChartsViewCtrl" customModule="Test_Woodpecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ePa-sy-yoF" customClass="ChartsViewCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fXp-mp-ucN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +20,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="hlj-YN-S09" detailTextLabel="dCa-aF-Had" style="IBUITableViewCellStyleSubtitle" id="Hlz-xg-Joh">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="88"/>
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hlz-xg-Joh" id="ctd-1h-73y">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
@@ -67,7 +66,7 @@
                         <segue destination="UZq-bD-u6o" kind="show" identifier="showBarChartViewCtrl" id="dIE-w5-9hR"/>
                         <segue destination="eym-a8-Ek3" kind="show" identifier="showCandleStickChartViewCtrl" id="yxg-fQ-84s"/>
                         <segue destination="9KH-3K-S7E" kind="show" identifier="showKLineViewCtrl" id="6qt-rz-uoF"/>
-                        <segue destination="jXq-x1-89v" kind="presentation" identifier="showMyY_KLineViewCtrl" modalTransitionStyle="crossDissolve" id="1vi-hs-gKt"/>
+                        <segue destination="jXq-x1-89v" kind="show" identifier="showMyY_KLineViewCtrl" id="1vi-hs-gKt"/>
                         <segue destination="N55-V8-4rU" kind="show" identifier="showLineChartViewCtrl" id="FlS-Tk-Q6b"/>
                     </connections>
                 </viewController>
@@ -78,7 +77,7 @@
         <!--Pie Chart View Ctrl-->
         <scene sceneID="Oq9-eo-eF3">
             <objects>
-                <viewController id="TrQ-8R-WJU" customClass="PieChartViewCtrl" customModule="Test_Woodpecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TrQ-8R-WJU" customClass="PieChartViewCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iUJ-im-RmX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,7 +165,7 @@
         <!--Candle Stick Chart View Ctrl-->
         <scene sceneID="bWZ-cT-GnM">
             <objects>
-                <viewController id="eym-a8-Ek3" customClass="CandleStickChartViewCtrl" customModule="Test_Woodpecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eym-a8-Ek3" customClass="CandleStickChartViewCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XdE-Tr-HSc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,7 +212,7 @@
         <!--折线图-->
         <scene sceneID="SG1-fe-wJ7">
             <objects>
-                <viewController title="折线图" id="N55-V8-4rU" customClass="LineChartViewCtrl" customModule="Test_Woodpecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="折线图" id="N55-V8-4rU" customClass="LineChartViewCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cdN-ZL-SYU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,12 +244,12 @@
         <!--Line View Ctrl-->
         <scene sceneID="b0a-JC-0rl">
             <objects>
-                <viewController id="9KH-3K-S7E" customClass="KLineViewCtrl" customModule="Test_Woodpecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9KH-3K-S7E" customClass="KLineViewCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gTS-Yj-Azr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pL-4c-4zl" customClass="SegmentMenu" customModule="Test_Woodpecker" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pL-4c-4zl" customClass="SegmentMenu" customModule="EMERANA" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="375" height="38"/>
                                 <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -276,9 +275,6 @@
                             <constraint firstItem="Qsw-2d-Bc4" firstAttribute="top" secondItem="0pL-4c-4zl" secondAttribute="bottom" constant="8" id="s0q-fK-CpW"/>
                         </constraints>
                     </view>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHideNotApiHUD" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="segmentMenu" destination="0pL-4c-4zl" id="nEz-sd-poA"/>
                         <outlet property="showView" destination="Qsw-2d-Bc4" id="LRH-kF-pQ1"/>
@@ -293,11 +289,12 @@
             <objects>
                 <viewController id="jXq-x1-89v" customClass="Y_StockChartViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bEe-5W-To8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="gHl-yv-GBy"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <navigationItem key="navigationItem" id="aX8-X7-9V0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PO6-w1-6wn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -306,7 +303,7 @@
         <!--Charts-->
         <scene sceneID="SYC-CL-BF0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0q3-w5-1x3" customClass="JudyBaseNavigationCtrl" customModule="Test_Woodpecker" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0q3-w5-1x3" customClass="JudyBaseNavigationCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Charts" image="MemberCenter" selectedImage="MemberCenter-H" id="dwd-Fy-sMJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hsE-md-vpb">
@@ -325,7 +322,7 @@
         <!--Bar Chart View Ctrl-->
         <scene sceneID="6P0-vN-k8r">
             <objects>
-                <viewController id="UZq-bD-u6o" customClass="BarChartViewCtrl" customModule="Test_Woodpecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UZq-bD-u6o" customClass="BarChartViewCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k2Q-Ib-RE9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
