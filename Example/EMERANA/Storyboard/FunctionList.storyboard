@@ -391,10 +391,10 @@
             </objects>
             <point key="canvasLocation" x="1776.8" y="518.7192118226601"/>
         </scene>
-        <!--Charts-->
+        <!--ChartsViewCtrl-->
         <scene sceneID="LAB-HZ-ftx">
             <objects>
-                <viewControllerPlaceholder storyboardName="Charts" id="bDI-GR-HR2" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Charts" referencedIdentifier="ChartsViewCtrl" id="bDI-GR-HR2" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="gXS-Iw-9tb"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J9g-dH-OLq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

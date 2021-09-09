@@ -10,7 +10,7 @@
         <!--Charts View Ctrl-->
         <scene sceneID="Rhs-Fm-LMu">
             <objects>
-                <viewController id="ePa-sy-yoF" customClass="ChartsViewCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChartsViewCtrl" id="ePa-sy-yoF" customClass="ChartsViewCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fXp-mp-ucN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
