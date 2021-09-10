@@ -75,7 +75,6 @@ target 'EnolaGay_Example' do
     pod 'MJRefresh'
     pod 'SDWebImage'
     pod 'SDCycleScrollView'
-    pod 'Charts'
     #    pod 'SocketRocket'    # https://github.com/facebook/SocketRocket.git
     #    pod 'RESideMenu', '~> 4.0.7' #侧边菜单
     #    pod 'ResponseDetective'
@@ -118,6 +117,12 @@ target 'EnolaGay_Example' do
     pod 'EnolaGay', :path => '../'
     pod 'RxSwift'
     pod 'RxCocoa'
+
+  end
+  
+  target 'MyCharts' do
+    pod 'EnolaGay', :path => '../'
+    pod 'Charts'
 
   end
 

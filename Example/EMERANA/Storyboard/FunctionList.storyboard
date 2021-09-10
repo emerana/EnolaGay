@@ -70,7 +70,6 @@
                         <segue destination="sqb-b8-307" kind="show" identifier="showGracePeriodViewCtrl" id="MQu-hu-rcU"/>
                         <segue destination="P1E-pG-iX5" kind="show" identifier="showWeiChatViewCtrl" id="XFU-WW-xJv"/>
                         <segue destination="Gia-dJ-Shs" kind="show" identifier="showJudyTextFieldStyle" id="jee-sT-EUR"/>
-                        <segue destination="bDI-GR-HR2" kind="show" identifier="showChartsViewCtrl" id="hCq-tH-1w5"/>
                         <segue destination="byG-EO-Fex" kind="show" identifier="showEMERANA_FontStyle" id="L1O-Z9-Q1C"/>
                         <segue destination="rOZ-Ag-I1r" kind="show" identifier="showTableViewFeature" id="NO4-QH-9AG"/>
                     </connections>
@@ -390,16 +389,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s2K-Bc-Sha" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1776.8" y="518.7192118226601"/>
-        </scene>
-        <!--ChartsViewCtrl-->
-        <scene sceneID="LAB-HZ-ftx">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Charts" referencedIdentifier="ChartsViewCtrl" id="bDI-GR-HR2" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="gXS-Iw-9tb"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J9g-dH-OLq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="889" y="2535"/>
         </scene>
         <!--Grace Period View Ctrl-->
         <scene sceneID="nul-fs-SbZ">

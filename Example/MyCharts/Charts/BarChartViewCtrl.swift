@@ -125,27 +125,28 @@ class BarChartViewCtrl: ChartsBaseViewCtrl {
             return BarChartDataEntry(x: Double(i), y: val)
         }
         
-//        var set1: BarChartDataSet! = nil
-//        if let set = chartView.data?.dataSets.first as? BarChartDataSet {
-//            set1 = set
-//            //            不知为何报错
-//            //            set1.values = yVals
-//            chartView.data?.notifyDataChanged()
-//            chartView.notifyDataSetChanged()
-//        } else {
-//            // 不知为何报错
-//            //            set1 = BarChartDataSet(values: yVals, label: "The year 2017")
-//            set1.colors = [UIColor.blue]  //ChartColorTemplates.material()
-//            set1.drawValuesEnabled = false
-//            
-//            let data = BarChartData(dataSet: set1)
-//            data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 10)!)
-//            data.barWidth = 0.9
-//            
-//            chartView.data = data
-//        }
         
-//        chartView.setNeedsDisplay()
+        var set1: BarChartDataSet = BarChartDataSet(entries: yVals, label: "图例1")
+        if let set = chartView.data?.dataSets.first as? BarChartDataSet {
+            set1 = set
+            //            不知为何报错
+            //            set1.values = yVals
+            chartView.data?.notifyDataChanged()
+            chartView.notifyDataSetChanged()
+        } else {
+            // 不知为何报错
+            //            set1 = BarChartDataSet(values: yVals, label: "The year 2017")
+            set1.colors = [UIColor.blue]  //ChartColorTemplates.material()
+            set1.drawValuesEnabled = false
+            
+            let data = BarChartData(dataSet: set1)
+            data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 10)!)
+            data.barWidth = 0.9
+            
+            chartView.data = data
+        }
+        
+        chartView.setNeedsDisplay()
     }
     
     override func optionTapped(_ option: Option) {

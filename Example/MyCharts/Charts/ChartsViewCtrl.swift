@@ -12,10 +12,6 @@ import EnolaGay
 /// Charts 列表
 class ChartsViewCtrl: JudyBaseTableViewCtrl {
     
-    // MARK: - let property and IBOutlet - 常量和IBOutlet
-
-    // MARK: - public var property - 公开var
-
     override var viewTitle: String? {
         return "Charts"
     }
@@ -35,15 +31,13 @@ class ChartsViewCtrl: JudyBaseTableViewCtrl {
             ["title": "K线图示例", "subTitle": "K线研究所Demo", "segue": "showKLineViewCtrl", ],
             ["title": "MyY_KLine", "subTitle": "截止目前为止，最为专业的K线图了", "segue": "showMyY_KLineViewCtrl", ],
             ["title": "折线图", "subTitle": "折线图的使用", "segue": "showLineChartViewCtrl", ],
-
-
             
         ]
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    override func viewWillAppear(_ animated: Bool) {
+        isReqSuccess = true
+        super.viewWillAppear(animated)
     }
     
     // MARK: - override - 重写重载父类的方法
