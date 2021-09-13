@@ -60,6 +60,7 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
             .emit(onNext: { [weak self] in
                 guard let `self` = self else { return }
                 self.infoLabel.text = "查询中……"
+                self.queryButton.isHidden = true
                 self.view.endEditing(true)
                 self.versionCheck()
             }).disposed(by: disposeBag)
@@ -76,7 +77,6 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
 private extension VersionCheckViewCtrl {
     /// 查询版本是否有强制更新
     func versionCheck() {
-        queryButton.isHidden = true
         let _ = Observable.zip(getVersionInfo(), getVersionForce())
             .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .observe(on: MainScheduler.instance)
