@@ -50,58 +50,6 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
                 self.queryButton.isHidden = true
                 self.view.endEditing(true)
                 
-//                self.viewModel.versionCheck()
-//                    .subscribe(onNext: { (versionInfo, force) in
-//                        self.queryButton.isHidden = false
-//
-//                        Judy.log("查询到的 versionStatus：\(versionInfo)")
-//                        Judy.log("查询强制更新响应的 isHot = \(force)")
-//
-//                        var infoString = "查询结果\n"
-//                        infoString += "Bundle ID: \(try! self.viewModel.bundleID.value())\n"
-//                        infoString += "Version: \(try! self.viewModel.version.value())\n"
-//                        infoString += versionInfo.0.rawValue
-//
-//                        self.infoLabel.text = infoString
-//                        let highlightedColor = UIColor.darkText
-//                        let highlightedFont = UIFont(name: FontName.HlvtcNeue, size: 16)
-//                        self.infoLabel.judy.setHighlighted(text: "查询结果", color: highlightedColor, font: highlightedFont)
-//                        self.infoLabel.judy.setHighlighted(text: "Bundle ID:", color: highlightedColor, font: highlightedFont)
-//                        self.infoLabel.judy.setHighlighted(text: "Version:", color: highlightedColor, font: highlightedFont)
-//
-//                        /// 只有要求强制更新且有新版本的时候弹出强制更新窗口
-//                        if versionInfo.0 == .older && force {
-//                            let alertController = UIAlertController(title: "请更新版本",
-//                                                                    message: nil,
-//                                                                    preferredStyle: .alert)
-//                            let okAction = UIAlertAction(title: "去更新", style: .destructive, handler: {(_ action: UIAlertAction) -> Void in
-//                                if let url = URL(string: versionInfo.1 ?? "") {
-//                                    if UIApplication.shared.canOpenURL(url) {
-//                                        Judy.logHappy("正在打开：\(url)")
-//                                        UIApplication.shared.open(url, completionHandler: nil)
-//                                    } else {
-//                                        Judy.logWarning("不能打开该 URL")
-//                                    }
-//                                }
-//                            })
-//                            alertController.addAction(okAction)
-//
-//                            Judy.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
-//                        }
-//                    })
-//                    .disposed(by: self.disposeBag)
-                
-//                self.viewModel.versionCheckCompletable().subscribe { event in
-//                    Judy.log("任务完成了")
-//                    let highlightedColor = UIColor.darkText
-//                    let highlightedFont = UIFont(name: FontName.HlvtcNeue, size: 16)
-//                    self.infoLabel.judy.setHighlighted(text: "查询结果", color: highlightedColor, font: highlightedFont)
-//                    self.infoLabel.judy.setHighlighted(text: "Bundle ID:", color: highlightedColor, font: highlightedFont)
-//                    self.infoLabel.judy.setHighlighted(text: "Version:", color: highlightedColor, font: highlightedFont)
-//
-//                    self.queryButton.isHidden = false
-//                }
-//                .disposed(by: self.disposeBag)
                 self.viewModel.versionCheckSingle()
                     .subscribe { event in
                         switch event {
@@ -132,7 +80,7 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
                         self.infoLabel.judy.setHighlighted(text: "查询结果", color: highlightedColor, font: highlightedFont)
                         self.infoLabel.judy.setHighlighted(text: "Bundle ID:", color: highlightedColor, font: highlightedFont)
                         self.infoLabel.judy.setHighlighted(text: "Version:", color: highlightedColor, font: highlightedFont)
-
+                        
                         self.queryButton.isHidden = false
                     }
                     .disposed(by: self.disposeBag)
