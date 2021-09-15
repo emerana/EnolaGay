@@ -29,7 +29,6 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        infoLabel.text = ""
 
         viewModel = VersionCheckViewModel(
             bundleID: bundleIDTextField.rx.text.orEmpty.asObservable(),
