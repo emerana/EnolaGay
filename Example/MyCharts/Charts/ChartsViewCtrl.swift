@@ -29,7 +29,6 @@ class ChartsViewCtrl: JudyBaseTableViewCtrl {
             ["title": "Pie Chart 馅饼图.", "subTitle": "A simple demonstration of the pie chart.", "segue": "showPieChartViewCtrl"],
             ["title": "蜡烛图.", "subTitle": "适用于K线图的绘制.", "segue": "showCandleStickChartViewCtrl"],
             ["title": "K线图示例", "subTitle": "K线研究所Demo", "segue": "showKLineViewCtrl", ],
-            ["title": "MyY_KLine", "subTitle": "截止目前为止，最为专业的K线图了", "segue": "showMyY_KLineViewCtrl", ],
             ["title": "折线图", "subTitle": "折线图的使用", "segue": "showLineChartViewCtrl", ],
             
         ]

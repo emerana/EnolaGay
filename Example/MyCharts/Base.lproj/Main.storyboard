@@ -66,7 +66,6 @@
                         <segue destination="z3y-9r-cXq" kind="show" identifier="showBarChartViewCtrl" id="bP3-yk-TBG"/>
                         <segue destination="sAy-Ga-lF3" kind="show" identifier="showCandleStickChartViewCtrl" id="tab-6S-AQ2"/>
                         <segue destination="wMv-0c-Xl5" kind="show" identifier="showKLineViewCtrl" id="ALd-rS-PI7"/>
-                        <segue destination="5vd-m1-idP" kind="show" identifier="showMyY_KLineViewCtrl" id="Shf-eg-9gi"/>
                         <segue destination="EOZ-ir-Fe5" kind="show" identifier="showLineChartViewCtrl" id="DQf-sH-R5z"/>
                     </connections>
                 </viewController>
@@ -252,7 +251,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSz-cD-5bz" customClass="SegmentMenu" customModule="EMERANA" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSz-cD-5bz" customClass="SegmentMenu" customModule="MyCharts" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="38"/>
                                 <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -287,22 +286,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03U-hr-uhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1792.8" y="629.2353823088456"/>
-        </scene>
-        <!--Stock Chart View Controller-->
-        <scene sceneID="eo7-KF-s6d">
-            <objects>
-                <viewController id="5vd-m1-idP" customClass="Y_StockChartViewController" customModule="MyCharts" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="E74-h2-HtG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="BLt-nb-eza"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="k4B-8V-ibv"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="io2-RO-uTd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2636" y="629"/>
         </scene>
         <!--Charts-->
         <scene sceneID="bCv-ZQ-PhF">
