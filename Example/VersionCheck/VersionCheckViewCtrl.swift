@@ -92,21 +92,51 @@ class VersionCheckViewCtrl: JudyBaseViewCtrl {
 //                    })
 //                    .disposed(by: self.disposeBag)
                 
-                self.viewModel.versionCheckCompletable().subscribe { event in
-                    Judy.log("任务完成了")
-                    let highlightedColor = UIColor.darkText
-                    let highlightedFont = UIFont(name: FontName.HlvtcNeue, size: 16)
-                    self.infoLabel.judy.setHighlighted(text: "查询结果", color: highlightedColor, font: highlightedFont)
-                    self.infoLabel.judy.setHighlighted(text: "Bundle ID:", color: highlightedColor, font: highlightedFont)
-                    self.infoLabel.judy.setHighlighted(text: "Version:", color: highlightedColor, font: highlightedFont)
+//                self.viewModel.versionCheckCompletable().subscribe { event in
+//                    Judy.log("任务完成了")
+//                    let highlightedColor = UIColor.darkText
+//                    let highlightedFont = UIFont(name: FontName.HlvtcNeue, size: 16)
+//                    self.infoLabel.judy.setHighlighted(text: "查询结果", color: highlightedColor, font: highlightedFont)
+//                    self.infoLabel.judy.setHighlighted(text: "Bundle ID:", color: highlightedColor, font: highlightedFont)
+//                    self.infoLabel.judy.setHighlighted(text: "Version:", color: highlightedColor, font: highlightedFont)
+//
+//                    self.queryButton.isHidden = false
+//                }
+//                .disposed(by: self.disposeBag)
+                self.viewModel.versionCheckSingle()
+                    .subscribe { event in
+                        switch event {
+                        case .success(let appStoreURL):
+                            Judy.log("拿到AppStore链接:\(appStoreURL)")
+                            if appStoreURL == "" { break }
+                            let alertController = UIAlertController(title: "请更新版本",
+                                                                    message: nil,
+                                                                    preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "去更新", style: .destructive, handler: {(_ action: UIAlertAction) -> Void in
+                                if let url = URL(string: appStoreURL) {
+                                    if UIApplication.shared.canOpenURL(url) {
+                                        Judy.logHappy("正在打开：\(url)")
+                                        UIApplication.shared.open(url, completionHandler: nil)
+                                    } else {
+                                        Judy.logWarning("不能打开该 URL")
+                                    }
+                                }
+                            })
+                            alertController.addAction(okAction)
+                            
+                            Judy.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+                        case .failure(_):
+                            Judy.log("任务返回了失败")
+                        }
+                        let highlightedColor = UIColor.darkText
+                        let highlightedFont = UIFont(name: FontName.HlvtcNeue, size: 16)
+                        self.infoLabel.judy.setHighlighted(text: "查询结果", color: highlightedColor, font: highlightedFont)
+                        self.infoLabel.judy.setHighlighted(text: "Bundle ID:", color: highlightedColor, font: highlightedFont)
+                        self.infoLabel.judy.setHighlighted(text: "Version:", color: highlightedColor, font: highlightedFont)
 
-                    self.queryButton.isHidden = false
-                }
-                .disposed(by: self.disposeBag)
-                
-                
-                
-                
+                        self.queryButton.isHidden = false
+                    }
+                    .disposed(by: self.disposeBag)
             }).disposed(by: disposeBag)
         
     }
@@ -174,8 +204,6 @@ class VersionCheckViewModel {
                         infoString += "Bundle ID: \(try! self.bundleID.value())\n"
                         infoString += "Version: \(try! self.version.value())\n"
                         infoString += versionInfo.0.rawValue
-
-                        
                         self.queryResult.onNext(infoString)
                     default:
                         self.queryResult.onNext("完成查询\(event)")
@@ -184,6 +212,39 @@ class VersionCheckViewModel {
                 })
 
             return Disposables.create { }
+        }
+    }
+
+    /// 以 Single 方式查询
+    func versionCheckSingle() -> Single<String> {
+        queryResult.onNext("查询中……")
+        return Single<String>.create { [weak self] single in
+            guard let `self` = self  else { return Disposables.create {} }
+            _ = Observable.zip(self.getVersionInfo(), self.getVersionForce())
+                .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+                .observe(on: MainScheduler.instance)
+                .subscribe({ event in
+                    switch event {
+                    case .next((let versionInfo, let force)):
+                        Judy.log("查询到的 versionStatus：\(versionInfo)")
+                        Judy.log("查询强制更新响应的 isHot = \(force)")
+
+                        var infoString = "查询结果\n"
+                        infoString += "Bundle ID: \(try! self.bundleID.value())\n"
+                        infoString += "Version: \(try! self.version.value())\n"
+                        infoString += versionInfo.0.rawValue
+                        self.queryResult.onNext(infoString)
+                        if versionInfo.0 == .older && force {
+                            single(.success(versionInfo.1 ?? ""))
+                        } else {
+                            single(.success(""))
+                        }
+                    default:
+                        single(.failure(event.error.unsafelyUnwrapped))
+                    }
+                })
+           
+            return Disposables.create {}
         }
     }
 
