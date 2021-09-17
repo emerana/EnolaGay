@@ -66,13 +66,16 @@
 		8B174A1B26EB3DCE00B81EC7 /* HSDrawLayerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1749DF26EB3DCE00B81EC7 /* HSDrawLayerProtocol.swift */; };
 		8B174A1C26EB3DCE00B81EC7 /* HSStockChartNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1749E126EB3DCE00B81EC7 /* HSStockChartNameSpace.swift */; };
 		8B174A1D26EB3DCE00B81EC7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1749E226EB3DCE00B81EC7 /* Extension.swift */; };
+		8B174A2526F483BB00B81EC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B174A2426F483BB00B81EC7 /* AppDelegate.swift */; };
+		8B174A2926F483BB00B81EC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B174A2826F483BB00B81EC7 /* ViewController.swift */; };
+		8B174A2C26F483BB00B81EC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B174A2A26F483BB00B81EC7 /* Main.storyboard */; };
+		8B174A2E26F483BE00B81EC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B174A2D26F483BE00B81EC7 /* Assets.xcassets */; };
+		8B174A3126F483BE00B81EC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B174A2F26F483BE00B81EC7 /* LaunchScreen.storyboard */; };
 		8B1A499025C8354700FDA57A /* LangRenSha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1A498F25C8354700FDA57A /* LangRenSha.storyboard */; };
 		8B372D11268E9F3E004840FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D08268E9F3E004840FC /* Assets.xcassets */; };
 		8B372D12268E9F3E004840FC /* rescheduler.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D09268E9F3E004840FC /* rescheduler.gif */; };
 		8B372D1D268EA105004840FC /* MandolineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D1A268EA104004840FC /* MandolineViewController.swift */; };
 		8B372D1F268EA105004840FC /* Mandoline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D1C268EA105004840FC /* Mandoline.storyboard */; };
-		8B4A4DE3266E0E37007D6DC5 /* NavigatinCtrl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */; };
-		8B4A4DE5266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */; };
 		8B4A4DEB266F0B8C007D6DC5 /* DouYin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */; };
 		8B4A4DED266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */; };
 		8B620EA526DDF347001E1A9D /* VersionCheck-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */; };
@@ -243,6 +246,7 @@
 		93ABEB9893981EB588536176 /* Pods_EnolaGay_Example_Semaphore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643EA2A76EAACA640FC02CD1 /* Pods_EnolaGay_Example_Semaphore.framework */; };
 		AE4C906A9FC35F064F0A2073 /* Pods_EnolaGay_Example_HPickerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10668B896E19D40B93D802F0 /* Pods_EnolaGay_Example_HPickerDemo.framework */; };
 		B50D17D8D986765C81AE086C /* Pods_EnolaGay_Example_CacheDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE7544F2E609AE3D7ABB860 /* Pods_EnolaGay_Example_CacheDemo.framework */; };
+		DAC589F3770DCD4DAF4D72B7 /* Pods_EnolaGay_Example_JudyBaseNavigationCtrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D73BA128CC3A3C0AD8D13B /* Pods_EnolaGay_Example_JudyBaseNavigationCtrl.framework */; };
 		EE2859873D7E7BE3629FC128 /* Pods_EnolaGay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */; };
 		F1E101BD8D92D20F45ED0338 /* Pods_EnolaGay_Example_GiftMessageViewCtrlDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B94CF2DC9FF3616B095D6E /* Pods_EnolaGay_Example_GiftMessageViewCtrlDemo.framework */; };
 		FD2BF1C1E58BD6F9609DDA99 /* Pods_EnolaGay_Example_AGUL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1F91CA9F27435144DFABFF /* Pods_EnolaGay_Example_AGUL.framework */; };
@@ -268,6 +272,7 @@
 		3448F43C0484DBEAC0D6AB18 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		3AE7544F2E609AE3D7ABB860 /* Pods_EnolaGay_Example_CacheDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_CacheDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD0B8726543EE9196E1673B /* Pods-EnolaGay_Example-MyCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-MyCharts.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-MyCharts/Pods-EnolaGay_Example-MyCharts.release.xcconfig"; sourceTree = "<group>"; };
+		46D73BA128CC3A3C0AD8D13B /* Pods_EnolaGay_Example_JudyBaseNavigationCtrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_JudyBaseNavigationCtrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BEF63E80633E7AB0E78136F /* Pods-EnolaGay_Example-AGUL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-AGUL.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-AGUL/Pods-EnolaGay_Example-AGUL.release.xcconfig"; sourceTree = "<group>"; };
 		4C14081734AB32DA5BCC5228 /* Pods-EnolaGay_Example-VersionCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-VersionCheck.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-VersionCheck/Pods-EnolaGay_Example-VersionCheck.release.xcconfig"; sourceTree = "<group>"; };
 		545F67098F044C7D30826C6D /* Pods-EnolaGay_Example-PlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-PlayerDemo.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-PlayerDemo/Pods-EnolaGay_Example-PlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -293,6 +298,7 @@
 		6DD7B6EDF1F358418BB576F8 /* Pods-Cache.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cache.release.xcconfig"; path = "Target Support Files/Pods-Cache/Pods-Cache.release.xcconfig"; sourceTree = "<group>"; };
 		73E29F90BD7E27E821D96A1D /* Pods-EnolaGay_Example-KeyBoardPop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-KeyBoardPop.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-KeyBoardPop/Pods-EnolaGay_Example-KeyBoardPop.release.xcconfig"; sourceTree = "<group>"; };
 		7747A34155239783B6CF9842 /* EnolaGay.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = EnolaGay.podspec; path = ../EnolaGay.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7A1890A5D554197EA45F8750 /* Pods-EnolaGay_Example-JudyBaseNavigationCtrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-JudyBaseNavigationCtrl.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-JudyBaseNavigationCtrl/Pods-EnolaGay_Example-JudyBaseNavigationCtrl.debug.xcconfig"; sourceTree = "<group>"; };
 		7A1F91CA9F27435144DFABFF /* Pods_EnolaGay_Example_AGUL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_AGUL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A38E719664EBF8ECF3FA540 /* Pods-PlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerDemo.debug.xcconfig"; path = "Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7B318DF63D7C7D8043B55DC8 /* Pods-CacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CacheDemo.release.xcconfig"; path = "Target Support Files/Pods-CacheDemo/Pods-CacheDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -344,6 +350,13 @@
 		8B1749DF26EB3DCE00B81EC7 /* HSDrawLayerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSDrawLayerProtocol.swift; sourceTree = "<group>"; };
 		8B1749E126EB3DCE00B81EC7 /* HSStockChartNameSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSStockChartNameSpace.swift; sourceTree = "<group>"; };
 		8B1749E226EB3DCE00B81EC7 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		8B174A2226F483B900B81EC7 /* JudyBaseNavigationCtrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JudyBaseNavigationCtrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B174A2426F483BB00B81EC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8B174A2826F483BB00B81EC7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8B174A2B26F483BB00B81EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8B174A2D26F483BE00B81EC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B174A3026F483BE00B81EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8B174A3226F483BE00B81EC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B1A498F25C8354700FDA57A /* LangRenSha.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LangRenSha.storyboard; sourceTree = "<group>"; };
 		8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudyLivePageViewTest.swift; sourceTree = "<group>"; };
 		8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveModelViewCtrl.swift; sourceTree = "<group>"; };
@@ -353,8 +366,6 @@
 		8B372D1A268EA104004840FC /* MandolineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandolineViewController.swift; sourceTree = "<group>"; };
 		8B372D1C268EA105004840FC /* Mandoline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mandoline.storyboard; sourceTree = "<group>"; };
 		8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTestViewCtrl.swift; sourceTree = "<group>"; };
-		8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigatinCtrl.storyboard; sourceTree = "<group>"; };
-		8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatinMainViewCtrl.swift; sourceTree = "<group>"; };
 		8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DouYin.storyboard; sourceTree = "<group>"; };
 		8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DouYonHomeViewCtrl.swift; sourceTree = "<group>"; };
 		8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VersionCheck-Info.plist"; sourceTree = "<group>"; };
@@ -575,6 +586,7 @@
 		8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerticalScrollView.storyboard; sourceTree = "<group>"; };
+		93E60451AAFF68D608B14389 /* Pods-EnolaGay_Example-JudyBaseNavigationCtrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-JudyBaseNavigationCtrl.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-JudyBaseNavigationCtrl/Pods-EnolaGay_Example-JudyBaseNavigationCtrl.release.xcconfig"; sourceTree = "<group>"; };
 		965A220C1897CC6E346EC1C5 /* Pods-EnolaGay_Example-JudyLivePageViewCtrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-JudyLivePageViewCtrl.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-JudyLivePageViewCtrl/Pods-EnolaGay_Example-JudyLivePageViewCtrl.debug.xcconfig"; sourceTree = "<group>"; };
 		9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A21A509A84DC406DD883CE9B /* Pods_EnolaGay_Example_CastSurelyCalculation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_CastSurelyCalculation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -616,6 +628,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				20C88AF1E12C468A33D7FCD5 /* Pods_EnolaGay_Example_MyCharts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B174A1F26F483B900B81EC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC589F3770DCD4DAF4D72B7 /* Pods_EnolaGay_Example_JudyBaseNavigationCtrl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,6 +821,8 @@
 				00494788CC0C45E306B78243 /* Pods-EnolaGay_Example-MyRxSwfit.release.xcconfig */,
 				5DCFF2CCEC9966CAF84D1B04 /* Pods-EnolaGay_Example-MyCharts.debug.xcconfig */,
 				3BD0B8726543EE9196E1673B /* Pods-EnolaGay_Example-MyCharts.release.xcconfig */,
+				7A1890A5D554197EA45F8750 /* Pods-EnolaGay_Example-JudyBaseNavigationCtrl.debug.xcconfig */,
+				93E60451AAFF68D608B14389 /* Pods-EnolaGay_Example-JudyBaseNavigationCtrl.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -828,6 +850,7 @@
 				8BC3DDD226E0617400A2A405 /* JudyLivePageViewCtrl */,
 				8BC3DDEF26E06BA000A2A405 /* MyRxSwfit */,
 				8B17484026EB3BC900B81EC7 /* MyCharts */,
+				8B174A2326F483BB00B81EC7 /* JudyBaseNavigationCtrl */,
 				607FACD11AFB9204008FA782 /* Products */,
 				48F58D42A596E8C4AFE02DEE /* Pods */,
 				C2843BD89BA8C609ED35D6C4 /* Frameworks */,
@@ -855,6 +878,7 @@
 				8BC3DDD126E0617400A2A405 /* JudyLivePageViewCtrl.app */,
 				8BC3DDEE26E06BA000A2A405 /* MyRxSwfit.app */,
 				8B17483F26EB3BC900B81EC7 /* MyCharts.app */,
+				8B174A2226F483B900B81EC7 /* JudyBaseNavigationCtrl.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -864,7 +888,6 @@
 			children = (
 				8B372D13268EA06F004840FC /* Mandoline */,
 				8B4A4DE9266F0B7B007D6DC5 /* DouYinHome */,
-				8B4A4DE1266E0E23007D6DC5 /* NavigationCtrl */,
 				8BFCC83125E385F9000B1611 /* 垂直轮播图 */,
 				8B1A498E25C8353100FDA57A /* LangRenSha */,
 				8B76428E25A702C400A418F8 /* Tests */,
@@ -1027,6 +1050,19 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		8B174A2326F483BB00B81EC7 /* JudyBaseNavigationCtrl */ = {
+			isa = PBXGroup;
+			children = (
+				8B174A2426F483BB00B81EC7 /* AppDelegate.swift */,
+				8B174A2826F483BB00B81EC7 /* ViewController.swift */,
+				8B174A2A26F483BB00B81EC7 /* Main.storyboard */,
+				8B174A2D26F483BE00B81EC7 /* Assets.xcassets */,
+				8B174A2F26F483BE00B81EC7 /* LaunchScreen.storyboard */,
+				8B174A3226F483BE00B81EC7 /* Info.plist */,
+			);
+			path = JudyBaseNavigationCtrl;
+			sourceTree = "<group>";
+		};
 		8B1A498E25C8353100FDA57A /* LangRenSha */ = {
 			isa = PBXGroup;
 			children = (
@@ -1060,15 +1096,6 @@
 				8B372D1A268EA104004840FC /* MandolineViewController.swift */,
 			);
 			path = Mandoline;
-			sourceTree = "<group>";
-		};
-		8B4A4DE1266E0E23007D6DC5 /* NavigationCtrl */ = {
-			isa = PBXGroup;
-			children = (
-				8B4A4DE2266E0E37007D6DC5 /* NavigatinCtrl.storyboard */,
-				8B4A4DE4266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift */,
-			);
-			path = NavigationCtrl;
 			sourceTree = "<group>";
 		};
 		8B4A4DE9266F0B7B007D6DC5 /* DouYinHome */ = {
@@ -1577,6 +1604,7 @@
 				A6D9194BA404D8FCCFB529D4 /* Pods_EnolaGay_Example_JudyLivePageViewCtrl.framework */,
 				2E1B73BD02B327293361DDDE /* Pods_EnolaGay_Example_MyRxSwfit.framework */,
 				599FD08F99E4BCB6F3538ADE /* Pods_EnolaGay_Example_MyCharts.framework */,
+				46D73BA128CC3A3C0AD8D13B /* Pods_EnolaGay_Example_JudyBaseNavigationCtrl.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1620,6 +1648,25 @@
 			name = MyCharts;
 			productName = MyCharts;
 			productReference = 8B17483F26EB3BC900B81EC7 /* MyCharts.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8B174A2126F483B900B81EC7 /* JudyBaseNavigationCtrl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B174A3326F483BE00B81EC7 /* Build configuration list for PBXNativeTarget "JudyBaseNavigationCtrl" */;
+			buildPhases = (
+				F064EA2CB159F6CE6E47E88F /* [CP] Check Pods Manifest.lock */,
+				8B174A1E26F483B900B81EC7 /* Sources */,
+				8B174A1F26F483B900B81EC7 /* Frameworks */,
+				8B174A2026F483B900B81EC7 /* Resources */,
+				F0422D4C52286B5FAC06B95D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JudyBaseNavigationCtrl;
+			productName = JudyBaseNavigationCtrl;
+			productReference = 8B174A2226F483B900B81EC7 /* JudyBaseNavigationCtrl.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8BC3D9F226DDF70100A2A405 /* VersionCheck */ = {
@@ -1946,6 +1993,11 @@
 						DevelopmentTeam = 325J3J39TM;
 						ProvisioningStyle = Automatic;
 					};
+					8B174A2126F483B900B81EC7 = {
+						CreatedOnToolsVersion = 12.5.1;
+						DevelopmentTeam = 325J3J39TM;
+						ProvisioningStyle = Automatic;
+					};
 					8BC3D9F226DDF70100A2A405 = {
 						DevelopmentTeam = 325J3J39TM;
 					};
@@ -2043,6 +2095,7 @@
 				8BC3DDD026E0617400A2A405 /* JudyLivePageViewCtrl */,
 				8BC3DDED26E06BA000A2A405 /* MyRxSwfit */,
 				8B17483E26EB3BC900B81EC7 /* MyCharts */,
+				8B174A2126F483B900B81EC7 /* JudyBaseNavigationCtrl */,
 			);
 		};
 /* End PBXProject section */
@@ -2061,7 +2114,6 @@
 				8B372D12268E9F3E004840FC /* rescheduler.gif in Resources */,
 				8B620EA526DDF347001E1A9D /* VersionCheck-Info.plist in Resources */,
 				8B4A4DEB266F0B8C007D6DC5 /* DouYin.storyboard in Resources */,
-				8B4A4DE3266E0E37007D6DC5 /* NavigatinCtrl.storyboard in Resources */,
 				8B1A499025C8354700FDA57A /* LangRenSha.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2080,6 +2132,16 @@
 				8B17488026EB3D3600B81EC7 /* timeLineForFiveday.json in Resources */,
 				8B17484926EB3BC900B81EC7 /* Main.storyboard in Resources */,
 				8B17487C26EB3D3600B81EC7 /* timeLineForDay.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B174A2026F483B900B81EC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B174A3126F483BE00B81EC7 /* LaunchScreen.storyboard in Resources */,
+				8B174A2E26F483BE00B81EC7 /* Assets.xcassets in Resources */,
+				8B174A2C26F483BB00B81EC7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3087,6 +3149,50 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-AGUL/Pods-EnolaGay_Example-AGUL-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F0422D4C52286B5FAC06B95D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-JudyBaseNavigationCtrl/Pods-EnolaGay_Example-JudyBaseNavigationCtrl-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-JudyBaseNavigationCtrl/Pods-EnolaGay_Example-JudyBaseNavigationCtrl-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F064EA2CB159F6CE6E47E88F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EnolaGay_Example-JudyBaseNavigationCtrl-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FA513CA7A4D92155466C63EC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3118,7 +3224,6 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				8BE7F82C26CA4000001CE7EA /* ToastViewCtrl.swift in Sources */,
-				8B4A4DE5266E0E8F007D6DC5 /* NavigatinMainViewCtrl.swift in Sources */,
 				8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */,
 				8B4A4DED266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift in Sources */,
 				8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */,
@@ -3164,6 +3269,15 @@
 				8B17488326EB3D3600B81EC7 /* KLineViewCtrl.swift in Sources */,
 				8B174A1826EB3DCE00B81EC7 /* HSTimeLineStyle.swift in Sources */,
 				8B17488626EB3D3600B81EC7 /* ChartsBaseViewCtrl.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B174A1E26F483B900B81EC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B174A2926F483BB00B81EC7 /* ViewController.swift in Sources */,
+				8B174A2526F483BB00B81EC7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3400,6 +3514,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				8B17484D26EB3BCA00B81EC7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8B174A2A26F483BB00B81EC7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B174A2B26F483BB00B81EC7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8B174A2F26F483BE00B81EC7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B174A3026F483BE00B81EC7 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -3845,6 +3975,61 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.MyCharts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8B174A3426F483BE00B81EC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A1890A5D554197EA45F8750 /* Pods-EnolaGay_Example-JudyBaseNavigationCtrl.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = JudyBaseNavigationCtrl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.JudyBaseNavigationCtrl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B174A3526F483BE00B81EC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93E60451AAFF68D608B14389 /* Pods-EnolaGay_Example-JudyBaseNavigationCtrl.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = JudyBaseNavigationCtrl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.JudyBaseNavigationCtrl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4595,6 +4780,15 @@
 			buildConfigurations = (
 				8B17485126EB3BCA00B81EC7 /* Debug */,
 				8B17485226EB3BCA00B81EC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B174A3326F483BE00B81EC7 /* Build configuration list for PBXNativeTarget "JudyBaseNavigationCtrl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B174A3426F483BE00B81EC7 /* Debug */,
+				8B174A3526F483BE00B81EC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
