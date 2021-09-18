@@ -41,6 +41,10 @@
                                 <rect key="frame" x="185" y="251.5" width="44" height="30"/>
                                 <state key="normal" title="Action"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gp-MN-zaX">
+                                <rect key="frame" x="139" y="349.5" width="136" height="30"/>
+                                <state key="normal" title="viewUserNameValid"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -49,6 +53,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="paY-AC-3TE" secondAttribute="trailing" constant="28" id="GhM-te-NKY"/>
                             <constraint firstItem="paY-AC-3TE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="28" id="HxI-UP-lq2"/>
                             <constraint firstItem="paY-AC-3TE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="Rpj-Tg-KBv"/>
+                            <constraint firstItem="2gp-MN-zaX" firstAttribute="top" secondItem="uWo-iL-vHk" secondAttribute="bottom" constant="68" id="iFW-Le-GJu"/>
+                            <constraint firstItem="2gp-MN-zaX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sdw-PV-pe0"/>
                             <constraint firstItem="uWo-iL-vHk" firstAttribute="top" secondItem="paY-AC-3TE" secondAttribute="bottom" constant="28" id="tRs-wN-5cw"/>
                         </constraints>
                     </view>
@@ -57,6 +63,7 @@
                         <outlet property="infoLabel" destination="GRI-PA-Zpp" id="pzj-1B-PbU"/>
                         <outlet property="passwordTextField" destination="pvh-fG-Pqv" id="d30-A0-TZt"/>
                         <outlet property="userNameTextField" destination="I37-ia-wnt" id="heH-At-ONq"/>
+                        <outlet property="viewUserNameValidButton" destination="2gp-MN-zaX" id="mL6-NH-VQr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
