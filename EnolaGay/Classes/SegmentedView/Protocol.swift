@@ -82,20 +82,25 @@ public protocol SegmentedViewDelegate: AnyObject {
     /// 询问是否允许点击选中目标 index 的 item，该函数已默认实现返回 true.
     func segmentedView(_ segmentedView: SegmentedView, canClickItemAt index: Int) -> Bool
     
-    /// 选中目标 item 后的代理事件，此函数发生在完成选中指定项之后
+    /// 告诉代理选中了目标，此函数发生在完成选中指定项之后。
     /// - Parameters:
     ///   - segmentedView: 操作的 segmentedView 对象
     ///   - index: 被选中的索引
     func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int)
+    
+    /// 告诉代理选中的重复目标，比如当前 index 为 0，但用于依然点击了第 0 项。
+    func segmentedView(_ segmentedView: SegmentedView, selectedRepetition repetitionIndex: Int)
 }
 
 // MARK: SegmentedViewDelegate 默认实现
 
-/// 提供 SegmentedViewDelegate 的默认实现，这样对于遵从 SegmentedViewDelegate 的类来说，所有代理方法都是可选实现的
+/// 提供 SegmentedViewDelegate 的默认实现，这样对于遵从 SegmentedViewDelegate 的类来说，所有代理方法都是可选实现的。
 public extension SegmentedViewDelegate {
     func segmentedView(_ segmentedView: SegmentedView, canClickItemAt index: Int) -> Bool { true }
 
-    func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int){}
+    func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int) { }
+    
+    func segmentedView(_ segmentedView: SegmentedView, selectedRepetition repetitionIndex: Int) {}
 }
 
 
