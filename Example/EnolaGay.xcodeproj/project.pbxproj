@@ -1237,7 +1237,6 @@
 				8BC3DBE826DF481000A2A405 /* Controller */,
 				8BC3DB9726DF480F00A2A405 /* Resource */,
 				8BC3DB7F26DF480F00A2A405 /* Storyboard */,
-				8BC3DBEB26DF481000A2A405 /* Vendor */,
 				8BC3DB9126DF480F00A2A405 /* View */,
 				8BC3DB9A26DF480F00A2A405 /* ViewController */,
 				8BC3DB6D26DF479200A2A405 /* AppDelegate.swift */,
@@ -1402,13 +1401,6 @@
 				8BC3DBEA26DF481000A2A405 /* ShareCtrl.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		8BC3DBEB26DF481000A2A405 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vendor;
 			sourceTree = "<group>";
 		};
 		8BC3DD1C26DF58FB00A2A405 /* AGUL */ = {
