@@ -22,6 +22,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var actionButton: JudyBaseButton!
 
+    @IBOutlet weak var viewUserNameValidButton: UIButton!
+    
     let disposeBag = DisposeBag()
 
     let a = BehaviorRelay(value: 1)
@@ -43,7 +45,7 @@ class ViewController: UIViewController {
         //            .bind(to: infoLabel.rx.text)
         //            .disposed(by: disposeBag)
 
-        let viewModel = ViewModel()
+        let viewModel = ViewModel(userName: userNameTextField.rx.text.orEmpty.asObservable())
         
         twoWayBinding(viewModel: viewModel)
         /*
@@ -56,7 +58,14 @@ class ViewController: UIViewController {
 //        userNameTextField.rx.text.orEmpty
 //            .bind(to: infoLabel.rx.text)
 //            .disposed(by: disposeBag)
-   
+        
+        
+        viewUserNameValidButton.rx.tap
+            .subscribe(onNext: {
+                Judy.log("拿到 viewModel.userNameValid:\(viewModel.userNameValid.map{ $0 })")
+            }).disposed(by: disposeBag)
+        
+        
         actionButton.rx.tap
             .subscribe(onNext: {
                 //                Judy.log("viewModel 的 username 是：\(viewModel.username.value)")
@@ -99,5 +108,13 @@ private extension ViewController {
 class ViewModel {
     let username = BehaviorRelay<String>(value: "")
     let password = BehaviorRelay<String>(value: "")
+    
+    let userNameValid: Observable<Bool>
+
+    init(userName: Observable<String>) {
+        userNameValid = userName
+            .map{ $0.count > 1 }
+            .share(replay: 1)
+    }
 
 }

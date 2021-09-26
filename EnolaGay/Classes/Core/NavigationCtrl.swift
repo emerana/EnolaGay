@@ -17,9 +17,9 @@ open class JudyBaseNavigationCtrl: UINavigationController {
     /// 当前 navigationCtrl navigationBar 的返回指示符图像
     @IBInspectable private lazy var backImage: UIImage? = nil
     
-    /// 是否使用深色的(.default)状态栏样式，默认 true, 反之为 lightContent
+    /// 是否使用深色的(.default)状态栏样式，默认 true, 反之为 lightContent.
     ///
-    /// 当 ViewCtrl 嵌入于 navigationCtrl 中，则由 navigationCtrl 负责 preferredStatusBarStyle
+    /// 当 ViewCtrl 嵌入于 navigationCtrl 中，则由 navigationCtrl 负责 preferredStatusBarStyle.
     /// - Warning: 如果通过代码改变还需要调用 setNeedsStatusBarAppearanceUpdate() 方法
     @IBInspectable var isGaryStatusBar: Bool = true
 
@@ -52,9 +52,9 @@ open class JudyBaseNavigationCtrl: UINavigationController {
         }
         //  设置导航条返回箭头
         let isAlwaysOriginal = setBackIndicatorImage().1
-        // 如果自定义返回指示符图像，还必须设置 backIndicatorTransitionMaskImage
+        // 如果自定义返回指示符图像，还必须设置 backIndicatorTransitionMaskImage.
         navigationBar.backIndicatorImage = backIndicatorImage?.withRenderingMode(isAlwaysOriginal ? .alwaysOriginal:.automatic)
-        // 如果要自定义反向指示符图像，还必须设置此图像
+        // 如果要自定义反向指示符图像，还必须设置此图像。
         navigationBar.backIndicatorTransitionMaskImage = backIndicatorImage?.withRenderingMode(isAlwaysOriginal ? .alwaysOriginal:.automatic)
         
         if let itemsColor = EMERANA.enolagayAdapter?.navigationBarItemsColor() {
@@ -62,18 +62,18 @@ open class JudyBaseNavigationCtrl: UINavigationController {
         }
     }
         
-    /// 覆盖 push 事件，实现在 push 过程中自定义部分操作
+    /// 覆盖 push 事件，实现在 push 过程中自定义部分操作。
     ///
     /// - Parameters:
-    ///   - viewController: 当前 viewCtrl.
+    ///   - viewController: 当前 viewCtrl
     ///   - animated: 动画
     open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if children.count > 0 {
-            // 解决 push 时右上角出现可恶的黑影，给 keyWindow 设置背景色即可，一般为白色或配置的通用背景色
+            // 解决 push 时右上角出现可恶的黑影，给 keyWindow 设置背景色即可，一般为白色或配置的通用背景色。
             Judy.keyWindow!.backgroundColor = .white
             // 将底部 TabBar 隐藏
             viewController.hidesBottomBarWhenPushed = true
-            // 在父级 viewCtrl 中使用这句将左侧返回按钮标题清空，保留箭头
+            // 在父级 viewCtrl 中使用这句将左侧返回按钮标题清空，保留箭头。
             children.last?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         }
 
@@ -141,9 +141,9 @@ public extension EnolaGayWrapper where Base: UINavigationController {
         base.navigationBar.shadowImage = UIImage()
     }
     
-    /// 恢复导航条当设置了导航条透明时，别的界面不需要透明调用此方法恢复
+    /// 恢复导航条当设置了导航条透明时，别的界面不需要透明调用此方法恢复。
     ///
-    /// 一般在 viewWillDisappear() 函数中使用，且和 setNavTransParent() 成对使用
+    /// 一般在 viewWillDisappear() 函数中使用，且和 setNavTransParent() 成对使用。
     /// - Warning: 由于在 setNavTransParent() 中会将 isTranslucent = true，所以调用此函数后需自行设置 isTranslucent.
     func resetNav() {
         // 恢复导航条下方的横线将其设为 nil 即可
@@ -152,7 +152,7 @@ public extension EnolaGayWrapper where Base: UINavigationController {
         base.navigationBar.setBackgroundImage(nil, for: .default)
     }
     
-    /// 设置导航栏渐变背景色，渐变方向为从左向右
+    /// 设置导航栏渐变背景色，渐变方向为从左向右。
     ///
     /// - Parameters:
     ///   - startColor: 起始颜色，默认为 red.
@@ -178,7 +178,7 @@ extension UIViewController {
     
     // push 函数，并配合 JudyBaseNavigationCtrl 控制器
     
-    /// 当前界面 push 事件，该函数只在导航控制器为 JudyBaseNavigationCtrl 下才有效
+    /// 当前界面 push 事件，该函数只在导航控制器为 JudyBaseNavigationCtrl 下才有效。
     /// * 常用于当前界面 push 新界面之后无需返回此界面场景，参考如下代码：
     /// ```
     ///    if viewCtrl === self {
@@ -198,10 +198,10 @@ extension UIViewController {
         
     }
     
-    // 配合拦截系统导航条返回事件，为 JudyBaseViewCtrl 新增返回按钮点击函数
+    // 配合拦截系统导航条返回事件，为 JudyBaseViewCtrl 新增返回按钮点击函数。
     
-    /// 当前界面导航条返回按钮点击事件，此函数决定了是否执行 pop 事件
-    /// * 此函数依然能通过手势滑动返回，可以用以下方式禁用系统侧滑返回
+    /// 当前界面导航条返回按钮点击事件，此函数决定了是否执行 pop 事件。
+    /// * 此函数依然能通过手势滑动返回，可以用以下方式禁用系统侧滑返回。
     /// ```
     /// self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     /// ```
@@ -231,7 +231,7 @@ extension UIViewController {
 // MARK: 拦截系统导航条返回事件，遵循 UINavigationBarDelegate
 extension JudyBaseNavigationCtrl: UINavigationBarDelegate {
     
-    /// 重写 UINavigationBarDelegate 的 pop 事件，在此实现拦截
+    /// 重写 UINavigationBarDelegate 的 pop 事件，在此实现拦截。
     ///
     /// - Parameters:
     ///   - navigationBar: 导航条对象
@@ -279,7 +279,7 @@ extension JudyBaseNavigationCtrl: UINavigationBarDelegate {
 
 // MARK: - JudyNavigationCtrl
 
-/// 很酷的右划返回手势，当点击左上角返回按钮则是标准的返回样式
+/// 很酷的右划返回手势，当点击左上角返回按钮则是标准的返回样式。
 public class JudyNavigationCtrl: JudyBaseNavigationCtrl {
     
     /// 触摸的起点

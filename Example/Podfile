@@ -126,4 +126,9 @@ target 'EnolaGay_Example' do
 
   end
 
+  target 'JudyBaseNavigationCtrl' do
+    pod 'EnolaGay', :path => '../'
+
+  end
+
 end
