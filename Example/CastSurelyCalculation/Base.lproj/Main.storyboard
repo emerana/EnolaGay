@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KZg-PC-WsG">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cast Surely Calculation View Ctrl-->
+        <scene sceneID="FQG-WF-RNc">
+            <objects>
+                <viewController id="MwR-qo-z6O" customClass="CastSurelyCalculationViewCtrl" customModule="CastSurelyCalculation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1cL-q9-h3D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Q1F-xR-fkF">
+                                <rect key="frame" x="18" y="106" width="378" height="58"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入金额" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="81b-rq-auS" customClass="JudyHoshiTextField" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="0.0" width="312" height="58"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" systemColor="systemGreenColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.97647058819999999" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.4549019608" green="0.38431372549999998" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="MwR-qo-z6O" id="5jI-Bi-12E"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Cc-Gr-2Jd" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="320" y="0.0" width="58" height="58"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="58" id="hyt-Jl-79v"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="计算"/>
+                                        <connections>
+                                            <action selector="calculationAction:" destination="MwR-qo-z6O" eventType="touchUpInside" id="R0H-SS-tuH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="NMU-Sl-S5C"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svk-f4-hEi" customClass="JudyBaseLabel" customModule="EnolaGay">
+                                <rect key="frame" x="18" y="192" width="378" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8ZM-V8-Y5e"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Q1F-xR-fkF" firstAttribute="top" secondItem="8ZM-V8-Y5e" secondAttribute="top" constant="18" id="0WV-ht-gwj"/>
+                            <constraint firstItem="svk-f4-hEi" firstAttribute="trailing" secondItem="Q1F-xR-fkF" secondAttribute="trailing" id="82E-gv-fIQ"/>
+                            <constraint firstItem="svk-f4-hEi" firstAttribute="leading" secondItem="Q1F-xR-fkF" secondAttribute="leading" id="SEA-M3-QkR"/>
+                            <constraint firstItem="svk-f4-hEi" firstAttribute="top" secondItem="Q1F-xR-fkF" secondAttribute="bottom" constant="28" id="Zuc-CP-hL9"/>
+                            <constraint firstItem="Q1F-xR-fkF" firstAttribute="leading" secondItem="8ZM-V8-Y5e" secondAttribute="leading" constant="18" id="ioQ-aj-1PQ"/>
+                            <constraint firstItem="8ZM-V8-Y5e" firstAttribute="trailing" secondItem="Q1F-xR-fkF" secondAttribute="trailing" constant="18" id="j0j-tx-YDK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Udc-47-b5g"/>
+                    <connections>
+                        <outlet property="detailLabel" destination="svk-f4-hEi" id="y6C-Yc-Zm1"/>
+                        <outlet property="inputTextField" destination="81b-rq-auS" id="Pfc-ra-Gf4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9c9-8n-aOt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="763.768115942029" y="-23.4375"/>
+        </scene>
+        <!--Judy Base Navigation Ctrl-->
+        <scene sceneID="BKD-ln-aMP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KZg-PC-WsG" customClass="JudyBaseNavigationCtrl" customModule="EnolaGay" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6aK-7j-INE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MwR-qo-z6O" kind="relationship" relationship="rootViewController" id="ZM0-69-RT3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pwa-Pw-TMN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-146.37681159420291" y="-23.4375"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="81b-rq-auS">
+            <size key="intrinsicContentSize" width="92" height="23"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

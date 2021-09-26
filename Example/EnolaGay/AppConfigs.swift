@@ -113,34 +113,3 @@ extension UIApplication: ApiAdapter {
     }
 
 }
-
-import MJRefresh
-
-/// 刷新控件适配器实现。
-extension UIApplication: RefreshAdapter {
-    public var pageSizeParameter: String { "SIZE" }
-
-    public var pageIndexParameter: String { "INDEX" }
-    
-    
-    public func initHeaderRefresh(scrollView: UIScrollView?, callback: @escaping (() -> Void)) {
-        scrollView?.mj_header = MJRefreshNormalHeader(refreshingBlock: callback)
-    }
-    
-    public func initFooterRefresh(scrollView: UIScrollView?, callback: @escaping (() -> Void)) {
-        scrollView?.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: callback)
-    }
-    
-    public func endRefresh(scrollView: UIScrollView?) {
-        scrollView?.mj_header?.endRefreshing()
-        scrollView?.mj_footer?.endRefreshing()
-    }
-    
-    public func endRefreshingWithNoMoreData(scrollView: UIScrollView?) {
-        scrollView?.mj_footer?.endRefreshingWithNoMoreData()
-    }
-    
-    public func resetNoMoreData(scrollView: UIScrollView?) {
-        scrollView?.mj_footer?.resetNoMoreData()
-    }
-}

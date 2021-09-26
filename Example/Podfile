@@ -4,7 +4,6 @@ use_frameworks!
 platform :ios, '13.0'
 
 target 'EnolaGay_Example' do
-
   pod 'EnolaGay', :path => '../'
   pod 'EnolaGay/SegmentedView', :path => '../'
   pod 'EnolaGay/HPickerView', :path => '../'
@@ -17,15 +16,119 @@ target 'EnolaGay_Example' do
   pod 'EnolaGay/SearchViewCtrl', :path => '../'
   pod 'EnolaGay/FileManager', :path => '../'
   
-  pod 'Cache'
   pod 'Alamofire', '~> 4.9.0'
-  pod 'MJRefresh'
-  pod "Player"
-#  pod "SnapKit"
-
-  target 'EnolaGay_Tests' do
-    inherit! :search_paths
-
-    
+  #  pod "SnapKit"
+  
+  #  target 'EnolaGay_Tests' do
+  #    inherit! :search_paths
+  #  end
+  target 'VersionCheck' do
+    pod 'EnolaGay', :path => '../'
+    pod 'RxSwift'
+    pod 'RxCocoa'
   end
+  
+  target 'Semaphore' do
+    pod 'EnolaGay', :path => '../'
+  end
+  
+  target 'CacheDemo' do
+    pod 'EnolaGay', :path => '../'
+    pod 'Cache'
+  end
+  
+  target 'PlayerDemo' do
+    pod 'EnolaGay', :path => '../'
+    pod "Player"
+  end
+  
+  target 'RefreshAdapter' do
+    pod 'EnolaGay', :path => '../'
+    pod 'MJRefresh'
+    pod 'Alamofire', '~> 4.9.0'
+  end
+  
+  target 'HPickerDemo' do
+    pod 'EnolaGay', :path => '../'
+    pod 'MJRefresh'
+  end
+  
+  target 'KeyBoardPop' do
+    pod 'EnolaGay', :path => '../'
+  end
+
+  target 'CastSurelyCalculation' do
+    pod 'EnolaGay', :path => '../'
+  end
+  
+  target 'FontExtension' do
+    pod 'EnolaGay', :path => '../'
+  end
+  
+  target 'EMERANA' do
+    pod 'EnolaGay', :path => '../'
+    pod 'IQKeyboardManagerSwift'
+    pod 'Alamofire', '~> 4.9.0'
+
+#    pod 'MBProgressHUD'
+    pod 'SwiftMessages'
+    pod 'MJRefresh'
+    pod 'SDWebImage'
+    pod 'SDCycleScrollView'
+    #    pod 'SocketRocket'    # https://github.com/facebook/SocketRocket.git
+    #    pod 'RESideMenu', '~> 4.0.7' #侧边菜单
+    #    pod 'ResponseDetective'
+    #    pod 'DeviceKit', '~> 1.3'
+    pod 'SwiftyUserDefaults', '5.0.0-beta.5'
+    pod 'DZNEmptyDataSet'
+
+    pod 'FMDB'
+    
+    pod 'BadgeHub'
+    pod 'IGListKit', '~> 4.0.0'
+  end
+  
+  target 'AGUL' do
+    pod 'EnolaGay', :path => '../'
+    pod 'EnolaGay/MarqueeView', :path => '../'
+    
+    pod 'Kingfisher'
+    pod 'SwiftMessages'
+    pod 'SDWebImage'
+  end
+  
+  target 'SegmentedDemo' do
+    pod 'EnolaGay/SegmentedView', :path => '../'
+  end
+  
+  target 'AttributedStringDemo' do
+    pod 'EnolaGay', :path => '../'
+  end
+
+  target 'GiftMessageViewCtrlDemo' do
+    pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
+  end
+
+  target 'JudyLivePageViewCtrl' do
+    pod 'EnolaGay', :path => '../'
+  end
+  
+  target 'MyRxSwfit' do
+    pod 'EnolaGay', :path => '../'
+    pod 'RxSwift'
+    pod 'RxCocoa'
+
+  end
+  
+  target 'MyCharts' do
+    pod 'EnolaGay', :path => '../'
+    pod 'Charts'
+
+  end
+
+  target 'JudyBaseNavigationCtrl' do
+    pod 'EnolaGay', :path => '../'
+
+  end
+
 end

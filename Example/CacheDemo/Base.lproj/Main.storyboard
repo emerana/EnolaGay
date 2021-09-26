@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lUv-4d-2gx">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cache View Ctrl-->
+        <scene sceneID="do4-3N-e0e">
+            <objects>
+                <viewController storyboardIdentifier="CacheViewCtrl" id="EQg-er-Bwn" customClass="CacheViewCtrl" customModule="Cache" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HqI-pj-0T9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kbZ-W3-PND">
+                                <rect key="frame" x="28" y="338" width="139" height="220"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMV-Y1-Zvr" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="0.0" width="139" height="30"/>
+                                        <state key="normal" title="保存 user 对象"/>
+                                        <connections>
+                                            <action selector="saveActin:" destination="EQg-er-Bwn" eventType="touchUpInside" id="iuh-pQ-598"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cQ-if-acW" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="38" width="139" height="30"/>
+                                        <state key="normal" title="删除 user 对象"/>
+                                        <connections>
+                                            <action selector="deleteActin:" destination="EQg-er-Bwn" eventType="touchUpInside" id="XcY-N1-eJA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbr-1a-K4C" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="76" width="139" height="30"/>
+                                        <state key="normal" title="获取 user 对象"/>
+                                        <connections>
+                                            <action selector="showActin:" destination="EQg-er-Bwn" eventType="touchUpInside" id="6KN-3y-sGF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUK-mL-rTA" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="114" width="139" height="30"/>
+                                        <state key="normal" title="删除所有对象"/>
+                                        <connections>
+                                            <action selector="removeAllActin:" destination="EQg-er-Bwn" eventType="touchUpInside" id="UIx-DC-bIf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4c-jN-9Hc" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="152" width="139" height="30"/>
+                                        <state key="normal" title="删除所有过期对象"/>
+                                        <connections>
+                                            <action selector="removeExpiredObjectsActin:" destination="EQg-er-Bwn" eventType="touchUpInside" id="h6N-71-8oj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwU-dy-DjX" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="190" width="139" height="30"/>
+                                        <state key="normal" title="获取 user Entry 对象"/>
+                                        <connections>
+                                            <action selector="entryAction:" destination="EQg-er-Bwn" eventType="touchUpInside" id="8WD-X5-puw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jye-uQ-XMk">
+                                <rect key="frame" x="189.5" y="116" width="35" height="30"/>
+                                <state key="normal" title="Push"/>
+                                <connections>
+                                    <action selector="pushAction:" destination="EQg-er-Bwn" eventType="touchUpInside" id="Ndv-e8-GYj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iRi-lJ-Hhd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kbZ-W3-PND" firstAttribute="leading" secondItem="iRi-lJ-Hhd" secondAttribute="leading" constant="28" id="43P-sF-WPH"/>
+                            <constraint firstItem="Jye-uQ-XMk" firstAttribute="centerX" secondItem="HqI-pj-0T9" secondAttribute="centerX" id="8ow-bj-ePn"/>
+                            <constraint firstItem="kbZ-W3-PND" firstAttribute="centerY" secondItem="HqI-pj-0T9" secondAttribute="centerY" id="LIf-Wh-Dyo"/>
+                            <constraint firstItem="Jye-uQ-XMk" firstAttribute="top" secondItem="iRi-lJ-Hhd" secondAttribute="top" constant="28" id="MlX-wb-IYa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="eWw-PZ-qzJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sm0-Ou-99G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="x6K-pm-Nad">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lUv-4d-2gx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jrx-ch-W1Q">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EQg-er-Bwn" kind="relationship" relationship="rootViewController" id="B5b-L7-k1h"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pAi-3R-2Xx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

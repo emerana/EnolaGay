@@ -368,7 +368,7 @@ public extension Judy {
     
 }
 
-// MARK: - App版本相关
+// MARK: - App 版本相关
 public extension Judy {
     /// 获取 version,即 CFBundleShortVersionString. 如：2.5.8
     static var versionShort: String { Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String }
@@ -408,16 +408,11 @@ public extension Judy {
         return rs
     }
     
-    /// 当前App版本状态
-    ///
-    /// - latest: 当前为最新版本
-    /// - older: 当前使用的为较旧版本，可以更新到新版本
-    /// - review: 当前使用的为审核版本
-    /// - notFound: 没有找到该应用
+    /// 当前 App 版本状态
     enum AppVersionStatus: String {
         /// 最新版本
         case latest = "您使用的是最新版本"
-        /// 当前使用的为较旧版本，可以更新到新版本
+        /// 当前使用的为较旧的版本，可以更新到新版本。
         case older = "发现最新版本，请及时更新"
         /// 当前使用的为审核版本
         case review = "您当前使用的版本正在审核……"
@@ -494,27 +489,24 @@ public extension Judy {
         request.httpMethod = "POST"
         
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, res: URLResponse?, err: Error?) in
-            if (data?.count == nil) || (err != nil) {
+            guard data?.count != nil, err == nil else {
                 callBack(AppVersionStatus.notFound, nil)
                 return
             }
-            
+
             // Success  返回 data 转 json
-            let dataDic: [String: Any]? = try! JSONSerialization.jsonObject(with: data!,
-                                                                            options: .allowFragments) as? [String : Any]
-            
-            if dataDic == nil {
+            guard let dataDic: [String: Any] = try! JSONSerialization.jsonObject(with: data!,
+                                                                                  options: .allowFragments) as? [String : Any] else {
                 callBack(AppVersionStatus.notFound, nil)
                 return
             }
             
-            let resultCount = dataDic!["resultCount"] as? Int
-            if resultCount == 0 {
+            guard let resultCount = dataDic["resultCount"] as? Int, resultCount != 0 else {
                 callBack(AppVersionStatus.notFound, nil)
                 return
             }
             
-            let array: [Any] = dataDic!["results"]as! [Any]
+            let array: [Any] = dataDic["results"]as! [Any]
             let dic: [String: Any] = array[0] as! [String: Any]
             
             // 得到服务器的版本
@@ -522,9 +514,7 @@ public extension Judy {
             var appStoreUrl: String?
             
             let rs = versionCompare(localVersion: version, onLineVersion: versionOnLine)
-            if rs == .older {
-                appStoreUrl = dic["trackViewUrl"] as? String
-            }
+            if rs == .older { appStoreUrl = dic["trackViewUrl"] as? String }
             
             callBack(rs, appStoreUrl)
         }

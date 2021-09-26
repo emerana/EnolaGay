@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FundCell" rowHeight="103" id="vBI-Wz-73v" customClass="FundCell" customModule="Test_Woodpecker" customModuleProvider="target" propertyAccessControl="none">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="103"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vBI-Wz-73v" id="pvw-4P-l3L">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="103"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="基金名称" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfn-M7-puW" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                        <rect key="frame" x="12" y="8" width="65.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="initFontStyle">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基金代码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUv-aj-xff" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                        <rect key="frame" x="12" y="33.5" width="57.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="initFontStyle">
+                                <integer key="value" value="-2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="精选" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uK-hF-lBN" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                        <rect key="frame" x="85.5" y="10" width="20.5" height="12"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="paddingRight">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="paddingTop">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="paddingBottom">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="initFontStyle">
+                                <integer key="value" value="-4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="明星经理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZC-oe-Ryh" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                        <rect key="frame" x="114" y="10" width="41" height="12"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="paddingRight">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="paddingTop">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="paddingBottom">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="initFontStyle">
+                                <integer key="value" value="-4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ec5-LQ-WxO">
+                        <rect key="frame" x="75.5" y="33" width="68" height="18"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="68" id="ZFN-Ri-6kL"/>
+                            <constraint firstAttribute="height" constant="18" id="uKl-j3-AQG"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="机构看法" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6Q-mj-Az9" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                        <rect key="frame" x="107" y="56.5" width="57.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="initFontStyle">
+                                <integer key="value" value="-2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="类型" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKj-YG-h3G" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                        <rect key="frame" x="12" y="56.5" width="29" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="initFontStyle">
+                                <integer key="value" value="-2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3G-mB-SYa" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                        <rect key="frame" x="49" y="56.5" width="29" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="initFontStyle">
+                                <integer key="value" value="-2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="潜力" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fvl-ot-tHM" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                        <rect key="frame" x="78" y="56.5" width="29" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="initFontStyle">
+                                <integer key="value" value="-2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="R" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diR-m5-bPt" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                        <rect key="frame" x="395.5" y="41.5" width="10.5" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="initFontStyle">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="remark" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9l-VC-Ikm" customClass="JudyBaseLabel" customModule="Test_Woodpecker" customModuleProvider="target">
+                        <rect key="frame" x="12" y="73.5" width="45.5" height="23.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" systemColor="systemBrownColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="paddingTop">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="initFontStyle">
+                                <integer key="value" value="-3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dKj-YG-h3G" firstAttribute="leading" secondItem="hUv-aj-xff" secondAttribute="leading" id="1r2-A5-Xik"/>
+                    <constraint firstItem="tfn-M7-puW" firstAttribute="leading" secondItem="pvw-4P-l3L" secondAttribute="leading" constant="12" id="5m8-62-T4D"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rZC-oe-Ryh" secondAttribute="trailing" constant="8" id="6bU-Zh-rs1"/>
+                    <constraint firstItem="Fvl-ot-tHM" firstAttribute="leading" secondItem="c3G-mB-SYa" secondAttribute="trailing" id="8gp-zS-ujz"/>
+                    <constraint firstItem="U6Q-mj-Az9" firstAttribute="centerY" secondItem="c3G-mB-SYa" secondAttribute="centerY" id="FZZ-HK-PXt"/>
+                    <constraint firstItem="p9l-VC-Ikm" firstAttribute="leading" secondItem="dKj-YG-h3G" secondAttribute="leading" id="GAH-Gm-CSu"/>
+                    <constraint firstItem="hUv-aj-xff" firstAttribute="leading" secondItem="tfn-M7-puW" secondAttribute="leading" id="IoI-K7-gRV"/>
+                    <constraint firstItem="Fvl-ot-tHM" firstAttribute="centerY" secondItem="dKj-YG-h3G" secondAttribute="centerY" id="IwI-Jf-8sc"/>
+                    <constraint firstItem="p9l-VC-Ikm" firstAttribute="top" secondItem="dKj-YG-h3G" secondAttribute="bottom" id="M1s-qp-6cj"/>
+                    <constraint firstItem="hUv-aj-xff" firstAttribute="top" secondItem="tfn-M7-puW" secondAttribute="bottom" constant="6" id="O7Q-3F-NlI"/>
+                    <constraint firstItem="rZC-oe-Ryh" firstAttribute="centerY" secondItem="1uK-hF-lBN" secondAttribute="centerY" id="Obj-7r-qTK"/>
+                    <constraint firstItem="c3G-mB-SYa" firstAttribute="leading" secondItem="dKj-YG-h3G" secondAttribute="trailing" constant="8" id="PUq-aL-AcS"/>
+                    <constraint firstItem="ec5-LQ-WxO" firstAttribute="leading" secondItem="hUv-aj-xff" secondAttribute="trailing" constant="6" id="RpC-ti-jsx"/>
+                    <constraint firstItem="1uK-hF-lBN" firstAttribute="top" secondItem="tfn-M7-puW" secondAttribute="top" constant="2" id="TGR-dZ-nVi"/>
+                    <constraint firstAttribute="bottom" secondItem="p9l-VC-Ikm" secondAttribute="bottom" constant="6" id="V5K-Vp-tkE"/>
+                    <constraint firstItem="1uK-hF-lBN" firstAttribute="leading" secondItem="tfn-M7-puW" secondAttribute="trailing" constant="8" id="WPC-Sc-duy"/>
+                    <constraint firstItem="U6Q-mj-Az9" firstAttribute="leading" secondItem="Fvl-ot-tHM" secondAttribute="trailing" id="ZLp-gG-fkw"/>
+                    <constraint firstItem="tfn-M7-puW" firstAttribute="top" secondItem="pvw-4P-l3L" secondAttribute="top" constant="8" id="aSQ-4u-OX4"/>
+                    <constraint firstItem="c3G-mB-SYa" firstAttribute="centerY" secondItem="Fvl-ot-tHM" secondAttribute="centerY" id="ae7-SA-cTu"/>
+                    <constraint firstItem="diR-m5-bPt" firstAttribute="centerY" secondItem="pvw-4P-l3L" secondAttribute="centerY" id="dZD-Y0-GcZ"/>
+                    <constraint firstItem="ec5-LQ-WxO" firstAttribute="centerY" secondItem="hUv-aj-xff" secondAttribute="centerY" id="fuD-7E-CfW"/>
+                    <constraint firstItem="diR-m5-bPt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="p9l-VC-Ikm" secondAttribute="trailing" constant="8" id="mYk-HC-o8R"/>
+                    <constraint firstAttribute="trailing" secondItem="diR-m5-bPt" secondAttribute="trailing" constant="8" id="oVn-dn-mY0"/>
+                    <constraint firstItem="rZC-oe-Ryh" firstAttribute="leading" secondItem="1uK-hF-lBN" secondAttribute="trailing" constant="8" id="oWk-d8-tJ7"/>
+                    <constraint firstItem="dKj-YG-h3G" firstAttribute="top" secondItem="hUv-aj-xff" secondAttribute="bottom" constant="6" id="r9x-vE-2OP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isShowSeparatorAtFooter" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="remarkLabel" destination="p9l-VC-Ikm" id="Lbh-GX-zJy"/>
+                <outlet property="similarRankingLabel" destination="diR-m5-bPt" id="4uk-lU-G1K"/>
+                <outlet property="starRatingView" destination="ec5-LQ-WxO" id="VQF-r7-r5O"/>
+                <outlet property="subTitleLabel" destination="hUv-aj-xff" id="tVO-2e-5hY"/>
+                <outlet property="titleLabel" destination="tfn-M7-puW" id="BZo-t1-aVm"/>
+                <outlet property="明星经理Label" destination="rZC-oe-Ryh" id="9Vw-qc-Of3"/>
+                <outlet property="潜力Label" destination="Fvl-ot-tHM" id="1dg-cr-kXS"/>
+                <outlet property="看法Label" destination="U6Q-mj-Az9" id="Bn1-Uv-U6x"/>
+                <outlet property="类型Label" destination="dKj-YG-h3G" id="AEF-CV-qAC"/>
+                <outlet property="精选Label" destination="1uK-hF-lBN" id="EwH-KZ-j3j"/>
+                <outlet property="评分Label" destination="c3G-mB-SYa" id="8Ns-5V-26X"/>
+                <outletCollection property="labelsForColor" destination="hUv-aj-xff" collectionClass="NSMutableArray" id="D2E-4K-Cj1"/>
+                <outletCollection property="labelsForColor" destination="dKj-YG-h3G" collectionClass="NSMutableArray" id="2oi-iP-Roj"/>
+                <outletCollection property="labelsForColor" destination="c3G-mB-SYa" collectionClass="NSMutableArray" id="mGw-zq-l0i"/>
+                <outletCollection property="labelsForColor" destination="U6Q-mj-Az9" collectionClass="NSMutableArray" id="Ir7-J2-L2J"/>
+                <outletCollection property="labelsForColor" destination="Fvl-ot-tHM" collectionClass="NSMutableArray" id="nxl-AV-kGn"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="143.63839285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

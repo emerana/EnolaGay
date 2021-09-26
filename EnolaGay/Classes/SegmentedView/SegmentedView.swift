@@ -155,7 +155,7 @@ public extension SegmentedView {
         // 确定 innerItemSpacing 间距
         innerItemSpacing = dataSource!.itemSpacing
         
-        /// 所有 item 的累计宽度，该宽度将用于确定指示器的宽度
+        /// 所有 item 的累计宽度，该宽度将用于确定指示器的宽度。
         var totalItemWidth: CGFloat = 0
         /// 确定整体内容宽度，该宽度即整个 collectionView 的宽度
         var totalContentWidth: CGFloat = getContentEdgeInsetLeft()
@@ -235,9 +235,9 @@ public extension SegmentedView {
         collectionView.collectionViewLayout.invalidateLayout()
     }
         
-    /// 使当前 segmentedView 选中指定目标，若 index 已经被选中则忽略此次选择操作
-    /// - Parameter index: 目标 index，函数内部会对该参数进行合法校验
-    /// - Parameter selectedType: 触发选择的操作类型
+    /// 使当前 segmentedView 选中指定目标，若 index 已经被选中则忽略此次选择操作。
+    /// - Parameter index: 目标 index，函数内部会对该参数进行合法校验。
+    /// - Parameter selectedType: 触发选择的操作类型。
     final func selectItem(at index: Int) {
         guard dataSource != nil else {
             Judy.logWarning("dataSource 不能为 nil")
@@ -248,9 +248,9 @@ public extension SegmentedView {
 
         guard (0..<items.count).contains(index) else { return }
         
-        // 选中的就是当前选中的，不操作
+        // 验证重复选中
         if index == selectedIndex {
-            // delegate?.segmentedView(self, didSelectedItemAt: index)
+            delegate?.segmentedView(self, selectedRepetition: index)
             scrollingTargetIndex = -1
             return
         }

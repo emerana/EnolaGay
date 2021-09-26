@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xia-wF-hHh">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pao Pao View Controller-->
+        <scene sceneID="Yf8-Q3-jBy">
+            <objects>
+                <viewController id="xia-wF-hHh" customClass="PaoPaoViewController" customModule="Test_Woodpecker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8cL-CQ-5Ha">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OlA-aH-wCr" customClass="EmitterButton" customModule="Test_Woodpecker" customModuleProvider="target">
+                                <rect key="frame" x="191.5" y="433" width="31" height="30"/>
+                                <state key="normal" image="paopao0"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nV1-U9-vAa">
+                                <rect key="frame" x="191.5" y="774" width="31" height="30"/>
+                                <state key="normal" image="paopao0"/>
+                                <connections>
+                                    <action selector="buttonAction:" destination="xia-wF-hHh" eventType="touchUpInside" id="dhP-Lf-Tth"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gCq-s1-4bw"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OlA-aH-wCr" firstAttribute="centerX" secondItem="8cL-CQ-5Ha" secondAttribute="centerX" id="6PJ-nb-knM"/>
+                            <constraint firstItem="nV1-U9-vAa" firstAttribute="centerX" secondItem="8cL-CQ-5Ha" secondAttribute="centerX" id="MkK-A0-UFR"/>
+                            <constraint firstItem="OlA-aH-wCr" firstAttribute="centerY" secondItem="8cL-CQ-5Ha" secondAttribute="centerY" id="drz-uK-Jc3"/>
+                            <constraint firstItem="gCq-s1-4bw" firstAttribute="bottom" secondItem="nV1-U9-vAa" secondAttribute="bottom" constant="58" id="vwL-ab-u4Y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emitBtn" destination="OlA-aH-wCr" id="nIf-ff-KBz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qVh-B0-Yp3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="179"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="OlA-aH-wCr">
+            <size key="intrinsicContentSize" width="31" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="paopao0" width="31" height="30"/>
+    </resources>
+</document>
