@@ -27,10 +27,10 @@ class CollectionViewLayoutViewCtrl: UIViewController {
             ["醉翁之意", ],
         ]
         
-        let urlString: String = ""
-        let session = URLSession.init(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.main)
-        downloadTask = session.downloadTask(with: urlString.url!)
-        downloadTask?.resume()
+//        let urlString: String = ""
+//        let session = URLSession.init(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.main)
+//        downloadTask = session.downloadTask(with: urlString.url!)
+//        downloadTask?.resume()
 
     }
     
@@ -50,59 +50,57 @@ class CollectionViewLayoutViewCtrl: UIViewController {
 
 
 
-extension CollectionViewLayoutViewCtrl: URLSessionDelegate, URLSessionDownloadDelegate {
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        //1.拿到cache文件夹的路径
-        let cache = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last
-        //2,拿到cache文件夹和文件名
-        let file: String = cache?.appendingPathComponent(downloadTask.response?.suggestedFilename ?? "") ?? ""
-        
-        do {
-            try FileManager.default.moveItem(at: location, to: URL.init(fileURLWithPath: file))
-        } catch let error {
-            print(error)
-        }
-
-        //3，保存视频到相册
-        let videoCompatible = UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(file)
-        //判断是否可以保存
-        if videoCompatible {
-            UISaveVideoAtPathToSavedPhotosAlbum(file, self, #selector(didFinishSavingVideo(videoPath:error:contextInfo:)), nil)
-        } else {
-//            JJHUDManage.show("该视频无法保存至相册")
-        }
-    }
-    
-    @objc func didFinishSavingVideo(videoPath: String, error: NSError?, contextInfo: UnsafeMutableRawPointer?) {
-
-        if error != nil{
-//            JJHUDManage.errorShow("保存失败")
-//            JJLog(error?.localizedDescription)
-        }else{
-//            JJHUDManage.successShow("保存成功")
-        }
-    }
-    
-    
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-        
-//        //下载进度
-//        CGFloat progress = totalBytesWritten / (double)totalBytesExpectedToWrite;
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            //进行UI操作  设置进度条
-//            self.progressView.progressValue = progress;
-//            self.progressView.contentLabel.text = [NSString stringWithFormat:@"%.2f%%",progress*100];
-//        });
-    }
-    
-}
+//extension CollectionViewLayoutViewCtrl: URLSessionDelegate, URLSessionDownloadDelegate {
+//    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+//        //1.拿到cache文件夹的路径
+//        let cache = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last
+//        //2,拿到cache文件夹和文件名
+//        let file: String = cache?.appendingPathComponent(downloadTask.response?.suggestedFilename ?? "") ?? ""
+//
+//        do {
+//            try FileManager.default.moveItem(at: location, to: URL.init(fileURLWithPath: file))
+//        } catch let error {
+//            print(error)
+//        }
+//
+//        //3，保存视频到相册
+//        let videoCompatible = UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(file)
+//        //判断是否可以保存
+//        if videoCompatible {
+//            UISaveVideoAtPathToSavedPhotosAlbum(file, self, #selector(didFinishSavingVideo(videoPath:error:contextInfo:)), nil)
+//        } else {
+////            JJHUDManage.show("该视频无法保存至相册")
+//        }
+//    }
+//
+//    @objc func didFinishSavingVideo(videoPath: String, error: NSError?, contextInfo: UnsafeMutableRawPointer?) {
+//
+//        if error != nil{
+////            JJHUDManage.errorShow("保存失败")
+////            JJLog(error?.localizedDescription)
+//        }else{
+////            JJHUDManage.successShow("保存成功")
+//        }
+//    }
+//
+//
+//    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+//
+////        //下载进度
+////        CGFloat progress = totalBytesWritten / (double)totalBytesExpectedToWrite;
+////        dispatch_async(dispatch_get_main_queue(), ^{
+////            //进行UI操作  设置进度条
+////            self.progressView.progressValue = progress;
+////            self.progressView.contentLabel.text = [NSString stringWithFormat:@"%.2f%%",progress*100];
+////        });
+//    }
+//
+//}
 
 // MARK: - UICollectionViewDataSource
 extension CollectionViewLayoutViewCtrl: UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return dataSource.count
-    }
+    func numberOfSections(in collectionView: UICollectionView) -> Int { return dataSource.count }
     
     // Cell 数量
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
