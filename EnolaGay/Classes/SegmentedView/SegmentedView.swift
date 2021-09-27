@@ -103,9 +103,9 @@ public class SegmentedView: UIView {
 
 public extension SegmentedView {
     
-    /// 更新目标 item.
+    /// 更新目标 item
     ///
-    /// 在每次做出选择后都会触发此函数以更新该 cell 中的数据
+    /// 在每次做出选择后都会触发此函数以更新该 Cell 中的数据
     final func reloadItem(at index: Int) {
         guard index >= 0 && index < items.count else { return }
         
@@ -124,7 +124,7 @@ public extension SegmentedView {
             Judy.logWarning("请设置 SegmentedView.dataSource")
             return
         }
-        // 确定注册的 Cell.
+        // 确定注册的 Cell
         cellReuseIdentifier = dataSource!.segmentedView(registerCellForCollectionViewAt: collectionView)
         guard cellReuseIdentifier != "" else {
             Judy.logWarning("为 SegmentedView 注册 Cell 的 identifier 不能为空！")
@@ -235,7 +235,7 @@ public extension SegmentedView {
         collectionView.collectionViewLayout.invalidateLayout()
     }
         
-    /// 使当前 segmentedView 选中指定目标，若 index 已经被选中则忽略此次选择操作。
+    /// 使当前 segmentedView 选中指定目标，若 index 已经被选中则触发 selectedRepetition 代理函数。
     /// - Parameter index: 目标 index，函数内部会对该参数进行合法校验。
     /// - Parameter selectedType: 触发选择的操作类型。
     final func selectItem(at index: Int) {
@@ -261,7 +261,7 @@ public extension SegmentedView {
         
         updateSelectedEntitys(currentSelected: currentSelectedItemModel, willSelected: willSelectedItemModel)
         
-        // 更新两个 Cell.
+        // 更新两个 Cell
         let currentSelectedCell = collectionView.cellForItem(at: IndexPath(item: selectedIndex, section: 0)) as? SegmentedCell
         currentSelectedCell?.reloadData(itemModel: currentSelectedItemModel)
 
@@ -280,7 +280,7 @@ public extension SegmentedView {
         }
         // 处理缩放情况
         if dataSource!.isItemWidthZoomEnabled {
-            // 延时为了解决 cellwidth 变化，点击最后几个 cell，scrollToItem 会出现位置偏移 bug。需要等 cellWidth 动画渐变结束后再滚动到 index 的 cell 位置
+            // 延时为了解决 cellwidth 变化，点击最后几个 cell，scrollToItem 会出现位置偏移 bug。需要等 cellWidth 动画渐变结束后再滚动到 index 的 cell 位置。
             let selectedAnimationDurationInMilliseconds = Int(dataSource!.selectedAnimationDuration*1000)
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(selectedAnimationDurationInMilliseconds)) {
@@ -292,7 +292,7 @@ public extension SegmentedView {
         
         selectedIndex = index
         
-        // 更新 indicator.
+        // 更新 indicator
         let currentSelectedItemFrame = getItemFrameAt(index: selectedIndex)
         for indicator in indicators {
             let indicatorParams = IndicatorSelectedParams(index: selectedIndex,
@@ -323,7 +323,7 @@ private extension SegmentedView {
     
     /// 初始化函数
     func commonInit() {
-        // 清除用户在故事板/xib 中设置的背景色
+        // 清除用户在 storyboard/xib 中设置的背景色
         backgroundColor = .clear
         
         let layout = UICollectionViewFlowLayout()
@@ -345,7 +345,7 @@ private extension SegmentedView {
         addSubview(collectionView)
     }
     
-    /// 出列一个可重用的 SegmentedCell.
+    /// 出列一个可重用的 SegmentedCell
     func dequeueReusableCell(at index: Int) -> SegmentedCell {
         let indexPath = IndexPath(item: index, section: 0)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier!, for: indexPath)
@@ -472,7 +472,7 @@ extension SegmentedView: UICollectionViewDelegate {
             }
         }
         if !isTransitionAnimating {
-            //当前没有正在过渡的 item，才允许点击选中
+            //当前没有正在过渡的 item，才允许点击选中。
             selectItem(at: indexPath.item)
         }
     }
@@ -502,8 +502,8 @@ extension SegmentedView: UICollectionViewDelegateFlowLayout {
 
 // MARK: - 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl
 
-/// 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl.
-///  - warning: 本类中的 segmentedCtrl 已经和 pageViewCtrl 互相关联，无需手动配置二者关系
+/// 配备 JudySegmentedCtrl 的 JudyBasePageViewCtrl
+///  - Warning: 本类中的 segmentedCtrl 已经和 pageViewCtrl 互相关联，无需手动配置二者关系，若有需要可自行继承本类。
 open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDelegate {
     
     /// 内置的分段控制器，请自行配置其 dataSource.
@@ -513,6 +513,7 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
         return segmentedView
     }()
 
+    
     // MARK: - UIPageViewControllerDelegate
 
     open override func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
@@ -533,9 +534,11 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
         isDrag = false
 
         let viewCtrls = [viewCtrlArray[index]]
-        // 不应该在 completion 里设置 lastSelectIndex，这样不及时
+        // 不应该在 completion 里设置 lastSelectIndex，这样不及时。
         setViewControllers(viewCtrls, direction: ((currentIndex < index) ? .forward : .reverse), animated: true)
         currentIndex = index
     }
     
+    open func segmentedView(_ segmentedView: SegmentedView, selectedRepetition repetitionIndex: Int) { }
+
 }
