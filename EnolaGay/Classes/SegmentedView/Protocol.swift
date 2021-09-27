@@ -100,7 +100,7 @@ public extension SegmentedViewDelegate {
 
     func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int) { }
     
-    func segmentedView(_ segmentedView: SegmentedView, selectedRepetition repetitionIndex: Int) {}
+    func segmentedView(_ segmentedView: SegmentedView, selectedRepetition repetitionIndex: Int) { }
 }
 
 

@@ -15,11 +15,11 @@ open class SegmentedItemTitleModel: SegmentedItemModel {
     /// label的numberOfLines，默认为 1
     open var titleNumberOfLines: Int = 1
     
-    /// title 普通状态的 textColor.
+    /// title 普通状态的 textColor
     open var titleNormalColor: UIColor = .black
     /// 当前显示的颜色
     open var titleCurrentColor: UIColor = .black
-    /// title 选中状态的 textColor.
+    /// title 选中状态的 textColor
     open var titleSelectedColor: UIColor = .red
     
     /// title 普通状态时的字体
@@ -27,18 +27,18 @@ open class SegmentedItemTitleModel: SegmentedItemModel {
     /// 选中状态下的字体
     open var titleSelectedFont: UIFont = UIFont.systemFont(ofSize: 15)
     
-    /// title 是否缩放。使用该效果时，务必保证 titleNormalFont 和 titleSelectedFont 值相同
+    /// title 是否缩放。使用该效果时，务必保证 titleNormalFont 和 titleSelectedFont 值相同。
     open var isTitleZoomEnabled: Bool = false
     open var titleNormalZoomScale: CGFloat = 0
     open var titleCurrentZoomScale: CGFloat = 0
     
     /// isTitleZoomEnabled 为 true 才生效。是对字号的缩放，比如 titleNormalFont 的 pointSize 为10，放大之后字号就是10*1.2=12.
     open var titleSelectedZoomScale: CGFloat = 0
-    /// title 的线宽是否允许粗细。使用该效果时，务必保证 titleNormalFont 和 titleSelectedFont 值相同
+    /// title 的线宽是否允许粗细。使用该效果时，务必保证 titleNormalFont 和 titleSelectedFont 值相同。
     open var isTitleStrokeWidthEnabled: Bool = false
     open var titleNormalStrokeWidth: CGFloat = 0
     
-    /// 用于控制字体的粗细（底层通过NSStrokeWidthAttributeName实现），负数越小字体越粗
+    /// 用于控制字体的粗细（底层通过NSStrokeWidthAttributeName实现），负数越小字体越粗。
     open var titleCurrentStrokeWidth: CGFloat = 0
     /// 选中状态下字体的粗细
     open var titleSelectedStrokeWidth: CGFloat = 0
@@ -55,9 +55,8 @@ open class SegmentedItemTitleModel: SegmentedItemModel {
         return CGFloat(ceilf(Float(textWidth)))
     }
     
-    /// item 左右滚动过渡时，是否允许渐变。比如 titleZoom、titleNormalColor、titleStrokeWidth 等渐变
+    /// item 左右滚动过渡时，是否允许渐变。比如 titleZoom、titleNormalColor、titleStrokeWidth 等渐变。
     open var isItemTransitionEnabled: Bool = true
-
 
 }
 
