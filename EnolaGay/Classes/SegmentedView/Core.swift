@@ -59,9 +59,8 @@ open class SegmentedItemModel {
 }
 
 
-/// SegmentedView 中的基础 Cell，此 Cell 模拟 JXSegmentedTitleCell
+/// SegmentedView 中的基础 Cell，此 Cell 模拟 SegmentedTitleCell.
 open class SegmentedCell: UICollectionViewCell {
-    
     /// Cell 中持有的实体
     open var itemModel: SegmentedItemModel?
 
@@ -94,7 +93,7 @@ open class SegmentedCell: UICollectionViewCell {
 }
 
 
-/// SegmentedView 中的基础 CollectionView.
+/// SegmentedView 中的基础 CollectionView
 open class SegmentedCollectionView: UICollectionView {
 
     open var indicators = [UIView & IndicatorProtocol]() {

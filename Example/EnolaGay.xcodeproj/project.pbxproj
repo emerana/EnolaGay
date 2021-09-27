@@ -76,6 +76,7 @@
 		8B372D12268E9F3E004840FC /* rescheduler.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D09268E9F3E004840FC /* rescheduler.gif */; };
 		8B372D1D268EA105004840FC /* MandolineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D1A268EA104004840FC /* MandolineViewController.swift */; };
 		8B372D1F268EA105004840FC /* Mandoline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D1C268EA105004840FC /* Mandoline.storyboard */; };
+		8B3BD1DD27014EB2001912FB /* DownloadViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BD1DC27014EB2001912FB /* DownloadViewCtrl.swift */; };
 		8B4A4DEB266F0B8C007D6DC5 /* DouYin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */; };
 		8B4A4DED266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */; };
 		8B620EA526DDF347001E1A9D /* VersionCheck-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */; };
@@ -365,6 +366,7 @@
 		8B372D09268E9F3E004840FC /* rescheduler.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rescheduler.gif; sourceTree = "<group>"; };
 		8B372D1A268EA104004840FC /* MandolineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandolineViewController.swift; sourceTree = "<group>"; };
 		8B372D1C268EA105004840FC /* Mandoline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mandoline.storyboard; sourceTree = "<group>"; };
+		8B3BD1DC27014EB2001912FB /* DownloadViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewCtrl.swift; sourceTree = "<group>"; };
 		8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTestViewCtrl.swift; sourceTree = "<group>"; };
 		8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DouYin.storyboard; sourceTree = "<group>"; };
 		8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DouYonHomeViewCtrl.swift; sourceTree = "<group>"; };
@@ -1237,7 +1239,6 @@
 				8BC3DBE826DF481000A2A405 /* Controller */,
 				8BC3DB9726DF480F00A2A405 /* Resource */,
 				8BC3DB7F26DF480F00A2A405 /* Storyboard */,
-				8BC3DBEB26DF481000A2A405 /* Vendor */,
 				8BC3DB9126DF480F00A2A405 /* View */,
 				8BC3DB9A26DF480F00A2A405 /* ViewController */,
 				8BC3DB6D26DF479200A2A405 /* AppDelegate.swift */,
@@ -1295,21 +1296,22 @@
 		8BC3DB9A26DF480F00A2A405 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8BC3DBD526DF480F00A2A405 /* Font */,
+				8BC3DBC726DF480F00A2A405 /* Live */,
+				8BC3DBCA26DF480F00A2A405 /* FunctionList */,
+				8BC3DBBD26DF480F00A2A405 /* IGListKit */,
+				8BC3DBDA26DF480F00A2A405 /* Fund */,
 				8BC3DB9B26DF480F00A2A405 /* Home */,
 				8BC3DB9D26DF480F00A2A405 /* PaoPaoViewController.swift */,
 				8BC3DB9E26DF480F00A2A405 /* MyView.swift */,
 				8BC3DBBC26DF480F00A2A405 /* EMERANA_NSMutableAttributedStringViewController.swift */,
-				8BC3DBBD26DF480F00A2A405 /* IGListKit */,
 				8BC3DBC526DF480F00A2A405 /* CollectionViewLayoutViewCtrl.swift */,
 				8BC3DBC626DF480F00A2A405 /* PushTest_ViewCtrl_B.swift */,
-				8BC3DBC726DF480F00A2A405 /* Live */,
-				8BC3DBCA26DF480F00A2A405 /* FunctionList */,
 				8BC3DBD326DF480F00A2A405 /* UIGraphicsGetCurrentContextViewController.swift */,
 				8BC3DBD426DF480F00A2A405 /* PushTest_ViewCtrl_C.swift */,
-				8BC3DBD526DF480F00A2A405 /* Font */,
 				8BC3DBD926DF480F00A2A405 /* CollectionViewController.swift */,
-				8BC3DBDA26DF480F00A2A405 /* Fund */,
 				8BC3DBE726DF481000A2A405 /* RootTabBarViewCtrl.swift */,
+				8B3BD1DC27014EB2001912FB /* DownloadViewCtrl.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1402,13 +1404,6 @@
 				8BC3DBEA26DF481000A2A405 /* ShareCtrl.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		8BC3DBEB26DF481000A2A405 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vendor;
 			sourceTree = "<group>";
 		};
 		8BC3DD1C26DF58FB00A2A405 /* AGUL */ = {
@@ -3378,6 +3373,7 @@
 				8BC3DCD926DF481100A2A405 /* ShareCtrl.swift in Sources */,
 				8BC3DC9926DF481100A2A405 /* MyView.swift in Sources */,
 				8BC3DCC526DF481100A2A405 /* UIGraphicsGetCurrentContextViewController.swift in Sources */,
+				8B3BD1DD27014EB2001912FB /* DownloadViewCtrl.swift in Sources */,
 				8BC3DCCC26DF481100A2A405 /* FundViewController.swift in Sources */,
 				8BC3DCC226DF481100A2A405 /* WeiChatViewCtrl.swift in Sources */,
 				8BC3DC9826DF481100A2A405 /* PaoPaoViewController.swift in Sources */,
