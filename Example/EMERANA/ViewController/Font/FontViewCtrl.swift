@@ -12,22 +12,12 @@ import SwiftyJSON
 
 /// 字体对照界面
 class FontViewCtrl: JudyBaseTableViewCtrl {
+    override var viewTitle: String? { "iOS系统字体大全" }
     
-    // MARK: - let property and IBOutlet - 常量和IBOutlet
     @IBOutlet weak var tableViewFooterLabel: UILabel!
-    
     /// 搜索条
     @IBOutlet weak var searchBar: UISearchBar?
     
-    // MARK: - var property
-
-    // MARK: - public var property - 公开var
-
-    override var viewTitle: String? {
-        return "iOS系统字体大全"
-    }
-
-    // MARK: - private var property - 私有var
 
     private var dataSourceIndex = [String]()
     /// 分区后的数据源
@@ -201,27 +191,18 @@ extension FontViewCtrl: UISearchBarDelegate {
         searchBar.setShowsCancelButton(false, animated: true)
         Judy.log("失去焦点")
     }
-
-    
 }
 
 
 // MARK: - tableView dataSource
 extension FontViewCtrl {
-    
     // 建立索引
-    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return dataSourceIndex
-    }
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? { dataSourceIndex }
     
     // 索引数据源与 section 数量需要保持一致
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return newDataSource.count
-    }
+    func numberOfSections(in tableView: UITableView) -> Int { newDataSource.count }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newDataSource[section].count
-    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { newDataSource[section].count }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
