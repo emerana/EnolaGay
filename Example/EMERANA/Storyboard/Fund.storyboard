@@ -476,13 +476,14 @@
         <!--基金管理-->
         <scene sceneID="SI9-JG-5Nc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1eg-wa-lPI" customClass="JudyNavigationCtrl" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1eg-wa-lPI" customClass="JudyNavigationCtrl" customModule="EnolaGay" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="基金管理" image="Money" selectedImage="Money-H" id="5Qn-t0-sOR"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rs3-kb-idR">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

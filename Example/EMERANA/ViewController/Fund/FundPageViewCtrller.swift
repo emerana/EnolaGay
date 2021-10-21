@@ -16,11 +16,11 @@ class FundPageViewCtrller: JudyBasePageViewSegmentCtrl {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let viewCtrlArray =  [
-            storyboard!.instantiateViewController(withIdentifier: "FundViewController"),
-            storyboard!.instantiateViewController(withIdentifier: "FavoriteViewCtrl"),
-            storyboard!.instantiateViewController(withIdentifier: "PurchasedViewCtrl"),
-        ]
+//        let viewCtrlArray =  [
+//            storyboard!.instantiateViewController(withIdentifier: "FundViewController"),
+//            storyboard!.instantiateViewController(withIdentifier: "FavoriteViewCtrl"),
+//            storyboard!.instantiateViewController(withIdentifier: "PurchasedViewCtrl"),
+//        ]
 //        setPageViewDataSource(dataSource: viewCtrlArray)
         
 //        setSegmentedCtrl()
