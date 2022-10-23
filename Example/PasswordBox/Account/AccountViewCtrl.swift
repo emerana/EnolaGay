@@ -1,0 +1,96 @@
+//
+//  AccountViewCtrl.swift
+//  PasswordBox
+//
+//  Created by 醉翁之意 on 2022/10/23.
+//  Copyright © 2022 CocoaPods. All rights reserved.
+//
+
+import UIKit
+import EnolaGay
+
+/// 账号界面
+class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
+    override var viewTitle: String? { "账号" }
+    override var itemSpacing: CGFloat { return 18 }
+
+    // MARK: - let property and IBOutlet
+    
+    // MARK: - public var property
+
+    // MARK: - private var property
+    
+    // MARK: - life cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        collectionView?.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        isReqSuccess = true
+        super.viewWillAppear(animated)
+    }
+
+    // MARK: - override
+    
+    // MARK: - event response
+
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         // Get the new view controller using segue.destinationViewController.
+         // Pass the selected object to the new view controller.
+     }
+     */
+    
+}
+
+// MARK: - private methods
+
+private extension AccountViewCtrl {
+
+}
+
+// MARK: - UICollectionViewDataSource
+extension AccountViewCtrl {
+
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
+    }
+
+}
+
+
+// MARK: - UICollectionViewDelegate
+extension AccountViewCtrl {
+    /// 选中事件。
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        Judy.log("选中\(indexPath)")
+    }
+
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension AccountViewCtrl {
+    
+    /// 询问 Cell 大小，在此函数中计算好对应的 size.
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+        
+        /// 在一个 Line 中需要显示的 Cell 数量。
+        let cellCount: CGFloat = 2
+        /// Line 的长度（包含间距），请注意在此处减去该不属于 Collection 部分。
+        let lineWidth: CGFloat = collectionView.frame.width - collectionView.contentInset.left - collectionView.contentInset.right
+        
+        /// Cell 边长。
+        let cellWidth: CGFloat = (lineWidth - itemSpacing * (cellCount - 1))/cellCount
+                
+        return CGSize(width: cellWidth, height: cellWidth*200/171)
+    }
+    
+
+}
