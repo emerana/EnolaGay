@@ -40,6 +40,15 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jab-Zk-psj">
+                                <rect key="frame" x="314" y="685" width="48" height="48"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jab-Zk-psj" secondAttribute="height" multiplier="1:1" id="wF7-D3-pwa"/>
+                                    <constraint firstAttribute="width" constant="48" id="wM7-LI-5ri"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="button_添加"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -48,9 +57,12 @@
                             <constraint firstItem="HRe-tR-B45" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="BTc-af-d1m"/>
                             <constraint firstItem="HRe-tR-B45" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="IPb-pC-YWh"/>
                             <constraint firstAttribute="bottom" secondItem="HRe-tR-B45" secondAttribute="bottom" id="ZUj-4V-9kK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jab-Zk-psj" secondAttribute="trailing" constant="28" id="iOW-am-V3H"/>
+                            <constraint firstItem="jab-Zk-psj" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="-28" id="mg0-vI-6ad"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wsf-J6-cpf"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="HRe-tR-B45" id="KfK-Xe-usD"/>
                     </connections>
@@ -82,11 +94,15 @@
     </scenes>
     <resources>
         <image name="TabBar_账号" width="28" height="28"/>
+        <image name="button_添加" width="28" height="28"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
