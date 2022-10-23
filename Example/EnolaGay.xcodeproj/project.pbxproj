@@ -82,6 +82,13 @@
 		8B620EA526DDF347001E1A9D /* VersionCheck-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */; };
 		8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76428F25A702C400A418F8 /* AppConfigs.swift */; };
 		8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */; };
+		8B7E1FBA2905014E00CE5DDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E1FB92905014E00CE5DDC /* AppDelegate.swift */; };
+		8B7E1FBE2905014E00CE5DDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E1FBD2905014E00CE5DDC /* ViewController.swift */; };
+		8B7E1FC12905014E00CE5DDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E1FBF2905014E00CE5DDC /* Main.storyboard */; };
+		8B7E1FC32905014F00CE5DDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E1FC22905014F00CE5DDC /* Assets.xcassets */; };
+		8B7E1FC62905014F00CE5DDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E1FC42905014F00CE5DDC /* LaunchScreen.storyboard */; };
+		8B7E1FCC29050E4B00CE5DDC /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E1FCB29050E4B00CE5DDC /* Account.storyboard */; };
+		8B7E1FCE29050E7500CE5DDC /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E1FCD29050E7500CE5DDC /* Favorite.storyboard */; };
 		8BC3DA2D26DDF88C00A2A405 /* VersionCheckViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */; };
 		8BC3DA3226DDFA6E00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA3026DDFA6E00A2A405 /* Main.storyboard */; };
 		8BC3DA3326DDFAAC00A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */; };
@@ -245,6 +252,7 @@
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
 		93ABEB9893981EB588536176 /* Pods_EnolaGay_Example_Semaphore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643EA2A76EAACA640FC02CD1 /* Pods_EnolaGay_Example_Semaphore.framework */; };
+		ADA93791B8E61E29E334ED3C /* Pods_EnolaGay_Example_PasswordBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9544C5FF9E618D52F7E56972 /* Pods_EnolaGay_Example_PasswordBox.framework */; };
 		AE4C906A9FC35F064F0A2073 /* Pods_EnolaGay_Example_HPickerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10668B896E19D40B93D802F0 /* Pods_EnolaGay_Example_HPickerDemo.framework */; };
 		B50D17D8D986765C81AE086C /* Pods_EnolaGay_Example_CacheDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE7544F2E609AE3D7ABB860 /* Pods_EnolaGay_Example_CacheDemo.framework */; };
 		DAC589F3770DCD4DAF4D72B7 /* Pods_EnolaGay_Example_JudyBaseNavigationCtrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D73BA128CC3A3C0AD8D13B /* Pods_EnolaGay_Example_JudyBaseNavigationCtrl.framework */; };
@@ -262,6 +270,7 @@
 		10668B896E19D40B93D802F0 /* Pods_EnolaGay_Example_HPickerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_HPickerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12B94CF2DC9FF3616B095D6E /* Pods_EnolaGay_Example_GiftMessageViewCtrlDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_GiftMessageViewCtrlDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CC0A4766FAB395BE63A866 /* Pods_EnolaGay_Example_AttributedStringDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_AttributedStringDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E182E81021339D96430EE37 /* Pods-EnolaGay_Example-PasswordBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-PasswordBox.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox.release.xcconfig"; sourceTree = "<group>"; };
 		2235E508AC7733ECB6444EE9 /* Pods_EnolaGay_Example_VersionCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_VersionCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F1A9FFE10BA8A787D6AA62 /* Pods-EnolaGay_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		24FBEA9EE9646A4D140FFFDA /* Pods-EnolaGay_Example-AttributedStringDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-AttributedStringDemo.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-AttributedStringDemo/Pods-EnolaGay_Example-AttributedStringDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -373,6 +382,15 @@
 		8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VersionCheck-Info.plist"; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
+		8B7E1FB72905014E00CE5DDC /* PasswordBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasswordBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B7E1FB92905014E00CE5DDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8B7E1FBD2905014E00CE5DDC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8B7E1FC02905014E00CE5DDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8B7E1FC22905014F00CE5DDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B7E1FC52905014F00CE5DDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8B7E1FC72905014F00CE5DDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B7E1FCB29050E4B00CE5DDC /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		8B7E1FCD29050E7500CE5DDC /* Favorite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorite.storyboard; sourceTree = "<group>"; };
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
 		8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftMessageViewCtrlTest.swift; sourceTree = "<group>"; };
 		8BC3DA2A26DDF70100A2A405 /* VersionCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VersionCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -589,6 +607,7 @@
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerticalScrollView.storyboard; sourceTree = "<group>"; };
 		93E60451AAFF68D608B14389 /* Pods-EnolaGay_Example-JudyBaseNavigationCtrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-JudyBaseNavigationCtrl.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-JudyBaseNavigationCtrl/Pods-EnolaGay_Example-JudyBaseNavigationCtrl.release.xcconfig"; sourceTree = "<group>"; };
+		9544C5FF9E618D52F7E56972 /* Pods_EnolaGay_Example_PasswordBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_PasswordBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		965A220C1897CC6E346EC1C5 /* Pods-EnolaGay_Example-JudyLivePageViewCtrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-JudyLivePageViewCtrl.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-JudyLivePageViewCtrl/Pods-EnolaGay_Example-JudyLivePageViewCtrl.debug.xcconfig"; sourceTree = "<group>"; };
 		9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A21A509A84DC406DD883CE9B /* Pods_EnolaGay_Example_CastSurelyCalculation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_CastSurelyCalculation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -608,6 +627,7 @@
 		DA30384362E444B599985A40 /* Pods-EnolaGay_Example-AGUL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-AGUL.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-AGUL/Pods-EnolaGay_Example-AGUL.debug.xcconfig"; sourceTree = "<group>"; };
 		DE964337EB4974F80D9E2D1A /* Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-RefreshAdapter/Pods-EnolaGay_Example-RefreshAdapter.debug.xcconfig"; sourceTree = "<group>"; };
 		E0B0EBA1D1F716C7B86861AA /* Pods-EnolaGay_Example-CastSurelyCalculation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-CastSurelyCalculation.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-CastSurelyCalculation/Pods-EnolaGay_Example-CastSurelyCalculation.debug.xcconfig"; sourceTree = "<group>"; };
+		E421DF6CD6870D11190E5831 /* Pods-EnolaGay_Example-PasswordBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-PasswordBox.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox.debug.xcconfig"; sourceTree = "<group>"; };
 		EF1B7871C2D5B6F4AFBE3453 /* Pods-EnolaGay_Example-CacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-CacheDemo.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-CacheDemo/Pods-EnolaGay_Example-CacheDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F12B3360D6A8243A1430AD22 /* Pods-EnolaGay_Example-FontExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-FontExtension.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-FontExtension/Pods-EnolaGay_Example-FontExtension.release.xcconfig"; sourceTree = "<group>"; };
 		F17AF534EDE8F540CDD3CB5C /* Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -638,6 +658,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAC589F3770DCD4DAF4D72B7 /* Pods_EnolaGay_Example_JudyBaseNavigationCtrl.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7E1FB42905014E00CE5DDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADA93791B8E61E29E334ED3C /* Pods_EnolaGay_Example_PasswordBox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,6 +853,8 @@
 				3BD0B8726543EE9196E1673B /* Pods-EnolaGay_Example-MyCharts.release.xcconfig */,
 				7A1890A5D554197EA45F8750 /* Pods-EnolaGay_Example-JudyBaseNavigationCtrl.debug.xcconfig */,
 				93E60451AAFF68D608B14389 /* Pods-EnolaGay_Example-JudyBaseNavigationCtrl.release.xcconfig */,
+				E421DF6CD6870D11190E5831 /* Pods-EnolaGay_Example-PasswordBox.debug.xcconfig */,
+				1E182E81021339D96430EE37 /* Pods-EnolaGay_Example-PasswordBox.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -853,6 +883,7 @@
 				8BC3DDEF26E06BA000A2A405 /* MyRxSwfit */,
 				8B17484026EB3BC900B81EC7 /* MyCharts */,
 				8B174A2326F483BB00B81EC7 /* JudyBaseNavigationCtrl */,
+				8B7E1FB82905014E00CE5DDC /* PasswordBox */,
 				607FACD11AFB9204008FA782 /* Products */,
 				48F58D42A596E8C4AFE02DEE /* Pods */,
 				C2843BD89BA8C609ED35D6C4 /* Frameworks */,
@@ -881,6 +912,7 @@
 				8BC3DDEE26E06BA000A2A405 /* MyRxSwfit.app */,
 				8B17483F26EB3BC900B81EC7 /* MyCharts.app */,
 				8B174A2226F483B900B81EC7 /* JudyBaseNavigationCtrl.app */,
+				8B7E1FB72905014E00CE5DDC /* PasswordBox.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1129,6 +1161,21 @@
 				8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		8B7E1FB82905014E00CE5DDC /* PasswordBox */ = {
+			isa = PBXGroup;
+			children = (
+				8B7E1FB92905014E00CE5DDC /* AppDelegate.swift */,
+				8B7E1FBD2905014E00CE5DDC /* ViewController.swift */,
+				8B7E1FCB29050E4B00CE5DDC /* Account.storyboard */,
+				8B7E1FCD29050E7500CE5DDC /* Favorite.storyboard */,
+				8B7E1FBF2905014E00CE5DDC /* Main.storyboard */,
+				8B7E1FC22905014F00CE5DDC /* Assets.xcassets */,
+				8B7E1FC42905014F00CE5DDC /* LaunchScreen.storyboard */,
+				8B7E1FC72905014F00CE5DDC /* Info.plist */,
+			);
+			path = PasswordBox;
 			sourceTree = "<group>";
 		};
 		8BC3DA4426DE965700A2A405 /* Semaphore */ = {
@@ -1600,6 +1647,7 @@
 				2E1B73BD02B327293361DDDE /* Pods_EnolaGay_Example_MyRxSwfit.framework */,
 				599FD08F99E4BCB6F3538ADE /* Pods_EnolaGay_Example_MyCharts.framework */,
 				46D73BA128CC3A3C0AD8D13B /* Pods_EnolaGay_Example_JudyBaseNavigationCtrl.framework */,
+				9544C5FF9E618D52F7E56972 /* Pods_EnolaGay_Example_PasswordBox.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1662,6 +1710,25 @@
 			name = JudyBaseNavigationCtrl;
 			productName = JudyBaseNavigationCtrl;
 			productReference = 8B174A2226F483B900B81EC7 /* JudyBaseNavigationCtrl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8B7E1FB62905014E00CE5DDC /* PasswordBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B7E1FCA2905014F00CE5DDC /* Build configuration list for PBXNativeTarget "PasswordBox" */;
+			buildPhases = (
+				0046E11888563010C2A02F03 /* [CP] Check Pods Manifest.lock */,
+				8B7E1FB32905014E00CE5DDC /* Sources */,
+				8B7E1FB42905014E00CE5DDC /* Frameworks */,
+				8B7E1FB52905014E00CE5DDC /* Resources */,
+				4B65B36E17FB83F141685C3E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PasswordBox;
+			productName = PasswordBox;
+			productReference = 8B7E1FB72905014E00CE5DDC /* PasswordBox.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8BC3D9F226DDF70100A2A405 /* VersionCheck */ = {
@@ -1974,7 +2041,7 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
@@ -1990,6 +2057,11 @@
 					};
 					8B174A2126F483B900B81EC7 = {
 						CreatedOnToolsVersion = 12.5.1;
+						DevelopmentTeam = 325J3J39TM;
+						ProvisioningStyle = Automatic;
+					};
+					8B7E1FB62905014E00CE5DDC = {
+						CreatedOnToolsVersion = 14.0.1;
 						DevelopmentTeam = 325J3J39TM;
 						ProvisioningStyle = Automatic;
 					};
@@ -2091,6 +2163,7 @@
 				8BC3DDED26E06BA000A2A405 /* MyRxSwfit */,
 				8B17483E26EB3BC900B81EC7 /* MyCharts */,
 				8B174A2126F483B900B81EC7 /* JudyBaseNavigationCtrl */,
+				8B7E1FB62905014E00CE5DDC /* PasswordBox */,
 			);
 		};
 /* End PBXProject section */
@@ -2137,6 +2210,18 @@
 				8B174A3126F483BE00B81EC7 /* LaunchScreen.storyboard in Resources */,
 				8B174A2E26F483BE00B81EC7 /* Assets.xcassets in Resources */,
 				8B174A2C26F483BB00B81EC7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7E1FB52905014E00CE5DDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7E1FC62905014F00CE5DDC /* LaunchScreen.storyboard in Resources */,
+				8B7E1FC32905014F00CE5DDC /* Assets.xcassets in Resources */,
+				8B7E1FCC29050E4B00CE5DDC /* Account.storyboard in Resources */,
+				8B7E1FCE29050E7500CE5DDC /* Favorite.storyboard in Resources */,
+				8B7E1FC12905014E00CE5DDC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2324,6 +2409,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0046E11888563010C2A02F03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EnolaGay_Example-PasswordBox-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		057007B75EBB37ADEE29FA3D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2506,6 +2613,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B65B36E17FB83F141685C3E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4D8023E299CF091570C755F5 /* [CP] Embed Pods Frameworks */ = {
@@ -3276,6 +3405,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8B7E1FB32905014E00CE5DDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7E1FBE2905014E00CE5DDC /* ViewController.swift in Sources */,
+				8B7E1FBA2905014E00CE5DDC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BC3D9F426DDF70100A2A405 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3526,6 +3664,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				8B174A3026F483BE00B81EC7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8B7E1FBF2905014E00CE5DDC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B7E1FC02905014E00CE5DDC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8B7E1FC42905014F00CE5DDC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B7E1FC52905014F00CE5DDC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -4027,6 +4181,83 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.JudyBaseNavigationCtrl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8B7E1FC82905014F00CE5DDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E421DF6CD6870D11190E5831 /* Pods-EnolaGay_Example-PasswordBox.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PasswordBox/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "密码宝箱";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = judy.PasswordBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B7E1FC92905014F00CE5DDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E182E81021339D96430EE37 /* Pods-EnolaGay_Example-PasswordBox.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PasswordBox/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "密码宝箱";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = judy.PasswordBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -4785,6 +5016,15 @@
 			buildConfigurations = (
 				8B174A3426F483BE00B81EC7 /* Debug */,
 				8B174A3526F483BE00B81EC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B7E1FCA2905014F00CE5DDC /* Build configuration list for PBXNativeTarget "PasswordBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B7E1FC82905014F00CE5DDC /* Debug */,
+				8B7E1FC92905014F00CE5DDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

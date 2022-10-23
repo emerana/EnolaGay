@@ -130,5 +130,11 @@ target 'EnolaGay_Example' do
     pod 'EnolaGay', :path => '../'
 
   end
+  
+  #  为"密码宝箱"项目安装 pods
+  target 'PasswordBox' do
+    pod 'EnolaGay', :path => '../'
+
+  end
 
 end
