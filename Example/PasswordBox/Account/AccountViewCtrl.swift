@@ -12,9 +12,12 @@ import EnolaGay
 /// 账号界面
 class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
     override var viewTitle: String? { "账号" }
-    override var itemSpacing: CGFloat { return 18 }
+    override var itemSpacing: CGFloat { return 28 }
 
     // MARK: - let property and IBOutlet
+    
+    /// “添加账号”按钮
+    @IBOutlet weak var addButton: UIButton!
     
     // MARK: - public var property
 
@@ -26,7 +29,9 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        collectionView?.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        collectionView?.contentInset = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 18)
+        
+        addButton.judy.viewShadow()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +39,12 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
         super.viewWillAppear(animated)
     }
 
+    
+    /// 添加按钮事件
+    @IBAction func AddPasswordAction(_ sender: Any) {
+        Judy.log("点击了添加")
+    }
+    
     // MARK: - override
     
     // MARK: - event response

@@ -42,12 +42,14 @@
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jab-Zk-psj">
                                 <rect key="frame" x="314" y="685" width="48" height="48"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jab-Zk-psj" secondAttribute="height" multiplier="1:1" id="wF7-D3-pwa"/>
                                     <constraint firstAttribute="width" constant="48" id="wM7-LI-5ri"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="button_添加"/>
+                                <connections>
+                                    <action selector="AddPasswordAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hrg-Gy-ESm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -64,6 +66,7 @@
                     <navigationItem key="navigationItem" id="wsf-J6-cpf"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addButton" destination="jab-Zk-psj" id="FYC-kJ-4ds"/>
                         <outlet property="collectionView" destination="HRe-tR-B45" id="KfK-Xe-usD"/>
                     </connections>
                 </viewController>
@@ -100,9 +103,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
