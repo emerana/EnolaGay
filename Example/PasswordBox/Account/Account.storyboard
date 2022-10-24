@@ -20,7 +20,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HRe-tR-B45">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vwE-hI-8FW">
                                     <size key="itemSize" width="260" height="204"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -36,22 +36,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="259" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="hG8-HF-aPQ">
-                                                    <rect key="frame" x="18" y="18" width="58" height="58"/>
+                                                    <rect key="frame" x="18" y="18" width="48" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="hG8-HF-aPQ" secondAttribute="height" multiplier="1:1" id="FzC-0Z-dbp"/>
-                                                        <constraint firstAttribute="width" constant="58" id="pu8-fQ-k0o"/>
+                                                        <constraint firstAttribute="width" constant="48" id="pu8-fQ-k0o"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiX-IB-cY7">
-                                                    <rect key="frame" x="18" y="94" width="42" height="92"/>
+                                                    <rect key="frame" x="18" y="84" width="42" height="102"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Hq-ha-o3H">
-                                                    <rect key="frame" x="208.66666666666666" y="173.66666666666666" width="41.333333333333343" height="20.333333333333343"/>
+                                                    <rect key="frame" x="202.66666666666666" y="167.66666666666666" width="41.333333333333343" height="20.333333333333343"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -59,19 +59,24 @@
                                                 <constraint firstItem="hG8-HF-aPQ" firstAttribute="top" secondItem="73J-mY-gy9" secondAttribute="top" constant="18" id="F2z-vw-abu"/>
                                                 <constraint firstItem="qiX-IB-cY7" firstAttribute="top" secondItem="hG8-HF-aPQ" secondAttribute="bottom" constant="18" id="LLs-Qw-SXQ"/>
                                                 <constraint firstAttribute="bottom" secondItem="qiX-IB-cY7" secondAttribute="bottom" constant="18" id="MUc-du-rhu"/>
-                                                <constraint firstAttribute="trailing" secondItem="8Hq-ha-o3H" secondAttribute="trailing" constant="10" id="RC1-Pp-Gha"/>
-                                                <constraint firstAttribute="bottom" secondItem="8Hq-ha-o3H" secondAttribute="bottom" constant="10" id="adT-Vk-Mq6"/>
+                                                <constraint firstAttribute="trailing" secondItem="8Hq-ha-o3H" secondAttribute="trailing" constant="16" id="RC1-Pp-Gha"/>
+                                                <constraint firstAttribute="bottom" secondItem="8Hq-ha-o3H" secondAttribute="bottom" constant="16" id="adT-Vk-Mq6"/>
                                                 <constraint firstItem="qiX-IB-cY7" firstAttribute="leading" secondItem="73J-mY-gy9" secondAttribute="leading" constant="18" id="gXe-mI-DCL"/>
                                                 <constraint firstItem="hG8-HF-aPQ" firstAttribute="leading" secondItem="73J-mY-gy9" secondAttribute="leading" constant="18" id="qr3-uy-Bvv"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                         <size key="customSize" width="260" height="204"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="28"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="masterImageView" destination="hG8-HF-aPQ" id="4ch-9b-1cV"/>
+                                            <outlet property="subTitleLabel" destination="8Hq-ha-o3H" id="j8P-eM-NVn"/>
+                                            <outlet property="titleLabel" destination="qiX-IB-cY7" id="eNS-c3-Ztr"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -138,8 +143,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

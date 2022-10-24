@@ -73,6 +73,12 @@ extension AccountViewCtrl {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 8
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! AccountCollectionCell
+        cell.group = Group()
+        return cell
+    }
 
 }
 
@@ -100,7 +106,7 @@ extension AccountViewCtrl {
         /// Cell 边长。
         let cellWidth: CGFloat = (lineWidth - itemSpacing * (cellCount - 1))/cellCount
                 
-        return CGSize(width: cellWidth, height: cellWidth+28)
+        return CGSize(width: cellWidth, height: cellWidth*9/7)
     }
     
 

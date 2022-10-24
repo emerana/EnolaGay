@@ -148,7 +148,7 @@ public protocol EMERANA_CellBasic {
  // MARK: 默认实现的注意点
  
  # 注意：协议扩展是针对抽象类的，而协议本身是针对具体对象的
- # 当声明协议时没有进行限定则须注意一下：
+ # 当声明协议时没有进行限定则须注意以下：
  # 重写协议的默认实现函数调用权重为 子类>实现类>默认实现，若没有在实现类实现函数则直接调用默认实现函数，此时子类的重写无效
  */
 /// 为 EMERANA_CellBasic 协议新增的扩展函数（非默认实现函数）
@@ -188,8 +188,10 @@ public extension EMERANA_CellBasic {
 public extension UIColor {
     
     /*
-     * static 定义的属性和func 没办法被子类 override.
-     * class 定义的属性和func 可以被子类 override.
+     * static 和 class 的区别.
+     *
+     * static 定义的属性和 func 没办法被子类 override.
+     * class 定义的属性和 func 可以被子类 override.
      */
     
     /// 此颜色为白色

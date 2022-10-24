@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EnolaGay
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,4 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+}
+
+extension UIApplication: EnolaGayAdapter {
+    
+    public func defaultFontName() -> UIFont { UIFont(name: .苹方_常规体, size: 12) }
+    
+    public func viewBackgroundColor() -> UIColor { UIColor(rgbValue: 0xdfe7f2)    }
+    
 }
