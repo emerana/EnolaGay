@@ -78,7 +78,7 @@
         <scene sceneID="NJw-Ao-q1H">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7oZ-y6-CZ2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="账号" image="TabBar_账号" id="A6z-KQ-CdI"/>
+                    <tabBarItem key="tabBarItem" title="账号" image="TabBar_账号" selectedImage="TabBar_账号_H" id="A6z-KQ-CdI"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7VN-2b-lk2">
@@ -97,6 +97,7 @@
     </scenes>
     <resources>
         <image name="TabBar_账号" width="28" height="28"/>
+        <image name="TabBar_账号_H" width="28" height="28"/>
         <image name="button_添加" width="28" height="28"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -19,7 +19,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="收藏" image="TabBar_收藏" id="0oT-Zf-d09"/>
+                    <tabBarItem key="tabBarItem" title="收藏" image="TabBar_收藏" selectedImage="TabBar_收藏_H" id="0oT-Zf-d09"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -29,6 +29,7 @@
     </scenes>
     <resources>
         <image name="TabBar_收藏" width="28" height="28"/>
+        <image name="TabBar_收藏_H" width="28" height="28"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
