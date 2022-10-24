@@ -73,6 +73,8 @@
 		8B174A3126F483BE00B81EC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B174A2F26F483BE00B81EC7 /* LaunchScreen.storyboard */; };
 		8B1A499025C8354700FDA57A /* LangRenSha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1A498F25C8354700FDA57A /* LangRenSha.storyboard */; };
 		8B284FAB290537AB007D0FE3 /* AccountViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B284FAA290537AB007D0FE3 /* AccountViewCtrl.swift */; };
+		8B36B6B429063A7F002B2C0F /* GroupCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36B6B329063A7F002B2C0F /* GroupCtrl.swift */; };
+		8B36B6B629063CB0002B2C0F /* AccountCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36B6B529063CB0002B2C0F /* AccountCollectionCell.swift */; };
 		8B372D11268E9F3E004840FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D08268E9F3E004840FC /* Assets.xcassets */; };
 		8B372D12268E9F3E004840FC /* rescheduler.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D09268E9F3E004840FC /* rescheduler.gif */; };
 		8B372D1D268EA105004840FC /* MandolineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D1A268EA104004840FC /* MandolineViewController.swift */; };
@@ -373,6 +375,8 @@
 		8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveModelViewCtrl.swift; sourceTree = "<group>"; };
 		8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCheckViewCtrl.swift; sourceTree = "<group>"; };
 		8B284FAA290537AB007D0FE3 /* AccountViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewCtrl.swift; sourceTree = "<group>"; };
+		8B36B6B329063A7F002B2C0F /* GroupCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCtrl.swift; sourceTree = "<group>"; };
+		8B36B6B529063CB0002B2C0F /* AccountCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCollectionCell.swift; sourceTree = "<group>"; };
 		8B372D08268E9F3E004840FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B372D09268E9F3E004840FC /* rescheduler.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rescheduler.gif; sourceTree = "<group>"; };
 		8B372D1A268EA104004840FC /* MandolineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandolineViewController.swift; sourceTree = "<group>"; };
@@ -1112,6 +1116,7 @@
 			children = (
 				8B7E1FCB29050E4B00CE5DDC /* Account.storyboard */,
 				8B284FAA290537AB007D0FE3 /* AccountViewCtrl.swift */,
+				8B36B6B529063CB0002B2C0F /* AccountCollectionCell.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1177,6 +1182,7 @@
 		8B7E1FB82905014E00CE5DDC /* PasswordBox */ = {
 			isa = PBXGroup;
 			children = (
+				8B36B6B329063A7F002B2C0F /* GroupCtrl.swift */,
 				8B284FAC290537B7007D0FE3 /* Account */,
 				8B7E1FB92905014E00CE5DDC /* AppDelegate.swift */,
 				8B7E1FBD2905014E00CE5DDC /* ViewController.swift */,
@@ -3420,6 +3426,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B36B6B429063A7F002B2C0F /* GroupCtrl.swift in Sources */,
+				8B36B6B629063CB0002B2C0F /* AccountCollectionCell.swift in Sources */,
 				8B7E1FBE2905014E00CE5DDC /* ViewController.swift in Sources */,
 				8B7E1FBA2905014E00CE5DDC /* AppDelegate.swift in Sources */,
 				8B284FAB290537AB007D0FE3 /* AccountViewCtrl.swift in Sources */,

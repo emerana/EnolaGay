@@ -100,7 +100,7 @@ extension AccountViewCtrl {
         /// Cell 边长。
         let cellWidth: CGFloat = (lineWidth - itemSpacing * (cellCount - 1))/cellCount
                 
-        return CGSize(width: cellWidth, height: cellWidth*200/171)
+        return CGSize(width: cellWidth, height: cellWidth+28)
     }
     
 
