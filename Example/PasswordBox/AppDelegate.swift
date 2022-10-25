@@ -28,3 +28,9 @@ extension UIApplication: EnolaGayAdapter {
     public func viewBackgroundColor() -> UIColor { UIColor(rgbValue: 0xdfe7f2)    }
     
 }
+
+extension EMERANA.Key {
+    /// 数据库名
+    static let dataBaseName = "AccountDB"
+
+}

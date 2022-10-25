@@ -7,9 +7,8 @@
 //  Created by 醉翁之意 on 2022/10/24.
 //  Copyright © 2022 CocoaPods. All rights reserved.
 //
-
-
- class Group {
+                
+class Group {
     /// 背景色值数据源
     static let GroupBackgroundColors: [Int] = [GroupBackgroundColor.淡红色.rawValue]
     /// 组名

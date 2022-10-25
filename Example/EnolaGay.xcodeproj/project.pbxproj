@@ -75,6 +75,7 @@
 		8B284FAB290537AB007D0FE3 /* AccountViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B284FAA290537AB007D0FE3 /* AccountViewCtrl.swift */; };
 		8B36B6B429063A7F002B2C0F /* GroupCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36B6B329063A7F002B2C0F /* GroupCtrl.swift */; };
 		8B36B6B629063CB0002B2C0F /* AccountCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36B6B529063CB0002B2C0F /* AccountCollectionCell.swift */; };
+		8B36B6B82907695E002B2C0F /* DataBaseCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36B6B72907695E002B2C0F /* DataBaseCtrl.swift */; };
 		8B372D11268E9F3E004840FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D08268E9F3E004840FC /* Assets.xcassets */; };
 		8B372D12268E9F3E004840FC /* rescheduler.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D09268E9F3E004840FC /* rescheduler.gif */; };
 		8B372D1D268EA105004840FC /* MandolineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B372D1A268EA104004840FC /* MandolineViewController.swift */; };
@@ -377,6 +378,7 @@
 		8B284FAA290537AB007D0FE3 /* AccountViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewCtrl.swift; sourceTree = "<group>"; };
 		8B36B6B329063A7F002B2C0F /* GroupCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCtrl.swift; sourceTree = "<group>"; };
 		8B36B6B529063CB0002B2C0F /* AccountCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCollectionCell.swift; sourceTree = "<group>"; };
+		8B36B6B72907695E002B2C0F /* DataBaseCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseCtrl.swift; sourceTree = "<group>"; };
 		8B372D08268E9F3E004840FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B372D09268E9F3E004840FC /* rescheduler.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rescheduler.gif; sourceTree = "<group>"; };
 		8B372D1A268EA104004840FC /* MandolineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandolineViewController.swift; sourceTree = "<group>"; };
@@ -1182,6 +1184,7 @@
 		8B7E1FB82905014E00CE5DDC /* PasswordBox */ = {
 			isa = PBXGroup;
 			children = (
+				8B36B6B72907695E002B2C0F /* DataBaseCtrl.swift */,
 				8B36B6B329063A7F002B2C0F /* GroupCtrl.swift */,
 				8B284FAC290537B7007D0FE3 /* Account */,
 				8B7E1FB92905014E00CE5DDC /* AppDelegate.swift */,
@@ -2642,12 +2645,16 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3430,6 +3437,7 @@
 				8B36B6B629063CB0002B2C0F /* AccountCollectionCell.swift in Sources */,
 				8B7E1FBE2905014E00CE5DDC /* ViewController.swift in Sources */,
 				8B7E1FBA2905014E00CE5DDC /* AppDelegate.swift in Sources */,
+				8B36B6B82907695E002B2C0F /* DataBaseCtrl.swift in Sources */,
 				8B284FAB290537AB007D0FE3 /* AccountViewCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

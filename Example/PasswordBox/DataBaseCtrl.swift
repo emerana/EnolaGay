@@ -1,34 +1,28 @@
 //
-//  FundDataSourceCtrl.swift
-//  emerana
+//  DataBaseCtrl.swift
+//  数据库操作控制器
 //
-//  Created by 醉翁之意 on 2019/10/13.
-//  Copyright © 2019 艾美拉娜.王仁洁. All rights reserved.
+//  Created by 醉翁之意 on 2022/10/25.
+//  Copyright © 2022 艾美拉娜.王仁洁. All rights reserved.
 //
 
-import UIKit
 import EnolaGay
 import FMDB
 
-/// 基金数据库管理
-class FundDataSourceCtrl {
+/// 数据库操作控制器
+class DataBaseCtrl {
     
-    static let judy = FundDataSourceCtrl()
+    /// 单例
+    static let judy = DataBaseCtrl()
     
     /// 数据操作队列
     private var dbQueue: FMDatabaseQueue? = nil
     
-    /// 数据库名
-    private let dataBaseName = "FundDB"
-
-    
     /// 所有数据表枚举
-    private enum fund_tables {
-        case t_fundInfoList //  基金信息表
-        case t_fundOptional //  自选基金表
-        case t_investment   //  已购（定投）基金表
-        /// 同类排名表
-        case t_similar
+    private enum account_tables {
+        case t_password
+        case t_remarks
+        case t_group
     }
     
     /// 私有init,不允许构建对象
@@ -36,7 +30,7 @@ class FundDataSourceCtrl {
     
 }
 
-// MARK: - 基金数据库操作
+// MARK: - 数据库操作
 /*
  主要对象
  1.FMDatabase: 数据库对象，一个对象代表一个数据库，通过sqlite可进行增删改查
@@ -49,9 +43,27 @@ class FundDataSourceCtrl {
  3.FMDatabaseQueue:在多线程下查询和更新数据库用到的类。
  */
 
-// MARK: 基金表操作
+extension DataBaseCtrl {
+    
+    // 创建数据库
+    
+    /// 获取 FMDatabaseQueue 对象
+    func getDBQueue() -> FMDatabaseQueue {
+        if dbQueue == nil {
+            // 确定数据库路径
+            let docuPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            
+            let dbPath = docuPath.appending("/\(EMERANA.Key.dataBaseName).db")
+            Judy.log("数据库 FundDB 沙盒路径：\(dbPath)")
+            dbQueue = FMDatabaseQueue(path: dbPath)
+        }
+        return dbQueue!
+    }
 
-extension FundDataSourceCtrl {
+}
+// MARK: 表操作
+/*
+extension DataBaseCtrl {
     
     /// 创建基金信息表
     func createTableFundInfo() {
@@ -80,20 +92,6 @@ extension FundDataSourceCtrl {
             
         }
     }
-    
-    
-    /// 获取 FMDatabaseQueue 对象
-    func getDBQueue() -> FMDatabaseQueue {
-        if dbQueue == nil {
-            // 确定数据库路径
-            let docuPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-            let dbPath = docuPath.appending("/\(dataBaseName).db")
-            Judy.log("数据库 FundDB 沙盒路径：\(dbPath)")
-            dbQueue = FMDatabaseQueue(path: dbPath)
-        }
-        return dbQueue!
-    }
-    
     
     /// 在基金信息表创建名为""index_FundID"的索引，索引字段为 fundID
     func createIndexForFundID() {
@@ -303,7 +301,7 @@ SELECT t_fundInfoList.*, t_fundOptional.fundID AS isOption, t_investment.fundID 
     
     
 }
-
+*/
 /*
  /*倒序查询*/
  SELECT * FROM t_fundInfoList ORDER BY isStarManager DESC
@@ -318,8 +316,8 @@ SELECT t_fundInfoList.*, t_fundOptional.fundID AS isOption, t_investment.fundID 
 
  */
 
-// MARK: 自选基金表操作
-extension FundDataSourceCtrl {
+/*
+extension DataBaseCtrl {
     
     /// 创建基金自选表
     func createOptionalTable() {
@@ -408,11 +406,11 @@ extension FundDataSourceCtrl {
     }
     
 }
-
+*/
 
 // MARK: - 定投基金表操作
-
-extension FundDataSourceCtrl {
+/*
+extension DataBaseCtrl {
     
     /// 创建定投表
     func createInvestmentTable() {
@@ -488,7 +486,7 @@ extension FundDataSourceCtrl {
     }
 
 }
-
+*/
 /*
  SELECT *,order.id AS oid,farmer.id AS fid,farmer.name AS fname,farmer.type AS ftype FROM `order` LEFT JOIN farmer ON order.fid = farmer.id WHERE ( order.id = '10000067' ) LIMIT 1
 
@@ -500,8 +498,8 @@ extension FundDataSourceCtrl {
  */
 
 // MARK: - Similar Ranking table operating - 同类排名表操作
-
-extension FundDataSourceCtrl {
+/*
+extension DataBaseCtrl {
     
     /// 创建同类排名表
     func createSimilarTable() {
@@ -527,23 +525,12 @@ extension FundDataSourceCtrl {
     
 }
 
-// MARK: - Bmob存储数据
-extension FundDataSourceCtrl {
-
-    
-    /// 从Bmob数据库中拉取所有数据
-    func pullFundInfoFormBmob() {
-    
-    }
-    
-}
-
-
+*/
 // MARK: - 导出
 
 import  SQLite3
-
-extension FundDataSourceCtrl {
+/*
+extension DataBaseCtrl {
 
     func exportCSV() {
 //        sqlite3_finalize
@@ -581,10 +568,10 @@ extension FundDataSourceCtrl {
     }
     
 }
-
+*/
 // MARK: - 其它私有函数
-
-private extension FundDataSourceCtrl {
+/*
+private extension DataBaseCtrl {
     
     /// 将数据库查询结果转换成 Fund 对象
     /// - Parameter resultSet: 查询结果集
@@ -692,3 +679,4 @@ private extension FundDataSourceCtrl {
     }
 
 }
+*/
