@@ -156,51 +156,51 @@ extension DataBaseCtrl {
 
 }
 
+// MARK: 数据操作
+extension DataBaseCtrl {
+    
+    /// 添加一条账号数据
+    ///
+    /// 该函数同时操作密码表和备注表。
+    /// - Parameter callback: 回调
+    func addNewAccount(callback: ((Bool) -> Void)) {
+        let queue = getDBQueue()        
+        queue.inTransaction { db, rollback in
+            do {
+                // 密码表新增一条记录 SQL
+                let sqlPassword = "INSERT INTO \(account_tables.t_password) (institutionalFeatured) VALUES (?,?,,?,?,?)"
+                // 备注新增一条记录 SQL
+                let sqlRemark = "INSERT INTO \(account_tables.t_remarks) (institutionalFeatured) VALUES (?,?,?,?,?,?,?,?)"
+                try db.executeUpdate(sqlPassword, values: [1])
+                try db.executeUpdate(sqlRemark, values: [2])
+            } catch {
+                rollback.pointee = true
+            }
+//            callback()
+        }
+
+//        db.inTransaction { (db, rollback) in
+//            let sql = "INSERT INTO \(account_tables.t_password) (fundID, fundName, similarRanking, fundstarRating, fundRating, isStarManager, institutionalView, institutionalPotential, institutionalFeatured, fundType, remark) VALUES (?,?,?,?,?,?,?,?,?,?,?)"
+            
+//            for fund in funds {
+//                let result = db.executeUpdate(sql, withArgumentsIn: [fund.fundID, fund.fundName, "\(fund.similarRanking)", fund.fundStarRating, fund.fundRating, fund.isStarManager, fund.institutionalView.rawValue, fund.institutionalPotential.rawValue, fund.institutionalFeatured.rawValue, fund.fundType.rawValue, fund.remark])
+//                if result {
+//                    print("\(fund.fundID)写入成功")
+//                } else {
+//                    print("新插入基金信息：\(fund.fundID)写入失败！")
+//                    rollback.pointee = true
+//
+//                    break
+//                }
+//            }
+//            callback(!rollback.pointee.boolValue)
+//        }
+        
+    }
+    }
 /*
 extension DataBaseCtrl {
-    /// 在基金信息表创建名为""index_FundID"的索引，索引字段为 fundID
-    func createIndexForFundID() {
-        let dbQueue = getDBQueue()
-        
-        dbQueue.inDatabase { (dataBase) in
 
-            let sql = "CREATE INDEX IF NOT EXISTS index_FundID ON '\(fund_tables.t_fundInfoList)'(fundID)"
-
-            let result = dataBase.executeUpdate(sql, withArgumentsIn: [])
-            
-            if !result {
-                JudyTip.message(text: "\(fund_tables.t_fundInfoList)索引创建失败！")
-            }
-            
-        }
-
-    }
-    
-    
-    /// 插入一条或多条基金信息数据
-    /// - Parameter funds: 基金模型
-    func insertFundTable(funds: [Fund], callback:((Bool) -> Void)) {
-        
-        let db = getDBQueue()
-        db.inTransaction { (db, rollback) in
-            let sql = "INSERT INTO \(fund_tables.t_fundInfoList) (fundID, fundName, similarRanking, fundstarRating, fundRating, isStarManager, institutionalView, institutionalPotential, institutionalFeatured, fundType, remark) VALUES (?,?,?,?,?,?,?,?,?,?,?)"
-            
-            for fund in funds {
-                let result = db.executeUpdate(sql, withArgumentsIn: [fund.fundID, fund.fundName, "\(fund.similarRanking)", fund.fundStarRating, fund.fundRating, fund.isStarManager, fund.institutionalView.rawValue, fund.institutionalPotential.rawValue, fund.institutionalFeatured.rawValue, fund.fundType.rawValue, fund.remark])
-                if result {
-                    print("\(fund.fundID)写入成功")
-                } else {
-                    print("新插入基金信息：\(fund.fundID)写入失败！")
-                    rollback.pointee = true
-                    
-                    break
-                }
-            }
-            callback(!rollback.pointee.boolValue)
-        }
-        
-    }
-    
     /// 修改基金信息
     /// - Parameter fund: 基金模型
     func updateFundInfo(fund: Fund, callback:((Bool) -> Void)) {
