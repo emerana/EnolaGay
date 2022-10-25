@@ -18,17 +18,6 @@ class DataBaseCtrl {
     /// 数据操作队列
     private var dbQueue: FMDatabaseQueue? = nil
     
-    /// 所有数据表枚举
-    private enum account_tables {
-        /// 账号密码表
-        case t_password
-        /// 备注信息表
-        case t_remarks
-        /// 分组表
-        case t_group
-    }
-    
-    
     /// 私有init,不允许构建对象
     private init() {}
     
@@ -37,18 +26,22 @@ class DataBaseCtrl {
 // MARK: - 数据库操作
 /*
  主要对象
- 1.FMDatabase: 数据库对象，一个对象代表一个数据库，通过sqlite可进行增删改查
- 1.FMDatabase:是一个提供 SQLite 数据库的类，用于执行 SQL 语句。这个类线程是不安全的，如果在多个线程中同时使用一个FMDatabase实例，会造成数据混乱等问题
+ 
+ FMDatabase：一个单一的SQLite数据库，用于执行SQL语句。
+ 数据库对象，一个对象代表一个数据库，通过sqlite可进行增删改查。
+ 是一个提供 SQLite 数据库的类，用于执行 SQL 语句。这个类线程是不安全的，如果在多个线程中同时使用一个FMDatabase实例，会造成数据混乱等问题。
+ 
+ FMResultSet：执行一个FMDatabase结果集。
+ 用在 FMDatabase 中执行查询的结果的类。
+ 返回操作数据库后的结果集
 
- 2.FMDatabaseQueue：多线程安全操作数据库 保证数据安全
- 2.FMResultSet:用在 FMDatabase 中执行查询的结果的类。
-
- 3.FMResultSet: 返回操作数据库后的结果集
- 3.FMDatabaseQueue:在多线程下查询和更新数据库用到的类。
+ FMDatabaseQueue：在多个线程中执行查询和更新时会用到这个类。
+ 多线程安全操作数据库 保证数据安全。
+ 在多线程下查询和更新数据库用到的类。
  */
 
 extension DataBaseCtrl {
-    /// 获取 FMDatabaseQueue 对象
+    /// 获取 FMDatabaseQueue 对象，该过程会自动创建数据库。
     func getDBQueue() -> FMDatabaseQueue {
         if dbQueue == nil {
             // 当 dbQueue 为空时从 Documents 目录获取完整路径。
@@ -74,7 +67,10 @@ extension DataBaseCtrl {
             let dbPath = documentsPath.appending("/\(EMERANA.Key.dataBaseName).db")
             
             Judy.log("数据库 \(EMERANA.Key.dataBaseName) 沙盒路径：\(dbPath)")
+            // 该过程会自动创建数据库
             dbQueue = FMDatabaseQueue(path: dbPath)
+        } else {
+            Judy.logHappy("dbQueue 当前不为空")
         }
         
         return dbQueue!
@@ -85,15 +81,25 @@ extension DataBaseCtrl {
 // MARK: 建表操作
 extension DataBaseCtrl {
     
+    /// 所有数据表枚举
+    private enum account_tables {
+        /// 账号密码表
+        case t_password
+        /// 备注信息表
+        case t_remarks
+        /// 分组信息表
+        case t_group
+    }
+
     /// 创建密码信息表
     func create_Password() {
         let dbQueue = getDBQueue()
         dbQueue.inDatabase { (dataBase) in
+            // ！！！注意：主键的SQL语句必须这样写，否则失效！
             let sql = "CREATE TABLE IF NOT EXISTS '\(account_tables.t_password)' (" +
-            "'id' INTEGER," +
+            "'id' INTEGER PRIMARY KEY AUTOINCREMENT," +
             "'name' TEXT NOT NULL," +
-            "'password' TEXT NOT NULL," +
-            "PRIMARY KEY('id' AUTOINCREMENT))"
+            "'password' TEXT NOT NULL)"
             
             let result = dataBase.executeUpdate(sql, withArgumentsIn: [])
             
@@ -104,6 +110,47 @@ extension DataBaseCtrl {
         }
     }
     
+    /// 创建备注信息表
+    func create_remarks() {
+        let dbQueue = getDBQueue()
+        dbQueue.inDatabase { (dataBase) in
+            let sql = "CREATE TABLE IF NOT EXISTS '\(account_tables.t_remarks)' (" +
+            "'id' INTEGER NOT NULL UNIQUE," +
+            "'group' INTEGER," +
+            "'remark' TEXT," +
+            "'createTime' TEXT NOT NULL," +
+            "'updateTime' TEXT NOT NULL," +
+            "FOREIGN KEY('group') REFERENCES '\(account_tables.t_group)'('id')," +
+            "FOREIGN KEY('id') REFERENCES '\(account_tables.t_password)'('id'))"
+            
+            let result = dataBase.executeUpdate(sql, withArgumentsIn: [])
+            
+            if !result {
+                JudyTip.message(text: "\(account_tables.t_remarks)创建失败！")
+            }
+            
+        }
+    }
+    
+    /// 创建分组信息表
+    func create_group() {
+        let dbQueue = getDBQueue()
+        dbQueue.inDatabase { (dataBase) in
+            let sql = "CREATE TABLE IF NOT EXISTS '\(account_tables.t_group)' (" +
+            "'id' INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "'name' TEXT NOT NULL UNIQUE," +
+            "'icon' TEXT," +
+            "'backgroundColor' TEXT)"
+            
+            let result = dataBase.executeUpdate(sql, withArgumentsIn: [])
+            
+            if !result {
+                JudyTip.message(text: "\(account_tables.t_group)创建失败！")
+            }
+            
+        }
+    }
+
 }
 
 /*
