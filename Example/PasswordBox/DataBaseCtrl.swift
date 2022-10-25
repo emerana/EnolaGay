@@ -80,7 +80,6 @@ extension DataBaseCtrl {
 
 // MARK: 建表操作
 extension DataBaseCtrl {
-    
     /// 所有数据表枚举
     private enum account_tables {
         /// 账号密码表
@@ -91,6 +90,12 @@ extension DataBaseCtrl {
         case t_group
     }
 
+    /**
+     ！建表无先后顺序
+     ！要注意主键约束写法
+     ！主键不要设置外键
+     */
+    
     /// 创建密码信息表
     func create_Password() {
         let dbQueue = getDBQueue()
@@ -106,8 +111,8 @@ extension DataBaseCtrl {
             if !result {
                 JudyTip.message(text: "\(account_tables.t_password)创建失败！")
             }
-            
         }
+        
     }
     
     /// 创建备注信息表
@@ -124,12 +129,11 @@ extension DataBaseCtrl {
             "FOREIGN KEY('id') REFERENCES '\(account_tables.t_password)'('id'))"
             
             let result = dataBase.executeUpdate(sql, withArgumentsIn: [])
-            
             if !result {
                 JudyTip.message(text: "\(account_tables.t_remarks)创建失败！")
             }
-            
         }
+        
     }
     
     /// 创建分组信息表
@@ -143,12 +147,11 @@ extension DataBaseCtrl {
             "'backgroundColor' TEXT)"
             
             let result = dataBase.executeUpdate(sql, withArgumentsIn: [])
-            
             if !result {
                 JudyTip.message(text: "\(account_tables.t_group)创建失败！")
             }
-            
         }
+        
     }
 
 }
