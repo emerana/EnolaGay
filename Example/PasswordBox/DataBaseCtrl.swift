@@ -20,10 +20,14 @@ class DataBaseCtrl {
     
     /// 所有数据表枚举
     private enum account_tables {
+        /// 账号密码表
         case t_password
+        /// 备注信息表
         case t_remarks
+        /// 分组表
         case t_group
     }
+    
     
     /// 私有init,不允许构建对象
     private init() {}
@@ -44,55 +48,66 @@ class DataBaseCtrl {
  */
 
 extension DataBaseCtrl {
-    
-    // 创建数据库
-    
     /// 获取 FMDatabaseQueue 对象
     func getDBQueue() -> FMDatabaseQueue {
         if dbQueue == nil {
-            // 确定数据库路径
-            let docuPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            // 当 dbQueue 为空时从 Documents 目录获取完整路径。
+            /*
+             NSSearchPathForDirectoriesInDomains 方法用于查找目录，返回指定范围内的指定名称的目录的路径集合。有三个参数：
+             
+             directory:
+             NSSearchPathDirectory类型的enum值，表明我们要搜索的目录名称，比如这里用NSDocumentDirectory表明我们要搜索的是Documents目录。
+             如果我们将其换成NSCachesDirectory就表示我们搜索的是Library/Caches目录。
+             
+             domainMask:
+             NSSearchPathDomainMask类型的enum值，指定搜索范围，这里的NSUserDomainMask表示搜索的范围限制于当前应用的沙盒目录。
+             还可以写成NSLocalDomainMask（表示/Library）、NSNetworkDomainMask（表示/Network）等。
+             
+             expandTilde:
+             BOOL值，表示是否展开波浪线。我们知道在iOS中的全写形式是/User/userName，该值为YES即表示写成全写形式，为NO就表示直接写成“~”。
+             该值为NO: Caches目录路径    ~/Library/Caches
+             该值为YES: Caches目录路径
+             /var/mobile/Containers/Data/Application/E7B438D4-0AB3-49D0-9C2C-B84AF67C752B/Library/Caches
+             */
             
-            let dbPath = docuPath.appending("/\(EMERANA.Key.dataBaseName).db")
-            Judy.log("数据库 FundDB 沙盒路径：\(dbPath)")
+            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+            let dbPath = documentsPath.appending("/\(EMERANA.Key.dataBaseName).db")
+            
+            Judy.log("数据库 \(EMERANA.Key.dataBaseName) 沙盒路径：\(dbPath)")
             dbQueue = FMDatabaseQueue(path: dbPath)
         }
+        
         return dbQueue!
     }
 
 }
-// MARK: 表操作
-/*
+
+// MARK: 建表操作
 extension DataBaseCtrl {
     
-    /// 创建基金信息表
-    func createTableFundInfo() {
-        
+    /// 创建密码信息表
+    func create_Password() {
         let dbQueue = getDBQueue()
         dbQueue.inDatabase { (dataBase) in
-            //  创建基金信息表
-            let sql = "CREATE TABLE IF NOT EXISTS '\(fund_tables.t_fundInfoList)' (" +
-                "'fundID' TEXT PRIMARY KEY NOT NULL DEFAULT '000000'," +
-                "'fundName' TEXT NOT NULL," +
-                "'fundstarRating' INTEGER NOT NULL," +
-                "'fundRating' TEXT," +  // 评分
-                "'similarRanking' TEXT NOT NULL DEFAULT 'C'," +  // 同类排名等级
-                "'isStarManager' INTEGER DEFAULT 0," +  // 明星经理，默认0
-                "'institutionalView' TEXT," +  // 机构看法
-                "'institutionalPotential' TEXT," +  // 投资潜力
-                "'institutionalFeatured' TEXT," +  // 精选情况
-                "'fundType' TEXT," +  // 基金类型
-            "'remark' TEXT)"  // 备注
+            let sql = "CREATE TABLE IF NOT EXISTS '\(account_tables.t_password)' (" +
+            "'id' INTEGER," +
+            "'name' TEXT NOT NULL," +
+            "'password' TEXT NOT NULL," +
+            "PRIMARY KEY('id' AUTOINCREMENT))"
             
             let result = dataBase.executeUpdate(sql, withArgumentsIn: [])
             
             if !result {
-                JudyTip.message(text: "\(fund_tables.t_fundInfoList)创建失败！")
+                JudyTip.message(text: "\(account_tables.t_password)创建失败！")
             }
             
         }
     }
     
+}
+
+/*
+extension DataBaseCtrl {
     /// 在基金信息表创建名为""index_FundID"的索引，索引字段为 fundID
     func createIndexForFundID() {
         let dbQueue = getDBQueue()

@@ -8,6 +8,8 @@
 //  Copyright © 2022 CocoaPods. All rights reserved.
 //
                 
+import FMDB
+
 class Group {
     /// 背景色值数据源
     static let GroupBackgroundColors: [Int] = [GroupBackgroundColor.淡红色.rawValue]
