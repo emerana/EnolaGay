@@ -78,7 +78,7 @@ extension DataBaseCtrl {
 
 }
 
-// MARK: 建表操作
+// MARK: DDL-数据库定义
 extension DataBaseCtrl {
     /// 所有数据表枚举
     private enum account_tables {
@@ -156,7 +156,7 @@ extension DataBaseCtrl {
 
 }
 
-// MARK: 数据操作
+// MARK: DML - 数据操作
 extension DataBaseCtrl {
     
     /// 添加一条账号数据
@@ -164,7 +164,7 @@ extension DataBaseCtrl {
     /// 该函数同时操作密码表和备注表。
     /// - Parameter callback: 回调
     func addNewAccount(callback: ((Bool) -> Void)) {
-        let queue = getDBQueue()        
+        let queue = getDBQueue()
         queue.inTransaction { db, rollback in
             do {
                 // 密码表新增一条记录 SQL
@@ -197,7 +197,47 @@ extension DataBaseCtrl {
 //        }
         
     }
+}
+
+// MARK: DQL - 数据查询
+extension DataBaseCtrl {
+    /// 获取数据库中所有的 account 数据
+    func getAccounts() -> [Any]{
+        var accounts = [Fund]()
+
+        let db = getDBQueue()
+        db.inTransaction { (db, rollback) in
+            
+            /*
+             排序查询。原理是先对这个表进行排序再取出结果
+             SELECT * FROM Consult ORDER BY add_time DESC LIMIT %d,%d  按add_time  减序排列
+             SELECT * FROM Consult ORDER BY add_time ASC LIMIT %d,%d 按add_time 升序排列，默认值
+             
+             三张表一块查询
+             SELECT *, t_fundOptional.fundID AS isOption, t_investment.fundID AS isInvestment FROM t_fundInfoList LEFT JOIN  t_fundOptional ON t_fundInfoList.fundID = t_fundOptional.fundID LEFT JOIN t_investment ON t_fundInfoList.fundID = t_investment.fundID ORDER BY isStarManager DESC
+
+             SELECT t_fundInfoList.*, t_fundOptional.fundID AS isOption, t_investment.fundID AS isInvestment FROM t_fundInfoList LEFT JOIN  t_fundOptional ON t_fundInfoList.fundID = t_fundOptional.fundID LEFT JOIN t_investment ON t_fundInfoList.fundID = t_investment.fundID ORDER BY isStarManager DESC             */
+            //  三张表一块查询
+            //            let sql = "SELECT \(fund_tables.t_fundInfoList).*, \(fund_tables.t_fundOptional).fundID AS isOption, \(fund_tables.t_investment).fundID AS isInvestment FROM \(fund_tables.t_fundInfoList) LEFT JOIN  \(fund_tables.t_fundOptional) ON \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_fundOptional).fundID LEFT JOIN \(fund_tables.t_investment) ON \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_investment).fundID ORDER BY isStarManager DESC"
+            // 默认按数据库顺序排序
+            let sql = "SELECT * FROM \(fund_tables.t_fundInfoList) ORDER by \(fund_tables.t_fundInfoList).ROWID" // ORDER BY isStarManager DESC
+            let resultSet = db.executeQuery(sql, withArgumentsIn: [])
+            guard resultSet != nil else {
+                JudyTip.message(text: "查无此表！")
+                return
+            }
+            
+            fundList.removeAll()
+            while(resultSet!.next()) {
+                let fund = resultSetToFund(resultSet: resultSet!)
+                fundList.append(fund)
+            }
+        }
+        //        print(fundList)
+        return fundList
     }
+}
+
 /*
 extension DataBaseCtrl {
 
@@ -253,41 +293,6 @@ extension DataBaseCtrl {
         }
     }
     
-    /// 获取数据库中所有的fund模型数据
-    func getFundList() -> [Fund]{
-        var fundList = [Fund]()
-
-        let db = getDBQueue()
-        db.inTransaction { (db, rollback) in
-            
-            /*
-             排序查询。原理是先对这个表进行排序再取出结果
-             SELECT * FROM Consult ORDER BY add_time DESC LIMIT %d,%d  按add_time  减序排列
-             SELECT * FROM Consult ORDER BY add_time ASC LIMIT %d,%d 按add_time 升序排列，默认值
-             
-             三张表一块查询
-             SELECT *, t_fundOptional.fundID AS isOption, t_investment.fundID AS isInvestment FROM t_fundInfoList LEFT JOIN  t_fundOptional ON t_fundInfoList.fundID = t_fundOptional.fundID LEFT JOIN t_investment ON t_fundInfoList.fundID = t_investment.fundID ORDER BY isStarManager DESC
-
-             SELECT t_fundInfoList.*, t_fundOptional.fundID AS isOption, t_investment.fundID AS isInvestment FROM t_fundInfoList LEFT JOIN  t_fundOptional ON t_fundInfoList.fundID = t_fundOptional.fundID LEFT JOIN t_investment ON t_fundInfoList.fundID = t_investment.fundID ORDER BY isStarManager DESC             */
-            //  三张表一块查询
-            //            let sql = "SELECT \(fund_tables.t_fundInfoList).*, \(fund_tables.t_fundOptional).fundID AS isOption, \(fund_tables.t_investment).fundID AS isInvestment FROM \(fund_tables.t_fundInfoList) LEFT JOIN  \(fund_tables.t_fundOptional) ON \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_fundOptional).fundID LEFT JOIN \(fund_tables.t_investment) ON \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_investment).fundID ORDER BY isStarManager DESC"
-            // 默认按数据库顺序排序
-            let sql = "SELECT * FROM \(fund_tables.t_fundInfoList) ORDER by \(fund_tables.t_fundInfoList).ROWID" // ORDER BY isStarManager DESC
-            let resultSet = db.executeQuery(sql, withArgumentsIn: [])
-            guard resultSet != nil else {
-                JudyTip.message(text: "查无此表！")
-                return
-            }
-            
-            fundList.removeAll()
-            while(resultSet!.next()) {
-                let fund = resultSetToFund(resultSet: resultSet!)
-                fundList.append(fund)
-            }
-        }
-        //        print(fundList)
-        return fundList
-    }
     
     /// 获取基金详情
     /// - Parameter fundID: fund ID
