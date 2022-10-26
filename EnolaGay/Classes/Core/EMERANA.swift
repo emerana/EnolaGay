@@ -198,7 +198,7 @@ public extension UIColor {
     static let scrollView: UIColor = .white
 
     // MARK: 构造函数
-    
+
     /// 通过16进制转换成 UIColor
     ///
     /// - Parameters:
@@ -1284,6 +1284,22 @@ public extension String {
         return String(self[start ..< end])
     }
     
+    /// 16进制属性转成 Int 值
+    ///
+    /// 如 "0x606060" 调用此属性即可获得 559964256
+    /// - warning: 仅在该字符内容是正确16进制值时调用该属性
+    var change_16_StringToIntValue: Int {
+        let str = self.uppercased()
+        var sum = 0
+        for i in str.utf8 {
+            sum = sum * 16 + Int(i) - 48 // 0-9 从48开始
+            if i >= 65 {                 // A-Z 从65开始，但有初始值10，所以应该是减去55
+                sum -= 7
+            }
+        }
+        return sum
+    }
+
     /*
      
      let str = "Hello, world!"
