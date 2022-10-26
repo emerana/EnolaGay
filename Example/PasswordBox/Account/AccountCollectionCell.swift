@@ -16,12 +16,13 @@ class AccountCollectionCell: JudyBaseCollectionViewCell {
     // MARK: - var property
     
     /// 该 Cell 中的 group 模型
-    var group = Group() {
+    var group: Group? {
         didSet {
-            masterImageView?.image = UIImage(named: group.icon)
-            titleLabel?.text = group.name
-            subTitleLabel?.text = String(group.count)
-            backgroundColor = UIColor(rgbValue: group.backgroundColor)
+            masterImageView?.image = UIImage(named: group?.icon ?? "placeholder")
+            backgroundColor = UIColor(rgbValue: group?.backgroundColor ?? 0xb3d465)
+            guard group != nil else { return }
+            titleLabel?.text = group!.name
+            subTitleLabel?.text = "12"//String(group!.count)
         }
     }
     

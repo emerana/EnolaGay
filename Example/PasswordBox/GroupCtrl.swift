@@ -52,7 +52,7 @@ class Group {
     /// 组名
     var name: String
     /// 该组图标名
-    var icon: String? // = "placeholder"
+    var icon: String?
     /// 该组的背景颜色
     var backgroundColor: Int? //= GroupBackgroundColors.first!
     

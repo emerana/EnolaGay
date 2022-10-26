@@ -30,23 +30,26 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
         
         // Do any additional setup after loading the view.
         collectionView?.contentInset = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 18)
-        
         addButton.judy.viewShadow()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         isReqSuccess = true
         super.viewWillAppear(animated)
+        
+        let accountNum = DataBaseCtrl.judy.getAccountsCount()
+        Judy.log("账号总数：\(accountNum)")
     }
 
     
     /// 添加按钮事件
     @IBAction func AddPasswordAction(_ sender: Any) {
         Judy.log("点击了添加")
+        DataBaseCtrl.judy.getAccounts()
     }
     
     // MARK: - override
-    
+
     // MARK: - event response
 
     /*
@@ -60,6 +63,7 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
      */
     
 }
+
 
 // MARK: - private methods
 
@@ -76,7 +80,7 @@ extension AccountViewCtrl {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! AccountCollectionCell
-        cell.group = Group()
+        // cell.group = Group()
         return cell
     }
 

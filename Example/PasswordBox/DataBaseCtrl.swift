@@ -11,12 +11,35 @@ import FMDB
 
 /// 数据库操作控制器
 class DataBaseCtrl {
-    
     /// 单例
     static let judy = DataBaseCtrl()
     
     /// 数据操作队列
     private var dbQueue: FMDatabaseQueue? = nil
+    
+    /// 数据库所在的沙盒完整路径
+    var dataBaseSandboxPath: String {
+        /*
+         NSSearchPathForDirectoriesInDomains 方法用于查找目录，返回指定范围内的指定名称的目录的路径集合。有三个参数：
+         
+         directory:
+         NSSearchPathDirectory类型的enum值，表明我们要搜索的目录名称，比如这里用NSDocumentDirectory表明我们要搜索的是Documents目录。
+         如果我们将其换成NSCachesDirectory就表示我们搜索的是Library/Caches目录。
+         
+         domainMask:
+         NSSearchPathDomainMask类型的enum值，指定搜索范围，这里的NSUserDomainMask表示搜索的范围限制于当前应用的沙盒目录。
+         还可以写成NSLocalDomainMask（表示/Library）、NSNetworkDomainMask（表示/Network）等。
+         
+         expandTilde:
+         BOOL值，表示是否展开波浪线。我们知道在iOS中的全写形式是/User/userName，该值为YES即表示写成全写形式，为NO就表示直接写成“~”。
+         该值为NO: Caches目录路径    ~/Library/Caches
+         该值为YES: Caches目录路径
+         /var/mobile/Containers/Data/Application/E7B438D4-0AB3-49D0-9C2C-B84AF67C752B/Library/Caches
+         */
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let dbPath = documentsPath.appending("/\(EMERANA.Key.dataBaseName).db")
+        return dbPath
+    }
     
     /// 私有init,不允许构建对象
     private init() {}
@@ -45,30 +68,9 @@ extension DataBaseCtrl {
     func getDBQueue() -> FMDatabaseQueue {
         if dbQueue == nil {
             // 当 dbQueue 为空时从 Documents 目录获取完整路径。
-            /*
-             NSSearchPathForDirectoriesInDomains 方法用于查找目录，返回指定范围内的指定名称的目录的路径集合。有三个参数：
-             
-             directory:
-             NSSearchPathDirectory类型的enum值，表明我们要搜索的目录名称，比如这里用NSDocumentDirectory表明我们要搜索的是Documents目录。
-             如果我们将其换成NSCachesDirectory就表示我们搜索的是Library/Caches目录。
-             
-             domainMask:
-             NSSearchPathDomainMask类型的enum值，指定搜索范围，这里的NSUserDomainMask表示搜索的范围限制于当前应用的沙盒目录。
-             还可以写成NSLocalDomainMask（表示/Library）、NSNetworkDomainMask（表示/Network）等。
-             
-             expandTilde:
-             BOOL值，表示是否展开波浪线。我们知道在iOS中的全写形式是/User/userName，该值为YES即表示写成全写形式，为NO就表示直接写成“~”。
-             该值为NO: Caches目录路径    ~/Library/Caches
-             该值为YES: Caches目录路径
-             /var/mobile/Containers/Data/Application/E7B438D4-0AB3-49D0-9C2C-B84AF67C752B/Library/Caches
-             */
-            
-            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-            let dbPath = documentsPath.appending("/\(EMERANA.Key.dataBaseName).db")
-            
-            Judy.log("数据库 \(EMERANA.Key.dataBaseName) 沙盒路径：\(dbPath)")
+            Judy.log("数据库 \(EMERANA.Key.dataBaseName) 沙盒路径：\(dataBaseSandboxPath)")
             // 该过程会自动创建数据库
-            dbQueue = FMDatabaseQueue(path: dbPath)
+            dbQueue = FMDatabaseQueue(path: dataBaseSandboxPath)
         } else {
             Judy.logHappy("dbQueue 当前不为空")
         }
@@ -201,13 +203,30 @@ extension DataBaseCtrl {
 
 // MARK: DQL - 数据查询
 extension DataBaseCtrl {
+    
+    /// 获取数据库中的账号数量
+    ///
+    /// - Parameter callback: 在回调函数总告知账号数量
+    func getAccountsCount() -> Int {
+        let db = getDBQueue()
+        var count = 0
+        db.inTransaction { (dataBase, rollback) in
+            let sql = "SELECT COUNT(*) FROM \(account_tables.t_password)"
+            let resultSet = dataBase.executeQuery(sql, withArgumentsIn: [])
+            if resultSet!.next() {
+                // 查询 COUNT(*) 要用这样的方式获取具体数值
+                count = resultSet?.resultDictionary?.first?.value as? Int ?? 0
+            }
+        }
+        return count
+    }
+    
     /// 获取数据库中所有的 account 数据
-    func getAccounts() -> [Any]{
-        var accounts = [Fund]()
+    func getAccounts() -> [Account] {
+        var accounts = [Account]()
 
         let db = getDBQueue()
         db.inTransaction { (db, rollback) in
-            
             /*
              排序查询。原理是先对这个表进行排序再取出结果
              SELECT * FROM Consult ORDER BY add_time DESC LIMIT %d,%d  按add_time  减序排列
@@ -215,29 +234,44 @@ extension DataBaseCtrl {
              
              三张表一块查询
              SELECT *, t_fundOptional.fundID AS isOption, t_investment.fundID AS isInvestment FROM t_fundInfoList LEFT JOIN  t_fundOptional ON t_fundInfoList.fundID = t_fundOptional.fundID LEFT JOIN t_investment ON t_fundInfoList.fundID = t_investment.fundID ORDER BY isStarManager DESC
-
-             SELECT t_fundInfoList.*, t_fundOptional.fundID AS isOption, t_investment.fundID AS isInvestment FROM t_fundInfoList LEFT JOIN  t_fundOptional ON t_fundInfoList.fundID = t_fundOptional.fundID LEFT JOIN t_investment ON t_fundInfoList.fundID = t_investment.fundID ORDER BY isStarManager DESC             */
+             
+             SELECT t_fundInfoList.*, t_fundOptional.fundID AS isOption, t_investment.fundID AS isInvestment FROM t_fundInfoList LEFT JOIN  t_fundOptional ON t_fundInfoList.fundID = t_fundOptional.fundID LEFT JOIN t_investment ON t_fundInfoList.fundID = t_investment.fundID ORDER BY isStarManager DESC
+             */
+            
             //  三张表一块查询
             //            let sql = "SELECT \(fund_tables.t_fundInfoList).*, \(fund_tables.t_fundOptional).fundID AS isOption, \(fund_tables.t_investment).fundID AS isInvestment FROM \(fund_tables.t_fundInfoList) LEFT JOIN  \(fund_tables.t_fundOptional) ON \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_fundOptional).fundID LEFT JOIN \(fund_tables.t_investment) ON \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_investment).fundID ORDER BY isStarManager DESC"
             // 默认按数据库顺序排序
-            let sql = "SELECT * FROM \(fund_tables.t_fundInfoList) ORDER by \(fund_tables.t_fundInfoList).ROWID" // ORDER BY isStarManager DESC
+            let sql = "SELECT * FROM \(account_tables.t_password)" // ORDER BY name DESC
             let resultSet = db.executeQuery(sql, withArgumentsIn: [])
             guard resultSet != nil else {
                 JudyTip.message(text: "查无此表！")
                 return
             }
             
-            fundList.removeAll()
             while(resultSet!.next()) {
-                let fund = resultSetToFund(resultSet: resultSet!)
-                fundList.append(fund)
+                let account = resultSetToFund(resultSet: resultSet!)
+                accounts.append(account)
             }
         }
-        //        print(fundList)
-        return fundList
+        return accounts
     }
+    
 }
 
+// MARK: - 私有函数
+private extension DataBaseCtrl {
+    
+    /// 将数据库查询结果转换成 Account 对象
+    /// - Parameter resultSet: 查询结果集
+    func resultSetToFund(resultSet: FMResultSet) -> Account {
+        let account = Account(id: Int(resultSet.int(forColumn: "id")),
+                              name: resultSet.string(forColumn: "name") ?? "数据库缺失值",
+                              password: resultSet.string(forColumn: "password") ?? "数据库缺失值")
+        
+        return account
+    }
+    
+}
 /*
 extension DataBaseCtrl {
 
@@ -642,88 +676,6 @@ extension DataBaseCtrl {
 // MARK: - 其它私有函数
 /*
 private extension DataBaseCtrl {
-    
-    /// 将数据库查询结果转换成 Fund 对象
-    /// - Parameter resultSet: 查询结果集
-    /// - Parameter isDetail: 是否为查询基金详情？默认 false。若需要查询详情时传入 true 查找是否为自选及定投。
-    func resultSetToFund(resultSet: FMResultSet, isDetail: Bool = false) -> Fund {
-        var fund = Fund()
-        
-        fund.fundID = resultSet.string(forColumn: "fundID") ?? "No ID"
-        fund.fundName = resultSet.string(forColumn: "fundName") ?? "No Name"
-        fund.fundStarRating = Int(resultSet.string(forColumn: "fundStarRating") ?? "0") ?? 0
-        fund.fundRating = Float(resultSet.double(forColumn: "fundRating"))
-        fund.remark = resultSet.string(forColumn: "remark") ?? ""
-        fund.isStarManager = resultSet.bool(forColumn: "isStarManager") || (resultSet.string(forColumn: "isStarManager") == "明星经理")
-        
-        // 别名字段
-        if isDetail {
-            fund.isOption = resultSet.string(forColumn: "isOption") != nil
-            fund.isInvestment = resultSet.string(forColumn: "isInvestment") != nil
-        }
-
-        switch resultSet.string(forColumn: "institutionalView") ?? "" {
-        case "非常乐观":
-            fund.institutionalView = .非常乐观
-        case "乐观":
-            fund.institutionalView = .乐观
-        case "中立":
-            fund.institutionalView = .中立
-        case "谨慎":
-            fund.institutionalView = .谨慎
-        case "非常谨慎":
-            fund.institutionalView = .非常谨慎
-        default:
-            fund.institutionalView = .无
-        }
-        
-        switch resultSet.string(forColumn: "institutionalPotential") ?? "" {
-        case "低估值":
-            fund.institutionalPotential = .低估值
-        case "中估值":
-            fund.institutionalPotential = .中估值
-        case "高估值":
-            fund.institutionalPotential = .高估值
-        default:
-            fund.institutionalPotential = .无
-        }
-        
-        switch resultSet.string(forColumn: "institutionalFeatured") ?? "" {
-        case "精选":
-            fund.institutionalFeatured = .精选
-        case "好基推荐":
-            fund.institutionalFeatured = .好基推荐
-        default:
-            fund.institutionalFeatured = .无
-        }
-        
-        switch resultSet.string(forColumn: "fundType") ?? "" {
-        case "指数型":
-            fund.fundType = .指数型
-        case "股票型":
-            fund.fundType = .股票型
-        default:
-            fund.fundType = .混合型
-        }
-        
-        switch resultSet.string(forColumn: "similarRanking") ?? "R" {
-        case "A":
-            fund.similarRanking = .A
-        case "B":
-            fund.similarRanking = .B
-        case "C":
-            fund.similarRanking = .C
-        case "D":
-            fund.similarRanking = .D
-        case "E":
-            fund.similarRanking = .E
-        default:
-            fund.similarRanking = .R
-        }
-
-        return fund
-    }
-    
     
     /// 将查询结果转换成 FundPurchased 模型
     /// - Parameter resultSet: 查询结果集
