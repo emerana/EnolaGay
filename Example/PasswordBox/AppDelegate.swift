@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // 创建表
+        DataBaseCtrl.judy.create_group()
+        DataBaseCtrl.judy.create_remarks()
+        DataBaseCtrl.judy.create_Password()
+
         return true
     }
 

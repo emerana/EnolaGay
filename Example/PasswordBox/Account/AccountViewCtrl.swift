@@ -20,7 +20,10 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
     @IBOutlet weak var addButton: UIButton!
     
     // MARK: - public var property
-
+    
+    /// 分组数量
+    var groups = [Group]()
+    
     // MARK: - private var property
     
     // MARK: - life cycle
@@ -31,14 +34,23 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
         // Do any additional setup after loading the view.
         collectionView?.contentInset = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 18)
         addButton.judy.viewShadow()
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
         isReqSuccess = true
         super.viewWillAppear(animated)
         
+        // 获取分组数量
+        groups = DataBaseCtrl.judy.getGroupList()
+
         let accountNum = DataBaseCtrl.judy.getAccountsCount()
         Judy.log("账号总数：\(accountNum)")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView?.reloadData()
     }
 
     
@@ -75,12 +87,20 @@ private extension AccountViewCtrl {
 extension AccountViewCtrl {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return groups.count + 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! AccountCollectionCell
-        // cell.group = Group()
+        
+        if indexPath.row == 0 { // 所有账号
+            cell.masterImageView?.image = UIImage(named: "placeholder")
+            cell.backgroundColor = UIColor(rgbValue: 0xb3d465)
+            cell.titleLabel?.text = "所有账号"
+            cell.subTitleLabel?.text = "0"
+        } else { // 具体分组
+            cell.group = groups[indexPath.row - 1]
+        }
         return cell
     }
 

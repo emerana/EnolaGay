@@ -62,6 +62,9 @@ class Group {
         self.icon = icon
         self.backgroundColor = backgroundColor
     }
+    
+    /// 当前分组中的账号数量，该值并非存储于数据库中，需单独赋值。
+    var count = 0
 }
 
 /// 背景色模块

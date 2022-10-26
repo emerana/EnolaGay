@@ -22,7 +22,7 @@ class AccountCollectionCell: JudyBaseCollectionViewCell {
             backgroundColor = UIColor(rgbValue: group?.backgroundColor ?? 0xb3d465)
             guard group != nil else { return }
             titleLabel?.text = group!.name
-            subTitleLabel?.text = "12"//String(group!.count)
+            subTitleLabel?.text = String(group!.count)
         }
     }
     

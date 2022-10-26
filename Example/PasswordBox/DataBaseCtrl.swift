@@ -104,12 +104,11 @@ extension DataBaseCtrl {
         dbQueue.inDatabase { (dataBase) in
             // ！！！注意：主键的SQL语句必须这样写，否则失效！
             let sql = "CREATE TABLE IF NOT EXISTS '\(account_tables.t_password)' (" +
-            "'id' INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "'name' TEXT NOT NULL," +
+            "'id_account' INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "'userName' TEXT NOT NULL," +
             "'password' TEXT NOT NULL)"
             
             let result = dataBase.executeUpdate(sql, withArgumentsIn: [])
-            
             if !result {
                 JudyTip.message(text: "\(account_tables.t_password)创建失败！")
             }
@@ -122,13 +121,13 @@ extension DataBaseCtrl {
         let dbQueue = getDBQueue()
         dbQueue.inDatabase { (dataBase) in
             let sql = "CREATE TABLE IF NOT EXISTS '\(account_tables.t_remarks)' (" +
-            "'id' INTEGER NOT NULL UNIQUE," +
-            "'group' INTEGER," +
+            "'id_account' INTEGER NOT NULL UNIQUE," +
+            "'id_group' INTEGER," +
             "'remark' TEXT," +
             "'createTime' TEXT NOT NULL," +
             "'updateTime' TEXT NOT NULL," +
-            "FOREIGN KEY('group') REFERENCES '\(account_tables.t_group)'('id')," +
-            "FOREIGN KEY('id') REFERENCES '\(account_tables.t_password)'('id'))"
+            "FOREIGN KEY('id_group') REFERENCES '\(account_tables.t_group)'('id_group')," +
+            "FOREIGN KEY('id_account') REFERENCES '\(account_tables.t_password)'('id_account'))"
             
             let result = dataBase.executeUpdate(sql, withArgumentsIn: [])
             if !result {
@@ -143,8 +142,8 @@ extension DataBaseCtrl {
         let dbQueue = getDBQueue()
         dbQueue.inDatabase { (dataBase) in
             let sql = "CREATE TABLE IF NOT EXISTS '\(account_tables.t_group)' (" +
-            "'id' INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "'name' TEXT NOT NULL UNIQUE," +
+            "'id_group' INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "'groupName' TEXT NOT NULL UNIQUE," +
             "'icon' TEXT," +
             "'backgroundColor' TEXT)"
             
@@ -205,14 +204,16 @@ extension DataBaseCtrl {
 extension DataBaseCtrl {
     
     /// 获取数据库中的账号数量
-    ///
-    /// - Parameter callback: 在回调函数总告知账号数量
     func getAccountsCount() -> Int {
         let db = getDBQueue()
         var count = 0
         db.inTransaction { (dataBase, rollback) in
             let sql = "SELECT COUNT(*) FROM \(account_tables.t_password)"
             let resultSet = dataBase.executeQuery(sql, withArgumentsIn: [])
+            guard resultSet != nil else {
+                Judy.logWarning("没有这张表：\(account_tables.t_password)")
+                return
+            }
             if resultSet!.next() {
                 // 查询 COUNT(*) 要用这样的方式获取具体数值
                 count = resultSet?.resultDictionary?.first?.value as? Int ?? 0
@@ -221,7 +222,22 @@ extension DataBaseCtrl {
         return count
     }
     
-    /// 获取数据库中所有的 account 数据
+    /// 获取数据库中的分组数量
+    func getGroupCount() -> Int {
+        let db = getDBQueue()
+        var count = 0
+        db.inTransaction { (dataBase, rollback) in
+            let sql = "SELECT COUNT(*) FROM \(account_tables.t_group)"
+            let resultSet = dataBase.executeQuery(sql, withArgumentsIn: [])
+            if resultSet!.next() {
+                // 查询 COUNT(*) 要用这样的方式获取具体数值
+                count = resultSet?.resultDictionary?.first?.value as? Int ?? 0
+            }
+        }
+        return count
+    }
+
+    /// 将数据库中所有的 account 转换成模型
     func getAccounts() -> [Account] {
         var accounts = [Account]()
 
@@ -256,6 +272,38 @@ extension DataBaseCtrl {
         return accounts
     }
     
+    /// 获取所有分组数据
+    /// - Returns: 所有的分组信息
+    func getGroupList() -> [Group] {
+        let db = getDBQueue()
+        var group = [Group]()
+        db.inTransaction { (dataBase, rollback) in
+            let sql = "SELECT * FROM \(account_tables.t_group)" // ORDER BY name DESC
+            let resultSet = dataBase.executeQuery(sql, withArgumentsIn: [])
+            guard resultSet != nil else {
+                Judy.logWarning("没有这张表：\(account_tables.t_group)")
+                return
+            }
+            
+            while(resultSet!.next()) {
+                let gr = Group(id: Int(resultSet!.int(forColumn: "id_group")),
+                               name: resultSet!.string(forColumn: "groupName") ?? "组名缺失",
+                               icon: resultSet!.string(forColumn: "icon"),
+                               backgroundColor: Int(resultSet!.int(forColumn: "id")))
+
+                // 查询当前 group 中的账号数量
+                let sql_t_remarks = "SELECT * FROM \(account_tables.t_group) INNER JOIN \(account_tables.t_remarks) on \(account_tables.t_group).group_id = \(account_tables.t_remarks).account_id" // ORDER BY name DESC
+
+                let remarkRs = dataBase.executeQuery(sql_t_remarks, withArgumentsIn: [])
+
+                
+                
+                group.append(gr)
+            }
+        }
+        return group
+    }
+
 }
 
 // MARK: - 私有函数
@@ -264,8 +312,8 @@ private extension DataBaseCtrl {
     /// 将数据库查询结果转换成 Account 对象
     /// - Parameter resultSet: 查询结果集
     func resultSetToFund(resultSet: FMResultSet) -> Account {
-        let account = Account(id: Int(resultSet.int(forColumn: "id")),
-                              name: resultSet.string(forColumn: "name") ?? "数据库缺失值",
+        let account = Account(id: Int(resultSet.int(forColumn: "id_account")),
+                              name: resultSet.string(forColumn: "userName") ?? "数据库缺失值",
                               password: resultSet.string(forColumn: "password") ?? "数据库缺失值")
         
         return account
