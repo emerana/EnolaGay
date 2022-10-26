@@ -19,7 +19,9 @@ class AccountCollectionCell: JudyBaseCollectionViewCell {
     var group: Group? {
         didSet {
             masterImageView?.image = UIImage(named: group?.icon ?? "placeholder")
-            backgroundColor = UIColor(rgbValue: group?.backgroundColor ?? 0xb3d465)
+            let colorValue: Int = group?.backgroundColor?.change_16_StringToIntValue ?? 0x5f52a0
+            backgroundColor = UIColor(rgbValue: colorValue )
+            
             guard group != nil else { return }
             titleLabel?.text = group!.name
             subTitleLabel?.text = String(group!.count)

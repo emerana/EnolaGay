@@ -200,6 +200,7 @@ extension DataBaseCtrl {
     }
 }
 
+
 // MARK: DQL - 数据查询
 extension DataBaseCtrl {
     
@@ -289,8 +290,7 @@ extension DataBaseCtrl {
                 let gr = Group(id: Int(resultSet!.int(forColumn: "id_group")),
                                name: resultSet!.string(forColumn: "groupName") ?? "组名缺失",
                                icon: resultSet!.string(forColumn: "icon"),
-                               backgroundColor: Int(resultSet!.int(forColumn: "backgroundColor")))
-
+                               backgroundColor: resultSet!.string(forColumn: "backgroundColor"))
                 // 查询当前 group 中的账号数量
 //                let sql_GroupInfo = "SELECT \(account_tables.t_remarks).id_account, \(account_tables.t_remarks).id_group, \(account_tables.t_group).groupName" +
 //                 " FROM \(account_tables.t_remarks)" +

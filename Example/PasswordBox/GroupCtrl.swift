@@ -54,9 +54,9 @@ class Group {
     /// 该组图标名
     var icon: String?
     /// 该组的背景颜色
-    var backgroundColor: Int? //= GroupBackgroundColors.first!
+    var backgroundColor: String? //= GroupBackgroundColors.first!
     
-    init(id: Int, name: String, icon: String? = nil, backgroundColor: Int? = nil) {
+    init(id: Int, name: String, icon: String? = nil, backgroundColor: String? = nil) {
         self.id = id
         self.name = name
         self.icon = icon
