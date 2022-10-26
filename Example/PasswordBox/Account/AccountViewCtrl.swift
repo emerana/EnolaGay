@@ -95,7 +95,7 @@ extension AccountViewCtrl {
         if indexPath.row == 0 { // 所有账号
             cell.group = nil
             cell.masterImageView?.image = UIImage(named: "placeholder")
-            cell.backgroundColor = UIColor(rgbValue: GroupBackgroundColor.浅蓝紫.rawValue)
+            cell.backgroundColor = UIColor.浅蓝紫
             cell.titleLabel?.text = "所有账号"
             cell.subTitleLabel?.text = String(DataBaseCtrl.judy.getAccountsCount())
         } else { // 具体分组
