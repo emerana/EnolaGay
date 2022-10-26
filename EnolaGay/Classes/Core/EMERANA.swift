@@ -187,6 +187,19 @@ public extension EMERANA_CellBasic {
 
 public extension UIColor {
     
+    static let 淡红色 = #colorLiteral(red: 0.9254901961, green: 0.4117647059, blue: 0.2549019608, alpha: 1)
+    static let 浅红橙 = #colorLiteral(red: 0.9450980392, green: 0.568627451, blue: 0.2862745098, alpha: 1)
+    static let 浅黄橙 = #colorLiteral(red: 0.9725490196, green: 0.7098039216, blue: 0.3176470588, alpha: 1)
+    static let 浅黄 = #colorLiteral(red: 1, green: 0.9568627451, blue: 0.3607843137, alpha: 1)
+    static let 浅青豆绿 = #colorLiteral(red: 0.7019607843, green: 0.831372549, blue: 0.3960784314, alpha: 1)
+    static let 浅黄绿 = #colorLiteral(red: 0.5019607843, green: 0.7607843137, blue: 0.4117647059, alpha: 1)
+    static let 浅绿 = #colorLiteral(red: 0.1960784314, green: 0.6941176471, blue: 0.4235294118, alpha: 1)
+    static let 浅绿青 = #colorLiteral(red: 0.07450980392, green: 0.7098039216, blue: 0.6941176471, alpha: 1)
+    static let 浅青 = #colorLiteral(red: 0, green: 0.7176470588, blue: 0.9333333333, alpha: 1)
+    static let 浅洋红 = #colorLiteral(red: 0.9176470588, green: 0.4078431373, blue: 0.6352941176, alpha: 1)
+    static let 浅蓝紫 = #colorLiteral(red: 0.3725490196, green: 0.3215686275, blue: 0.6274509804, alpha: 1)
+    static let 浅紫洋红 = #colorLiteral(red: 0.6823529412, green: 0.3647058824, blue: 0.631372549, alpha: 1)
+
     /*
      * static 和 class 的区别.
      *
@@ -199,10 +212,10 @@ public extension UIColor {
 
     // MARK: 构造函数
 
-    /// 通过16进制转换成 UIColor
+    /// 通过一个 16 进制的 Int 值生成 UIColor
     ///
     /// - Parameters:
-    ///   - rgbValue: 如:0x36c7b7（其实就是#36c7b7）
+    ///   - rgbValue: 如:0x36c7b7（其实就是#36c7b7，但必须以0x开头才能作为 Int）
     ///   - alpha: 默认1 可见度，0.0~1.0，值越高越不透明，越小越透明
     convenience init(rgbValue: Int, alpha: CGFloat = 1) {
         self.init(red: CGFloat(Float((rgbValue & 0xff0000) >> 16)) / 255.0,
