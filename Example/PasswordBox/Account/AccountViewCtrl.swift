@@ -57,7 +57,6 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
     /// 添加按钮事件
     @IBAction func AddPasswordAction(_ sender: Any) {
         Judy.log("点击了添加")
-        DataBaseCtrl.judy.getAccountList()
     }
     
     // MARK: - override
@@ -94,8 +93,9 @@ extension AccountViewCtrl {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! AccountCollectionCell
         
         if indexPath.row == 0 { // 所有账号
+            cell.group = nil
             cell.masterImageView?.image = UIImage(named: "placeholder")
-            cell.backgroundColor = UIColor(rgbValue: 0xb3d465)
+            cell.backgroundColor = UIColor(rgbValue: GroupBackgroundColor.浅蓝紫.rawValue)
             cell.titleLabel?.text = "所有账号"
             cell.subTitleLabel?.text = String(DataBaseCtrl.judy.getAccountsCount())
         } else { // 具体分组
@@ -112,6 +112,13 @@ extension AccountViewCtrl {
     /// 选中事件。
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         Judy.log("选中\(indexPath)")
+        let cell: AccountCollectionCell = collectionView.cellForItem(at: indexPath) as! AccountCollectionCell
+
+        if cell.group == nil {
+            DataBaseCtrl.judy.getAccountList()
+        } else {
+            DataBaseCtrl.judy.getGroupDataList(group: cell.group!)
+        }
     }
 
 }

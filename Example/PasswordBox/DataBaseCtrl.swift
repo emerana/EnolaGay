@@ -106,7 +106,9 @@ extension DataBaseCtrl {
             let sql = "CREATE TABLE IF NOT EXISTS '\(account_tables.t_password)' (" +
             "'id_account' INTEGER PRIMARY KEY AUTOINCREMENT," +
             "'userName' TEXT NOT NULL," +
-            "'password' TEXT NOT NULL)"
+            "'password' TEXT NOT NULL," +
+            "'createTime' TEXT NOT NULL," +
+            "'updateTime' TEXT NOT NULL)"
             
             let result = dataBase.executeUpdate(sql, withArgumentsIn: [])
             if !result {
@@ -124,8 +126,6 @@ extension DataBaseCtrl {
             "'id_account' INTEGER NOT NULL UNIQUE," +
             "'id_group' INTEGER," +
             "'remark' TEXT," +
-            "'createTime' TEXT NOT NULL," +
-            "'updateTime' TEXT NOT NULL," +
             "FOREIGN KEY('id_group') REFERENCES '\(account_tables.t_group)'('id_group')," +
             "FOREIGN KEY('id_account') REFERENCES '\(account_tables.t_password)'('id_account'))"
             
@@ -266,7 +266,7 @@ extension DataBaseCtrl {
             }
             
             while(resultSet!.next()) {
-                let account = resultSetToFund(resultSet: resultSet!)
+                let account = resultSetToAccount(resultSet: resultSet!)
                 accounts.append(account)
             }
         }
@@ -324,18 +324,25 @@ extension DataBaseCtrl {
     /// - Returns: 该组下对应的账号数据
     func getGroupDataList(group: Group) -> [Account] {
         var accounts = [Account]()
-        group.id
+        
         let db = getDBQueue()
         db.inTransaction { (dataBase, rollback) in
-            let sql = "SELECT * FROM \(account_tables.t_password)" // ORDER BY name DESC
+            // 查询指定组下所有数据
+            let sql = "SELECT * FROM \(account_tables.t_password)" +
+             " LEFT JOIN t_remarks" +
+             " on \(account_tables.t_password).id_account = \(account_tables.t_remarks).id_account" +
+             " LEFT JOIN \(account_tables.t_group)" +
+             " on \(account_tables.t_remarks).id_group = \(account_tables.t_group).id_group" +
+            " WHERE \(account_tables.t_group).id_group = \(group.id)" // ORDER BY userName
+            
             let resultSet = dataBase.executeQuery(sql, withArgumentsIn: [])
             guard resultSet != nil else {
-                JudyTip.message(text: "查无此表！")
+                JudyTip.message(text: "组下数据查询失败！")
                 return
             }
             
             while(resultSet!.next()) {
-                let account = resultSetToFund(resultSet: resultSet!)
+                let account = resultSetToAccount(resultSet: resultSet!)
                 accounts.append(account)
             }
         }
@@ -349,10 +356,12 @@ private extension DataBaseCtrl {
     
     /// 将数据库查询结果转换成 Account 对象
     /// - Parameter resultSet: 查询结果集
-    func resultSetToFund(resultSet: FMResultSet) -> Account {
+    func resultSetToAccount(resultSet: FMResultSet) -> Account {
         let account = Account(id: Int(resultSet.int(forColumn: "id_account")),
                               name: resultSet.string(forColumn: "userName") ?? "数据库缺失值",
-                              password: resultSet.string(forColumn: "password") ?? "数据库缺失值")
+                              password: resultSet.string(forColumn: "password") ?? "数据库缺失值",
+                              createTime: resultSet.string(forColumn: "createTime") ?? "数据库缺失值",
+                              updateTime: resultSet.string(forColumn: "updateTime") ?? "数据库缺失值")
         
         return account
     }

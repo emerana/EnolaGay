@@ -19,7 +19,7 @@ class AccountCollectionCell: JudyBaseCollectionViewCell {
     var group: Group? {
         didSet {
             masterImageView?.image = UIImage(named: group?.icon ?? "placeholder")
-            let colorValue: Int = group?.backgroundColor?.change_16_StringToIntValue ?? 0x5f52a0
+            let colorValue: Int = group?.backgroundColor?.change_16_StringToIntValue ?? GroupBackgroundColor.浅红橙.rawValue
             backgroundColor = UIColor(rgbValue: colorValue )
             
             guard group != nil else { return }

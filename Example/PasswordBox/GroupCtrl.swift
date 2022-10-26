@@ -14,11 +14,15 @@ class Account {
     let id: Int
     /// 账号实体的完整属性
     var name: String, password: String
-    
-    init(id: Int, name: String, password: String) {
+    /// 该数据的创建时间和最后一次修改的时间
+    var createTime: String, updateTime: String
+
+    init(id: Int, name: String, password: String, createTime: String, updateTime: String) {
         self.id = id
         self.name = name
         self.password = password
+        self.createTime = createTime
+        self.updateTime = updateTime
     }
 }
 
@@ -30,15 +34,11 @@ class AccountRemark {
     var group: String?
     /// 该账号备注信息
     var remark: String?
-    /// 该数据的创建时间和最后一次修改的时间
-    var createTime: String, updateTime: String
     
-    init(id: Int, group: String? = nil, remark: String? = nil, createTime: String, updateTime: String) {
+    init(id: Int, group: String? = nil, remark: String? = nil) {
         self.id = id
         self.group = group
         self.remark = remark
-        self.createTime = createTime
-        self.updateTime = updateTime
     }
 
 }
