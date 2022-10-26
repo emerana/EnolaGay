@@ -57,7 +57,7 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
     /// 添加按钮事件
     @IBAction func AddPasswordAction(_ sender: Any) {
         Judy.log("点击了添加")
-        DataBaseCtrl.judy.getAccounts()
+        DataBaseCtrl.judy.getAccountList()
     }
     
     // MARK: - override

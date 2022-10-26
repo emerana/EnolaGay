@@ -238,12 +238,12 @@ extension DataBaseCtrl {
         return count
     }
 
-    /// 将数据库中所有的 account 转换成模型
-    func getAccounts() -> [Account] {
+    /// 获取数据库中所有的 account 并转换成模型
+    func getAccountList() -> [Account] {
         var accounts = [Account]()
 
         let db = getDBQueue()
-        db.inTransaction { (db, rollback) in
+        db.inTransaction { (dataBase, rollback) in
             /*
              排序查询。原理是先对这个表进行排序再取出结果
              SELECT * FROM Consult ORDER BY add_time DESC LIMIT %d,%d  按add_time  减序排列
@@ -259,7 +259,7 @@ extension DataBaseCtrl {
             //            let sql = "SELECT \(fund_tables.t_fundInfoList).*, \(fund_tables.t_fundOptional).fundID AS isOption, \(fund_tables.t_investment).fundID AS isInvestment FROM \(fund_tables.t_fundInfoList) LEFT JOIN  \(fund_tables.t_fundOptional) ON \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_fundOptional).fundID LEFT JOIN \(fund_tables.t_investment) ON \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_investment).fundID ORDER BY isStarManager DESC"
             // 默认按数据库顺序排序
             let sql = "SELECT * FROM \(account_tables.t_password)" // ORDER BY name DESC
-            let resultSet = db.executeQuery(sql, withArgumentsIn: [])
+            let resultSet = dataBase.executeQuery(sql, withArgumentsIn: [])
             guard resultSet != nil else {
                 JudyTip.message(text: "查无此表！")
                 return
@@ -317,6 +317,29 @@ extension DataBaseCtrl {
             }
         }
         return groups
+    }
+    
+    /// 获取指定组下的所有账号数据
+    /// - Parameter group: 目标组
+    /// - Returns: 该组下对应的账号数据
+    func getGroupDataList(group: Group) -> [Account] {
+        var accounts = [Account]()
+        group.id
+        let db = getDBQueue()
+        db.inTransaction { (dataBase, rollback) in
+            let sql = "SELECT * FROM \(account_tables.t_password)" // ORDER BY name DESC
+            let resultSet = dataBase.executeQuery(sql, withArgumentsIn: [])
+            guard resultSet != nil else {
+                JudyTip.message(text: "查无此表！")
+                return
+            }
+            
+            while(resultSet!.next()) {
+                let account = resultSetToFund(resultSet: resultSet!)
+                accounts.append(account)
+            }
+        }
+        return accounts
     }
 
 }
