@@ -276,7 +276,7 @@ extension DataBaseCtrl {
     /// - Returns: 所有的分组信息
     func getGroupList() -> [Group] {
         let db = getDBQueue()
-        var group = [Group]()
+        var groups = [Group]()
         db.inTransaction { (dataBase, rollback) in
             let sql = "SELECT * FROM \(account_tables.t_group)" // ORDER BY name DESC
             let resultSet = dataBase.executeQuery(sql, withArgumentsIn: [])
@@ -289,19 +289,34 @@ extension DataBaseCtrl {
                 let gr = Group(id: Int(resultSet!.int(forColumn: "id_group")),
                                name: resultSet!.string(forColumn: "groupName") ?? "组名缺失",
                                icon: resultSet!.string(forColumn: "icon"),
-                               backgroundColor: Int(resultSet!.int(forColumn: "id")))
+                               backgroundColor: Int(resultSet!.int(forColumn: "backgroundColor")))
 
                 // 查询当前 group 中的账号数量
-                let sql_t_remarks = "SELECT * FROM \(account_tables.t_group) INNER JOIN \(account_tables.t_remarks) on \(account_tables.t_group).group_id = \(account_tables.t_remarks).account_id" // ORDER BY name DESC
+//                let sql_GroupInfo = "SELECT \(account_tables.t_remarks).id_account, \(account_tables.t_remarks).id_group, \(account_tables.t_group).groupName" +
+//                 " FROM \(account_tables.t_remarks)" +
+//                 " LEFT JOIN \(account_tables.t_group)" +
+//                 " ON \(account_tables.t_remarks).id_group = \(account_tables.t_group).id_group" +
+//                 " WHERE \(account_tables.t_remarks).id_group = \(gr.id)"
+                let sql_GroupInfo = "SELECT COUNT(*) FROM \(account_tables.t_remarks)" +
+                " LEFT JOIN \(account_tables.t_group)" +
+                " ON \(account_tables.t_remarks).id_group = \(account_tables.t_group).id_group" +
+                " WHERE \(account_tables.t_remarks).id_group = \(gr.id)"
 
-                let remarkRs = dataBase.executeQuery(sql_t_remarks, withArgumentsIn: [])
-
+                let groupInfoRs = dataBase.executeQuery(sql_GroupInfo, withArgumentsIn: [])
+                guard groupInfoRs != nil else {
+                    Judy.logWarning("查询组成员信息失败，结果为0")
+                    return
+                }
+                if groupInfoRs!.next() {
+                    // 查询 COUNT(*) 要用这样的方式获取具体数值
+                    gr.count = groupInfoRs?.resultDictionary?.first?.value as? Int ?? 0
+                    Judy.log("\(gr.name) 有 \(gr.count) 人")
+                }
                 
-                
-                group.append(gr)
+                groups.append(gr)
             }
         }
-        return group
+        return groups
     }
 
 }
