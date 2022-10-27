@@ -9,11 +9,11 @@ import SwiftyJSON
 
 // MARK: typealias
 
-/// 一个不传递任何参数的闭包
+/// 一个不传递任何参数的闭包类型
 public typealias Closure = (() -> Void)
-/// 传递一个 JSON 对象的闭包
+/// 传递一个 JSON 对象的闭包类型
 public typealias ClosureJSON = ((JSON) -> Void)
-/// 传递一个 String 对象的闭包
+/// 传递一个 String 对象的闭包类型
 public typealias ClosureString = ((String) -> Void)
 
 
