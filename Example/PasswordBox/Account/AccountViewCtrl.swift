@@ -95,9 +95,16 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          // Get the new view controller using segue.destinationViewController.
          // Pass the selected object to the new view controller.
-         
          if let accountListTableViewCtrl = segue.destination as? AccountListTableViewCtrl {
-             let accountList = DataBaseCtrl.judy.getAccountList()
+             let cell: AccountCollectionCell = sender as! AccountCollectionCell
+             accountListTableViewCtrl.groupInfo = cell.group
+
+             let accountList: [Account]
+             if cell.group == nil { // 所有密码
+                 accountList = DataBaseCtrl.judy.getAccountList()
+             } else { // 具体组下的密码
+                 accountList = DataBaseCtrl.judy.getGroupDataList(group: cell.group!)
+             }
              accountListTableViewCtrl.accountList = accountList
          }
      }
@@ -128,12 +135,10 @@ extension AccountViewCtrl {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! AccountCollectionCell
         
         if indexPath.row == 0 { // 所有账号
-            
             cell.group = nil
             cell.masterImageView?.image = UIImage(named: "placeholder")
             cell.backgroundColor = UIColor.浅蓝紫
-//            cell.backgroundColor = UIColor(rgbValue: <#T##Int#>)
-            cell.titleLabel?.text = "所有账号"
+            cell.titleLabel?.text = "所有密码"
             cell.subTitleLabel?.text = String(DataBaseCtrl.judy.getAccountsCount())
         } else { // 具体分组
             cell.group = groups[indexPath.row - 1]
@@ -162,16 +167,9 @@ extension AccountViewCtrl {
 
 // MARK: - UICollectionViewDelegate
 extension AccountViewCtrl {
-    /// 选中事件。
+    /// 选中事件
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         Judy.log("选中\(indexPath)")
-        let cell: AccountCollectionCell = collectionView.cellForItem(at: indexPath) as! AccountCollectionCell
-
-        if cell.group == nil {
-
-        } else {
-            DataBaseCtrl.judy.getGroupDataList(group: cell.group!)
-        }
     }
 
 }

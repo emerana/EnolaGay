@@ -45,6 +45,4 @@ class AccountCollectionCell: JudyBaseCollectionViewCell {
         super.layoutSubviews()
         
     }
-            
-
 }

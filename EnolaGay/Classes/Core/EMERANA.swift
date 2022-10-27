@@ -1313,9 +1313,9 @@ public extension String {
         return String(self[start ..< end])
     }
     
-    /// 16进制属性转成 Int 值
+    /// 16进制属性转成 10 进制的 Int 值。
     ///
-    /// 如 "0x606060" 调用此属性即可获得 559964256
+    /// 如 "0x606060" 调用此属性即可获得 559964256（0x606060 的 10 进制）。
     /// - warning: 仅在该字符内容是正确16进制值时调用该属性
     var change_16_StringToIntValue: Int {
         let str = self.uppercased()

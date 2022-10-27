@@ -25,6 +25,9 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
     /// 数据源，账号列表
     var accountList = [Account]()
     
+    /// 此属性用于标识当前数据源是否有组信息
+    var groupInfo: Group?
+    
     // MARK: - private var property
     
     // MARK: - life cycle
@@ -33,7 +36,12 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
         super.viewDidLoad()
 
         searchBar?.backgroundImage = UIImage()
-
+        // 修改导航条上的标题
+        if groupInfo?.name != nil {
+            navigationItem.title = groupInfo?.name
+        } else {
+            navigationItem.title = "所有密码"
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

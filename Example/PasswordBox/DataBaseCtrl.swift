@@ -240,7 +240,6 @@ extension DataBaseCtrl {
     
 }
 
-
 // MARK: DQL - 数据查询
 extension DataBaseCtrl {
     
@@ -284,19 +283,6 @@ extension DataBaseCtrl {
 
         let db = getDBQueue()
         db.inTransaction { (dataBase, rollback) in
-            /*
-             排序查询。原理是先对这个表进行排序再取出结果
-             SELECT * FROM Consult ORDER BY add_time DESC LIMIT %d,%d  按add_time  减序排列
-             SELECT * FROM Consult ORDER BY add_time ASC LIMIT %d,%d 按add_time 升序排列，默认值
-             
-             三张表一块查询
-             SELECT *, t_fundOptional.fundID AS isOption, t_investment.fundID AS isInvestment FROM t_fundInfoList LEFT JOIN  t_fundOptional ON t_fundInfoList.fundID = t_fundOptional.fundID LEFT JOIN t_investment ON t_fundInfoList.fundID = t_investment.fundID ORDER BY isStarManager DESC
-             
-             SELECT t_fundInfoList.*, t_fundOptional.fundID AS isOption, t_investment.fundID AS isInvestment FROM t_fundInfoList LEFT JOIN  t_fundOptional ON t_fundInfoList.fundID = t_fundOptional.fundID LEFT JOIN t_investment ON t_fundInfoList.fundID = t_investment.fundID ORDER BY isStarManager DESC
-             */
-            
-            //  三张表一块查询
-            //            let sql = "SELECT \(fund_tables.t_fundInfoList).*, \(fund_tables.t_fundOptional).fundID AS isOption, \(fund_tables.t_investment).fundID AS isInvestment FROM \(fund_tables.t_fundInfoList) LEFT JOIN  \(fund_tables.t_fundOptional) ON \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_fundOptional).fundID LEFT JOIN \(fund_tables.t_investment) ON \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_investment).fundID ORDER BY isStarManager DESC"
             // 默认按数据库顺序排序
             let sql = "SELECT * FROM \(account_tables.t_password)" // ORDER BY name DESC
             let resultSet = dataBase.executeQuery(sql, withArgumentsIn: [])
@@ -332,16 +318,11 @@ extension DataBaseCtrl {
                                icon: resultSet!.string(forColumn: "icon"),
                                backgroundColor: resultSet!.string(forColumn: "backgroundColor"))
                 // 查询当前 group 中的账号数量
-//                let sql_GroupInfo = "SELECT \(account_tables.t_remarks).id_account, \(account_tables.t_remarks).id_group, \(account_tables.t_group).groupName" +
-//                 " FROM \(account_tables.t_remarks)" +
-//                 " LEFT JOIN \(account_tables.t_group)" +
-//                 " ON \(account_tables.t_remarks).id_group = \(account_tables.t_group).id_group" +
-//                 " WHERE \(account_tables.t_remarks).id_group = \(gr.id)"
                 let sql_GroupInfo = "SELECT COUNT(*) FROM \(account_tables.t_remarks)" +
                 " LEFT JOIN \(account_tables.t_group)" +
                 " ON \(account_tables.t_remarks).id_group = \(account_tables.t_group).id_group" +
                 " WHERE \(account_tables.t_remarks).id_group = \(gr.id)"
-
+                // 查询
                 let groupInfoRs = dataBase.executeQuery(sql_GroupInfo, withArgumentsIn: [])
                 guard groupInfoRs != nil else {
                     Judy.logWarning("查询组成员信息失败，结果为0")
@@ -350,7 +331,7 @@ extension DataBaseCtrl {
                 if groupInfoRs!.next() {
                     // 查询 COUNT(*) 要用这样的方式获取具体数值
                     gr.count = groupInfoRs?.resultDictionary?.first?.value as? Int ?? 0
-                    Judy.log("\(gr.name) 有 \(gr.count) 人")
+                    Judy.log("组“\(gr.name)”有 \(gr.count) 人")
                 }
                 
                 groups.append(gr)
@@ -367,7 +348,7 @@ extension DataBaseCtrl {
         
         let db = getDBQueue()
         db.inTransaction { (dataBase, rollback) in
-            // 查询指定组下所有数据
+            // 查询指定组下所有数据，此处需三表查询。
             let sql = "SELECT * FROM \(account_tables.t_password)" +
              " LEFT JOIN t_remarks" +
              " on \(account_tables.t_password).id_account = \(account_tables.t_remarks).id_account" +
