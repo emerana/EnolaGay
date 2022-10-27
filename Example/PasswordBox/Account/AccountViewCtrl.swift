@@ -36,6 +36,10 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
         collectionView?.contentInset = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 18)
         addButton.judy.viewShadow()
 
+        // 注册 footerView
+        let addGroupNib = UINib(nibName: "AddNewGropuUICollectionReusableView", bundle: nil)
+        collectionView?.register(addGroupNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "AddGroupButtonFooterView")
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -71,7 +75,7 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
         
     }
 
-     // MARK: - Navigation
+    // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,7 +105,7 @@ private extension AccountViewCtrl {
 
 // MARK: - UICollectionViewDataSource
 extension AccountViewCtrl {
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return groups.count + 1
     }
@@ -120,7 +124,22 @@ extension AccountViewCtrl {
         }
         return cell
     }
+        
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
+        let supplementView: AddNewGropuUICollectionReusableView = collectionView.dequeueReusableSupplementaryView (
+            ofKind:  UICollectionView.elementKindSectionFooter,
+            withReuseIdentifier: "AddGroupButtonFooterView",
+            for: indexPath) as! AddNewGropuUICollectionReusableView
+        
+        supplementView.addGroupClosure = { [weak self] in
+            /// 添加新分组事件
+                Judy.logHappy("点击了添加新分组")
+        }
+        
+        return supplementView
+    }
+    
 }
 
 
@@ -157,5 +176,21 @@ extension AccountViewCtrl {
         return CGSize(width: cellWidth, height: cellWidth*9/7)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        
+        return CGSize(width: 0, height: 68)
+    }
+    
+}
 
+
+/// 添加分组按钮专用 elementKindSectionFooter.
+class AddNewGropuUICollectionReusableView: UICollectionReusableView {
+    /// 点击添加组回调
+    var addGroupClosure: Closure?
+    
+    @IBAction private func addGroupAction(_ sender: Any) {
+        addGroupClosure?()
+    }
+    
 }
