@@ -85,7 +85,7 @@
                                 <state key="normal" backgroundImage="button_添加"/>
                                 <connections>
                                     <action selector="AddPasswordAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hrg-Gy-ESm"/>
-                                    <segue destination="SCv-Uu-ZzB" kind="presentation" id="juO-zo-0mb"/>
+                                    <segue destination="SCv-Uu-ZzB" kind="presentation" identifier="" customClass="FullScreenWidthSegue" customModule="PasswordBox" customModuleProvider="target" id="juO-zo-0mb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -116,7 +116,7 @@
             <objects>
                 <viewController id="SCv-Uu-ZzB" customClass="AddNewAccountViewCtrl" customModule="PasswordBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yfr-XA-dI4">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="288"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ihi-MP-huP">
@@ -214,6 +214,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RbC-oZ-hif"/>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="390" height="288"/>
                     <connections>
                         <outlet property="passwordTextField" destination="F89-uP-GHd" id="inz-kc-9V7"/>
                         <outlet property="userNameTF" destination="iDC-qU-B2L" id="AAI-kN-d3W"/>
@@ -223,7 +225,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="znM-Vi-bsf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="dE1-Pr-VmH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="966" y="838"/>
+            <point key="canvasLocation" x="964.61538461538453" y="837.44075829383883"/>
         </scene>
         <!--Account List Table View Ctrl-->
         <scene sceneID="yni-QD-0cs">

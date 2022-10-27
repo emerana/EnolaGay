@@ -8,6 +8,7 @@
 
 import UIKit
 import EnolaGay
+import SwiftMessages
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -84,3 +85,16 @@ extension UIColor {
     static let colorStyle5 = #colorLiteral(red: 0.4196078431, green: 0.6705882353, blue: 0.7725490196, alpha: 1) // 0x6BABC5
     
 }
+
+// MARK: - SwiftMessages 用到的Segue
+
+/// 宽度全屏的 SwiftMessagesSegue.
+class FullScreenWidthSegue: SwiftMessagesSegue {
+    override public init(identifier: String?, source: UIViewController, destination: UIViewController) {
+        super.init(identifier: identifier, source: source, destination: destination)
+
+        configure(layout: .bottomTab)
+        messageView.layoutMarginAdditions = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+}
+
