@@ -9,26 +9,31 @@
 import UIKit
 import EnolaGay
 
-/// 所有账号界面
+/// 密码列表界面
 class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
     override var viewTitle: String? { "密码" }
     
     // MARK: - let property and IBOutlet
     
+    /// 统计的 Label
     @IBOutlet weak var tableViewFooterLabel: UILabel!
     /// 搜索条
     @IBOutlet weak var searchBar: UISearchBar?
 
     // MARK: - public var property
-
+    
+    /// 数据源，账号列表
+    var accountList = [Account]()
+    
     // MARK: - private var property
     
     // MARK: - life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setDataSource()
+
+        searchBar?.backgroundImage = UIImage()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,37 +59,37 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
 
 // MARK: - private methods
 private extension AccountListTableViewCtrl {
-    /// 设置 JSON 数据源
-    func setDataSource() {
-        dataSource = [
-            [
-                EMERANA.Key.title: "模拟数据",
-                EMERANA.Key.segue: "模拟数据",
-            ],
-            [EMERANA.Key.title: "模拟数据", ],
-            [EMERANA.Key.title: "模拟数据", ],
-        ]
-    }
     
 }
 
 
 // MARK: - tableView dataSource
 extension AccountListTableViewCtrl {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableViewFooterLabel.text = "共\(accountList.count)条记录"
+       return accountList.count
+    }
+    
     /// 询问指定 indexPath 的 Cell 实例
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = super.tableView(tableView, cellForRowAt: indexPath) // as! JudyBaseTableCell
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        
+        let account = accountList[indexPath.row]
 
-        //  cell.json = dataSource[indexPath.row]
-        //  cell.textLabel?.text = dataSource[indexPath.row]["title"].stringValue
+        cell.textLabel?.text = account.name
+        cell.detailTextLabel?.text = account.password
+        cell.imageView?.image = UIImage(imageLiteralResourceName: "placeholder")
         //  if dataSource[indexPath.row]["subtitle"] == nil {
-        //      cell.detailTextLabel?.text = nil
+        //
         //      cell.accessoryType = .disclosureIndicator
         //  } else {
         //      cell.detailTextLabel?.text = dataSource[indexPath.row]["subtitle"].stringValue
         //      cell.accessoryType = .none
         //  }
-        
+
+        // cell.masterImageView?.image
+
         return cell
     }
 

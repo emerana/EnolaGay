@@ -64,15 +64,19 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
 
     // MARK: - event response
 
-    /*
+
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          // Get the new view controller using segue.destinationViewController.
          // Pass the selected object to the new view controller.
+         
+         if let accountListTableViewCtrl = segue.destination as? AccountListTableViewCtrl {
+             let accountList = DataBaseCtrl.judy.getAccountList()
+             accountListTableViewCtrl.accountList = accountList
+         }
      }
-     */
     
 }
 
@@ -116,7 +120,7 @@ extension AccountViewCtrl {
         let cell: AccountCollectionCell = collectionView.cellForItem(at: indexPath) as! AccountCollectionCell
 
         if cell.group == nil {
-            DataBaseCtrl.judy.getAccountList()
+
         } else {
             DataBaseCtrl.judy.getGroupDataList(group: cell.group!)
         }
