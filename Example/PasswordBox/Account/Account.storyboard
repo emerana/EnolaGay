@@ -202,47 +202,13 @@
                                     <action selector="CompleteAction:" destination="SCv-Uu-ZzB" eventType="touchUpInside" id="pzy-j8-EAw"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="备注" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGN-Yx-ypy">
-                                <rect key="frame" x="25.999999999999996" y="260" width="34.666666666666657" height="20.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="添加备注" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zSw-wm-es1">
-                                <rect key="frame" x="18" y="288.33333333333331" width="354" height="88"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="fob-rA-Lfv"/>
-                                </constraints>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分组" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wov-cC-WKA">
-                                <rect key="frame" x="25.999999999999996" y="404.33333333333331" width="34.666666666666657" height="20.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9cP-Vv-eih"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="ihi-MP-huP" firstAttribute="top" secondItem="hR4-Im-6XY" secondAttribute="bottom" constant="28" id="1S7-RJ-o7D"/>
-                            <constraint firstItem="Wov-cC-WKA" firstAttribute="leading" secondItem="gGN-Yx-ypy" secondAttribute="leading" id="6Ic-Uo-7PM"/>
-                            <constraint firstItem="zSw-wm-es1" firstAttribute="leading" secondItem="ihi-MP-huP" secondAttribute="leading" id="6Jx-H9-wLu"/>
                             <constraint firstItem="9cP-Vv-eih" firstAttribute="trailing" secondItem="hR4-Im-6XY" secondAttribute="trailing" constant="18" id="Dy6-fy-pwP"/>
-                            <constraint firstItem="zSw-wm-es1" firstAttribute="trailing" secondItem="ihi-MP-huP" secondAttribute="trailing" id="EVz-ul-WS1"/>
-                            <constraint firstItem="gGN-Yx-ypy" firstAttribute="leading" secondItem="ihi-MP-huP" secondAttribute="leading" constant="8" id="ZU7-gF-mre"/>
-                            <constraint firstItem="zSw-wm-es1" firstAttribute="top" secondItem="gGN-Yx-ypy" secondAttribute="bottom" constant="8" id="jes-Ej-rGp"/>
-                            <constraint firstItem="gGN-Yx-ypy" firstAttribute="top" secondItem="ihi-MP-huP" secondAttribute="bottom" constant="28" id="k5F-Wb-fE3"/>
                             <constraint firstItem="hR4-Im-6XY" firstAttribute="top" secondItem="9cP-Vv-eih" secondAttribute="top" constant="8" id="mKk-GY-bPV"/>
-                            <constraint firstItem="Wov-cC-WKA" firstAttribute="top" secondItem="zSw-wm-es1" secondAttribute="bottom" constant="28" id="rDF-X3-x52"/>
                             <constraint firstItem="ihi-MP-huP" firstAttribute="leading" secondItem="9cP-Vv-eih" secondAttribute="leading" constant="18" id="yhw-fS-v7m"/>
                             <constraint firstItem="9cP-Vv-eih" firstAttribute="trailing" secondItem="ihi-MP-huP" secondAttribute="trailing" constant="18" id="yp5-pa-xXe"/>
                         </constraints>
@@ -250,7 +216,6 @@
                     <navigationItem key="navigationItem" id="RbC-oZ-hif"/>
                     <connections>
                         <outlet property="passwordTextField" destination="F89-uP-GHd" id="inz-kc-9V7"/>
-                        <outlet property="remarkTextView" destination="zSw-wm-es1" id="bLB-8y-q0q"/>
                         <outlet property="userNameTF" destination="iDC-qU-B2L" id="AAI-kN-d3W"/>
                     </connections>
                 </viewController>
@@ -336,6 +301,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <segue destination="lXU-HK-V7j" kind="show" identifier="showAccountDetailViewCtrl" id="XUH-yI-Pnd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -359,6 +327,141 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVm-up-Be1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1904.6153846153845" y="3.5545023696682461"/>
+        </scene>
+        <!--Account Detail View Ctrl-->
+        <scene sceneID="oSk-Ld-9kG">
+            <objects>
+                <viewController id="lXU-HK-V7j" customClass="AccountDetailViewCtrl" customModule="PasswordBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Cz-5b-KiD">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUV-Uh-xXd">
+                                <rect key="frame" x="10" y="149.33333333333334" width="370" height="101"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="42e-CL-qwf">
+                                        <rect key="frame" x="8" y="8" width="354" height="85"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Pzu-sd-wff">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="251" text="用户名：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-br-Ndo">
+                                                        <rect key="frame" x="0.0" y="6.9999999999999982" width="69.333333333333329" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="如：我的邮箱@163.com" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tAg-VF-5Jf">
+                                                        <rect key="frame" x="77.333333333333343" y="0.0" width="276.66666666666663" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" spellCheckingType="no" smartInsertDeleteType="no"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saf-FV-lXZ">
+                                                <rect key="frame" x="0.0" y="42" width="354" height="1"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="0XJ-96-sht"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="R0I-Tl-d8b">
+                                                <rect key="frame" x="0.0" y="51" width="354" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="251" text="密码：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfJ-FR-FI5">
+                                                        <rect key="frame" x="0.0" y="6.9999999999999982" width="52" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" horizontalCompressionResistancePriority="1" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="如：我的邮箱@163.com" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cNe-s2-OFi">
+                                                        <rect key="frame" x="60" y="0.0" width="294" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="42e-CL-qwf" secondAttribute="trailing" constant="8" id="DVK-y8-YVd"/>
+                                    <constraint firstAttribute="bottom" secondItem="42e-CL-qwf" secondAttribute="bottom" constant="8" id="L0R-5Z-feO"/>
+                                    <constraint firstItem="42e-CL-qwf" firstAttribute="leading" secondItem="TUV-Uh-xXd" secondAttribute="leading" constant="8" id="P7N-IR-oWw"/>
+                                    <constraint firstItem="42e-CL-qwf" firstAttribute="top" secondItem="TUV-Uh-xXd" secondAttribute="top" constant="8" id="h9a-jL-Hz6"/>
+                                    <constraint firstAttribute="height" constant="128" id="ldf-L6-11z"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ldf-L6-11z"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="备注" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dk4-2U-azh" customClass="JudyBaseLabel" customModule="EnolaGay">
+                                <rect key="frame" x="17.999999999999996" y="278.33333333333331" width="34.666666666666657" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分组" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mH7-qk-VYw" customClass="JudyBaseLabel" customModule="EnolaGay">
+                                <rect key="frame" x="17.999999999999996" y="422.66666666666669" width="34.666666666666657" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="添加备注" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ksH-TP-ybd">
+                                <rect key="frame" x="10" y="306.66666666666669" width="370" height="88"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="ajD-nx-Wea"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账号信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txL-fu-8ud" customClass="JudyBaseLabel" customModule="EnolaGay">
+                                <rect key="frame" x="18" y="118.99999999999999" width="69.333333333333329" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hu3-Ie-w3Z"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="Dk4-2U-azh" firstAttribute="top" secondItem="TUV-Uh-xXd" secondAttribute="bottom" constant="28" id="1sG-Ot-bIT"/>
+                            <constraint firstItem="TUV-Uh-xXd" firstAttribute="top" secondItem="txL-fu-8ud" secondAttribute="bottom" constant="10" id="4mx-lW-kig"/>
+                            <constraint firstItem="Dk4-2U-azh" firstAttribute="leading" secondItem="txL-fu-8ud" secondAttribute="leading" id="57c-0L-APc"/>
+                            <constraint firstItem="mH7-qk-VYw" firstAttribute="top" secondItem="ksH-TP-ybd" secondAttribute="bottom" constant="28" id="Fqe-ke-6cz"/>
+                            <constraint firstItem="ksH-TP-ybd" firstAttribute="top" secondItem="Dk4-2U-azh" secondAttribute="bottom" constant="8" id="K2X-sk-YF6"/>
+                            <constraint firstItem="hu3-Ie-w3Z" firstAttribute="trailing" secondItem="TUV-Uh-xXd" secondAttribute="trailing" constant="10" id="LdT-cn-A2c"/>
+                            <constraint firstItem="mH7-qk-VYw" firstAttribute="leading" secondItem="Dk4-2U-azh" secondAttribute="leading" id="SKd-Nt-nbA"/>
+                            <constraint firstItem="txL-fu-8ud" firstAttribute="leading" secondItem="hu3-Ie-w3Z" secondAttribute="leading" constant="18" id="fZF-23-cp0"/>
+                            <constraint firstItem="ksH-TP-ybd" firstAttribute="trailing" secondItem="TUV-Uh-xXd" secondAttribute="trailing" id="gKn-hP-rnd"/>
+                            <constraint firstItem="txL-fu-8ud" firstAttribute="top" secondItem="hu3-Ie-w3Z" secondAttribute="top" constant="28" id="mHR-1E-7yh"/>
+                            <constraint firstItem="ksH-TP-ybd" firstAttribute="leading" secondItem="TUV-Uh-xXd" secondAttribute="leading" id="noq-mb-6o5"/>
+                            <constraint firstItem="TUV-Uh-xXd" firstAttribute="leading" secondItem="hu3-Ie-w3Z" secondAttribute="leading" constant="10" id="yxD-lE-Dej"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="nR2-7f-And"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zgH-fO-bod" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2845" y="4"/>
         </scene>
         <!--账号-->
         <scene sceneID="NJw-Ao-q1H">

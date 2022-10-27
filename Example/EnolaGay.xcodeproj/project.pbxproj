@@ -94,6 +94,7 @@
 		8B7E1FCE29050E7500CE5DDC /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E1FCD29050E7500CE5DDC /* Favorite.storyboard */; };
 		8BB2A7A1290A187F007991E7 /* AddNewAccountViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2A7A0290A187F007991E7 /* AddNewAccountViewCtrl.swift */; };
 		8BB2A7A3290A3BFA007991E7 /* AccountListTableViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2A7A2290A3BFA007991E7 /* AccountListTableViewCtrl.swift */; };
+		8BB2A7A5290A49F0007991E7 /* AccountDetailViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2A7A4290A49F0007991E7 /* AccountDetailViewCtrl.swift */; };
 		8BC3DA2D26DDF88C00A2A405 /* VersionCheckViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */; };
 		8BC3DA3226DDFA6E00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA3026DDFA6E00A2A405 /* Main.storyboard */; };
 		8BC3DA3326DDFAAC00A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */; };
@@ -402,6 +403,7 @@
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
 		8BB2A7A0290A187F007991E7 /* AddNewAccountViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAccountViewCtrl.swift; sourceTree = "<group>"; };
 		8BB2A7A2290A3BFA007991E7 /* AccountListTableViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListTableViewCtrl.swift; sourceTree = "<group>"; };
+		8BB2A7A4290A49F0007991E7 /* AccountDetailViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailViewCtrl.swift; sourceTree = "<group>"; };
 		8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftMessageViewCtrlTest.swift; sourceTree = "<group>"; };
 		8BC3DA2A26DDF70100A2A405 /* VersionCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VersionCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC3DA2F26DDFA5100A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -1121,6 +1123,7 @@
 				8B7E1FCB29050E4B00CE5DDC /* Account.storyboard */,
 				8B284FAA290537AB007D0FE3 /* AccountViewCtrl.swift */,
 				8BB2A7A2290A3BFA007991E7 /* AccountListTableViewCtrl.swift */,
+				8BB2A7A4290A49F0007991E7 /* AccountDetailViewCtrl.swift */,
 				8BB2A7A0290A187F007991E7 /* AddNewAccountViewCtrl.swift */,
 				8B36B6B529063CB0002B2C0F /* AccountCollectionCell.swift */,
 			);
@@ -3442,6 +3445,7 @@
 				8B7E1FBA2905014E00CE5DDC /* AppDelegate.swift in Sources */,
 				8B36B6B82907695E002B2C0F /* DataBaseCtrl.swift in Sources */,
 				8BB2A7A1290A187F007991E7 /* AddNewAccountViewCtrl.swift in Sources */,
+				8BB2A7A5290A49F0007991E7 /* AccountDetailViewCtrl.swift in Sources */,
 				8B284FAB290537AB007D0FE3 /* AccountViewCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
