@@ -35,6 +35,8 @@ extension UIApplication: EnolaGayAdapter {
     
     public func scrollViewBackGroundColor() -> UIColor { UIColor.view }
     
+    public func navigationBarItemsColor() -> UIColor { UIColor.浅蓝紫}
+    
 }
 
 extension EMERANA.Key {

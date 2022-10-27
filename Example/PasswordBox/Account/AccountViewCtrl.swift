@@ -11,7 +11,7 @@ import EnolaGay
 
 /// 账号界面
 class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
-    override var viewTitle: String? { "账号" }
+    override var viewTitle: String? { "分组浏览" }
     override var itemSpacing: CGFloat { return 28 }
 
     // MARK: - let property and IBOutlet
