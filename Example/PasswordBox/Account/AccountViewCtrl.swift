@@ -31,6 +31,7 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = nil
         // Do any additional setup after loading the view.
         collectionView?.contentInset = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 18)
         addButton.judy.viewShadow()

@@ -59,7 +59,7 @@ enum GroupBackgroundColor: Int {
     case 浅紫洋红 = 0xae5da1
 }
 
-extension UIColor {    
+extension UIColor {
     /// 用于 View、scrollView 的背景色, // #DFE7F2
     static let view = #colorLiteral(red: 0.8672423959, green: 0.9071726203, blue: 0.9536811709, alpha: 1)
 

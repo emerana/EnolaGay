@@ -126,6 +126,7 @@ extension DataBaseCtrl {
             "'id_account' INTEGER NOT NULL UNIQUE," +
             "'id_group' INTEGER," +
             "'remark' TEXT," +
+            "'collection' BLOB DEFAULT 0," +
             "FOREIGN KEY('id_group') REFERENCES '\(account_tables.t_group)'('id_group')," +
             "FOREIGN KEY('id_account') REFERENCES '\(account_tables.t_password)'('id_account'))"
             
