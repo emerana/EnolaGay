@@ -17,9 +17,10 @@ class AddNewAccountViewCtrl: JudyBaseViewCtrl {
     
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var remarkTextView: UITextView!
-    // MARK: - public var property
 
+    // MARK: - public var property
+    /// 用于新添加的账号对象
+    var addAccount: Account?
     // MARK: - private var property
     
     // MARK: - life cycle
@@ -44,14 +45,10 @@ class AddNewAccountViewCtrl: JudyBaseViewCtrl {
         // 保存数据
         let userName = userNameTF.text
         let password = passwordTextField.text
-//        let remark = remarkTextView.text
-        let acc = Account(id: 0, name: userName!, password: password!, createTime: "", updateTime: "")
-        
-        DataBaseCtrl.judy.addNewAccount(account: acc) { rs in
-            if rs {
-                dismiss(animated: true)
-            }
-        }
+
+        addAccount = Account(id: 0, name: userName!, password: password!, createTime: "", updateTime: "")
+        // 触发 unwind 事件
+        performSegue(withIdentifier: "completeAndDismissAction", sender: nil)
     }
     
     /*

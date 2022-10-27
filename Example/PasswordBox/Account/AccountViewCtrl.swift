@@ -41,17 +41,12 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
     override func viewWillAppear(_ animated: Bool) {
         isReqSuccess = true
         super.viewWillAppear(animated)
-        
-        // 获取分组数量
-        groups = DataBaseCtrl.judy.getGroupList()
-
-        let accountNum = DataBaseCtrl.judy.getAccountsCount()
-        Judy.log("账号总数：\(accountNum)")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        collectionView?.reloadData()
+        
+        reloadData()
     }
 
     
@@ -63,7 +58,18 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
     // MARK: - override
 
     // MARK: - event response
-
+    
+    /// 从 AddNewAccountViewCtrl 添加成功一条数据后触发此函数
+    @IBAction func unwindToAddNewAccountViewCtrl(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source as! AddNewAccountViewCtrl
+        if let account = sourceViewController.addAccount {
+            // 添加账号到数据库
+            DataBaseCtrl.judy.addNewAccount(account: account) { rs in }
+            // 不管添加的结果，直接更新
+            reloadData()
+        }
+        
+    }
 
      // MARK: - Navigation
      
@@ -84,7 +90,13 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
 // MARK: - private methods
 
 private extension AccountViewCtrl {
-
+    
+    /// 载入数据并显示
+    func reloadData() {
+        // 获取分组数量
+        groups = DataBaseCtrl.judy.getGroupList()
+        collectionView?.reloadData()
+    }
 }
 
 // MARK: - UICollectionViewDataSource
