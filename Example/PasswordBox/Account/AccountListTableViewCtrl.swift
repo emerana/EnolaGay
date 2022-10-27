@@ -51,7 +51,12 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    
+        if let detailViewCtrl = segue.destination as? AccountDetailViewCtrl {
+            if let cell = sender as? UITableViewCell, let indexPath = tableView?.indexPath(for: cell) {
+                detailViewCtrl.account = accountList[indexPath.row]
+            }
+        }
+        
     }
 
 }
@@ -98,9 +103,9 @@ extension AccountListTableViewCtrl {
 
 // MARK: - tableView delegate
 extension AccountListTableViewCtrl {
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
         
     }
-
 }

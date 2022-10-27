@@ -242,9 +242,9 @@ public extension UIColor {
 /// 字体专用协议
 /// - Warning: 此协仅支持对象类型
 protocol FontStyle: AnyObject {
-    /// 是否禁用全局字体名称配置，默认 false，将该值改为 true 即可忽略全局配置，单独使用在 xib 配置的值
+    /// 是否不使用 protocol EnolaGayAdapter 中的 defaultFontName 返回的字体名，默认 false，将该值改为 true 即可单独使用在 xib 配置的值，从而忽略 defaultFontName 全局字体名称配置。
     ///
-    /// 其核心为 JudyBaseLabel、JudyBaseButton、JudyBaseTextfield 的默认字体使用了 EMERANA.enolagayAdapter?.defaultFontName.
+    /// 在 protocol EnolaGayAdapter 中 JudyBaseLabel、JudyBaseButton、JudyBaseTextfield 的默认字体名称使用 EMERANA.enolagayAdapter?.defaultFontName 的配置值。
     var disableFont: Bool { get }
 }
 
@@ -295,25 +295,41 @@ public extension UIFont {
 
 // MARK: - EnolaGayAdapter 协议：字体、颜色配置
 
-/// EnolaGay 框架全局适配协议，该协议只允许 UIApplication 继承
+/// EnolaGay 框架全局适配协议
+///
+/// 请自行 extension UIApplication: EnolaGayAdapter 实现想要的配置函数。
+///
+/// - Warning: 该协议仅允许 UIApplication 继承。
 public protocol EnolaGayAdapter where Self: UIApplication {
-    /// 询问 JudyBaseLabel、JudyBaseButton、JudyBaseTextField 的默认 font，该 font 需要用目标 fontName 构建
+    /// 配置 JudyBaseLabel、JudyBaseButton、JudyBaseTextField 的默认字体样式，但忽略配置字体大小。
     ///
-    /// 无论是不是在 xib 中构建的都会询问该 font.在 xib 中若需要使用 xib 设置的字体请将 disableFont 设置为 true 即可
+    /// JudyBaseLabel、JudyBaseButton、JudyBaseTextField 无论是不是在 xib 中构建的都会访问该 font 以便获得 fontName.
     ///
-    /// - Warning: EnolaGayAdapter 只会使用 UIFont.fontName，字体大小将沿用修改前的值
+    /// 在 xib 中若需要忽略全局配置，使用 xib 设置的字体时，请将 disableFont 设置为 true 即可。
+    ///
+    /// - Warning:  返回的目标字体仅会影响字体名称（仅使用其 UIFont.fontName），不影响字体大小。
     func defaultFontName() -> UIFont
     
-    /// 询问 JudyBaseViewCtrl 及其子类的背景色，该函数默认实现为 white.
+    /// 配置 JudyBaseViewCtrl 及其子类的背景色。
+    ///
+    /// - Warning: 该函数有默认实现为 systemBackground.
     func viewBackgroundColor() -> UIColor
-    /// 询问 JudyBaseCollectionViewCtrl、JudyBaseTableViewCtrl 容器 View 的背景色，该函数默认实现为 white.
+    
+    /// 配置 JudyBaseCollectionViewCtrl、JudyBaseTableViewCtrl 容器 scrollView 的背景色。
+    ///
+    /// - Warning: 该函数有默认实现，为 systemBackground.
     func scrollViewBackGroundColor() -> UIColor
     
-    /// 询问 JudyBaseNavigationCtrl 中的 标题颜色及 tintColor（标题两侧 items），该函数默认实现为 systemBlue.
+    /// 配置 JudyBaseNavigationCtrl 中的 标题颜色及 tintColor（标题两侧 items）。
+    ///
+    /// - Warning: 该函数有默认实现，为 systemBlue.
     func navigationBarItemsColor() -> UIColor
 }
 
 public extension EnolaGayAdapter {
+    
+    func defaultFontName() -> UIFont { UIFont(name: .苹方_中黑体, size: 12) }
+    
     func viewBackgroundColor() -> UIColor { .systemBackground }
 
     func scrollViewBackGroundColor() -> UIColor { .systemBackground }

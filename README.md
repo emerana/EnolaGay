@@ -32,7 +32,7 @@ EnolaGay 中的核心成员为项目开发提供了很多便利，简化了大�
 ## 实现以下扩展
 
 #### 基础配置
-EnolaGay 全局配置，当前包含配置部分通用字体、颜色等，详见 EnolaGayAdapter 协议。
+EnolaGay 全局配置，当前包含配置全局字体样式、颜色等，详见 EnolaGayAdapter 协议。
 ```ruby
 extension UIApplication: EnolaGayAdapter
 ```
