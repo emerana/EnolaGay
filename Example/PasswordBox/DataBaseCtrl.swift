@@ -161,24 +161,32 @@ extension DataBaseCtrl {
 // MARK: DML - 数据操作
 extension DataBaseCtrl {
     
-    /// 添加一条账号数据
+    /// 新增一条账号数据
     ///
-    /// 该函数同时操作密码表和备注表。
-    /// - Parameter callback: 回调
-    func addNewAccount(callback: ((Bool) -> Void)) {
+    /// 该函数仅操作密码表
+    /// - Parameters:
+    ///   - account: 账号模型实体，其中的 id、createTime、updateTime 可随意传入
+    ///   - callback: 回调,告知是否成功
+    func addNewAccount(account: Account, callback: ((Bool) -> Void)) {
         let queue = getDBQueue()
-        queue.inTransaction { db, rollback in
+        queue.inTransaction { dataBase, rollback in
             do {
                 // 密码表新增一条记录 SQL
-                let sqlPassword = "INSERT INTO \(account_tables.t_password) (institutionalFeatured) VALUES (?,?,,?,?,?)"
-                // 备注新增一条记录 SQL
-                let sqlRemark = "INSERT INTO \(account_tables.t_remarks) (institutionalFeatured) VALUES (?,?,?,?,?,?,?,?)"
-                try db.executeUpdate(sqlPassword, values: [1])
-                try db.executeUpdate(sqlRemark, values: [2])
+                let sqlPassword = "INSERT INTO \(account_tables.t_password) (userName, password, createTime, updateTime)" +
+                " VALUES (?, ?, DATETIME('now','localtime'), DATETIME('now','localtime'))"
+                try dataBase.executeUpdate(sqlPassword, values: [account.name, account.password])
+
+                /* 顺便插入 t_remarks
+                if account.remark != nil {
+                    let sqlRemark = "INSERT INTO \(account_tables.t_remarks) (id_account, id_group, remark, collection) VALUES (?,?,?,?)"
+                    try dataBase.executeUpdate(sqlRemark, values: [account.id])
+                }*/
             } catch {
+                Judy.logWarning("新增数据:\(account.name),\(account.password) 写入失败！==\(error)")
                 rollback.pointee = true
             }
-//            callback()
+
+            callback(!rollback.pointee.boolValue)
         }
 
 //        db.inTransaction { (db, rollback) in

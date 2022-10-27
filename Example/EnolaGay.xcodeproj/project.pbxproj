@@ -73,7 +73,7 @@
 		8B174A3126F483BE00B81EC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B174A2F26F483BE00B81EC7 /* LaunchScreen.storyboard */; };
 		8B1A499025C8354700FDA57A /* LangRenSha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1A498F25C8354700FDA57A /* LangRenSha.storyboard */; };
 		8B284FAB290537AB007D0FE3 /* AccountViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B284FAA290537AB007D0FE3 /* AccountViewCtrl.swift */; };
-		8B36B6B429063A7F002B2C0F /* GroupCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36B6B329063A7F002B2C0F /* GroupCtrl.swift */; };
+		8B36B6B429063A7F002B2C0F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36B6B329063A7F002B2C0F /* Models.swift */; };
 		8B36B6B629063CB0002B2C0F /* AccountCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36B6B529063CB0002B2C0F /* AccountCollectionCell.swift */; };
 		8B36B6B82907695E002B2C0F /* DataBaseCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36B6B72907695E002B2C0F /* DataBaseCtrl.swift */; };
 		8B372D11268E9F3E004840FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D08268E9F3E004840FC /* Assets.xcassets */; };
@@ -93,6 +93,7 @@
 		8B7E1FC62905014F00CE5DDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E1FC42905014F00CE5DDC /* LaunchScreen.storyboard */; };
 		8B7E1FCC29050E4B00CE5DDC /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E1FCB29050E4B00CE5DDC /* Account.storyboard */; };
 		8B7E1FCE29050E7500CE5DDC /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E1FCD29050E7500CE5DDC /* Favorite.storyboard */; };
+		8BB2A7A1290A187F007991E7 /* AddNewAccountViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2A7A0290A187F007991E7 /* AddNewAccountViewCtrl.swift */; };
 		8BC3DA2D26DDF88C00A2A405 /* VersionCheckViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */; };
 		8BC3DA3226DDFA6E00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA3026DDFA6E00A2A405 /* Main.storyboard */; };
 		8BC3DA3326DDFAAC00A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */; };
@@ -376,7 +377,7 @@
 		8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveModelViewCtrl.swift; sourceTree = "<group>"; };
 		8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCheckViewCtrl.swift; sourceTree = "<group>"; };
 		8B284FAA290537AB007D0FE3 /* AccountViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewCtrl.swift; sourceTree = "<group>"; };
-		8B36B6B329063A7F002B2C0F /* GroupCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCtrl.swift; sourceTree = "<group>"; };
+		8B36B6B329063A7F002B2C0F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		8B36B6B529063CB0002B2C0F /* AccountCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCollectionCell.swift; sourceTree = "<group>"; };
 		8B36B6B72907695E002B2C0F /* DataBaseCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseCtrl.swift; sourceTree = "<group>"; };
 		8B372D08268E9F3E004840FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -400,6 +401,7 @@
 		8B7E1FCB29050E4B00CE5DDC /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		8B7E1FCD29050E7500CE5DDC /* Favorite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorite.storyboard; sourceTree = "<group>"; };
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
+		8BB2A7A0290A187F007991E7 /* AddNewAccountViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAccountViewCtrl.swift; sourceTree = "<group>"; };
 		8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftMessageViewCtrlTest.swift; sourceTree = "<group>"; };
 		8BC3DA2A26DDF70100A2A405 /* VersionCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VersionCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC3DA2F26DDFA5100A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -1118,6 +1120,7 @@
 			children = (
 				8B7E1FCB29050E4B00CE5DDC /* Account.storyboard */,
 				8B284FAA290537AB007D0FE3 /* AccountViewCtrl.swift */,
+				8BB2A7A0290A187F007991E7 /* AddNewAccountViewCtrl.swift */,
 				8B36B6B529063CB0002B2C0F /* AccountCollectionCell.swift */,
 			);
 			path = Account;
@@ -1185,7 +1188,7 @@
 			isa = PBXGroup;
 			children = (
 				8B36B6B72907695E002B2C0F /* DataBaseCtrl.swift */,
-				8B36B6B329063A7F002B2C0F /* GroupCtrl.swift */,
+				8B36B6B329063A7F002B2C0F /* Models.swift */,
 				8B284FAC290537B7007D0FE3 /* Account */,
 				8B7E1FB92905014E00CE5DDC /* AppDelegate.swift */,
 				8B7E1FBD2905014E00CE5DDC /* ViewController.swift */,
@@ -3433,11 +3436,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B36B6B429063A7F002B2C0F /* GroupCtrl.swift in Sources */,
+				8B36B6B429063A7F002B2C0F /* Models.swift in Sources */,
 				8B36B6B629063CB0002B2C0F /* AccountCollectionCell.swift in Sources */,
 				8B7E1FBE2905014E00CE5DDC /* ViewController.swift in Sources */,
 				8B7E1FBA2905014E00CE5DDC /* AppDelegate.swift in Sources */,
 				8B36B6B82907695E002B2C0F /* DataBaseCtrl.swift in Sources */,
+				8BB2A7A1290A187F007991E7 /* AddNewAccountViewCtrl.swift in Sources */,
 				8B284FAB290537AB007D0FE3 /* AccountViewCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

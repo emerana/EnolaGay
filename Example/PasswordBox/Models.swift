@@ -1,5 +1,5 @@
 //
-//  GroupCtrl.swift
+//  Models.swift
 //  PasswordBox
 //
 //  数据分组管理
@@ -16,7 +16,10 @@ class Account {
     var name: String, password: String
     /// 该数据的创建时间和最后一次修改的时间
     var createTime: String, updateTime: String
-
+    
+    /// 该账号所对应的备注信息表
+    var remark: AccountRemark?
+    
     init(id: Int, name: String, password: String, createTime: String, updateTime: String) {
         self.id = id
         self.name = name
@@ -31,11 +34,14 @@ class AccountRemark {
     /// 该 id 由数据库自动生成，一般情况下无需人为赋值
     let id: Int
     /// 该账号所在分组
-    var group: String?
+    var group: Group?
     /// 该账号备注信息
     var remark: String?
-    
-    init(id: Int, group: String? = nil, remark: String? = nil) {
+    /// 是否收藏
+    var isCollection = false
+
+
+    init(id: Int, group: Group? = nil, remark: String? = nil) {
         self.id = id
         self.group = group
         self.remark = remark
