@@ -283,6 +283,7 @@
                                 <state key="normal" title="添加"/>
                                 <connections>
                                     <action selector="CompleteAction:" destination="SCv-Uu-ZzB" eventType="touchUpInside" id="bIq-DP-kP7"/>
+                                    <action selector="completeAction:" destination="EEz-VP-JgA" eventType="touchUpInside" id="SJR-0O-BFa"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kjA-xo-P09">
@@ -311,9 +312,6 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="6"/>
-                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </collectionViewCell>
                                 </cells>
@@ -338,9 +336,13 @@
                     <size key="freeformSize" width="390" height="680"/>
                     <connections>
                         <outlet property="collectionView" destination="kjA-xo-P09" id="AMk-JJ-hMw"/>
+                        <outlet property="groupNameTextField" destination="sjD-kv-0zx" id="Fik-Df-TXd"/>
+                        <outlet property="iconButton" destination="c6Y-fd-ABF" id="tr7-Lv-E4T"/>
+                        <segue destination="olk-9t-Rzy" kind="unwind" identifier="completeAndDismissAction" unwindAction="unwindToAddNewGroupViewCtrl:" id="lw1-eR-woT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R4f-NY-ZMJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="olk-9t-Rzy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="967.69230769230762" y="1058.5308056872038"/>
         </scene>

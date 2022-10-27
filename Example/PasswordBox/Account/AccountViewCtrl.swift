@@ -63,17 +63,31 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
 
     // MARK: - event response
     
-    /// 从 AddNewAccountViewCtrl 添加成功一条数据后触发此函数
+    /// AddNewAccountViewCtrl 释放时发来的最终请求，要求添加一条 Account 数据
     @IBAction func unwindToAddNewAccountViewCtrl(_ unwindSegue: UIStoryboardSegue) {
         let sourceViewController = unwindSegue.source as! AddNewAccountViewCtrl
         if let account = sourceViewController.addAccount {
             // 添加账号到数据库
-            DataBaseCtrl.judy.addNewAccount(account: account) { rs in }
+            DataBaseCtrl.judy.addNewData(model: account) { rs in }
+            // DataBaseCtrl.judy.addNewAccount(account: account) { rs in }
+
             // 不管添加的结果，直接更新
             reloadData()
         }
         
     }
+    
+    /// AddNewGroupViewCtrl 释放时发来的最终请求，要求添加一条 Group 数据
+    @IBAction func unwindToAddNewGroupViewCtrl(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source as! AddNewGroupViewCtrl
+        if let group = sourceViewController.group {
+            // 添加组到数据库
+            DataBaseCtrl.judy.addNewData(model: group) { rs in }
+            // 不管添加的结果，直接更新
+            reloadData()
+        }
+    }
+
 
     // MARK: - Navigation
      

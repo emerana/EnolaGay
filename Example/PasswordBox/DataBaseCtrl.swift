@@ -167,6 +167,7 @@ extension DataBaseCtrl {
     /// - Parameters:
     ///   - account: 账号模型实体，其中的 id、createTime、updateTime 可随意传入
     ///   - callback: 回调,告知是否成功
+    @available(*, unavailable, message: "请使用 addNewData 泛型函数", renamed: "addNewData(model:)")
     func addNewAccount(account: Account, callback: ((Bool) -> Void)) {
         let queue = getDBQueue()
         queue.inTransaction { dataBase, rollback in
@@ -189,24 +190,54 @@ extension DataBaseCtrl {
             callback(!rollback.pointee.boolValue)
         }
 
-//        db.inTransaction { (db, rollback) in
-//            let sql = "INSERT INTO \(account_tables.t_password) (fundID, fundName, similarRanking, fundstarRating, fundRating, isStarManager, institutionalView, institutionalPotential, institutionalFeatured, fundType, remark) VALUES (?,?,?,?,?,?,?,?,?,?,?)"
-            
-//            for fund in funds {
-//                let result = db.executeUpdate(sql, withArgumentsIn: [fund.fundID, fund.fundName, "\(fund.similarRanking)", fund.fundStarRating, fund.fundRating, fund.isStarManager, fund.institutionalView.rawValue, fund.institutionalPotential.rawValue, fund.institutionalFeatured.rawValue, fund.fundType.rawValue, fund.remark])
-//                if result {
-//                    print("\(fund.fundID)写入成功")
-//                } else {
-//                    print("新插入基金信息：\(fund.fundID)写入失败！")
-//                    rollback.pointee = true
-//
-//                    break
-//                }
-//            }
-//            callback(!rollback.pointee.boolValue)
-//        }
-        
     }
+        
+    /// 通过该函数向数据库添加一条数据
+    ///
+    /// 根据传入的 model 类型向指定的表插入数据，该函数仅作用于 t_account、t_group、t_remarks 这三张表。
+    ///
+    /// - Parameters:
+    ///   - model: 要添加的对象，其中的 id 或部分属性可随意传入，根据实际传入类型决定。
+    ///   - callback:  该回调函数通过传入一个 Bool 值告知是否添加成功。
+    /// - Warning: 传入的 model 仅支持 Account、Group 模型。
+    func addNewData<T>(model: T, callback: ((Bool) -> Void)) {
+        let queue = getDBQueue()
+        queue.inTransaction { dataBase, rollback in
+            do {
+                /* 顺便插入 t_remarks
+                if account.remark != nil {
+                    let sqlRemark = "INSERT INTO \(account_tables.t_remarks) (id_account, id_group, remark, collection) VALUES (?,?,?,?)"
+                    try dataBase.executeUpdate(sqlRemark, values: [account.id])
+                }*/
+                /// 操作的 SQL
+                let execSQL: String
+                switch model {
+                case is Group:
+                    // 分组表新增一条记录 SQL
+                    execSQL = "INSERT INTO \(account_tables.t_group) (groupName, icon, backgroundColor)" +
+                    " VALUES (?, ?, ?)"
+                    
+                    let group = model as! Group
+                    try dataBase.executeUpdate(execSQL, values: [group.name, group.icon ?? NSNull(), group.backgroundColor ?? NSNull()])
+
+                case is Account:
+                    // 密码表新增一条记录 SQL
+                    execSQL = "INSERT INTO \(account_tables.t_password) (userName, password, createTime, updateTime)" +
+                    " VALUES (?, ?, DATETIME('now','localtime'), DATETIME('now','localtime'))"
+                    let account = model as! Account
+                    try dataBase.executeUpdate(execSQL, values: [account.name, account.password])
+                default:
+                    Judy.logWarning("传入了无用的模型。")
+                }
+            } catch {
+                Judy.logWarning("新增数据:\(model) 写入失败！==\(error)")
+                rollback.pointee = true
+            }
+
+            callback(!rollback.pointee.boolValue)
+        }
+    }
+    
 }
 
 

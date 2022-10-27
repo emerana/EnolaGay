@@ -15,18 +15,29 @@ class AddNewGroupViewCtrl: JudyBaseCollectionViewCtrl {
 
     // MARK: - let property and IBOutlet
     
+    /// 显示图标的按钮
+    @IBOutlet weak private var iconButton: UIButton!
+    /// 组名
+    @IBOutlet weak private var groupNameTextField: JudyBaseTextField!
+    
+    
     // MARK: - public var property
+    
+    /// 用于构建新组的模型
+    private(set) var group: Group?
     
     override var itemSpacing: CGFloat { 16 }
 
     // MARK: - private var property
     
+    /// 记录当前选中的 indexPath，单选方案。
+    private(set) var selectedIndexPath = IndexPath(item: 0, section: 0)
+
     // MARK: - life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +49,14 @@ class AddNewGroupViewCtrl: JudyBaseCollectionViewCtrl {
     
     // MARK: - event response
 
+    /// 添加事件
+    @IBAction private func completeAction(_ sender: Any) {
+        group = Group(id: 0, name: groupNameTextField.text!)
+        
+        // 触发 unwind 事件
+        performSegue(withIdentifier: "completeAndDismissAction", sender: nil)
+    }
+    
     /*
      // MARK: - Navigation
      
@@ -68,9 +87,14 @@ extension AddNewGroupViewCtrl {
 
      /// 询问指定 indexPath 的 cell 实例，默认取 identifier 为 cell 的实例。
      override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-         
+         let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
          cell.backgroundColor = UIColor(rgbValue: Group.backgroundColors[indexPath.row])
+         
+         if selectedIndexPath == indexPath {
+             cell.judy.viewBorder(border: 6, color: .white)
+         } else {
+             cell.judy.viewBorder(border: 0, color: nil)
+         }
          
          return cell
      }
@@ -82,9 +106,13 @@ extension AddNewGroupViewCtrl {
 extension AddNewGroupViewCtrl {
     /// 选中事件
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        Judy.log("选中\(indexPath)")
-    }
 
+        selectedIndexPath = indexPath
+
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        collectionView.reloadData()
+    }
+    
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
