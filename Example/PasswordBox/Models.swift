@@ -52,7 +52,21 @@ class AccountRemark {
 /// 组模型
 class Group {
     /// 背景色值数据源
-    static let GroupBackgroundColors: [Int] = [GroupBackgroundColor.淡红色.rawValue]
+    static let backgroundColors: [Int] = [
+        GroupBackgroundColor.淡红色.rawValue,
+        GroupBackgroundColor.浅红橙.rawValue,
+        GroupBackgroundColor.浅黄橙.rawValue,
+        GroupBackgroundColor.浅黄.rawValue,
+        GroupBackgroundColor.浅青豆绿.rawValue,
+        GroupBackgroundColor.浅黄绿.rawValue,
+        GroupBackgroundColor.浅绿.rawValue,
+        GroupBackgroundColor.浅绿青.rawValue,
+        GroupBackgroundColor.浅青.rawValue,
+        GroupBackgroundColor.浅洋红.rawValue,
+        GroupBackgroundColor.浅蓝紫.rawValue,
+        GroupBackgroundColor.浅紫洋红.rawValue,
+    ]
+    
     /// 该 id 由数据库自动生成，一般情况下无需人为赋值
     let id: Int
     /// 组名

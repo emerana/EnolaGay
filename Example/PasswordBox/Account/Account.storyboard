@@ -105,7 +105,7 @@
                     <connections>
                         <outlet property="addButton" destination="jab-Zk-psj" id="FYC-kJ-4ds"/>
                         <outlet property="collectionView" destination="HRe-tR-B45" id="KfK-Xe-usD"/>
-                        <segue destination="EEz-VP-JgA" kind="show" identifier="showAddNewGroupViewCtrl" customClass="AddNewGroupViewCtrlSegue" customModule="PasswordBox" customModuleProvider="target" id="YX3-Mk-r7I"/>
+                        <segue destination="EEz-VP-JgA" kind="presentation" identifier="showAddNewGroupViewCtrl" customClass="AddNewGroupViewCtrlSegue" customModule="PasswordBox" customModuleProvider="target" id="YX3-Mk-r7I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -235,16 +235,114 @@
                     <view key="view" contentMode="scaleToFill" id="iRS-9f-KOO">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="680"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bxp-Se-a2A">
+                                <rect key="frame" x="18" y="169" width="354" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6Y-fd-ABF">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="6Do-XT-zUQ"/>
+                                            <constraint firstAttribute="width" secondItem="c6Y-fd-ABF" secondAttribute="height" id="FF0-Uw-VUF"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" backgroundImage="placeholder"/>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="JX6-JQ-Viz">
+                                        <rect key="frame" x="68" y="0.0" width="286" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="251" text="设置组名：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRv-vD-F8s" customClass="JudyBaseLabel" customModule="EnolaGay">
+                                                <rect key="frame" x="0.0" y="0.0" width="81.666666666666671" height="19.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="如：银行卡" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sjD-kv-0zx" customClass="JudyBaseTextField" customModule="EnolaGay">
+                                                <rect key="frame" x="0.0" y="19.333333333333339" width="109.66666666666667" height="40.666666666666657"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="251" text="为该组选择一个颜色😄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYa-cd-Brb" customClass="JudyBaseLabel" customModule="EnolaGay">
+                                <rect key="frame" x="18" y="257" width="170" height="19.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4U2-Q1-BG7" customClass="JudyBaseButton" customModule="EnolaGay">
+                                <rect key="frame" x="314" y="93" width="58" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="IoC-i2-vNN"/>
+                                    <constraint firstAttribute="width" constant="58" id="wUm-Fy-PyA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="添加"/>
+                                <connections>
+                                    <action selector="CompleteAction:" destination="SCv-Uu-ZzB" eventType="touchUpInside" id="bIq-DP-kP7"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kjA-xo-P09">
+                                <rect key="frame" x="18" y="282.33333333333331" width="354" height="88"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="9Bg-8G-DiN"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="s0m-ZP-9kX">
+                                    <size key="itemSize" width="88" height="88"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Xqj-kZ-i3e">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="88"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WGF-1w-0lF">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="88"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="90" height="88"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6z3-BK-LTv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kjA-xo-P09" firstAttribute="top" secondItem="vYa-cd-Brb" secondAttribute="bottom" constant="6" id="2ZF-hP-v8g"/>
+                            <constraint firstItem="vYa-cd-Brb" firstAttribute="leading" secondItem="bxp-Se-a2A" secondAttribute="leading" id="2n4-04-jji"/>
+                            <constraint firstItem="kjA-xo-P09" firstAttribute="leading" secondItem="vYa-cd-Brb" secondAttribute="leading" id="2xY-Xa-Ssn"/>
+                            <constraint firstItem="4U2-Q1-BG7" firstAttribute="top" secondItem="6z3-BK-LTv" secondAttribute="top" constant="2" id="5xI-z7-bs4"/>
+                            <constraint firstItem="6z3-BK-LTv" firstAttribute="trailing" secondItem="bxp-Se-a2A" secondAttribute="trailing" constant="18" id="JSw-XU-yCS"/>
+                            <constraint firstItem="bxp-Se-a2A" firstAttribute="leading" secondItem="6z3-BK-LTv" secondAttribute="leading" constant="18" id="fQp-d0-UdT"/>
+                            <constraint firstItem="kjA-xo-P09" firstAttribute="trailing" secondItem="bxp-Se-a2A" secondAttribute="trailing" id="jJc-A3-kWa"/>
+                            <constraint firstItem="bxp-Se-a2A" firstAttribute="top" secondItem="4U2-Q1-BG7" secondAttribute="bottom" constant="28" id="njx-7b-4ki"/>
+                            <constraint firstItem="6z3-BK-LTv" firstAttribute="trailing" secondItem="4U2-Q1-BG7" secondAttribute="trailing" constant="18" id="szg-KZ-eEl"/>
+                            <constraint firstItem="vYa-cd-Brb" firstAttribute="top" secondItem="bxp-Se-a2A" secondAttribute="bottom" constant="28" id="uhS-y8-0kz"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0nz-nl-5Kh"/>
-                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="390" height="680"/>
+                    <connections>
+                        <outlet property="collectionView" destination="kjA-xo-P09" id="AMk-JJ-hMw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R4f-NY-ZMJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="968" y="1059"/>
+            <point key="canvasLocation" x="967.69230769230762" y="1058.5308056872038"/>
         </scene>
         <!--Account List Table View Ctrl-->
         <scene sceneID="yni-QD-0cs">

@@ -54,7 +54,7 @@ extension EMERANA.Key {
 
 }
 
-/// 背景色模块
+/// 背景色模块，16进制 Int 值，浅色系。
 enum GroupBackgroundColor: Int {
     case 淡红色 = 0xec6941
     case 浅红橙 = 0xf19149
