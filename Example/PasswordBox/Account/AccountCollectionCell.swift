@@ -19,6 +19,7 @@ class AccountCollectionCell: JudyBaseCollectionViewCell {
     var group: Group? {
         didSet {
             masterImageView?.image = UIImage(named: group?.icon ?? "placeholder")
+            // 设置背景色
             let colorValue: Int = group?.backgroundColor?.change_16_StringToIntValue ?? GroupBackgroundColor.浅红橙.rawValue
             backgroundColor = UIColor(rgbValue: colorValue )
             

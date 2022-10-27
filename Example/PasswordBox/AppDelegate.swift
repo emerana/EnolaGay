@@ -59,7 +59,6 @@ enum GroupBackgroundColor: Int {
     case 淡红色 = 0xec6941
     case 浅红橙 = 0xf19149
     case 浅黄橙 = 0xf8b551
-    case 浅黄 = 0xfff45c
     case 浅青豆绿 = 0xb3d465
     case 浅黄绿 = 0x80c269
     case 浅绿 = 0x32b16c

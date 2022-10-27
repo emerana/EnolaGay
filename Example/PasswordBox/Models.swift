@@ -51,12 +51,12 @@ class AccountRemark {
 
 /// 组模型
 class Group {
-    /// 背景色值数据源
-    static let backgroundColors: [Int] = [
+    
+    /// 背景色值16进制数据源。
+    static let backgroundColor16Values: [Int] = [
         GroupBackgroundColor.淡红色.rawValue,
         GroupBackgroundColor.浅红橙.rawValue,
         GroupBackgroundColor.浅黄橙.rawValue,
-        GroupBackgroundColor.浅黄.rawValue,
         GroupBackgroundColor.浅青豆绿.rawValue,
         GroupBackgroundColor.浅黄绿.rawValue,
         GroupBackgroundColor.浅绿.rawValue,

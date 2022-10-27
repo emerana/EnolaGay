@@ -128,9 +128,11 @@ extension AccountViewCtrl {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! AccountCollectionCell
         
         if indexPath.row == 0 { // 所有账号
+            
             cell.group = nil
             cell.masterImageView?.image = UIImage(named: "placeholder")
             cell.backgroundColor = UIColor.浅蓝紫
+//            cell.backgroundColor = UIColor(rgbValue: <#T##Int#>)
             cell.titleLabel?.text = "所有账号"
             cell.subTitleLabel?.text = String(DataBaseCtrl.judy.getAccountsCount())
         } else { // 具体分组
