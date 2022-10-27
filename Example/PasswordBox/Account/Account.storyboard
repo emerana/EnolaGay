@@ -85,7 +85,7 @@
                                 <state key="normal" backgroundImage="button_添加"/>
                                 <connections>
                                     <action selector="AddPasswordAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hrg-Gy-ESm"/>
-                                    <segue destination="SCv-Uu-ZzB" kind="presentation" identifier="" customClass="FullScreenWidthSegue" customModule="PasswordBox" customModuleProvider="target" id="juO-zo-0mb"/>
+                                    <segue destination="SCv-Uu-ZzB" kind="presentation" identifier="" customClass="AddNewAccountViewCtrlSegue" customModule="PasswordBox" customModuleProvider="target" id="juO-zo-0mb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -105,6 +105,7 @@
                     <connections>
                         <outlet property="addButton" destination="jab-Zk-psj" id="FYC-kJ-4ds"/>
                         <outlet property="collectionView" destination="HRe-tR-B45" id="KfK-Xe-usD"/>
+                        <segue destination="EEz-VP-JgA" kind="show" identifier="showAddNewGroupViewCtrl" customClass="AddNewGroupViewCtrlSegue" customModule="PasswordBox" customModuleProvider="target" id="YX3-Mk-r7I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -225,7 +226,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="znM-Vi-bsf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="dE1-Pr-VmH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="964.61538461538453" y="837.44075829383883"/>
+            <point key="canvasLocation" x="968" y="588"/>
+        </scene>
+        <!--Add New Group View Ctrl-->
+        <scene sceneID="K1o-Qn-AIx">
+            <objects>
+                <viewController id="EEz-VP-JgA" customClass="AddNewGroupViewCtrl" customModule="PasswordBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iRS-9f-KOO">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="680"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6z3-BK-LTv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0nz-nl-5Kh"/>
+                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="390" height="680"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R4f-NY-ZMJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968" y="1059"/>
         </scene>
         <!--Account List Table View Ctrl-->
         <scene sceneID="yni-QD-0cs">

@@ -85,6 +85,7 @@
 		8B4A4DED266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */; };
 		8B620EA526DDF347001E1A9D /* VersionCheck-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */; };
 		8B742563290A731F00D37DC0 /* AddNewGropuUICollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B742562290A731F00D37DC0 /* AddNewGropuUICollectionReusableView.xib */; };
+		8B742565290A7DCD00D37DC0 /* AddNewGroupViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B742564290A7DCD00D37DC0 /* AddNewGroupViewCtrl.swift */; };
 		8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76428F25A702C400A418F8 /* AppConfigs.swift */; };
 		8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */; };
 		8B7E1FBA2905014E00CE5DDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E1FB92905014E00CE5DDC /* AppDelegate.swift */; };
@@ -392,6 +393,7 @@
 		8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DouYonHomeViewCtrl.swift; sourceTree = "<group>"; };
 		8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VersionCheck-Info.plist"; sourceTree = "<group>"; };
 		8B742562290A731F00D37DC0 /* AddNewGropuUICollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewGropuUICollectionReusableView.xib; sourceTree = "<group>"; };
+		8B742564290A7DCD00D37DC0 /* AddNewGroupViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGroupViewCtrl.swift; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
 		8B7E1FB72905014E00CE5DDC /* PasswordBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasswordBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1124,11 +1126,12 @@
 			children = (
 				8B7E1FCB29050E4B00CE5DDC /* Account.storyboard */,
 				8B284FAA290537AB007D0FE3 /* AccountViewCtrl.swift */,
+				8B36B6B529063CB0002B2C0F /* AccountCollectionCell.swift */,
 				8B742562290A731F00D37DC0 /* AddNewGropuUICollectionReusableView.xib */,
 				8BB2A7A2290A3BFA007991E7 /* AccountListTableViewCtrl.swift */,
 				8BB2A7A4290A49F0007991E7 /* AccountDetailViewCtrl.swift */,
 				8BB2A7A0290A187F007991E7 /* AddNewAccountViewCtrl.swift */,
-				8B36B6B529063CB0002B2C0F /* AccountCollectionCell.swift */,
+				8B742564290A7DCD00D37DC0 /* AddNewGroupViewCtrl.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -2656,6 +2659,7 @@
 				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -2664,6 +2668,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3449,6 +3454,7 @@
 				8B7E1FBA2905014E00CE5DDC /* AppDelegate.swift in Sources */,
 				8B36B6B82907695E002B2C0F /* DataBaseCtrl.swift in Sources */,
 				8BB2A7A1290A187F007991E7 /* AddNewAccountViewCtrl.swift in Sources */,
+				8B742565290A7DCD00D37DC0 /* AddNewGroupViewCtrl.swift in Sources */,
 				8BB2A7A5290A49F0007991E7 /* AccountDetailViewCtrl.swift in Sources */,
 				8B284FAB290537AB007D0FE3 /* AccountViewCtrl.swift in Sources */,
 			);

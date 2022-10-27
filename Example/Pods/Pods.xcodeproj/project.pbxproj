@@ -31,6 +31,7 @@
 		03DC88D8E0D9211F8C62E8AC5E8A865F /* BarLineScatterCandleBubbleChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923CBC001E19F03156E91EC7EAFC7A66 /* BarLineScatterCandleBubbleChartDataSet.swift */; };
 		0422FC5745E406CB752E9497A2F56EA9 /* _RXKVOObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1CF23491AAA36AD170B7A4DB35BF4C /* _RXKVOObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		044E4EAF3671A3ADE80BAF4B67A94100 /* IQKeyboardManagerConstantsInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3D35A15272062E9606AEFE934A58B4 /* IQKeyboardManagerConstantsInternal.swift */; };
+		04871024998B9C8E178893998622E41B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE56C02B2764E4516ACB930713060649 /* Foundation.framework */; };
 		04909095F1060AB598DD954C89DC1AF6 /* BarChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1D167BDE9D52212C48FEFB7FEB311 /* BarChartRenderer.swift */; };
 		04B2DDDF8C3C5DAE8952E85BD4ECF6CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE56C02B2764E4516ACB930713060649 /* Foundation.framework */; };
 		04B641288248D3ACC28E7F707058073B /* ObservableConvertibleType+Signal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF80D84B6EB975781D342CCD40C06233 /* ObservableConvertibleType+Signal.swift */; };
@@ -139,7 +140,6 @@
 		1B2DDB8AD9504EB5AF857E4A45E3A979 /* NSString+IGListDiffable.h in Headers */ = {isa = PBXBuildFile; fileRef = 527323AFFA614D8CC4EB19BFB7AC1D27 /* NSString+IGListDiffable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B2E4CCBA572E91D19E3D821AE761389 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B18D856F954052072DEFA1D027E41F /* Result.swift */; };
 		1B402AACD54B2064A7BC86857F2769DD /* InfiniteSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D19C97C62FBECD641578B3329A70F /* InfiniteSequence.swift */; };
-		1B844FE9E861FA4A72FAE408AAC9C0BE /* Pods-EnolaGay_Example-PasswordBox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD5233A36F7357A10BF138C2C205B3E /* Pods-EnolaGay_Example-PasswordBox-dummy.m */; };
 		1B967CA28F7942E51CD61A006DE7FCD5 /* AnimatedZoomViewJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F7777CE2FBFE73299E34FEE953E5F /* AnimatedZoomViewJob.swift */; };
 		1BCB5765C67C81F167F926249CC68F6D /* JudyMinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5A106ECD4476DDAE7C4462869FFF1D /* JudyMinoruTextField.swift */; };
 		1BE2E047CE3FDF8A332A6081CEDD09F1 /* Pods-EnolaGay_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FB4D150584D9BE9EA35AF317AD709C9 /* Pods-EnolaGay_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -188,7 +188,6 @@
 		23FE66F12FA6B00147A36B1ADD1693E7 /* JudyAkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CEA02FBA72C75E38A6FD947CDD17E /* JudyAkiraTextField.swift */; };
 		2402370147BF4C9472E3CBD14572CC81 /* ILineScatterCandleRadarChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD7986512AD878DC7CF9EBE7FE72923 /* ILineScatterCandleRadarChartDataSet.swift */; };
 		243D0CC47C2D7AA840A9E9028B319394 /* DefaultsBridges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7027FC3603D353823534A5358BE6D02D /* DefaultsBridges.swift */; };
-		245F060B7FA1E8498EECF31DE046F2E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE56C02B2764E4516ACB930713060649 /* Foundation.framework */; };
 		2467276BB3FBB36BFCDD8004B10D5865 /* Cache-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE5EDA98BF27C6C74EA40B7BDAC8005 /* Cache-dummy.m */; };
 		248A5D0758579F45393A48F7F1A816EE /* IGListAdapterDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FD9238C095BCACC210FD758406348E7 /* IGListAdapterDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24A00D0035754846D9FE87054AF03FF1 /* SDWebImageTransitionInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D1264C56990BC86CEFBCDA5FF51956 /* SDWebImageTransitionInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -310,7 +309,6 @@
 		3D0EB42FE323B97CF74860BBC85775DD /* Pods-EnolaGay_Example-JudyLivePageViewCtrl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 64149FF07E2BAC91E2F71C54CF783A64 /* Pods-EnolaGay_Example-JudyLivePageViewCtrl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D42C9D3EEBE1EAD7E365276753FE99E /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE206981D2661FC068C369AFDF19107F /* Queue.swift */; };
 		3D445FD9D8FFBDD79E0D04BDFE96B0BB /* Signal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27651E9CEC97D64752E1F7D40E7F107D /* Signal.swift */; };
-		3D6C44E694112936EE8312977AEFBCF3 /* Pods-EnolaGay_Example-PasswordBox-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 202259116B7EA1B9FFCF73131AEB91EE /* Pods-EnolaGay_Example-PasswordBox-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D8CF9EC6BF578BC2C94ADE3A961CF2C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE56C02B2764E4516ACB930713060649 /* Foundation.framework */; };
 		3DAB9B8ACA346601215FD9821E78A091 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6AC9FB579CF461A41B10AE3BB64D4A7 /* QuartzCore.framework */; };
 		3DD9694A6D1F5035C6C400C6912B9E36 /* RxCollectionViewReactiveArrayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18901E3B4F55614EBD6CB3CBEFD0BCC /* RxCollectionViewReactiveArrayDataSource.swift */; };
@@ -363,6 +361,7 @@
 		483CE65E6233FFEA9FDCD18653895F2E /* MJRefreshTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = FE27650FDD0B0F7C3D3A8CBEF6B4C660 /* MJRefreshTrailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4878A6C8BDEF6FCC155719CA93BA9586 /* _RXDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE0AE8B99155F2A15F1FEE33FF2F058 /* _RXDelegateProxy.m */; };
 		488B94782314042614F1FB7620407FCC /* AuthenticationChallengeResponsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEFFCB289BDCA90158DEEE2A28FFE2F /* AuthenticationChallengeResponsable.swift */; };
+		488C6A0A1821E5CD0F8E9C8210DF32B5 /* Pods-EnolaGay_Example-PasswordBox-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 202259116B7EA1B9FFCF73131AEB91EE /* Pods-EnolaGay_Example-PasswordBox-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		489DD3B4A26C1EBF775078F68358302C /* VirtualTimeConverterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27042CC9311A3BDE5E50B69B63D9DCE6 /* VirtualTimeConverterType.swift */; };
 		4994F1CABB9926703D82BA0D9D66321C /* RxCocoaRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BCB208F6B91F0314E2AD567281AAF71 /* RxCocoaRuntime.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49D1DED6944F26D7337C7113B54BDF3F /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B47FAADA6D81733272202D3BE72CE42 /* Window.swift */; };
@@ -618,6 +617,7 @@
 		8634B1EFCC7D524B16988DF2D52552AF /* SDInternalMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E184FA4E0C1E732083A6E0401BCFCE0 /* SDInternalMacros.m */; };
 		869EFB302F970B689BFC2D325A42F149 /* JudyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683820B44D7EF844CCD79E1A6930FBA7 /* JudyFile.swift */; };
 		86A6370F297F87A34ABC316470B564C3 /* IGListReloadIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 368ECF07C050BCE7EB50AE920C5CC1AB /* IGListReloadIndexPath.m */; };
+		86BB94DB7D245BA5AC8568A5CD45482B /* Pods-EnolaGay_Example-PasswordBox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD5233A36F7357A10BF138C2C205B3E /* Pods-EnolaGay_Example-PasswordBox-dummy.m */; };
 		86E8166DF1E93E0C4A290E37A5FF75C3 /* Pods-EnolaGay_Example-RefreshAdapter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF843BFCA946A8A684184D5786607D5 /* Pods-EnolaGay_Example-RefreshAdapter-dummy.m */; };
 		87A7172A32639CBA305E610F2B04C97B /* ScatterChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A16CBC3AFE6B019D1FF7F57031D706 /* ScatterChartView.swift */; };
 		881FCD27E39E04D7EEEE8FE4ED993E3C /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D7291EFA28E465CAE23B472C615678 /* ImageIO.framework */; };
@@ -1234,12 +1234,12 @@
 			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
 			remoteInfo = Alamofire;
 		};
-		271B0940107AE398ED350E7E29C342D6 /* PBXContainerItemProxy */ = {
+		273B8C5E8F51BCBC9EB06815EA1EFA52 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8592E0E389D40AC17881400ADC67ABC0;
-			remoteInfo = FMDB;
+			remoteGlobalIDString = CD5B562733C3004B1C10D9C1A0EEB84F;
+			remoteInfo = EnolaGay;
 		};
 		2BF75DCDE8B44E5A881C070D500F0623 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1255,12 +1255,12 @@
 			remoteGlobalIDString = DAB613A18652334F6BFC5F27BADF515D;
 			remoteInfo = SwiftMessages;
 		};
-		2EC1AD38AF219A854F6B02244DE99EF9 /* PBXContainerItemProxy */ = {
+		3191241CAE295A23FEA4C78F3F814598 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D118A6A04828FD3CDA8640CD2B6796D2;
-			remoteInfo = SwiftyJSON;
+			remoteGlobalIDString = 8592E0E389D40AC17881400ADC67ABC0;
+			remoteInfo = FMDB;
 		};
 		32EF78B1C6EF810246F14C011B47E3D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1332,21 +1332,14 @@
 			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
 			remoteInfo = Alamofire;
 		};
-		41AF674CC012BA317E726276EE503286 /* PBXContainerItemProxy */ = {
+		420DD4E33AB77ED955B3EBD794F1626D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
-			remoteInfo = Alamofire;
+			remoteGlobalIDString = D118A6A04828FD3CDA8640CD2B6796D2;
+			remoteInfo = SwiftyJSON;
 		};
 		45CE9B62D503F99C44D14B7BA5044000 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CD5B562733C3004B1C10D9C1A0EEB84F;
-			remoteInfo = EnolaGay;
-		};
-		48FF54DE4CE7E3B518B9649CDB2DC983 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -1373,6 +1366,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = EA9EA43B3B503823EE36C60D9C8A865F;
 			remoteInfo = RxSwift;
+		};
+		5243A12F13EDB60E535854EDFA5A793D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B490E7485944099E16C9CBD79119D1D4;
+			remoteInfo = IQKeyboardManagerSwift;
 		};
 		5B7BB0CA0D187C3E45CA94AE791454E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1535,6 +1535,13 @@
 			remoteGlobalIDString = CD5B562733C3004B1C10D9C1A0EEB84F;
 			remoteInfo = EnolaGay;
 		};
+		9A27A5E919819CB4442BC1F3B05235FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAB613A18652334F6BFC5F27BADF515D;
+			remoteInfo = SwiftMessages;
+		};
 		9B41BA6A369B13D85782549D4EA496B1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1675,13 +1682,6 @@
 			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
 			remoteInfo = Alamofire;
 		};
-		D2188103B50866F3DDDF2534612B07AB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DAB613A18652334F6BFC5F27BADF515D;
-			remoteInfo = SwiftMessages;
-		};
 		D7D964F8139B235355060F2B60A586D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1723,6 +1723,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = D118A6A04828FD3CDA8640CD2B6796D2;
 			remoteInfo = SwiftyJSON;
+		};
+		E3F738EED68D9C5E9F6A5CDD8221FDF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
+			remoteInfo = Alamofire;
 		};
 		E498972FA27504DD46C996E5A5FFDBB3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -3188,14 +3195,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0E661695CCD68D8BD37E7C3D016235D6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				245F060B7FA1E8498EECF31DE046F2E5 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1E5F34F325312F632646732A454D6AD6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -3373,6 +3372,14 @@
 			files = (
 				2074D8FFED1B7FA59FFC01A20D9097C0 /* Foundation.framework in Frameworks */,
 				D295C576F34F80487A0FA37A1DDA22E4 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B17C53B2537C7163FDC7B292B320D004 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04871024998B9C8E178893998622E41B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5913,19 +5920,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		986C510055636280299CFFBC1D80B249 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D6C44E694112936EE8312977AEFBCF3 /* Pods-EnolaGay_Example-PasswordBox-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9CE66ADECDE5351BF71377090D0F8CD5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				08FDB70EB6F99E3C212FD0A7E9720ACC /* Pods-EnolaGay_Example-FontExtension-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EF94966748F6F17064E6C76563E19CF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				488C6A0A1821E5CD0F8E9C8210DF32B5 /* Pods-EnolaGay_Example-PasswordBox-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6280,21 +6287,22 @@
 		};
 		344EBCD5B75F62857E697B61E84F7894 /* Pods-EnolaGay_Example-PasswordBox */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C11B0940E7452A477ED0094F4130F225 /* Build configuration list for PBXNativeTarget "Pods-EnolaGay_Example-PasswordBox" */;
+			buildConfigurationList = A35E287ECFDEFB6F68AAC4AC1641F310 /* Build configuration list for PBXNativeTarget "Pods-EnolaGay_Example-PasswordBox" */;
 			buildPhases = (
-				986C510055636280299CFFBC1D80B249 /* Headers */,
-				A53ADD9838E06F0978C355995052441E /* Sources */,
-				0E661695CCD68D8BD37E7C3D016235D6 /* Frameworks */,
-				9E3A71A4F99DD1EC57C964E9E0FE2FF4 /* Resources */,
+				9EF94966748F6F17064E6C76563E19CF /* Headers */,
+				160E0D8CE0E79571A38919E2F82125FE /* Sources */,
+				B17C53B2537C7163FDC7B292B320D004 /* Frameworks */,
+				81AC14D4936FF311437C7E4D1F4D2BA9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C81DC9E87079597719A5EC591193A417 /* PBXTargetDependency */,
-				42C4E4D676DF6C650EDD4914A1587EC7 /* PBXTargetDependency */,
-				8D7D69893190B77F36E6EFCA07C112A4 /* PBXTargetDependency */,
-				A0A388A12DCCCE5E33DE3C4A9765F123 /* PBXTargetDependency */,
-				33F5F6E42A2022ABA1F33F6417429C85 /* PBXTargetDependency */,
+				62F6D3BD06C95DDC023213927A2558A3 /* PBXTargetDependency */,
+				9D5EA7DBD5CB7A631DF23D6838D9FCAB /* PBXTargetDependency */,
+				67A63EEB60480D970C7CF7D69CE2DF09 /* PBXTargetDependency */,
+				E3EF080F8A3FC8FB94517C7BF2CCC895 /* PBXTargetDependency */,
+				13B688063BACAA534B99E834E3A9927C /* PBXTargetDependency */,
+				1F89297BD2551D9D3C2CC4F9070FE92B /* PBXTargetDependency */,
 			);
 			name = "Pods-EnolaGay_Example-PasswordBox";
 			productName = Pods_EnolaGay_Example_PasswordBox;
@@ -7318,6 +7326,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		81AC14D4936FF311437C7E4D1F4D2BA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		847BA3DC9A10CE491A072999326FE869 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -7340,13 +7355,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9D59174E291D81CF7D00CA01E2D925D0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9E3A71A4F99DD1EC57C964E9E0FE2FF4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -7533,6 +7541,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9320D78EDC24B1C4949CA7A228634812 /* Pods-EnolaGay_Example-MyRxSwfit-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		160E0D8CE0E79571A38919E2F82125FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86BB94DB7D245BA5AC8568A5CD45482B /* Pods-EnolaGay_Example-PasswordBox-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8156,14 +8172,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A53ADD9838E06F0978C355995052441E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1B844FE9E861FA4A72FAE408AAC9C0BE /* Pods-EnolaGay_Example-PasswordBox-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A65DC52B960385FEF4808166660E82D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -8550,6 +8558,12 @@
 			target = D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */;
 			targetProxy = 22F3A1DE680BD3B1AB82DC1532D4FAAC /* PBXContainerItemProxy */;
 		};
+		13B688063BACAA534B99E834E3A9927C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftMessages;
+			target = DAB613A18652334F6BFC5F27BADF515D /* SwiftMessages */;
+			targetProxy = 9A27A5E919819CB4442BC1F3B05235FD /* PBXContainerItemProxy */;
+		};
 		13E6490D611CFD4A2A4900D14DA8987F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RxCocoa;
@@ -8598,6 +8612,12 @@
 			target = EA9EA43B3B503823EE36C60D9C8A865F /* RxSwift */;
 			targetProxy = 4DD2A4C167813B8957E8CB061358E865 /* PBXContainerItemProxy */;
 		};
+		1F89297BD2551D9D3C2CC4F9070FE92B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyJSON;
+			target = D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */;
+			targetProxy = 420DD4E33AB77ED955B3EBD794F1626D /* PBXContainerItemProxy */;
+		};
 		1FA40F39FE4D3FE7F83DDE890D156A6C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = EnolaGay;
@@ -8627,12 +8647,6 @@
 			name = SwiftyJSON;
 			target = D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */;
 			targetProxy = 8EB3647BB43BF4AE0A559ECAF3606FA1 /* PBXContainerItemProxy */;
-		};
-		33F5F6E42A2022ABA1F33F6417429C85 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftyJSON;
-			target = D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */;
-			targetProxy = 2EC1AD38AF219A854F6B02244DE99EF9 /* PBXContainerItemProxy */;
 		};
 		351FED90043809D79B3DB9A43C49ABB3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -8669,12 +8683,6 @@
 			name = SwiftyJSON;
 			target = D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */;
 			targetProxy = DF1AE348313FC8404DE5AE48A2B4D510 /* PBXContainerItemProxy */;
-		};
-		42C4E4D676DF6C650EDD4914A1587EC7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = EnolaGay;
-			target = CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */;
-			targetProxy = 48FF54DE4CE7E3B518B9649CDB2DC983 /* PBXContainerItemProxy */;
 		};
 		4898536B5C12041BE99BB9E700AD76C5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -8760,11 +8768,23 @@
 			target = EA9EA43B3B503823EE36C60D9C8A865F /* RxSwift */;
 			targetProxy = E178274AB48312B2AF55D7D03A856569 /* PBXContainerItemProxy */;
 		};
+		62F6D3BD06C95DDC023213927A2558A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
+			targetProxy = E3F738EED68D9C5E9F6A5CDD8221FDF6 /* PBXContainerItemProxy */;
+		};
 		664F86D8F90E265C4BBFC50933C3EB9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SDWebImage;
 			target = 3847153A6E5EEFB86565BA840768F429 /* SDWebImage */;
 			targetProxy = 3C4D44DAEA8A48F226E28D8A220C18FF /* PBXContainerItemProxy */;
+		};
+		67A63EEB60480D970C7CF7D69CE2DF09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FMDB;
+			target = 8592E0E389D40AC17881400ADC67ABC0 /* FMDB */;
+			targetProxy = 3191241CAE295A23FEA4C78F3F814598 /* PBXContainerItemProxy */;
 		};
 		6E1633591163DEB80F21FF50465F3553 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -8814,12 +8834,6 @@
 			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
 			targetProxy = 419E2E4EEA713B66872C10BA2A416F16 /* PBXContainerItemProxy */;
 		};
-		8D7D69893190B77F36E6EFCA07C112A4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = FMDB;
-			target = 8592E0E389D40AC17881400ADC67ABC0 /* FMDB */;
-			targetProxy = 271B0940107AE398ED350E7E29C342D6 /* PBXContainerItemProxy */;
-		};
 		8E7074CD6AA33E959F1E65A9B67A65DC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftyJSON;
@@ -8832,17 +8846,17 @@
 			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
 			targetProxy = 25331BFA2E400A47FC5D4188B5C611A5 /* PBXContainerItemProxy */;
 		};
+		9D5EA7DBD5CB7A631DF23D6838D9FCAB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EnolaGay;
+			target = CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */;
+			targetProxy = 273B8C5E8F51BCBC9EB06815EA1EFA52 /* PBXContainerItemProxy */;
+		};
 		9DF178546E5188182DC3FB44A6DDEF85 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
 			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
 			targetProxy = CFFAA0C62CAD33F5A836F4084884D3E3 /* PBXContainerItemProxy */;
-		};
-		A0A388A12DCCCE5E33DE3C4A9765F123 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftMessages;
-			target = DAB613A18652334F6BFC5F27BADF515D /* SwiftMessages */;
-			targetProxy = D2188103B50866F3DDDF2534612B07AB /* PBXContainerItemProxy */;
 		};
 		A7D477211095D920D7704D7985C39AB1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -8934,12 +8948,6 @@
 			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
 			targetProxy = 650641C4132BD9A84C8620C15403A9AD /* PBXContainerItemProxy */;
 		};
-		C81DC9E87079597719A5EC591193A417 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Alamofire;
-			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
-			targetProxy = 41AF674CC012BA317E726276EE503286 /* PBXContainerItemProxy */;
-		};
 		CAEBC048894DE674435DEA36F8B9A710 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
@@ -9005,6 +9013,12 @@
 			name = EnolaGay;
 			target = CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */;
 			targetProxy = A33F38D771424C4467C44D8C45D3B849 /* PBXContainerItemProxy */;
+		};
+		E3EF080F8A3FC8FB94517C7BF2CCC895 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IQKeyboardManagerSwift;
+			target = B490E7485944099E16C9CBD79119D1D4 /* IQKeyboardManagerSwift */;
+			targetProxy = 5243A12F13EDB60E535854EDFA5A793D /* PBXContainerItemProxy */;
 		};
 		E5817A63E501D454A55C09345FCFFF4B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -9556,7 +9570,39 @@
 			};
 			name = Debug;
 		};
-		239CF57B9DA366D7A4BE43BA261A30D6 /* Debug */ = {
+		253D0578B3BAA0A1204594FBDCFAEC95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C42FF48E8E2BA2749FF392C28D7BFB4 /* SwiftyJSON.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyJSON;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		26CD19DC865557C6F01AF049737BF4AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8AA6466BA50896874F273528A10A43D2 /* Pods-EnolaGay_Example-PasswordBox.debug.xcconfig */;
 			buildSettings = {
@@ -9589,38 +9635,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		253D0578B3BAA0A1204594FBDCFAEC95 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C42FF48E8E2BA2749FF392C28D7BFB4 /* SwiftyJSON.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
-				PRODUCT_MODULE_NAME = SwiftyJSON;
-				PRODUCT_NAME = SwiftyJSON;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		279BBE14156D83A0B152C2630EAAFCBA /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -11171,6 +11185,41 @@
 			};
 			name = Debug;
 		};
+		C52760388C34BDDA7F431AEF8BD34BA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DF1B0AC92E3175B720BAE7F81BF8D7C /* Pods-EnolaGay_Example-PasswordBox.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		C6A82FD8F719A99A3BAF3C44E4CCFC3E /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B08CD557BB663B12A6F389C9A46C442C /* Pods-EnolaGay_Example-AttributedStringDemo.release.xcconfig */;
@@ -11764,41 +11813,6 @@
 			};
 			name = Release;
 		};
-		EBFE1FE34764497535A998003795CCEA /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DF1B0AC92E3175B720BAE7F81BF8D7C /* Pods-EnolaGay_Example-PasswordBox.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		F46BFF4B198CFEA54B2D4E561ABCA4C5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA03E50CF35A75D1AA011E36FAC49E48 /* Pods-EnolaGay_Example-HPickerDemo.release.xcconfig */;
@@ -12266,6 +12280,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		A35E287ECFDEFB6F68AAC4AC1641F310 /* Build configuration list for PBXNativeTarget "Pods-EnolaGay_Example-PasswordBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26CD19DC865557C6F01AF049737BF4AE /* Debug */,
+				C52760388C34BDDA7F431AEF8BD34BA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A6C0B0B9350AD3B45C31553A10607F26 /* Build configuration list for PBXNativeTarget "DZNEmptyDataSet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -12298,15 +12321,6 @@
 			buildConfigurations = (
 				6F8B4065B290F9CB0CAD40E5B9EFE8A3 /* Debug */,
 				CABBA810C484CD1184A19EC63FCAA2CA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C11B0940E7452A477ED0094F4130F225 /* Build configuration list for PBXNativeTarget "Pods-EnolaGay_Example-PasswordBox" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				239CF57B9DA366D7A4BE43BA261A30D6 /* Debug */,
-				EBFE1FE34764497535A998003795CCEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

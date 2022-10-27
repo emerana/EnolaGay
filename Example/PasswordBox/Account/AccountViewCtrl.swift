@@ -134,7 +134,8 @@ extension AccountViewCtrl {
         
         supplementView.addGroupClosure = { [weak self] in
             /// 添加新分组事件
-                Judy.logHappy("点击了添加新分组")
+            Judy.logHappy("点击了添加新分组")
+            self?.performSegue(withIdentifier: "showAddNewGroupViewCtrl", sender: nil)
         }
         
         return supplementView

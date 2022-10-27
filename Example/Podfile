@@ -136,6 +136,7 @@ target 'EnolaGay_Example' do
     pod 'EnolaGay', :path => '../'
     pod 'FMDB'
     pod 'SwiftMessages'
+    pod 'IQKeyboardManagerSwift'
 
   end
 

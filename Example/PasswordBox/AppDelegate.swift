@@ -9,6 +9,8 @@
 import UIKit
 import EnolaGay
 import SwiftMessages
+import IQKeyboardManagerSwift
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,8 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
         // Override point for customization after application launch.
-        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
+
+
+
         // 创建表
         DataBaseCtrl.judy.create_group()
         DataBaseCtrl.judy.create_remarks()
@@ -88,13 +96,36 @@ extension UIColor {
 
 // MARK: - SwiftMessages 用到的Segue
 
-/// 宽度全屏的 SwiftMessagesSegue.
-class FullScreenWidthSegue: SwiftMessagesSegue {
+/// 全宽屏的 SwiftMessagesSegue.
+class FullWidthScreenSegue: SwiftMessagesSegue {
+    
     override public init(identifier: String?, source: UIViewController, destination: UIViewController) {
         super.init(identifier: identifier, source: source, destination: destination)
-
+        
+        // 将视图转换样式改为从底部弹出
         configure(layout: .bottomTab)
+        // 使其为全宽屏
         messageView.layoutMarginAdditions = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }
 
+/// 添加账号专用 SwiftMessagesSegue
+class AddNewAccountViewCtrlSegue: FullWidthScreenSegue {
+    
+    override func perform() {
+        super.perform()
+        
+        // 改变 ViewCtrl 的高度
+        destination.preferredContentSize.height = min(source.view.frame.height - 168, 480)
+    }
+}
+
+/// 添加分组专用 SwiftMessagesSegue
+class AddNewGroupViewCtrlSegue: FullWidthScreenSegue {
+    override func perform() {
+        super.perform()
+        
+        // 改变 ViewCtrl 的高度
+        destination.preferredContentSize.height = min(source.view.frame.height - 168, 680)
+    }
+}
