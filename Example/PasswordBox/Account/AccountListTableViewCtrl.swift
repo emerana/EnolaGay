@@ -111,7 +111,21 @@ extension AccountListTableViewCtrl {
 
 // MARK: - tableView delegate
 extension AccountListTableViewCtrl {
-    
+        
+    // MARK: scrollView DataSource
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        // MARK: Judy-mark: 动态地隐藏/显示导航栏姿势
+        let pan = scrollView.panGestureRecognizer
+        let velocity = pan.velocity(in: scrollView).y
+        if velocity < -5 {  // 上拉
+            navigationController?.setNavigationBarHidden(true, animated: true)
+        } else if velocity > 5 {    // 下拉
+            navigationController?.setNavigationBarHidden(false, animated: true)
+        }
+        
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
         

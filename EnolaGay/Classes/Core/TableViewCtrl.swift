@@ -85,7 +85,7 @@ extension JudyBaseTableViewCtrl: UITableViewDelegate {
     /*
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        // Judy-mark: 正确的活动隐藏显示导航栏姿势！
+        // MARK: Judy-mark: 动态地隐藏/显示导航栏姿势
         let pan = scrollView.panGestureRecognizer
         let velocity = pan.velocity(in: scrollView).y
         if velocity < -5 {  // 上拉
@@ -94,7 +94,7 @@ extension JudyBaseTableViewCtrl: UITableViewDelegate {
             navigationController?.setNavigationBarHidden(false, animated: true)
         }
         
-        // MARK: Judy-mark:scrollView的代理方法，取消tableViewHeader悬停的办法 取消悬停
+        // MARK: Judy-mark: scrollView 的代理方法，取消 tableViewHeader 悬停的办法 取消悬停
         let sectionHeaderHeight:CGFloat = 8   // 这里的高度一定要>=heightForHeaderInSection的高度
         if (scrollView.contentOffset.y <= sectionHeaderHeight&&scrollView.contentOffset.y >= 0) {
             scrollView.contentInset = UIEdgeInsets(top: -scrollView.contentOffset.y, left: 0, bottom: 0, right: 0)
