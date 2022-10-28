@@ -177,7 +177,8 @@ extension DataBaseCtrl {
                 " VALUES (?, ?, DATETIME('now','localtime'), DATETIME('now','localtime'))"
                 try dataBase.executeUpdate(sqlPassword, values: [account.name, account.password])
             } catch {
-                Judy.logWarning("新增数据:\(account.name),\(account.password) 写入失败！==\(error)")
+                Judy.logWarning("新增数据:\(account.name),\(account.password) 写入失败！==\(error.localizedDescription)")
+                
                 rollback.pointee = true
             }
 
@@ -224,7 +225,7 @@ extension DataBaseCtrl {
                     Judy.logWarning("传入了无用的模型。")
                 }
             } catch {
-                Judy.logWarning("新增数据:\(model) 写入失败！==\(error)")
+                Judy.logWarning("新增数据:\(model) 写入失败！==\(error.localizedDescription)")
                 rollback.pointee = true
             }
 

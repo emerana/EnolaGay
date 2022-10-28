@@ -137,7 +137,8 @@ target 'EnolaGay_Example' do
     pod 'FMDB'
     pod 'SwiftMessages'
     pod 'IQKeyboardManagerSwift'
-
+    pod 'RxSwift'
+    pod 'RxCocoa'
   end
 
 end
