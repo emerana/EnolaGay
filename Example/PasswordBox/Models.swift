@@ -52,19 +52,32 @@ class AccountRemark {
 /// 组模型
 class Group {
     
-    /// 背景色值16进制数据源。
-    static let backgroundColor16Values: [Int] = [
-        GroupBackgroundColor.淡红色.rawValue,
-        GroupBackgroundColor.浅红橙.rawValue,
-        GroupBackgroundColor.浅黄橙.rawValue,
-        GroupBackgroundColor.浅青豆绿.rawValue,
-        GroupBackgroundColor.浅黄绿.rawValue,
-        GroupBackgroundColor.浅绿.rawValue,
-        GroupBackgroundColor.浅绿青.rawValue,
-        GroupBackgroundColor.浅青.rawValue,
-        GroupBackgroundColor.浅洋红.rawValue,
-        GroupBackgroundColor.浅蓝紫.rawValue,
-        GroupBackgroundColor.浅紫洋红.rawValue,
+    /// 背景色值数据源。元素为16进制的 Int 形式数值。但打印值会自动转换成10进制，如 15493441.
+    ///
+    /// 使用 UIColor(rgbValue:) 函数直接通过元素生成颜色。
+    static let backgroundColorValues: [Int] = [
+        /// 淡红色
+        0xec6941,
+        /// 浅红橙
+        0xf19149,
+        /// 浅黄橙
+        0xf8b551,
+        /// 浅青豆绿
+        0xb3d465,
+        /// 浅黄绿
+        0x80c269,
+        /// 浅绿
+        0x32b16c,
+        /// 浅绿青
+        0x13b5b1,
+        /// 浅青
+        0x00b7ee,
+        /// 浅洋红
+        0xea68a2,
+        /// 浅蓝紫
+        0x5f52a0,
+        /// 浅紫洋红
+        0xae5da1
     ]
     
     /// 该 id 由数据库自动生成，一般情况下无需人为赋值
@@ -73,10 +86,13 @@ class Group {
     var name: String
     /// 该组图标名
     var icon: String?
-    /// 该组的背景颜色
-    var backgroundColor: String? //= GroupBackgroundColors.first!
     
-    init(id: Int, name: String, icon: String? = nil, backgroundColor: String? = nil) {
+    /// 该组的背景颜色,内容为16进制值，如“f19149”.
+    ///
+    /// 可通过 String(15493441,radix:16) 函数将某个10进制的值转成 16 进制的 String.
+    var backgroundColor: String = String(backgroundColorValues.first!,radix:16)
+    
+    init(id: Int, name: String, icon: String? = nil, backgroundColor: String) {
         self.id = id
         self.name = name
         self.icon = icon

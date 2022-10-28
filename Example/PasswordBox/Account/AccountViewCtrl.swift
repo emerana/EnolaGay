@@ -53,16 +53,15 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
         reloadData()
     }
 
+    // MARK: - override
+
+    // MARK: - event response
     
     /// 添加按钮事件
     @IBAction func AddPasswordAction(_ sender: Any) {
         Judy.log("点击了添加")
     }
-    
-    // MARK: - override
-
-    // MARK: - event response
-    
+        
     /// AddNewAccountViewCtrl 释放时发来的最终请求，要求添加一条 Account 数据
     @IBAction func unwindToAddNewAccountViewCtrl(_ unwindSegue: UIStoryboardSegue) {
         let sourceViewController = unwindSegue.source as! AddNewAccountViewCtrl

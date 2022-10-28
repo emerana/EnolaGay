@@ -186,7 +186,7 @@ public extension EMERANA_CellBasic {
 // MARK: - UIColor 配置扩展
 
 public extension UIColor {
-    
+    // 浅色
     static let 淡红色 = #colorLiteral(red: 0.9254901961, green: 0.4117647059, blue: 0.2549019608, alpha: 1)
     static let 浅红橙 = #colorLiteral(red: 0.9450980392, green: 0.568627451, blue: 0.2862745098, alpha: 1)
     static let 浅黄橙 = #colorLiteral(red: 0.9725490196, green: 0.7098039216, blue: 0.3176470588, alpha: 1)
@@ -199,6 +199,25 @@ public extension UIColor {
     static let 浅洋红 = #colorLiteral(red: 0.9176470588, green: 0.4078431373, blue: 0.6352941176, alpha: 1)
     static let 浅蓝紫 = #colorLiteral(red: 0.3725490196, green: 0.3215686275, blue: 0.6274509804, alpha: 1)
     static let 浅紫洋红 = #colorLiteral(red: 0.6823529412, green: 0.3647058824, blue: 0.631372549, alpha: 1)
+
+    // 纯净
+    static let 纯红 = #colorLiteral(red: 0.9019607843, green: 0, blue: 0.07058823529, alpha: 1)
+    static let 纯红橙 = #colorLiteral(red: 0.9215686275, green: 0.3803921569, blue: 0, alpha: 1)
+    static let 纯黄橙 = #colorLiteral(red: 0.9529411765, green: 0.5960784314, blue: 0, alpha: 1)
+    static let 纯黄 = #colorLiteral(red: 1, green: 0.9450980392, blue: 0, alpha: 1)
+    static let 纯青豆绿 = #colorLiteral(red: 0.5607843137, green: 0.7647058824, blue: 0.1215686275, alpha: 1)
+    static let 纯黄绿 = #colorLiteral(red: 0.1333333333, green: 0.6745098039, blue: 0.2196078431, alpha: 1)
+    static let 纯绿 = #colorLiteral(red: 0, green: 0.6, blue: 0.2666666667, alpha: 1)
+    static let 纯绿青 = #colorLiteral(red: 0, green: 0.6196078431, blue: 0.5882352941, alpha: 1)
+    static let 纯青 = #colorLiteral(red: 0, green: 0.6274509804, blue: 0.9137254902, alpha: 1)
+    static let 纯青蓝 = #colorLiteral(red: 0, green: 0.4078431373, blue: 0.7176470588, alpha: 1)
+    static let 纯蓝 = #colorLiteral(red: 0, green: 0.2784313725, blue: 0.6156862745, alpha: 1)
+    static let 纯蓝紫 = #colorLiteral(red: 0.1137254902, green: 0.1254901961, blue: 0.5333333333, alpha: 1)
+    static let 纯紫 = #colorLiteral(red: 0.3764705882, green: 0.09803921569, blue: 0.5254901961, alpha: 1)
+    static let 纯紫洋红 = #colorLiteral(red: 0.5725490196, green: 0.02745098039, blue: 0.5137254902, alpha: 1)
+    static let 纯洋红 = #colorLiteral(red: 0.8941176471, green: 0, blue: 0.4980392157, alpha: 1)
+    static let 纯洋红红 = #colorLiteral(red: 0.8980392157, green: 0, blue: 0.3098039216, alpha: 1)
+
 
     /*
      * static 和 class 的区别.
@@ -1313,16 +1332,19 @@ public extension String {
         return String(self[start ..< end])
     }
     
-    /// 16进制属性转成 10 进制的 Int 值。
+    /// 转换成10进制的 Int 值
     ///
-    /// 如 "0x606060" 调用此属性即可获得 559964256（0x606060 的 10 进制）。
-    /// - warning: 仅在该字符内容是正确16进制值时调用该属性
-    var change_16_StringToIntValue: Int {
+    /// 如"0x606060"/"606060"，调用此属性即可获得559964256.
+    ///
+    /// 由于某些原因，使用了 String(15493441,radix:16) 函数将某个10进制的值转成16进制的 String,现在只能通过 String 的此属性还原成10进制的 Int.
+    ///
+    /// - Warning: 请确保该字符串内容是正确的16进制值
+    var intValueFrom16Decimal: Int {
         let str = self.uppercased()
         var sum = 0
         for i in str.utf8 {
             sum = sum * 16 + Int(i) - 48 // 0-9 从48开始
-            if i >= 65 {                 // A-Z 从65开始，但有初始值10，所以应该是减去55
+            if i >= 65 { // A-Z 从65开始，但有初始值10，所以应该是减去55
                 sum -= 7
             }
         }
@@ -1370,7 +1392,7 @@ public extension EnolaGayWrapper where Base: UITableView {
     ///
     /// 在此之前的方法可能会引起数组越界问题，此函数针对该问题修复
     /// - Parameter animated: 是否需要动画效果？默认为 true
-    /// - warning: 在调用该函数之前请先调用 reloadData()
+    /// - Warning: 在调用该函数之前请先调用 reloadData()
     func scrollToBottom(animated: Bool = true) {
         if base.numberOfSections > 0 {
             let lastSectionIndex = base.numberOfSections-1

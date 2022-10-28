@@ -176,12 +176,6 @@ extension DataBaseCtrl {
                 let sqlPassword = "INSERT INTO \(account_tables.t_password) (userName, password, createTime, updateTime)" +
                 " VALUES (?, ?, DATETIME('now','localtime'), DATETIME('now','localtime'))"
                 try dataBase.executeUpdate(sqlPassword, values: [account.name, account.password])
-
-                /* 顺便插入 t_remarks
-                if account.remark != nil {
-                    let sqlRemark = "INSERT INTO \(account_tables.t_remarks) (id_account, id_group, remark, collection) VALUES (?,?,?,?)"
-                    try dataBase.executeUpdate(sqlRemark, values: [account.id])
-                }*/
             } catch {
                 Judy.logWarning("新增数据:\(account.name),\(account.password) 写入失败！==\(error)")
                 rollback.pointee = true
@@ -218,7 +212,7 @@ extension DataBaseCtrl {
                     " VALUES (?, ?, ?)"
                     
                     let group = model as! Group
-                    try dataBase.executeUpdate(execSQL, values: [group.name, group.icon ?? NSNull(), group.backgroundColor ?? NSNull()])
+                    try dataBase.executeUpdate(execSQL, values: [group.name, group.icon ?? NSNull(), group.backgroundColor])
 
                 case is Account:
                     // 密码表新增一条记录 SQL
@@ -316,7 +310,7 @@ extension DataBaseCtrl {
                 let gr = Group(id: Int(resultSet!.int(forColumn: "id_group")),
                                name: resultSet!.string(forColumn: "groupName") ?? "组名缺失",
                                icon: resultSet!.string(forColumn: "icon"),
-                               backgroundColor: resultSet!.string(forColumn: "backgroundColor"))
+                               backgroundColor: resultSet!.string(forColumn: "backgroundColor") ?? "362e2b")
                 // 查询当前 group 中的账号数量
                 let sql_GroupInfo = "SELECT COUNT(*) FROM \(account_tables.t_remarks)" +
                 " LEFT JOIN \(account_tables.t_group)" +

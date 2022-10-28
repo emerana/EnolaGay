@@ -52,7 +52,7 @@ class AddNewGroupViewCtrl: JudyBaseCollectionViewCtrl {
     /// 添加事件
     @IBAction private func completeAction(_ sender: Any) {
         /// 得到10进制的颜色数值，需要转成16进制。
-        let color10 = Group.backgroundColor16Values[selectedIndexPath.row]
+        let color10 = Group.backgroundColorValues[selectedIndexPath.row]
         group = Group(id: 0,
                       name: groupNameTextField.text!,
                       // 这里颜色需要转成16进制存储才行。十进制转十六进制,返回的是字符串格式。
@@ -86,14 +86,14 @@ private extension AddNewGroupViewCtrl {
 extension AddNewGroupViewCtrl {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Group.backgroundColor16Values.count
+        return Group.backgroundColorValues.count
     }
     
 
      /// 询问指定 indexPath 的 cell 实例，默认取 identifier 为 cell 的实例。
      override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
          let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
-         cell.backgroundColor = UIColor(rgbValue: Group.backgroundColor16Values[indexPath.row])
+         cell.backgroundColor = UIColor(rgbValue: Group.backgroundColorValues[indexPath.row])
          
          if selectedIndexPath == indexPath {
              cell.judy.viewBorder(border: 6, color: .white)
