@@ -67,7 +67,7 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
         let sourceViewController = unwindSegue.source as! AddNewAccountViewCtrl
         if let account = sourceViewController.addAccount {
             // 添加账号到数据库
-            DataBaseCtrl.judy.addNewData(model: account) { rs in }
+            DataBaseCtrl.judy.addNewData(model: account) { rs, msg  in }
             // DataBaseCtrl.judy.addNewAccount(account: account) { rs in }
 
             // 不管添加的结果，直接更新
@@ -81,7 +81,7 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
         let sourceViewController = unwindSegue.source as! AddNewGroupViewCtrl
         if let group = sourceViewController.group {
             // 添加组到数据库
-            DataBaseCtrl.judy.addNewData(model: group) { rs in }
+            DataBaseCtrl.judy.addNewData(model: group) { rs, msg in }
             // 不管添加的结果，直接更新
             reloadData()
         }

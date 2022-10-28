@@ -193,10 +193,11 @@ extension DataBaseCtrl {
     ///
     /// - Parameters:
     ///   - model: 要添加的对象，其中的 id 或部分属性可随意传入，根据实际传入类型决定。
-    ///   - callback:  该回调函数通过传入一个 Bool 值告知是否添加成功。
+    ///   - callback:  该回调函数通过传入一个 Bool 值告知是否添加成功，并伴随消息体。
     /// - Warning: 传入的 model 仅支持 Account、Group 模型。
-    func addNewData<T>(model: T, callback: ((Bool) -> Void)) {
+    func addNewData<T>(model: T, callback: ((Bool, String?) -> Void)) {
         let queue = getDBQueue()
+        var callbackMessage: String?
         queue.inTransaction { dataBase, rollback in
             do {
                 /* 顺便插入 t_remarks
@@ -225,11 +226,12 @@ extension DataBaseCtrl {
                     Judy.logWarning("传入了无用的模型。")
                 }
             } catch {
-                Judy.logWarning("新增数据:\(model) 写入失败！==\(error.localizedDescription)")
+                callbackMessage = error.localizedDescription
+                Judy.logWarning("新增数据:\(model) 写入失败！==\(String(describing: callbackMessage))")
                 rollback.pointee = true
             }
 
-            callback(!rollback.pointee.boolValue)
+            callback(!rollback.pointee.boolValue, callbackMessage)
         }
     }
     
