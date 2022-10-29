@@ -366,6 +366,34 @@ extension DataBaseCtrl {
         }
         return accounts
     }
+    
+    /// 查询 account 的附加信息 AccountRemark.
+    /// - Parameter account: 要查询的目标 account
+    /// - Returns: 目标 AccountRemark
+    func getAccountRemark(account: Account) -> AccountRemark? {
+        var remark: AccountRemark?
+        
+        let db = getDBQueue()
+        db.inTransaction { (dataBase, rollback) in
+            // 查询指定组下所有数据，此处查询 t_remarks 和 t_group。
+            let sql = "SELECT * FROM \(account_tables.t_remarks)" +
+            " LEFT JOIN \(account_tables.t_group)" +
+            " on \(account_tables.t_remarks).id_group = \(account_tables.t_group).id_group" +
+            " WHERE \(account_tables.t_remarks).id_account = \(account.id)"
+            
+            let resultSet = dataBase.executeQuery(sql, withArgumentsIn: [])
+            guard resultSet != nil else {
+                JudyTip.message(text: "备注信息数据查询失败！")
+                return
+            }
+            
+            if resultSet!.next() {
+                remark = resultSetToAccountRemark(resultSet: resultSet!)
+            }
+        }
+        
+        return remark
+    }
 
 }
 
@@ -374,6 +402,7 @@ private extension DataBaseCtrl {
     
     /// 将数据库查询结果转换成 Account 对象
     /// - Parameter resultSet: 查询结果集
+    /// - Returns: 目标 Account.
     func resultSetToAccount(resultSet: FMResultSet) -> Account {
         let account = Account(id: Int(resultSet.int(forColumn: "id_account")),
                               name: resultSet.string(forColumn: "userName") ?? "数据库缺失值",
@@ -382,6 +411,28 @@ private extension DataBaseCtrl {
                               updateTime: resultSet.string(forColumn: "updateTime") ?? "数据库缺失值")
         
         return account
+    }
+    
+    /// 将数据库查询结果转换成 AccountRemark 对象
+    /// - Parameter resultSet: 查询的结果集
+    /// - Returns: 目标 AccountRemark.
+    func resultSetToAccountRemark(resultSet: FMResultSet) -> AccountRemark {
+        let group: Group?
+        if resultSet.int(forColumn: "id_group") != 0 {
+            group = Group(id: Int(resultSet.int(forColumn: "id_group")),
+                              name: resultSet.string(forColumn: "groupName") ?? "数据库缺失值",
+                              backgroundColor: resultSet.string(forColumn: "backgroundColor") ?? "数据库缺失值")
+            
+            group?.icon = resultSet.string(forColumn: "icon")
+        } else {
+            group = nil
+        }
+        
+        let remark = AccountRemark(id: Int(resultSet.int(forColumn: "id_account")),
+                                   group: group,
+                                   remark: resultSet.string(forColumn: "remark"))
+        remark.isCollection = Int(resultSet.int(forColumn: "collection")) == 1
+        return remark
     }
     
 }

@@ -17,7 +17,7 @@ class Account {
     /// 该数据的创建时间和最后一次修改的时间
     var createTime: String, updateTime: String
     
-    /// 该账号所对应的备注信息表
+    /// 该账号所对应的附加信息数据，如备注信息、分组信息
     var remark: AccountRemark?
     
     init(id: Int, name: String, password: String, createTime: String, updateTime: String) {
@@ -99,7 +99,7 @@ class Group {
         self.backgroundColor = backgroundColor
     }
     
-    /// 当前分组中的账号数量，该值并非存储于数据库中，需单独赋值。
+    /// 当前分组中的账号数量，该值并非存储于数据库中，需单独查询。
     var count = 0
 }
 

@@ -465,47 +465,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUV-Uh-xXd">
-                                <rect key="frame" x="10" y="143.33333333333334" width="370" height="157.00000000000003"/>
+                                <rect key="frame" x="10" y="143.33333333333334" width="370" height="223.00000000000003"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="42e-CL-qwf">
-                                        <rect key="frame" x="8" y="8" width="354" height="141"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1al-3X-nLS">
+                                        <rect key="frame" x="145" y="18" width="80" height="94"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7aN-X7-IJW">
-                                                <rect key="frame" x="0.0" y="0.0" width="354" height="48"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ba-6R-M2I">
-                                                        <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="48" id="UgF-aM-4hc"/>
-                                                            <constraint firstAttribute="width" secondItem="8ba-6R-M2I" secondAttribute="height" id="fsL-MB-i0g"/>
-                                                        </constraints>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" image="placeholder"/>
-                                                    </button>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Dia-8r-D80">
-                                                        <rect key="frame" x="56" y="0.0" width="298" height="48"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="251" text="创建时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78r-z8-fGW" customClass="JudyBaseLabel" customModule="EnolaGay">
-                                                                <rect key="frame" x="0.0" y="0.0" width="298" height="23"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="251" text="上次修改时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgX-hC-9aF" customClass="JudyBaseLabel" customModule="EnolaGay">
-                                                                <rect key="frame" x="0.0" y="25" width="298" height="23"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ba-6R-M2I">
+                                                <rect key="frame" x="11" y="0.0" width="58" height="58"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="58" id="UgF-aM-4hc"/>
+                                                    <constraint firstAttribute="width" secondItem="8ba-6R-M2I" secondAttribute="height" id="fsL-MB-i0g"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" backgroundImage="placeholder"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSh-r7-k99" customClass="JudyBaseButton" customModule="EnolaGay">
+                                                <rect key="frame" x="0.0" y="66" width="80" height="28"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="分组：因哈卡">
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="42e-CL-qwf">
+                                        <rect key="frame" x="8" y="129.99999999999997" width="354" height="85"/>
+                                        <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Pzu-sd-wff">
-                                                <rect key="frame" x="0.0" y="56" width="354" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="251" text="用户名：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-br-Ndo" customClass="JudyBaseLabel" customModule="EnolaGay">
-                                                        <rect key="frame" x="0.0" y="7.3333333333333126" width="65.333333333333329" height="19.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="7.3333333333333695" width="65.333333333333329" height="19.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -518,7 +509,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saf-FV-lXZ">
-                                                <rect key="frame" x="0.0" y="98" width="354" height="1"/>
+                                                <rect key="frame" x="0.0" y="42" width="354" height="1"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="0XJ-96-sht"/>
@@ -528,7 +519,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="R0I-Tl-d8b">
-                                                <rect key="frame" x="0.0" y="106.99999999999997" width="354" height="34"/>
+                                                <rect key="frame" x="0.0" y="51" width="354" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="251" text="密码：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfJ-FR-FI5" customClass="JudyBaseLabel" customModule="EnolaGay">
                                                         <rect key="frame" x="0.0" y="7.3333333333333695" width="49" height="19.333333333333329"/>
@@ -549,9 +540,11 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="42e-CL-qwf" secondAttribute="trailing" constant="8" id="DVK-y8-YVd"/>
+                                    <constraint firstItem="1al-3X-nLS" firstAttribute="top" secondItem="TUV-Uh-xXd" secondAttribute="top" constant="18" id="JIG-CO-XB8"/>
                                     <constraint firstAttribute="bottom" secondItem="42e-CL-qwf" secondAttribute="bottom" constant="8" id="L0R-5Z-feO"/>
                                     <constraint firstItem="42e-CL-qwf" firstAttribute="leading" secondItem="TUV-Uh-xXd" secondAttribute="leading" constant="8" id="P7N-IR-oWw"/>
-                                    <constraint firstItem="42e-CL-qwf" firstAttribute="top" secondItem="TUV-Uh-xXd" secondAttribute="top" constant="8" id="h9a-jL-Hz6"/>
+                                    <constraint firstItem="42e-CL-qwf" firstAttribute="top" secondItem="1al-3X-nLS" secondAttribute="bottom" constant="18" id="h9a-jL-Hz6"/>
+                                    <constraint firstItem="1al-3X-nLS" firstAttribute="centerX" secondItem="TUV-Uh-xXd" secondAttribute="centerX" id="keN-St-Ugb"/>
                                     <constraint firstAttribute="height" constant="128" id="ldf-L6-11z"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -565,20 +558,31 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Dia-8r-D80">
+                                <rect key="frame" x="18" y="512.66666666666663" width="362" height="28.666666666666629"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="251" text="创建时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78r-z8-fGW" customClass="JudyBaseLabel" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="0.0" width="362" height="13.333333333333334"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="251" text="上次修改时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgX-hC-9aF" customClass="JudyBaseLabel" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="15.333333333333371" width="362" height="13.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="备注" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dk4-2U-azh" customClass="JudyBaseLabel" customModule="EnolaGay">
-                                <rect key="frame" x="18" y="328.33333333333331" width="24.666666666666671" height="14.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分组设置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mH7-qk-VYw" customClass="JudyBaseLabel" customModule="EnolaGay">
-                                <rect key="frame" x="18.000000000000004" y="466.66666666666669" width="49.333333333333343" height="14.333333333333314"/>
+                                <rect key="frame" x="18" y="394.33333333333331" width="24.666666666666671" height="14.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="添加备注" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ksH-TP-ybd">
-                                <rect key="frame" x="10" y="350.66666666666669" width="370" height="88"/>
+                                <rect key="frame" x="10" y="416.66666666666669" width="370" height="88"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="ajD-nx-Wea"/>
@@ -598,27 +602,52 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNi-JX-KNe" customClass="JudyBaseButton" customModule="EnolaGay">
+                                <rect key="frame" x="10" y="569.33333333333337" width="370" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="SXW-We-EIT"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="删除此密码">
+                                    <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hu3-Ie-w3Z"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="Dk4-2U-azh" firstAttribute="top" secondItem="TUV-Uh-xXd" secondAttribute="bottom" constant="28" id="1sG-Ot-bIT"/>
                             <constraint firstItem="TUV-Uh-xXd" firstAttribute="top" secondItem="txL-fu-8ud" secondAttribute="bottom" constant="10" id="4mx-lW-kig"/>
                             <constraint firstItem="Dk4-2U-azh" firstAttribute="leading" secondItem="txL-fu-8ud" secondAttribute="leading" id="57c-0L-APc"/>
-                            <constraint firstItem="mH7-qk-VYw" firstAttribute="top" secondItem="ksH-TP-ybd" secondAttribute="bottom" constant="28" id="Fqe-ke-6cz"/>
+                            <constraint firstItem="Dia-8r-D80" firstAttribute="top" secondItem="ksH-TP-ybd" secondAttribute="bottom" constant="8" id="7Cf-AS-UEQ"/>
+                            <constraint firstItem="wNi-JX-KNe" firstAttribute="top" secondItem="Dia-8r-D80" secondAttribute="bottom" constant="28" id="7zS-Bk-Hmv"/>
+                            <constraint firstItem="Dk4-2U-azh" firstAttribute="top" secondItem="TUV-Uh-xXd" secondAttribute="bottom" constant="28" id="DrI-sJ-Wze"/>
+                            <constraint firstItem="wNi-JX-KNe" firstAttribute="trailing" secondItem="ksH-TP-ybd" secondAttribute="trailing" id="IjO-za-YS6"/>
                             <constraint firstItem="ksH-TP-ybd" firstAttribute="top" secondItem="Dk4-2U-azh" secondAttribute="bottom" constant="8" id="K2X-sk-YF6"/>
                             <constraint firstItem="hu3-Ie-w3Z" firstAttribute="trailing" secondItem="TUV-Uh-xXd" secondAttribute="trailing" constant="10" id="LdT-cn-A2c"/>
-                            <constraint firstItem="mH7-qk-VYw" firstAttribute="leading" secondItem="Dk4-2U-azh" secondAttribute="leading" id="SKd-Nt-nbA"/>
+                            <constraint firstItem="Dia-8r-D80" firstAttribute="trailing" secondItem="TUV-Uh-xXd" secondAttribute="trailing" id="UGA-1a-bC6"/>
                             <constraint firstItem="txL-fu-8ud" firstAttribute="leading" secondItem="hu3-Ie-w3Z" secondAttribute="leading" constant="18" id="fZF-23-cp0"/>
                             <constraint firstItem="ksH-TP-ybd" firstAttribute="trailing" secondItem="TUV-Uh-xXd" secondAttribute="trailing" id="gKn-hP-rnd"/>
                             <constraint firstItem="txL-fu-8ud" firstAttribute="top" secondItem="hu3-Ie-w3Z" secondAttribute="top" constant="28" id="mHR-1E-7yh"/>
                             <constraint firstItem="ksH-TP-ybd" firstAttribute="leading" secondItem="TUV-Uh-xXd" secondAttribute="leading" id="noq-mb-6o5"/>
+                            <constraint firstItem="Dia-8r-D80" firstAttribute="leading" secondItem="txL-fu-8ud" secondAttribute="leading" id="sQG-E7-68o"/>
+                            <constraint firstItem="wNi-JX-KNe" firstAttribute="leading" secondItem="ksH-TP-ybd" secondAttribute="leading" id="soY-FZ-Tti"/>
                             <constraint firstItem="TUV-Uh-xXd" firstAttribute="leading" secondItem="hu3-Ie-w3Z" secondAttribute="leading" constant="10" id="yxD-lE-Dej"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="nR2-7f-And"/>
+                    <navigationItem key="navigationItem" id="nR2-7f-And">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="Dko-tc-sKc"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="createTimeLabel" destination="78r-z8-fGW" id="x7u-KO-Kmd"/>
+                        <outlet property="deleteButton" destination="wNi-JX-KNe" id="Fwr-1c-PkF"/>
+                        <outlet property="editBarButtonItem" destination="Dko-tc-sKc" id="yye-sn-Yhm"/>
+                        <outlet property="groupButton" destination="xSh-r7-k99" id="YLD-WA-eGB"/>
                         <outlet property="iconButton" destination="8ba-6R-M2I" id="Zwb-kS-96a"/>
                         <outlet property="passwordTextField" destination="cNe-s2-OFi" id="Lbb-AN-VMy"/>
                         <outlet property="remarkTextView" destination="ksH-TP-ybd" id="g6A-IS-2WB"/>
@@ -673,6 +702,9 @@
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
