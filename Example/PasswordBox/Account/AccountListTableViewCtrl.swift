@@ -17,9 +17,16 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
     
     /// 统计的 Label
     @IBOutlet weak var tableViewFooterLabel: UILabel!
+    
+    /// section 的 headerView，内含101为 UISearchBar
+    @IBOutlet var headerView: UITableViewHeaderFooterView!
     /// 搜索条
-    @IBOutlet weak var searchBar: UISearchBar?
-
+    private var searchBar: UISearchBar? {
+        didSet {
+            searchBar?.backgroundImage = UIImage()
+        }
+    }
+    
     // MARK: - public var property
     
     /// 数据源，账号列表
@@ -35,13 +42,13 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        searchBar?.backgroundImage = UIImage()
         // 修改导航条上的标题
         if groupInfo?.name != nil {
             navigationItem.title = groupInfo?.name
         } else {
             navigationItem.title = "所有密码"
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -111,23 +118,36 @@ extension AccountListTableViewCtrl {
 
 // MARK: - tableView delegate
 extension AccountListTableViewCtrl {
-        
+    
     // MARK: scrollView DataSource
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        // MARK: Judy-mark: 动态地隐藏/显示导航栏姿势
-        let pan = scrollView.panGestureRecognizer
-        let velocity = pan.velocity(in: scrollView).y
-        if velocity < -5 {  // 上拉
-            navigationController?.setNavigationBarHidden(true, animated: true)
-        } else if velocity > 5 {    // 下拉
-            navigationController?.setNavigationBarHidden(false, animated: true)
-        }
-        
-    }
-
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        
+//        // MARK: Judy-mark: 动态地隐藏/显示导航栏姿势
+//        let pan = scrollView.panGestureRecognizer
+//        let velocity = pan.velocity(in: scrollView).y
+//        if velocity < -5 {  // 上拉
+//            navigationController?.setNavigationBarHidden(true, animated: true)
+//        } else if velocity > 5 {    // 下拉
+//            navigationController?.setNavigationBarHidden(false, animated: true)
+//        }
+//        
+//    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
         
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat { 44 }
+    
+    // viewForHeaderInSection
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        var headerView: UITableViewHeaderFooterView!
+        
+        //        headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "leftHeader")
+        headerView.contentView.backgroundColor = .clear
+        searchBar = headerView.viewWithTag(101) as? UISearchBar
+        return headerView
+    }
+    
 }
