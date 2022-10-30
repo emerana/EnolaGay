@@ -726,14 +726,14 @@ public struct JudyTip {
     // 私有化 init()，禁止构建对象
     private init() {}
     
-    /// 设置 HUD 的颜色，此函数已经调用将该改变所有 HUD 的颜色
+    /// 设置 HUD 的颜色，此函数一经调用将该改变所有 HUD 的颜色。
     public static func setColorForHUD(color: UIColor) {
         ProgressHUD.colorAnimation = color
         ProgressHUD.colorProgress = color
     }
     
-    /// 弹出一个等待的转圈 HUD，通常用于执行某个耗时过程，请调用 dismiss() 或弹出其他 HUD 使其消失
-    /// - Parameter animationType: 等待指示器类型，默认为常见的系统转圈
+    /// 弹出一个等待的转圈 HUD，通常用于执行某个耗时过程，请调用 dismiss() 或弹出其他 HUD 使其消失。
+    /// - Parameter animationType: 等待指示器类型，默认为常见的系统转圈。
     public static func wait(animationType: AnimationType = .systemActivityIndicator) {
         ProgressHUD.animationType = animationType
         ProgressHUD.show()
@@ -741,9 +741,9 @@ public struct JudyTip {
     
     /// 等待的消息提示 HUD
     /// - Parameters:
-    ///   - animationType: 等待类型，默认为常见的系统转圈等待
+    ///   - animationType: 等待类型，默认为常见的系统转圈等待。
     ///   - text: 消息体
-    ///   - interaction: 是否允许用户交互，默认 true
+    ///   - interaction: 是否允许用户交互，默认 true.
     public static func wait(animationType: AnimationType = .systemActivityIndicator, text: String, interaction: Bool = true) {
         ProgressHUD.animationType = animationType
         ProgressHUD.show(text, interaction: interaction)

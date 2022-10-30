@@ -145,7 +145,7 @@ extension AccountListTableViewCtrl {
 //        var headerView: UITableViewHeaderFooterView!
         
         //        headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "leftHeader")
-        headerView.contentView.backgroundColor = .clear
+//        headerView.backgroundView?.backgroundColor = .clear
         searchBar = headerView.viewWithTag(101) as? UISearchBar
         return headerView
     }

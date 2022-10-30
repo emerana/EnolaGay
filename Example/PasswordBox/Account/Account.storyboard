@@ -368,7 +368,6 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="N5m-CF-l3w" firstAttribute="centerY" secondItem="NrD-3E-Hcs" secondAttribute="centerY" id="3on-Ju-WWE"/>
                                         <constraint firstItem="N5m-CF-l3w" firstAttribute="centerX" secondItem="NrD-3E-Hcs" secondAttribute="centerX" id="tja-s0-ksh"/>
@@ -445,7 +444,6 @@
                         </searchBar>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="ahI-yc-mvQ"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="xYa-3o-AV0" secondAttribute="trailing" id="YTZ-jk-ePw"/>
                         <constraint firstItem="xYa-3o-AV0" firstAttribute="leading" secondItem="AXz-fa-EDJ" secondAttribute="leading" id="ZH8-go-m9M"/>
@@ -641,7 +639,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nR2-7f-And">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="Dko-tc-sKc"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Dko-tc-sKc"/>
                     </navigationItem>
                     <connections>
                         <outlet property="createTimeLabel" destination="78r-z8-fGW" id="x7u-KO-Kmd"/>

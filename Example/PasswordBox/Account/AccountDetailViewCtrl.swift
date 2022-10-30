@@ -63,6 +63,47 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
         viewModel.isEditing.bind(to: remarkTextView.rx.isEditable)
             .disposed(by: disposeBag)
 
+        // 编辑状态绑定到编辑按钮
+        viewModel.isEditing.map { status in
+            return status ? "完成" : "编辑"
+        }
+        .bind(to: editBarButtonItem.rx.title)
+        .disposed(by: disposeBag)
+        
+        // 编辑状态绑定到删除按钮，是编辑期间不能执行删除
+        viewModel.isEditing.map { status in
+            return !status
+        }
+        .bind(to: deleteButton.rx.isEnabled)
+        .disposed(by: disposeBag)
+
+        // 编辑按钮点击事件
+        editBarButtonItem.rx.tap.subscribe { [weak self] Void in
+            viewModel.isEditing.accept(!(self?.userNameTextField.isEnabled ?? true))
+            
+        }.disposed(by: disposeBag)
+        
+        // 分组按钮点击事件
+        groupButton.rx.tap.subscribe { [weak self] Void in
+            Judy.logHappy("请选择分组")
+        }.disposed(by: disposeBag)
+
+        // 图标按钮点击事件
+        iconButton.rx.tap.subscribe { [weak self] Void in
+            Judy.logHappy("请选择图标")
+        }.disposed(by: disposeBag)
+
+        // 删除按钮点击事件
+        deleteButton.rx.tap.subscribe { [weak self] Void in
+            Judy.logHappy("请删除该数据")
+            self?.judy.alert(confirmction: { action in
+                Judy.logWarning("执行了删除")
+            })
+            
+        }.disposed(by: disposeBag)
+
+
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -137,7 +178,7 @@ private extension AccountDetailViewCtrl {
         if let groupName = account.remark?.group?.name {
             viewModel.groupName.accept("所在分组： \(groupName)")
         } else {
-            viewModel.groupName.accept("无分组")
+            viewModel.groupName.accept("无分组 ‣▸▶︎")
         }
         //        viewModel.account.accept(account)
     }
@@ -146,7 +187,7 @@ private extension AccountDetailViewCtrl {
 
 
 class AccountDetailViewModel {
-    /// 当前是否为编辑状态
+    /// 当前是否为编辑状态，默认为 false
     let isEditing = BehaviorRelay<Bool>(value: false)
     /// 内部有个 account 对象,，此对象暂时不知道怎么使用。
     let account = BehaviorRelay<Account?>(value: nil)
