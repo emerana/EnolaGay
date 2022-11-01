@@ -259,6 +259,29 @@ extension DataBaseCtrl {
             callback(!rollback.pointee.boolValue, callbackMessage)
         }
     }
+    
+    /// 修改账号
+    /// - Parameters:
+    ///   - account: 目标账号
+    ///   - callback: 该回调函数通过传入一个 Bool 值告知是否添加成功，并伴随消息体。
+    func modifyAccount(account: Account, callback: ((Bool, String?) -> Void)) {
+        let queue = getDBQueue()
+        var callbackMessage: String?
+        queue.inTransaction { dataBase, rollback in
+            do {
+                /// 操作的 SQL
+                let passwordSQL = "UPDATE \(account_tables.t_password) SET userName=?, password=?, updateTime=DATETIME('now','localtime')  WHERE id_account=?"
+                try dataBase.executeUpdate(passwordSQL, values: [account.name, account.password, account.id])
+            } catch {
+                callbackMessage = error.localizedDescription
+                Judy.logWarning("删除数据id:\(account.id) 失败！==\(String(describing: callbackMessage))")
+                rollback.pointee = true
+            }
+
+            callback(!rollback.pointee.boolValue, callbackMessage)
+        }
+
+    }
 
 }
 
@@ -630,74 +653,6 @@ extension DataBaseCtrl {
         }
     }
     
-    
-    /// 添加一条自选基金记录
-    /// - Parameter fund: 基金对象
-    func addOptional(fund: Fund, callback:((Bool) -> Void)) {
-        
-        let db = getDBQueue()
-        db.inTransaction { (db, rollback) in
-            let sql = "INSERT INTO \(fund_tables.t_fundOptional) (fundID, fundName) VALUES (?,?)"
-            
-            let result = db.executeUpdate(sql, withArgumentsIn: [fund.fundID, fund.fundName])
-            if result {
-                Judy.log("\(fund.fundID)写入成功")
-            } else {
-                Judy.log("\(fund_tables.t_fundOptional)-基金：\(fund.fundName)信息写入失败！")
-                rollback.pointee = true
-            }
-            callback(!rollback.pointee.boolValue)
-        }
-    }
-    
-    /// 删除一条自选基金记录或定投记录
-    /// - Parameter fundID: 基金代码
-    /// - Parameter isInvestment: 是否操作定投基金表，默认false
-    /// - Parameter callback: 回调函数，将传入操作结果值
-    func deleteOptionalOrInvestment(fundID: String, isInvestment: Bool = false, callback:((Bool) -> Void)) {
-        
-        let db = getDBQueue()
-        db.inTransaction { (db, rollback) in
-            let sql = "delete from \(isInvestment ?fund_tables.t_investment:fund_tables.t_fundOptional) where fundID = ?"
-            let result = db.executeUpdate(sql, withArgumentsIn: [fundID])
-            if result {
-                print("\(fundID)删除成功")
-            } else {
-                print("\(fund_tables.t_fundOptional)-基金：\(fundID)信息删除失败！")
-                rollback.pointee = true
-            }
-            callback(!rollback.pointee.boolValue)
-        }
-    }
-    
-    /// 查询自选基金列表
-    func getOptionList() -> [Fund] {
-        /// 本类数据源
-        var fundList = [Fund]()
-
-        let db = getDBQueue()
-        db.inTransaction { (db, rollback) in
-            /*
-             排序查询。原理是先对这个表进行排序再取出结果
-             SELECT * FROM Consult ORDER BY add_time DESC LIMIT %d,%d  按add_time  减序排列
-             SELECT * FROM Consult ORDER BY add_time ASC LIMIT %d,%d 按add_time 升序排列，默认值
-             */
-
-            let sql = "SELECT \(fund_tables.t_fundInfoList).*, \(fund_tables.t_fundOptional).fundID FROM \(fund_tables.t_fundInfoList) INNER JOIN \(fund_tables.t_fundOptional) on \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_fundOptional).fundID ORDER by \(fund_tables.t_fundOptional).ROWID"
-            let resultSet = db.executeQuery(sql, withArgumentsIn: [])
-            guard resultSet != nil else {
-                JudyTip.message(text: "查无此表！")
-                return
-            }
-            
-            while(resultSet!.next()) {
-                let fund = resultSetToFund(resultSet: resultSet!)
-                fundList.append(fund)
-            }
-        }
-        return fundList
-    }
-    
 }
 */
 
@@ -860,34 +815,4 @@ extension DataBaseCtrl {
         
     }
     
-}
-*/
-// MARK: - 其它私有函数
-/*
-private extension DataBaseCtrl {
-    
-    /// 将查询结果转换成 FundPurchased 模型
-    /// - Parameter resultSet: 查询结果集
-    func resultSetToFundPurchased(resultSet: FMResultSet) -> FundPurchased {
-        var fundPurchased = FundPurchased()
-        fundPurchased.amount = Int(resultSet.string(forColumn: "amount") ?? "0") ?? 0
-        fundPurchased.dayForInvestmentType = resultSet.string(forColumn: "dayForInvestmentType") ?? "缺失"
-        fundPurchased.fund = resultSetToFund(resultSet: resultSet)
-        fundPurchased.remark = resultSet.string(forColumn: "investmentRemark")
-
-        switch resultSet.string(forColumn: "investmentType") ?? "" {
-        case "每周":
-            fundPurchased.investmentType = .weekly
-        case "每两周":
-            fundPurchased.investmentType = .everyTwoWeeks
-        case "每月":
-            fundPurchased.investmentType = .monthly
-        default:
-            fundPurchased.investmentType = .daily
-        }
-
-        return fundPurchased
-    }
-
-}
-*/
+}*/

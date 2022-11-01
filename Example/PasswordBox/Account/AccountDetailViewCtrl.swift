@@ -76,8 +76,7 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
             .bind(to: editBarButtonItem.rx.title)
             .disposed(by: disposeBag)
         // 编辑状态绑定到导航条返回按钮
-        isStatusEditing
-            .bind(to: navigationItem.rx.hidesBackButton)
+        isStatusEditing.bind(to: navigationItem.rx.hidesBackButton)
             .disposed(by: disposeBag)
         // 编辑状态绑定到删除按钮，是编辑期间不能执行删除
         isStatusEditing.map { !$0 }
@@ -86,8 +85,31 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
 
         // 先发出一个 false
         isStatusEditing.onNext(false)
-        isStatusEditing.bind { isEditing in
+        isStatusEditing.bind { [weak self] isEditing in
             Judy.log(isEditing ? "正在编辑":"完成编辑")
+            if !isEditing {
+                Observable.combineLatest(self!.userNameTextField.rx.text.orEmpty,
+                                         self!.passwordTextField.rx.text.orEmpty)
+                .map { (uName,pwd) in
+                    let newAccount = Account(id: self!.account!.id,
+                                             name: uName,
+                                             password: pwd,
+                                             createTime: "", updateTime: "")
+                    return newAccount
+                }.subscribe { account in
+                    // 保存修改
+                    DataBaseCtrl.judy.modifyAccount(account: account) { rs, msg in
+                        Judy.log("修改结果\(rs),\(msg)")
+                        #warning("待处理修改结果")
+                        if rs {
+                            self.performSegue(withIdentifier: "completeDeleteAction", sender: nil)
+                        } else {
+                            JudyTip.message(messageType: .error, text: msg)
+                        }
+
+                    }
+                }.disposed(by: self!.disposeBag)
+            }
         }.disposed(by: disposeBag)
 
         // 编辑按钮点击事件
