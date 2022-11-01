@@ -651,9 +651,11 @@
                         <outlet property="remarkTextView" destination="ksH-TP-ybd" id="g6A-IS-2WB"/>
                         <outlet property="updateTimeLabel" destination="NgX-hC-9aF" id="wdI-3n-cC9"/>
                         <outlet property="userNameTextField" destination="tAg-VF-5Jf" id="har-Rt-pZz"/>
+                        <segue destination="dk9-pC-oUT" kind="unwind" identifier="completeDeleteAction" unwindAction="unwindToDeleteAccount:" id="jwH-gd-dVK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgH-fO-bod" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="dk9-pC-oUT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2845" y="4"/>
         </scene>

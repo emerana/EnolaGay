@@ -235,6 +235,31 @@ extension DataBaseCtrl {
         }
     }
     
+    /// 删除一个账号
+    /// - Parameters:
+    ///   - account: 要删除的账号对象
+    ///   - callback: 该回调函数通过传入一个 Bool 值告知是否添加成功，并伴随消息体。
+    func deleteAccount(account: Account, callback: ((Bool, String?) -> Void)) {
+        let queue = getDBQueue()
+        var callbackMessage: String?
+        queue.inTransaction { dataBase, rollback in
+            do {
+                /// 操作的 SQL
+                let deleteRemark: String = "DELETE FROM \(account_tables.t_remarks) WHERE id_account = ?"
+                let deletePassword: String = "DELETE FROM \(account_tables.t_password) WHERE id_account = ?"
+                
+                try dataBase.executeUpdate(deleteRemark, values: [account.id])
+                try dataBase.executeUpdate(deletePassword, values: [account.id])
+            } catch {
+                callbackMessage = error.localizedDescription
+                Judy.logWarning("删除数据id:\(account.id) 失败！==\(String(describing: callbackMessage))")
+                rollback.pointee = true
+            }
+
+            callback(!rollback.pointee.boolValue, callbackMessage)
+        }
+    }
+
 }
 
 // MARK: DQL - 数据查询

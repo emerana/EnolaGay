@@ -32,6 +32,8 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
     
     /// 一个账号密码实体，在该界面的操作对象。
     var account: Account?
+    /// 记录 account 在来源列表中的 indexPath
+    var indexPath: IndexPath!
     
     /// 当前是否为编辑状态，默认为 false.
     let isStatusEditing = BehaviorRelay<Bool>(value: false)
@@ -98,8 +100,15 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
 
         // 删除按钮点击事件
         deleteButton.rx.tap.subscribe { [weak self] _ in
-            self?.judy.alert(confirmction: { action in
-                Judy.logWarning("执行了删除")
+            guard let self = self else { return }
+            self.judy.alert(confirmction: { action in
+                DataBaseCtrl.judy.deleteAccount(account: self.account!) { rs, msg in
+                    if rs {
+                        self.performSegue(withIdentifier: "completeDeleteAction", sender: nil)
+                    } else {
+                        JudyTip.message(messageType: .error, text: msg)
+                    }
+                }
             })
             
         }.disposed(by: disposeBag)

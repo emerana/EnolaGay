@@ -62,6 +62,17 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
     
     // MARK: - Navigation
     
+    /// AccountDetailViewCtrl 删除数据时发来的最终请求，要求更新已有数据源
+    @IBAction func unwindToDeleteAccount(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source as! AccountDetailViewCtrl
+        
+        if sourceViewController.account === accountList[sourceViewController.indexPath.row] {
+            accountList.remove(at: sourceViewController.indexPath.row)
+            tableView?.reloadData()
+        }
+        
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -69,6 +80,7 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
         if let detailViewCtrl = segue.destination as? AccountDetailViewCtrl {
             if let cell = sender as? UITableViewCell, let indexPath = tableView?.indexPath(for: cell) {
                 detailViewCtrl.account = accountList[indexPath.row]
+                detailViewCtrl.indexPath = indexPath
             }
         }
         
