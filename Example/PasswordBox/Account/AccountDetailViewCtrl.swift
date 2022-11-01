@@ -10,6 +10,7 @@ import UIKit
 import EnolaGay
 import RxSwift
 import RxCocoa
+import RxRelay
 
 /// 密码详情界面
 class AccountDetailViewCtrl: JudyBaseViewCtrl {
@@ -36,8 +37,8 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
     var indexPath: IndexPath!
     
     /// 当前是否为编辑状态，默认为 false.
-    let isStatusEditing = BehaviorRelay<Bool>(value: false)
-
+    let isStatusEditing = PublishSubject<Bool>()
+    
     // MARK: - private var property
     private let disposeBag = DisposeBag()
 
@@ -83,10 +84,17 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
             .bind(to: deleteButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
+        // 先发出一个 false
+        isStatusEditing.onNext(false)
+        isStatusEditing.bind { isEditing in
+            Judy.log(isEditing ? "正在编辑":"完成编辑")
+        }.disposed(by: disposeBag)
+
         // 编辑按钮点击事件
         editBarButtonItem.rx.tap.subscribe { [weak self] _ in
-            self?.isStatusEditing.accept(!(self?.userNameTextField.isEnabled ?? true))
+            self?.isStatusEditing.onNext( !(self!.userNameTextField.isEnabled) )
         }.disposed(by: disposeBag)
+        
         
         // 分组按钮点击事件
         groupButton.rx.tap.subscribe { [weak self] _ in
