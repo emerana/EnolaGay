@@ -8,6 +8,8 @@
 //  Copyright © 2022 CocoaPods. All rights reserved.
 //
 
+import Foundation
+
 /// 账号模型
 class Account {
     /// 账号实体的 id,该值由数据库自动生成，一般情况下无需人为赋值
@@ -103,3 +105,35 @@ class Group {
     var count = 0
 }
 
+/// Bundle 图标资源控制器
+class ICONCtrl {
+    /// 可用的图标资源
+    enum ICONS: String {
+        case icons_group
+        case icons_password
+    }
+
+    /// 唯一单例
+    static let judy = ICONCtrl()
+    private init () { }
+    
+    func names(iconBundle: ICONS) -> [String] {
+        let bundlePath = Bundle.main.path(forResource: iconBundle.rawValue, ofType: "bundle")
+        let contentsOfPath = try? FileManager.default.contentsOfDirectory(atPath: bundlePath!)
+        let names = contentsOfPath?.filter { !$0.contains("@") }
+            .map { $0.replacingOccurrences(of: ".png", with: "") }
+            .sorted()
+        
+        return names!
+
+    }
+    
+    /// 获取目标 Bundle
+    /// - Parameter iconBundle: 选择一个目标 bundle
+    /// - Returns: 目标 Bundle 对象
+    func bundle(iconBundle: ICONS) -> Bundle {
+        let bundlePath = Bundle.main.path(forResource: iconBundle.rawValue, ofType: "bundle")
+        return Bundle(path: bundlePath!)!
+    }
+
+}

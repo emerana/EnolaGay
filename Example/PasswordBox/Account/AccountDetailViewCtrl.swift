@@ -10,7 +10,6 @@ import UIKit
 import EnolaGay
 import RxSwift
 import RxCocoa
-import RxRelay
 
 /// 密码详情界面
 class AccountDetailViewCtrl: JudyBaseViewCtrl {

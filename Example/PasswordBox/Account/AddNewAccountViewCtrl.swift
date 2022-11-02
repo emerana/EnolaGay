@@ -8,6 +8,8 @@
 
 import UIKit
 import EnolaGay
+import RxSwift
+import RxCocoa
 
 /// 创建账号界面
 class AddNewAccountViewCtrl: JudyBaseViewCtrl {
@@ -68,4 +70,13 @@ class AddNewAccountViewCtrl: JudyBaseViewCtrl {
 
 private extension AddNewAccountViewCtrl {
 
+}
+
+class AddNewAccountViewModel {
+//    let groupNameValid: Observable<Bool>
+    
+    init(groupNameValid: Observable<String>) {
+//        self.groupNameValid = groupNameValid
+    }
+    
 }

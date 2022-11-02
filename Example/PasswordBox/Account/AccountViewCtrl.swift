@@ -41,13 +41,8 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
         let addGroupNib = UINib(nibName: "AddNewGropuUICollectionReusableView", bundle: nil)
         collectionView?.register(addGroupNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "AddGroupButtonFooterView")
 
-        let bundlePath = Bundle.main.path(forResource: "icons_password", ofType: "bundle")
-        let contentsOfPath = try? FileManager.default.contentsOfDirectory(atPath: bundlePath!)
-        let names = contentsOfPath.map { str in
-            var list = [String]()
-            
-            return list
-        }
+        let names = ICONCtrl.judy.names(iconBundle: .icons_password)
+        
         Judy.logHappy("路径下：\(names)")
     }
 
