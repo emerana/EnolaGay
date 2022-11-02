@@ -96,7 +96,6 @@
 		8B7E1FCC29050E4B00CE5DDC /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E1FCB29050E4B00CE5DDC /* Account.storyboard */; };
 		8B7E1FCE29050E7500CE5DDC /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7E1FCD29050E7500CE5DDC /* Favorite.storyboard */; };
 		8BABE231291272B700D0DE42 /* icons_password.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BABE230291272B600D0DE42 /* icons_password.bundle */; };
-		8BABE233291275E400D0DE42 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BABE232291275E400D0DE42 /* Media.xcassets */; };
 		8BB2A7A1290A187F007991E7 /* AddNewAccountViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2A7A0290A187F007991E7 /* AddNewAccountViewCtrl.swift */; };
 		8BB2A7A3290A3BFA007991E7 /* AccountListTableViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2A7A2290A3BFA007991E7 /* AccountListTableViewCtrl.swift */; };
 		8BB2A7A5290A49F0007991E7 /* AccountDetailViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2A7A4290A49F0007991E7 /* AccountDetailViewCtrl.swift */; };
@@ -410,7 +409,6 @@
 		8B7E1FCD29050E7500CE5DDC /* Favorite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorite.storyboard; sourceTree = "<group>"; };
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
 		8BABE230291272B600D0DE42 /* icons_password.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icons_password.bundle; sourceTree = "<group>"; };
-		8BABE232291275E400D0DE42 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		8BB2A7A0290A187F007991E7 /* AddNewAccountViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAccountViewCtrl.swift; sourceTree = "<group>"; };
 		8BB2A7A2290A3BFA007991E7 /* AccountListTableViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListTableViewCtrl.swift; sourceTree = "<group>"; };
 		8BB2A7A4290A49F0007991E7 /* AccountDetailViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailViewCtrl.swift; sourceTree = "<group>"; };
@@ -1220,7 +1218,6 @@
 				8B7E1FB92905014E00CE5DDC /* AppDelegate.swift */,
 				8B7E1FBF2905014E00CE5DDC /* Main.storyboard */,
 				8B7E1FC22905014F00CE5DDC /* Assets.xcassets */,
-				8BABE232291275E400D0DE42 /* Media.xcassets */,
 				8B7E1FC42905014F00CE5DDC /* LaunchScreen.storyboard */,
 				8B7E1FC72905014F00CE5DDC /* Info.plist */,
 			);
@@ -2273,7 +2270,6 @@
 				8B6EB9C929121E2700B8E53A /* icons_group.bundle in Resources */,
 				8B7E1FCC29050E4B00CE5DDC /* Account.storyboard in Resources */,
 				8B7E1FCE29050E7500CE5DDC /* Favorite.storyboard in Resources */,
-				8BABE233291275E400D0DE42 /* Media.xcassets in Resources */,
 				8B7E1FC12905014E00CE5DDC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
