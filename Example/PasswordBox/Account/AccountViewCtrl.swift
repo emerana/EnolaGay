@@ -9,6 +9,7 @@
 import UIKit
 import EnolaGay
 
+
 /// 账号界面
 class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
     override var viewTitle: String? { "分组浏览" }
@@ -40,6 +41,7 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
         let addGroupNib = UINib(nibName: "AddNewGropuUICollectionReusableView", bundle: nil)
         collectionView?.register(addGroupNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "AddGroupButtonFooterView")
 
+        JudyFile
     }
 
     override func viewWillAppear(_ animated: Bool) {
