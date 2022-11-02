@@ -84,6 +84,7 @@
 		8B4A4DEB266F0B8C007D6DC5 /* DouYin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */; };
 		8B4A4DED266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */; };
 		8B620EA526DDF347001E1A9D /* VersionCheck-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */; };
+		8B6EB9C929121E2700B8E53A /* icons_group.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B6EB9C829121E2700B8E53A /* icons_group.bundle */; };
 		8B742563290A731F00D37DC0 /* AddNewGropuUICollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B742562290A731F00D37DC0 /* AddNewGropuUICollectionReusableView.xib */; };
 		8B742565290A7DCD00D37DC0 /* AddNewGroupViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B742564290A7DCD00D37DC0 /* AddNewGroupViewCtrl.swift */; };
 		8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76428F25A702C400A418F8 /* AppConfigs.swift */; };
@@ -392,6 +393,7 @@
 		8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DouYin.storyboard; sourceTree = "<group>"; };
 		8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DouYonHomeViewCtrl.swift; sourceTree = "<group>"; };
 		8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VersionCheck-Info.plist"; sourceTree = "<group>"; };
+		8B6EB9C829121E2700B8E53A /* icons_group.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icons_group.bundle; sourceTree = "<group>"; };
 		8B742562290A731F00D37DC0 /* AddNewGropuUICollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewGropuUICollectionReusableView.xib; sourceTree = "<group>"; };
 		8B742564290A7DCD00D37DC0 /* AddNewGroupViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGroupViewCtrl.swift; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
@@ -1184,6 +1186,14 @@
 			path = VersionCheck;
 			sourceTree = "<group>";
 		};
+		8B6EB9C729121E1600B8E53A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				8B6EB9C829121E2700B8E53A /* icons_group.bundle */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		8B76428E25A702C400A418F8 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1197,6 +1207,7 @@
 		8B7E1FB82905014E00CE5DDC /* PasswordBox */ = {
 			isa = PBXGroup;
 			children = (
+				8B6EB9C729121E1600B8E53A /* Resource */,
 				8B36B6B72907695E002B2C0F /* DataBaseCtrl.swift */,
 				8B36B6B329063A7F002B2C0F /* Models.swift */,
 				8B284FAC290537B7007D0FE3 /* Account */,
@@ -2252,6 +2263,7 @@
 				8B7E1FC62905014F00CE5DDC /* LaunchScreen.storyboard in Resources */,
 				8B7E1FC32905014F00CE5DDC /* Assets.xcassets in Resources */,
 				8B742563290A731F00D37DC0 /* AddNewGropuUICollectionReusableView.xib in Resources */,
+				8B6EB9C929121E2700B8E53A /* icons_group.bundle in Resources */,
 				8B7E1FCC29050E4B00CE5DDC /* Account.storyboard in Resources */,
 				8B7E1FCE29050E7500CE5DDC /* Favorite.storyboard in Resources */,
 				8B7E1FC12905014E00CE5DDC /* Main.storyboard in Resources */,

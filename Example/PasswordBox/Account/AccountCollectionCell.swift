@@ -18,7 +18,10 @@ class AccountCollectionCell: JudyBaseCollectionViewCell {
     /// 该 Cell 中的 group 模型
     var group: Group? {
         didSet {
-            masterImageView?.image = UIImage(named: group?.icon ?? "placeholder")
+//            masterImageView?.image = UIImage(named: group?.icon ?? "placeholder")
+            let bundlePath = Bundle.main.path(forResource: "icons_group", ofType: "bundle")
+            
+            masterImageView?.image = UIImage(named: "ziliao", in: Bundle(path: bundlePath!), compatibleWith: nil)
             
             guard group != nil else { return }
             // 设置背景色
