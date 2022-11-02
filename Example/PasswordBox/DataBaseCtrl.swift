@@ -272,9 +272,29 @@ extension DataBaseCtrl {
                 /// 操作的 SQL
                 let passwordSQL = "UPDATE \(account_tables.t_password) SET userName=?, password=?, updateTime=DATETIME('now','localtime')  WHERE id_account=?"
                 try dataBase.executeUpdate(passwordSQL, values: [account.name, account.password, account.id])
+
+                let remarkSQL = "SELECT * FROM \(account_tables.t_remarks)" +
+                " WHERE \(account_tables.t_remarks).id_account = ?"
+                let resultSet = dataBase.executeQuery(remarkSQL, withArgumentsIn: [account.id])
+                
+                if (resultSet?.next() ?? false) { // 说明已存在 remark
+                    Judy.log("存在 remark，执行修改操作") // 修改
+                    let remarkSQL = "UPDATE \(account_tables.t_remarks) SET id_group=?, remark=?, collection=0  WHERE id_account=?"
+                    try dataBase.executeUpdate(remarkSQL, values: [account.remark?.group ?? NSNull(),
+                                                                   account.remark?.remark ?? NSNull(),
+                                                                   account.id])
+                } else {
+                    Judy.log("不存在 remark，执行添加操作") // 插入
+                    let remarkSQL = "INSERT INTO \(account_tables.t_remarks) (id_account, id_group, remark)" +
+                    " VALUES (?, ?, ?)"
+                    try dataBase.executeUpdate(remarkSQL, values: [account.id,
+                                                                   account.remark?.group?.id ?? NSNull(),
+                                                                   account.remark?.remark ?? NSNull()])
+                }
+
             } catch {
                 callbackMessage = error.localizedDescription
-                Judy.logWarning("删除数据id:\(account.id) 失败！==\(String(describing: callbackMessage))")
+                Judy.logWarning("修改数据id:\(account.id) 失败！==\(String(describing: callbackMessage))")
                 rollback.pointee = true
             }
 
@@ -442,7 +462,30 @@ extension DataBaseCtrl {
         
         return remark
     }
-
+    
+    /// 查询指定 Account 信息
+    /// - Parameter accountID: 要查询的目标
+    /// - Returns: password 表中的 Account 对象，不包含 AccountRemark 信息。
+    func getAccountDetail(accountID: Int) -> Account? {
+        var account: Account?
+        let db = getDBQueue()
+        db.inTransaction { (dataBase, rollback) in
+            // 默认按数据库顺序排序
+            let sql = "SELECT * FROM \(account_tables.t_password) WHERE id_account = ?"
+            let resultSet = dataBase.executeQuery(sql, withArgumentsIn: [accountID])
+            guard resultSet != nil else {
+                JudyTip.message(text: "查无此表！")
+                return
+            }
+            
+            if resultSet!.next() {
+                account = resultSetToAccount(resultSet: resultSet!)
+            }
+            
+        }
+        return account
+    }
+    
 }
 
 // MARK: - 私有函数

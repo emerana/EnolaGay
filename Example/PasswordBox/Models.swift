@@ -31,7 +31,7 @@ class Account {
 
 /// 账号对应的详细信息模型
 class AccountRemark {
-    /// 该 id 由数据库自动生成，一般情况下无需人为赋值
+    /// 该 id 对应了 Account id
     let id: Int
     /// 该账号所在分组
     var group: Group?

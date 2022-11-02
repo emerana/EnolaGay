@@ -62,15 +62,22 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
     
     // MARK: - Navigation
     
+    /// AccountDetailViewCtrl 更改数据发来的最终请求，要求更新已有数据源
+    @IBAction func unwindToUpdateAccount(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source as! AccountDetailViewCtrl
+        if sourceViewController.account?.id == accountList[sourceViewController.indexPath.row].id {
+            accountList[sourceViewController.indexPath.row] = sourceViewController.account!
+            tableView?.reloadRows(at: [sourceViewController.indexPath], with: .fade)
+        }
+    }
+    
     /// AccountDetailViewCtrl 删除数据时发来的最终请求，要求更新已有数据源
     @IBAction func unwindToDeleteAccount(_ unwindSegue: UIStoryboardSegue) {
         let sourceViewController = unwindSegue.source as! AccountDetailViewCtrl
-        
-        if sourceViewController.account === accountList[sourceViewController.indexPath.row] {
+        if sourceViewController.account?.id == accountList[sourceViewController.indexPath.row].id {
             accountList.remove(at: sourceViewController.indexPath.row)
             tableView?.reloadData()
         }
-        
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation

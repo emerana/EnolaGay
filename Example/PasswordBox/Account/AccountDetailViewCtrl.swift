@@ -31,7 +31,7 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
     
     // MARK: - public var property
     
-    /// 一个账号密码实体，在该界面的操作对象。
+    /// 该界面的账号密码实体，该对象不包含 remark 信息。
     var account: Account?
     /// 记录 account 在来源列表中的 indexPath
     var indexPath: IndexPath!
@@ -41,7 +41,7 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
     
     // MARK: - private var property
     private let disposeBag = DisposeBag()
-
+    
     // MARK: - life cycle
     
     override func viewDidLoad() {
@@ -52,11 +52,11 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
         }
         // Do any additional setup after loading the view.
         // iconButton.imageView?.image =
-        
+        account = DataBaseCtrl.judy.getAccountDetail(accountID: account!.id)
         // 查询备注信息
         let remark = DataBaseCtrl.judy.getAccountRemark(account: account!)
         account!.remark = remark
-        
+
         let viewModel = AccountDetailViewModel(userName:
                                                 userNameTextField.rx.text.orEmpty.asObservable(),
                                                password:
@@ -87,28 +87,36 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
         isStatusEditing.onNext(false)
         isStatusEditing.bind { [weak self] isEditing in
             Judy.log(isEditing ? "正在编辑":"完成编辑")
+            let saveDisposeBag = DisposeBag()
             if !isEditing {
                 Observable.combineLatest(self!.userNameTextField.rx.text.orEmpty,
-                                         self!.passwordTextField.rx.text.orEmpty)
-                .map { (uName,pwd) in
-                    let newAccount = Account(id: self!.account!.id,
-                                             name: uName,
-                                             password: pwd,
-                                             createTime: "", updateTime: "")
-                    return newAccount
+                                         self!.passwordTextField.rx.text.orEmpty,
+                                         self!.remarkTextView.rx.text.orEmpty)
+                .map { (uName, pwd, remark) in
+
+                    self?.account?.name = uName
+                    self?.account?.password = pwd
+                    
+                    if self?.account?.remark == nil {
+                        self?.account?.remark = AccountRemark(id: 0)
+                    }
+                    self?.account?.remark?.remark = remark
+                    
+                    return self!.account!
                 }.subscribe { account in
                     // 保存修改
                     DataBaseCtrl.judy.modifyAccount(account: account) { rs, msg in
                         Judy.log("修改结果\(rs),\(msg)")
-                        #warning("待处理修改结果")
+                        #warning("还需要处理修改 remark 结果")
                         if rs {
-                            self.performSegue(withIdentifier: "completeDeleteAction", sender: nil)
+                            self!.account = account
+//                            self!.performSegue(withIdentifier: "completeUpdateAction", sender: nil)
                         } else {
                             JudyTip.message(messageType: .error, text: msg)
                         }
 
                     }
-                }.disposed(by: self!.disposeBag)
+                }.disposed(by: saveDisposeBag)
             }
         }.disposed(by: disposeBag)
 
@@ -131,7 +139,7 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
         // 删除按钮点击事件
         deleteButton.rx.tap.subscribe { [weak self] _ in
             guard let self = self else { return }
-            self.judy.alert(confirmction: { action in
+            self.judy.alert(msg: "此操作将会删除这条数据！", confirmction: { action in
                 DataBaseCtrl.judy.deleteAccount(account: self.account!) { rs, msg in
                     if rs {
                         self.performSegue(withIdentifier: "completeDeleteAction", sender: nil)
