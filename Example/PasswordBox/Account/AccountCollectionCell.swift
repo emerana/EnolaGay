@@ -18,12 +18,13 @@ class AccountCollectionCell: JudyBaseCollectionViewCell {
     /// 该 Cell 中的 group 模型
     var group: Group? {
         didSet {
-//            masterImageView?.image = UIImage(named: group?.icon ?? "placeholder")
-            let bundlePath = Bundle.main.path(forResource: "icons_password", ofType: "bundle")
-            
-            masterImageView?.image = UIImage(named: "bianji", in: Bundle(path: bundlePath!), compatibleWith: nil)
-            
+//            masterImageView?.image = UIImage(ICONCtrl.j named: group?.icon ?? "placeholder")
+
             guard group != nil else { return }
+            masterImageView?.image = UIImage(named: group?.icon ?? "jiemi",
+                                             in: ICONCtrl.judy.bundle(iconBundle: .icons_group),
+                                             compatibleWith: nil)
+            
             // 设置背景色
             let colorValue: Int = group!.backgroundColor.intValueFrom16Decimal
             backgroundColor = UIColor(rgbValue: colorValue )

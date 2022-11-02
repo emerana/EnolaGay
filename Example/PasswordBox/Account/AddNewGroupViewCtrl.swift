@@ -63,6 +63,7 @@ class AddNewGroupViewCtrl: JudyBaseCollectionViewCtrl {
                                name: self.groupNameTextField.text!,
                                // 这里颜色需要转成16进制存储才行。十进制转十六进制,返回的是字符串格式。
                                backgroundColor: String(color10,radix:16))
+            self.group?.icon = self.iconNameList[self.iconSelectedIndexPath.row]
             
             // 触发 unwind 事件
             self.performSegue(withIdentifier: "completeAndDismissAction", sender: nil)
