@@ -19,9 +19,9 @@ class AccountCollectionCell: JudyBaseCollectionViewCell {
     var group: Group? {
         didSet {
 //            masterImageView?.image = UIImage(named: group?.icon ?? "placeholder")
-            let bundlePath = Bundle.main.path(forResource: "icons_group", ofType: "bundle")
+            let bundlePath = Bundle.main.path(forResource: "icons_password", ofType: "bundle")
             
-            masterImageView?.image = UIImage(named: "ziliao", in: Bundle(path: bundlePath!), compatibleWith: nil)
+            masterImageView?.image = UIImage(named: "bianji", in: Bundle(path: bundlePath!), compatibleWith: nil)
             
             guard group != nil else { return }
             // 设置背景色
