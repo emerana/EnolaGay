@@ -280,7 +280,7 @@ extension DataBaseCtrl {
                 if (resultSet?.next() ?? false) { // 说明已存在 remark
                     Judy.log("存在 remark，执行修改操作") // 修改
                     let remarkSQL = "UPDATE \(account_tables.t_remarks) SET id_group=?, remark=?, collection=0  WHERE id_account=?"
-                    try dataBase.executeUpdate(remarkSQL, values: [account.remark?.group ?? NSNull(),
+                    try dataBase.executeUpdate(remarkSQL, values: [account.remark?.group?.id ?? NSNull(),
                                                                    account.remark?.remark ?? NSNull(),
                                                                    account.id])
                 } else {

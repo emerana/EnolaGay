@@ -107,7 +107,6 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
                     // 保存修改
                     DataBaseCtrl.judy.modifyAccount(account: account) { rs, msg in
                         Judy.log("修改结果\(rs),\(msg)")
-                        #warning("还需要处理修改 remark 结果")
                         if rs {
                             self!.account = account
 //                            self!.performSegue(withIdentifier: "completeUpdateAction", sender: nil)
