@@ -30,7 +30,7 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
     // MARK: - public var property
     
     /// 数据源，账号列表
-    var accountList = [Account]()
+    private(set) var accountList = [Account]()
     
     /// 此属性用于标识当前数据源是否有组信息
     var groupInfo: Group?
@@ -45,31 +45,28 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
         // 修改导航条上的标题
         if groupInfo?.name != nil {
             navigationItem.title = groupInfo?.name
+            accountList = DataBaseCtrl.judy.getGroupDataList(group: groupInfo!)
         } else {
             navigationItem.title = "所有密码"
+            accountList = DataBaseCtrl.judy.getAccountList()
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         isReqSuccess = true
         super.viewWillAppear(animated)
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView?.reloadData()
+    }
+        
     // MARK: - override
     
     // MARK: - event response
     
     // MARK: - Navigation
-    
-    /// AccountDetailViewCtrl 更改数据发来的最终请求，要求更新已有数据源
-    @IBAction func unwindToUpdateAccount(_ unwindSegue: UIStoryboardSegue) {
-        let sourceViewController = unwindSegue.source as! AccountDetailViewCtrl
-        if sourceViewController.account?.id == accountList[sourceViewController.indexPath.row].id {
-            accountList[sourceViewController.indexPath.row] = sourceViewController.account!
-            tableView?.reloadRows(at: [sourceViewController.indexPath], with: .fade)
-        }
-    }
     
     /// AccountDetailViewCtrl 删除数据时发来的最终请求，要求更新已有数据源
     @IBAction func unwindToDeleteAccount(_ unwindSegue: UIStoryboardSegue) {
@@ -88,6 +85,12 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
             if let cell = sender as? UITableViewCell, let indexPath = tableView?.indexPath(for: cell) {
                 detailViewCtrl.account = accountList[indexPath.row]
                 detailViewCtrl.indexPath = indexPath
+                detailViewCtrl.updateAccountCallback = { [weak self] (account, indexPath) in
+                    guard indexPath != nil else { return }
+                    if account.id == self?.accountList[indexPath!.row].id {
+                        self?.accountList[indexPath!.row] = account
+                    }
+                }
             }
         }
         

@@ -98,13 +98,13 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
              let cell: AccountCollectionCell = sender as! AccountCollectionCell
              accountListTableViewCtrl.groupInfo = cell.group
 
-             let accountList: [Account]
-             if cell.group == nil { // 所有密码
-                 accountList = DataBaseCtrl.judy.getAccountList()
-             } else { // 具体组下的密码
-                 accountList = DataBaseCtrl.judy.getGroupDataList(group: cell.group!)
-             }
-             accountListTableViewCtrl.accountList = accountList
+//             let accountList: [Account]
+//             if cell.group == nil { // 所有密码
+//                 accountList = DataBaseCtrl.judy.getAccountList()
+//             } else { // 具体组下的密码
+//                 accountList = DataBaseCtrl.judy.getGroupDataList(group: cell.group!)
+//             }
+//             accountListTableViewCtrl.accountList = accountList
          }
      }
     

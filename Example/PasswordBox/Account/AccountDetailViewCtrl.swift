@@ -35,6 +35,8 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
     var account: Account?
     /// 记录 account 在来源列表中的 indexPath
     var indexPath: IndexPath!
+    /// 更新了 account 的回调
+    var updateAccountCallback: ((Account, IndexPath?) -> Void)?
     
     /// 当前是否为编辑状态，默认为 false.
     let isStatusEditing = PublishSubject<Bool>()
@@ -52,6 +54,7 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
         }
         // Do any additional setup after loading the view.
         // iconButton.imageView?.image =
+        // 从数据库查询信息
         account = DataBaseCtrl.judy.getAccountDetail(accountID: account!.id)
         // 查询备注信息
         let remark = DataBaseCtrl.judy.getAccountRemark(account: account!)
@@ -109,7 +112,7 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
                         Judy.log("修改结果\(rs),\(msg)")
                         if rs {
                             self!.account = account
-//                            self!.performSegue(withIdentifier: "completeUpdateAction", sender: nil)
+                            self?.updateAccountCallback?(account, self!.indexPath)
                         } else {
                             JudyTip.message(messageType: .error, text: msg)
                         }
