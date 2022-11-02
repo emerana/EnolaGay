@@ -464,10 +464,11 @@
                             <constraint firstItem="QgI-2e-ygI" firstAttribute="trailing" secondItem="MDX-PN-3dP" secondAttribute="trailing" id="jon-Wb-zdC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" style="editor" id="zJh-cM-swd">
+                    <navigationItem key="navigationItem" id="zJh-cM-swd">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="VTb-38-hY8"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="editGroupBarButtonItem" destination="VTb-38-hY8" id="h3b-ev-r0e"/>
                         <outlet property="headerView" destination="AXz-fa-EDJ" id="7me-XN-Sha"/>
                         <outlet property="tableView" destination="QgI-2e-ygI" id="RVa-3O-aZz"/>
                         <outlet property="tableViewFooterLabel" destination="N5m-CF-l3w" id="hX1-bz-FpS"/>

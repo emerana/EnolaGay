@@ -8,6 +8,8 @@
 
 import UIKit
 import EnolaGay
+import RxSwift
+import RxCocoa
 
 /// 密码列表界面
 class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
@@ -18,7 +20,10 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
     /// 统计的 Label
     @IBOutlet weak var tableViewFooterLabel: UILabel!
     
-    /// section 的 headerView，内含101为 UISearchBar
+    /// 编辑组按钮
+    @IBOutlet weak var editGroupBarButtonItem: UIBarButtonItem!
+    
+    /// section 的 headerView，内含 101 为 UISearchBar
     @IBOutlet var headerView: UITableViewHeaderFooterView!
     /// 搜索条
     private var searchBar: UISearchBar? {
@@ -36,20 +41,39 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
     var groupInfo: Group?
     
     // MARK: - private var property
-    
+    private let disposeBag = DisposeBag()
+
     // MARK: - life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // 修改导航条上的标题
-        if groupInfo?.name != nil {
-            navigationItem.title = groupInfo?.name
-            accountList = DataBaseCtrl.judy.getGroupDataList(group: groupInfo!)
-        } else {
-            navigationItem.title = "所有密码"
-            accountList = DataBaseCtrl.judy.getAccountList()
+        // 所在组名
+        let groupName: Observable<Group?> = Observable.create { [weak self] observer -> Disposable in
+            observer.onNext(self?.groupInfo)
+            return Disposables.create()
         }
+        // 绑定到导航条标题
+        groupName.map { ($0?.name == nil) ? "所有密码":$0?.name }
+            .bind(to: navigationItem.rx.title)
+            .disposed(by: disposeBag)
+        // 根据 group 信息设置数据源
+        groupName.subscribe { [weak self] _ in
+            guard let self = self else { return }
+            
+            // 根据组信息设置数据源
+            if self.groupInfo != nil {
+                self.accountList = DataBaseCtrl.judy.getGroupDataList(group: self.groupInfo!)
+            } else {
+                self.accountList = DataBaseCtrl.judy.getAccountList()
+            }
+        }.disposed(by: disposeBag)
+        
+        // 决定右上角按钮
+        groupName.map { $0 != nil }
+            .bind(to: editGroupBarButtonItem.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
