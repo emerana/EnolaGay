@@ -41,6 +41,8 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
     let isStatusEditing = PublishSubject<Bool>()
     
     // MARK: - private var property
+    private var viewModel: AccountDetailViewModel!
+    
     private let disposeBag = DisposeBag()
     
     // MARK: - life cycle
@@ -53,18 +55,15 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
         }
         // Do any additional setup after loading the view.
 
-        // 从数据库查询信息
-        account = DataBaseCtrl.judy.getAccountDetail(accountID: account!.id)
-        // 查询备注信息
-        let remark = DataBaseCtrl.judy.getAccountRemark(account: account!)
-        account!.remark = remark
-
-        let viewModel = AccountDetailViewModel(userName:
+        viewModel = AccountDetailViewModel(userName:
                                                 userNameTextField.rx.text.orEmpty.asObservable(),
                                                password:
                                                 passwordTextField.rx.text.orEmpty.asObservable(),
                                                account: account!)
-        bindings(viewModel: viewModel)
+        // 绑定数据显示
+        bindings()
+        // 更新 account
+        updateAccountInfo()
 
         // 编辑状态绑定到用户是否可输入
         isStatusEditing.bind(to: userNameTextField.rx.isEnabled)
@@ -91,6 +90,7 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
             Judy.log(isEditing ? "正在编辑":"完成编辑")
             let saveDisposeBag = DisposeBag()
             if !isEditing {
+                // 保存输入
                 Observable.combineLatest(self!.userNameTextField.rx.text.orEmpty,
                                          self!.passwordTextField.rx.text.orEmpty,
                                          self!.remarkTextView.rx.text.orEmpty)
@@ -114,8 +114,9 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
                         } else {
                             JudyTip.message(messageType: .error, text: msg)
                         }
-
                     }
+                    // 更新 account
+                    self?.updateAccountInfo()
                 }.disposed(by: saveDisposeBag)
             }
         }.disposed(by: disposeBag)
@@ -124,7 +125,6 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
         editBarButtonItem.rx.tap.subscribe { [weak self] _ in
             self?.isStatusEditing.onNext( !(self!.userNameTextField.isEnabled) )
         }.disposed(by: disposeBag)
-        
         
         // 分组按钮点击事件
         groupButton.rx.tap.subscribe { [weak self] _ in
@@ -183,6 +183,8 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
                 JudyTip.message(messageType: .error, text: msg)
             }
         }
+        // 更新 account
+        updateAccountInfo()
     }
     
     /*
@@ -202,51 +204,50 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
 
 private extension AccountDetailViewCtrl {
     
-    /// 数据绑定
-    func bindings(viewModel: AccountDetailViewModel) {
+    /// 从数据库更新account对象并将其发送给 viewModel
+    func updateAccountInfo() {
+        // 从数据库查询信息
+        account = DataBaseCtrl.judy.getAccountDetail(accountID: account!.id)
+        // 查询备注信息
+        let remark = DataBaseCtrl.judy.getAccountRemark(account: account!)
+        account!.remark = remark
+        viewModel.accountSubject.onNext(account!)
+    }
+
+    /// viewModel 数据绑定
+    func bindings() {
         
         // viewModel 绑定到 UI
-        viewModel.username
+        viewModel.accountSubject.map { $0.name }
             .bind(to: userNameTextField.rx.text)
             .disposed(by: disposeBag)
-        viewModel.password
+        viewModel.accountSubject.map { $0.password }
             .bind(to: passwordTextField.rx.text)
             .disposed(by: disposeBag)
-        viewModel.remark
+        viewModel.accountSubject.map { $0.remark?.remark }
             .bind(to: remarkTextView.rx.text)
             .disposed(by: disposeBag)
-        viewModel.createTime
-            .map { "创建时间： \($0)" }
+        viewModel.accountSubject.map { "创建时间： \($0.createTime)" }
             .bind(to: createTimeLabel.rx.text)
             .disposed(by: disposeBag)
-        viewModel.updateTime
-            .map { "上次修改时间： \($0)" }
+        viewModel.accountSubject.map { "上次修改时间： \($0.updateTime)" }
             .bind(to: updateTimeLabel.rx.text)
             .disposed(by: disposeBag)
-        viewModel.groupName
-            .map { $0 == nil ? "无分组 ➤" : "所在分组： \($0!)" }
-            .bind(to: groupButton.rx.title(for: .normal))
-            .disposed(by: disposeBag)
-        viewModel.icon
+        viewModel.accountSubject.map {
+            if let groupName = $0.remark?.group?.name {
+                return "所在分组： \(groupName)"
+            } else { return "无分组 ➤" }
+        }
+        .bind(to: groupButton.rx.title(for: .normal))
+        .disposed(by: disposeBag)
+        viewModel.accountSubject
             .map {
-                ICON.judy.image(withName: $0 ?? "",
+                ICON.judy.image(withName: $0.remark?.icon ?? "",
                                 iconBundle: .icons_password)
             }
             .bind(to: iconButton.rx.backgroundImage(for: .normal))
             .disposed(by: disposeBag)
         
-
-        // UI 绑定到 viewModel
-        userNameTextField.rx.text.orEmpty
-            .bind(to: viewModel.username)
-            .disposed(by: disposeBag)
-        passwordTextField.rx.text.orEmpty
-            .bind(to: viewModel.password)
-            .disposed(by: disposeBag)
-        remarkTextView.rx.text.orEmpty
-            .bind(to: viewModel.remark)
-            .disposed(by: disposeBag)
-
         // 所有输入是否有效绑定到编辑按钮
         viewModel.everythingValid.bind(to: editBarButtonItem.rx.isEnabled)
             .disposed(by: disposeBag)
@@ -260,22 +261,14 @@ private extension AccountDetailViewCtrl {
 class AccountDetailViewModel {
     
     // 输出
-    
+    /// 可观察的 account 对象
+    let accountSubject: BehaviorSubject<Account>
     /// 用户名是否有效
     let userNameValid: Observable<Bool>
     /// 密码是否有效
     let passwordValid: Observable<Bool>
     /// 所有输入是否有效
     let everythingValid: Observable<Bool>
-
-    /// account 对象相关属性
-    let icon: BehaviorRelay<String?>,
-        groupName: BehaviorRelay<String?>,
-        username: BehaviorRelay<String>,
-        password: BehaviorRelay<String>,
-        remark: BehaviorRelay<String?>,
-        createTime: BehaviorRelay<String>,
-        updateTime: BehaviorRelay<String>
 
     /// 生成 ViewModel 输入绑定
     /// - Parameters:
@@ -285,14 +278,6 @@ class AccountDetailViewModel {
     init(userName: Observable<String>,
          password: Observable<String>,
          account: Account) {
-        
-        icon = BehaviorRelay<String?>(value: account.remark?.icon)
-        groupName = BehaviorRelay<String?>(value: account.remark?.group?.name)
-        username = BehaviorRelay<String>(value: account.name)
-        self.password = BehaviorRelay<String>(value: account.password)
-        remark = BehaviorRelay<String?>(value: account.remark?.remark)
-        createTime = BehaviorRelay<String>(value: account.createTime)
-        updateTime = BehaviorRelay<String>(value: account.updateTime)
 
         userNameValid = userName
             .map { $0.count >= 1 }
@@ -303,7 +288,7 @@ class AccountDetailViewModel {
         everythingValid = Observable.combineLatest(userNameValid,  passwordValid)
             .map { $0 && $1 }
             .share(replay: 1)
-
+        accountSubject = BehaviorSubject(value: account)
     }
     
 }
