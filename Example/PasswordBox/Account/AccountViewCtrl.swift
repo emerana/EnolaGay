@@ -142,6 +142,7 @@ extension AccountViewCtrl {
         } else { // 具体分组
             cell.group = groups[indexPath.row - 1]
         }
+        cell.judy.viewShadow(offset: CGSize(width: 6, height: 6), opacity: 0.3)
         return cell
     }
         
