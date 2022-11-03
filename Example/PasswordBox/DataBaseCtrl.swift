@@ -347,9 +347,10 @@ extension DataBaseCtrl {
         return count
     }
 
-    /// 获取数据库中所有的 account 数据
+    /// 获取数据库中所有的 account 主要数据列表
     /// - Parameter group: 查询指定组下的 account 数据，该值默认为 nil，即查询所有。
     /// - Returns: 目标 account 列表
+    /// - Warning: account 仅含有 password 表中的数据，remark中图标数据。
     func getAccountList(group: Group? = nil) -> [Account] {
         var accounts = [Account]()
 
@@ -358,14 +359,18 @@ extension DataBaseCtrl {
             let sql: String
             if group == nil {
                 // 默认按数据库顺序排序
-                sql = "SELECT * FROM \(account_tables.t_password)" // ORDER BY name DESC
+                sql = "SELECT \(account_tables.t_password).*, \(account_tables.t_remarks).icon" +
+                " FROM \(account_tables.t_password)" +
+                " LEFT JOIN \(account_tables.t_remarks)" +
+                " ON \(account_tables.t_password).id_account = \(account_tables.t_remarks).id_account" // ORDER BY name DESC
             } else {
                 // 查询指定组下所有数据，此处需三表查询。
-                sql = "SELECT * FROM \(account_tables.t_password)" +
-                 " LEFT JOIN t_remarks" +
-                 " on \(account_tables.t_password).id_account = \(account_tables.t_remarks).id_account" +
-                 " LEFT JOIN \(account_tables.t_group)" +
-                 " on \(account_tables.t_remarks).id_group = \(account_tables.t_group).id_group" +
+                sql = "SELECT \(account_tables.t_password).*, \(account_tables.t_remarks).icon" +
+                " FROM \(account_tables.t_password)" +
+                " LEFT JOIN \(account_tables.t_remarks)" +
+                " ON \(account_tables.t_password).id_account = \(account_tables.t_remarks).id_account" +
+                " LEFT JOIN \(account_tables.t_group)" +
+                " ON \(account_tables.t_remarks).id_group = \(account_tables.t_group).id_group" +
                 " WHERE \(account_tables.t_group).id_group = \(group!.id)" // ORDER BY userName
             }
             let resultSet = dataBase.executeQuery(sql, withArgumentsIn: [])
@@ -536,7 +541,11 @@ private extension DataBaseCtrl {
                               password: resultSet.string(forColumn: "password") ?? "数据库缺失值",
                               createTime: resultSet.string(forColumn: "createTime") ?? "数据库缺失值",
                               updateTime: resultSet.string(forColumn: "updateTime") ?? "数据库缺失值")
-        
+        if let iconName = resultSet.string(forColumn: "icon") {
+            let remark = AccountRemark(id: account.id)
+            remark.icon = iconName
+            account.remark = remark
+        }
         return account
     }
     

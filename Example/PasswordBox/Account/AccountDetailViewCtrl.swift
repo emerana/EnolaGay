@@ -162,7 +162,7 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
     
     // MARK: - event response
     
-    /// 收到选择图标界面消失时发来的请求，要求修改密码的图标
+    /// 收到选择图标界面消失时发来的请求，要求修改图标
     @IBAction func unwindFromChooseICONViewCtrl(_ unwindSegue: UIStoryboardSegue) {
         guard let account = account else { return }
         
@@ -174,11 +174,12 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
            account.remark = AccountRemark(id: 0)
         }
         account.remark?.icon = iconName
-        // 此时 remark 对象还是nil
         // 保存图标修改
         DataBaseCtrl.judy.modifyAccount(account: account) { [weak self] rs, msg in
             Judy.log("修改结果\(rs),\(String(describing: msg))")
-            if !rs {
+            if rs {
+                self?.updateAccountCallback?(account, self!.indexPath)
+            } else {
                 JudyTip.message(messageType: .error, text: msg)
             }
         }
