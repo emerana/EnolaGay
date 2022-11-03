@@ -21,9 +21,8 @@ class AccountCollectionCell: JudyBaseCollectionViewCell {
 //            masterImageView?.image = UIImage(ICONCtrl.j named: group?.icon ?? "placeholder")
 
             guard group != nil else { return }
-            masterImageView?.image = UIImage(named: group?.icon ?? "jiemi",
-                                             in: ICONCtrl.judy.bundle(iconBundle: .icons_group),
-                                             compatibleWith: nil)
+            masterImageView?.image = ICON.judy.image(withName: group?.icon ?? "",
+                                                     iconBundle: .icons_group)
             
             // 设置背景色
             let colorValue: Int = group!.backgroundColor.intValueFrom16Decimal

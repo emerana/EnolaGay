@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// 账号模型
 class Account {
@@ -109,18 +110,18 @@ class Group {
 }
 
 /// Bundle 图标资源控制器
-class ICONCtrl {
-    /// 可用的图标资源
-    enum ICONS: String {
+class ICON {
+    /// 可用的图标资源 Bundle 名
+    enum ICON_Bundle: String {
         case icons_group
         case icons_password
     }
 
     /// 唯一单例
-    static let judy = ICONCtrl()
+    static let judy = ICON()
     private init () { }
     
-    func names(iconBundle: ICONS) -> [String] {
+    func names(iconBundle: ICON_Bundle) -> [String] {
         let bundlePath = Bundle.main.path(forResource: iconBundle.rawValue, ofType: "bundle")
         let contentsOfPath = try? FileManager.default.contentsOfDirectory(atPath: bundlePath!)
         let names = contentsOfPath?.filter { !$0.contains("@") }
@@ -128,15 +129,30 @@ class ICONCtrl {
             .sorted()
         
         return names!
-
     }
     
     /// 获取目标 Bundle
     /// - Parameter iconBundle: 选择一个目标 bundle
     /// - Returns: 目标 Bundle 对象
-    func bundle(iconBundle: ICONS) -> Bundle {
+    func bundle(iconBundle: ICON_Bundle) -> Bundle {
         let bundlePath = Bundle.main.path(forResource: iconBundle.rawValue, ofType: "bundle")
         return Bundle(path: bundlePath!)!
+    }
+    
+    /// 直接从指定bundle中获取 image 对象，若没有改图片将返回默认占位图
+    /// - Parameters:
+    ///   - name: 在对应 bundle 中的图片名
+    ///   - iconBundle: 目标 bundle
+    /// - Returns: 目标 image 对象
+    func image(withName name: String, iconBundle: ICON_Bundle) -> UIImage? {
+        var image = UIImage(named: name,
+                            in: Self.judy.bundle(iconBundle: iconBundle),
+                            compatibleWith: nil)
+        if image == nil {
+            image = UIImage(named: "placeholder")
+        }
+        
+        return image
     }
 
 }

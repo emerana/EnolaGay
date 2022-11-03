@@ -28,7 +28,7 @@ class ChooseAccountICONCollectionViewCtrl: JudyBaseCollectionViewCtrl {
     private let disposeBag = DisposeBag()
 
     var iconNameList: [String] {
-        return ICONCtrl.judy.names(iconBundle: .icons_password)
+        return ICON.judy.names(iconBundle: .icons_password)
     }
     private(set) var iconSelectedIndexPath: IndexPath = IndexPath(item: 0, section: 0)
     
@@ -80,10 +80,9 @@ extension ChooseAccountICONCollectionViewCtrl {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         
-        (cell.viewWithTag(101) as? UIImageView)?.image = UIImage(
-            named: iconNameList[indexPath.row],
-            in: ICONCtrl.judy.bundle(iconBundle: .icons_password),
-            compatibleWith: nil)
+        (cell.viewWithTag(101) as? UIImageView)?.image =
+        ICON.judy.image(withName: iconNameList[indexPath.row],
+                        iconBundle: .icons_password)
         
         if iconSelectedIndexPath == indexPath {
             cell.judy.viewBorder(border: 2, color: .purple)

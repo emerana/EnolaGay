@@ -42,7 +42,7 @@ class AddNewGroupViewCtrl: JudyBaseCollectionViewCtrl {
     private(set) var iconSelectedIndex = BehaviorSubject<IndexPath>(value: IndexPath(item: 0, section: 0))
     
     /// 组图标数据源
-    private var iconNameList: [String] { ICONCtrl.judy.names(iconBundle: .icons_group) }
+    private var iconNameList: [String] { ICON.judy.names(iconBundle: .icons_group) }
     
     
     // MARK: - life cycle
@@ -72,9 +72,8 @@ class AddNewGroupViewCtrl: JudyBaseCollectionViewCtrl {
         // 选中的图标绑定到按钮显示
         iconSelectedIndex.map { [weak self] indexPath in
             guard let self = self else { return UIImage(named: "placeholder")! }
-            return UIImage(named: self.iconNameList[indexPath.row],
-                    in: ICONCtrl.judy.bundle(iconBundle: .icons_group),
-                    compatibleWith: nil)
+            return ICON.judy.image(withName: self.iconNameList[indexPath.row],
+                                   iconBundle: .icons_group)
         }
         .bind(to: iconButton.rx.backgroundImage(for: .normal))
         .disposed(by: disposeBag)
@@ -126,10 +125,9 @@ extension AddNewGroupViewCtrl {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
         
         if collectionView == iconCollectionView {
-            (cell.viewWithTag(101) as? UIImageView)?.image = UIImage(
-                named: iconNameList[indexPath.row],
-                in: ICONCtrl.judy.bundle(iconBundle: .icons_group),
-                compatibleWith: nil)
+            (cell.viewWithTag(101) as? UIImageView)?.image =
+            ICON.judy.image(withName: iconNameList[indexPath.row],
+                            iconBundle: .icons_group)
             
             if iconSelectedIndexPath == indexPath {
                 cell.judy.viewBorder(border: 6, color: .purple)

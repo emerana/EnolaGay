@@ -224,9 +224,8 @@ private extension AccountDetailViewCtrl {
             .disposed(by: disposeBag)
         viewModel.icon
             .map {
-                UIImage(named: $0 ?? "bianji",
-                        in: ICONCtrl.judy.bundle(iconBundle: .icons_password),
-                        compatibleWith: nil)
+                ICON.judy.image(withName: $0 ?? "",
+                                iconBundle: .icons_password)
             }
             .bind(to: iconButton.rx.backgroundImage(for: .normal))
             .disposed(by: disposeBag)

@@ -145,7 +145,8 @@ extension AccountListTableViewCtrl {
 
         cell.textLabel?.text = account.name
         cell.detailTextLabel?.text = account.password
-        cell.imageView?.image = UIImage(imageLiteralResourceName: "placeholder")
+        cell.imageView?.image = ICON.judy.image(withName: account.remark?.icon ?? "",
+                                                    iconBundle: .icons_password)
         //  if dataSource[indexPath.row]["subtitle"] == nil {
         //
         //      cell.accessoryType = .disclosureIndicator

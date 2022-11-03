@@ -261,7 +261,7 @@ extension DataBaseCtrl {
         }
     }
     
-    /// 修改账号
+    /// 修改账号信息
     /// - Parameters:
     ///   - account: 目标账号
     ///   - callback: 该回调函数通过传入一个 Bool 值告知是否添加成功，并伴随消息体。
