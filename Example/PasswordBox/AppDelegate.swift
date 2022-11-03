@@ -106,20 +106,21 @@ class AddNewAccountViewCtrlSegue: FullWidthScreenSegue {
 
 /// 添加分组专用 SwiftMessagesSegue
 class AddNewGroupViewCtrlSegue: FullWidthScreenSegue {
-    override func perform() {
-        super.perform()
-        
-        // 改变 ViewCtrl 的高度
-        destination.preferredContentSize.height = min(source.view.frame.height - 168, 680)
-    }
-}
-
-/// 密码详情界面选择图标的 ViewCtrl Segue.
-class AccountDetailChooseICONViewCtrlSegue: FullWidthScreenSegue {
     
     override func perform() {
         super.perform()
+        // 改变 ViewCtrl 的高度
+        destination.preferredContentSize.height = min(source.view.frame.height - 168, 680)
+    }
+    
+}
 
+/// 密码详情界面选择图标/选择分组的 ViewCtrl Segue.
+class AccountDetailChooseViewCtrlSegue: FullWidthScreenSegue {
+    
+    override func perform() {
+        super.perform()
         destination.preferredContentSize.height = 388
     }
+    
 }

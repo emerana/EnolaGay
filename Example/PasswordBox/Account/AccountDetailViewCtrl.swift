@@ -187,6 +187,10 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
         updateAccountInfo()
     }
     
+    @IBAction func unwindFromChooseGroupViewCtrl(_ unwindSegue: UIStoryboardSegue) {
+        
+    }
+    
     /*
      // MARK: - Navigation
      

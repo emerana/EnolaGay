@@ -521,7 +521,7 @@
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" backgroundImage="placeholder"/>
                                                 <connections>
-                                                    <segue destination="Tzd-TX-Ise" kind="show" customClass="AccountDetailChooseICONViewCtrlSegue" customModule="PasswordBox" customModuleProvider="target" id="44I-AU-DDs"/>
+                                                    <segue destination="Tzd-TX-Ise" kind="show" customClass="AccountDetailChooseViewCtrlSegue" customModule="PasswordBox" customModuleProvider="target" id="44I-AU-DDs"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSh-r7-k99" customClass="JudyBaseButton" customModule="EnolaGay">
@@ -531,6 +531,9 @@
                                                 <state key="normal" title="分组：因哈卡">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="h6j-uj-Alj" kind="show" customClass="AccountDetailChooseViewCtrlSegue" customModule="PasswordBox" customModuleProvider="target" id="Y9P-Tp-52b"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -794,6 +797,47 @@
                 <exit id="1cf-OJ-xfL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3773.8461538461538" y="785.54502369668239"/>
+        </scene>
+        <!--Choose Group Table View Ctrl-->
+        <scene sceneID="vrf-2W-5r3">
+            <objects>
+                <viewController id="h6j-uj-Alj" customClass="ChooseGroupTableViewCtrl" customModule="PasswordBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iiw-xx-cEP">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aHX-01-Pjr">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="zAt-GW-QTS">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zAt-GW-QTS" id="GGK-tZ-lMR">
+                                            <rect key="frame" x="0.0" y="0.0" width="346" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cgZ-3q-QyU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="right" secondItem="aHX-01-Pjr" secondAttribute="right" id="AUA-2t-vr7"/>
+                            <constraint firstItem="aHX-01-Pjr" firstAttribute="left" secondItem="iiw-xx-cEP" secondAttribute="left" id="Xs0-Pb-00N"/>
+                            <constraint firstAttribute="bottom" secondItem="aHX-01-Pjr" secondAttribute="bottom" id="qh7-D8-ZvM"/>
+                            <constraint firstItem="aHX-01-Pjr" firstAttribute="top" secondItem="iiw-xx-cEP" secondAttribute="top" id="u6x-0l-tXT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dlR-jt-ls8"/>
+                    <connections>
+                        <outlet property="tableView" destination="aHX-01-Pjr" id="PXX-Sp-Na9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hne-iU-XFc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2843.0769230769229" y="1550.4739336492889"/>
         </scene>
         <!--Judy Base Navigation Ctrl-->
         <scene sceneID="WZ4-qQ-oZS">
