@@ -465,7 +465,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zJh-cM-swd">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="VTb-38-hY8"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="VTb-38-hY8"/>
                     </navigationItem>
                     <connections>
                         <outlet property="editGroupBarButtonItem" destination="VTb-38-hY8" id="h3b-ev-r0e"/>
@@ -520,6 +520,9 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" backgroundImage="placeholder"/>
+                                                <connections>
+                                                    <segue destination="Tzd-TX-Ise" kind="show" customClass="AccountDetailChooseICONViewCtrlSegue" customModule="PasswordBox" customModuleProvider="target" id="44I-AU-DDs"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSh-r7-k99" customClass="JudyBaseButton" customModule="EnolaGay">
                                                 <rect key="frame" x="0.0" y="66" width="80" height="28"/>
@@ -723,6 +726,93 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ox-K5-ykg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="36.92307692307692" y="3.5545023696682461"/>
+        </scene>
+        <!--选择图标-->
+        <scene sceneID="fik-pg-1TZ">
+            <objects>
+                <viewController id="K0W-EQ-6LP" customClass="ChooseAccountICONCollectionViewCtrl" customModule="PasswordBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ts0-HY-xlV">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sws-ZU-8wa">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Znc-BI-bAB">
+                                    <size key="itemSize" width="280" height="280"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="0vQ-6y-1hO">
+                                        <rect key="frame" x="55" y="0.0" width="280" height="280"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fd7-fd-1ne">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rGb-Ft-157">
+                                                    <rect key="frame" x="116" y="116" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="15T-Cl-6ji"/>
+                                                        <constraint firstAttribute="width" secondItem="rGb-Ft-157" secondAttribute="height" multiplier="1:1" id="fWV-16-bDv"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rGb-Ft-157" firstAttribute="centerX" secondItem="fd7-fd-1ne" secondAttribute="centerX" id="IkW-TN-INz"/>
+                                                <constraint firstItem="rGb-Ft-157" firstAttribute="centerY" secondItem="fd7-fd-1ne" secondAttribute="centerY" id="YeM-JE-X2G"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Qfi-Ad-Qs1"/>
+                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="sws-ZU-8wa" firstAttribute="top" secondItem="Ts0-HY-xlV" secondAttribute="top" id="3s8-Ln-mfZ"/>
+                            <constraint firstItem="Qfi-Ad-Qs1" firstAttribute="bottom" secondItem="sws-ZU-8wa" secondAttribute="bottom" id="aXI-Cf-ivv"/>
+                            <constraint firstItem="sws-ZU-8wa" firstAttribute="trailing" secondItem="Qfi-Ad-Qs1" secondAttribute="trailing" id="dkB-DZ-JhC"/>
+                            <constraint firstItem="sws-ZU-8wa" firstAttribute="leading" secondItem="Qfi-Ad-Qs1" secondAttribute="leading" id="kYb-sI-uMp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="选择图标" id="3TL-VL-yLV">
+                        <barButtonItem key="rightBarButtonItem" title="确定" style="done" id="QhV-lE-gD4">
+                            <connections>
+                                <segue destination="1cf-OJ-xfL" kind="unwind" unwindAction="unwindFromChooseICONViewCtrl:" id="kGX-t3-Ljm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="sws-ZU-8wa" id="ABP-BV-uhi"/>
+                        <outlet property="confirmButtonItem" destination="QhV-lE-gD4" id="LUp-bt-8yy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1dr-aT-tLd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="1cf-OJ-xfL" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3773.8461538461538" y="785.54502369668239"/>
+        </scene>
+        <!--Judy Base Navigation Ctrl-->
+        <scene sceneID="WZ4-qQ-oZS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tzd-TX-Ise" customClass="JudyBaseNavigationCtrl" customModule="EnolaGay" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="fVC-7N-nq3"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ICs-vv-W2O">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="K0W-EQ-6LP" kind="relationship" relationship="rootViewController" id="jE3-CB-y9q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YlQ-MY-FTr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2844.6153846153843" y="785.54502369668239"/>
         </scene>
     </scenes>
     <resources>

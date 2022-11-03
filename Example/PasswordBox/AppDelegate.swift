@@ -113,3 +113,13 @@ class AddNewGroupViewCtrlSegue: FullWidthScreenSegue {
         destination.preferredContentSize.height = min(source.view.frame.height - 168, 680)
     }
 }
+
+/// 密码详情界面选择图标的 ViewCtrl Segue.
+class AccountDetailChooseICONViewCtrlSegue: FullWidthScreenSegue {
+    
+    override func perform() {
+        super.perform()
+
+        destination.preferredContentSize.height = 388
+    }
+}

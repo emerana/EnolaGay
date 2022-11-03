@@ -124,8 +124,9 @@ extension DataBaseCtrl {
         dbQueue.inDatabase { (dataBase) in
             let sql = "CREATE TABLE IF NOT EXISTS '\(account_tables.t_remarks)' (" +
             "'id_account' INTEGER NOT NULL UNIQUE," +
-            "'id_group' INTEGER," +
+            "'icon' TEXT," +
             "'remark' TEXT," +
+            "'id_group' INTEGER," +
             "'collection' BLOB DEFAULT 0," +
             "FOREIGN KEY('id_group') REFERENCES '\(account_tables.t_group)'('id_group')," +
             "FOREIGN KEY('id_account') REFERENCES '\(account_tables.t_password)'('id_account'))"
@@ -269,27 +270,32 @@ extension DataBaseCtrl {
         var callbackMessage: String?
         queue.inTransaction { dataBase, rollback in
             do {
-                /// 操作的 SQL
+                /// 修改 password
                 let passwordSQL = "UPDATE \(account_tables.t_password) SET userName=?, password=?, updateTime=DATETIME('now','localtime')  WHERE id_account=?"
                 try dataBase.executeUpdate(passwordSQL, values: [account.name, account.password, account.id])
-
+                
+                /// 修改 remark
                 let remarkSQL = "SELECT * FROM \(account_tables.t_remarks)" +
                 " WHERE \(account_tables.t_remarks).id_account = ?"
                 let resultSet = dataBase.executeQuery(remarkSQL, withArgumentsIn: [account.id])
                 
                 if (resultSet?.next() ?? false) { // 说明已存在 remark
                     Judy.log("存在 remark，执行修改操作") // 修改
-                    let remarkSQL = "UPDATE \(account_tables.t_remarks) SET id_group=?, remark=?, collection=0  WHERE id_account=?"
-                    try dataBase.executeUpdate(remarkSQL, values: [account.remark?.group?.id ?? NSNull(),
-                                                                   account.remark?.remark ?? NSNull(),
-                                                                   account.id])
+                    let remarkSQL = "UPDATE \(account_tables.t_remarks) SET icon=?, id_group=?, remark=?, collection=0  WHERE id_account=?"
+                    try dataBase.executeUpdate(remarkSQL,
+                                               values: [account.remark?.icon ?? NSNull(),
+                                                        account.remark?.group?.id ?? NSNull(),
+                                                        account.remark?.remark ?? NSNull(),
+                                                        account.id])
                 } else {
                     Judy.log("不存在 remark，执行添加操作") // 插入
-                    let remarkSQL = "INSERT INTO \(account_tables.t_remarks) (id_account, id_group, remark)" +
-                    " VALUES (?, ?, ?)"
-                    try dataBase.executeUpdate(remarkSQL, values: [account.id,
-                                                                   account.remark?.group?.id ?? NSNull(),
-                                                                   account.remark?.remark ?? NSNull()])
+                    let remarkSQL = "INSERT INTO \(account_tables.t_remarks) (id_account, icon, id_group, remark)" +
+                    " VALUES (?, ?, ?, ?)"
+                    try dataBase.executeUpdate(remarkSQL,
+                                               values: [account.id,
+                                                        account.remark?.icon ?? NSNull(),
+                                                        account.remark?.group?.id ?? NSNull(),
+                                                        account.remark?.remark ?? NSNull()])
                 }
 
             } catch {
@@ -300,7 +306,6 @@ extension DataBaseCtrl {
 
             callback(!rollback.pointee.boolValue, callbackMessage)
         }
-
     }
 
 }
@@ -444,7 +449,10 @@ extension DataBaseCtrl {
         let db = getDBQueue()
         db.inTransaction { (dataBase, rollback) in
             // 查询指定组下所有数据，此处查询 t_remarks 和 t_group。
-            let sql = "SELECT * FROM \(account_tables.t_remarks)" +
+            let sql = "SELECT * ," +
+            " \(account_tables.t_remarks).icon AS account_icon," +
+            " \(account_tables.t_group).icon AS group_icon" +
+            " FROM \(account_tables.t_remarks)" +
             " LEFT JOIN \(account_tables.t_group)" +
             " on \(account_tables.t_remarks).id_group = \(account_tables.t_group).id_group" +
             " WHERE \(account_tables.t_remarks).id_account = \(account.id)"
@@ -456,7 +464,24 @@ extension DataBaseCtrl {
             }
             
             if resultSet!.next() {
-                remark = resultSetToAccountRemark(resultSet: resultSet!)
+                remark = AccountRemark(id: Int(resultSet!.int(forColumn: "id_account")),
+                                       group: nil,
+                                       remark: resultSet!.string(forColumn: "remark"))
+                remark?.icon = resultSet!.string(forColumn: "account_icon")
+                remark?.isCollection = Int(resultSet!.int(forColumn: "collection")) == 1
+                
+                // 查询组信息
+                let group: Group?
+                if resultSet!.int(forColumn: "id_group") != 0 {
+                    group = Group(id: Int(resultSet!.int(forColumn: "id_group")),
+                                      name: resultSet!.string(forColumn: "groupName") ?? "数据库缺失值",
+                                      backgroundColor: resultSet!.string(forColumn: "backgroundColor") ?? "数据库缺失值")
+                    
+                    group?.icon = resultSet!.string(forColumn: "group_icon")
+                } else {
+                    group = nil
+                }
+                remark?.group = group
             }
         }
         
@@ -504,108 +529,9 @@ private extension DataBaseCtrl {
         return account
     }
     
-    /// 将数据库查询结果转换成 AccountRemark 对象
-    /// - Parameter resultSet: 查询的结果集
-    /// - Returns: 目标 AccountRemark.
-    func resultSetToAccountRemark(resultSet: FMResultSet) -> AccountRemark {
-        let group: Group?
-        if resultSet.int(forColumn: "id_group") != 0 {
-            group = Group(id: Int(resultSet.int(forColumn: "id_group")),
-                              name: resultSet.string(forColumn: "groupName") ?? "数据库缺失值",
-                              backgroundColor: resultSet.string(forColumn: "backgroundColor") ?? "数据库缺失值")
-            
-            group?.icon = resultSet.string(forColumn: "icon")
-        } else {
-            group = nil
-        }
-        
-        let remark = AccountRemark(id: Int(resultSet.int(forColumn: "id_account")),
-                                   group: group,
-                                   remark: resultSet.string(forColumn: "remark"))
-        remark.isCollection = Int(resultSet.int(forColumn: "collection")) == 1
-        return remark
-    }
-    
 }
 /*
 extension DataBaseCtrl {
-
-    /// 修改基金信息
-    /// - Parameter fund: 基金模型
-    func updateFundInfo(fund: Fund, callback:((Bool) -> Void)) {
-        
-        let db = getDBQueue()
-        db.inTransaction { (db, rollback) in
-            let sql = "UPDATE \(fund_tables.t_fundInfoList) SET fundName = ?, similarRanking = ?, fundstarRating = ?, fundRating = ?, isStarManager = ?, institutionalView = ?, institutionalPotential = ?, institutionalFeatured = ?, fundType = ?, remark = ? WHERE fundID = ?"
-            
-            let result = db.executeUpdate(sql, withArgumentsIn: [fund.fundName, "\(fund.similarRanking)", fund.fundStarRating, fund.fundRating, fund.isStarManager, fund.institutionalView.rawValue, fund.institutionalPotential.rawValue, fund.institutionalFeatured.rawValue, fund.fundType.rawValue, fund.remark, fund.fundID])
-            if result {
-                print("\(fund.fundID)修改成功")
-            } else {
-                print("基金：\(fund.fundName)信息修改失败！")
-                rollback.pointee = true
-            }
-            
-            callback(!rollback.pointee.boolValue)
-        }
-        
-    }
-    
-
-    /// 删除一条基金信息记录
-    /// - 此操作将同步删除自选基金表和定投基金表
-    /// - Parameter fundID: 基金ID
-    /// - Parameter callback: 回调函数
-    func deleteFundInfo(fundID: String, callback:((Bool) -> Void)) {
-        let db = getDBQueue()
-        db.inTransaction { (dataBase, rollback) in
-            let sqls = [
-                "delete from \(fund_tables.t_fundInfoList) where fundID = ?",
-                "delete from \(fund_tables.t_investment) where fundID = ?",
-                "delete from \(fund_tables.t_fundOptional) where fundID = ?"
-            ]
-            
-            sqls.forEach { (sql) in
-                let result = dataBase.executeUpdate(sql, withArgumentsIn: [fundID])
-                
-                if result {
-                    print("\(sql)---\(fundID)删除成功")
-                } else {
-                    print("\(fund_tables.t_fundInfoList)-基金：\(fundID)信息删除失败！")
-                    rollback.pointee = true
-                    return
-                }
-            }
-            
-            callback(!rollback.pointee.boolValue)
-            
-        }
-    }
-    
-    
-    /// 获取基金详情
-    /// - Parameter fundID: fund ID
-    func getFundDetail(fundID: String) -> Fund? {
-        var fund: Fund? = nil
-        let db = getDBQueue()
-        db.inTransaction { (db, rollback) in
-            /*
-SELECT t_fundInfoList.*, t_fundOptional.fundID AS isOption, t_investment.fundID AS isInvestment FROM t_fundInfoList LEFT JOIN  t_fundOptional ON t_fundInfoList.fundID = t_fundOptional.fundID LEFT JOIN t_investment ON t_fundInfoList.fundID = t_investment.fundID WHERE t_fundInfoList.fundID = '163402'             */
-            let sql = "SELECT \(fund_tables.t_fundInfoList).*, \(fund_tables.t_fundOptional).fundID AS isOption, \(fund_tables.t_investment).fundID AS isInvestment FROM \(fund_tables.t_fundInfoList) LEFT JOIN  \(fund_tables.t_fundOptional) ON \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_fundOptional).fundID LEFT JOIN \(fund_tables.t_investment) ON \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_investment).fundID WHERE \(fund_tables.t_fundInfoList).fundID = ?"
-            let resultSet = db.executeQuery(sql, withArgumentsIn: [fundID])
-            guard resultSet != nil else {
-                JudyTip.message(text: "数据库结果集为nil！")
-                return
-            }
-            while(resultSet!.next()) {
-                fund = resultSetToFund(resultSet: resultSet!, isDetail: true)
-            }
-            
-        }
-        return fund
-        
-    }
-    
     /// 按关键字检索基金信息表。
     /// - Parameter keywords: 要搜索的关键字，将通过该关键字匹配基金名称和基金代码
     /// - Parameter isAllColumn: 是否全字段匹配搜索，默认 false。如果该值传入 true，则通过keywords匹配所有字段

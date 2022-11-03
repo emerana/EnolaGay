@@ -126,9 +126,10 @@ extension AddNewGroupViewCtrl {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
         
         if collectionView == iconCollectionView {
-            (cell.viewWithTag(101) as? UIImageView)?.image = UIImage(named: iconNameList[indexPath.row],
-                    in: ICONCtrl.judy.bundle(iconBundle: .icons_group),
-                    compatibleWith: nil)
+            (cell.viewWithTag(101) as? UIImageView)?.image = UIImage(
+                named: iconNameList[indexPath.row],
+                in: ICONCtrl.judy.bundle(iconBundle: .icons_group),
+                compatibleWith: nil)
             
             if iconSelectedIndexPath == indexPath {
                 cell.judy.viewBorder(border: 6, color: .purple)

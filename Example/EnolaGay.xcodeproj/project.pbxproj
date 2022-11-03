@@ -83,6 +83,7 @@
 		8B3BD1DD27014EB2001912FB /* DownloadViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BD1DC27014EB2001912FB /* DownloadViewCtrl.swift */; };
 		8B4A4DEB266F0B8C007D6DC5 /* DouYin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */; };
 		8B4A4DED266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */; };
+		8B61C3F229135627000F68EB /* ChooseAccountICONCollectionViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B61C3F129135627000F68EB /* ChooseAccountICONCollectionViewCtrl.swift */; };
 		8B620EA526DDF347001E1A9D /* VersionCheck-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */; };
 		8B6EB9C929121E2700B8E53A /* icons_group.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B6EB9C829121E2700B8E53A /* icons_group.bundle */; };
 		8B742563290A731F00D37DC0 /* AddNewGropuUICollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B742562290A731F00D37DC0 /* AddNewGropuUICollectionReusableView.xib */; };
@@ -393,6 +394,7 @@
 		8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTestViewCtrl.swift; sourceTree = "<group>"; };
 		8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DouYin.storyboard; sourceTree = "<group>"; };
 		8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DouYonHomeViewCtrl.swift; sourceTree = "<group>"; };
+		8B61C3F129135627000F68EB /* ChooseAccountICONCollectionViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccountICONCollectionViewCtrl.swift; sourceTree = "<group>"; };
 		8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VersionCheck-Info.plist"; sourceTree = "<group>"; };
 		8B6EB9C829121E2700B8E53A /* icons_group.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icons_group.bundle; sourceTree = "<group>"; };
 		8B742562290A731F00D37DC0 /* AddNewGropuUICollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewGropuUICollectionReusableView.xib; sourceTree = "<group>"; };
@@ -1134,6 +1136,7 @@
 				8B742562290A731F00D37DC0 /* AddNewGropuUICollectionReusableView.xib */,
 				8BB2A7A2290A3BFA007991E7 /* AccountListTableViewCtrl.swift */,
 				8BB2A7A4290A49F0007991E7 /* AccountDetailViewCtrl.swift */,
+				8B61C3F129135627000F68EB /* ChooseAccountICONCollectionViewCtrl.swift */,
 				8BB2A7A0290A187F007991E7 /* AddNewAccountViewCtrl.swift */,
 				8B742564290A7DCD00D37DC0 /* AddNewGroupViewCtrl.swift */,
 			);
@@ -3476,6 +3479,7 @@
 				8B7E1FBA2905014E00CE5DDC /* AppDelegate.swift in Sources */,
 				8B36B6B82907695E002B2C0F /* DataBaseCtrl.swift in Sources */,
 				8BB2A7A1290A187F007991E7 /* AddNewAccountViewCtrl.swift in Sources */,
+				8B61C3F229135627000F68EB /* ChooseAccountICONCollectionViewCtrl.swift in Sources */,
 				8B742565290A7DCD00D37DC0 /* AddNewGroupViewCtrl.swift in Sources */,
 				8BB2A7A5290A49F0007991E7 /* AccountDetailViewCtrl.swift in Sources */,
 				8B284FAB290537AB007D0FE3 /* AccountViewCtrl.swift in Sources */,

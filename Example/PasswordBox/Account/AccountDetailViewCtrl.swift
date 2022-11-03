@@ -52,7 +52,7 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
             return
         }
         // Do any additional setup after loading the view.
-        // iconButton.imageView?.image =
+
         // 从数据库查询信息
         account = DataBaseCtrl.judy.getAccountDetail(accountID: account!.id)
         // 查询备注信息
@@ -110,7 +110,6 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
                     DataBaseCtrl.judy.modifyAccount(account: account) { rs, msg in
                         Judy.log("修改结果\(rs),\(msg)")
                         if rs {
-                            self!.account = account
                             self?.updateAccountCallback?(account, self!.indexPath)
                         } else {
                             JudyTip.message(messageType: .error, text: msg)
@@ -162,7 +161,25 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
     // MARK: - override
     
     // MARK: - event response
-
+    
+    /// 收到选择图标界面消失时发来的请求，要求修改密码的图标
+    @IBAction func unwindFromChooseICONViewCtrl(_ unwindSegue: UIStoryboardSegue) {
+        guard let account = account else { return }
+        
+        let sourceViewController = unwindSegue.source as! ChooseAccountICONCollectionViewCtrl
+        // Use data from the view controller which initiated the unwind segue
+        let iconName = sourceViewController.iconNameList[sourceViewController.iconSelectedIndexPath.row]
+        account.remark?.icon = iconName
+        
+        // 保存图标修改
+        DataBaseCtrl.judy.modifyAccount(account: account) { [weak self] rs, msg in
+            Judy.log("修改结果\(rs),\(String(describing: msg))")
+            if !rs {
+                JudyTip.message(messageType: .error, text: msg)
+            }
+        }
+    }
+    
     /*
      // MARK: - Navigation
      
@@ -205,6 +222,15 @@ private extension AccountDetailViewCtrl {
             .map { $0 == nil ? "无分组 ➤" : "所在分组： \($0!)" }
             .bind(to: groupButton.rx.title(for: .normal))
             .disposed(by: disposeBag)
+        viewModel.icon
+            .map {
+                UIImage(named: $0 ?? "bianji",
+                        in: ICONCtrl.judy.bundle(iconBundle: .icons_password),
+                        compatibleWith: nil)
+            }
+            .bind(to: iconButton.rx.backgroundImage(for: .normal))
+            .disposed(by: disposeBag)
+        
 
         // UI 绑定到 viewModel
         userNameTextField.rx.text.orEmpty
@@ -239,7 +265,8 @@ class AccountDetailViewModel {
     let everythingValid: Observable<Bool>
 
     /// account 对象相关属性
-    let groupName: BehaviorRelay<String?>,
+    let icon: BehaviorRelay<String?>,
+        groupName: BehaviorRelay<String?>,
         username: BehaviorRelay<String>,
         password: BehaviorRelay<String>,
         remark: BehaviorRelay<String?>,
@@ -254,7 +281,8 @@ class AccountDetailViewModel {
     init(userName: Observable<String>,
          password: Observable<String>,
          account: Account) {
-
+        
+        icon = BehaviorRelay<String?>(value: account.remark?.icon)
         groupName = BehaviorRelay<String?>(value: account.remark?.group?.name)
         username = BehaviorRelay<String>(value: account.name)
         self.password = BehaviorRelay<String>(value: account.password)

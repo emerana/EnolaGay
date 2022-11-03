@@ -35,6 +35,9 @@ class Account {
 class AccountRemark {
     /// 该 id 对应了 Account id
     let id: Int
+    /// 账号图标名，对应 icons_password.bundle 中的图标
+    var icon: String?
+
     /// 该账号所在分组
     var group: Group?
     /// 该账号备注信息
