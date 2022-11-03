@@ -69,7 +69,6 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
         if let account = sourceViewController.addAccount {
             // 添加账号到数据库
             DataBaseCtrl.judy.addNewData(model: account) { rs, msg  in }
-            // DataBaseCtrl.judy.addNewAccount(account: account) { rs in }
 
             // 不管添加的结果，直接更新
             reloadData()
@@ -187,8 +186,9 @@ extension AccountViewCtrl {
         
         /// Cell 边长。
         let cellWidth: CGFloat = (lineWidth - itemSpacing * (cellCount - 1))/cellCount
-                
-        return CGSize(width: cellWidth, height: cellWidth*9/7)
+        // 在 iPhone 14 Pro上出现小数点情况导致布局无法完美展示，用Int来忽略小数点。164.67取164.
+        let newCellWidth = Int(cellWidth)
+        return CGSize(width: newCellWidth, height: newCellWidth*9/7)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7oZ-y6-CZ2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7oZ-y6-CZ2">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -92,8 +92,8 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="HRe-tR-B45" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9Mi-lX-DTf"/>
-                            <constraint firstItem="HRe-tR-B45" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="BTc-af-d1m"/>
+                            <constraint firstItem="HRe-tR-B45" firstAttribute="left" secondItem="5EZ-qb-Rvc" secondAttribute="left" id="9Mi-lX-DTf"/>
+                            <constraint firstItem="HRe-tR-B45" firstAttribute="right" secondItem="5EZ-qb-Rvc" secondAttribute="right" id="BTc-af-d1m"/>
                             <constraint firstItem="HRe-tR-B45" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="IPb-pC-YWh"/>
                             <constraint firstAttribute="bottom" secondItem="HRe-tR-B45" secondAttribute="bottom" id="ZUj-4V-9kK"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jab-Zk-psj" secondAttribute="trailing" constant="28" id="iOW-am-V3H"/>
