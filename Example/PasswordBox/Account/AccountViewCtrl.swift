@@ -41,9 +41,6 @@ class AccountViewCtrl: JudyBaseCollectionRefreshViewCtrl {
         let addGroupNib = UINib(nibName: "AddNewGropuUICollectionReusableView", bundle: nil)
         collectionView?.register(addGroupNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "AddGroupButtonFooterView")
 
-        let names = ICON.judy.names(iconBundle: .icons_password)
-        
-        Judy.logHappy("路径下：\(names)")
     }
 
     override func viewWillAppear(_ animated: Bool) {

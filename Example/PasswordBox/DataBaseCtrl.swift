@@ -347,20 +347,33 @@ extension DataBaseCtrl {
         return count
     }
 
-    /// 获取数据库中所有的 account 并转换成模型
-    func getAccountList() -> [Account] {
+    /// 获取数据库中所有的 account 数据
+    /// - Parameter group: 查询指定组下的 account 数据，该值默认为 nil，即查询所有。
+    /// - Returns: 目标 account 列表
+    func getAccountList(group: Group? = nil) -> [Account] {
         var accounts = [Account]()
 
         let db = getDBQueue()
         db.inTransaction { (dataBase, rollback) in
-            // 默认按数据库顺序排序
-            let sql = "SELECT * FROM \(account_tables.t_password)" // ORDER BY name DESC
+            let sql: String
+            if group == nil {
+                // 默认按数据库顺序排序
+                sql = "SELECT * FROM \(account_tables.t_password)" // ORDER BY name DESC
+            } else {
+                // 查询指定组下所有数据，此处需三表查询。
+                sql = "SELECT * FROM \(account_tables.t_password)" +
+                 " LEFT JOIN t_remarks" +
+                 " on \(account_tables.t_password).id_account = \(account_tables.t_remarks).id_account" +
+                 " LEFT JOIN \(account_tables.t_group)" +
+                 " on \(account_tables.t_remarks).id_group = \(account_tables.t_group).id_group" +
+                " WHERE \(account_tables.t_group).id_group = \(group!.id)" // ORDER BY userName
+            }
             let resultSet = dataBase.executeQuery(sql, withArgumentsIn: [])
             guard resultSet != nil else {
-                JudyTip.message(text: "查无此表！")
+                JudyTip.message(text: "数据查询失败！")
                 return
             }
-            
+
             while(resultSet!.next()) {
                 let account = resultSetToAccount(resultSet: resultSet!)
                 accounts.append(account)
@@ -370,7 +383,7 @@ extension DataBaseCtrl {
     }
     
     /// 获取所有分组数据
-    /// - Returns: 所有的分组信息
+    /// - Returns: 分组列表
     func getGroupList() -> [Group] {
         let db = getDBQueue()
         var groups = [Group]()
@@ -409,10 +422,8 @@ extension DataBaseCtrl {
         }
         return groups
     }
-    
-    /// 获取指定组下的所有账号数据
-    /// - Parameter group: 目标组
-    /// - Returns: 该组下对应的账号数据
+
+    @available(*, unavailable, message: "该函数已被优化，请使用 getAccountList 函数", renamed: "getAccountList(group:)")
     func getGroupDataList(group: Group) -> [Account] {
         var accounts = [Account]()
         
@@ -488,7 +499,7 @@ extension DataBaseCtrl {
         return remark
     }
     
-    /// 查询指定 Account 信息
+    /// 查询指定 Account 主要信息
     /// - Parameter accountID: 要查询的目标
     /// - Returns: password 表中的 Account 对象，不包含 AccountRemark 信息。
     func getAccountDetail(accountID: Int) -> Account? {

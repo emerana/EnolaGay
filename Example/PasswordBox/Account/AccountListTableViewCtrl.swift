@@ -63,7 +63,7 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
             
             // 根据组信息设置数据源
             if self.groupInfo != nil {
-                self.accountList = DataBaseCtrl.judy.getGroupDataList(group: self.groupInfo!)
+                self.accountList = DataBaseCtrl.judy.getAccountList(group: self.groupInfo!)
             } else {
                 self.accountList = DataBaseCtrl.judy.getAccountList()
             }

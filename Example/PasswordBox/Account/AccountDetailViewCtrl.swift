@@ -169,8 +169,12 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
         let sourceViewController = unwindSegue.source as! ChooseAccountICONCollectionViewCtrl
         // Use data from the view controller which initiated the unwind segue
         let iconName = sourceViewController.iconNameList[sourceViewController.iconSelectedIndexPath.row]
-        account.remark?.icon = iconName
         
+        if account.remark == nil {
+           account.remark = AccountRemark(id: 0)
+        }
+        account.remark?.icon = iconName
+        // 此时 remark 对象还是nil
         // 保存图标修改
         DataBaseCtrl.judy.modifyAccount(account: account) { [weak self] rs, msg in
             Judy.log("修改结果\(rs),\(String(describing: msg))")
