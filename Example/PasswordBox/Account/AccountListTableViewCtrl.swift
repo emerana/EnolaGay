@@ -97,7 +97,6 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
         let sourceViewController = unwindSegue.source as! AccountDetailViewCtrl
         if sourceViewController.account?.id == accountList[sourceViewController.indexPath.row].id {
             accountList.remove(at: sourceViewController.indexPath.row)
-            tableView?.reloadData()
         }
     }
     
@@ -109,12 +108,28 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
             if let cell = sender as? UITableViewCell, let indexPath = tableView?.indexPath(for: cell) {
                 detailViewCtrl.account = accountList[indexPath.row]
                 detailViewCtrl.indexPath = indexPath
+                // 变更信息
                 detailViewCtrl.updateAccountCallback = { [weak self] (account, indexPath) in
-                    guard indexPath != nil else { return }
-                    if account.id == self?.accountList[indexPath!.row].id {
-                        self?.accountList[indexPath!.row] = account
+
+                    if account.id == self?.accountList[indexPath.row].id {
+                        self?.accountList[indexPath.row] = account
                     }
                 }
+                
+                // 如果当前所在没有分组信息则不执行任何操作
+                if groupInfo != nil {
+                    // 分组变更,当不在属于当前分组就删除该数据
+                    detailViewCtrl.updateGroupAccountCallback = {  [weak self] (account, indexPath) in
+                        
+                        if account.id == self?.accountList[indexPath.row].id {
+                            if account.remark?.group?.id != self?.groupInfo?.id {
+                                self?.accountList[indexPath.row] = account
+                                self?.accountList.remove(at: indexPath.row)
+                            }
+                        }
+                    }
+                }
+                    
             }
         }
         
@@ -147,15 +162,6 @@ extension AccountListTableViewCtrl {
         cell.detailTextLabel?.text = account.password
         cell.imageView?.image = ICON.judy.image(withName: account.remark?.icon ?? "",
                                                     iconBundle: .icons_password)
-        //  if dataSource[indexPath.row]["subtitle"] == nil {
-        //
-        //      cell.accessoryType = .disclosureIndicator
-        //  } else {
-        //      cell.detailTextLabel?.text = dataSource[indexPath.row]["subtitle"].stringValue
-        //      cell.accessoryType = .none
-        //  }
-
-        // cell.masterImageView?.image
 
         return cell
     }
@@ -189,10 +195,7 @@ extension AccountListTableViewCtrl {
     
     // viewForHeaderInSection
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        var headerView: UITableViewHeaderFooterView!
-        
-        //        headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "leftHeader")
-//        headerView.backgroundView?.backgroundColor = .clear
+
         searchBar = headerView.viewWithTag(101) as? UISearchBar
         return headerView
     }

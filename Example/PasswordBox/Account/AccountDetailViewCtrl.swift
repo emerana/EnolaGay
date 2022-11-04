@@ -34,9 +34,11 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
     var account: Account?
     /// 记录 account 在来源列表中的 indexPath
     var indexPath: IndexPath!
-    /// 更新了 account 的回调
-    var updateAccountCallback: ((Account, IndexPath?) -> Void)?
-    
+    /// 更新了 account 信息的回调
+    var updateAccountCallback: ((Account, IndexPath) -> Void)?
+    /// 更新了所在分组的回调
+    var updateGroupAccountCallback: ((Account, IndexPath) -> Void)?
+
     /// 当前是否为编辑状态，默认为 false.
     let isStatusEditing = PublishSubject<Bool>()
     
@@ -177,6 +179,7 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
         updateAccountInfo()
     }
     
+    // 收到修改分组请求，要求变更对象的 group 属性
     @IBAction func unwindFromChooseGroupViewCtrl(_ unwindSegue: UIStoryboardSegue) {
         guard let account = account else { return }
 
@@ -189,16 +192,14 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
         account.remark?.group = sourceViewController.selectedGroup
 
         // 保存分组修改
-        DataBaseCtrl.judy.modifyAccount(account: account) { [weak self] rs, msg in
-            Judy.log("修改结果\(rs),\(String(describing: msg))")
-            if rs {
-                self?.updateAccountCallback?(account, self!.indexPath)
-            } else {
+        DataBaseCtrl.judy.modifyAccount(account: account) { rs, msg in
+            if !rs {
                 JudyTip.message(messageType: .error, text: msg)
             }
         }
         // 更新 account
         updateAccountInfo()
+        updateGroupAccountCallback?(account, indexPath)
     }
     
      // MARK: - Navigation
