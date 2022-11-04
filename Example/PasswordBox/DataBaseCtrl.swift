@@ -261,6 +261,28 @@ extension DataBaseCtrl {
         }
     }
     
+    /// 删除一个分组
+    /// - Parameters:
+    ///   - group: 要删除的目标对象
+    ///   - callback: 该回调函数通过传入一个 Bool 值告知是否添加成功，并伴随消息体。
+    func deleteGroup(group: Group, callback: ((Bool, String?) -> Void)) {
+        let queue = getDBQueue()
+        var callbackMessage: String?
+        queue.inTransaction { dataBase, rollback in
+            do {
+                /// 操作的 SQL
+                let deleteGroup: String = "DELETE FROM \(account_tables.t_group) WHERE id_group = ?"
+                try dataBase.executeUpdate(deleteGroup, values: [group.id])
+            } catch {
+                callbackMessage = error.localizedDescription
+                Judy.logWarning("删除组 id:\(group.id) 失败！==\(String(describing: callbackMessage))")
+                rollback.pointee = true
+            }
+
+            callback(!rollback.pointee.boolValue, callbackMessage)
+        }
+    }
+    
     /// 修改账号信息
     /// - Parameters:
     ///   - account: 目标账号

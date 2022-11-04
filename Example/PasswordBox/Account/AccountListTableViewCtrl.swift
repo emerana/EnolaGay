@@ -37,7 +37,7 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
     /// 数据源，账号列表
     private(set) var accountList = [Account]()
     
-    /// 此属性用于标识当前数据源是否有组信息
+    /// 此属性用于标识当前数据源所属的组信息
     var groupInfo: Group?
     
     // MARK: - private var property
@@ -74,6 +74,28 @@ class AccountListTableViewCtrl: JudyBaseTableViewCtrl {
             .bind(to: editGroupBarButtonItem.rx.isEnabled)
             .disposed(by: disposeBag)
         
+        // 删除按钮点击事件
+        editGroupBarButtonItem.rx.tap.subscribe { [weak self] _ in
+            guard self?.groupInfo != nil else { return }
+            guard self?.accountList.count == 0 else {
+                self?.judy.alert(title: "温馨提示",
+                                 msg: "当前组中还有账号数据，不能删除。\n" +
+                                 "只有该组为空时才能删除，你可以先将这些账号所属分组设为其它组。",
+                                 cancelButtonTitle: "好的")
+                return
+            }
+            self?.judy.alert(title: "⚠️", msg: "确定要删除这个分组吗？", confirmction: { alertAction in
+                // 执行删除组
+                DataBaseCtrl.judy.deleteGroup(group: self!.groupInfo!) { rs, msg in
+                    if !rs {
+                        JudyTip.message(messageType: .failed, text: msg)
+                    }
+                }
+                self?.navigationController?.popViewController(animated: true)
+            })
+
+        }
+        .disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
