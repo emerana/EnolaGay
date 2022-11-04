@@ -140,7 +140,6 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
                     }
                 }
             })
-            
         }.disposed(by: disposeBag)
 
     }
@@ -188,7 +187,6 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
         if account.remark == nil {
            account.remark = AccountRemark(id: 0)
         }
-
         account.remark?.group = sourceViewController.selectedGroup
 
         // 保存分组修改
