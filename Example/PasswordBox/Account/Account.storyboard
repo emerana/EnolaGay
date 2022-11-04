@@ -129,14 +129,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tXA-Xy-60w">
                                                 <rect key="frame" x="0.0" y="0.0" width="338" height="34"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="251" text="用户名：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RY8-DI-bLB" customClass="JudyBaseLabel" customModule="EnolaGay">
-                                                        <rect key="frame" x="0.0" y="6.9999999999999982" width="69.333333333333329" height="20.333333333333329"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="251" text="账号：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RY8-DI-bLB" customClass="JudyBaseLabel" customModule="EnolaGay">
+                                                        <rect key="frame" x="0.0" y="6.9999999999999982" width="52" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="如：我的邮箱@163.com" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iDC-qU-B2L" customClass="JudyBaseTextField" customModule="EnolaGay">
-                                                        <rect key="frame" x="77.333333333333343" y="0.0" width="260.66666666666663" height="34"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入账号" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iDC-qU-B2L" customClass="JudyBaseTextField" customModule="EnolaGay">
+                                                        <rect key="frame" x="60" y="0.0" width="278" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
@@ -248,7 +248,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" backgroundImage="placeholder"/>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入组，如：银行卡" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sjD-kv-0zx" customClass="JudyBaseTextField" customModule="EnolaGay">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入组名，如：证券账号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sjD-kv-0zx" customClass="JudyBaseTextField" customModule="EnolaGay">
                                         <rect key="frame" x="68" y="0.0" width="286" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -532,7 +532,7 @@
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="h6j-uj-Alj" kind="show" customClass="AccountDetailChooseViewCtrlSegue" customModule="PasswordBox" customModuleProvider="target" id="Y9P-Tp-52b"/>
+                                                    <segue destination="nZI-Cp-gQf" kind="show" identifier="showChooseGroup" customClass="AccountDetailChooseViewCtrlSegue" customModule="PasswordBox" customModuleProvider="target" id="Y9P-Tp-52b"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -543,14 +543,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Pzu-sd-wff">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="251" text="用户名：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-br-Ndo" customClass="JudyBaseLabel" customModule="EnolaGay">
-                                                        <rect key="frame" x="0.0" y="7.3333333333333695" width="65.333333333333329" height="19.333333333333329"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="251" text="账号：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-br-Ndo" customClass="JudyBaseLabel" customModule="EnolaGay">
+                                                        <rect key="frame" x="0.0" y="7.3333333333333695" width="49" height="19.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入账号" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tAg-VF-5Jf" customClass="JudyBaseTextField" customModule="EnolaGay">
-                                                        <rect key="frame" x="73.333333333333343" y="0.0" width="280.66666666666663" height="34"/>
+                                                        <rect key="frame" x="57" y="0.0" width="297" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
@@ -798,7 +798,7 @@
             </objects>
             <point key="canvasLocation" x="3773.8461538461538" y="785.54502369668239"/>
         </scene>
-        <!--Choose Group Table View Ctrl-->
+        <!--请选择分组-->
         <scene sceneID="vrf-2W-5r3">
             <objects>
                 <viewController id="h6j-uj-Alj" customClass="ChooseGroupTableViewCtrl" customModule="PasswordBox" customModuleProvider="target" sceneMemberID="viewController">
@@ -806,15 +806,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aHX-01-Pjr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aHX-01-Pjr">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="zAt-GW-QTS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="zAt-GW-QTS">
                                         <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zAt-GW-QTS" id="GGK-tZ-lMR">
-                                            <rect key="frame" x="0.0" y="0.0" width="346" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -830,14 +830,21 @@
                             <constraint firstItem="aHX-01-Pjr" firstAttribute="top" secondItem="iiw-xx-cEP" secondAttribute="top" id="u6x-0l-tXT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dlR-jt-ls8"/>
+                    <navigationItem key="navigationItem" title="请选择分组" id="dlR-jt-ls8">
+                        <barButtonItem key="rightBarButtonItem" title="确定" style="done" id="cw6-OL-X3a">
+                            <connections>
+                                <segue destination="gYs-k8-q9O" kind="unwind" identifier="unwindToChooseGroup" unwindAction="unwindFromChooseGroupViewCtrl:" id="BC1-5c-fHh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="aHX-01-Pjr" id="PXX-Sp-Na9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hne-iU-XFc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="gYs-k8-q9O" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2843.0769230769229" y="1550.4739336492889"/>
+            <point key="canvasLocation" x="3772.3076923076924" y="1550.4739336492889"/>
         </scene>
         <!--Judy Base Navigation Ctrl-->
         <scene sceneID="WZ4-qQ-oZS">
@@ -857,6 +864,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YlQ-MY-FTr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2844.6153846153843" y="785.54502369668239"/>
+        </scene>
+        <!--Judy Base Navigation Ctrl-->
+        <scene sceneID="aWW-Rz-ydX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nZI-Cp-gQf" customClass="JudyBaseNavigationCtrl" customModule="EnolaGay" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="FpR-0s-f3s"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q8O-yZ-wsF">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="h6j-uj-Alj" kind="relationship" relationship="rootViewController" id="1WX-cI-ZO8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fsw-jk-Hai" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2843.0769230769229" y="1550.4739336492889"/>
         </scene>
     </scenes>
     <resources>

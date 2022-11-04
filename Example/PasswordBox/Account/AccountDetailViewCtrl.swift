@@ -108,7 +108,7 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
                 }.subscribe { account in
                     // 保存修改
                     DataBaseCtrl.judy.modifyAccount(account: account) { rs, msg in
-                        Judy.log("修改结果\(rs),\(msg)")
+                        Judy.log("修改结果\(rs),\(String(describing: msg))")
                         if rs {
                             self?.updateAccountCallback?(account, self!.indexPath)
                         } else {
@@ -124,16 +124,6 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
         // 编辑按钮点击事件
         editBarButtonItem.rx.tap.subscribe { [weak self] _ in
             self?.isStatusEditing.onNext( !(self!.userNameTextField.isEnabled) )
-        }.disposed(by: disposeBag)
-        
-        // 分组按钮点击事件
-        groupButton.rx.tap.subscribe { [weak self] _ in
-            Judy.logHappy("请选择分组")
-        }.disposed(by: disposeBag)
-
-        // 图标按钮点击事件
-        iconButton.rx.tap.subscribe { [weak self] _ in
-            Judy.logHappy("请选择图标")
         }.disposed(by: disposeBag)
 
         // 删除按钮点击事件
@@ -188,18 +178,40 @@ class AccountDetailViewCtrl: JudyBaseViewCtrl {
     }
     
     @IBAction func unwindFromChooseGroupViewCtrl(_ unwindSegue: UIStoryboardSegue) {
+        guard let account = account else { return }
+
+        let sourceViewController = unwindSegue.source as! ChooseGroupTableViewCtrl
         
+        if account.remark == nil {
+           account.remark = AccountRemark(id: 0)
+        }
+
+        account.remark?.group = sourceViewController.selectedGroup
+
+        // 保存分组修改
+        DataBaseCtrl.judy.modifyAccount(account: account) { [weak self] rs, msg in
+            Judy.log("修改结果\(rs),\(String(describing: msg))")
+            if rs {
+                self?.updateAccountCallback?(account, self!.indexPath)
+            } else {
+                JudyTip.message(messageType: .error, text: msg)
+            }
+        }
+        // 更新 account
+        updateAccountInfo()
     }
     
-    /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          // Get the new view controller using segue.destinationViewController.
          // Pass the selected object to the new view controller.
+         if segue.identifier == "showChooseGroup" {
+             let viewCtrl = (segue.destination as! UINavigationController).topViewController as? ChooseGroupTableViewCtrl
+             viewCtrl?.selectedGroup = account?.remark?.group
+         }
      }
-     */
     
 }
 

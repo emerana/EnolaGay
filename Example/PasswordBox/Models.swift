@@ -46,7 +46,6 @@ class AccountRemark {
     /// 是否收藏
     var isCollection = false
 
-
     init(id: Int, group: Group? = nil, remark: String? = nil) {
         self.id = id
         self.group = group

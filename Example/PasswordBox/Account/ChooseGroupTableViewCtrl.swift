@@ -16,16 +16,32 @@ class ChooseGroupTableViewCtrl: JudyBaseTableViewCtrl {
     // MARK: - let property and IBOutlet
     
     // MARK: - public var property
-
-    // MARK: - private var property
+    // 当前分组
+    var selectedGroup: Group?
     
+    // MARK: - private var property
+    private var groups = [Group]()
+
     // MARK: - life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // TODO: - 从数据库中获取组列表
+        
+        // 获取分组列表
+        groups = DataBaseCtrl.judy.getGroupList()
 
-        setDataSource()
+        tableView?.isEditing = true
+        // 需要设为复选模式才可以使用真正意义上的多选
+        tableView?.allowsMultipleSelectionDuringEditing = true
+        
+        // 确定当前选中的分组
+        if let firstIndex = groups.firstIndex(where: { [weak self] group in
+            return group.id == self?.selectedGroup?.id
+        }) {
+            let selectedIndexPath = IndexPath(item: firstIndex, section: 0)
+            tableView?.selectRow(at: selectedIndexPath, animated: true, scrollPosition: .middle)
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,51 +53,63 @@ class ChooseGroupTableViewCtrl: JudyBaseTableViewCtrl {
     
     // MARK: - event response
     
+    // 分组确定事件
+    @IBAction func confirmAction(_ sender: Any) {
+//        tableView?.indexPathForSelectedRow
+//        selectedGroup = groups[indexPath.row]
+        
+    }
+    
+    override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
+
+    }
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    
+        if segue.identifier == "unwindToChooseGroup" {
+
+            if let selectedIndex = tableView?.indexPathForSelectedRow {
+                selectedGroup = groups[selectedIndex.row]
+            } else {
+                selectedGroup = nil
+            }
+        }
     }
 
-}
-
-
-// MARK: - private methods
-private extension ChooseGroupTableViewCtrl {
-    /// 设置 JSON 数据源
-    func setDataSource() {
-        dataSource = [
-            [
-                EMERANA.Key.title: "模拟数据",
-                EMERANA.Key.segue: "模拟数据",
-            ],
-            [EMERANA.Key.title: "模拟数据", ],
-            [EMERANA.Key.title: "模拟数据", ],
-        ]
-    }
-    
 }
 
 
 // MARK: - tableView dataSource
 extension ChooseGroupTableViewCtrl {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return groups.count
+    }
+    
     /// 询问指定 indexPath 的 Cell 实例
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = super.tableView(tableView, cellForRowAt: indexPath) // as! JudyBaseTableCell
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
 
-        //  cell.json = dataSource[indexPath.row]
-        //  cell.textLabel?.text = dataSource[indexPath.row]["title"].stringValue
-        //  if dataSource[indexPath.row]["subtitle"] == nil {
-        //      cell.detailTextLabel?.text = nil
-        //      cell.accessoryType = .disclosureIndicator
-        //  } else {
-        //      cell.detailTextLabel?.text = dataSource[indexPath.row]["subtitle"].stringValue
-        //      cell.accessoryType = .none
-        //  }
+        cell.textLabel?.text = groups[indexPath.row].name
+        cell.imageView?.image = ICON.judy.image(withName: groups[indexPath.row].icon ?? "", iconBundle: .icons_group)
+//          if indexPath == selectedIndexPath {
+//              cell.accessoryType = .checkmark
+//          } else {
+//              cell.accessoryType = .none
+//          }
         
+        // 单选时选中样式一定要设为 default
+        cell.selectionStyle = .default
+        cell.multipleSelectionBackgroundView = UIView()
+        // 选中的圆圈颜色
+        cell.tintColor = .purple
+        // 背景颜色为透明
+        //  cell.backgroundColor = .clear
+
         return cell
     }
 
@@ -92,8 +120,15 @@ extension ChooseGroupTableViewCtrl {
 extension ChooseGroupTableViewCtrl {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        super.tableView(tableView, didSelectRowAt: indexPath)
-        
-    }
+        // 将第一次选中的删掉
+        guard let lastSelectedIndex = tableView.indexPathsForSelectedRows?.first else { return }
+        // 在多选模式下做到单选，需要用 tableView.indexPathsForSelectedRows 数组
+        // 需要配合 tableView?.allowsMultipleSelectionDuringEditing = true
+        //  只要之前选中的那个indexPath不是当前的indexPath，就把之前那个取消选中
+        if lastSelectedIndex != indexPath {
+            tableView.deselectRow(at: lastSelectedIndex, animated: true)
+        }
 
+    }
+    
 }

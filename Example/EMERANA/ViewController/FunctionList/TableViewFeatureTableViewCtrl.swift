@@ -9,32 +9,15 @@
 import UIKit
 import EnolaGay
 
-
 class TableViewFeatureTableViewCtrl: JudyBaseTableViewCtrl {
     
     override var viewTitle: String? { return "tableView" }
-    
-    // MARK: - let property and IBOutlet
-    
-    
-    // MARK: - public var property
-    
-
-    // MARK: - private var property
-    
-    
-    // MARK: - Life Cycle
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
                 
     }
-    
-    // MARK: - override
-    
-    // MARK: - Event response
-    
+
     @IBAction func singleSelectedAction(_ sender: Any) {
         tableView?.isEditing = !tableView!.isEditing
     }
@@ -45,15 +28,6 @@ class TableViewFeatureTableViewCtrl: JudyBaseTableViewCtrl {
     
     @IBAction func editSelectedAction(_ sender: Any) {
         
-    }
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    
     }
 
 }
@@ -80,7 +54,6 @@ extension TableViewFeatureTableViewCtrl {
 
 }
 
-
 // MARK: - tableView delegate
 extension TableViewFeatureTableViewCtrl {
     
@@ -99,15 +72,6 @@ extension TableViewFeatureTableViewCtrl {
 
 
 class SelectCell: JudyBaseTableCell {
-    
-    // MARK: - let property and IBOutlet
-    
-    
-    // MARK: - var property
-    
-    
-    // MARK: - Life Cycle
-    
     // Cell 准备重用时执行的方法
     override func prepareForReuse() {
         super.prepareForReuse()
