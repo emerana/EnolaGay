@@ -24,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enableAutoToolbar = false
 
-
-
         // 创建表
         DataBaseCtrl.judy.create_group()
         DataBaseCtrl.judy.create_remarks()
