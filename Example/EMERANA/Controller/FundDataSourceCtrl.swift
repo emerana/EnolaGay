@@ -88,8 +88,7 @@ extension FundDataSourceCtrl {
             // 确定数据库路径
             let docuPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
             let dbPath = docuPath.appending("/\(dataBaseName).db")
-            
-//            Judy.log(dbPath)
+            Judy.log("数据库 FundDB 沙盒路径：\(dbPath)")
             dbQueue = FMDatabaseQueue(path: dbPath)
         }
         return dbQueue!

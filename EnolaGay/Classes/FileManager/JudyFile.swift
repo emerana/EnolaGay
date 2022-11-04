@@ -570,4 +570,33 @@ class JudyFileManage: NSObject {
     }
     
 }
+/*
+- (void)getPath{
+    //获取沙盒根目录路径
+    NSString *homeDir = NSHomeDirectory();
+    NSLog(@"honedir:%@",homeDir);
+    
+    //获取 Documents 目录路径
+    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSLog(@"docDir: %@",docDir);
+    
+    //获取 Library 目录路径
+    NSString *libDir = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+    NSLog(@"libDir: %@",libDir);
+    
+    //获取 cache 目录路径
+    NSString *cachesDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    NSLog(@"cachesDir: %@",cachesDir);
+    
+    //获取 tmp 目录路径
+    NSString *tmpDir = NSTemporaryDirectory();
+    NSLog(@"tmpDir: %@",tmpDir);
+    
+    //获取应用自身的 xx.app 目录
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *strAppPath = [bundle bundlePath];
+    NSLog(@"appDir: %@",strAppPath);
+}
 
+ 沙盒（sandbox）是 iOS 的一个防御机制，每个应用都有一个属于自己的沙盒。应用只能在自己的沙盒目录下读写数据，应用 A 不能访问应用 B 的沙盒，它们之间是互相隔离的
+*/

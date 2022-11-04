@@ -213,7 +213,8 @@ final public class ApiRequestConfig {
             if json.error != nil {
                 // 直接设置一个质检失败的数据
                 callback(json.setQCApiERROR(code: json.error!.errorCode,
-                                            msg: "响应数据解析失败: \(json.error!.localizedDescription)"))
+                                            msg: json.error!.localizedDescription))
+                Judy.log("响应数据解析失败")
                 return
             }
             // 若原始 JSON 已包含 Api 响应数据质检失败信息，则无需质检直接返回该数据。

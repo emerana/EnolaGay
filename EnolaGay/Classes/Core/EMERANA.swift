@@ -9,11 +9,11 @@ import SwiftyJSON
 
 // MARK: typealias
 
-/// 一个不传递任何参数的闭包
+/// 一个不传递任何参数的闭包类型
 public typealias Closure = (() -> Void)
-/// 传递一个 JSON 对象的闭包
+/// 传递一个 JSON 对象的闭包类型
 public typealias ClosureJSON = ((JSON) -> Void)
-/// 传递一个 String 对象的闭包
+/// 传递一个 String 对象的闭包类型
 public typealias ClosureString = ((String) -> Void)
 
 
@@ -148,7 +148,7 @@ public protocol EMERANA_CellBasic {
  // MARK: 默认实现的注意点
  
  # 注意：协议扩展是针对抽象类的，而协议本身是针对具体对象的
- # 当声明协议时没有进行限定则须注意一下：
+ # 当声明协议时没有进行限定则须注意以下：
  # 重写协议的默认实现函数调用权重为 子类>实现类>默认实现，若没有在实现类实现函数则直接调用默认实现函数，此时子类的重写无效
  */
 /// 为 EMERANA_CellBasic 协议新增的扩展函数（非默认实现函数）
@@ -166,14 +166,14 @@ public extension EMERANA_CellBasic {
  // MARK: - @available 使用
 
  @available： 可用来标识计算属性、函数、类、协议、结构体、枚举等类型的生命周期（依赖于特定的平台版本 或 Swift 版本）
- available 特性经常与参数列表一同出现，该参数列表至少有两个特性参数，参数之间由逗号分隔
+ available 特性经常与参数列表（列表如下）一同出现，该参数列表至少有两个特性参数，参数之间由逗号分隔。
  
- unavailable：表示该声明在指定的平台上是无效的
- introduced：表示指定平台从哪一版本开始引入该声明
- deprecated：表示指定平台从哪一版本开始弃用该声明虽然被弃用，但是依然使用的话也是没有问题的若省略版本号，则表示目前弃用，同时可直接省略冒号
- obsoleted：表示指定平台从哪一版本开始废弃该声明当一个声明被废弃后，它就从平台中移除，不能再被使用
- message：说明信息当使用被弃用或者被废弃的声明时，编译器会抛出警告或错误信息
- renamed：新的声明名称信息当使用旧声明时，编译器会报错提示修改为新名字
+ unavailable：表示该声明在指定的平台上是无效的。
+ introduced：表示指定平台从哪一版本开始引入该声明。
+ deprecated：表示指定平台从哪一版本开始弃用该声明，虽然被弃用，但是依然使用的话也是没有问题的，若省略版本号，则表示目前弃用，同时可直接省略冒号。
+ obsoleted：表示指定平台从哪一版本开始废弃该声明，当一个声明被废弃后，它就从平台中移除，不能再被使用
+ message：说明信息当使用被弃用或者被废弃的声明时，编译器会抛出警告或错误信息。
+ renamed：新的声明名称信息，当使用旧声明时，编译器会报错，提示修改为新名字。
  
  如果 available 特性除了平台名称参数外，只指定了一个 introduced 参数，那么可以使用以下简写语法代替：
  @available(平台名称 版本号, *)
@@ -186,21 +186,55 @@ public extension EMERANA_CellBasic {
 // MARK: - UIColor 配置扩展
 
 public extension UIColor {
-    
+    // 浅色
+    static let 淡红色 = #colorLiteral(red: 0.9254901961, green: 0.4117647059, blue: 0.2549019608, alpha: 1)
+    static let 浅红橙 = #colorLiteral(red: 0.9450980392, green: 0.568627451, blue: 0.2862745098, alpha: 1)
+    static let 浅黄橙 = #colorLiteral(red: 0.9725490196, green: 0.7098039216, blue: 0.3176470588, alpha: 1)
+    static let 浅黄 = #colorLiteral(red: 1, green: 0.9568627451, blue: 0.3607843137, alpha: 1)
+    static let 浅青豆绿 = #colorLiteral(red: 0.7019607843, green: 0.831372549, blue: 0.3960784314, alpha: 1)
+    static let 浅黄绿 = #colorLiteral(red: 0.5019607843, green: 0.7607843137, blue: 0.4117647059, alpha: 1)
+    static let 浅绿 = #colorLiteral(red: 0.1960784314, green: 0.6941176471, blue: 0.4235294118, alpha: 1)
+    static let 浅绿青 = #colorLiteral(red: 0.07450980392, green: 0.7098039216, blue: 0.6941176471, alpha: 1)
+    static let 浅青 = #colorLiteral(red: 0, green: 0.7176470588, blue: 0.9333333333, alpha: 1)
+    static let 浅洋红 = #colorLiteral(red: 0.9176470588, green: 0.4078431373, blue: 0.6352941176, alpha: 1)
+    static let 浅蓝紫 = #colorLiteral(red: 0.3725490196, green: 0.3215686275, blue: 0.6274509804, alpha: 1)
+    static let 浅紫洋红 = #colorLiteral(red: 0.6823529412, green: 0.3647058824, blue: 0.631372549, alpha: 1)
+
+    // 纯净
+    static let 纯红 = #colorLiteral(red: 0.9019607843, green: 0, blue: 0.07058823529, alpha: 1)
+    static let 纯红橙 = #colorLiteral(red: 0.9215686275, green: 0.3803921569, blue: 0, alpha: 1)
+    static let 纯黄橙 = #colorLiteral(red: 0.9529411765, green: 0.5960784314, blue: 0, alpha: 1)
+    static let 纯黄 = #colorLiteral(red: 1, green: 0.9450980392, blue: 0, alpha: 1)
+    static let 纯青豆绿 = #colorLiteral(red: 0.5607843137, green: 0.7647058824, blue: 0.1215686275, alpha: 1)
+    static let 纯黄绿 = #colorLiteral(red: 0.1333333333, green: 0.6745098039, blue: 0.2196078431, alpha: 1)
+    static let 纯绿 = #colorLiteral(red: 0, green: 0.6, blue: 0.2666666667, alpha: 1)
+    static let 纯绿青 = #colorLiteral(red: 0, green: 0.6196078431, blue: 0.5882352941, alpha: 1)
+    static let 纯青 = #colorLiteral(red: 0, green: 0.6274509804, blue: 0.9137254902, alpha: 1)
+    static let 纯青蓝 = #colorLiteral(red: 0, green: 0.4078431373, blue: 0.7176470588, alpha: 1)
+    static let 纯蓝 = #colorLiteral(red: 0, green: 0.2784313725, blue: 0.6156862745, alpha: 1)
+    static let 纯蓝紫 = #colorLiteral(red: 0.1137254902, green: 0.1254901961, blue: 0.5333333333, alpha: 1)
+    static let 纯紫 = #colorLiteral(red: 0.3764705882, green: 0.09803921569, blue: 0.5254901961, alpha: 1)
+    static let 纯紫洋红 = #colorLiteral(red: 0.5725490196, green: 0.02745098039, blue: 0.5137254902, alpha: 1)
+    static let 纯洋红 = #colorLiteral(red: 0.8941176471, green: 0, blue: 0.4980392157, alpha: 1)
+    static let 纯洋红红 = #colorLiteral(red: 0.8980392157, green: 0, blue: 0.3098039216, alpha: 1)
+
+
     /*
-     * static 定义的属性和func 没办法被子类 override.
-     * class 定义的属性和func 可以被子类 override.
+     * static 和 class 的区别.
+     *
+     * static 定义的属性和 func 没办法被子类 override.
+     * class 定义的属性和 func 可以被子类 override.
      */
     
     /// 此颜色为白色
     static let scrollView: UIColor = .white
 
     // MARK: 构造函数
-    
-    /// 通过16进制转换成 UIColor
+
+    /// 通过一个 16 进制的 Int 值生成 UIColor
     ///
     /// - Parameters:
-    ///   - rgbValue: 如:0x36c7b7（其实就是#36c7b7）
+    ///   - rgbValue: 如:0x36c7b7（其实就是#36c7b7，但必须以0x开头才能作为 Int）
     ///   - alpha: 默认1 可见度，0.0~1.0，值越高越不透明，越小越透明
     convenience init(rgbValue: Int, alpha: CGFloat = 1) {
         self.init(red: CGFloat(Float((rgbValue & 0xff0000) >> 16)) / 255.0,
@@ -227,9 +261,9 @@ public extension UIColor {
 /// 字体专用协议
 /// - Warning: 此协仅支持对象类型
 protocol FontStyle: AnyObject {
-    /// 是否禁用全局字体名称配置，默认 false，将该值改为 true 即可忽略全局配置，单独使用在 xib 配置的值
+    /// 是否不使用 protocol EnolaGayAdapter 中的 defaultFontName 返回的字体名，默认 false，将该值改为 true 即可单独使用在 xib 配置的值，从而忽略 defaultFontName 全局字体名称配置。
     ///
-    /// 其核心为 JudyBaseLabel、JudyBaseButton、JudyBaseTextfield 的默认字体使用了 EMERANA.enolagayAdapter?.defaultFontName.
+    /// 在 protocol EnolaGayAdapter 中 JudyBaseLabel、JudyBaseButton、JudyBaseTextfield 的默认字体名称使用 EMERANA.enolagayAdapter?.defaultFontName 的配置值。
     var disableFont: Bool { get }
 }
 
@@ -280,25 +314,41 @@ public extension UIFont {
 
 // MARK: - EnolaGayAdapter 协议：字体、颜色配置
 
-/// EnolaGay 框架全局适配协议，该协议只允许 UIApplication 继承
+/// EnolaGay 框架全局适配协议
+///
+/// 请自行 extension UIApplication: EnolaGayAdapter 实现想要的配置函数。
+///
+/// - Warning: 该协议仅允许 UIApplication 继承。
 public protocol EnolaGayAdapter where Self: UIApplication {
-    /// 询问 JudyBaseLabel、JudyBaseButton、JudyBaseTextField 的默认 font，该 font 需要用目标 fontName 构建
+    /// 配置 JudyBaseLabel、JudyBaseButton、JudyBaseTextField 的默认字体样式，但忽略配置字体大小。
     ///
-    /// 无论是不是在 xib 中构建的都会询问该 font.在 xib 中若需要使用 xib 设置的字体请将 disableFont 设置为 true 即可
+    /// JudyBaseLabel、JudyBaseButton、JudyBaseTextField 无论是不是在 xib 中构建的都会访问该 font 以便获得 fontName.
     ///
-    /// - Warning: EnolaGayAdapter 只会使用 UIFont.fontName，字体大小将沿用修改前的值
+    /// 在 xib 中若需要忽略全局配置，使用 xib 设置的字体时，请将 disableFont 设置为 true 即可。
+    ///
+    /// - Warning:  返回的目标字体仅会影响字体名称（仅使用其 UIFont.fontName），不影响字体大小。
     func defaultFontName() -> UIFont
     
-    /// 询问 JudyBaseViewCtrl 及其子类的背景色，该函数默认实现为 white.
+    /// 配置 JudyBaseViewCtrl 及其子类的背景色。
+    ///
+    /// - Warning: 该函数有默认实现为 systemBackground.
     func viewBackgroundColor() -> UIColor
-    /// 询问 JudyBaseCollectionViewCtrl、JudyBaseTableViewCtrl 容器 View 的背景色，该函数默认实现为 white.
+    
+    /// 配置 JudyBaseCollectionViewCtrl、JudyBaseTableViewCtrl 容器 scrollView 的背景色。
+    ///
+    /// - Warning: 该函数有默认实现，为 systemBackground.
     func scrollViewBackGroundColor() -> UIColor
     
-    /// 询问 JudyBaseNavigationCtrl 中的 标题颜色及 tintColor（标题两侧 items），该函数默认实现为 systemBlue.
+    /// 配置 JudyBaseNavigationCtrl 中的 标题颜色及 tintColor（标题两侧 items）。
+    ///
+    /// - Warning: 该函数有默认实现，为 systemBlue.
     func navigationBarItemsColor() -> UIColor
 }
 
 public extension EnolaGayAdapter {
+    
+    func defaultFontName() -> UIFont { UIFont(name: .苹方_中黑体, size: 12) }
+    
     func viewBackgroundColor() -> UIColor { .systemBackground }
 
     func scrollViewBackGroundColor() -> UIColor { .systemBackground }
@@ -1282,6 +1332,25 @@ public extension String {
         return String(self[start ..< end])
     }
     
+    /// 转换成10进制的 Int 值
+    ///
+    /// 如"0x606060"/"606060"，调用此属性即可获得559964256.
+    ///
+    /// 由于某些原因，使用了 String(15493441,radix:16) 函数将某个10进制的值转成16进制的 String,现在只能通过 String 的此属性还原成10进制的 Int.
+    ///
+    /// - Warning: 请确保该字符串内容是正确的16进制值
+    var intValueFrom16Decimal: Int {
+        let str = self.uppercased()
+        var sum = 0
+        for i in str.utf8 {
+            sum = sum * 16 + Int(i) - 48 // 0-9 从48开始
+            if i >= 65 { // A-Z 从65开始，但有初始值10，所以应该是减去55
+                sum -= 7
+            }
+        }
+        return sum
+    }
+
     /*
      
      let str = "Hello, world!"
@@ -1323,7 +1392,7 @@ public extension EnolaGayWrapper where Base: UITableView {
     ///
     /// 在此之前的方法可能会引起数组越界问题，此函数针对该问题修复
     /// - Parameter animated: 是否需要动画效果？默认为 true
-    /// - warning: 在调用该函数之前请先调用 reloadData()
+    /// - Warning: 在调用该函数之前请先调用 reloadData()
     func scrollToBottom(animated: Bool = true) {
         if base.numberOfSections > 0 {
             let lastSectionIndex = base.numberOfSections-1

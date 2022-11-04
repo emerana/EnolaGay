@@ -399,7 +399,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
         base.present(viewController, animated: animated, completion: completion)
     }
 
-    
+#warning("构造函数，需要移植到所属类里")
     /// 生成一个 WKWebView，该 webView 的 frame 为 view.bounds，且已加载自适应屏幕宽度脚本
     ///
     /// 参考以下代码加载 html 字符:
@@ -479,9 +479,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
         
         UIGraphicsBeginImageContextWithOptions(targetScrollView.contentSize, false, 0.0)
         
-        guard let context = UIGraphicsGetCurrentContext() else {
-            return nil
-        }
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
         
         let savedContentOffset = targetScrollView.contentOffset
         let savedFrame = targetScrollView.frame
@@ -529,9 +527,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
         
         UIGraphicsBeginImageContextWithOptions(targetView.bounds.size, false, 0.0)
         
-        guard let context = UIGraphicsGetCurrentContext() else {
-            return nil
-        }
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
         
         let rect = CGRect(origin: CGPoint(x: targetView.judy.x, y: targetView.judy.y), size: targetView.bounds.size)
         // 处理背景可能是透明的情况
@@ -570,10 +566,9 @@ public extension EnolaGayWrapper where Base: UIViewController {
     /// - Returns: 保存结果
     @discardableResult
     func captureImageSavedPhotosAlbum(targetView: UIView, transparent: Bool = false) -> Bool {
-        
         let image = captureScreenImage(targetView: targetView, transparent: transparent)
         guard image != nil else {
-            Judy.log("图片截取失败！")
+            Judy.logWarning("图片截取失败！")
             return false
         }
         
@@ -585,12 +580,11 @@ public extension EnolaGayWrapper where Base: UIViewController {
 
     // MARK: - UIViewController 其他扩展函数
 
-    /// 递归查找 UITextField.
-    /// - Parameter view: UITextField 可能存在的父 View.
+    /// 递归查找 UITextField
+    /// - Parameter view: UITextField 可能存在的父 View
+    /// - Returns: 目标 UITextField
     func recursionUITextField(view: UIView) -> UIView? {
-        
         var textField: UIView? = nil
-        
         for subView in view.subviews {
             if let _ = subView as? UITextField {
                 return subView
@@ -602,7 +596,6 @@ public extension EnolaGayWrapper where Base: UIViewController {
         return textField
     }
         
-    
     // MARK: 将导航栏移出屏幕外
     
     /// 移动导航条，将导航栏移出屏幕外（或恢复原位置）
@@ -625,7 +618,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
         }
     }
     
-    /// 弹出一个系统警告框，只包含一个取消类型的按钮。通常用于临时性提醒、警告作用
+    /// 弹出一个系统警告框，只包含一个取消类型的按钮。通常用于临时性提醒、警告作用。
     /// - Parameters:
     ///   - title: alert的标题，默认为"提示"
     ///   - msg: 消息文字
@@ -640,6 +633,28 @@ public extension EnolaGayWrapper where Base: UIViewController {
         alertController.addAction(cancelAction)
         base.present(alertController, animated: false, completion: nil)
     }
+    
+    
+    /// 确认执行某个危险操作，比如“删除”操作
+    ///
+    /// - Parameters:
+    ///   - title: 弹窗标题，默认为“警告”
+    ///   - msg: 弹窗消息体
+    ///   - confirmButtonTitle: 确认操作标题，默认为“确定”
+    ///   - cancelButtonTitle: 取消操作标题，默认为“取消”
+    ///   - confirmction: 确认执行的函数
+    func alert(title: String = "警告", msg: String? = nil, confirmButtonTitle: String = "确定", cancelButtonTitle: String = "取消", confirmction: @escaping ((UIAlertAction) -> Void)) {
+        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        // 创建 UIAlertAction 控件
+        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { alertAction in }
+        let confirmAction = UIAlertAction(title: confirmButtonTitle, style: .destructive, handler: confirmction)
+
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+
+        base.present(alertController, animated: false, completion: nil)
+    }
+    
     
     /// 获取当前 UIViewController 的导航控制器
     ///
