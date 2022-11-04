@@ -40,6 +40,7 @@
 		05DF336E6DB67BB0621CCF0C9463ED4A /* IGListCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3725AC1A7AB9D837E1229B543802D731 /* IGListCollectionView.m */; };
 		0612BCB7AB5879F8E81F2DFC2DFF9DD7 /* CandleChartDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C756F0406F6D53C7B1A89CFAE83DCCEB /* CandleChartDataProvider.swift */; };
 		06174FD6C75982DFD6C47EAB76CC45B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE56C02B2764E4516ACB930713060649 /* Foundation.framework */; };
+		0642D480C73FABA84FF6C5B4EE62C2EF /* Pods-EnolaGay_Example-PasswordBox-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 202259116B7EA1B9FFCF73131AEB91EE /* Pods-EnolaGay_Example-PasswordBox-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		06CFC46BE26FFCF48FAC3BC758C1B73A /* Platform+Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2037859052DA2451529932223928B5CD /* Platform+Accessibility.swift */; };
 		07ED65FC8B25E7420799D68D2CC59E7D /* IGListAdapterUpdateListener.h in Headers */ = {isa = PBXBuildFile; fileRef = C3EAB3B7B1345FA7EBB4200A8EEE20F0 /* IGListAdapterUpdateListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07F36B6C00E133D649E548A6AE58B961 /* BarChartDataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36E7BCDBA7AB5AAE79035FB9AE165F5 /* BarChartDataEntry.swift */; };
@@ -124,7 +125,6 @@
 		184AF1DEEEF198F674843686DAE3571F /* BarChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F432E4B9CB526C76DB2AA9B2D1DAF00 /* BarChartDataSet.swift */; };
 		18540C7423267A7B483B5EAC9F2FBB5F /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5F1368BAE0702237742770E0F8EBFE /* Box.swift */; };
 		185752A7340F25ECFE196871BF4D0715 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A325FEF517226035095C432A5FD8A5 /* Sample.swift */; };
-		185C363E9BF4C3A67F62E66D74E28E33 /* Pods-EnolaGay_Example-PasswordBox-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 202259116B7EA1B9FFCF73131AEB91EE /* Pods-EnolaGay_Example-PasswordBox-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		18D89F10B04C2139B5219FCE9443D317 /* UIImage+Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 04018F4A5BD6D2C25029C72801AFC3DF /* UIImage+Transform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1906833B5152124BA266F3D7B9015804 /* ImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F80F96EB20EAC8B84ABAD9F15653160 /* ImageWrapper.swift */; };
 		194E2F707D9AE87266C08DDD38BAC2C5 /* UICollectionView+DebugDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = F05B57EA4B49F030749E492BD9C0D4AF /* UICollectionView+DebugDescription.m */; };
@@ -400,7 +400,7 @@
 		4FC27FF6DF0328A134393A57E735977B /* RxTextStorageDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EC68F98ACDC97B3579DABAB8D84ED8 /* RxTextStorageDelegateProxy.swift */; };
 		504FC6E2898BB2EAA2099072FBECB8B8 /* IGListAdapter+DebugDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 4431830F1EEF06A968177BB6B71F85E5 /* IGListAdapter+DebugDescription.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		50681D70D26BA315A5DDC1365B4CF0BB /* KVORepresentable+CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943679B0FB8CF2CD27409B73F57F0244 /* KVORepresentable+CoreGraphics.swift */; };
-		507875BB3930429C9BB09AFAABFF8D86 /* Pods-EnolaGay_Example-PasswordBox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD5233A36F7357A10BF138C2C205B3E /* Pods-EnolaGay_Example-PasswordBox-dummy.m */; };
+		5150CC98D5CF02135D97C37B6EE7D01A /* Pods-EnolaGay_Example-PasswordBox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD5233A36F7357A10BF138C2C205B3E /* Pods-EnolaGay_Example-PasswordBox-dummy.m */; };
 		5160015BAA1E3D6625AA6B06D0DBC62F /* LegendRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B67D6BDAC596E13C7663D2A27EE40 /* LegendRenderer.swift */; };
 		51C984425C777CF8B613C230DCE2DB65 /* UIGestureRecognizer+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8801D8DFA0B6B814A15CF01BA9E87 /* UIGestureRecognizer+Rx.swift */; };
 		51E4746B84E272F48033F684F93E043A /* SDWebImageDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A1ABF483FC4D6648D8AE37864A51597 /* SDWebImageDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -757,6 +757,7 @@
 		A38C59252BA64D03AD68FED107172242 /* DelaySubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1087E068BB3AC04AE4B8BFA147008987 /* DelaySubscription.swift */; };
 		A404C0924ECF70F20F76E1AA5F32876D /* IGListDebugger.h in Headers */ = {isa = PBXBuildFile; fileRef = D4BA211FAD82B8620AF26C503DF31AF0 /* IGListDebugger.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A412B238ACEAAD334C2AB26338C05C4D /* StorageAware.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9872B796E0B449F9DD35E04EE8F1F01 /* StorageAware.swift */; };
+		A41FF360D3BA97126F89B8A3FFB86949 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE56C02B2764E4516ACB930713060649 /* Foundation.framework */; };
 		A435E4B3FF0B326E880502C6FD3FC987 /* KVORepresentable+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A28CED2FEC5F8BDE616056169E0A5 /* KVORepresentable+Swift.swift */; };
 		A4553A17D07FAC3DBF1CC9CFF2D1D47B /* CombineLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF6CCBE4D9E7784FEF12025A0CE0C80 /* CombineLatest.swift */; };
 		A45D709B5267FD140C3FAC0F87711752 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE56C02B2764E4516ACB930713060649 /* Foundation.framework */; };
@@ -810,7 +811,6 @@
 		AD97FE2EE349879547C5C56AE9C7370B /* Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC558A0223874BB650C90183A82BCB9 /* Highlight.swift */; };
 		ADD70DAA0E993373839E6D3D779A727A /* SDImageAPNGCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 874EAABD042E06B7F1333BB51F31ECD3 /* SDImageAPNGCoder.m */; };
 		ADE5DB68872D5F765C31F2880DE0216C /* ConcurrentMainScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E1452C9913425B717A34EBB19A38A /* ConcurrentMainScheduler.swift */; };
-		AE5761E7CE430677162AC350A5FA239C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE56C02B2764E4516ACB930713060649 /* Foundation.framework */; };
 		AEA75E06CB921EE4A0A55AA5248E3D85 /* SDWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 643BB25B8BA269DB20086CD2C7324301 /* SDWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AEB007C7128575842880AD5559D2D5AC /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1165B4D501B89C9D9CCDC9C4C446F18F /* MessageView.swift */; };
 		AEF2A71C704B02E30112548324D4C27B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE56C02B2764E4516ACB930713060649 /* Foundation.framework */; };
@@ -1346,6 +1346,13 @@
 			remoteGlobalIDString = EA9EA43B3B503823EE36C60D9C8A865F;
 			remoteInfo = RxSwift;
 		};
+		575BBC906AF45802AC8ADAA7D2AF3F1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B490E7485944099E16C9CBD79119D1D4;
+			remoteInfo = IQKeyboardManagerSwift;
+		};
 		5B7BB0CA0D187C3E45CA94AE791454E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1373,6 +1380,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
 			remoteInfo = Alamofire;
+		};
+		645AC82F2A19EA91275BE9D59B08F329 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD5B562733C3004B1C10D9C1A0EEB84F;
+			remoteInfo = EnolaGay;
 		};
 		650641C4132BD9A84C8620C15403A9AD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1423,6 +1437,13 @@
 			remoteGlobalIDString = DAB613A18652334F6BFC5F27BADF515D;
 			remoteInfo = SwiftMessages;
 		};
+		75329EE4B97CD321DC8F4C217A85E291 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7AD0C6DCDC9CEC8A3C7C10C7FEE07BE6;
+			remoteInfo = RxCocoa;
+		};
 		7A43366D514186BB35BAF2125193A480 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1438,13 +1459,6 @@
 			remoteInfo = SwiftyJSON;
 		};
 		7EEAF47A5FD44263B06BE1DD5D2EAAA4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CD5B562733C3004B1C10D9C1A0EEB84F;
-			remoteInfo = EnolaGay;
-		};
-		80ECA4DA20D8CC460F5D566C848B2515 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -1478,6 +1492,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = D118A6A04828FD3CDA8640CD2B6796D2;
 			remoteInfo = SwiftyJSON;
+		};
+		8EE0D7405A188CB7D479A8033D50B8AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
+			remoteInfo = Alamofire;
 		};
 		8FC0146183CC979E48432C1C478F949D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1520,6 +1541,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = CD5B562733C3004B1C10D9C1A0EEB84F;
 			remoteInfo = EnolaGay;
+		};
+		9B9C5E416299D98150079429CAA648C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8592E0E389D40AC17881400ADC67ABC0;
+			remoteInfo = FMDB;
 		};
 		A33F38D771424C4467C44D8C45D3B849 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1605,6 +1633,13 @@
 			remoteGlobalIDString = 50EB4B7A37D813AB89E6146719E0D088;
 			remoteInfo = BadgeHub;
 		};
+		B2C860536BD549335E900177F0DDEF9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4622BFEF3DC16E8BD15EEFC30D4D0084;
+			remoteInfo = RxRelay;
+		};
 		B2CC51DFE7E996207386A52D3994FB4D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1625,6 +1660,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4622BFEF3DC16E8BD15EEFC30D4D0084;
 			remoteInfo = RxRelay;
+		};
+		C3EBC7C86141E857D4ACAE4AF0DED69D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D118A6A04828FD3CDA8640CD2B6796D2;
+			remoteInfo = SwiftyJSON;
 		};
 		CBA5E16D0F0BDD9CB424F3F6C7C3E115 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1654,19 +1696,19 @@
 			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
 			remoteInfo = Alamofire;
 		};
+		D2D9654FBDA7B8A890E986F1D3ED08C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA9EA43B3B503823EE36C60D9C8A865F;
+			remoteInfo = RxSwift;
+		};
 		D7D964F8139B235355060F2B60A586D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3847153A6E5EEFB86565BA840768F429;
 			remoteInfo = SDWebImage;
-		};
-		D91B06C2FEC8858C01580E6A45E611EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D118A6A04828FD3CDA8640CD2B6796D2;
-			remoteInfo = SwiftyJSON;
 		};
 		DEA34385BA2EBB8E3350F0C417558BC0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1738,13 +1780,6 @@
 			remoteGlobalIDString = CD5B562733C3004B1C10D9C1A0EEB84F;
 			remoteInfo = EnolaGay;
 		};
-		F209EB28962EF56A69271AB78818A5A3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EAAA1AD3A8A1B59AB91319EE40752C6D;
-			remoteInfo = Alamofire;
-		};
 		F39393ED1CF89991A03BE198B10BA736 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1779,6 +1814,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = F1BCD9702276377FB5B3BDB6EAF709D7;
 			remoteInfo = DZNEmptyDataSet;
+		};
+		FF2BD3231412E6472F99D76F60EA0938 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAB613A18652334F6BFC5F27BADF515D;
+			remoteInfo = SwiftMessages;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -3201,6 +3243,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		35A931F156C99ABCA8F3A543E9E57A8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A41FF360D3BA97126F89B8A3FFB86949 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F2F2B4B60E82759C2D143272DB1AC72 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -3230,14 +3280,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8E9D06DC51EC50FD682E9678F8AE43D /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		49413BC384BB7813D3089BF3459243D0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AE5761E7CE430677162AC350A5FA239C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5637,14 +5679,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0A00B8EE4ECCF96D776F766A2EAE0AD5 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				185C363E9BF4C3A67F62E66D74E28E33 /* Pods-EnolaGay_Example-PasswordBox-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0B9778144205146F05C6BB8B93B5C5CC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -6019,6 +6053,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B615F99008889A98598AA725545324BF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0642D480C73FABA84FF6C5B4EE62C2EF /* Pods-EnolaGay_Example-PasswordBox-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC482071C83767B68D04E95A98B7715B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -6266,19 +6308,25 @@
 		};
 		344EBCD5B75F62857E697B61E84F7894 /* Pods-EnolaGay_Example-PasswordBox */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 83C053D483ACC72E6A218CF787B49C53 /* Build configuration list for PBXNativeTarget "Pods-EnolaGay_Example-PasswordBox" */;
+			buildConfigurationList = 05354A8D16A4F6EA85093DFCF9F9B5B1 /* Build configuration list for PBXNativeTarget "Pods-EnolaGay_Example-PasswordBox" */;
 			buildPhases = (
-				0A00B8EE4ECCF96D776F766A2EAE0AD5 /* Headers */,
-				A890D08FD55E13C4E45F9726F4F1AE52 /* Sources */,
-				49413BC384BB7813D3089BF3459243D0 /* Frameworks */,
-				4380F31BBF2641A2F018FFD90BF8E3FB /* Resources */,
+				B615F99008889A98598AA725545324BF /* Headers */,
+				2268D86B95C8ED229D48A855BC043612 /* Sources */,
+				35A931F156C99ABCA8F3A543E9E57A8B /* Frameworks */,
+				F1DE131C43A4F4E8EB55EB9E2CE0F6EF /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F54942A246A87865F06668FC491CA4FB /* PBXTargetDependency */,
-				848F234E6F2D053A3EB9321EA5DB4D97 /* PBXTargetDependency */,
-				AAFCC9206702CD839F73482840FEDD23 /* PBXTargetDependency */,
+				F72A96094C64ADD9741A53C8897A4588 /* PBXTargetDependency */,
+				80976F02A36DB544D6CAD4C2609D18FE /* PBXTargetDependency */,
+				CCC89CD66C5418EB149C4B69F2705B1B /* PBXTargetDependency */,
+				8436A876DDC864684789BD53FB7457FA /* PBXTargetDependency */,
+				79F291893ABC8DF95008ED30D89AF08E /* PBXTargetDependency */,
+				3B3036186631D3F95E531D808A397B92 /* PBXTargetDependency */,
+				9B99D6BCD0EC3D3547607B471FF06454 /* PBXTargetDependency */,
+				6590EEB757F2CB2A952C08DFBDA08980 /* PBXTargetDependency */,
+				111EFE7888825719CDEFC7B3E76F6F3F /* PBXTargetDependency */,
 			);
 			name = "Pods-EnolaGay_Example-PasswordBox";
 			productName = Pods_EnolaGay_Example_PasswordBox;
@@ -7169,13 +7217,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4380F31BBF2641A2F018FFD90BF8E3FB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4CDA137F05406677969691DAC2BFEC31 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -7393,6 +7434,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1DE131C43A4F4E8EB55EB9E2CE0F6EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F7D33BCE18D5EC1244AF5C794188E0D6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -7583,6 +7631,14 @@
 			files = (
 				D3EDD4C70798D73A0A51CDF5F5DEEFA6 /* BadgeHub.swift in Sources */,
 				669A1F5C37FFE3190FEA253FBB0883CD /* BadgeHub-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2268D86B95C8ED229D48A855BC043612 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5150CC98D5CF02135D97C37B6EE7D01A /* Pods-EnolaGay_Example-PasswordBox-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8179,14 +8235,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A890D08FD55E13C4E45F9726F4F1AE52 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				507875BB3930429C9BB09AFAABFF8D86 /* Pods-EnolaGay_Example-PasswordBox-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AA9AF8B13C4EC8776F28671C673BA38B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -8534,6 +8582,12 @@
 			target = D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */;
 			targetProxy = 22F3A1DE680BD3B1AB82DC1532D4FAAC /* PBXContainerItemProxy */;
 		};
+		111EFE7888825719CDEFC7B3E76F6F3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyJSON;
+			target = D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */;
+			targetProxy = C3EBC7C86141E857D4ACAE4AF0DED69D /* PBXContainerItemProxy */;
+		};
 		13E6490D611CFD4A2A4900D14DA8987F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RxCocoa;
@@ -8636,6 +8690,12 @@
 			target = 6868056D761E163D10FDAF8CF1C4D9B8 /* MJRefresh */;
 			targetProxy = ADFFFE6F18AB5C942D8B722C6C683B3F /* PBXContainerItemProxy */;
 		};
+		3B3036186631D3F95E531D808A397B92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RxRelay;
+			target = 4622BFEF3DC16E8BD15EEFC30D4D0084 /* RxRelay */;
+			targetProxy = B2C860536BD549335E900177F0DDEF9C /* PBXContainerItemProxy */;
+		};
 		3E1AB6F714BB2F3279C67D834FCA414D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
@@ -8732,6 +8792,12 @@
 			target = EA9EA43B3B503823EE36C60D9C8A865F /* RxSwift */;
 			targetProxy = E178274AB48312B2AF55D7D03A856569 /* PBXContainerItemProxy */;
 		};
+		6590EEB757F2CB2A952C08DFBDA08980 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftMessages;
+			target = DAB613A18652334F6BFC5F27BADF515D /* SwiftMessages */;
+			targetProxy = FF2BD3231412E6472F99D76F60EA0938 /* PBXContainerItemProxy */;
+		};
 		664F86D8F90E265C4BBFC50933C3EB9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SDWebImage;
@@ -8768,11 +8834,23 @@
 			target = EA9EA43B3B503823EE36C60D9C8A865F /* RxSwift */;
 			targetProxy = 1A191E19C3B619491E4F18ECFAD18170 /* PBXContainerItemProxy */;
 		};
+		79F291893ABC8DF95008ED30D89AF08E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RxCocoa;
+			target = 7AD0C6DCDC9CEC8A3C7C10C7FEE07BE6 /* RxCocoa */;
+			targetProxy = 75329EE4B97CD321DC8F4C217A85E291 /* PBXContainerItemProxy */;
+		};
 		7D110DC9EB50DD36A4BF4626EB991D9C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = EnolaGay;
 			target = CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */;
 			targetProxy = 7EEAF47A5FD44263B06BE1DD5D2EAAA4 /* PBXContainerItemProxy */;
+		};
+		80976F02A36DB544D6CAD4C2609D18FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EnolaGay;
+			target = CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */;
+			targetProxy = 645AC82F2A19EA91275BE9D59B08F329 /* PBXContainerItemProxy */;
 		};
 		83AFC773AE19FD1E9F7C9B54D032B7F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -8780,11 +8858,11 @@
 			target = D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */;
 			targetProxy = B5C4D0C345E5880C91306300784A023A /* PBXContainerItemProxy */;
 		};
-		848F234E6F2D053A3EB9321EA5DB4D97 /* PBXTargetDependency */ = {
+		8436A876DDC864684789BD53FB7457FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = EnolaGay;
-			target = CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */;
-			targetProxy = 80ECA4DA20D8CC460F5D566C848B2515 /* PBXContainerItemProxy */;
+			name = IQKeyboardManagerSwift;
+			target = B490E7485944099E16C9CBD79119D1D4 /* IQKeyboardManagerSwift */;
+			targetProxy = 575BBC906AF45802AC8ADAA7D2AF3F1F /* PBXContainerItemProxy */;
 		};
 		892DC5C4B601EB2176D3E742F50CDE8D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -8804,6 +8882,12 @@
 			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
 			targetProxy = 25331BFA2E400A47FC5D4188B5C611A5 /* PBXContainerItemProxy */;
 		};
+		9B99D6BCD0EC3D3547607B471FF06454 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RxSwift;
+			target = EA9EA43B3B503823EE36C60D9C8A865F /* RxSwift */;
+			targetProxy = D2D9654FBDA7B8A890E986F1D3ED08C2 /* PBXContainerItemProxy */;
+		};
 		9DF178546E5188182DC3FB44A6DDEF85 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
@@ -8821,12 +8905,6 @@
 			name = Alamofire;
 			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
 			targetProxy = 701F91F44F306B1D709067CD548BD7B4 /* PBXContainerItemProxy */;
-		};
-		AAFCC9206702CD839F73482840FEDD23 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftyJSON;
-			target = D118A6A04828FD3CDA8640CD2B6796D2 /* SwiftyJSON */;
-			targetProxy = D91B06C2FEC8858C01580E6A45E611EF /* PBXContainerItemProxy */;
 		};
 		AE881D988ED365F5AB56E92D44FDC93A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -8911,6 +8989,12 @@
 			name = Alamofire;
 			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
 			targetProxy = B125312523699AD4B80CBD2F898A86C4 /* PBXContainerItemProxy */;
+		};
+		CCC89CD66C5418EB149C4B69F2705B1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FMDB;
+			target = 8592E0E389D40AC17881400ADC67ABC0 /* FMDB */;
+			targetProxy = 9B9C5E416299D98150079429CAA648C8 /* PBXContainerItemProxy */;
 		};
 		CF0014729F2AF391A404D5DA739003D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -9038,11 +9122,11 @@
 			target = CD5B562733C3004B1C10D9C1A0EEB84F /* EnolaGay */;
 			targetProxy = 9B41BA6A369B13D85782549D4EA496B1 /* PBXContainerItemProxy */;
 		};
-		F54942A246A87865F06668FC491CA4FB /* PBXTargetDependency */ = {
+		F72A96094C64ADD9741A53C8897A4588 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
 			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
-			targetProxy = F209EB28962EF56A69271AB78818A5A3 /* PBXContainerItemProxy */;
+			targetProxy = 8EE0D7405A188CB7D479A8033D50B8AB /* PBXContainerItemProxy */;
 		};
 		FCFE7D88FEF02BE335510F492357F058 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -9187,40 +9271,6 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		0A3AF8C2813F80D3D4358F8C6A913823 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8AA6466BA50896874F273528A10A43D2 /* Pods-EnolaGay_Example-PasswordBox.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -10351,6 +10401,40 @@
 			};
 			name = Debug;
 		};
+		93A6B711CF2CCE0CC7BA7DF2E8654206 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AA6466BA50896874F273528A10A43D2 /* Pods-EnolaGay_Example-PasswordBox.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		978F2A4C75283225A6A38BC7819CDF31 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F6F51E77E60B0F0490A08A9C5D3F1B6A /* Pods-EnolaGay_Example.release.xcconfig */;
@@ -10770,41 +10854,6 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B062E88A5EE36CE389DA528FD74FC09F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DF1B0AC92E3175B720BAE7F81BF8D7C /* Pods-EnolaGay_Example-PasswordBox.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -11771,6 +11820,41 @@
 			};
 			name = Release;
 		};
+		EFF9B9DE6AB97D9F1F221D875B2A5574 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DF1B0AC92E3175B720BAE7F81BF8D7C /* Pods-EnolaGay_Example-PasswordBox.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EnolaGay_Example-PasswordBox/Pods-EnolaGay_Example-PasswordBox.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		F46BFF4B198CFEA54B2D4E561ABCA4C5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA03E50CF35A75D1AA011E36FAC49E48 /* Pods-EnolaGay_Example-HPickerDemo.release.xcconfig */;
@@ -11941,6 +12025,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		05354A8D16A4F6EA85093DFCF9F9B5B1 /* Build configuration list for PBXNativeTarget "Pods-EnolaGay_Example-PasswordBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93A6B711CF2CCE0CC7BA7DF2E8654206 /* Debug */,
+				EFF9B9DE6AB97D9F1F221D875B2A5574 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		07ACFDE82E557197D0AD8571D7FB7979 /* Build configuration list for PBXNativeTarget "Pods-EnolaGay_Example-GiftMessageViewCtrlDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -12162,15 +12255,6 @@
 			buildConfigurations = (
 				C175162EED7C8A4E194B4F35BF8356F4 /* Debug */,
 				279BBE14156D83A0B152C2630EAAFCBA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		83C053D483ACC72E6A218CF787B49C53 /* Build configuration list for PBXNativeTarget "Pods-EnolaGay_Example-PasswordBox" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0A3AF8C2813F80D3D4358F8C6A913823 /* Debug */,
-				B062E88A5EE36CE389DA528FD74FC09F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
