@@ -54,7 +54,6 @@ target 'EnolaGay_Example' do
     pod 'FMDB'
     
     pod 'BadgeHub'
-    pod 'IGListKit', '~> 4.0.0'
   end
   
 end
@@ -193,4 +192,12 @@ target 'AGUL' do
   pod 'Kingfisher'
   pod 'SwiftMessages'
   pod 'SDWebImage'
+end
+
+
+# MARK: MyIGListKit
+
+target 'MyIGListKit' do
+  pod 'EnolaGay', :path => '../'
+  pod 'IGListKit', '~> 4.0.0'
 end
