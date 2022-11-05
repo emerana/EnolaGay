@@ -95,6 +95,15 @@
         ]
       },
       "source_files": "EnolaGay/Classes/FileManager/*"
+    },
+    {
+      "name": "WKWebView",
+      "dependencies": {
+        "EnolaGay/EMERANA": [
+
+        ]
+      },
+      "source_files": "EnolaGay/Classes/WKWebView/*"
     }
   ],
   "swift_version": "5.0"

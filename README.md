@@ -120,6 +120,11 @@ pod 'EnolaGay/SearchViewCtrl'
 pod 'EnolaGay/FileManager'
 ```
 
+#### JudyBaseWebViewCtrl
+```ruby
+pod 'EnolaGay/JudyBaseWebViewCtrl'
+```
+
 ## Author
 
 醉翁之意, Judy_u@163.com

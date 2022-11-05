@@ -9,6 +9,7 @@
 import UIKit
 import EnolaGay
 import SwiftyJSON
+import WebKit
 
 class ViewController: UIViewController {
 
@@ -33,6 +34,8 @@ class ViewController: UIViewController {
 
         // 配置指示器
         segmentedView.indicators = [indicator1, indicator2]
+        
+        let webView = WKWebView(viewBounds: view.bounds)
     }
 
     @IBAction func goAction(_ sender: Any) {
@@ -59,7 +62,7 @@ extension ViewController: SegmentedViewDelegate {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = (segmentedView.selectedIndex == 0)
     }
 }
-
+//JudyBaseWebViewCtrl
 /// 抖音双击点赞动画。
 class DoubleClickThumbUpViewCtrl: UIViewController {
    
