@@ -78,24 +78,6 @@ target 'EnolaGay_Example' do
     pod 'EnolaGay', :path => '../'
   end
   
-  target 'MyRxSwfit' do
-    pod 'EnolaGay', :path => '../'
-    pod 'RxSwift'
-    pod 'RxCocoa'
-
-  end
-  
-  target 'MyCharts' do
-    pod 'EnolaGay', :path => '../'
-    pod 'Charts'
-
-  end
-
-  target 'JudyBaseNavigationCtrl' do
-    pod 'EnolaGay', :path => '../'
-
-  end
-
 end
 
 
@@ -140,4 +122,23 @@ end
 
 target 'FontExtension' do
   pod 'EnolaGay', :path => '../'
+end
+
+target 'MyRxSwfit' do
+  pod 'EnolaGay', :path => '../'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Alamofire'
+
+end
+
+target 'MyCharts' do
+  pod 'EnolaGay', :path => '../'
+  pod 'Charts'
+
+end
+
+target 'JudyBaseNavigationCtrl' do
+  pod 'EnolaGay', :path => '../'
+
 end

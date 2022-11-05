@@ -2,9 +2,10 @@ PODS:
   - Alamofire (4.9.1)
   - BadgeHub (1.0.0)
   - Cache (6.0.0)
-  - Charts (3.6.0):
-    - Charts/Core (= 3.6.0)
-  - Charts/Core (3.6.0)
+  - Charts (4.1.0):
+    - Charts/Core (= 4.1.0)
+  - Charts/Core (4.1.0):
+    - SwiftAlgorithms (~> 1.0)
   - DZNEmptyDataSet (1.8.1)
   - EnolaGay (3.7.10):
     - EnolaGay/EMERANA (= 3.7.10)
@@ -48,6 +49,7 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - SwiftAlgorithms (1.0.0)
   - SwiftMessages (9.0.4):
     - SwiftMessages/App (= 9.0.4)
   - SwiftMessages/App (9.0.4)
@@ -105,6 +107,7 @@ SPEC REPOS:
     - RxSwift
     - SDCycleScrollView
     - SDWebImage
+    - SwiftAlgorithms
     - SwiftMessages
     - SwiftyJSON
     - SwiftyUserDefaults
@@ -117,7 +120,7 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   BadgeHub: b227771329f78c37a2dae7502607ec6d00a50bd4
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
-  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  Charts: 354f86803d11d9c35de280587fef50d1af063978
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   EnolaGay: 6b3b4e00931c4f54a4f4aba7199a1411b07e1ce1
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
@@ -132,10 +135,11 @@ SPEC CHECKSUMS:
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SDCycleScrollView: a0d74c3384caa72bdfc81470bdbc8c14b3e1fbcf
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   SwiftMessages: 082ed63613a49fa8e749cd6000bb0a8b9bbc736f
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: 9957e49c07902c9fe718325e6e954bd5f259f608
+PODFILE CHECKSUM: 09b8694fad7a028e99f8896973e1fd93364eac2b
 
 COCOAPODS: 1.11.3
