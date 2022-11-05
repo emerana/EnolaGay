@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_EnolaGay_Example_SegmentedDemoVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_EnolaGay_Example_SegmentedDemoVersionString[];
+FOUNDATION_EXPORT double Pods_SegmentedDemoVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_SegmentedDemoVersionString[];
 
