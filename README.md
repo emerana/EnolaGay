@@ -122,7 +122,7 @@ pod 'EnolaGay/FileManager'
 
 #### JudyBaseWebViewCtrl
 ```ruby
-pod 'EnolaGay/JudyBaseWebViewCtrl'
+pod 'EnolaGay/WKWebView'
 ```
 
 ## Author
