@@ -356,6 +356,7 @@ public extension EnolaGayAdapter {
     func navigationBarItemsColor() -> UIColor { .systemBlue }
 }
 
+
 // MARK: - Calendar 扩展
 public extension EnolaGayWrapper where Base == Calendar {
     /// 获取当月从今天算起剩余的天数
@@ -626,6 +627,8 @@ public extension EnolaGayWrapper where Base: UIImage {
     }
 
 }
+
+// MARK: - 为 UIImage 新增构造函数
 
 public extension UIImage {
     
@@ -1568,7 +1571,7 @@ public final class KeyboardHelper {
 
 // MARK: - 命名空间
 
-/// 在 EnolaGay 中的兼容包装类型，该包装类型为 EnolaGay 中的方便方法提供了一个扩展点
+/// 在 EnolaGay 中的兼容包装类型，该包装类型为 EnolaGay 中的方便方法提供了一个扩展点。
 public struct EnolaGayWrapper<Base> {
     // 可以不用 public
     /// 包装对象在 EnolaGay 中对应的原始对象
@@ -1582,29 +1585,29 @@ public struct EnolaGayWrapper<Base> {
 public protocol EnolaGayCompatible { }
 
 extension EnolaGayCompatible {
-    /// 获取在 EnolaGay 中的兼容类型包装对象，即 EnolaGay 空间持有者对象
+    /// 获取在 EnolaGay 中的兼容类型包装对象，即 EnolaGay 空间持有者对象。
     public var judy: EnolaGayWrapper<Self> {
         get { return EnolaGayWrapper(self) }
         set { }
     }
 }
 
-// MARK: 使指定类型接受命名空间兼容类型协议，指定类型就可以使用 Judy 命名空间
-
+// MARK: 使指定类型接受命名空间兼容类型协议，指定类型就可以使用 Judy 命名空间。
+// 使 UIViewController 接受命名空间兼容类型协议
 extension UIViewController: EnolaGayCompatible { }
-
+// 使 Double 接受命名空间兼容类型协议
 extension Double: EnolaGayCompatible { }
-
+// 使 UIView 接受命名空间兼容类型协议
 extension UIView: EnolaGayCompatible { }
-
+// 使 UIImage 接受命名空间兼容类型协议
 extension UIImage: EnolaGayCompatible { }
-
+// 使 UIApplication 接受命名空间兼容类型协议
 extension UIApplication: EnolaGayCompatible { }
-
+// 使 Date 接受命名空间兼容类型协议
 extension Date: EnolaGayCompatible { }
-
+// 使 Calendar 接受命名空间兼容类型协议
 extension Calendar: EnolaGayCompatible { }
-
+// 使 String 接受命名空间兼容类型协议
 extension String: EnolaGayCompatible { }
 
 

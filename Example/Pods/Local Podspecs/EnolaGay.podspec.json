@@ -1,8 +1,8 @@
 {
   "name": "EnolaGay",
   "version": "3.7.10",
-  "summary": "便携式 App 架构，由早期的 EMERANA 进化而成。",
-  "description": "为了更高效地开发 iOS App, EMERANA 经过了几年的历练，在多个 App 中不断完善，最终进化成可适用于绝大部分场景的便携式框架。",
+  "summary": "EnolaGay 架构，由早期的 EMERANA 进化而成。",
+  "description": "EMERANA 经过了几年的历练，在多个 App 中不断完善，最终进化成可适用于绝大部分场景的便携式框架。",
   "homepage": "https://github.com/emerana/EnolaGay",
   "license": {
     "type": "MIT",
@@ -95,6 +95,15 @@
         ]
       },
       "source_files": "EnolaGay/Classes/FileManager/*"
+    },
+    {
+      "name": "WKWebView",
+      "dependencies": {
+        "EnolaGay/EMERANA": [
+
+        ]
+      },
+      "source_files": "EnolaGay/Classes/WKWebView/*"
     }
   ],
   "swift_version": "5.0"
