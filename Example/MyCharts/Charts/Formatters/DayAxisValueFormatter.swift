@@ -9,7 +9,7 @@
 import Foundation
 import Charts
 
-public class DayAxisValueFormatter: NSObject, IAxisValueFormatter {
+public class DayAxisValueFormatter: IntAxisValueFormatter {
     weak var chart: BarLineChartViewBase?
     let months = ["Jan", "Feb", "Mar",
                   "Apr", "May", "Jun",
@@ -20,7 +20,7 @@ public class DayAxisValueFormatter: NSObject, IAxisValueFormatter {
         self.chart = chart
     }
     
-    public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+    public override func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         let days = Int(value)
         let year = determineYear(forDays: days)
         let month = determineMonth(forDayOfYear: days)

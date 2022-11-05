@@ -28,14 +28,12 @@ class FontExtensionViewCtrl: JudyBaseViewCtrl {
         ///天
         let days = Int(timeInt/(3600*24))
         ///时
-        let hours = Int(timeInt - days*24*3600)/3600)
+        let hours = Int((Int(timeInt) - days*24*3600)/3600)
         ///分
-        let minute = Int((timeInt - days*24*3600-hours*3600)/60)
+        let minute = Int((Int(timeInt) - days*24*3600-hours*3600)/60)
         ///秒
-        let second = Int((timeInt - days*24*3600-hours*3600) - 60*minute)
+        let second = Int((Int(timeInt)-days*24*3600-hours*3600)-60*minute)
         let timeString = String(format: "%d:%d",hours,minute)
-
-        
     }
 
     // MARK: - override

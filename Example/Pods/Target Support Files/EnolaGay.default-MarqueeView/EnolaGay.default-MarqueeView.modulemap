@@ -1,0 +1,6 @@
+framework module EnolaGay {
+  umbrella header "EnolaGay.default-MarqueeView-umbrella.h"
+
+  export *
+  module * { export * }
+}
