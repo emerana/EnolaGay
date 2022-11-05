@@ -33,7 +33,6 @@ target 'EnolaGay_Example' do
 
   
   target 'EMERANA' do
-    pod 'EnolaGay', :path => '../'
     pod 'IQKeyboardManagerSwift'
     pod 'Alamofire', '~> 4.9.0'
 

@@ -1406,11 +1406,11 @@
 			isa = PBXGroup;
 			children = (
 				8BC3DD3026DF5CE700A2A405 /* ChatViewCtrl.h */,
-				8BC3DD3126DF5CE700A2A405 /* OtherResources */,
-				8BC3DD3726DF5CE700A2A405 /* ChatModel.h */,
 				8BC3DD3826DF5CE700A2A405 /* ChatViewCtrl.m */,
-				8BC3DD3926DF5CE700A2A405 /* Class */,
+				8BC3DD3726DF5CE700A2A405 /* ChatModel.h */,
 				8BC3DD4D26DF5CE700A2A405 /* ChatModel.m */,
+				8BC3DD3126DF5CE700A2A405 /* OtherResources */,
+				8BC3DD3926DF5CE700A2A405 /* Class */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
