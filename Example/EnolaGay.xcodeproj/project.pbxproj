@@ -243,6 +243,7 @@
 		93ABEB9893981EB588536176 /* Pods_EnolaGay_Example_Semaphore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643EA2A76EAACA640FC02CD1 /* Pods_EnolaGay_Example_Semaphore.framework */; };
 		9BAECC1D87020F82DE89E4F6 /* Pods_HPickerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7929F86E764F85DFA1EF98 /* Pods_HPickerDemo.framework */; };
 		B81C7931DB028FBDC7F50A7E /* Pods_JudyLivePageViewCtrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B4A427494A98F9DEA5A16A /* Pods_JudyLivePageViewCtrl.framework */; };
+		C9777077640E0F21640CF038 /* Pods_AGUL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DD4A02AFF1747699A29E82 /* Pods_AGUL.framework */; };
 		D571AAA024A1B519F784558A /* Pods_GiftMessageViewCtrlDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E34584FCEC0D60DBE3AFB585 /* Pods_GiftMessageViewCtrlDemo.framework */; };
 		DD52ABAB1A1E1D3FD3732979 /* Pods_RefreshAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2953210472AAEFB78DCA32B /* Pods_RefreshAdapter.framework */; };
 		E79751C2F0BA7AEE67D0DB21 /* Pods_MyRxSwfit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C81724A160FF905669494B /* Pods_MyRxSwfit.framework */; };
@@ -250,37 +251,30 @@
 		E923A544DE457C697CF4DE8F /* Pods_KeyBoardPop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDC9002BE9A5AC51D0D2AA5 /* Pods_KeyBoardPop.framework */; };
 		ECEB1478EB28652460F71169 /* Pods_FontExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20A11D0A2EF5359B59C7896 /* Pods_FontExtension.framework */; };
 		EE2859873D7E7BE3629FC128 /* Pods_EnolaGay_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */; };
-		FD2BF1C1E58BD6F9609DDA99 /* Pods_EnolaGay_Example_AGUL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1F91CA9F27435144DFABFF /* Pods_EnolaGay_Example_AGUL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01D4E368AA38FDAC2B3D9995 /* Pods-EnolaGay_Example-SegmentedDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-SegmentedDemo.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-SegmentedDemo/Pods-EnolaGay_Example-SegmentedDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		021930B7587C01B0136BFF60 /* Pods-MyRxSwfit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRxSwfit.debug.xcconfig"; path = "Target Support Files/Pods-MyRxSwfit/Pods-MyRxSwfit.debug.xcconfig"; sourceTree = "<group>"; };
-		03733613E8E86FE57CD412D8 /* Pods-MyRxSwfit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRxSwfit.release.xcconfig"; path = "Target Support Files/Pods-MyRxSwfit/Pods-MyRxSwfit.release.xcconfig"; sourceTree = "<group>"; };
-		03F69DA4448258F8531E6CB8 /* Pods-VersionCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VersionCheck.release.xcconfig"; path = "Target Support Files/Pods-VersionCheck/Pods-VersionCheck.release.xcconfig"; sourceTree = "<group>"; };
-		042F4685DE99ABB9F0185995 /* Pods-EnolaGay_Example-JudyLivePageViewCtrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-JudyLivePageViewCtrl.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-JudyLivePageViewCtrl/Pods-EnolaGay_Example-JudyLivePageViewCtrl.debug.xcconfig"; sourceTree = "<group>"; };
+		00453799243965645ACB0682 /* Pods-AttributedStringDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttributedStringDemo.release.xcconfig"; path = "Target Support Files/Pods-AttributedStringDemo/Pods-AttributedStringDemo.release.xcconfig"; sourceTree = "<group>"; };
+		023EA4516C7D87A062E2945C /* Pods-JudyBaseNavigationCtrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JudyBaseNavigationCtrl.debug.xcconfig"; path = "Target Support Files/Pods-JudyBaseNavigationCtrl/Pods-JudyBaseNavigationCtrl.debug.xcconfig"; sourceTree = "<group>"; };
+		065D541971181401A2B02756 /* Pods-EnolaGay_Example-EMERANA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-EMERANA.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-EMERANA/Pods-EnolaGay_Example-EMERANA.release.xcconfig"; sourceTree = "<group>"; };
+		07DF69FF44384D13723DF917 /* Pods-RefreshAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefreshAdapter.release.xcconfig"; path = "Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter.release.xcconfig"; sourceTree = "<group>"; };
+		09390FE9A28EA4FC256AE649 /* Pods-MyRxSwfit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRxSwfit.debug.xcconfig"; path = "Target Support Files/Pods-MyRxSwfit/Pods-MyRxSwfit.debug.xcconfig"; sourceTree = "<group>"; };
+		09653290382995AB20699E78 /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-Semaphore.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-Semaphore/Pods-EnolaGay_Example-Semaphore.debug.xcconfig"; sourceTree = "<group>"; };
 		0AF7FCDF38734E083B095500 /* Pods_EnolaGay_Example_EMERANA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_EMERANA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0B1F56108AF019E8FA35D847 /* Pods-JudyBaseNavigationCtrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JudyBaseNavigationCtrl.debug.xcconfig"; path = "Target Support Files/Pods-JudyBaseNavigationCtrl/Pods-JudyBaseNavigationCtrl.debug.xcconfig"; sourceTree = "<group>"; };
-		0C283E4D6FCBC3727D2E2B40 /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-Semaphore.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-Semaphore/Pods-EnolaGay_Example-Semaphore.release.xcconfig"; sourceTree = "<group>"; };
+		0B0B0220486477429C9E935C /* Pods-JudyLivePageViewCtrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JudyLivePageViewCtrl.release.xcconfig"; path = "Target Support Files/Pods-JudyLivePageViewCtrl/Pods-JudyLivePageViewCtrl.release.xcconfig"; sourceTree = "<group>"; };
+		0E511D1D986F5E970B319878 /* Pods-GiftMessageViewCtrlDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiftMessageViewCtrlDemo.release.xcconfig"; path = "Target Support Files/Pods-GiftMessageViewCtrlDemo/Pods-GiftMessageViewCtrlDemo.release.xcconfig"; sourceTree = "<group>"; };
 		0F1A1A1370061A6D2BA38281 /* Pods_PlayerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		115B17D07E15D7D795508687 /* Pods-JudyLivePageViewCtrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JudyLivePageViewCtrl.release.xcconfig"; path = "Target Support Files/Pods-JudyLivePageViewCtrl/Pods-JudyLivePageViewCtrl.release.xcconfig"; sourceTree = "<group>"; };
 		13219953D03CB8934331ED80 /* Pods_CacheDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CacheDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EC789C4543A144891B0D8D9 /* Pods-KeyBoardPop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyBoardPop.debug.xcconfig"; path = "Target Support Files/Pods-KeyBoardPop/Pods-KeyBoardPop.debug.xcconfig"; sourceTree = "<group>"; };
 		271D1E28BDD517FC30EC966B /* Pods_MyCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B840329943D0A7CDC3924C9 /* Pods-SegmentedDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentedDemo.debug.xcconfig"; path = "Target Support Files/Pods-SegmentedDemo/Pods-SegmentedDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		2C9EACDE665932E883C229A9 /* Pods-JudyBaseNavigationCtrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JudyBaseNavigationCtrl.release.xcconfig"; path = "Target Support Files/Pods-JudyBaseNavigationCtrl/Pods-JudyBaseNavigationCtrl.release.xcconfig"; sourceTree = "<group>"; };
-		2D38273E1DEF2266288A3DE8 /* Pods-EnolaGay_Example-MyRxSwfit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-MyRxSwfit.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-MyRxSwfit/Pods-EnolaGay_Example-MyRxSwfit.release.xcconfig"; sourceTree = "<group>"; };
-		3281ACA27606A9A40ACD608E /* Pods-VersionCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VersionCheck.debug.xcconfig"; path = "Target Support Files/Pods-VersionCheck/Pods-VersionCheck.debug.xcconfig"; sourceTree = "<group>"; };
+		2DD932A0D4EC3DB184BD9B1E /* Pods-AGUL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGUL.release.xcconfig"; path = "Target Support Files/Pods-AGUL/Pods-AGUL.release.xcconfig"; sourceTree = "<group>"; };
 		3448F43C0484DBEAC0D6AB18 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		359FB79CC366338CB32B96F6 /* Pods-EnolaGay_Example-AGUL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-AGUL.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-AGUL/Pods-EnolaGay_Example-AGUL.debug.xcconfig"; sourceTree = "<group>"; };
-		387CBECCC58FEA162FE21927 /* Pods-GiftMessageViewCtrlDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiftMessageViewCtrlDemo.release.xcconfig"; path = "Target Support Files/Pods-GiftMessageViewCtrlDemo/Pods-GiftMessageViewCtrlDemo.release.xcconfig"; sourceTree = "<group>"; };
 		3D0D6509B70B42E53824E1F8 /* Pods_VersionCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VersionCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		44A9A294AAADCA4334DEB00C /* Pods-EnolaGay_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example.release.xcconfig"; sourceTree = "<group>"; };
-		44BE7B0D2D350C14716488C4 /* Pods-FontExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontExtension.release.xcconfig"; path = "Target Support Files/Pods-FontExtension/Pods-FontExtension.release.xcconfig"; sourceTree = "<group>"; };
-		4CCB1BEB928744E3FFB5DA5E /* Pods-PlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerDemo.debug.xcconfig"; path = "Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		4FDC9002BE9A5AC51D0D2AA5 /* Pods_KeyBoardPop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyBoardPop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		51A25A629A0D37D29C1DAB65 /* Pods-EnolaGay_Example-JudyBaseNavigationCtrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-JudyBaseNavigationCtrl.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-JudyBaseNavigationCtrl/Pods-EnolaGay_Example-JudyBaseNavigationCtrl.release.xcconfig"; sourceTree = "<group>"; };
+		5517546FE3D4120D2593C5CA /* Pods-HPickerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HPickerDemo.release.xcconfig"; path = "Target Support Files/Pods-HPickerDemo/Pods-HPickerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		5A04281810A9741332D26D8B /* Pods-KeyBoardPop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyBoardPop.release.xcconfig"; path = "Target Support Files/Pods-KeyBoardPop/Pods-KeyBoardPop.release.xcconfig"; sourceTree = "<group>"; };
+		5ACAEDA5C0823AC03354F172 /* Pods-EnolaGay_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example.release.xcconfig"; sourceTree = "<group>"; };
 		5D849979F9CC82D37AB0E47D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		5E6A132DC9AAD2E1444A456E /* Pods-EnolaGay_Example-SegmentedDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-SegmentedDemo.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-SegmentedDemo/Pods-EnolaGay_Example-SegmentedDemo.release.xcconfig"; sourceTree = "<group>"; };
 		5F7929F86E764F85DFA1EF98 /* Pods_HPickerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HPickerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* EnolaGay_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnolaGay_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -290,20 +284,14 @@
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		643EA2A76EAACA640FC02CD1 /* Pods_EnolaGay_Example_Semaphore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_Semaphore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		64E8111A7A6CE7953EDACB7F /* Pods-KeyBoardPop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyBoardPop.debug.xcconfig"; path = "Target Support Files/Pods-KeyBoardPop/Pods-KeyBoardPop.debug.xcconfig"; sourceTree = "<group>"; };
-		6646F0E7CDA4FF9E9BB8809E /* Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.release.xcconfig"; sourceTree = "<group>"; };
-		68A69676C8EF47299A10FD01 /* Pods-EnolaGay_Example-MyCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-MyCharts.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-MyCharts/Pods-EnolaGay_Example-MyCharts.release.xcconfig"; sourceTree = "<group>"; };
-		68FD9F6C6D27D41758B61D0C /* Pods-HPickerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HPickerDemo.release.xcconfig"; path = "Target Support Files/Pods-HPickerDemo/Pods-HPickerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		6993146B082D29DD03B71388 /* Pods-MyCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCharts.debug.xcconfig"; path = "Target Support Files/Pods-MyCharts/Pods-MyCharts.debug.xcconfig"; sourceTree = "<group>"; };
 		6F730EBB408C34111C2AEF55 /* Pods_JudyBaseNavigationCtrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JudyBaseNavigationCtrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71CAE8C0D72DB699C77D97DF /* Pods-AGUL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGUL.debug.xcconfig"; path = "Target Support Files/Pods-AGUL/Pods-AGUL.debug.xcconfig"; sourceTree = "<group>"; };
 		74095273040DD49296A416BC /* Pods_AttributedStringDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AttributedStringDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		76BABC65726EFCC8D794465D /* Pods-EnolaGay_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		7747A34155239783B6CF9842 /* EnolaGay.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = EnolaGay.podspec; path = ../EnolaGay.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		774B16991899C72BD3CA087A /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-Semaphore.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-Semaphore/Pods-EnolaGay_Example-Semaphore.debug.xcconfig"; sourceTree = "<group>"; };
-		79D047AC6DCEEBE40E3E54D1 /* Pods-JudyLivePageViewCtrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JudyLivePageViewCtrl.debug.xcconfig"; path = "Target Support Files/Pods-JudyLivePageViewCtrl/Pods-JudyLivePageViewCtrl.debug.xcconfig"; sourceTree = "<group>"; };
-		7A1F91CA9F27435144DFABFF /* Pods_EnolaGay_Example_AGUL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_AGUL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B600F7CCE4356AA76EBB0AC /* Pods-EnolaGay_Example-AGUL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-AGUL.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-AGUL/Pods-EnolaGay_Example-AGUL.release.xcconfig"; sourceTree = "<group>"; };
-		868F3C006C21DF58E8D1B392 /* Pods-EnolaGay_Example-JudyLivePageViewCtrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-JudyLivePageViewCtrl.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-JudyLivePageViewCtrl/Pods-EnolaGay_Example-JudyLivePageViewCtrl.release.xcconfig"; sourceTree = "<group>"; };
-		8859D5BF2E7F26F5C7CCF550 /* Pods-MyCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCharts.release.xcconfig"; path = "Target Support Files/Pods-MyCharts/Pods-MyCharts.release.xcconfig"; sourceTree = "<group>"; };
+		7C4D2A820B67C965D6E49808 /* Pods-GiftMessageViewCtrlDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiftMessageViewCtrlDemo.debug.xcconfig"; path = "Target Support Files/Pods-GiftMessageViewCtrlDemo/Pods-GiftMessageViewCtrlDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		7CB467C2C73C2918E12062EA /* Pods-AttributedStringDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttributedStringDemo.debug.xcconfig"; path = "Target Support Files/Pods-AttributedStringDemo/Pods-AttributedStringDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		85AB9D088CA6DA757AE9AF4F /* Pods-MyRxSwfit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRxSwfit.release.xcconfig"; path = "Target Support Files/Pods-MyRxSwfit/Pods-MyRxSwfit.release.xcconfig"; sourceTree = "<group>"; };
 		8B17483F26EB3BC900B81EC7 /* MyCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B17484126EB3BC900B81EC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B17484526EB3BC900B81EC7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -585,38 +573,36 @@
 		8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerticalScrollView.storyboard; sourceTree = "<group>"; };
+		93ED1A022A78523F826484B5 /* Pods-SegmentedDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentedDemo.debug.xcconfig"; path = "Target Support Files/Pods-SegmentedDemo/Pods-SegmentedDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		9544C5FF9E618D52F7E56972 /* Pods_EnolaGay_Example_PasswordBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_PasswordBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DDF4E8FF8FB19D4E25E890A /* Pods-EnolaGay_Example-AttributedStringDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-AttributedStringDemo.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-AttributedStringDemo/Pods-EnolaGay_Example-AttributedStringDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		962558B75966AD720F044372 /* Pods-EnolaGay_Example-EMERANA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-EMERANA.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-EMERANA/Pods-EnolaGay_Example-EMERANA.debug.xcconfig"; sourceTree = "<group>"; };
+		99AB06A7DA6445BB8A12EE0C /* Pods-JudyLivePageViewCtrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JudyLivePageViewCtrl.debug.xcconfig"; path = "Target Support Files/Pods-JudyLivePageViewCtrl/Pods-JudyLivePageViewCtrl.debug.xcconfig"; sourceTree = "<group>"; };
 		9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A15F5583471A9175BE21A681 /* Pods-CacheDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CacheDemo.debug.xcconfig"; path = "Target Support Files/Pods-CacheDemo/Pods-CacheDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		A21C6F43F781642A3034F258 /* Pods-CacheDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CacheDemo.debug.xcconfig"; path = "Target Support Files/Pods-CacheDemo/Pods-CacheDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		A3F507842665EF321F5A0EB2 /* Pods-EnolaGay_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A47E999B91D99CC60E4315CC /* Pods_SegmentedDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SegmentedDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AEC2366F788B61B8A7966084 /* Pods-EnolaGay_Example-AttributedStringDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-AttributedStringDemo.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-AttributedStringDemo/Pods-EnolaGay_Example-AttributedStringDemo.release.xcconfig"; sourceTree = "<group>"; };
+		A5DD4A02AFF1747699A29E82 /* Pods_AGUL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AGUL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6F9B02276DB90ABE8BFCE11 /* Pods-CacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CacheDemo.release.xcconfig"; path = "Target Support Files/Pods-CacheDemo/Pods-CacheDemo.release.xcconfig"; sourceTree = "<group>"; };
 		B20A11D0A2EF5359B59C7896 /* Pods_FontExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FontExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B40175B5A5EF836CA280ABD0 /* Pods-FontExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontExtension.debug.xcconfig"; path = "Target Support Files/Pods-FontExtension/Pods-FontExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		B53BFA893C8EFB1AA578FD34 /* Pods-VersionCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VersionCheck.release.xcconfig"; path = "Target Support Files/Pods-VersionCheck/Pods-VersionCheck.release.xcconfig"; sourceTree = "<group>"; };
 		B8C81724A160FF905669494B /* Pods_MyRxSwfit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyRxSwfit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BBD5A6A48EAB12F1AFD9113B /* Pods-CastSurelyCalculation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastSurelyCalculation.release.xcconfig"; path = "Target Support Files/Pods-CastSurelyCalculation/Pods-CastSurelyCalculation.release.xcconfig"; sourceTree = "<group>"; };
-		BF8B4AAE360E3365BC0AF660 /* Pods-EnolaGay_Example-MyRxSwfit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-MyRxSwfit.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-MyRxSwfit/Pods-EnolaGay_Example-MyRxSwfit.debug.xcconfig"; sourceTree = "<group>"; };
-		C4F6E7BB55E96A9AB4BE8CC0 /* Pods-HPickerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HPickerDemo.debug.xcconfig"; path = "Target Support Files/Pods-HPickerDemo/Pods-HPickerDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		C7345DF482F7066B7A55DD32 /* Pods-EnolaGay_Example-MyCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-MyCharts.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-MyCharts/Pods-EnolaGay_Example-MyCharts.debug.xcconfig"; sourceTree = "<group>"; };
-		CB2BA6E6D0C252C07956941A /* Pods-SegmentedDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentedDemo.release.xcconfig"; path = "Target Support Files/Pods-SegmentedDemo/Pods-SegmentedDemo.release.xcconfig"; sourceTree = "<group>"; };
-		D1CD198278D63259E93B68EA /* Pods-MyCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCharts.debug.xcconfig"; path = "Target Support Files/Pods-MyCharts/Pods-MyCharts.debug.xcconfig"; sourceTree = "<group>"; };
+		BF778CF630ADA43196401683 /* Pods-VersionCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VersionCheck.debug.xcconfig"; path = "Target Support Files/Pods-VersionCheck/Pods-VersionCheck.debug.xcconfig"; sourceTree = "<group>"; };
+		BF838CE08E2BB90716DA6D62 /* Pods-CastSurelyCalculation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastSurelyCalculation.release.xcconfig"; path = "Target Support Files/Pods-CastSurelyCalculation/Pods-CastSurelyCalculation.release.xcconfig"; sourceTree = "<group>"; };
+		C810697DBE72F77247FA1E6F /* Pods-MyCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCharts.release.xcconfig"; path = "Target Support Files/Pods-MyCharts/Pods-MyCharts.release.xcconfig"; sourceTree = "<group>"; };
+		C8EF09E616CA010D7BC63173 /* Pods-PlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerDemo.debug.xcconfig"; path = "Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		CDB24656A90ACA06C326395E /* Pods-CastSurelyCalculation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastSurelyCalculation.debug.xcconfig"; path = "Target Support Files/Pods-CastSurelyCalculation/Pods-CastSurelyCalculation.debug.xcconfig"; sourceTree = "<group>"; };
+		D0484ADDD48BBF411356DAA0 /* Pods-PlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerDemo.release.xcconfig"; path = "Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		D0C1FA7632C2DE70E975CB2A /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-Semaphore.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-Semaphore/Pods-EnolaGay_Example-Semaphore.release.xcconfig"; sourceTree = "<group>"; };
 		D2953210472AAEFB78DCA32B /* Pods_RefreshAdapter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RefreshAdapter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D65083D37269B1025546BD98 /* Pods-GiftMessageViewCtrlDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiftMessageViewCtrlDemo.debug.xcconfig"; path = "Target Support Files/Pods-GiftMessageViewCtrlDemo/Pods-GiftMessageViewCtrlDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		D7D3B2FE1B01ACD39D8E13A1 /* Pods-CacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CacheDemo.release.xcconfig"; path = "Target Support Files/Pods-CacheDemo/Pods-CacheDemo.release.xcconfig"; sourceTree = "<group>"; };
-		D8B7FCB23A73E0297DCB7548 /* Pods-EnolaGay_Example-EMERANA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-EMERANA.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-EMERANA/Pods-EnolaGay_Example-EMERANA.release.xcconfig"; sourceTree = "<group>"; };
-		DAF90D6039F8B8F7A8FA4FFA /* Pods-AttributedStringDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttributedStringDemo.release.xcconfig"; path = "Target Support Files/Pods-AttributedStringDemo/Pods-AttributedStringDemo.release.xcconfig"; sourceTree = "<group>"; };
-		DB1734F274A0442F2876D96D /* Pods-RefreshAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefreshAdapter.debug.xcconfig"; path = "Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter.debug.xcconfig"; sourceTree = "<group>"; };
 		DC320D0BB712D408990761B0 /* Pods_CastSurelyCalculation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CastSurelyCalculation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCFD60BE184B8CD2A0A154E9 /* Pods-EnolaGay_Example-JudyBaseNavigationCtrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-JudyBaseNavigationCtrl.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-JudyBaseNavigationCtrl/Pods-EnolaGay_Example-JudyBaseNavigationCtrl.debug.xcconfig"; sourceTree = "<group>"; };
 		E34584FCEC0D60DBE3AFB585 /* Pods_GiftMessageViewCtrlDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiftMessageViewCtrlDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B4A427494A98F9DEA5A16A /* Pods_JudyLivePageViewCtrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JudyLivePageViewCtrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4F8096452FBF31AD0118A7A /* Pods-EnolaGay_Example-EMERANA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-EMERANA.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-EMERANA/Pods-EnolaGay_Example-EMERANA.debug.xcconfig"; sourceTree = "<group>"; };
-		ED641F4985B3624D957416BC /* Pods-CastSurelyCalculation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastSurelyCalculation.debug.xcconfig"; path = "Target Support Files/Pods-CastSurelyCalculation/Pods-CastSurelyCalculation.debug.xcconfig"; sourceTree = "<group>"; };
-		EEA0D202A634085F4F6D6D31 /* Pods-RefreshAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefreshAdapter.release.xcconfig"; path = "Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter.release.xcconfig"; sourceTree = "<group>"; };
-		EFE30E064566A96E5A5FE70D /* Pods-KeyBoardPop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyBoardPop.release.xcconfig"; path = "Target Support Files/Pods-KeyBoardPop/Pods-KeyBoardPop.release.xcconfig"; sourceTree = "<group>"; };
-		F10CF01990E1F4B51D5CED76 /* Pods-FontExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontExtension.debug.xcconfig"; path = "Target Support Files/Pods-FontExtension/Pods-FontExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		F5260DB865D6F78E38CAE710 /* Pods-PlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerDemo.release.xcconfig"; path = "Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
-		F6F19BA006AF9221220FDA01 /* Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.debug.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo/Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		F8F84B7B9A9023464F6E576D /* Pods-AttributedStringDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttributedStringDemo.debug.xcconfig"; path = "Target Support Files/Pods-AttributedStringDemo/Pods-AttributedStringDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		E4C98F83C503B2A9D3537BDD /* Pods-HPickerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HPickerDemo.debug.xcconfig"; path = "Target Support Files/Pods-HPickerDemo/Pods-HPickerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		EAE2525BA874CBC232EF7377 /* Pods-RefreshAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefreshAdapter.debug.xcconfig"; path = "Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter.debug.xcconfig"; sourceTree = "<group>"; };
+		EE5037D6ED71DFA0180BEE5C /* Pods-JudyBaseNavigationCtrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JudyBaseNavigationCtrl.release.xcconfig"; path = "Target Support Files/Pods-JudyBaseNavigationCtrl/Pods-JudyBaseNavigationCtrl.release.xcconfig"; sourceTree = "<group>"; };
+		F5A878C12B6B8B355A07638F /* Pods-SegmentedDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentedDemo.release.xcconfig"; path = "Target Support Files/Pods-SegmentedDemo/Pods-SegmentedDemo.release.xcconfig"; sourceTree = "<group>"; };
+		FCA9EEF161DF786EE1F8134E /* Pods-FontExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontExtension.release.xcconfig"; path = "Target Support Files/Pods-FontExtension/Pods-FontExtension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -728,7 +714,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD2BF1C1E58BD6F9609DDA99 /* Pods_EnolaGay_Example_AGUL.framework in Frameworks */,
+				C9777077640E0F21640CF038 /* Pods_AGUL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,58 +764,44 @@
 		48F58D42A596E8C4AFE02DEE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A15F5583471A9175BE21A681 /* Pods-CacheDemo.debug.xcconfig */,
-				D7D3B2FE1B01ACD39D8E13A1 /* Pods-CacheDemo.release.xcconfig */,
-				ED641F4985B3624D957416BC /* Pods-CastSurelyCalculation.debug.xcconfig */,
-				BBD5A6A48EAB12F1AFD9113B /* Pods-CastSurelyCalculation.release.xcconfig */,
-				76BABC65726EFCC8D794465D /* Pods-EnolaGay_Example.debug.xcconfig */,
-				44A9A294AAADCA4334DEB00C /* Pods-EnolaGay_Example.release.xcconfig */,
-				359FB79CC366338CB32B96F6 /* Pods-EnolaGay_Example-AGUL.debug.xcconfig */,
-				7B600F7CCE4356AA76EBB0AC /* Pods-EnolaGay_Example-AGUL.release.xcconfig */,
-				9DDF4E8FF8FB19D4E25E890A /* Pods-EnolaGay_Example-AttributedStringDemo.debug.xcconfig */,
-				AEC2366F788B61B8A7966084 /* Pods-EnolaGay_Example-AttributedStringDemo.release.xcconfig */,
-				E4F8096452FBF31AD0118A7A /* Pods-EnolaGay_Example-EMERANA.debug.xcconfig */,
-				D8B7FCB23A73E0297DCB7548 /* Pods-EnolaGay_Example-EMERANA.release.xcconfig */,
-				F6F19BA006AF9221220FDA01 /* Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.debug.xcconfig */,
-				6646F0E7CDA4FF9E9BB8809E /* Pods-EnolaGay_Example-GiftMessageViewCtrlDemo.release.xcconfig */,
-				DCFD60BE184B8CD2A0A154E9 /* Pods-EnolaGay_Example-JudyBaseNavigationCtrl.debug.xcconfig */,
-				51A25A629A0D37D29C1DAB65 /* Pods-EnolaGay_Example-JudyBaseNavigationCtrl.release.xcconfig */,
-				042F4685DE99ABB9F0185995 /* Pods-EnolaGay_Example-JudyLivePageViewCtrl.debug.xcconfig */,
-				868F3C006C21DF58E8D1B392 /* Pods-EnolaGay_Example-JudyLivePageViewCtrl.release.xcconfig */,
-				C7345DF482F7066B7A55DD32 /* Pods-EnolaGay_Example-MyCharts.debug.xcconfig */,
-				68A69676C8EF47299A10FD01 /* Pods-EnolaGay_Example-MyCharts.release.xcconfig */,
-				BF8B4AAE360E3365BC0AF660 /* Pods-EnolaGay_Example-MyRxSwfit.debug.xcconfig */,
-				2D38273E1DEF2266288A3DE8 /* Pods-EnolaGay_Example-MyRxSwfit.release.xcconfig */,
-				01D4E368AA38FDAC2B3D9995 /* Pods-EnolaGay_Example-SegmentedDemo.debug.xcconfig */,
-				5E6A132DC9AAD2E1444A456E /* Pods-EnolaGay_Example-SegmentedDemo.release.xcconfig */,
-				774B16991899C72BD3CA087A /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */,
-				0C283E4D6FCBC3727D2E2B40 /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */,
-				F10CF01990E1F4B51D5CED76 /* Pods-FontExtension.debug.xcconfig */,
-				44BE7B0D2D350C14716488C4 /* Pods-FontExtension.release.xcconfig */,
-				C4F6E7BB55E96A9AB4BE8CC0 /* Pods-HPickerDemo.debug.xcconfig */,
-				68FD9F6C6D27D41758B61D0C /* Pods-HPickerDemo.release.xcconfig */,
-				64E8111A7A6CE7953EDACB7F /* Pods-KeyBoardPop.debug.xcconfig */,
-				EFE30E064566A96E5A5FE70D /* Pods-KeyBoardPop.release.xcconfig */,
-				4CCB1BEB928744E3FFB5DA5E /* Pods-PlayerDemo.debug.xcconfig */,
-				F5260DB865D6F78E38CAE710 /* Pods-PlayerDemo.release.xcconfig */,
-				DB1734F274A0442F2876D96D /* Pods-RefreshAdapter.debug.xcconfig */,
-				EEA0D202A634085F4F6D6D31 /* Pods-RefreshAdapter.release.xcconfig */,
-				3281ACA27606A9A40ACD608E /* Pods-VersionCheck.debug.xcconfig */,
-				03F69DA4448258F8531E6CB8 /* Pods-VersionCheck.release.xcconfig */,
-				0B1F56108AF019E8FA35D847 /* Pods-JudyBaseNavigationCtrl.debug.xcconfig */,
-				2C9EACDE665932E883C229A9 /* Pods-JudyBaseNavigationCtrl.release.xcconfig */,
-				D1CD198278D63259E93B68EA /* Pods-MyCharts.debug.xcconfig */,
-				8859D5BF2E7F26F5C7CCF550 /* Pods-MyCharts.release.xcconfig */,
-				021930B7587C01B0136BFF60 /* Pods-MyRxSwfit.debug.xcconfig */,
-				03733613E8E86FE57CD412D8 /* Pods-MyRxSwfit.release.xcconfig */,
-				D65083D37269B1025546BD98 /* Pods-GiftMessageViewCtrlDemo.debug.xcconfig */,
-				387CBECCC58FEA162FE21927 /* Pods-GiftMessageViewCtrlDemo.release.xcconfig */,
-				79D047AC6DCEEBE40E3E54D1 /* Pods-JudyLivePageViewCtrl.debug.xcconfig */,
-				115B17D07E15D7D795508687 /* Pods-JudyLivePageViewCtrl.release.xcconfig */,
-				F8F84B7B9A9023464F6E576D /* Pods-AttributedStringDemo.debug.xcconfig */,
-				DAF90D6039F8B8F7A8FA4FFA /* Pods-AttributedStringDemo.release.xcconfig */,
-				2B840329943D0A7CDC3924C9 /* Pods-SegmentedDemo.debug.xcconfig */,
-				CB2BA6E6D0C252C07956941A /* Pods-SegmentedDemo.release.xcconfig */,
+				71CAE8C0D72DB699C77D97DF /* Pods-AGUL.debug.xcconfig */,
+				2DD932A0D4EC3DB184BD9B1E /* Pods-AGUL.release.xcconfig */,
+				7CB467C2C73C2918E12062EA /* Pods-AttributedStringDemo.debug.xcconfig */,
+				00453799243965645ACB0682 /* Pods-AttributedStringDemo.release.xcconfig */,
+				A21C6F43F781642A3034F258 /* Pods-CacheDemo.debug.xcconfig */,
+				A6F9B02276DB90ABE8BFCE11 /* Pods-CacheDemo.release.xcconfig */,
+				CDB24656A90ACA06C326395E /* Pods-CastSurelyCalculation.debug.xcconfig */,
+				BF838CE08E2BB90716DA6D62 /* Pods-CastSurelyCalculation.release.xcconfig */,
+				A3F507842665EF321F5A0EB2 /* Pods-EnolaGay_Example.debug.xcconfig */,
+				5ACAEDA5C0823AC03354F172 /* Pods-EnolaGay_Example.release.xcconfig */,
+				962558B75966AD720F044372 /* Pods-EnolaGay_Example-EMERANA.debug.xcconfig */,
+				065D541971181401A2B02756 /* Pods-EnolaGay_Example-EMERANA.release.xcconfig */,
+				09653290382995AB20699E78 /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */,
+				D0C1FA7632C2DE70E975CB2A /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */,
+				B40175B5A5EF836CA280ABD0 /* Pods-FontExtension.debug.xcconfig */,
+				FCA9EEF161DF786EE1F8134E /* Pods-FontExtension.release.xcconfig */,
+				7C4D2A820B67C965D6E49808 /* Pods-GiftMessageViewCtrlDemo.debug.xcconfig */,
+				0E511D1D986F5E970B319878 /* Pods-GiftMessageViewCtrlDemo.release.xcconfig */,
+				E4C98F83C503B2A9D3537BDD /* Pods-HPickerDemo.debug.xcconfig */,
+				5517546FE3D4120D2593C5CA /* Pods-HPickerDemo.release.xcconfig */,
+				023EA4516C7D87A062E2945C /* Pods-JudyBaseNavigationCtrl.debug.xcconfig */,
+				EE5037D6ED71DFA0180BEE5C /* Pods-JudyBaseNavigationCtrl.release.xcconfig */,
+				99AB06A7DA6445BB8A12EE0C /* Pods-JudyLivePageViewCtrl.debug.xcconfig */,
+				0B0B0220486477429C9E935C /* Pods-JudyLivePageViewCtrl.release.xcconfig */,
+				1EC789C4543A144891B0D8D9 /* Pods-KeyBoardPop.debug.xcconfig */,
+				5A04281810A9741332D26D8B /* Pods-KeyBoardPop.release.xcconfig */,
+				6993146B082D29DD03B71388 /* Pods-MyCharts.debug.xcconfig */,
+				C810697DBE72F77247FA1E6F /* Pods-MyCharts.release.xcconfig */,
+				09390FE9A28EA4FC256AE649 /* Pods-MyRxSwfit.debug.xcconfig */,
+				85AB9D088CA6DA757AE9AF4F /* Pods-MyRxSwfit.release.xcconfig */,
+				C8EF09E616CA010D7BC63173 /* Pods-PlayerDemo.debug.xcconfig */,
+				D0484ADDD48BBF411356DAA0 /* Pods-PlayerDemo.release.xcconfig */,
+				EAE2525BA874CBC232EF7377 /* Pods-RefreshAdapter.debug.xcconfig */,
+				07DF69FF44384D13723DF917 /* Pods-RefreshAdapter.release.xcconfig */,
+				93ED1A022A78523F826484B5 /* Pods-SegmentedDemo.debug.xcconfig */,
+				F5A878C12B6B8B355A07638F /* Pods-SegmentedDemo.release.xcconfig */,
+				BF778CF630ADA43196401683 /* Pods-VersionCheck.debug.xcconfig */,
+				B53BFA893C8EFB1AA578FD34 /* Pods-VersionCheck.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1589,7 +1561,6 @@
 				9FFE0F3235140D2E48575F96 /* Pods_EnolaGay_Example.framework */,
 				643EA2A76EAACA640FC02CD1 /* Pods_EnolaGay_Example_Semaphore.framework */,
 				0AF7FCDF38734E083B095500 /* Pods_EnolaGay_Example_EMERANA.framework */,
-				7A1F91CA9F27435144DFABFF /* Pods_EnolaGay_Example_AGUL.framework */,
 				9544C5FF9E618D52F7E56972 /* Pods_EnolaGay_Example_PasswordBox.framework */,
 				3D0D6509B70B42E53824E1F8 /* Pods_VersionCheck.framework */,
 				13219953D03CB8934331ED80 /* Pods_CacheDemo.framework */,
@@ -1606,6 +1577,7 @@
 				E4B4A427494A98F9DEA5A16A /* Pods_JudyLivePageViewCtrl.framework */,
 				74095273040DD49296A416BC /* Pods_AttributedStringDemo.framework */,
 				A47E999B91D99CC60E4315CC /* Pods_SegmentedDemo.framework */,
+				A5DD4A02AFF1747699A29E82 /* Pods_AGUL.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2461,7 +2433,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-EnolaGay_Example-AGUL-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AGUL-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2519,6 +2491,8 @@
 				"${BUILT_PRODUCTS_DIR}/EnolaGay-207173f5/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/BadgeHub/BadgeHub.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
@@ -2526,8 +2500,6 @@
 				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -2536,6 +2508,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BadgeHub.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
@@ -2543,8 +2517,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3110,26 +3082,24 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-AGUL/Pods-EnolaGay_Example-AGUL-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-207173f5/EnolaGay.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-AGUL/Pods-AGUL-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay.default-MarqueeView/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-AGUL/Pods-EnolaGay_Example-AGUL-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AGUL/Pods-AGUL-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F0422D4C52286B5FAC06B95D /* [CP] Embed Pods Frameworks */ = {
@@ -3876,7 +3846,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76BABC65726EFCC8D794465D /* Pods-EnolaGay_Example.debug.xcconfig */;
+			baseConfigurationReference = A3F507842665EF321F5A0EB2 /* Pods-EnolaGay_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -3893,7 +3863,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 44A9A294AAADCA4334DEB00C /* Pods-EnolaGay_Example.release.xcconfig */;
+			baseConfigurationReference = 5ACAEDA5C0823AC03354F172 /* Pods-EnolaGay_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -3910,7 +3880,7 @@
 		};
 		8B17485126EB3BCA00B81EC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1CD198278D63259E93B68EA /* Pods-MyCharts.debug.xcconfig */;
+			baseConfigurationReference = 6993146B082D29DD03B71388 /* Pods-MyCharts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -3939,7 +3909,7 @@
 		};
 		8B17485226EB3BCA00B81EC7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8859D5BF2E7F26F5C7CCF550 /* Pods-MyCharts.release.xcconfig */;
+			baseConfigurationReference = C810697DBE72F77247FA1E6F /* Pods-MyCharts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -3965,7 +3935,7 @@
 		};
 		8B174A3426F483BE00B81EC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B1F56108AF019E8FA35D847 /* Pods-JudyBaseNavigationCtrl.debug.xcconfig */;
+			baseConfigurationReference = 023EA4516C7D87A062E2945C /* Pods-JudyBaseNavigationCtrl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -3994,7 +3964,7 @@
 		};
 		8B174A3526F483BE00B81EC7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C9EACDE665932E883C229A9 /* Pods-JudyBaseNavigationCtrl.release.xcconfig */;
+			baseConfigurationReference = EE5037D6ED71DFA0180BEE5C /* Pods-JudyBaseNavigationCtrl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4020,7 +3990,7 @@
 		};
 		8BC3DA2826DDF70100A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3281ACA27606A9A40ACD608E /* Pods-VersionCheck.debug.xcconfig */;
+			baseConfigurationReference = BF778CF630ADA43196401683 /* Pods-VersionCheck.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -4037,7 +4007,7 @@
 		};
 		8BC3DA2926DDF70100A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 03F69DA4448258F8531E6CB8 /* Pods-VersionCheck.release.xcconfig */;
+			baseConfigurationReference = B53BFA893C8EFB1AA578FD34 /* Pods-VersionCheck.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -4054,7 +4024,7 @@
 		};
 		8BC3DA4126DE962800A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 774B16991899C72BD3CA087A /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */;
+			baseConfigurationReference = 09653290382995AB20699E78 /* Pods-EnolaGay_Example-Semaphore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -4071,7 +4041,7 @@
 		};
 		8BC3DA4226DE962800A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C283E4D6FCBC3727D2E2B40 /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */;
+			baseConfigurationReference = D0C1FA7632C2DE70E975CB2A /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -4088,7 +4058,7 @@
 		};
 		8BC3DA6826DEB1A200A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A15F5583471A9175BE21A681 /* Pods-CacheDemo.debug.xcconfig */;
+			baseConfigurationReference = A21C6F43F781642A3034F258 /* Pods-CacheDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -4105,7 +4075,7 @@
 		};
 		8BC3DA6926DEB1A200A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7D3B2FE1B01ACD39D8E13A1 /* Pods-CacheDemo.release.xcconfig */;
+			baseConfigurationReference = A6F9B02276DB90ABE8BFCE11 /* Pods-CacheDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -4122,7 +4092,7 @@
 		};
 		8BC3DA8526DEB40300A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CCB1BEB928744E3FFB5DA5E /* Pods-PlayerDemo.debug.xcconfig */;
+			baseConfigurationReference = C8EF09E616CA010D7BC63173 /* Pods-PlayerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -4139,7 +4109,7 @@
 		};
 		8BC3DA8626DEB40300A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5260DB865D6F78E38CAE710 /* Pods-PlayerDemo.release.xcconfig */;
+			baseConfigurationReference = D0484ADDD48BBF411356DAA0 /* Pods-PlayerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -4156,7 +4126,7 @@
 		};
 		8BC3DAA826DEB71800A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB1734F274A0442F2876D96D /* Pods-RefreshAdapter.debug.xcconfig */;
+			baseConfigurationReference = EAE2525BA874CBC232EF7377 /* Pods-RefreshAdapter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -4173,7 +4143,7 @@
 		};
 		8BC3DAA926DEB71800A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEA0D202A634085F4F6D6D31 /* Pods-RefreshAdapter.release.xcconfig */;
+			baseConfigurationReference = 07DF69FF44384D13723DF917 /* Pods-RefreshAdapter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -4190,7 +4160,7 @@
 		};
 		8BC3DACA26DF29A800A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4F6E7BB55E96A9AB4BE8CC0 /* Pods-HPickerDemo.debug.xcconfig */;
+			baseConfigurationReference = E4C98F83C503B2A9D3537BDD /* Pods-HPickerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -4207,7 +4177,7 @@
 		};
 		8BC3DACB26DF29A800A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 68FD9F6C6D27D41758B61D0C /* Pods-HPickerDemo.release.xcconfig */;
+			baseConfigurationReference = 5517546FE3D4120D2593C5CA /* Pods-HPickerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -4224,7 +4194,7 @@
 		};
 		8BC3DAEC26DF3C2A00A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64E8111A7A6CE7953EDACB7F /* Pods-KeyBoardPop.debug.xcconfig */;
+			baseConfigurationReference = 1EC789C4543A144891B0D8D9 /* Pods-KeyBoardPop.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 325J3J39TM;
 				INFOPLIST_FILE = "$(TARGET_NAME)/$(TARGET_NAME)-Info.plist";
@@ -4240,7 +4210,7 @@
 		};
 		8BC3DAED26DF3C2A00A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFE30E064566A96E5A5FE70D /* Pods-KeyBoardPop.release.xcconfig */;
+			baseConfigurationReference = 5A04281810A9741332D26D8B /* Pods-KeyBoardPop.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 325J3J39TM;
 				INFOPLIST_FILE = "$(TARGET_NAME)/$(TARGET_NAME)-Info.plist";
@@ -4256,7 +4226,7 @@
 		};
 		8BC3DB1026DF3EC100A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED641F4985B3624D957416BC /* Pods-CastSurelyCalculation.debug.xcconfig */;
+			baseConfigurationReference = CDB24656A90ACA06C326395E /* Pods-CastSurelyCalculation.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 325J3J39TM;
 				INFOPLIST_FILE = "$(TARGET_NAME)/$(TARGET_NAME).plist";
@@ -4272,7 +4242,7 @@
 		};
 		8BC3DB1126DF3EC100A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBD5A6A48EAB12F1AFD9113B /* Pods-CastSurelyCalculation.release.xcconfig */;
+			baseConfigurationReference = BF838CE08E2BB90716DA6D62 /* Pods-CastSurelyCalculation.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 325J3J39TM;
 				INFOPLIST_FILE = "$(TARGET_NAME)/$(TARGET_NAME).plist";
@@ -4288,7 +4258,7 @@
 		};
 		8BC3DB6326DF414F00A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F10CF01990E1F4B51D5CED76 /* Pods-FontExtension.debug.xcconfig */;
+			baseConfigurationReference = B40175B5A5EF836CA280ABD0 /* Pods-FontExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4317,7 +4287,7 @@
 		};
 		8BC3DB6426DF414F00A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 44BE7B0D2D350C14716488C4 /* Pods-FontExtension.release.xcconfig */;
+			baseConfigurationReference = FCA9EEF161DF786EE1F8134E /* Pods-FontExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4343,7 +4313,7 @@
 		};
 		8BC3DB7D26DF479400A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4F8096452FBF31AD0118A7A /* Pods-EnolaGay_Example-EMERANA.debug.xcconfig */;
+			baseConfigurationReference = 962558B75966AD720F044372 /* Pods-EnolaGay_Example-EMERANA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4376,7 +4346,7 @@
 		};
 		8BC3DB7E26DF479400A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8B7FCB23A73E0297DCB7548 /* Pods-EnolaGay_Example-EMERANA.release.xcconfig */;
+			baseConfigurationReference = 065D541971181401A2B02756 /* Pods-EnolaGay_Example-EMERANA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4406,7 +4376,7 @@
 		};
 		8BC3DD2D26DF58FC00A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 359FB79CC366338CB32B96F6 /* Pods-EnolaGay_Example-AGUL.debug.xcconfig */;
+			baseConfigurationReference = 71CAE8C0D72DB699C77D97DF /* Pods-AGUL.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4436,7 +4406,7 @@
 		};
 		8BC3DD2E26DF58FC00A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B600F7CCE4356AA76EBB0AC /* Pods-EnolaGay_Example-AGUL.release.xcconfig */;
+			baseConfigurationReference = 2DD932A0D4EC3DB184BD9B1E /* Pods-AGUL.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4463,7 +4433,7 @@
 		};
 		8BC3DD8F26E05C8F00A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B840329943D0A7CDC3924C9 /* Pods-SegmentedDemo.debug.xcconfig */;
+			baseConfigurationReference = 93ED1A022A78523F826484B5 /* Pods-SegmentedDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4492,7 +4462,7 @@
 		};
 		8BC3DD9026E05C8F00A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB2BA6E6D0C252C07956941A /* Pods-SegmentedDemo.release.xcconfig */;
+			baseConfigurationReference = F5A878C12B6B8B355A07638F /* Pods-SegmentedDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4518,7 +4488,7 @@
 		};
 		8BC3DDAB26E05E5200A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8F84B7B9A9023464F6E576D /* Pods-AttributedStringDemo.debug.xcconfig */;
+			baseConfigurationReference = 7CB467C2C73C2918E12062EA /* Pods-AttributedStringDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4547,7 +4517,7 @@
 		};
 		8BC3DDAC26E05E5200A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DAF90D6039F8B8F7A8FA4FFA /* Pods-AttributedStringDemo.release.xcconfig */;
+			baseConfigurationReference = 00453799243965645ACB0682 /* Pods-AttributedStringDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4573,7 +4543,7 @@
 		};
 		8BC3DDC726E05F9300A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D65083D37269B1025546BD98 /* Pods-GiftMessageViewCtrlDemo.debug.xcconfig */;
+			baseConfigurationReference = 7C4D2A820B67C965D6E49808 /* Pods-GiftMessageViewCtrlDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4602,7 +4572,7 @@
 		};
 		8BC3DDC826E05F9300A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 387CBECCC58FEA162FE21927 /* Pods-GiftMessageViewCtrlDemo.release.xcconfig */;
+			baseConfigurationReference = 0E511D1D986F5E970B319878 /* Pods-GiftMessageViewCtrlDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4628,7 +4598,7 @@
 		};
 		8BC3DDE226E0617600A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 79D047AC6DCEEBE40E3E54D1 /* Pods-JudyLivePageViewCtrl.debug.xcconfig */;
+			baseConfigurationReference = 99AB06A7DA6445BB8A12EE0C /* Pods-JudyLivePageViewCtrl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4657,7 +4627,7 @@
 		};
 		8BC3DDE326E0617600A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 115B17D07E15D7D795508687 /* Pods-JudyLivePageViewCtrl.release.xcconfig */;
+			baseConfigurationReference = 0B0B0220486477429C9E935C /* Pods-JudyLivePageViewCtrl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4683,7 +4653,7 @@
 		};
 		8BC3DDFF26E06BA300A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 021930B7587C01B0136BFF60 /* Pods-MyRxSwfit.debug.xcconfig */;
+			baseConfigurationReference = 09390FE9A28EA4FC256AE649 /* Pods-MyRxSwfit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -4712,7 +4682,7 @@
 		};
 		8BC3DE0026E06BA300A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 03733613E8E86FE57CD412D8 /* Pods-MyRxSwfit.release.xcconfig */;
+			baseConfigurationReference = 85AB9D088CA6DA757AE9AF4F /* Pods-MyRxSwfit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

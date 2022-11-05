@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_EnolaGay_Example_AGULVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_EnolaGay_Example_AGULVersionString[];
+FOUNDATION_EXPORT double EnolaGayVersionNumber;
+FOUNDATION_EXPORT const unsigned char EnolaGayVersionString[];
 

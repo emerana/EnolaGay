@@ -23,12 +23,14 @@ target 'EnolaGay_Example' do
   #  target 'EnolaGay_Tests' do
   #    inherit! :search_paths
   #  end
-  
-  target 'Semaphore' do
-    pod 'EnolaGay', :path => '../'
-  end
 
   #  在该工程中为 target 额外安装 pod，并同时拥有主工程中的 pod.
+
+  target 'Semaphore' do
+    #    inherit! :search_paths 这行可不写
+    
+  end
+
   
   target 'EMERANA' do
     pod 'EnolaGay', :path => '../'
@@ -51,15 +53,6 @@ target 'EnolaGay_Example' do
     
     pod 'BadgeHub'
     pod 'IGListKit', '~> 4.0.0'
-  end
-  
-  target 'AGUL' do
-    pod 'EnolaGay', :path => '../'
-    pod 'EnolaGay/MarqueeView', :path => '../'
-    
-    pod 'Kingfisher'
-    pod 'SwiftMessages'
-    pod 'SDWebImage'
   end
   
 end
@@ -144,3 +137,11 @@ target 'AttributedStringDemo' do
   pod 'EnolaGay', :path => '../'
 end
 
+target 'AGUL' do
+  pod 'EnolaGay', :path => '../'
+  pod 'EnolaGay/MarqueeView', :path => '../'
+  
+  pod 'Kingfisher'
+  pod 'SwiftMessages'
+  pod 'SDWebImage'
+end
