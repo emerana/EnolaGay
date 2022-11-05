@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_EnolaGay_Example_GiftMessageViewCtrlDemoVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_EnolaGay_Example_GiftMessageViewCtrlDemoVersionString[];
+FOUNDATION_EXPORT double Pods_JudyLivePageViewCtrlVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_JudyLivePageViewCtrlVersionString[];
 

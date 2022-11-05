@@ -70,13 +70,6 @@ target 'EnolaGay_Example' do
     pod 'EnolaGay', :path => '../'
   end
 
-  target 'GiftMessageViewCtrlDemo' do
-    pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
-  end
-
-  target 'JudyLivePageViewCtrl' do
-    pod 'EnolaGay', :path => '../'
-  end
   
 end
 
@@ -141,4 +134,13 @@ end
 target 'JudyBaseNavigationCtrl' do
   pod 'EnolaGay', :path => '../'
 
+end
+
+target 'GiftMessageViewCtrlDemo' do
+  pod 'EnolaGay', :path => '../'
+  pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
+end
+
+target 'JudyLivePageViewCtrl' do
+  pod 'EnolaGay', :path => '../'
 end
