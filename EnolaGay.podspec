@@ -97,6 +97,11 @@ Pod::Spec.new do |s|
       ss.source_files = 'EnolaGay/Classes/WKWebView/*'
   end
 
+  s.subspec 'JudyPlusButtonTabBar' do |ss|
+      ss.source_files = 'EnolaGay/Classes/JudyPlusButtonTabBar/*'
+  end
+
+  
   
   #  emerana.resource_bundles = {'SwiftMessages' => ['SwiftMessages/Resources/**/*']}
   #  s.source_files = 'EnolaGay/Classes/**/*' 包含所有子目录下的所有文件

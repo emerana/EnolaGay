@@ -125,6 +125,12 @@ pod 'EnolaGay/FileManager'
 pod 'EnolaGay/WKWebView'
 ```
 
+#### JudyPlusButtonTabBar
+```ruby
+pod 'EnolaGay/JudyPlusButtonTabBar'
+```
+
+
 ## Author
 
 醉翁之意, Judy_u@163.com
