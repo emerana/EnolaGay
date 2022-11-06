@@ -367,8 +367,15 @@ open class JudyCollectionViewLayout: UICollectionViewFlowLayout {
     
     open override func prepare() {
         super.prepare()
-        
-        // 设置一个非0的 size 以自动计算 Cell 大小，若设置为.zero，则不自动计算 Cell 大小
+        /*
+         设置一个非0的 size 以自动计算 Cell 大小，此时 Cell 内部的有 intrinsic content size 的控件（例如button，label）可以将 Cell 撑大。
+         具有intrinsic content size的控件自己知道（可以计算）自己的大小，例如一个label，当你设置text，font之后，其大小是可以计算到的。
+         Content Compression Resistance = 不许挤我！
+         Content Hugging = 不许拉伸我！
+         其数值为话语权的权重大小，权重越大执行力度则越大
+         
+         若将该值设置为.zero，则不自动计算 Cell 大小。
+         */
         estimatedItemSize = CGSize(width: 100, height: 28)
     }
     
