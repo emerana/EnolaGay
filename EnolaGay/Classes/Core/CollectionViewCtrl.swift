@@ -363,16 +363,18 @@ public extension UICollectionViewLayoutAttributes {
 
 
 /// UICollectionViewFlowLayout 自定义版，该布局主要解决了在只有一个 Cell 时显示在中间而没有居左显示问题。使用了该布局可以不实现 cellSize函数。
-public class JudyCollectionViewLayout: UICollectionViewFlowLayout {
-    public override func prepare() {
+open class JudyCollectionViewLayout: UICollectionViewFlowLayout {
+    
+    open override func prepare() {
         super.prepare()
-        // 设置一个非 0 的 size 以自动计算 Cell 大小
+        
+        // 设置一个非0的 size 以自动计算 Cell 大小，若设置为.zero，则不自动计算 Cell 大小
         estimatedItemSize = CGSize(width: 100, height: 28)
     }
     
     // 询问 UICollectionViewLayoutAttributes 类型的数组。
     // rectUICollectionViewLayoutAttributes 对象包含 cell 或 view 的布局信息，子类必须重载该方法，并返回该区域内所有元素的布局信息，包括 cell,追加视图和装饰视图。
-    public override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    open override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         
         let originalAttributes = super.layoutAttributesForElements(in: rect)!
         var updatedAttributes: [UICollectionViewLayoutAttributes]? = originalAttributes
