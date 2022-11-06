@@ -17,34 +17,16 @@ class CollectionViewLayoutViewCtrl: UIViewController {
 
     var dataSource = [JSON]()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         dataSource = [
             ["醉翁之意", "Judy", "EnolaGay", "EMERANA", "时间魔术师", "王仁洁", "我日你仙人板板", "醉翁之意", "Judy", "EnolaGay", "EMERANA", "时间魔术师", "王仁洁", "我日你仙人板板"],
             ["醉翁之意", ],
         ]
-        
-//        let urlString: String = ""
-//        let session = URLSession.init(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.main)
-//        downloadTask = session.downloadTask(with: urlString.url!)
-//        downloadTask?.resume()
 
     }
-    
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

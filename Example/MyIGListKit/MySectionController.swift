@@ -25,14 +25,11 @@ class SectionControllerType_1: ListSectionController {
 
 extension SectionControllerType_1 {
 
-    override func numberOfItems() -> Int {
-        return 3
-    }
+    override func numberOfItems() -> Int { 3 }
     
     override func sizeForItem(at index: Int) -> CGSize {
         guard let context = collectionContext else { return .zero }
-
-        // 固定宽度，自动高度
+        // 固定宽度，自动高度，切记 label 的 line 一定要设为 0.
         return CGSize(width: context.containerSize.width, height: .zero)
     }
     
@@ -41,7 +38,6 @@ extension SectionControllerType_1 {
         let cell = collectionContext!.dequeueReusableCellFromStoryboard(withIdentifier: "Cell", for: self, at: index)
 
         let label = cell.viewWithTag(101) as! UILabel
-
         switch index {
         case 1:
             label.text = entry.msg
@@ -53,20 +49,10 @@ extension SectionControllerType_1 {
             label.text = entry.date
             cell.backgroundColor = .red
         }
-        
+        // 由于先设置的 sizeForItem，后赋值，所以复制后需要调用 layoutIfNeeded() 更新布局。
+        cell.layoutIfNeeded()
         
         return cell
-        
-        //        let cellClass: AnyClass = index == 0 ? JournalEntryDateCell.self : JournalEntryCell.self
-        //
-        //        let cell = collectionContext!.dequeueReusableCell(of: cellClass, for: self, at: index)
-        //
-        //        if let cell = cell as? JournalEntryDateCell {
-        //            cell.label.text = entry.date
-        //        } else if let cell = cell as? JournalEntryCell {
-        //            cell.label.text = entry.msg
-        //        }
-        //        return cell
     }
     
     override func didUpdate(to object: Any) {

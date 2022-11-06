@@ -10,8 +10,7 @@ import UIKit
 import EnolaGay
 import IGListKit
 
-
-/// IGListKit 使用样例
+/// IGListKit 使用样例。
 class IGListKitViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -22,7 +21,6 @@ class IGListKitViewController: UIViewController {
     
     let loader = JournalEntryLoader()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +30,6 @@ class IGListKitViewController: UIViewController {
         adapter.collectionView = collectionView
         adapter.collectionView?.alwaysBounceVertical = true
         adapter.collectionView?.layoutIfNeeded()
-        
     }
     
 }
@@ -50,5 +47,4 @@ extension IGListKitViewController: ListAdapterDataSource {
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? { return nil }
-
 }

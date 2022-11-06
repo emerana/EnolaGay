@@ -24,16 +24,18 @@ target 'EnolaGay_Example' do
   #    inherit! :search_paths
   #  end
 
-  #  在该工程中为 target 额外安装 pod，并同时拥有主工程中的 pod.
-
+  # MARK: - 在该工程中为 target 额外安装 pod，并同时拥有主工程中的 pod.
+  
+  # MARK: Semaphore
+  
   target 'Semaphore' do
     #    inherit! :search_paths 这行可不写
     
   end
-
+  
+  # MARK: EMERANA
   
   target 'EMERANA' do
-    pod 'EnolaGay', :path => '../'
     pod 'IQKeyboardManagerSwift'
     pod 'Alamofire', '~> 4.9.0'
 
@@ -52,13 +54,14 @@ target 'EnolaGay_Example' do
     pod 'FMDB'
     
     pod 'BadgeHub'
-    pod 'IGListKit', '~> 4.0.0'
   end
   
 end
 
 
-# 独立为 target 安装，不继承主工程已安装的 pod.
+# MARK: - 独立为 target 安装 pod，不继承主工程已安装的 pod.
+
+# MARK: VersionCheck
 
 target 'VersionCheck' do
   pod 'EnolaGay', :path => '../'
@@ -67,15 +70,24 @@ target 'VersionCheck' do
   pod 'RxCocoa'
 end
 
+
+# MARK: CacheDemo
+
 target 'CacheDemo' do
   pod 'EnolaGay', :path => '../'
   pod 'Cache'
 end
 
+
+# MARK: PlayerDemo
+
 target 'PlayerDemo' do
   pod 'EnolaGay', :path => '../'
   pod "Player"
 end
+
+
+# MARK: RefreshAdapter
 
 target 'RefreshAdapter' do
   pod 'EnolaGay', :path => '../'
@@ -83,23 +95,38 @@ target 'RefreshAdapter' do
   pod 'Alamofire', '~> 4.9.0'
 end
 
+
+# MARK: HPickerDemo
+
 target 'HPickerDemo' do
   pod 'EnolaGay', :path => '../'
   pod 'MJRefresh'
   pod 'Alamofire'
 end
 
+
+# MARK: KeyBoardPop
+
 target 'KeyBoardPop' do
   pod 'EnolaGay', :path => '../'
 end
+
+
+# MARK: CastSurelyCalculation
 
 target 'CastSurelyCalculation' do
   pod 'EnolaGay', :path => '../'
 end
 
+
+# MARK: FontExtension
+
 target 'FontExtension' do
   pod 'EnolaGay', :path => '../'
 end
+
+
+# MARK: MyRxSwfit
 
 target 'MyRxSwfit' do
   pod 'EnolaGay', :path => '../'
@@ -109,33 +136,54 @@ target 'MyRxSwfit' do
 
 end
 
+
+# MARK: MyCharts
+
 target 'MyCharts' do
   pod 'EnolaGay', :path => '../'
   pod 'Charts'
 
 end
 
+
+# MARK: JudyBaseNavigationCtrl
+
 target 'JudyBaseNavigationCtrl' do
   pod 'EnolaGay', :path => '../'
 
 end
+
+
+# MARK: GiftMessageViewCtrlDemo
 
 target 'GiftMessageViewCtrlDemo' do
   pod 'EnolaGay', :path => '../'
   pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
 end
 
+
+# MARK: JudyLivePageViewCtrl
+
 target 'JudyLivePageViewCtrl' do
   pod 'EnolaGay', :path => '../'
 end
+
+
+# MARK: SegmentedDemo
 
 target 'SegmentedDemo' do
   pod 'EnolaGay/SegmentedView', :path => '../'
 end
 
+
+# MARK: AttributedStringDemo
+
 target 'AttributedStringDemo' do
   pod 'EnolaGay', :path => '../'
 end
+
+
+# MARK: AGUL
 
 target 'AGUL' do
   pod 'EnolaGay', :path => '../'
@@ -144,4 +192,12 @@ target 'AGUL' do
   pod 'Kingfisher'
   pod 'SwiftMessages'
   pod 'SDWebImage'
+end
+
+
+# MARK: MyIGListKit
+
+target 'MyIGListKit' do
+  pod 'EnolaGay', :path => '../'
+  pod 'IGListKit', '~> 4.0.0'
 end
