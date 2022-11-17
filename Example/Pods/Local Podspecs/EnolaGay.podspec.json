@@ -1,6 +1,6 @@
 {
   "name": "EnolaGay",
-  "version": "3.7.11",
+  "version": "3.7.14",
   "summary": "EnolaGay 架构，由早期的 EMERANA 进化而成。",
   "description": "EMERANA 经过了几年的历练，在多个 App 中不断完善，最终进化成可适用于绝大部分场景的便携式框架。",
   "homepage": "https://github.com/emerana/EnolaGay",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/emerana/EnolaGay.git",
-    "tag": "3.7.11"
+    "tag": "3.7.14"
   },
   "platforms": {
     "ios": "13.0"
@@ -104,6 +104,10 @@
         ]
       },
       "source_files": "EnolaGay/Classes/WKWebView/*"
+    },
+    {
+      "name": "JudyPlusButtonTabBar",
+      "source_files": "EnolaGay/Classes/JudyPlusButtonTabBar/*"
     }
   ],
   "swift_version": "5.0"
