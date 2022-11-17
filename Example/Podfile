@@ -17,7 +17,7 @@ target 'EnolaGay_Example' do
   pod 'EnolaGay/FileManager', :path => '../'
   pod 'EnolaGay/WKWebView', :path => '../'
 
-  pod 'Alamofire', '~> 4.9.0'
+  pod 'Alamofire'
   #  pod "SnapKit"
   
   #  target 'EnolaGay_Tests' do
@@ -37,7 +37,6 @@ target 'EnolaGay_Example' do
   
   target 'EMERANA' do
     pod 'IQKeyboardManagerSwift'
-    pod 'Alamofire', '~> 4.9.0'
 
 #    pod 'MBProgressHUD'
     pod 'SwiftMessages'
@@ -65,7 +64,7 @@ end
 
 target 'VersionCheck' do
   pod 'EnolaGay', :path => '../'
-  pod 'Alamofire', '~> 4.9.0'
+  pod 'Alamofire'
   pod 'RxSwift'
   pod 'RxCocoa'
 end
@@ -92,7 +91,7 @@ end
 target 'RefreshAdapter' do
   pod 'EnolaGay', :path => '../'
   pod 'MJRefresh'
-  pod 'Alamofire', '~> 4.9.0'
+  pod 'Alamofire'
 end
 
 
@@ -200,4 +199,11 @@ end
 target 'MyIGListKit' do
   pod 'EnolaGay', :path => '../'
   pod 'IGListKit', '~> 4.0.0'
+end
+
+# MARK: MyRxRealm
+
+target 'MyRxRealm' do
+  pod 'EnolaGay', :path => '../'
+  pod "RxRealm"
 end

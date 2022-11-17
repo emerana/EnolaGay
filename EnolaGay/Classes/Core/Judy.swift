@@ -232,52 +232,63 @@ public extension Judy {
     
     // 如果发现不能正常打印，请在Build Settings -> Active Compilation Conditions 的 Debug 项中添加一个 DEBUG 即可
 
-    /// 该打印函数将依次打印文件名、触发函数所在行及函数名的信息，最常用的日志式的信息输出
+    /// 通用打印函数，将依次打印文件名、触发函数所在行及函数名的信息。打印格式为**文件 [行] 函数 消息体**
     static func log<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
         print("\(type) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
         #endif
     }
-    
-    /// 极简打印，该函数仅输出要打印的消息体
+
+    /// 该函数主要打印所在行信息，较于 log 仅仅不打印函数。打印格式为**文件 [行] 消息体**
+    static func logl<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, line: Int = #line) {
+        #if DEBUG
+        print("\(type) \((file as NSString).lastPathComponent) [\(line)] ⚓️ \(message())")
+        #endif
+    }
+
+    /// 该函数主要以时间为打印关键。打印格式为**时间 文件 [行] 消息体**
+    ///
+    /// - Parameters:
+    ///   - format: 打印时间的格式化，该值默认为 "HH:mm:ss.SSSS".
+    static func logTime<msg>(type: LogLevel = .🕘, format: String = "HH:mm:ss.SSSS", file: String = #file, line: Int = #line, _ message: @autoclosure () -> msg) {
+        #if DEBUG
+        let date = Date().judy.stringDateFormGMT(format: format)
+        print("\(type) \(date) \((file as NSString).lastPathComponent) [\(line)] \(message())")
+        #endif
+    }
+
+    /// 极简打印，该函数仅输出要打印的消息体。
     static func logs<msg>(type: LogLevel = .🔘, _ message: @autoclosure () -> msg) {
         #if DEBUG
         print("\(type) \(message())")
         #endif
     }
     
-    /// 该函数强制以换行的方式将消息体打印，打印消息体等同于 log() 函数
+    /// 该函数用于换行打印。打印格式为**文件 [行] 函数 换行打印消息体**
     static func logn<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
         print("\(type) \((file as NSString).lastPathComponent) [\(line)] \(method) \n \(message())")
         #endif
     }
-
-    /// 该打印函数仅输出文件名及所在行信息
-    static func logl<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, line: Int = #line) {
-        #if DEBUG
-        print("\(type) \((file as NSString).lastPathComponent)[\(line)] ⚓️ \(message())")
-        #endif
-    }
-
-    /// 该函数仅输出线程相关信息，所在函数名及所在行
-    static func logt<msg>(type: LogLevel = .🟣, _ message: @autoclosure () -> msg, method: String = #function, line: Int = #line) {
-        #if DEBUG
-        print("\(type) \(Thread.current) [\(line)] \(method) ⚓️ \(message())")
-        #endif
-    }
     
-    /// 该函数强制打印好消息级别的标识符输出，打印消息体等同于 log() 函数。
+    /// 该函数用于打印好消息级别的输出。打印格式为**文件 [行] 函数 消息体**
     static func logHappy<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
         print("\(LogLevel.🟢) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
         #endif
     }
     
-    /// 该函数强制打印警告或错误级别的标识符输出，打印消息体等同于 log() 函数
+    /// 该函数用于打印警告或错误级别的输出。打印格式为**文件 [行] 函数 消息体**
     static func logWarning<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
         #if DEBUG
         print("\(LogLevel.🔴) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
+        #endif
+    }
+
+    /// 该函数用于打印线程相关输出。打印格式为**线程 [行] 函数 消息体**
+    static func logt<msg>(type: LogLevel = .🟣, _ message: @autoclosure () -> msg, method: String = #function, line: Int = #line) {
+        #if DEBUG
+        print("\(type) \(Thread.current) [\(line)] \(method) ⚓️ \(message())")
         #endif
     }
 

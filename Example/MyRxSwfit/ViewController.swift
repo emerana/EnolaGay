@@ -15,106 +15,81 @@ import EnolaGay
 
 class ViewController: UIViewController {
     
+    /// 用户名输入框
     @IBOutlet weak var userNameTextField: JudyBaseTextField!
-    @IBOutlet weak var passwordTextField: JudyBaseTextField!
-    
+    /// 用于显示信息的label
     @IBOutlet weak var infoLabel: JudyBaseLabel!
-    
+    /// 触发该表模型值事件
     @IBOutlet weak var actionButton: JudyBaseButton!
+    /// 编辑按钮
+    @IBOutlet weak var editButton: UIButton!
 
-    @IBOutlet weak var viewUserNameValidButton: UIButton!
-    
     let disposeBag = DisposeBag()
-
-    let a = BehaviorRelay(value: 1)
-    let b = BehaviorRelay(value: 2)
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        let c = Observable.combineLatest(a.asObservable(), b.asObservable()){ $0 + $1 }
-//        c.subscribe(onNext:  { value in
-//            Judy.log("获取到 C 的新值 = \(value)")
-//        }).disposed(by: disposeBag)
-//
-//        a.accept(3)
-
-        // 实现将 userNameTextField 的值实时用 label 显示出来
-        //        userNameTextField.rx.text.orEmpty
-        //            .bind(to: infoLabel.rx.text)
-        //            .disposed(by: disposeBag)
-
-        let viewModel = ViewModel(userName: userNameTextField.rx.text.orEmpty.asObservable())
-        
-        twoWayBinding(viewModel: viewModel)
-        /*
-         因为 viewModel.username 已经和 userNameTextField 做好了双向绑定
-         输入框只有在用户输入且 resignFirstResponder 的时候才会触发绑定 Label 显示
-         */
-        viewModel.username
+        // textField 只有输入的值才会发出元素
+        userNameTextField.rx.text.orEmpty
             .bind(to: infoLabel.rx.text)
             .disposed(by: disposeBag)
-//        userNameTextField.rx.text.orEmpty
-//            .bind(to: infoLabel.rx.text)
-//            .disposed(by: disposeBag)
         
-        
-        viewUserNameValidButton.rx.tap
-            .subscribe(onNext: {
-                Judy.log("拿到 viewModel.userNameValid:\(viewModel.userNameValid.map{ $0 })")
-            }).disposed(by: disposeBag)
-        
-        
+        let viewModel = ViewModel(userNameOutlet: userNameTextField.rx.text.orEmpty.asObservable())
+        // account 对象绑定到输入框
+        viewModel.account
+            .bind(to: userNameTextField.rx.text.orEmpty)
+            .disposed(by: disposeBag)
+        // 编辑状态绑定到输入框可用
+        viewModel.isStatusEditing
+            .bind(to: userNameTextField.rx.isEnabled)
+            .disposed(by: disposeBag)
+        // 编辑按钮点击事件
+        editButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                var isEditing = try! viewModel.isStatusEditing.value()
+                // 先切换状态
+                viewModel.isStatusEditing.onNext(!isEditing)
+                isEditing = try! viewModel.isStatusEditing.value()
+                if isEditing {
+                    Judy.log("进入编辑状态")
+                    // 只有在编辑状态下才绑定按钮是否可用
+                    viewModel.isSaveButtonEnabled
+                        .bind(to: self.editButton.rx.isEnabled)
+                        .disposed(by: self.disposeBag)
+                } else {
+                    Judy.log("退出编辑状态")
+                }
+            })
+            .disposed(by: disposeBag)
+        // 手动给输入框赋值，均无法改变 viewModel.account.bind 的控件显示。
         actionButton.rx.tap
             .subscribe(onNext: {
-                //                Judy.log("viewModel 的 username 是：\(viewModel.username.value)")
-                //                Judy.log("viewModel 的 password 是：\(viewModel.password.value)")
-                viewModel.username.accept("EMERANA")
-            }).disposed(by: disposeBag)
-
+                //                self.userNameTextField.rx.text.orEmpty.onNext("泥马")
+                //                self.userNameTextField.text = "卧槽"
+                viewModel.account.accept("你好呀")
+                
+            })
+            .disposed(by: disposeBag)
     }
     
 }
 
-// 双向绑定
-private extension ViewController {
-
-    /// 实现双向绑定
-    func twoWayBinding(viewModel: ViewModel) {
-        // UI 绑定到 viewModel
-        userNameTextField.rx.text.orEmpty
-            .bind(to: viewModel.username)
-            .disposed(by: disposeBag)
-        
-        passwordTextField.rx.text.orEmpty
-            .bind(to: viewModel.password)
-            .disposed(by: disposeBag)
-
-        // viewModel 绑定到 UI
-        viewModel.username
-            .bind(to: userNameTextField.rx.text)
-            .disposed(by: disposeBag)
-        viewModel.password
-            .bind(to: passwordTextField.rx.text)
-            .disposed(by: disposeBag)
-
-    }
-    
-}
-
-// MARK: - ViewModel
 
 class ViewModel {
-    let username = BehaviorRelay<String>(value: "")
-    let password = BehaviorRelay<String>(value: "")
-    
-    let userNameValid: Observable<Bool>
+    /// 当前是否为编辑状态，默认为 false.
+    let isStatusEditing = BehaviorSubject<Bool>(value: false)
 
-    init(userName: Observable<String>) {
-        userNameValid = userName
-            .map{ $0.count > 1 }
+    let account: BehaviorRelay<String>
+
+    /// 保存按钮是否有效，手动给 userNameOutlet 赋值将不作为元素发出。
+    let isSaveButtonEnabled: Observable<Bool>
+
+    init(userNameOutlet: Observable<String>) {
+        isSaveButtonEnabled = userNameOutlet
+            .map { $0.count > 0 }
             .share(replay: 1)
+        
+        account = BehaviorRelay<String>(value: "王仁洁")
     }
 
 }
