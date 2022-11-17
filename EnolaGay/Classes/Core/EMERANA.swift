@@ -464,37 +464,46 @@ public extension Date {
 }
 
 public extension EnolaGayWrapper where Base == Date {
-    /// 转换成北京时区的 Date 值
+    @available(*, unavailable, message: "此函数已被优化", renamed: "stringValue(format:)")
+    func stringFormat(dateFormat: String = "yyyy-MM-dd HH:mm:ss") -> String { "" }
+    @available(*, unavailable, message: "此函数已被优化", renamed: "stringDateFormGMT")
+    func stringGMT() -> Date { Date() }
+    
+    /// 将当前 Date() 转转换成北京时区的 Date.
+    ///
+    /// Date() 将得到格林威治时间（标准时间），比北京时间早了 8 小时。此函数将其转换成北京时间。
+    /// 如 Date() 为 2022-11-18 06:08:47 +0000，此函数将转成 2022-11-18 14:08:47 +0000.
+    /// - Returns: 转换成北京时间的 Date 对象
     func dateFromGMT() -> Date {
-        // let today = Date()// 获取格林威治时间（GMT）/ 标准时间
-        // print("today = \(today)")// 打印出的时间是GTM时间，比北京时间早了8个小时
-        // 转成北京时区 date: 2020-09-19 00:05:41 +0000 日期正常
-        // seconds:1600473941.265026 时间戳多了8小时
-        //date = Date.dateFromGMT(date)
-        //print("转成北京时区 date: \(date)")
-        //print("seconds:\(date.timeIntervalSince1970)")
-        /// 获取当前时区和 GMT 的时间间隔，当前时区和格林威治时区的时间差 8小时 = 28800秒
+        // let today = Date()   // 获取格林威治时间（GMT）即：标准时间
+        // print(today) // 打印出的时间是 GTM 时间，比北京时间早了8个小时。
+        /// 获取当前时区和 GMT 的时间间隔，当前时区和格林威治时区的时间差 8小时 = 28800秒。
         let secondFromGMT: TimeInterval = TimeInterval(TimeZone.current.secondsFromGMT(for: base))
         return base.addingTimeInterval(secondFromGMT)
     }
     
-    /// 获取目标格式的 String 值
-    func stringFormat(dateFormat: String = "yyyy-MM-dd") -> String {
+    /// 将当前 Date 值转换成指定格式化样式字符串
+    ///
+    /// 如 Date() 为 2022-11-18 06:08:47 +0000 ，此函数将转成 2022-11-18 06:08:47.
+    ///
+    /// - Parameter dateFormat: date 值的目标样式，默认值为 "yyyy-MM-dd HH:mm:ss".
+    /// - Returns: String 格式的目标样式
+    func stringValue(format: String = "yyyy-MM-dd HH:mm:ss") -> String {
         let timeZone = TimeZone(identifier: "UTC")
         let formatter = DateFormatter()
         formatter.timeZone = timeZone
         formatter.locale = Locale(identifier: "zh_CN")
-        formatter.dateFormat = dateFormat
+        formatter.dateFormat = format
         let date = formatter.string(from: base)
-        return date
         // return date.components(separatedBy: "-").first!
+        return date
     }
     
     /// 当 Date 转换成北京时区的目标格式 string 值
-    /// - Parameter format: 目标格式，默认为 "yyyy-MM-dd".
+    /// - Parameter format: 目标格式，默认为 "yyyy-MM-dd HH:mm:ss".
     /// - Returns: format 对应的目标值
-    func stringGMT(format: String = "yyyy-MM-dd") -> String {
-        return dateFromGMT().judy.stringFormat(dateFormat: format)
+    func stringDateFormGMT(format: String = "yyyy-MM-dd HH:mm:ss") -> String {
+        return dateFromGMT().judy.stringValue(format: format)
     }
 }
 
