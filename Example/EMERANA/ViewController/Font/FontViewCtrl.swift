@@ -177,7 +177,7 @@ extension FontViewCtrl: UISearchBarDelegate {
     /// 键盘搜索按钮点击事件，关闭键盘
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        //  enableCancel()
+//          enableCancel()
     }
     
     /// searchBar 聚焦事件
