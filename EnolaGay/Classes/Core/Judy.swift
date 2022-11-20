@@ -249,8 +249,8 @@ public extension Judy {
     /// 该函数主要以时间为打印关键。打印格式为**时间 文件 [行] 消息体**
     ///
     /// - Parameters:
-    ///   - format: 打印时间的格式化，该值默认为 "HH:mm:ss.SSSS".
-    static func logTime<msg>(type: LogLevel = .🕘, format: String = "HH:mm:ss.SSSS", file: String = #file, line: Int = #line, _ message: @autoclosure () -> msg) {
+    ///   - format: 打印时间的格式化，该值默认为 "HH:mm:ss.SSS".
+    static func logTime<msg>(type: LogLevel = .🕘, format: String = "HH:mm:ss.SSS", file: String = #file, line: Int = #line, _ message: @autoclosure () -> msg) {
         #if DEBUG
         let date = Date().judy.stringDateFormGMT(format: format)
         print("\(type) \(date) \((file as NSString).lastPathComponent) [\(line)] \(message())")

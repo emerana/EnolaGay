@@ -520,7 +520,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
         alertController.addAction(cancelAction)
         alertController.addAction(confirmAction)
 
-        base.present(alertController, animated: false, completion: nil)
+        base.present(alertController, animated: true, completion: nil)
     }
     
     
