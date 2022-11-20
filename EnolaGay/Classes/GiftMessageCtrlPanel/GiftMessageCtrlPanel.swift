@@ -10,7 +10,7 @@ import UIKit
 
 /// 直播间送礼物控制面板
 ///
-/// 通过 profferGiftMessageView() 函数来送出一个礼物，该礼物将显示在当前 View 上
+/// 通过 profferGiftMessageView() 函数送出一个礼物，该礼物将显示在当前 View 上。
 open class GiftMessageCtrlPanel: UIView {
     
     // MARK: IBInspectables
