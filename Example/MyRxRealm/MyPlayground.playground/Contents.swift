@@ -26,12 +26,6 @@ import EnolaGay
 //    }
 //}
 let date = Date()
-Judy.log(date)
-Judy.logl(date)
-Judy.logTime(date)
-Judy.logs(date)
-Judy.logn(date)
-Judy.logt(date)
-Judy.logHappy(date)
-Judy.logWarning(date)
 
+Judy.logTime(date)
+Judy.logTime(format: "HH:mm:ss.SSS", date)

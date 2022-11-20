@@ -207,7 +207,6 @@ extension JudyBaseSearchViewCtrl: UISearchBarDelegate {
         return true
     }
 
-    
 }
 
 // MARK: - 本类方法
