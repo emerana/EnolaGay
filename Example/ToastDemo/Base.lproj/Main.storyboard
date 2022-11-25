@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ToastDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gmL-CS-aee">
+                                <rect key="frame" x="105.66666666666669" y="65" width="164" height="137.33333333333337"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eib-ax-EjX">
+                                        <rect key="frame" x="0.0" y="0.0" width="164" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="makeToast"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vy-Nx-DAb">
+                                        <rect key="frame" x="0.0" y="34.333333333333329" width="164" height="34.333333333333329"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="makeToastCustom"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhk-50-4Qc">
+                                        <rect key="frame" x="0.0" y="68.666666666666657" width="164" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="showToast"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dx4-BN-RPi">
+                                        <rect key="frame" x="0.0" y="103" width="164" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="showToastActivity"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="goP-2x-9yv">
+                                <rect key="frame" x="0.0" y="715.66666666666663" width="375" height="34.333333333333371"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sP-5F-XcJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="hideToast"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZV-2w-EfT">
+                                        <rect key="frame" x="187.66666666666663" y="0.0" width="187.33333333333337" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="hideToastActivity"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gmL-CS-aee" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9UR-ML-pLe"/>
+                            <constraint firstItem="gmL-CS-aee" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="Z1F-Xt-z1m"/>
+                            <constraint firstAttribute="trailing" secondItem="goP-2x-9yv" secondAttribute="trailing" id="bfw-R2-6xz"/>
+                            <constraint firstItem="goP-2x-9yv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dJM-Ne-Asa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="goP-2x-9yv" secondAttribute="bottom" constant="28" id="xPN-hN-cQ9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="hideToastActivityButton" destination="uZV-2w-EfT" id="DgZ-YW-JLU"/>
+                        <outlet property="hideToastButton" destination="7sP-5F-XcJ" id="NTs-FZ-d1g"/>
+                        <outlet property="makeToastButton" destination="eib-ax-EjX" id="sU1-Rb-J4X"/>
+                        <outlet property="makeToastCustomButton" destination="9Vy-Nx-DAb" id="R21-sJ-pso"/>
+                        <outlet property="showToastActivityButton" destination="Dx4-BN-RPi" id="l6O-cc-Zys"/>
+                        <outlet property="showToastButton" destination="yhk-50-4Qc" id="1z1-NI-4gS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44" y="4"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -11,6 +11,7 @@
 		1CC90012F3F8D06CB89E2183 /* Pods_VersionCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0D6509B70B42E53824E1F8 /* Pods_VersionCheck.framework */; };
 		20DDDAB7813F4A16A759AB33 /* Pods_AttributedStringDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74095273040DD49296A416BC /* Pods_AttributedStringDemo.framework */; };
 		2844F08FF283847D8070BF8A /* Pods_SegmentedDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47E999B91D99CC60E4315CC /* Pods_SegmentedDemo.framework */; };
+		4B40A508EA9FD0FE6D7B6F57 /* Pods_ToastDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DF8F25AB4D6106630B0E7F /* Pods_ToastDemo.framework */; };
 		56C2B4BDDE2BF1D78F8818A3 /* Pods_MyIGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09FCC4A97F55D3D86F8CBD8 /* Pods_MyIGListKit.framework */; };
 		5E10758CE6B0A3DBC745A837 /* Pods_MyRxRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9EB8CFB620E0BC26A279B3 /* Pods_MyRxRealm.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -248,6 +249,11 @@
 		8BC3DDFA26E06BA300A2A405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDF926E06BA300A2A405 /* Assets.xcassets */; };
 		8BC3DE0C26E0798D00A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DE0A26E0795C00A2A405 /* LaunchScreen.xib */; };
 		8BC3DE0E26E079C900A2A405 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DE0D26E079C900A2A405 /* ViewController.swift */; };
+		8BD025F52930D8AB005709D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD025F42930D8AB005709D6 /* AppDelegate.swift */; };
+		8BD025F92930D8AB005709D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD025F82930D8AB005709D6 /* ViewController.swift */; };
+		8BD025FC2930D8AB005709D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD025FA2930D8AB005709D6 /* Main.storyboard */; };
+		8BD025FE2930D8AC005709D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BD025FD2930D8AC005709D6 /* Assets.xcassets */; };
+		8BD026012930D8AC005709D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD025FF2930D8AC005709D6 /* LaunchScreen.storyboard */; };
 		8BE7F82C26CA4000001CE7EA /* ToastViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */; };
 		8BFCC83725E38684000B1611 /* VerticalScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */; };
 		8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */; };
@@ -292,6 +298,7 @@
 		271D1E28BDD517FC30EC966B /* Pods_MyCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD932A0D4EC3DB184BD9B1E /* Pods-AGUL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGUL.release.xcconfig"; path = "Target Support Files/Pods-AGUL/Pods-AGUL.release.xcconfig"; sourceTree = "<group>"; };
 		3448F43C0484DBEAC0D6AB18 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		34DF8F25AB4D6106630B0E7F /* Pods_ToastDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToastDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		385859AD998457D6279B1E50 /* Pods-MyRxRealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRxRealm.debug.xcconfig"; path = "Target Support Files/Pods-MyRxRealm/Pods-MyRxRealm.debug.xcconfig"; sourceTree = "<group>"; };
 		3D0D6509B70B42E53824E1F8 /* Pods_VersionCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VersionCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEB91DC7B0952D2A5F30CE0 /* Pods-MyIGListKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyIGListKit.release.xcconfig"; path = "Target Support Files/Pods-MyIGListKit/Pods-MyIGListKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -309,6 +316,7 @@
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		643EA2A76EAACA640FC02CD1 /* Pods_EnolaGay_Example_Semaphore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay_Example_Semaphore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		688E313B6DDD62A0A0A8272C /* Pods-ToastDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToastDemo.release.xcconfig"; path = "Target Support Files/Pods-ToastDemo/Pods-ToastDemo.release.xcconfig"; sourceTree = "<group>"; };
 		6993146B082D29DD03B71388 /* Pods-MyCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCharts.debug.xcconfig"; path = "Target Support Files/Pods-MyCharts/Pods-MyCharts.debug.xcconfig"; sourceTree = "<group>"; };
 		6F730EBB408C34111C2AEF55 /* Pods_JudyBaseNavigationCtrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JudyBaseNavigationCtrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71CAE8C0D72DB699C77D97DF /* Pods-AGUL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGUL.debug.xcconfig"; path = "Target Support Files/Pods-AGUL/Pods-AGUL.debug.xcconfig"; sourceTree = "<group>"; };
@@ -612,6 +620,13 @@
 		8BC3DDFE26E06BA300A2A405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BC3DE0B26E0795C00A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8BC3DE0D26E079C900A2A405 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8BD025F22930D8AB005709D6 /* ToastDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToastDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BD025F42930D8AB005709D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8BD025F82930D8AB005709D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8BD025FB2930D8AB005709D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8BD025FD2930D8AC005709D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8BD026002930D8AC005709D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8BD026022930D8AC005709D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BD7AE4F26A6747C00A07EB6 /* FontExtensionViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensionViewCtrl.swift; sourceTree = "<group>"; };
 		8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
@@ -639,6 +654,7 @@
 		D0C1FA7632C2DE70E975CB2A /* Pods-EnolaGay_Example-Semaphore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnolaGay_Example-Semaphore.release.xcconfig"; path = "Target Support Files/Pods-EnolaGay_Example-Semaphore/Pods-EnolaGay_Example-Semaphore.release.xcconfig"; sourceTree = "<group>"; };
 		D2953210472AAEFB78DCA32B /* Pods_RefreshAdapter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RefreshAdapter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC320D0BB712D408990761B0 /* Pods_CastSurelyCalculation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CastSurelyCalculation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E26A1A75CEBDFAA5AD3C0C18 /* Pods-ToastDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToastDemo.debug.xcconfig"; path = "Target Support Files/Pods-ToastDemo/Pods-ToastDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		E34584FCEC0D60DBE3AFB585 /* Pods_GiftMessageViewCtrlDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiftMessageViewCtrlDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B4A427494A98F9DEA5A16A /* Pods_JudyLivePageViewCtrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JudyLivePageViewCtrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C98F83C503B2A9D3537BDD /* Pods-HPickerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HPickerDemo.debug.xcconfig"; path = "Target Support Files/Pods-HPickerDemo/Pods-HPickerDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -825,6 +841,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BD025EF2930D8AB005709D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B40A508EA9FD0FE6D7B6F57 /* Pods_ToastDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -873,6 +897,8 @@
 				4DEB91DC7B0952D2A5F30CE0 /* Pods-MyIGListKit.release.xcconfig */,
 				385859AD998457D6279B1E50 /* Pods-MyRxRealm.debug.xcconfig */,
 				0BDB567FC2C325E550ADEC75 /* Pods-MyRxRealm.release.xcconfig */,
+				E26A1A75CEBDFAA5AD3C0C18 /* Pods-ToastDemo.debug.xcconfig */,
+				688E313B6DDD62A0A0A8272C /* Pods-ToastDemo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -904,6 +930,7 @@
 				8BC07ADC291660E1006C6CD2 /* MyIGListKit */,
 				8B9BFBF72921BAC2006939E5 /* MyRxRealm */,
 				8B9D4DFB2924917600C27958 /* MyRxRealmTests */,
+				8BD025F32930D8AB005709D6 /* ToastDemo */,
 				607FACD11AFB9204008FA782 /* Products */,
 				48F58D42A596E8C4AFE02DEE /* Pods */,
 				C2843BD89BA8C609ED35D6C4 /* Frameworks */,
@@ -935,6 +962,7 @@
 				8BC07ADB291660E0006C6CD2 /* MyIGListKit.app */,
 				8B9BFBF62921BAC2006939E5 /* MyRxRealm.app */,
 				8B9D4DFA2924917600C27958 /* MyRxRealmTests.xctest */,
+				8BD025F22930D8AB005709D6 /* ToastDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1649,6 +1677,19 @@
 			path = MyRxSwfit;
 			sourceTree = "<group>";
 		};
+		8BD025F32930D8AB005709D6 /* ToastDemo */ = {
+			isa = PBXGroup;
+			children = (
+				8BD025F42930D8AB005709D6 /* AppDelegate.swift */,
+				8BD025F82930D8AB005709D6 /* ViewController.swift */,
+				8BD025FA2930D8AB005709D6 /* Main.storyboard */,
+				8BD025FD2930D8AC005709D6 /* Assets.xcassets */,
+				8BD025FF2930D8AC005709D6 /* LaunchScreen.storyboard */,
+				8BD026022930D8AC005709D6 /* Info.plist */,
+			);
+			path = ToastDemo;
+			sourceTree = "<group>";
+		};
 		8BFCC83125E385F9000B1611 /* 垂直轮播图 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1683,6 +1724,7 @@
 				A5DD4A02AFF1747699A29E82 /* Pods_AGUL.framework */,
 				F09FCC4A97F55D3D86F8CBD8 /* Pods_MyIGListKit.framework */,
 				7A9EB8CFB620E0BC26A279B3 /* Pods_MyRxRealm.framework */,
+				34DF8F25AB4D6106630B0E7F /* Pods_ToastDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2107,6 +2149,25 @@
 			productReference = 8BC3DDEE26E06BA000A2A405 /* MyRxSwfit.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8BD025F12930D8AB005709D6 /* ToastDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BD026052930D8AC005709D6 /* Build configuration list for PBXNativeTarget "ToastDemo" */;
+			buildPhases = (
+				299A64C49742D988FC6BBB5D /* [CP] Check Pods Manifest.lock */,
+				8BD025EE2930D8AB005709D6 /* Sources */,
+				8BD025EF2930D8AB005709D6 /* Frameworks */,
+				8BD025F02930D8AB005709D6 /* Resources */,
+				94529CF98A1F115FE1C2034D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ToastDemo;
+			productName = ToastDemo;
+			productReference = 8BD025F22930D8AB005709D6 /* ToastDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2211,6 +2272,11 @@
 						DevelopmentTeam = 325J3J39TM;
 						ProvisioningStyle = Automatic;
 					};
+					8BD025F12930D8AB005709D6 = {
+						CreatedOnToolsVersion = 14.1;
+						DevelopmentTeam = 325J3J39TM;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "EnolaGay" */;
@@ -2248,6 +2314,7 @@
 				8BC07ADA291660E0006C6CD2 /* MyIGListKit */,
 				8B9BFBF52921BAC2006939E5 /* MyRxRealm */,
 				8B9D4DF92924917600C27958 /* MyRxRealmTests */,
+				8BD025F12930D8AB005709D6 /* ToastDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -2504,6 +2571,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BD025F02930D8AB005709D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BD026012930D8AC005709D6 /* LaunchScreen.storyboard in Resources */,
+				8BD025FE2930D8AC005709D6 /* Assets.xcassets in Resources */,
+				8BD025FC2930D8AB005709D6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -2645,6 +2722,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyRxSwfit/Pods-MyRxSwfit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		299A64C49742D988FC6BBB5D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToastDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2CBC54CE03653FB48F4DB1B9 /* [CP] Embed Pods Frameworks */ = {
@@ -3227,6 +3326,32 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CastSurelyCalculation/Pods-CastSurelyCalculation-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		94529CF98A1F115FE1C2034D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ToastDemo/Pods-ToastDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ToastDemo/Pods-ToastDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B07F5C26B986BB6BBC1ABCE3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3762,6 +3887,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BD025EE2930D8AB005709D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BD025F92930D8AB005709D6 /* ViewController.swift in Sources */,
+				8BD025F52930D8AB005709D6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -4099,6 +4233,22 @@
 				8BC3DE0B26E0795C00A2A405 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		8BD025FA2930D8AB005709D6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BD025FB2930D8AB005709D6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8BD025FF2930D8AC005709D6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BD026002930D8AC005709D6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -5280,6 +5430,79 @@
 			};
 			name = Release;
 		};
+		8BD026032930D8AC005709D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E26A1A75CEBDFAA5AD3C0C18 /* Pods-ToastDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToastDemo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = judy.ToastDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8BD026042930D8AC005709D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 688E313B6DDD62A0A0A8272C /* Pods-ToastDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToastDemo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = judy.ToastDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -5486,6 +5709,15 @@
 			buildConfigurations = (
 				8BC3DDFF26E06BA300A2A405 /* Debug */,
 				8BC3DE0026E06BA300A2A405 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BD026052930D8AC005709D6 /* Build configuration list for PBXNativeTarget "ToastDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BD026032930D8AC005709D6 /* Debug */,
+				8BD026042930D8AC005709D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
