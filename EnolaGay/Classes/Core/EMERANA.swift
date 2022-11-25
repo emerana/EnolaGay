@@ -269,18 +269,6 @@ protocol FontStyle: AnyObject {
 
 /// 常用字体名
 public enum FontName: String {
-    @available(*, unavailable, message: "重命名", renamed: "苹方_极细体")
-    case 苹方_简_极细体 = "PingFangSC-Ultr"
-    @available(*, unavailable, message: "重命名", renamed: "苹方_纤细体")
-    case 苹方_简_纤细体 = "PingFangSC-T"
-    @available(*, unavailable, message: "重命名", renamed: "苹方_细体")
-    case 苹方_简_细体 = "PingFangSC-Lgh"
-    @available(*, unavailable, message: "重命名", renamed: "苹方_常规体")
-    case 苹方_简_常规体 = "PingFangSC-ar"
-    @available(*, unavailable, message: "重命名", renamed: "苹方_中黑体")
-    case 苹方_简_中黑体 = "PingFangSCium"
-    @available(*, unavailable, message: "重命名", renamed: "苹方_中粗体")
-    case 苹方_简_中粗体 = "PingFangSCold"
 
     case 苹方_极细体 = "PingFangSC-Ultralight"
     case 苹方_纤细体 = "PingFangSC-Thin"
@@ -468,7 +456,7 @@ public extension EnolaGayWrapper where Base == Date {
     func stringFormat(dateFormat: String = "yyyy-MM-dd HH:mm:ss") -> String { "" }
     @available(*, unavailable, message: "此函数已被优化", renamed: "stringDateFormGMT")
     func stringGMT() -> Date { Date() }
-    
+
     /// 将当前 Date() 转转换成北京时区的 Date.
     ///
     /// Date() 将得到格林威治时间（标准时间），比北京时间早了 8 小时。此函数将其转换成北京时间。
@@ -1633,7 +1621,7 @@ public struct EnolaGayToastWrapper {
 public protocol EnolaGayToastCompatible: UIView { }
 
 extension EnolaGayToastCompatible {
-    /// 获取在 EnolaGay 中的兼容类型包装对象，即在 EnolaGay 空间持有者对象，通过该对象调用 toast 相关方法。
+    /// 在 EnolaGay 中的兼容类型包装对象，即在 EnolaGay 空间的持有者对象，通过该对象调用 toast 相关方法。
     public var toast: EnolaGayToastWrapper {
         get { return EnolaGayToastWrapper(self) }
         set { }
@@ -1644,16 +1632,23 @@ extension UIView: EnolaGayToastCompatible { }
 
 // MARK: - Make Toast Methods
 public extension EnolaGayToastWrapper {
-    /// 创建并显示新的 toast
+
+    /// 创建并显示一个新的 toast
     /// - Parameters:
     ///   - message: 显示的消息体
-    ///   - duration: toast 显示的持续时间
-    ///   - position: toast 显示的位置
-    ///   - title: 标题
-    ///   - image: 在 toast 中添加一张图片
-    ///   - style: toast 风格。当为 nil 时，将使用共享样式。
-    ///   - completion: 完成闭包，在 toast 视图消失后执行。如果 toast 从 tap 中删除，则 didTap 将为 true.
-    func makeToast(_ message: String?, duration: TimeInterval = ToastManager.shared.duration, position: ToastPosition = ToastManager.shared.position, title: String? = nil, image: UIImage? = nil, style: ToastStyle = ToastManager.shared.style, completion: ((_ didTap: Bool) -> Void)? = nil) {
+    ///   - duration: toast 显示的持续时间，默认为 ToastManager.shared.duration.
+    ///   - position: toast 显示的位置，默认为 ToastManager.shared.position.
+    ///   - title: 标题，默认为 nil.
+    ///   - image: 在 toast 中添加一张图片，默认为 nil.
+    ///   - style: toast 风格，默认为 ToastManager.shared.style.
+    ///   - completion: toast 消失后的回调函数。如果 toast 从 tap 中删除，则 didTap 将为 true.
+    func makeToast(_ message: String, duration:
+                   TimeInterval = ToastManager.shared.duration,
+                   position: ToastPosition = ToastManager.shared.position,
+                   title: String? = nil,
+                   image: UIImage? = nil,
+                   style: ToastStyle = ToastManager.shared.style,
+                   completion: ((_ didTap: Bool) -> Void)? = nil) {
         
         base.makeToast(message, duration: duration, position: position,
                        title: title, image: image, style: style, completion: completion)
@@ -1662,13 +1657,19 @@ public extension EnolaGayToastWrapper {
     /// 创建新的 toast 视图并在给定的中心点显示它
     /// - Parameters:
     ///   - message: 显示的消息体
-    ///   - duration: toast 显示的持续时间
-    ///   - point: toast 的中心点
-    ///   - title: 标题
-    ///   - image: 在 toast 中添加一张图片
-    ///   - style: toast 风格。当为 nil 时，将使用共享样式。
-    ///   - completion: 完成闭包，在 toast 视图消失后执行。如果 toast 从 tap 中删除，则 didTap 将为 true.
-    func makeToast(_ message: String?, duration: TimeInterval = ToastManager.shared.duration, point: CGPoint, title: String?, image: UIImage?, style: ToastStyle = ToastManager.shared.style, completion: ((_ didTap: Bool) -> Void)?) {
+    ///   - duration: toast 显示的持续时间，默认为 ToastManager.shared.duration.
+    ///   - point: toast 的中心点,建议为 view.center.
+    ///   - title: 标题，默认为 nil.
+    ///   - image: 在 toast 中添加一张图片，默认为 nil.
+    ///   - style: toast 风格，默认为 ToastManager.shared.style.
+    ///   - completion: toast 消失后的回调函数。如果 toast 从 tap 中删除，则 didTap 将为 true.
+    func makeToast(_ message: String,
+                   duration: TimeInterval = ToastManager.shared.duration,
+                   point: CGPoint,
+                   title: String? = nil,
+                   image: UIImage? = nil,
+                   style: ToastStyle = ToastManager.shared.style,
+                   completion: ((_ didTap: Bool) -> Void)?) {
         
         base.makeToast(message, duration: duration, point: point,
                        title: title, image: image, style: style, completion: completion)
@@ -1710,7 +1711,7 @@ public extension EnolaGayToastWrapper {
 
 // MARK: - Show Toast Methods
 public extension EnolaGayToastWrapper {
-    
+    @available(*, unavailable, message: "此函数被禁用")
     /// 在指定的位置和持续时间将任何视图显示为 toast
     /// - Parameters:
     ///   - toast: 显示成 toast 的 view
@@ -1721,6 +1722,7 @@ public extension EnolaGayToastWrapper {
         base.showToast(toast, duration: duration, position: position, completion: completion)
     }
     
+    @available(*, unavailable, message: "此函数被禁用")
     /// 在提供的中心点和持续时间上将任何视图显示为 toast
     /// - Parameters:
     ///   - toast: 显示成 toast 的 view
@@ -1736,17 +1738,17 @@ public extension EnolaGayToastWrapper {
 // MARK: - Activity Methods
 public extension EnolaGayToastWrapper {
     /// 在指定位置创建并显示一个新的 toast 活动指示器视图
+    /// - Parameter position: toast 的位置，该值默认为 center.
     /// - Warning: 每个父视图只能显示一个 toast 活动指示器视图。随后对 makeToastActivity(position:) 函数的调用将被忽略，直到 hideToastActivity() 被调用。
     /// - Warning: makeToastActivity(position:) 独立于 showToast 方法。toast 活动视图可以在 toast 视图被显示时显示和取消。makeToastActivity(position:) 对 showToast 方法的排队行为没有影响。
-    /// - Parameter position: toast 的位置
-    func makeToastActivity(_ position: ToastPosition) {
+    func makeToastActivity(_ position: ToastPosition = .center) {
         base.makeToastActivity(position)
     }
     
     /// 在指定位置创建并显示一个新的 toast 活动指示器视图
+    /// - Parameter point: toast 的中心，建议为 view.center.
     /// - Warning: 每个父视图只能显示一个 toast 活动指示器视图。随后对 makeToastActivity(point:) 函数的调用将被忽略，直到 hideToastActivity() 被调用。
     /// - Warning: makeToastActivity(point:) 独立于 showToast 方法。toast 活动视图可以在 toast 视图被显示时显示和取消。makeToastActivity(point:) 对 showToast 方法的排队行为没有影响。
-    /// - Parameter point: toast 的中心
     func makeToastActivity(_ point: CGPoint) {
         base.makeToastActivity(point)
     }

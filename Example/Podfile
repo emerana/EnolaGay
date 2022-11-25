@@ -207,3 +207,13 @@ target 'MyRxRealm' do
   pod 'EnolaGay', :path => '../'
   pod "RxRealm"
 end
+
+
+# MARK: ToastDemo
+
+target 'ToastDemo' do
+  pod 'EnolaGay', :path => '../'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+
+end
