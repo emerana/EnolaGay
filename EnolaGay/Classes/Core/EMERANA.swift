@@ -269,18 +269,6 @@ protocol FontStyle: AnyObject {
 
 /// 常用字体名
 public enum FontName: String {
-    @available(*, unavailable, message: "重命名", renamed: "苹方_极细体")
-    case 苹方_简_极细体 = "PingFangSC-Ultr"
-    @available(*, unavailable, message: "重命名", renamed: "苹方_纤细体")
-    case 苹方_简_纤细体 = "PingFangSC-T"
-    @available(*, unavailable, message: "重命名", renamed: "苹方_细体")
-    case 苹方_简_细体 = "PingFangSC-Lgh"
-    @available(*, unavailable, message: "重命名", renamed: "苹方_常规体")
-    case 苹方_简_常规体 = "PingFangSC-ar"
-    @available(*, unavailable, message: "重命名", renamed: "苹方_中黑体")
-    case 苹方_简_中黑体 = "PingFangSCium"
-    @available(*, unavailable, message: "重命名", renamed: "苹方_中粗体")
-    case 苹方_简_中粗体 = "PingFangSCold"
 
     case 苹方_极细体 = "PingFangSC-Ultralight"
     case 苹方_纤细体 = "PingFangSC-Thin"
@@ -468,7 +456,7 @@ public extension EnolaGayWrapper where Base == Date {
     func stringFormat(dateFormat: String = "yyyy-MM-dd HH:mm:ss") -> String { "" }
     @available(*, unavailable, message: "此函数已被优化", renamed: "stringDateFormGMT")
     func stringGMT() -> Date { Date() }
-    
+
     /// 将当前 Date() 转转换成北京时区的 Date.
     ///
     /// Date() 将得到格林威治时间（标准时间），比北京时间早了 8 小时。此函数将其转换成北京时间。
