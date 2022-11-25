@@ -40,7 +40,7 @@ private extension ViewController {
     
     func maskToastAction() {
         makeToastButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
-            self?.view.toast.makeToast("大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁")
+            self?.view.toast.makeToast("大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁", position: .top)
         })
         .disposed(by: disposeBag)
     }
@@ -52,7 +52,7 @@ private extension ViewController {
                                  duration: TimeInterval(5),
                                        point: self!.view.center,
                                  title: "这是标题",
-                                 image: UIImage(named: "jiesuo"),
+                                       image: nil,//UIImage(named: "jiesuo"),
                                  style: ToastManager.shared.style) { didTap in
                 Judy.log("点击了，结果为：\(didTap)")
             }

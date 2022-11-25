@@ -448,7 +448,7 @@ public struct ToastStyle {
     public init() {}
     
     /// 背景颜色。默认为黑色，不透明度为 80%.
-    public var backgroundColor: UIColor = UIColor.black.withAlphaComponent(0.80)
+    public var backgroundColor: UIColor = UIColor.black.withAlphaComponent(0.8)
     
     /// 标题颜色，默认为白色。
     public var titleColor: UIColor = .white
@@ -480,12 +480,12 @@ public struct ToastStyle {
     public var cornerRadius: CGFloat = 8.0;
     
     /// 标题字体，默认为 UIFont(name: .苹方_中粗体, size: 16)
-    public var titleFont: UIFont = UIFont(name: .苹方_中粗体, size: 16)
+    public var titleFont: UIFont = UIFont(name: .苹方_中黑体, size: 16)
     
-    /// 消息字体，默认为 UIFont(size: 16)
-    public var messageFont: UIFont = UIFont(size: 16)
+    /// 消息字体，默认为 UIFont(name: .苹方_常规体, size: 16)
+    public var messageFont: UIFont = UIFont(name: .苹方_常规体, size: 16)
     
-    /// 标题对齐方式。默认为 .left
+    /// 标题对齐方式。默认为 .center
     public var titleAlignment: NSTextAlignment = .center
     
     /// 消息文本对齐方式。默认为 .left
@@ -497,8 +497,8 @@ public struct ToastStyle {
     /// 消息的最大行数。默认值是0(没有限制)。
     public var messageNumberOfLines = 0
     
-    /// 启用或禁用 toast 上的阴影。默认为 false.
-    public var displayShadow = false
+    /// 启用或禁用 toast 上的阴影。默认为 true.
+    public var displayShadow = true
     
     /// 阴影颜色，默认 .black
     public var shadowColor: UIColor = .black
