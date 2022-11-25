@@ -60,17 +60,16 @@ extension UIView {
     }
     
     // MARK: - Make Toast Methods
-
-    /// 创建并显示新的 toast
+    /// 创建并显示一个新的 toast
     /// - Parameters:
     ///   - message: 显示的消息体
-    ///   - duration: toast 显示的持续时间
-    ///   - position: toast 显示的位置
-    ///   - title: 标题
-    ///   - image: 在 toast 中添加一张图片
-    ///   - style: toast 风格。当为 nil 时，将使用共享样式。
-    ///   - completion: 完成闭包，在 toast 视图消失后执行。如果 toast 从 tap 中删除，则 didTap 将为 true.
-    func makeToast(_ message: String?, duration: TimeInterval = ToastManager.shared.duration, position: ToastPosition = ToastManager.shared.position, title: String? = nil, image: UIImage? = nil, style: ToastStyle = ToastManager.shared.style, completion: ((_ didTap: Bool) -> Void)? = nil) {
+    ///   - duration: toast 显示的持续时间，默认为 ToastManager.shared.duration.
+    ///   - position: toast 显示的位置，默认为 ToastManager.shared.position.
+    ///   - title: 标题，默认为 nil.
+    ///   - image: 在 toast 中添加一张图片，默认为 nil.
+    ///   - style: toast 风格，默认为 ToastManager.shared.style.
+    ///   - completion: toast 消失后的回调函数。如果 toast 从 tap 中删除，则 didTap 将为 true.
+    func makeToast(_ message: String, duration: TimeInterval = ToastManager.shared.duration, position: ToastPosition = ToastManager.shared.position, title: String? = nil, image: UIImage? = nil, style: ToastStyle = ToastManager.shared.style, completion: ((_ didTap: Bool) -> Void)? = nil) {
         do {
             let toast = try toastViewForMessage(message, title: title, image: image, style: style)
             showToast(toast, duration: duration, position: position, completion: completion)
@@ -88,7 +87,7 @@ extension UIView {
     ///   - image: 在 toast 中添加一张图片
     ///   - style: toast 风格。当为 nil 时，将使用共享样式。
     ///   - completion: 完成闭包，在 toast 视图消失后执行。如果 toast 从 tap 中删除，则 didTap 将为 true.
-    func makeToast(_ message: String?, duration: TimeInterval = ToastManager.shared.duration, point: CGPoint, title: String?, image: UIImage?, style: ToastStyle = ToastManager.shared.style, completion: ((_ didTap: Bool) -> Void)?) {
+    func makeToast(_ message: String, duration: TimeInterval = ToastManager.shared.duration, point: CGPoint, title: String?, image: UIImage?, style: ToastStyle = ToastManager.shared.style, completion: ((_ didTap: Bool) -> Void)?) {
         do {
             let toast = try toastViewForMessage(message, title: title, image: image, style: style)
             showToast(toast, duration: duration, point: point, completion: completion)
@@ -175,9 +174,9 @@ extension UIView {
     // MARK: - Activity Methods
     
     /// 在指定位置创建并显示一个新的 toast 活动指示器视图
+    /// - Parameter position: toast 的位置
     /// - Warning: 每个父视图只能显示一个 toast 活动指示器视图。随后对 makeToastActivity(position:) 函数的调用将被忽略，直到 hideToastActivity() 被调用。
     /// - Warning: makeToastActivity(position:) 独立于 showToast 方法。toast 活动视图可以在 toast 视图被显示时显示和取消。makeToastActivity(position:) 对 showToast 方法的排队行为没有影响。
-    /// - Parameter position: toast 的位置
     func makeToastActivity(_ position: ToastPosition) {
         // sanity
         guard objc_getAssociatedObject(self, &ToastKeys.activityView) as? UIView == nil else { return }
@@ -188,9 +187,9 @@ extension UIView {
     }
     
     /// 在指定位置创建并显示一个新的 toast 活动指示器视图
+    /// - Parameter point: toast 的中心，建议为 view.center.
     /// - Warning: 每个父视图只能显示一个 toast 活动指示器视图。随后对 makeToastActivity(point:) 函数的调用将被忽略，直到 hideToastActivity() 被调用。
     /// - Warning: makeToastActivity(point:) 独立于 showToast 方法。toast 活动视图可以在 toast 视图被显示时显示和取消。makeToastActivity(point:) 对 showToast 方法的排队行为没有影响。
-    /// - Parameter point: toast 的中心
     func makeToastActivity(_ point: CGPoint) {
         // sanity
         guard objc_getAssociatedObject(self, &ToastKeys.activityView) as? UIView == nil else { return }
@@ -449,12 +448,12 @@ public struct ToastStyle {
     public init() {}
     
     /// 背景颜色。默认为黑色，不透明度为 80%.
-    public var backgroundColor: UIColor = UIColor.black.withAlphaComponent(0.8)
+    public var backgroundColor: UIColor = UIColor.black.withAlphaComponent(0.80)
     
-    /// 标题颜色。默认为白色。
+    /// 标题颜色，默认为白色。
     public var titleColor: UIColor = .white
     
-    /// 消息颜色。默认为白色。
+    /// 消息体颜色，默认为白色。
     public var messageColor: UIColor = .white
     
     /// 从 0.0 ~ 1.0 的百分比值，表示 toast 的最大宽度。视图相对于它的父视图。默认值是0.8(父视图宽度的80%)。
@@ -477,8 +476,8 @@ public struct ToastStyle {
     /// 从 toast 视图的垂直边缘到内容的间距。当出现标题时，它也被用作标题和消息之间的填充。默认是10.0。在iOS11+上，这个值会加上 safeAreaInset.top 和 safeAreaInsets.bottom.
     public var verticalPadding: CGFloat = 10.0
     
-    /// 圆角程度，默认为 10.
-    public var cornerRadius: CGFloat = 10.0;
+    /// 圆角程度，默认为 8.
+    public var cornerRadius: CGFloat = 8.0;
     
     /// 标题字体，默认为 UIFont(name: .苹方_中粗体, size: 16)
     public var titleFont: UIFont = UIFont(name: .苹方_中粗体, size: 16)
@@ -487,7 +486,7 @@ public struct ToastStyle {
     public var messageFont: UIFont = UIFont(size: 16)
     
     /// 标题对齐方式。默认为 .left
-    public var titleAlignment: NSTextAlignment = .left
+    public var titleAlignment: NSTextAlignment = .center
     
     /// 消息文本对齐方式。默认为 .left
     public var messageAlignment: NSTextAlignment = .left
@@ -537,9 +536,11 @@ public struct ToastStyle {
 
 // MARK: - Toast Manager
 
-/// ToastManager 提供了所有 toast 通知的一般配置选项。由单例实例支持。
+/// ToastManager 提供了所有 toast 通知的一般配置选项。
+/// 内置一个共享实例支持，你还可以自行构建一个 ToastManager.
 public class ToastManager {
-    /// ToastManager 唯一实例
+
+    /// ToastManager 默认共享实例
     public static let shared = ToastManager()
     
     /// 共享的风格。当 toastViewForMessage(message:title:image:style:) 被调用时使用。

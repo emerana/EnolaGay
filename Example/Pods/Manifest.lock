@@ -7,26 +7,26 @@ PODS:
   - Charts/Core (4.1.0):
     - SwiftAlgorithms (~> 1.0)
   - DZNEmptyDataSet (1.8.1)
-  - EnolaGay (3.7.14):
-    - EnolaGay/EMERANA (= 3.7.14)
-  - EnolaGay/CircularProgressView (3.7.14)
-  - EnolaGay/EMERANA (3.7.14):
+  - EnolaGay (3.7.15):
+    - EnolaGay/EMERANA (= 3.7.15)
+  - EnolaGay/CircularProgressView (3.7.15)
+  - EnolaGay/EMERANA (3.7.15):
     - SwiftyJSON
-  - EnolaGay/FileManager (3.7.14):
+  - EnolaGay/FileManager (3.7.15):
     - EnolaGay/EMERANA
-  - EnolaGay/GiftMessageCtrlPanel (3.7.14)
-  - EnolaGay/HPickerView (3.7.14):
+  - EnolaGay/GiftMessageCtrlPanel (3.7.15)
+  - EnolaGay/HPickerView (3.7.15):
     - EnolaGay/EMERANA
-  - EnolaGay/JudyPopBubble (3.7.14)
-  - EnolaGay/JudyWaterWaveView (3.7.14)
-  - EnolaGay/MarqueeView (3.7.14)
-  - EnolaGay/SearchViewCtrl (3.7.14):
+  - EnolaGay/JudyPopBubble (3.7.15)
+  - EnolaGay/JudyWaterWaveView (3.7.15)
+  - EnolaGay/MarqueeView (3.7.15)
+  - EnolaGay/SearchViewCtrl (3.7.15):
     - EnolaGay/EMERANA
-  - EnolaGay/SegmentedView (3.7.14):
+  - EnolaGay/SegmentedView (3.7.15):
     - EnolaGay/EMERANA
-  - EnolaGay/TextFieldEffects (3.7.14):
+  - EnolaGay/TextFieldEffects (3.7.15):
     - EnolaGay/EMERANA
-  - EnolaGay/WKWebView (3.7.14):
+  - EnolaGay/WKWebView (3.7.15):
     - EnolaGay/EMERANA
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -135,7 +135,7 @@ SPEC CHECKSUMS:
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
   Charts: 354f86803d11d9c35de280587fef50d1af063978
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  EnolaGay: 58ae362a89e380dc60fe9c2c5a7a3945e9fb95a5
+  EnolaGay: dda33556282671ddce6f282808cb333a8d358c52
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
@@ -156,6 +156,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: 58bf4f5650c4b94fd8f776f838340a0e10374995
+PODFILE CHECKSUM: b55ceaeafb35ba330ad07ea99f3b5f85bfdb7f68
 
 COCOAPODS: 1.11.3
