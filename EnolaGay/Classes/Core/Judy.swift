@@ -506,7 +506,7 @@ public extension Judy {
             }
 
             // Success  返回 data 转 json
-            guard let dataDic: [String: Any] = try! JSONSerialization.jsonObject(with: data!,
+            guard let dataDic: [String: Any] = try? JSONSerialization.jsonObject(with: data!,
                                                                                   options: .allowFragments) as? [String : Any] else {
                 callBack(AppVersionStatus.notFound, nil)
                 return
