@@ -5,28 +5,27 @@ PODS:
   - Charts (4.1.0):
     - Charts/Core (= 4.1.0)
   - DZNEmptyDataSet (1.8.1)
-  - EnolaGay (3.8.0):
-    - EnolaGay/EMERANA (= 3.8.0)
-  - EnolaGay/CircularProgressView (3.8.0)
-  - EnolaGay/EMERANA (3.8.0)
-  - EnolaGay/FileManager (3.8.0):
+  - EnolaGay (4.0.0):
+    - EnolaGay/EMERANA (= 4.0.0)
+  - EnolaGay/CircularProgressView (4.0.0)
+  - EnolaGay/EMERANA (4.0.0)
+  - EnolaGay/FileManager (4.0.0):
     - EnolaGay/EMERANA
-  - EnolaGay/GiftMessageCtrlPanel (3.8.0)
-  - EnolaGay/HPickerView (3.8.0):
+  - EnolaGay/GiftMessageCtrlPanel (4.0.0)
+  - EnolaGay/HPickerView (4.0.0):
     - EnolaGay/EMERANA
-  - EnolaGay/HUD (3.8.0):
+  - EnolaGay/HUD (4.0.0)
+  - EnolaGay/JudyPlusButtonTabBar (4.0.0)
+  - EnolaGay/JudyPopBubble (4.0.0)
+  - EnolaGay/JudyWaterWaveView (4.0.0)
+  - EnolaGay/MarqueeView (4.0.0)
+  - EnolaGay/SearchViewCtrl (4.0.0):
     - EnolaGay/EMERANA
-  - EnolaGay/JudyPlusButtonTabBar (3.8.0)
-  - EnolaGay/JudyPopBubble (3.8.0)
-  - EnolaGay/JudyWaterWaveView (3.8.0)
-  - EnolaGay/MarqueeView (3.8.0)
-  - EnolaGay/SearchViewCtrl (3.8.0):
+  - EnolaGay/SegmentedView (4.0.0):
     - EnolaGay/EMERANA
-  - EnolaGay/SegmentedView (3.8.0):
+  - EnolaGay/TextFieldEffects (4.0.0):
     - EnolaGay/EMERANA
-  - EnolaGay/TextFieldEffects (3.8.0):
-    - EnolaGay/EMERANA
-  - EnolaGay/WKWebView (3.8.0):
+  - EnolaGay/WKWebView (4.0.0):
     - EnolaGay/EMERANA
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -136,7 +135,7 @@ SPEC CHECKSUMS:
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
   Charts: 354f86803d11d9c35de280587fef50d1af063978
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  EnolaGay: ed94a020b81d0429ee15d63dc567e2e3f26eaf28
+  EnolaGay: 4c0cb3b265ad9bcc949e298ecaa4b678fc175034
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
@@ -156,6 +155,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: e16dced43aa70410c394bb4ecdb8bd7f900442b4
+PODFILE CHECKSUM: 0728f7c3f1bc1a48be6c587c1823bd6d17865d95
 
 COCOAPODS: 1.12.0

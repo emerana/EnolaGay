@@ -21,6 +21,8 @@ target 'EnolaGay_Example' do
   
   pod 'Alamofire'
   #  pod "SnapKit"
+  pod 'SwiftyJSON'
+
   
   #  target 'EnolaGay_Tests' do
   #    inherit! :search_paths
