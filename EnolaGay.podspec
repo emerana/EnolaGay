@@ -26,15 +26,15 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/emerana/EnolaGay.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '13.0'
-  s.swift_version = '5.0'
+  s.ios.deployment_target = '11.0'
+  #  s.swift_version = '5.0'
   s.requires_arc = true
   #  如果不指定默认的 spec，则将安装所有的 spec。 pod ‘EnolaGay’ 即安装 EnolaGay/EMERANA 核心文件夹
   s.default_subspec = 'EMERANA'
   # 此为核心安装的 spec
   s.subspec 'EMERANA' do |ss|
       ss.source_files = 'EnolaGay/Classes/Core/*'
-      ss.dependency 'SwiftyJSON'
+      #      ss.dependency 'SwiftyJSON' 取消依赖 SwiftyJSON
       # ss.exclude_files = 'EnolaGay/Classes/*'
       # ss.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
   end

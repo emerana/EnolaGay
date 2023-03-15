@@ -5,14 +5,10 @@
 //  Copyright © 2018. All rights reserved.
 //
 
-import SwiftyJSON
-
 // MARK: typealias
 
 /// 一个不传递任何参数的闭包类型
 public typealias Closure = (() -> Void)
-/// 传递一个 JSON 对象的闭包类型
-public typealias ClosureJSON = ((JSON) -> Void)
 /// 传递一个 String 对象的闭包类型
 public typealias ClosureString = ((String) -> Void)
 
@@ -106,7 +102,7 @@ extension EMERANA_Refresh {
 protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
     
     /// 主要数据源，需要手动赋值，默认为空数组
-    var dataSource: [JSON] { get set }
+    var dataSource: Array<Any> { get set }
     
     /// 重写此方法并在此方法中注册 Cell 或 HeaderFooter**此方法在 ViewDidLoad() 中被执行**
     ///
@@ -136,6 +132,7 @@ public protocol EMERANA_CellBasic {
     var subTitleLabel: UILabel? { get set }
     /// 主图片
     var masterImageView: UIImageView? { get set }
+
     /// Cell 中的数据源
     ///
     /// 设置该值的时候将触发 jsonDidSetAction()，函数中的默认对应:
