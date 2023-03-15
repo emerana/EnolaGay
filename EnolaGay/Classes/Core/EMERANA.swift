@@ -337,9 +337,21 @@ public extension EnolaGayAdapter {
     
     func defaultFontName() -> UIFont { UIFont(name: .苹方_中黑体, size: 12) }
     
-    func viewBackgroundColor() -> UIColor { .systemBackground }
+    func viewBackgroundColor() -> UIColor {
+        if #available(iOS 13.0, *) {
+            return .systemBackground
+        } else {
+            return .white
+        }
+    }
 
-    func scrollViewBackGroundColor() -> UIColor { .systemBackground }
+    func scrollViewBackGroundColor() -> UIColor {
+        if #available(iOS 13.0, *) {
+            return .systemBackground
+        } else {
+            return .white
+        }
+    }
 
     func navigationBarItemsColor() -> UIColor { .systemBlue }
 }
