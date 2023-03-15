@@ -76,10 +76,7 @@
 		8B372D1F268EA105004840FC /* Mandoline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B372D1C268EA105004840FC /* Mandoline.storyboard */; };
 		8B3BD1DD27014EB2001912FB /* DownloadViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BD1DC27014EB2001912FB /* DownloadViewCtrl.swift */; };
 		8B4A4DEB266F0B8C007D6DC5 /* DouYin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */; };
-		8B4A4DED266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A4DEC266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift */; };
 		8B620EA526DDF347001E1A9D /* VersionCheck-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */; };
-		8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76428F25A702C400A418F8 /* AppConfigs.swift */; };
-		8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */; };
 		8B9BFBF92921BAC2006939E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BFBF82921BAC2006939E5 /* AppDelegate.swift */; };
 		8B9BFBFD2921BAC2006939E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BFBFC2921BAC2006939E5 /* ViewController.swift */; };
 		8B9BFC002921BAC2006939E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9BFBFE2921BAC2006939E5 /* Main.storyboard */; };
@@ -2834,7 +2831,8 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-EMERANA/Pods-EnolaGay_Example-EMERANA-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS13.0/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-f01f36b6/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-fccbee31/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh-iOS13.0/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage-iOS13.0/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages-iOS13.0/SwiftMessages.framework",
@@ -2843,13 +2841,13 @@
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
@@ -2858,7 +2856,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3032,12 +3029,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example-Semaphore/Pods-EnolaGay_Example-Semaphore-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS13.0/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-207173f5/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-fccbee31/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3452,12 +3451,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EnolaGay_Example/Pods-EnolaGay_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS13.0/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-207173f5/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-fccbee31/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3559,9 +3560,6 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				8BE7F82C26CA4000001CE7EA /* ToastViewCtrl.swift in Sources */,
-				8B76429025A702C400A418F8 /* AppConfigs.swift in Sources */,
-				8B4A4DED266F0C3F007D6DC5 /* DouYonHomeViewCtrl.swift in Sources */,
-				8B76429625A7036500A418F8 /* ApiTestViewCtrl.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				8B372D1D268EA105004840FC /* MandolineViewController.swift in Sources */,
 				8BFCC83E25E39725000B1611 /* VerticalScrollViewCtrl.swift in Sources */,

@@ -182,11 +182,11 @@ extension ToastViewCtrl {
             let customView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 80.0, height: 400.0))
             customView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleBottomMargin]
             customView.backgroundColor = .green
-            navigationController?.view.toast.showToast(customView, duration: 2.0, position: .center)
+            navigationController?.view.toast.makeToastActivity()
         case 7:
             // Show an image view as toast, on center at point (110,110)
             let toastView = UIImageView(image: UIImage(named: "toast.png"))
-            navigationController?.view.toast.showToast(toastView, duration: 2.0, point: CGPoint(x: 110.0, y: 110.0))
+            navigationController?.view.toast.makeToastActivity()
         case 8:
             // Make toast activity
             if !showingActivity {
