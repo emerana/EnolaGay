@@ -132,7 +132,11 @@ open class JudyBaseLabel: UILabel, FontStyle {
         becomeFirstResponder()
         
         UIMenuController.shared.menuItems = [UIMenuItem(title: altTitle, action: #selector(customCopy(sender:)))]
-        UIMenuController.shared.showMenu(from: superview!, rect: frame)
+        if #available(iOS 13.0, *) {
+            UIMenuController.shared.showMenu(from: superview!, rect: frame)
+        } else {
+            UIMenuController.shared.setMenuVisible(true, animated: true)
+        }
                 
     }
     

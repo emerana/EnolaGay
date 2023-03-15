@@ -60,10 +60,14 @@ public struct Judy {
     
     /// 获取当前活跃的 window，如 alertview、键盘等关键的 Window
     public static var keyWindow: UIWindow? {
-        return UIApplication.shared.connectedScenes
-            .map({$0 as? UIWindowScene})
-            .compactMap({$0})
-            .first?.windows.first
+        if #available(iOS 13.0, *) {
+            return UIApplication.shared.connectedScenes
+                .map({$0 as? UIWindowScene})
+                .compactMap({$0})
+                .first?.windows.first
+        } else {
+            return UIApplication.shared.keyWindow
+        }
     }
     
     /// 获取 App 代理对象。即 UIApplication.shared.delegate
@@ -719,89 +723,6 @@ fileprivate extension Judy {
  既然静态方法和实例化方式的区分是为了解决模式的问题，如果我们考虑不需要继承和多态的时候，就可以使用静态方法，但就算不考虑继承和多态，就一概使用静态方法也不是好的编程思想
  从另一个角度考虑，如果一个方法和他所在类的实例对象无关，那么它就应该是静态的，否则就应该是非静态。因此像工具类，一般都是静态的
  */
-
-/// 对 ProgressHUD 的封装，常用于活动指示器的管理工具类
-///
-/// - Warning: 使用时请确保在 main 线程执行
-public struct JudyTip {
-    
-    /// HUD 消息类型
-    public enum MessageType {
-        /// 静态效果显示
-        case success,error
-        /// 支持动画显示
-        case successed, failed
-    }
-    
-    
-    // 私有化 init()，禁止构建对象
-    private init() {}
-    
-    /// 设置 HUD 的颜色，此函数一经调用将该改变所有 HUD 的颜色。
-    public static func setColorForHUD(color: UIColor) {
-        ProgressHUD.colorAnimation = color
-        ProgressHUD.colorProgress = color
-    }
-    
-    /// 弹出一个等待的转圈 HUD，通常用于执行某个耗时过程，请调用 dismiss() 或弹出其他 HUD 使其消失。
-    /// - Parameter animationType: 等待指示器类型，默认为常见的系统转圈。
-    public static func wait(animationType: AnimationType = .systemActivityIndicator) {
-        ProgressHUD.animationType = animationType
-        ProgressHUD.show()
-    }
-    
-    /// 等待的消息提示 HUD
-    /// - Parameters:
-    ///   - animationType: 等待类型，默认为常见的系统转圈等待。
-    ///   - text: 消息体
-    ///   - interaction: 是否允许用户交互，默认 true.
-    public static func wait(animationType: AnimationType = .systemActivityIndicator, text: String, interaction: Bool = true) {
-        ProgressHUD.animationType = animationType
-        ProgressHUD.show(text, interaction: interaction)
-    }
-
-    /// 弹出一个消息体
-    /// - Parameters:
-    ///   - messageType: 该 HUD 类型，默认为 failed
-    ///   - text: 消息内容，默认为 nil
-    public static func message(messageType: MessageType = .failed, text: String? = nil) {
-        
-        switch messageType {
-        case .success:
-            ProgressHUD.showSuccess(text)
-        case .error:
-            ProgressHUD.showError(text)
-        case .successed:
-            ProgressHUD.showSucceed(text)
-        case .failed:
-            ProgressHUD.showFailed(text)
-        }
-
-    }
-    
-    /// 弹出显示一个进度条的等待指示器，该函数支持暴力调用
-    /// - Parameters:
-    ///   - text: 要显示的文本，默认为 nil
-    ///   - fractionCompleted: 当前完成的进度，该值大于或等于1时即代表完成了
-    ///   - completed: 事件完成的回调，默认为 nil，在该回调中请注意需要在 DispatchQueue.main UI 线程处理
-    public static func progress(text: String? = nil, fractionCompleted: CGFloat, completed: ()? = nil) {
-        
-        ProgressHUD.showProgress(text, fractionCompleted)
-        if (fractionCompleted >= 1) {
-            if completed == nil {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    ProgressHUD.showSucceed(interaction: false)
-                }
-            } else {
-                completed
-            }
-        }
-    }
-
-    /// 使 HUD 消失
-    public static func dismiss() { ProgressHUD.dismiss() }
-    
-}
 
 /*
 

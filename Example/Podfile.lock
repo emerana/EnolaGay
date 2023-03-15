@@ -4,29 +4,28 @@ PODS:
   - Cache (6.0.0)
   - Charts (4.1.0):
     - Charts/Core (= 4.1.0)
-  - Charts/Core (4.1.0):
-    - SwiftAlgorithms (~> 1.0)
   - DZNEmptyDataSet (1.8.1)
-  - EnolaGay (3.7.15):
-    - EnolaGay/EMERANA (= 3.7.15)
-  - EnolaGay/CircularProgressView (3.7.15)
-  - EnolaGay/EMERANA (3.7.15):
+  - EnolaGay (3.7.16):
+    - EnolaGay/EMERANA (= 3.7.16)
+  - EnolaGay/CircularProgressView (3.7.16)
+  - EnolaGay/EMERANA (3.7.16):
     - SwiftyJSON
-  - EnolaGay/FileManager (3.7.15):
+  - EnolaGay/FileManager (3.7.16):
     - EnolaGay/EMERANA
-  - EnolaGay/GiftMessageCtrlPanel (3.7.15)
-  - EnolaGay/HPickerView (3.7.15):
+  - EnolaGay/GiftMessageCtrlPanel (3.7.16)
+  - EnolaGay/HPickerView (3.7.16):
     - EnolaGay/EMERANA
-  - EnolaGay/JudyPopBubble (3.7.15)
-  - EnolaGay/JudyWaterWaveView (3.7.15)
-  - EnolaGay/MarqueeView (3.7.15)
-  - EnolaGay/SearchViewCtrl (3.7.15):
+  - EnolaGay/HUD (3.7.16)
+  - EnolaGay/JudyPopBubble (3.7.16)
+  - EnolaGay/JudyWaterWaveView (3.7.16)
+  - EnolaGay/MarqueeView (3.7.16)
+  - EnolaGay/SearchViewCtrl (3.7.16):
     - EnolaGay/EMERANA
-  - EnolaGay/SegmentedView (3.7.15):
+  - EnolaGay/SegmentedView (3.7.16):
     - EnolaGay/EMERANA
-  - EnolaGay/TextFieldEffects (3.7.15):
+  - EnolaGay/TextFieldEffects (3.7.16):
     - EnolaGay/EMERANA
-  - EnolaGay/WKWebView (3.7.15):
+  - EnolaGay/WKWebView (3.7.16):
     - EnolaGay/EMERANA
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -59,7 +58,6 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
-  - SwiftAlgorithms (1.0.0)
   - SwiftMessages (9.0.4):
     - SwiftMessages/App (= 9.0.4)
   - SwiftMessages/App (9.0.4)
@@ -77,6 +75,7 @@ DEPENDENCIES:
   - EnolaGay/FileManager (from `../`)
   - EnolaGay/GiftMessageCtrlPanel (from `../`)
   - EnolaGay/HPickerView (from `../`)
+  - EnolaGay/HUD (from `../`)
   - EnolaGay/JudyPopBubble (from `../`)
   - EnolaGay/JudyWaterWaveView (from `../`)
   - EnolaGay/MarqueeView (from `../`)
@@ -120,7 +119,6 @@ SPEC REPOS:
     - RxSwift
     - SDCycleScrollView
     - SDWebImage
-    - SwiftAlgorithms
     - SwiftMessages
     - SwiftyJSON
     - SwiftyUserDefaults
@@ -135,7 +133,7 @@ SPEC CHECKSUMS:
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
   Charts: 354f86803d11d9c35de280587fef50d1af063978
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  EnolaGay: dda33556282671ddce6f282808cb333a8d358c52
+  EnolaGay: 2f7bbe22615f8fa0499d6c8d47f3b7242ae829db
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
@@ -151,11 +149,10 @@ SPEC CHECKSUMS:
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SDCycleScrollView: a0d74c3384caa72bdfc81470bdbc8c14b3e1fbcf
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
-  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   SwiftMessages: 082ed63613a49fa8e749cd6000bb0a8b9bbc736f
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: b55ceaeafb35ba330ad07ea99f3b5f85bfdb7f68
+PODFILE CHECKSUM: 1d56b01e291c05acf01b27738b56b150d7cbcd35
 
 COCOAPODS: 1.11.3
