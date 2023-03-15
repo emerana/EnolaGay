@@ -9,7 +9,6 @@
 // MARK: - JudyBaseCollectionViewCtrl
 
 import UIKit
-import SwiftyJSON
 
 /// 该类包含一个 collectionView，请将 collectionView 与故事板关联。
 /// * 该类已经实现了三个代理，UICollectionReusableView 在 dataSource 里
@@ -22,7 +21,8 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic
     /// 主要的 CollectionView,该 CollectionView 默认将 dataSource、dataSource 设置为 self.
     @IBOutlet public weak var collectionView: UICollectionView?
     
-    open lazy var dataSource = [JSON]()
+    lazy public var dataSource = [Any]()
+
     /// 同一 line 中 item（cell）之间的最小间隙
     open var itemSpacing: CGFloat { return 6 }
 
@@ -474,7 +474,7 @@ private extension JudyCollectionViewLayout {
 // MARK: - JudyBaseCollectionViewCell
 
 /// collectionView 中的通用 cell，包含一张主要图片、副标题以及默认数据源 json
-open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
+open class JudyBaseCollectionViewCell: UICollectionViewCell {
     // MARK: - let property and IBOutlet
     
     @IBOutlet weak public var titleLabel: UILabel?
@@ -482,11 +482,6 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
     @IBOutlet weak public var masterImageView: UIImageView?
     
 
-    // MARK: - var property
-    
-    public var json = JSON() { didSet{ jsonDidSetAction() } }
-
-    
     // MARK: - life cycle
 
     /// Cell 准备重用时会先执行此方法
@@ -499,7 +494,7 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
     /// 重写了此方法必须调用 super.awakeFromNib()，里面实现了配置
     open override func awakeFromNib() {
         super.awakeFromNib()
-        globalAwakeFromNib()
+
     }
     
     /// 布局子视图。创建对象顺序一定是先有 frame，再 awakeFromNib，再调整布局
@@ -535,13 +530,4 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell, EMERANA_CellBasic {
         super.layoutIfNeeded()
     }
     
-    /// 当 cell.json 设置后将触发此函数，子类通过覆盖此函数以设置 UI.
-    /// - Warning: 注意 super 中的默认实现，如有必要需调用 super.
-    open func jsonDidSetAction() {
-        titleLabel?.text = json[EMERANA.Key.title].stringValue
-        subTitleLabel?.text = json[EMERANA.Key.subtitle].stringValue
-        if let imageName = json[EMERANA.Key.icon].string {
-            masterImageView?.image = UIImage(named: imageName)
-        }
-    }
 }
