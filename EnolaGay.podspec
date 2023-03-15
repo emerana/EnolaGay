@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EnolaGay'
-  s.version          = '3.7.16'
+  s.version          = '3.8.0'
   s.summary          = 'EnolaGay 架构，由早期的 EMERANA 进化而成。'
 
 # This description is used to generate tags and improve search results.
@@ -26,8 +26,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/emerana/EnolaGay.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '13.0'
-  s.swift_version = '5.0'
+  s.ios.deployment_target = '11.0'
+  #s.swift_version = '5.0'
   s.requires_arc = true
   #  如果不指定默认的 spec，则将安装所有的 spec。 pod ‘EnolaGay’ 即安装 EnolaGay/EMERANA 核心文件夹
   s.default_subspec = 'EMERANA'
@@ -100,7 +100,12 @@ Pod::Spec.new do |s|
   s.subspec 'JudyPlusButtonTabBar' do |ss|
       ss.source_files = 'EnolaGay/Classes/JudyPlusButtonTabBar/*'
   end
-  
+
+  s.subspec 'HUD' do |ss|
+      ss.source_files = 'EnolaGay/Classes/ProgressHUD/*'
+      ss.ios.deployment_target = '13.0'
+  end
+
   
   #  emerana.resource_bundles = {'SwiftMessages' => ['SwiftMessages/Resources/**/*']}
   #  s.source_files = 'EnolaGay/Classes/**/*' 包含所有子目录下的所有文件
