@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EnolaGay'
-  s.version          = '3.8.0'
+  s.version          = '4.0.0'
   s.summary          = 'EnolaGay 架构，由早期的 EMERANA 进化而成。'
 
 # This description is used to generate tags and improve search results.
@@ -102,7 +102,6 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'HUD' do |ss|
-      ss.dependency 'EnolaGay/EMERANA'
       ss.source_files = 'EnolaGay/Classes/ProgressHUD/*'
       ss.ios.deployment_target = '13.0'
   end

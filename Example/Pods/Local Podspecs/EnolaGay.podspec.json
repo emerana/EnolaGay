@@ -105,6 +105,11 @@
     },
     {
       "name": "HUD",
+      "dependencies": {
+        "EnolaGay/EMERANA": [
+
+        ]
+      },
       "source_files": "EnolaGay/Classes/ProgressHUD/*",
       "platforms": {
         "ios": "13.0"

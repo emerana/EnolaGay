@@ -16,7 +16,9 @@ target 'EnolaGay_Example' do
   pod 'EnolaGay/SearchViewCtrl', :path => '../'
   pod 'EnolaGay/FileManager', :path => '../'
   pod 'EnolaGay/WKWebView', :path => '../'
-
+  pod 'EnolaGay/JudyPlusButtonTabBar', :path => '../'
+  pod 'EnolaGay/HUD', :path => '../'
+  
   pod 'Alamofire'
   #  pod "SnapKit"
   
@@ -56,8 +58,6 @@ target 'EnolaGay_Example' do
     
     pod 'BadgeHub'
     pod 'SwiftyJSON'
-
-    pod 'EnolaGay/HUD', :path => '../'
     
   end
   
