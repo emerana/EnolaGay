@@ -120,12 +120,12 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
                 let viewController = item
                 var theViewTitle: String?
                 
-                if let viewCtrl: JudyBaseViewCtrl = viewController as? JudyBaseViewCtrl {
-                    theViewTitle = viewCtrl.viewTitle
-                    if theViewTitle == nil { theViewTitle = viewController.title }
-                } else {
+//                if let viewCtrl: JudyBaseViewCtrl = viewController as? JudyBaseViewCtrl {
+//                    theViewTitle = viewCtrl.viewTitle
+//                    if theViewTitle == nil { theViewTitle = viewController.title }
+//                } else {
                     theViewTitle = viewController.title
-                }
+//                }
                 
                 guard theViewTitle != nil, theViewTitle != "" else {
                     Judy.logWarning("viewController title 为空，请检查！")

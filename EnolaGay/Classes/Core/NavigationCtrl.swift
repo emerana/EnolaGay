@@ -24,20 +24,20 @@ open class JudyBaseNavigationCtrl: UINavigationController {
     @IBInspectable var isGaryStatusBar: Bool = true
 
     // plist 文件中需要将 View controller-based status bar appearance 设置成 YES 才能设置状态栏颜色
-    open override var preferredStatusBarStyle : UIStatusBarStyle {
-        var style = UIStatusBarStyle.default
-        style = isGaryStatusBar ? .default : .lightContent
-        guard let viewCtrl: JudyBaseViewCtrl = viewControllers.last as? JudyBaseViewCtrl else {
-            return style
-        }
-        // 如果该 JudyBaseViewCtrl 有设置 isCustomStatusBarStyle 则取它的 statusBatStyle.
-        if viewCtrl.isCustomStatusBarStyle != nil && viewCtrl.isCustomStatusBarStyle! {
-            //return the status property of each VC, look at step 2.
-            style = viewCtrl.preferredStatusBarStyle
-        }
-        
-        return style
-    }
+//    open override var preferredStatusBarStyle : UIStatusBarStyle {
+//        var style = UIStatusBarStyle.default
+//        style = isGaryStatusBar ? .default : .lightContent
+//        guard let viewCtrl: JudyBaseViewCtrl = viewControllers.last as? JudyBaseViewCtrl else {
+//            return style
+//        }
+//        // 如果该 JudyBaseViewCtrl 有设置 isCustomStatusBarStyle 则取它的 statusBatStyle.
+//        if viewCtrl.isCustomStatusBarStyle != nil && viewCtrl.isCustomStatusBarStyle! {
+//            //return the status property of each VC, look at step 2.
+//            style = viewCtrl.preferredStatusBarStyle
+//        }
+//
+//        return style
+//    }
 
     
     // MARK: life
@@ -246,10 +246,10 @@ extension JudyBaseNavigationCtrl: UINavigationBarDelegate {
         var isShouldPop = true
         
         // 使用 judyPopOnBackBtn 函数返回结果来决定是否放行
-        if let vc = topViewController as? JudyBaseViewCtrl,
-            vc.responds(to: #selector(JudyBaseViewCtrl.judyPopOnBackBtn)){
-            isShouldPop = vc.judyPopOnBackBtn()
-        }
+//        if let vc = topViewController as? JudyBaseViewCtrl,
+//            vc.responds(to: #selector(JudyBaseViewCtrl.judyPopOnBackBtn)){
+//            isShouldPop = vc.judyPopOnBackBtn()
+//        }
         
         return isShouldPop
         /*
@@ -310,8 +310,8 @@ public class JudyNavigationCtrl: JudyBaseNavigationCtrl {
 
     public override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         // push 之前截取当前屏幕
-        let capturedImage = judy.captureScreenImage(targetView: topView, complete: true)
-        screenShotsList.append(capturedImage!)
+//        let capturedImage = judy.captureScreenImage(targetView: topView, complete: true)
+//        screenShotsList.append(capturedImage!)
         
         super.pushViewController(viewController, animated: animated)
     }

@@ -5,14 +5,10 @@
 //  Copyright © 2018. All rights reserved.
 //
 
-import SwiftyJSON
-
 // MARK: typealias
 
 /// 一个不传递任何参数的闭包类型
 public typealias Closure = (() -> Void)
-/// 传递一个 JSON 对象的闭包类型
-public typealias ClosureJSON = ((JSON) -> Void)
 /// 传递一个 String 对象的闭包类型
 public typealias ClosureString = ((String) -> Void)
 
@@ -47,6 +43,7 @@ public extension RefreshAdapter {
     var pageIndexParameter: String { EMERANA.Key.pageIndexParameter }
 }
 
+/*
 /// tableView、collectionView 专用刷新协议
 /// - Warning: 此协议仅对 JudyBaseViewCtrl 及其派生类提供
 public protocol EMERANA_Refresh where Self: JudyBaseViewCtrl {
@@ -104,9 +101,9 @@ extension EMERANA_Refresh {
 
 /// 此协议仅适用于包含基础集合视图的 tableViewCtrl、collectionViewCtrl.
 protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
-    
+        
     /// 主要数据源，需要手动赋值，默认为空数组
-    var dataSource: [JSON] { get set }
+    var dataSource: [Any] { get set }
     
     /// 重写此方法并在此方法中注册 Cell 或 HeaderFooter**此方法在 ViewDidLoad() 中被执行**
     ///
@@ -124,25 +121,8 @@ protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
     /// - Warning: 一个 Nib 里面只放一个 Cell，且里面的 Cell 不能自带 identifier，否则必须用自带的 identifier 进行注册
     func registerReuseComponents()
 }
+ */
 
-// MARK: - tableViewCell 和 collectionViewCell 专用协议
-
-/// Cell 基础协议
-/// - Warning: 此协议针对 tableViewCell、collectionViewCell 类定制
-public protocol EMERANA_CellBasic {
-    /// 标题
-    var titleLabel: UILabel? { get set }
-    /// 副标题
-    var subTitleLabel: UILabel? { get set }
-    /// 主图片
-    var masterImageView: UIImageView? { get set }
-    /// Cell 中的数据源
-    ///
-    /// 设置该值的时候将触发 jsonDidSetAction()，函数中的默认对应:
-    /// * titleLabel -> EMERANA.Key.Cell.title
-    /// * subTitleLabel -> EMERANA.Key.Cell.subtitle
-    var json: JSON { get set }
-}
 
 /*
  // MARK: 默认实现的注意点
@@ -151,15 +131,6 @@ public protocol EMERANA_CellBasic {
  # 当声明协议时没有进行限定则须注意以下：
  # 重写协议的默认实现函数调用权重为 子类>实现类>默认实现，若没有在实现类实现函数则直接调用默认实现函数，此时子类的重写无效
  */
-/// 为 EMERANA_CellBasic 协议新增的扩展函数（非默认实现函数）
-public extension EMERANA_CellBasic {
-    /// 所有实现 EMERANA_CellBasic 协议的对象在初始函数中均会先触发此扩展函数，在此函数中补充所需操作
-    ///
-    /// 扩展对应的类并重写此函数即可使该类执行重写后的函数
-    func globalAwakeFromNib() { }
-    
-    func selectedDidSet(isSelected: Bool) { }
-}
 
 /*
  
@@ -1444,7 +1415,7 @@ public struct EMERANA {
     static let enolagayAdapter: EnolaGayAdapter? = UIApplication.shared as? EnolaGayAdapter
     
     /// API 层适配器
-    static let apiAdapter: ApiAdapter? = UIApplication.shared as? ApiAdapter
+//    static let apiAdapter: ApiAdapter? = UIApplication.shared as? ApiAdapter
     
     /// 刷新视图适配器
     static let refreshAdapter: RefreshAdapter? = UIApplication.shared as? RefreshAdapter
@@ -1474,14 +1445,6 @@ public struct EMERANA {
         /// 在 JudyBaseTableViewCtrl/JudyBaseCollectionViewCtrl 中 dequeueReusableCell 用到的 Cell 标识符
         public static let cell = "Cell"
         
-        public static let title = "title"
-        public static let subtitle = "subtitle"
-        public static let segue = "segue"
-        public static let icon = "icon"
-        public static let placeholder = "placeholder"
-        public static let value = "value"
-        public static let input = "input"
-        public static let datas = "datas"
     }
     
     /// 定义 String 类型的 enum 样板，这种 enum 可以不用 rawValue.

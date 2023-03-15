@@ -7,9 +7,7 @@
 //  Copyright © 2017年 8891.com.tw. All rights reserved.
 //
 
-import SwiftyJSON
-
-@available(*, unavailable, message: "此类以弃用！")
+@available(*, unavailable, message: "此类已弃用！")
 public final class JudyApi {
     /*
      // 正确地上传图片

@@ -4,7 +4,6 @@
 //
 
 import UIKit
-import SwiftyJSON
 
 @available(*, unavailable, message: "暂不可用")
 public class Tip {

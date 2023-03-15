@@ -35,10 +35,12 @@ target 'EnolaGay_Example' do
   
   # MARK: EMERANA
   
+  platform :ios, '13.0'
   target 'EMERANA' do
+    
     pod 'IQKeyboardManagerSwift'
-
-#    pod 'MBProgressHUD'
+    
+    #    pod 'MBProgressHUD'
     pod 'SwiftMessages'
     pod 'MJRefresh'
     pod 'SDWebImage'
@@ -53,9 +55,10 @@ target 'EnolaGay_Example' do
     pod 'FMDB'
     
     pod 'BadgeHub'
-    
-    pod 'EnolaGay/HUD', :path => '../'
+    pod 'SwiftyJSON'
 
+    pod 'EnolaGay/HUD', :path => '../'
+    
   end
   
 end
