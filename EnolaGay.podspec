@@ -102,6 +102,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'HUD' do |ss|
+      ss.dependency 'EnolaGay/EMERANA'
       ss.source_files = 'EnolaGay/Classes/ProgressHUD/*'
       ss.ios.deployment_target = '13.0'
   end
