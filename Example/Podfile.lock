@@ -5,27 +5,26 @@ PODS:
   - Charts (4.1.0):
     - Charts/Core (= 4.1.0)
   - DZNEmptyDataSet (1.8.1)
-  - EnolaGay (3.7.16):
-    - EnolaGay/EMERANA (= 3.7.16)
-  - EnolaGay/CircularProgressView (3.7.16)
-  - EnolaGay/EMERANA (3.7.16):
-    - SwiftyJSON
-  - EnolaGay/FileManager (3.7.16):
+  - EnolaGay (3.8.0):
+    - EnolaGay/EMERANA (= 3.8.0)
+  - EnolaGay/CircularProgressView (3.8.0)
+  - EnolaGay/EMERANA (3.8.0)
+  - EnolaGay/FileManager (3.8.0):
     - EnolaGay/EMERANA
-  - EnolaGay/GiftMessageCtrlPanel (3.7.16)
-  - EnolaGay/HPickerView (3.7.16):
+  - EnolaGay/GiftMessageCtrlPanel (3.8.0)
+  - EnolaGay/HPickerView (3.8.0):
     - EnolaGay/EMERANA
-  - EnolaGay/HUD (3.7.16)
-  - EnolaGay/JudyPopBubble (3.7.16)
-  - EnolaGay/JudyWaterWaveView (3.7.16)
-  - EnolaGay/MarqueeView (3.7.16)
-  - EnolaGay/SearchViewCtrl (3.7.16):
+  - EnolaGay/HUD (3.8.0)
+  - EnolaGay/JudyPopBubble (3.8.0)
+  - EnolaGay/JudyWaterWaveView (3.8.0)
+  - EnolaGay/MarqueeView (3.8.0)
+  - EnolaGay/SearchViewCtrl (3.8.0):
     - EnolaGay/EMERANA
-  - EnolaGay/SegmentedView (3.7.16):
+  - EnolaGay/SegmentedView (3.8.0):
     - EnolaGay/EMERANA
-  - EnolaGay/TextFieldEffects (3.7.16):
+  - EnolaGay/TextFieldEffects (3.8.0):
     - EnolaGay/EMERANA
-  - EnolaGay/WKWebView (3.7.16):
+  - EnolaGay/WKWebView (3.8.0):
     - EnolaGay/EMERANA
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -95,6 +94,7 @@ DEPENDENCIES:
   - SDCycleScrollView
   - SDWebImage
   - SwiftMessages
+  - SwiftyJSON
   - SwiftyUserDefaults (= 5.0.0-beta.5)
 
 SPEC REPOS:
@@ -133,7 +133,7 @@ SPEC CHECKSUMS:
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
   Charts: 354f86803d11d9c35de280587fef50d1af063978
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  EnolaGay: 2f7bbe22615f8fa0499d6c8d47f3b7242ae829db
+  EnolaGay: af5cf53cec25b69a040aee6970f239eba1bd931b
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
@@ -153,6 +153,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: 1d56b01e291c05acf01b27738b56b150d7cbcd35
+PODFILE CHECKSUM: df91a0148296e10b953f4d3f9b77687c5591ea89
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.0

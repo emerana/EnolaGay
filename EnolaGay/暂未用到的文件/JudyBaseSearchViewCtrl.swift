@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
 
 /**
  通用搜索界面，已将 searchBar?.delegate = self。需设置 dataSource，且将 searchDataSource = dataSource 内容查看效果
@@ -38,11 +37,11 @@ open class JudyBaseSearchViewCtrl: JudyBaseTableRefreshViewCtrl {
     @IBInspectable public var textFieldBackgroundColor: UIColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
 
     /// 搜索结果数据源，当 searchDataSource 发生改变时会 reload tableView.
-    public var searchDataSource = [JSON](){
-        didSet{
-            tableView?.reloadData()
-        }
-    }
+//    public var searchDataSource = [JSON](){
+//        didSet{
+//            tableView?.reloadData()
+//        }
+//    }
     
     // MARK: navigationItem 上搜索框相关属性
 

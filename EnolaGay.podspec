@@ -101,10 +101,10 @@ Pod::Spec.new do |s|
       ss.source_files = 'EnolaGay/Classes/JudyPlusButtonTabBar/*'
   end
 
-#  s.subspec 'HUD' do |ss|
-#      ss.source_files = 'EnolaGay/Classes/ProgressHUD/*'
-#      ss.ios.deployment_target = '13.0'
-#  end
+  s.subspec 'HUD' do |ss|
+      ss.source_files = 'EnolaGay/Classes/ProgressHUD/*'
+      ss.ios.deployment_target = '13.0'
+  end
 
   
   #  emerana.resource_bundles = {'SwiftMessages' => ['SwiftMessages/Resources/**/*']}

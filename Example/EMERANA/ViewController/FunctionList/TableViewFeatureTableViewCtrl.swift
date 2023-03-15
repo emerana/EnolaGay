@@ -100,10 +100,6 @@ class SelectCell: JudyBaseTableCell {
     
     // MARK: - override
     
-    /// 设置数据源事件
-    override func jsonDidSetAction() {
-
-    }
     
 }
 

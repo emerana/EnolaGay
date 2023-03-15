@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
 
 /// 文件操作类
 /// - Warning: 默认操作都是在 documents 文件夹下
@@ -94,31 +93,31 @@ public class JudyFile: NSObject {
     ///   - fileName: 不带后缀的文件名
     ///   - fileType: 文件后缀，如plist、json、txt，默认为.json文件
     /// - Returns: 一个标准的JSON
-    public func jsonFormFile(fileName: String, fileType: String = "json") -> JSON {
-        guard fileName.judy.clean() != "" else {
-            return JSON([APIERRKEY.error.rawValue: [APIERRKEY.msg.rawValue: "请传入文件名"]])
-        }
-        var json = JSON()
-        //读取 Json 数据
-        do {
-            // Judy-mark: 如果 fileName 为""，则会返回上一次使用成功的文件名
-            let path = Bundle.main.path(forResource: fileName, ofType: fileType)
-            guard path != nil else {
-                return JSON([APIERRKEY.error.rawValue: [APIERRKEY.msg.rawValue: "没有找到文件：\"\(fileName).\(fileType)\""]])
-            }
-            let nsUrl = NSURL.fileURL(withPath: path!)
-            let data: Data = try Data(contentsOf: nsUrl as URL)
-            if data.count == 0 {
-                return json
-            }
-            json = try! JSON(data: data)
-        } catch {
-            Judy.log("读取文件发生异常")
-            json = JSON([APIERRKEY.error.rawValue: [APIERRKEY.msg.rawValue: "读取文件发生异常", "file": fileName]])
-        }
-        
-        return json
-    }
+//    public func jsonFormFile(fileName: String, fileType: String = "json") -> JSON {
+//        guard fileName.judy.clean() != "" else {
+//            return JSON([APIERRKEY.error.rawValue: [APIERRKEY.msg.rawValue: "请传入文件名"]])
+//        }
+//        var json = JSON()
+//        //读取 Json 数据
+//        do {
+//            // Judy-mark: 如果 fileName 为""，则会返回上一次使用成功的文件名
+//            let path = Bundle.main.path(forResource: fileName, ofType: fileType)
+//            guard path != nil else {
+//                return JSON([APIERRKEY.error.rawValue: [APIERRKEY.msg.rawValue: "没有找到文件：\"\(fileName).\(fileType)\""]])
+//            }
+//            let nsUrl = NSURL.fileURL(withPath: path!)
+//            let data: Data = try Data(contentsOf: nsUrl as URL)
+//            if data.count == 0 {
+//                return json
+//            }
+//            json = try! JSON(data: data)
+//        } catch {
+//            Judy.log("读取文件发生异常")
+//            json = JSON([APIERRKEY.error.rawValue: [APIERRKEY.msg.rawValue: "读取文件发生异常", "file": fileName]])
+//        }
+//        
+//        return json
+//    }
     
     /// 从项目中读取plist文件，明确文件内容为数组
     ///

@@ -9,7 +9,6 @@
 // MARK: - JudyBaseTableViewCtrl
 
 import UIKit
-import SwiftyJSON
 
 /**
  *  该类包含一个 tableView，请将 tableView 与故事板关联。
@@ -28,7 +27,7 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
     /// 是否隐藏 tableFooterView，默认 false，将该值调为 true 即可隐藏多余的 cell.
     @IBInspectable private(set) lazy public var isHideFooter: Bool = false
 
-    lazy public var dataSource = [JSON]()
+    lazy public var dataSource = [Any]()
         
     
     // MARK: - Life Cycle
@@ -308,7 +307,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
 
 /// tableVie 通用 cell，包含一张主要图片、副标题以及默认数据源 json.
 /// * labelsForColor 中的 labels 会配置颜色 foreground.
-open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
+open class JudyBaseTableCell: UITableViewCell {
     
     /// 是否需要解决 UITableView 有 footerView 时最后一个 cell 不显示分割线问题，默认 false
     @IBInspectable lazy var isShowSeparatorAtFooter: Bool = false
@@ -333,7 +332,6 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
         }
     }
         
-    public var json = JSON() { didSet{ jsonDidSetAction() } }
     
     
     // MARK: - Life Cycle
@@ -348,7 +346,7 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
     /// 重写了此方法必须调用 super.awakeFromNib()，里面实现了配置
     open override func awakeFromNib() {
         super.awakeFromNib()
-        globalAwakeFromNib()
+
     }
     
     /// 布局子视图。创建对象顺序一定是先有 frame，再 awakeFromNib，再调整布局
@@ -389,15 +387,6 @@ open class JudyBaseTableCell: UITableViewCell, EMERANA_CellBasic {
         // Configure the view for the selected state
     }
     
-    /// 当 cell.json 设置后将触发此函数，子类通过覆盖此函数以设置 UI.
-    /// - Warning: 注意 super 中的默认实现，如有必要需调用 super.
-    open func jsonDidSetAction() {
-        titleLabel?.text = json[EMERANA.Key.title].stringValue
-        subTitleLabel?.text = json[EMERANA.Key.subtitle].stringValue
-        if let imageName = json[EMERANA.Key.icon].string {
-            masterImageView?.image = UIImage(named: imageName)
-        }
-    }
 }
 
 
@@ -417,19 +406,6 @@ open class JudyInputCell: JudyBaseTableCell {
     /// 对应 cell 中的 indexPath，请在设置 json 之前设置好该值
     public var indexPath: IndexPath! {
         didSet{ inputTextField?.indexPath = indexPath }
-    }
-    
-    
-    open override func jsonDidSetAction() {
-        super.jsonDidSetAction()
-        
-        guard indexPath != nil else {
-            titleLabel?.text = "请先设置 indexPath！"
-            return
-        }
-        inputTextField?.placeholder = json[EMERANA.Key.placeholder].stringValue
-        inputTextField?.text = json[EMERANA.Key.value].stringValue
-        inputTextField?.isEnabled = json[EMERANA.Key.input].boolValue
     }
 }
 

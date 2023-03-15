@@ -8,7 +8,6 @@
 /* 主类需要加上 public，extension 前面加了 public，则该分类里面的方法默认都是公开的 */
 
 import UIKit
-import SwiftyJSON
 
 /// 常用系统级相关工具类
 ///
@@ -616,9 +615,6 @@ public extension Judy {
         task.resume()
     }
     
-    @available(*, unavailable, message: "该函数已废弃")
-    static func versionCheck(completionHandler closure: @escaping ((JSON) -> Void)) { }
-
     @available(*, unavailable, message: "该函数已废弃")
     static func alertOpenURL(force: Bool,
                              alertTitle: String,
