@@ -89,6 +89,8 @@ end
 # MARK: PlayerDemo
 
 target 'PlayerDemo' do
+  platform :ios, '12.0'
+
   pod 'EnolaGay', :path => '../'
   pod "Player"
 end
@@ -147,6 +149,8 @@ end
 # MARK: MyCharts
 
 target 'MyCharts' do
+  platform :ios, '12.0'
+
   pod 'EnolaGay', :path => '../'
   pod 'Charts'
 
