@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import EnolaGay
 import RxSwift
 import RxCocoa
+import EnolaGay
 
 class ViewController: UIViewController {
     
@@ -62,7 +62,7 @@ private extension ViewController {
     
     func showToastAction() {
         showToastButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
-//            self?.view.toast.showToast(self!.view)
+            self?.view.toast.makeToastActivity()
         })
         .disposed(by: disposeBag)
     }
@@ -70,7 +70,7 @@ private extension ViewController {
     func showToastActivityAction() {
         showToastActivityButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
             self?.view.toast.makeToastActivity()
-//            self?.view.toast.makeToastActivity(self!.view.center)
+            self?.view.toast.makeToastActivity(self!.view.center)
         })
         .disposed(by: disposeBag)
     }

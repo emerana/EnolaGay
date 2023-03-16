@@ -9,6 +9,160 @@
 
 import UIKit
 
+// MARK: - EnolaGay 中为 UIView 新增 toast 函数
+
+/// 在 EnolaGay 中的 Toast 兼容包装类型，该包装类型为 EnolaGay 中的方便方法提供了一个扩展点
+public struct EnolaGayToastWrapper {
+    /// 包装对象在 EnolaGay 中对应的原始对象
+    var base: UIView
+    init(_ base: UIView) { self.base = base }
+}
+
+/// EnolaGay 中为 UIView 新增 toast 函数协议
+public protocol EnolaGayToastCompatible: UIView { }
+
+extension EnolaGayToastCompatible {
+    /// 在 EnolaGay 中的兼容类型包装对象，即在 EnolaGay 空间的持有者对象，通过该对象调用 toast 相关方法。
+    public var toast: EnolaGayToastWrapper {
+        get { return EnolaGayToastWrapper(self) }
+        set { }
+    }
+}
+
+extension UIView: EnolaGayToastCompatible { }
+
+// MARK: - Make Toast Methods
+public extension EnolaGayToastWrapper {
+
+    /// 创建并显示一个新的 toast
+    /// - Parameters:
+    ///   - message: 显示的消息体
+    ///   - duration: toast 显示的持续时间，默认为 ToastManager.shared.duration.
+    ///   - position: toast 显示的位置，默认为 ToastManager.shared.position.
+    ///   - title: 标题，默认为 nil.
+    ///   - image: 在 toast 中添加一张图片，默认为 nil.
+    ///   - style: toast 风格，默认为 ToastManager.shared.style.
+    ///   - completion: toast 消失后的回调函数。如果 toast 从 tap 中删除，则 didTap 将为 true.
+    func makeToast(_ message: String, duration:
+                   TimeInterval = ToastManager.shared.duration,
+                   position: ToastPosition = ToastManager.shared.position,
+                   title: String? = nil,
+                   image: UIImage? = nil,
+                   style: ToastStyle = ToastManager.shared.style,
+                   completion: ((_ didTap: Bool) -> Void)? = nil) {
+        
+        base.makeToast(message, duration: duration, position: position,
+                       title: title, image: image, style: style, completion: completion)
+    }
+    
+    /// 创建新的 toast 视图并在给定的中心点显示它
+    /// - Parameters:
+    ///   - message: 显示的消息体
+    ///   - duration: toast 显示的持续时间，默认为 ToastManager.shared.duration.
+    ///   - point: toast 的中心点,建议为 view.center.
+    ///   - title: 标题，默认为 nil.
+    ///   - image: 在 toast 中添加一张图片，默认为 nil.
+    ///   - style: toast 风格，默认为 ToastManager.shared.style.
+    ///   - completion: toast 消失后的回调函数。如果 toast 从 tap 中删除，则 didTap 将为 true.
+    func makeToast(_ message: String,
+                   duration: TimeInterval = ToastManager.shared.duration,
+                   point: CGPoint,
+                   title: String? = nil,
+                   image: UIImage? = nil,
+                   style: ToastStyle = ToastManager.shared.style,
+                   completion: ((_ didTap: Bool) -> Void)?) {
+        
+        base.makeToast(message, duration: duration, point: point,
+                       title: title, image: image, style: style, completion: completion)
+    }
+    
+    // MARK: - Hide Toast Methods
+   
+    /// 隐藏活跃的 toast
+    ///
+    /// 如果一个视图中有多个活动的 toast，这个方法会隐藏最旧的的 toast(第一个已经出现的 toast)，
+    /// 你可以使用 hideAllToasts() 方法从视图中删除所有活动的 toast.
+    /// - Warning: 此方法对活跃的 toast 没有影响。使用 hideToastActivity 方法隐藏活跃的 toast.
+    func hideToast() {
+        base.hideToast()
+    }
+    
+    /// 隐藏一个活跃的 toast
+    /// - Warning: 这并不能清除当前在队列中等待的 toast
+    /// - Parameter toast: 将被消失的 toast.任何当前显示在屏幕上的 toast 都被认为是活跃的。
+    func hideToast(_ toast: UIView) {
+        base.hideToast(toast)
+    }
+    
+    /// 隐藏所有 toast
+    /// - Parameters:
+    ///   - includeActivity: 如果 true，活跃的 toast 也会被隐藏。该值默认为 false.
+    ///   - clearQueue: 如果 true，则从队列中删除所有 toast.该值默认为 true.
+    func hideAllToasts(includeActivity: Bool = false, clearQueue: Bool = true) {
+        base.hideAllToasts(includeActivity: includeActivity, clearQueue: clearQueue)
+    }
+    
+    /// 从队列中删除所有 toast 视图
+    /// - Warning: 这对活跃的 toast 没有影响。你可以使用 hideAllToasts(clearQueue:) 隐藏活跃的 toast 并清除队列。
+    func clearToastQueue() {
+        base.clearToastQueue()
+    }
+    
+}
+
+// MARK: - Show Toast Methods
+public extension EnolaGayToastWrapper {
+    @available(*, unavailable, message: "此函数被禁用")
+    /// 在指定的位置和持续时间将任何视图显示为 toast
+    /// - Parameters:
+    ///   - toast: 显示成 toast 的 view
+    ///   - duration: 持续时长
+    ///   - position: toast 要显示的位置
+    ///   - completion: toast 完成的闭包，在 toast 消失后，将执行 completion，如果 toast 已经消失 didTap 将为 true.
+    func showToast(_ toast: UIView, duration: TimeInterval = ToastManager.shared.duration, position: ToastPosition = ToastManager.shared.position, completion: ((_ didTap: Bool) -> Void)? = nil) {
+        base.showToast(toast, duration: duration, position: position, completion: completion)
+    }
+    
+    @available(*, unavailable, message: "此函数被禁用")
+    /// 在提供的中心点和持续时间上将任何视图显示为 toast
+    /// - Parameters:
+    ///   - toast: 显示成 toast 的 view
+    ///   - duration: 持续时长
+    ///   - point: toast 的中心点
+    ///   - completion: toast 完成的闭包，在 toast 消失后，将执行 completion，如果 toast 已经消失 didTap 将为 true.
+    func showToast(_ toast: UIView, duration: TimeInterval = ToastManager.shared.duration, point: CGPoint, completion: ((_ didTap: Bool) -> Void)? = nil) {
+        base.showToast(toast, duration: duration, point: point, completion: completion)
+    }
+    
+}
+
+// MARK: - Activity Methods
+public extension EnolaGayToastWrapper {
+    /// 在指定位置创建并显示一个新的 toast 活动指示器视图
+    /// - Parameter position: toast 的位置，该值默认为 center.
+    /// - Warning: 每个父视图只能显示一个 toast 活动指示器视图。随后对 makeToastActivity(position:) 函数的调用将被忽略，直到 hideToastActivity() 被调用。
+    /// - Warning: makeToastActivity(position:) 独立于 showToast 方法。toast 活动视图可以在 toast 视图被显示时显示和取消。makeToastActivity(position:) 对 showToast 方法的排队行为没有影响。
+    func makeToastActivity(_ position: ToastPosition = .center) {
+        base.makeToastActivity(position)
+    }
+    
+    /// 在指定位置创建并显示一个新的 toast 活动指示器视图
+    /// - Parameter point: toast 的中心，建议为 view.center.
+    /// - Warning: 每个父视图只能显示一个 toast 活动指示器视图。随后对 makeToastActivity(point:) 函数的调用将被忽略，直到 hideToastActivity() 被调用。
+    /// - Warning: makeToastActivity(point:) 独立于 showToast 方法。toast 活动视图可以在 toast 视图被显示时显示和取消。makeToastActivity(point:) 对 showToast 方法的排队行为没有影响。
+    func makeToastActivity(_ point: CGPoint) {
+        base.makeToastActivity(point)
+    }
+    
+    /// 隐藏/使消失活跃的 toast 活动指示器视图
+    func hideToastActivity() {
+        base.hideToastActivity()
+    }
+}
+
+
+
+
 extension UIView {
     
     /// 用于关联对象的键
