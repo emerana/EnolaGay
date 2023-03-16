@@ -19,9 +19,9 @@ public struct EnolaGayToastWrapper {
 }
 
 /// EnolaGay 中为 UIView 新增 toast 函数协议
-public protocol EnolaGayToastCompatible: UIView { }
+public protocol ToastCompatible: UIView { }
 
-extension EnolaGayToastCompatible {
+extension ToastCompatible {
     /// 在 EnolaGay 中的兼容类型包装对象，即在 EnolaGay 空间的持有者对象，通过该对象调用 toast 相关方法。
     public var toast: EnolaGayToastWrapper {
         get { return EnolaGayToastWrapper(self) }
@@ -29,7 +29,8 @@ extension EnolaGayToastCompatible {
     }
 }
 
-extension UIView: EnolaGayToastCompatible { }
+// 使 UIView 集成 EnolaGayToastCompatible 协议
+extension UIView: ToastCompatible { }
 
 // MARK: - Make Toast Methods
 public extension EnolaGayToastWrapper {

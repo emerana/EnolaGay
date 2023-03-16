@@ -62,7 +62,7 @@ private extension ViewController {
     
     func showToastAction() {
         showToastButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
-            self?.view.toast.makeToastActivity()
+//            self?.view.toast.showToast(self!.view, duration: 2)
         })
         .disposed(by: disposeBag)
     }
