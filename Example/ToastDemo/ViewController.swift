@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import EnolaGay
 import RxSwift
 import RxCocoa
-import EnolaGay
 
 class ViewController: UIViewController {
     
