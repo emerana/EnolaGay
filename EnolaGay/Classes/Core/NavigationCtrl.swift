@@ -90,7 +90,7 @@ open class JudyBaseNavigationCtrl: UINavigationController {
 
 // MARK: - UINavigationController 命名空间扩展
 
-/// 为空间包装对象 Double 添加扩展函数
+/// 为空间包装对象添加扩展函数
 public extension EnolaGayWrapper where Base: UINavigationController {
     
     /// 设置 navigationBar 的 barTintColor(此操作可能会影响到毛玻璃效果)，若要使用此函数请确保 storyboard 中该属性为 Default.
@@ -246,10 +246,10 @@ extension JudyBaseNavigationCtrl: UINavigationBarDelegate {
         var isShouldPop = true
         
         // 使用 judyPopOnBackBtn 函数返回结果来决定是否放行
-//        if let vc = topViewController as? JudyBaseViewCtrl,
-//            vc.responds(to: #selector(JudyBaseViewCtrl.judyPopOnBackBtn)){
-//            isShouldPop = vc.judyPopOnBackBtn()
-//        }
+        if let vc = topViewController,
+            vc.responds(to: #selector(judyPopOnBackBtn)) {
+            isShouldPop = vc.judyPopOnBackBtn()
+        }
         
         return isShouldPop
         /*
