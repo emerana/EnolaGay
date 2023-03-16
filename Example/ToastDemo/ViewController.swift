@@ -40,7 +40,7 @@ private extension ViewController {
     
     func maskToastAction() {
         makeToastButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
-            self?.view.toast.makeToast("大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁", position: .top)
+            self?.view.toast.message("大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁大家好，我是王仁洁", position: .top)
         })
         .disposed(by: disposeBag)
     }
@@ -48,10 +48,12 @@ private extension ViewController {
     
     func maskToastCustomAction() {
         makeToastCustomButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
-            self?.view.toast.makeToast("消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体",
-                                 duration: TimeInterval(5),
-                                       point: self!.view.center,
-                                 title: "这是标题",
+            self?.view.toast.message("""
+消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体消息体，大家好我是王仁洁，这是自定义配置的方法弹出来的消息体
+""",
+                         duration: TimeInterval(5),
+                         point: self!.view.center,
+                         title: "这是标题",
                                        image: nil,//UIImage(named: "jiesuo"),
                                  style: ToastManager.shared.style) { didTap in
                 Judy.log("点击了，结果为：\(didTap)")
@@ -62,29 +64,28 @@ private extension ViewController {
     
     func showToastAction() {
         showToastButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
-//            self?.view.toast.showToast(self!.view, duration: 2)
+            self?.view.toast.message("你妹的")
         })
         .disposed(by: disposeBag)
     }
     
     func showToastActivityAction() {
         showToastActivityButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
-            self?.view.toast.makeToastActivity()
-            self?.view.toast.makeToastActivity(self!.view.center)
+            self?.view.toast.activity()
         })
         .disposed(by: disposeBag)
     }
     
     func hideToastAction() {
         hideToastButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
-            self?.view.toast.hideToast()
+            self?.view.toast.hide()
         })
         .disposed(by: disposeBag)
     }
     
     func hideToastActivity() {
         hideToastActivityButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
-            self?.view.toast.hideToastActivity()
+            self?.view.toast.hideActivity()
         })
         .disposed(by: disposeBag)
     }
