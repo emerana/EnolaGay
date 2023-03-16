@@ -39,72 +39,72 @@ Pod::Spec.new do |s|
       # ss.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
   end
   
-  s.subspec 'SegmentedView' do |ss|
-      # 使用到 JudyBasePageViewCtrl
-      ss.dependency 'EnolaGay/EMERANA'
-      ss.source_files = 'EnolaGay/Classes/SegmentedView/*'
-  end
+#  s.subspec 'SegmentedView' do |ss|
+#      # 使用到 JudyBasePageViewCtrl
+#      ss.dependency 'EnolaGay/EMERANA'
+#      ss.source_files = 'EnolaGay/Classes/SegmentedView/*'
+#  end
   
-  s.subspec 'HPickerView' do |ss|
-      # 使用到 NSMutableAttributedString 高配版生成器
-      ss.dependency 'EnolaGay/EMERANA'
-      ss.source_files = 'EnolaGay/Classes/HPickerView/*'
-  end
+#  s.subspec 'HPickerView' do |ss|
+#      # 使用到 NSMutableAttributedString 高配版生成器
+#      ss.dependency 'EnolaGay/EMERANA'
+#      ss.source_files = 'EnolaGay/Classes/HPickerView/*'
+#  end
 
   #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
-  s.subspec 'JudyPopBubble' do |ss|
-      ss.source_files = 'EnolaGay/Classes/JudyPopBubble/*'
-  end
+#  s.subspec 'JudyPopBubble' do |ss|
+#      ss.source_files = 'EnolaGay/Classes/JudyPopBubble/*'
+#  end
 
   #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
-  s.subspec 'JudyWaterWaveView' do |ss|
-      ss.source_files = 'EnolaGay/Classes/JudyWaterWaveView/*'
-  end
+#  s.subspec 'JudyWaterWaveView' do |ss|
+#      ss.source_files = 'EnolaGay/Classes/JudyWaterWaveView/*'
+#  end
   
   #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
-  s.subspec 'MarqueeView' do |ss|
-      ss.source_files = 'EnolaGay/Classes/MarqueeView/*'
-  end
+#  s.subspec 'MarqueeView' do |ss|
+#      ss.source_files = 'EnolaGay/Classes/MarqueeView/*'
+#  end
   
   #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
-  s.subspec 'CircularProgressView' do |ss|
-      ss.source_files = 'EnolaGay/Classes/CircularProgressView/*'
-  end
+#  s.subspec 'CircularProgressView' do |ss|
+#      ss.source_files = 'EnolaGay/Classes/CircularProgressView/*'
+#  end
   
   #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
-  s.subspec 'GiftMessageCtrlPanel' do |ss|
-      ss.source_files = 'EnolaGay/Classes/GiftMessageCtrlPanel/*'
-  end
+#  s.subspec 'GiftMessageCtrlPanel' do |ss|
+#      ss.source_files = 'EnolaGay/Classes/GiftMessageCtrlPanel/*'
+#  end
   
-  s.subspec 'TextFieldEffects' do |ss|
-      # 全是 JudyBaseTextField 子类
-      ss.dependency 'EnolaGay/EMERANA'
-      ss.source_files = 'EnolaGay/Classes/TextFieldEffects/*'
-  end
+#  s.subspec 'TextFieldEffects' do |ss|
+#      # 全是 JudyBaseTextField 子类
+#      ss.dependency 'EnolaGay/EMERANA'
+#      ss.source_files = 'EnolaGay/Classes/TextFieldEffects/*'
+#  end
   
-  s.subspec 'SearchViewCtrl' do |ss|
-      ss.dependency 'EnolaGay/EMERANA'
-      ss.source_files = 'EnolaGay/Classes/SearchViewCtrl/*'
-  end
+#  s.subspec 'SearchViewCtrl' do |ss|
+#      ss.dependency 'EnolaGay/EMERANA'
+#      ss.source_files = 'EnolaGay/Classes/SearchViewCtrl/*'
+#  end
   
-  s.subspec 'FileManager' do |ss|
-      ss.dependency 'EnolaGay/EMERANA'
-      ss.source_files = 'EnolaGay/Classes/FileManager/*'
-  end
+#  s.subspec 'FileManager' do |ss|
+#      ss.dependency 'EnolaGay/EMERANA'
+#      ss.source_files = 'EnolaGay/Classes/FileManager/*'
+#  end
   
-  s.subspec 'WKWebView' do |ss|
-      ss.dependency 'EnolaGay/EMERANA'
-      ss.source_files = 'EnolaGay/Classes/WKWebView/*'
-  end
+#  s.subspec 'WKWebView' do |ss|
+#      ss.dependency 'EnolaGay/EMERANA'
+#      ss.source_files = 'EnolaGay/Classes/WKWebView/*'
+#  end
 
-  s.subspec 'JudyPlusButtonTabBar' do |ss|
-      ss.source_files = 'EnolaGay/Classes/JudyPlusButtonTabBar/*'
-  end
+#  s.subspec 'JudyPlusButtonTabBar' do |ss|
+#      ss.source_files = 'EnolaGay/Classes/JudyPlusButtonTabBar/*'
+#  end
 
-  s.subspec 'HUD' do |ss|
-      ss.source_files = 'EnolaGay/Classes/ProgressHUD/*'
-      ss.ios.deployment_target = '13.0'
-  end
+#  s.subspec 'HUD' do |ss|
+#      ss.source_files = 'EnolaGay/Classes/ProgressHUD/*'
+#      ss.ios.deployment_target = '13.0'
+#  end
 
   
   #  emerana.resource_bundles = {'SwiftMessages' => ['SwiftMessages/Resources/**/*']}
