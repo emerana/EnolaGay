@@ -176,13 +176,13 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/EnolaGay.default-MarqueeView/EnolaGay.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/EnolaGay-iOS11.0/EnolaGay.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage-iOS11.0/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftMessages-iOS11.0/SwiftMessages.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/EnolaGay.default-MarqueeView/EnolaGay.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/EnolaGay-iOS11.0/EnolaGay.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage-iOS11.0/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftMessages-iOS11.0/SwiftMessages.framework"

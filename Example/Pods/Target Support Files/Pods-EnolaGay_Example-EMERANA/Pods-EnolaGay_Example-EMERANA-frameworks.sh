@@ -177,7 +177,7 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire-iOS13.0/Alamofire.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/EnolaGay-fccbee31/EnolaGay.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/EnolaGay-iOS13.0/EnolaGay.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh-iOS13.0/MJRefresh.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage-iOS13.0/SDWebImage.framework"
@@ -191,7 +191,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire-iOS13.0/Alamofire.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/EnolaGay-fccbee31/EnolaGay.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/EnolaGay-iOS13.0/EnolaGay.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh-iOS13.0/MJRefresh.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage-iOS13.0/SDWebImage.framework"

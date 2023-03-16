@@ -5,19 +5,19 @@ platform :ios, '11.0'
 
 target 'EnolaGay_Example' do
   pod 'EnolaGay', :path => '../'
-  pod 'EnolaGay/SegmentedView', :path => '../'
-  pod 'EnolaGay/HPickerView', :path => '../'
-  pod 'EnolaGay/TextFieldEffects', :path => '../'
-  pod 'EnolaGay/JudyPopBubble', :path => '../'
-  pod 'EnolaGay/JudyWaterWaveView', :path => '../'
-  pod 'EnolaGay/MarqueeView', :path => '../'
-  pod 'EnolaGay/CircularProgressView', :path => '../'
-  pod 'EnolaGay/GiftMessageCtrlPanel', :path => '../'
-  pod 'EnolaGay/SearchViewCtrl', :path => '../'
-  pod 'EnolaGay/FileManager', :path => '../'
-  pod 'EnolaGay/WKWebView', :path => '../'
-  pod 'EnolaGay/JudyPlusButtonTabBar', :path => '../'
-  pod 'EnolaGay/HUD', :path => '../'
+#  pod 'EnolaGay/SegmentedView', :path => '../'
+#  pod 'EnolaGay/HPickerView', :path => '../'
+#  pod 'EnolaGay/TextFieldEffects', :path => '../'
+#  pod 'EnolaGay/JudyPopBubble', :path => '../'
+#  pod 'EnolaGay/JudyWaterWaveView', :path => '../'
+#  pod 'EnolaGay/MarqueeView', :path => '../'
+#  pod 'EnolaGay/CircularProgressView', :path => '../'
+#  pod 'EnolaGay/GiftMessageCtrlPanel', :path => '../'
+#  pod 'EnolaGay/SearchViewCtrl', :path => '../'
+#  pod 'EnolaGay/FileManager', :path => '../'
+#  pod 'EnolaGay/WKWebView', :path => '../'
+#  pod 'EnolaGay/JudyPlusButtonTabBar', :path => '../'
+#  pod 'EnolaGay/HUD', :path => '../'
   
   pod 'Alamofire'
   #  pod "SnapKit"
@@ -165,7 +165,7 @@ end
 
 target 'GiftMessageViewCtrlDemo' do
   pod 'EnolaGay', :path => '../'
-  pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
+#  pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
 end
 
 
@@ -179,7 +179,7 @@ end
 # MARK: SegmentedDemo
 
 target 'SegmentedDemo' do
-  pod 'EnolaGay/SegmentedView', :path => '../'
+#  pod 'EnolaGay/SegmentedView', :path => '../'
 end
 
 
@@ -194,7 +194,7 @@ end
 
 target 'AGUL' do
   pod 'EnolaGay', :path => '../'
-  pod 'EnolaGay/MarqueeView', :path => '../'
+#  pod 'EnolaGay/MarqueeView', :path => '../'
   
   pod 'Kingfisher'
   pod 'SwiftMessages'
@@ -223,5 +223,12 @@ target 'ToastDemo' do
   pod 'EnolaGay', :path => '../'
   pod 'RxSwift'
   pod 'RxCocoa'
+
+end
+
+# MARK: Demo
+
+target 'Demo' do
+  pod 'EnolaGay', :path => '../'
 
 end
