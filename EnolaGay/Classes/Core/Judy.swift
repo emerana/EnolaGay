@@ -7,7 +7,7 @@
 //  JudySDK
 /* 主类需要加上 public，extension 前面加了 public，则该分类里面的方法默认都是公开的 */
 
-import UIKit
+// import UIKit
 
 /// 常用系统级相关工具类
 ///
@@ -73,7 +73,7 @@ public struct Judy {
     @available(*, unavailable, message: "此属性已废弃重命名", renamed: "UIApplication.shared.delegate")
     public static var app: UIApplicationDelegate { UIApplication.shared.delegate! }
 
-    /// 当前是否有alert弹出，主要是提醒更新版本的Alert
+    /// 当前是否有 alert 弹出，主要是提醒更新版本的 Alert
     fileprivate static var isAlerting = false {
         didSet{
             logWarning("哎呀，isAlerting 被设置为\(isAlerting)")
