@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EnolaGay'
-  s.version          = '4.0.4'
+  s.version          = '4.0.5'
   s.summary          = 'EnolaGay 架构，由早期的 EMERANA 进化而成。'
 
 # This description is used to generate tags and improve search results.
@@ -68,11 +68,11 @@ Pod::Spec.new do |s|
       ss.source_files = 'EnolaGay/Classes/WKWebView/*'
   end
   
-  # MARK: 以上 pod 能力模块独立安装时将自动安装 pod 'EnolaGay' 的核心
+  # MARK: 以上 pod 能力模块独立安装时将自动安装 pod 'EnolaGay' 核心
   
   # MARK: -
   
-  # MARK: - 以下 pod 独立安装时不依赖 pod 'EnolaGay' 的核心
+  # MARK: - 以下 pod 独立安装时不依赖 pod 'EnolaGay' 核心
   
   # MARK: 烟花爆炸效果
   s.subspec 'JudyPopBubble' do |ss|
@@ -104,11 +104,11 @@ Pod::Spec.new do |s|
       ss.source_files = 'EnolaGay/Classes/MarqueeView/*'
   end
 
-  
-  #  s.subspec 'HUD' do |ss|
-  #      ss.source_files = 'EnolaGay/Classes/ProgressHUD/*'
-  #      ss.ios.deployment_target = '13.0'
-  #  end
+  # MARK: HUD
+  s.subspec 'HUD' do |ss|
+      ss.ios.deployment_target = '13.0'
+      ss.source_files = 'EnolaGay/Classes/ProgressHUD/*'
+  end
 
   
 #  s.subspec 'SearchViewCtrl' do |ss|
