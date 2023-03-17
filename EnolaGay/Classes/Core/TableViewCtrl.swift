@@ -15,7 +15,7 @@ import UIKit
  *  * 该 tableView 已经实现 dataSource 和 delegate.
  *  * 默认 tableViewCellidentitier 为 "Cell".
  */
-open class JudyBaseTableViewCtrl: JudyBaseViewCtrl, EMERANA_CollectionBasic {
+open class JudyBaseTableViewCtrl: JudyBaseViewCtrl {
     
     // MARK: - let property and IBOutlet
     
@@ -175,7 +175,7 @@ extension JudyBaseTableViewCtrl: UITableViewDataSource {
 ///    }
 ///}
 ///```
-open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh {
+open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl {
     open var pageSize: Int { 10 }
     open var defaultPageIndex: Int { 1 }
     open var pageSizeParameter: String {
@@ -209,18 +209,18 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     ///requestConfig.parameters?["userName"] = "Judy"
     ///```
     /// - Warning: 此函数中已经设置好 requestConfig.parameters?["page"] = currentPage，子类请务必调用父类方法
-    open override func setApi() {
-        requestConfig.parameters?[pageIndexParameter] = currentPage
-        requestConfig.parameters?[pageSizeParameter] = pageSize
-    }
+//    open override func setApi() {
+//        requestConfig.parameters?[pageIndexParameter] = currentPage
+//        requestConfig.parameters?[pageSizeParameter] = pageSize
+//    }
 
     /// 未设置 requestConfig.api 却发起了请求时的消息处理
     ///
     /// 当 isAddMore = true (上拉刷新)时触发了此函数，此函数会将 currentPage - 1.
     /// - Warning: 重写此方法务必调用父类方法
-    open override func reqNotApi() {
-        if isAddMore { currentPage -= 1 }
-    }
+//    open override func reqNotApi() {
+//        if isAddMore { currentPage -= 1 }
+//    }
     
     /// 当请求得到响应时首先执行此函数
     ///
@@ -231,30 +231,30 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     ///     super.reqResult()
     /// }
     /// ```
-    open override func reqResult() { EMERANA.refreshAdapter?.endRefresh(scrollView: tableView) }
+//    open override func reqResult() { EMERANA.refreshAdapter?.endRefresh(scrollView: tableView) }
     
     /// 请求成功的消息处理，子类请务必调用父类函数
     ///
     /// 此函数已经处理是否有更多数据，需自行根据服务器响应数据更改数据源及刷新 tableView
     /// - Warning: 此函数中影响设置总页数函数 setSumPage(), 与分页无关的逻辑应该在此排除
-    open override func reqSuccess() {
-        // 设置总页数
-        let sumPage = setSumPage()
-        // 在此判断是否有更多数据。结束刷新已经在 reqResult() 中完成
-        if sumPage <= currentPage { // 最后一页了，没有更多
-            // 当没有更多数据的时候要将当前页设置为总页数或默认页数
-            currentPage = sumPage <= defaultPageIndex ? defaultPageIndex:sumPage
-            EMERANA.refreshAdapter?.endRefreshingWithNoMoreData(scrollView: tableView)
-        }
-    }
+//    open override func reqSuccess() {
+//        // 设置总页数
+//        let sumPage = setSumPage()
+//        // 在此判断是否有更多数据。结束刷新已经在 reqResult() 中完成
+//        if sumPage <= currentPage { // 最后一页了，没有更多
+//            // 当没有更多数据的时候要将当前页设置为总页数或默认页数
+//            currentPage = sumPage <= defaultPageIndex ? defaultPageIndex:sumPage
+//            EMERANA.refreshAdapter?.endRefreshingWithNoMoreData(scrollView: tableView)
+//        }
+//    }
     
     /// 请求失败的消息处理，此函数中会触发 reqNotApi 函数
     ///
     /// - Warning: 重写此方法务必调用父类方法
-    open override func reqFailed() {
-        super.reqFailed()
-        reqNotApi()
-    }
+//    open override func reqFailed() {
+//        super.reqFailed()
+//        reqNotApi()
+//    }
     
 
     // MARK: - EMERANA_Refresh
@@ -268,7 +268,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
             self?.currentPage = self!.defaultPageIndex
             EMERANA.refreshAdapter?.resetNoMoreData(scrollView: self?.tableView)
             
-            self?.reqApi()
+//            self?.reqApi()
         })
     }
     
@@ -280,7 +280,7 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
             self?.isAddMore = true
             self?.currentPage += 1
             
-            self?.reqApi()
+//            self?.reqApi()
         })
     }
     
@@ -293,8 +293,8 @@ open class JudyBaseTableRefreshViewCtrl: JudyBaseTableViewCtrl, EMERANA_Refresh 
     ///
     /// 一般用当前页返回到数量与 pageSize 作比较来判断是否还有下一页
     /// - Warning: 若 apiData["data"].arrayValue 字段不同请覆盖此函数配置正确的总页数
-    open func setSumPage() -> Int {
-        apiData["data"].arrayValue.count != pageSize ? currentPage:currentPage+1
+    open func setSumPage() -> Int { 1
+//        apiData["data"].arrayValue.count != pageSize ? currentPage:currentPage+1
     }
 
     open func resetStatus() {
