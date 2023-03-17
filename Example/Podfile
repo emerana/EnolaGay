@@ -9,7 +9,7 @@ target 'Demo' do
   #  pod 'EnolaGay/JudyPlusButtonTabBar', :path => '../'
   #  pod 'EnolaGay/JudyWaterWaveView', :path => '../'
   #  pod 'EnolaGay/MarqueeView', :path => '../'
-  pod 'EnolaGay/WKWebView', :path => '../'
+  #  pod 'EnolaGay/WKWebView', :path => '../'
   
   #  target 'EnolaGay_Tests' do
   #    inherit! :search_paths
@@ -21,13 +21,15 @@ target 'Demo' do
   
   target 'Semaphore' do
     #    inherit! :search_paths 这行可不写
+    platform :ios, '13.0'
+    pod 'EnolaGay/HUD', :path => '../'
+
   end
   
   # MARK: EMERANA
   
-  platform :ios, '13.0'
   target 'EMERANA' do
-    
+    pod 'EnolaGay', :path => '../'
     pod 'IQKeyboardManagerSwift'
     
     #    pod 'MBProgressHUD'
@@ -43,7 +45,7 @@ target 'Demo' do
     pod 'DZNEmptyDataSet'
 
     pod 'FMDB'
-    
+    pod 'Alamofire'
     pod 'BadgeHub'
     pod 'SwiftyJSON'
     

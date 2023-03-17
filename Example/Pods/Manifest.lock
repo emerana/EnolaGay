@@ -7,14 +7,13 @@ PODS:
   - Charts/Core (4.1.0):
     - SwiftAlgorithms (~> 1.0)
   - DZNEmptyDataSet (1.8.1)
-  - EnolaGay (4.0.3):
-    - EnolaGay/EMERANA (= 4.0.3)
-  - EnolaGay/EMERANA (4.0.3)
-  - EnolaGay/HPickerView (4.0.3):
+  - EnolaGay (4.0.5):
+    - EnolaGay/EMERANA (= 4.0.5)
+  - EnolaGay/EMERANA (4.0.5)
+  - EnolaGay/HPickerView (4.0.5):
     - EnolaGay/EMERANA
-  - EnolaGay/SegmentedView (4.0.3):
-    - EnolaGay/EMERANA
-  - EnolaGay/WKWebView (4.0.3):
+  - EnolaGay/HUD (4.0.5)
+  - EnolaGay/SegmentedView (4.0.5):
     - EnolaGay/EMERANA
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -62,8 +61,8 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - EnolaGay (from `../`)
   - EnolaGay/HPickerView (from `../`)
+  - EnolaGay/HUD (from `../`)
   - EnolaGay/SegmentedView (from `../`)
-  - EnolaGay/WKWebView (from `../`)
   - FMDB
   - IGListKit (~> 4.0.0)
   - IQKeyboardManagerSwift
@@ -116,7 +115,7 @@ SPEC CHECKSUMS:
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
   Charts: 354f86803d11d9c35de280587fef50d1af063978
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  EnolaGay: 4256fc94f39de8b436b6d6699f337850132e2a5e
+  EnolaGay: 7c7b0feada1b0857376340088095a13ec3752e67
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
@@ -137,6 +136,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: 821edb761703eb51fd86ba1ceb5b189e39942896
+PODFILE CHECKSUM: 2f4c1348599a1d0d1e9695af1592dd8d1a9c9e9b
 
 COCOAPODS: 1.12.0
