@@ -61,9 +61,9 @@ Pod::Spec.new do |s|
   end
 
   #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
-#  s.subspec 'JudyPopBubble' do |ss|
-#      ss.source_files = 'EnolaGay/Classes/JudyPopBubble/*'
-#  end
+  s.subspec 'JudyPopBubble' do |ss|
+      ss.source_files = 'EnolaGay/Classes/JudyPopBubble/*'
+  end
 
   #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
 #  s.subspec 'JudyWaterWaveView' do |ss|
