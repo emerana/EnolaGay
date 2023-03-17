@@ -13,8 +13,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        debugPrint("测试")
 
+        debugPrint("测试")
     }
 
     @IBAction func logAction(_ sender: Any) {

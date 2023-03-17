@@ -25,7 +25,7 @@ public enum LogLevel {
 }
 
 
-/// 通用打印函数，将依次打印文件名、触发函数所在行及函数名的信息。打印格式为**文件 [行] 函数 消息体**
+/// 常规打印函数，将依次打印文件名、触发函数所在行及函数名的信息。打印格式为**文件 [行] 函数 消息体**
 public func log<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
     #if DEBUG
     print("\(type) \((file as NSString).lastPathComponent) [\(line)] \(method) \(message())")
