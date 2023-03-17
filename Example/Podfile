@@ -4,6 +4,9 @@ use_frameworks!
 platform :ios, '11.0'
 
 target 'Demo' do
+  
+  pod 'EnolaGay/Logger', :path => '../'
+
   #  pod 'EnolaGay/TextFieldEffects', :path => '../'
   #  pod 'EnolaGay/JudyPopBubble', :path => '../'
   #  pod 'EnolaGay/JudyPlusButtonTabBar', :path => '../'

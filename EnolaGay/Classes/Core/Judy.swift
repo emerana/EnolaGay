@@ -4,10 +4,7 @@
 //  Created by Judy-王仁洁 on 2017/6/6.
 //  Copyright © 2017年 Judy.ICBC All rights reserved.
 //
-//  JudySDK
-/* 主类需要加上 public，extension 前面加了 public，则该分类里面的方法默认都是公开的 */
 
-// import UIKit
 
 /// 常用系统级相关工具类
 ///

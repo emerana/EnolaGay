@@ -74,6 +74,11 @@ Pod::Spec.new do |s|
   
   # MARK: - 以下 pod 独立安装时不依赖 pod 'EnolaGay' 核心
   
+  # MARK: Debug 打印和日志文件输出功能
+  s.subspec 'Logger' do |ss|
+      ss.source_files = 'EnolaGay/Classes/Logger/*'
+  end
+
   # MARK: 烟花爆炸效果
   s.subspec 'JudyPopBubble' do |ss|
       ss.source_files = 'EnolaGay/Classes/JudyPopBubble/*'
