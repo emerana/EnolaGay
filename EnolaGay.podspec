@@ -39,17 +39,25 @@ Pod::Spec.new do |s|
       # ss.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
   end
 
+  #  水平方向选择器
   s.subspec 'SegmentedView' do |ss|
       # 使用到 JudyBasePageViewCtrl
       ss.dependency 'EnolaGay/EMERANA'
       ss.source_files = 'EnolaGay/Classes/SegmentedView/*'
   end
   
-  #  水平方向滚动的选择器，SegmentedView 则是不支持滚动选择的。
+  #  水平方向的滚动选择器，SegmentedView 则是不支持滚动选择的。
   s.subspec 'HPickerView' do |ss|
       # 使用到 NSMutableAttributedString 高配版生成器
       ss.dependency 'EnolaGay/EMERANA'
       ss.source_files = 'EnolaGay/Classes/HPickerView/*'
+  end
+  
+  #  一些输入框
+  s.subspec 'TextFieldEffects' do |ss|
+      # 全是 JudyBaseTextField 子类
+      ss.dependency 'EnolaGay/EMERANA'
+      ss.source_files = 'EnolaGay/Classes/TextFieldEffects/*'
   end
 
   #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
@@ -77,11 +85,6 @@ Pod::Spec.new do |s|
 #      ss.source_files = 'EnolaGay/Classes/GiftMessageCtrlPanel/*'
 #  end
   
-#  s.subspec 'TextFieldEffects' do |ss|
-#      # 全是 JudyBaseTextField 子类
-#      ss.dependency 'EnolaGay/EMERANA'
-#      ss.source_files = 'EnolaGay/Classes/TextFieldEffects/*'
-#  end
   
 #  s.subspec 'SearchViewCtrl' do |ss|
 #      ss.dependency 'EnolaGay/EMERANA'

@@ -14,6 +14,8 @@ PODS:
     - EnolaGay/EMERANA
   - EnolaGay/SegmentedView (4.0.3):
     - EnolaGay/EMERANA
+  - EnolaGay/TextFieldEffects (4.0.3):
+    - EnolaGay/EMERANA
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -61,6 +63,7 @@ DEPENDENCIES:
   - EnolaGay (from `../`)
   - EnolaGay/HPickerView (from `../`)
   - EnolaGay/SegmentedView (from `../`)
+  - EnolaGay/TextFieldEffects (from `../`)
   - FMDB
   - IGListKit (~> 4.0.0)
   - IQKeyboardManagerSwift
@@ -113,7 +116,7 @@ SPEC CHECKSUMS:
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
   Charts: 354f86803d11d9c35de280587fef50d1af063978
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  EnolaGay: bbb04e5f58cd473e74c2cbb313772b6d2f837edc
+  EnolaGay: 87a70fb937febf6ddf29bf9383d087b1b9b6efad
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
@@ -134,6 +137,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: 5204064b09b573b700bed8c1c99122a180c88423
+PODFILE CHECKSUM: 156d2bd8afdef5f4c85a8e546728182b693814d0
 
 COCOAPODS: 1.12.0

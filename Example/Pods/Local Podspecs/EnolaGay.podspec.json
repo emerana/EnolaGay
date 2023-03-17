@@ -43,6 +43,15 @@
         ]
       },
       "source_files": "EnolaGay/Classes/HPickerView/*"
+    },
+    {
+      "name": "TextFieldEffects",
+      "dependencies": {
+        "EnolaGay/EMERANA": [
+
+        ]
+      },
+      "source_files": "EnolaGay/Classes/TextFieldEffects/*"
     }
   ],
   "swift_version": "5.0"
