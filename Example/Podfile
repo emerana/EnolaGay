@@ -77,6 +77,20 @@ target 'ToastDemo' do
 
 end
 
+# MARK: SegmentedDemo
+
+target 'SegmentedDemo' do
+  pod 'EnolaGay/SegmentedView', :path => '../'
+end
+
+
+# MARK: HPickerDemo
+
+target 'HPickerDemo' do
+  pod 'EnolaGay/HPickerView', :path => '../'
+end
+
+
 # MARK: VersionCheck
 
 target 'VersionCheck' do
@@ -108,15 +122,6 @@ end
 # MARK: RefreshAdapter
 
 target 'RefreshAdapter' do
-  pod 'EnolaGay', :path => '../'
-  pod 'MJRefresh'
-  pod 'Alamofire'
-end
-
-
-# MARK: HPickerDemo
-
-target 'HPickerDemo' do
   pod 'EnolaGay', :path => '../'
   pod 'MJRefresh'
   pod 'Alamofire'
@@ -186,13 +191,6 @@ end
 
 target 'JudyLivePageViewCtrl' do
   pod 'EnolaGay', :path => '../'
-end
-
-
-# MARK: SegmentedDemo
-
-target 'SegmentedDemo' do
-  pod 'EnolaGay/SegmentedView', :path => '../'
 end
 
 

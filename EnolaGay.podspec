@@ -45,11 +45,12 @@ Pod::Spec.new do |s|
       ss.source_files = 'EnolaGay/Classes/SegmentedView/*'
   end
   
-#  s.subspec 'HPickerView' do |ss|
-#      # 使用到 NSMutableAttributedString 高配版生成器
-#      ss.dependency 'EnolaGay/EMERANA'
-#      ss.source_files = 'EnolaGay/Classes/HPickerView/*'
-#  end
+  #  水平方向滚动的选择器，SegmentedView 则是不支持滚动选择的。
+  s.subspec 'HPickerView' do |ss|
+      # 使用到 NSMutableAttributedString 高配版生成器
+      ss.dependency 'EnolaGay/EMERANA'
+      ss.source_files = 'EnolaGay/Classes/HPickerView/*'
+  end
 
   #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
 #  s.subspec 'JudyPopBubble' do |ss|

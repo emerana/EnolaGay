@@ -34,6 +34,15 @@
         ]
       },
       "source_files": "EnolaGay/Classes/SegmentedView/*"
+    },
+    {
+      "name": "HPickerView",
+      "dependencies": {
+        "EnolaGay/EMERANA": [
+
+        ]
+      },
+      "source_files": "EnolaGay/Classes/HPickerView/*"
     }
   ],
   "swift_version": "5.0"

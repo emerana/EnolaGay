@@ -947,7 +947,6 @@
 				8BC3DA6B26DEB1AF00A2A405 /* CacheDemo */,
 				8BC3DB1326DF3F0F00A2A405 /* CastSurelyCalculation */,
 				8BC3DAEF26DF3C4100A2A405 /* KeyBoardPop */,
-				8BC3DACD26DF29B900A2A405 /* HPickerDemo */,
 				8BC3DAAB26DEB74A00A2A405 /* RefreshAdapter */,
 				8B620EA326DDF347001E1A9D /* VersionCheck */,
 				8BC3DA8826DEB43500A2A405 /* PlayerDemo */,
@@ -965,6 +964,7 @@
 				8B9BFBF72921BAC2006939E5 /* MyRxRealm */,
 				8B9D4DFB2924917600C27958 /* MyRxRealmTests */,
 				8BE31B7829C2D22A003038B2 /* Demo */,
+				8BC3DACD26DF29B900A2A405 /* HPickerDemo */,
 				8BC3DD7E26E05C8E00A2A405 /* SegmentedDemo */,
 				8BD025F32930D8AB005709D6 /* ToastDemo */,
 				607FACD11AFB9204008FA782 /* Products */,
@@ -3302,15 +3302,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HPickerDemo/Pods-HPickerDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-iOS11.0/EnolaGay.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh-iOS11.0/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-EMERANA-HPickerView/EnolaGay.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
