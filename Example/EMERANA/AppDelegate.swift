@@ -59,7 +59,7 @@ extension UIApplication: RefreshAdapter {
 
 import Alamofire
 import SwiftyJSON
-
+/*
 extension UIApplication: ApiAdapter {
     public var domain: String { "https://livepretest.jingmaiwang.com" }
     
@@ -172,3 +172,4 @@ struct ApiActions {
     }
     
 }
+*/

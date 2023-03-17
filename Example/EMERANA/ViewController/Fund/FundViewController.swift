@@ -53,7 +53,7 @@ class FundViewController: JudyBaseTableRefreshViewCtrl {
     
     // MARK: - override - 重写重载父类的方法
     
-    override func setApi() {
+    func setApi() {
         if tableDataSource.count != fundList.count {
             return
         }

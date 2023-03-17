@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EnolaGay'
-  s.version          = '4.0.5'
+  s.version          = '4.0.6'
   s.summary          = 'EnolaGay 架构，由早期的 EMERANA 进化而成。'
 
 # This description is used to generate tags and improve search results.
@@ -111,19 +111,15 @@ Pod::Spec.new do |s|
   end
 
   
-#  s.subspec 'SearchViewCtrl' do |ss|
-#      ss.dependency 'EnolaGay/EMERANA'
-#      ss.source_files = 'EnolaGay/Classes/SearchViewCtrl/*'
-#  end
+  #  s.subspec 'SearchViewCtrl' do |ss|
+  #      ss.dependency 'EnolaGay/EMERANA'
+  #      ss.source_files = 'EnolaGay/Classes/SearchViewCtrl/*'
+  #  end
   
-#  s.subspec 'FileManager' do |ss|
-#      ss.dependency 'EnolaGay/EMERANA'
-#      ss.source_files = 'EnolaGay/Classes/FileManager/*'
-#  end
-  
-
-
-
+  #  s.subspec 'FileManager' do |ss|
+  #      ss.dependency 'EnolaGay/EMERANA'
+  #      ss.source_files = 'EnolaGay/Classes/FileManager/*'
+  #  end
   
   #  emerana.resource_bundles = {'SwiftMessages' => ['SwiftMessages/Resources/**/*']}
   #  s.source_files = 'EnolaGay/Classes/**/*' 包含所有子目录下的所有文件

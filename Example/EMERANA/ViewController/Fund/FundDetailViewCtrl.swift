@@ -98,7 +98,7 @@ class FundDetailViewCtrl: JudyBaseViewCtrl {
         super.viewWillAppear(animated)
         
         guard fund != nil else {
-            JudyTip.message(text: "FundID 为 nil！")
+            self.view.toast.activity()
             // 操控 dismiss 至少需要即将 appear 才行
             dismiss(animated: true, completion: nil)
             return
@@ -119,7 +119,7 @@ class FundDetailViewCtrl: JudyBaseViewCtrl {
             deleteAction()
         } else {    // 添加自选
             FundDataSourceCtrl.judy.addOptional(fund: fund!) { (rs) in
-                JudyTip.message(text: rs ? "添加自选成功":"添加失败：已存在该自选基金！")
+                self.view.toast.activity()
 
                 if rs {
                     dismiss(animated: true, completion: nil)
@@ -168,8 +168,7 @@ class FundDetailViewCtrl: JudyBaseViewCtrl {
     /// 删除事件
     @IBAction private func deleteAction(_ sender: Any) {
         guard fund != nil else {
-            JudyTip.message(text: "fund ID 为 nil ！")
-            
+            self.view.toast.activity()
             return
         }
         let alertController = UIAlertController(title: "确认删除该基金信息吗？",
@@ -180,7 +179,7 @@ class FundDetailViewCtrl: JudyBaseViewCtrl {
             
             // 异步执行
             FundDataSourceCtrl.judy.deleteFundInfo(fundID: self.fund!.fundID) { (rs) in
-                JudyTip.message(text: rs ? "删除成功":"删除失败")
+                self.view.toast.activity()
                 if rs {
                     self.dismiss(animated: true, completion: {
                         self.deleteCallback?()
@@ -258,9 +257,9 @@ private extension FundDetailViewCtrl {
                 FundDataSourceCtrl.judy.deleteOptionalOrInvestment(fundID: self.fund!.fundID, isInvestment: isInvestment) { (rs) in
                     DispatchQueue.main.async {
                         if isInvestment {
-                            JudyTip.message(text: rs ? "删除定投成功":"删除定投失败！")
+                            self.view.toast.activity()
                         } else {
-                            JudyTip.message(text: rs ? "删除自选成功":"删除自选失败！")
+                            self.view.toast.activity()
                         }
                         if rs {
                             self.dismiss(animated: true) {

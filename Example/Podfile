@@ -38,7 +38,9 @@ target 'Demo' do
     pod 'SwiftMessages'
     pod 'MJRefresh'
     pod 'SDWebImage'
-    pod 'SDCycleScrollView'
+    #  广告轮播图
+    # pod 'SDCycleScrollView'
+    
     #    pod 'SocketRocket'    # https://github.com/facebook/SocketRocket.git
     #    pod 'RESideMenu', '~> 4.0.7' #侧边菜单
     #    pod 'ResponseDetective'
@@ -78,6 +80,11 @@ end
 
 target 'HPickerDemo' do
   pod 'EnolaGay/HPickerView', :path => '../'
+end
+
+# MARK: HUD
+target 'HUD' do
+  pod 'EnolaGay/HUD', :path => '../'
 end
 
 # MARK: VersionCheck
