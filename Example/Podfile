@@ -19,9 +19,9 @@ target 'EnolaGay_Example' do
 #  pod 'EnolaGay/JudyPlusButtonTabBar', :path => '../'
 #  pod 'EnolaGay/HUD', :path => '../'
   
-  pod 'Alamofire'
+#  pod 'Alamofire'
   #  pod "SnapKit"
-  pod 'SwiftyJSON'
+#  pod 'SwiftyJSON'
 
   
   #  target 'EnolaGay_Tests' do
@@ -68,6 +68,15 @@ end
 
 # MARK: - 独立为 target 安装 pod，不继承主工程已安装的 pod.
 
+# MARK: ToastDemo
+
+target 'ToastDemo' do
+  pod 'EnolaGay', :path => '../'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+
+end
+
 # MARK: VersionCheck
 
 target 'VersionCheck' do
@@ -89,6 +98,8 @@ end
 # MARK: PlayerDemo
 
 target 'PlayerDemo' do
+  platform :ios, '12.0'
+
   pod 'EnolaGay', :path => '../'
   pod "Player"
 end
@@ -147,6 +158,8 @@ end
 # MARK: MyCharts
 
 target 'MyCharts' do
+  platform :ios, '12.0'
+
   pod 'EnolaGay', :path => '../'
   pod 'Charts'
 
@@ -214,16 +227,6 @@ end
 target 'MyRxRealm' do
   pod 'EnolaGay', :path => '../'
   pod "RxRealm"
-end
-
-
-# MARK: ToastDemo
-
-target 'ToastDemo' do
-  pod 'EnolaGay', :path => '../'
-  pod 'RxSwift'
-  pod 'RxCocoa'
-
 end
 
 # MARK: Demo

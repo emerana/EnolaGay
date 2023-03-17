@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EnolaGay'
-  s.version          = '4.0.1'
+  s.version          = '4.0.2'
   s.summary          = 'EnolaGay 架构，由早期的 EMERANA 进化而成。'
 
 # This description is used to generate tags and improve search results.
@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
       # ss.exclude_files = 'EnolaGay/Classes/*'
       # ss.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
   end
-  
+
 #  s.subspec 'SegmentedView' do |ss|
 #      # 使用到 JudyBasePageViewCtrl
 #      ss.dependency 'EnolaGay/EMERANA'
