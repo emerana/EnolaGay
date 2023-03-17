@@ -75,7 +75,7 @@ extension FundDataSourceCtrl {
             let result = dataBase.executeUpdate(sql, withArgumentsIn: [])
             
             if !result {
-                JudyTip.message(text: "\(fund_tables.t_fundInfoList)创建失败！")
+//                self.view.toast.activity()
             }
             
         }
@@ -106,7 +106,7 @@ extension FundDataSourceCtrl {
             let result = dataBase.executeUpdate(sql, withArgumentsIn: [])
             
             if !result {
-                JudyTip.message(text: "\(fund_tables.t_fundInfoList)索引创建失败！")
+//                self.view.toast.activity()
             }
             
         }
@@ -212,7 +212,7 @@ extension FundDataSourceCtrl {
             let sql = "SELECT * FROM \(fund_tables.t_fundInfoList) ORDER by \(fund_tables.t_fundInfoList).ROWID" // ORDER BY isStarManager DESC
             let resultSet = db.executeQuery(sql, withArgumentsIn: [])
             guard resultSet != nil else {
-                JudyTip.message(text: "查无此表！")
+//                self.view.toast.activity()
                 return
             }
             
@@ -237,7 +237,7 @@ SELECT t_fundInfoList.*, t_fundOptional.fundID AS isOption, t_investment.fundID 
             let sql = "SELECT \(fund_tables.t_fundInfoList).*, \(fund_tables.t_fundOptional).fundID AS isOption, \(fund_tables.t_investment).fundID AS isInvestment FROM \(fund_tables.t_fundInfoList) LEFT JOIN  \(fund_tables.t_fundOptional) ON \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_fundOptional).fundID LEFT JOIN \(fund_tables.t_investment) ON \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_investment).fundID WHERE \(fund_tables.t_fundInfoList).fundID = ?"
             let resultSet = db.executeQuery(sql, withArgumentsIn: [fundID])
             guard resultSet != nil else {
-                JudyTip.message(text: "数据库结果集为nil！")
+//                self.view.toast.activity()
                 return
             }
             while(resultSet!.next()) {
@@ -287,7 +287,7 @@ SELECT t_fundInfoList.*, t_fundOptional.fundID AS isOption, t_investment.fundID 
 //            sql += " ORDER BY isStarManager DESC"
             let resultSet = db.executeQuery(sql, withArgumentsIn: [])
             guard resultSet != nil else {
-                JudyTip.message(text: "查无此表！")
+//                self.view.toast.activity()
                 return
             }
             
@@ -334,7 +334,7 @@ extension FundDataSourceCtrl {
             let result = dataBase.executeUpdate(sql, withArgumentsIn: [])
             
             if !result {
-                JudyTip.message(text: "\(fund_tables.t_fundOptional)创建失败！")
+//                self.view.toast.activity()
             }
         }
     }
@@ -395,7 +395,7 @@ extension FundDataSourceCtrl {
             let sql = "SELECT \(fund_tables.t_fundInfoList).*, \(fund_tables.t_fundOptional).fundID FROM \(fund_tables.t_fundInfoList) INNER JOIN \(fund_tables.t_fundOptional) on \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_fundOptional).fundID ORDER by \(fund_tables.t_fundOptional).ROWID"
             let resultSet = db.executeQuery(sql, withArgumentsIn: [])
             guard resultSet != nil else {
-                JudyTip.message(text: "查无此表！")
+//                self.view.toast.activity()
                 return
             }
             
@@ -431,7 +431,7 @@ extension FundDataSourceCtrl {
             let result = dataBase.executeUpdate(sql, withArgumentsIn: [])
             
             if !result {
-                JudyTip.message(text: "\(fund_tables.t_investment)创建失败！")
+//                self.view.toast.activity()
             }
         }
     }
@@ -455,7 +455,7 @@ extension FundDataSourceCtrl {
             let sql = "SELECT \(fund_tables.t_fundInfoList).*, \(fund_tables.t_investment).amount, \(fund_tables.t_investment).investmentType, \(fund_tables.t_investment).dayForInvestmentType, \(fund_tables.t_investment).remark as investmentRemark FROM \(fund_tables.t_fundInfoList) INNER JOIN \(fund_tables.t_investment) ON \(fund_tables.t_fundInfoList).fundID = \(fund_tables.t_investment).fundID ORDER by \(fund_tables.t_investment).ROWID"
             let resultSet = db.executeQuery(sql, withArgumentsIn: [])
             guard resultSet != nil else {
-                JudyTip.message(text: "查无此表！")
+//                self.view.toast.activity()
                 return
             }
             
@@ -520,7 +520,7 @@ extension FundDataSourceCtrl {
             let result = dataBase.executeUpdate(sql, withArgumentsIn: [])
             
             if !result {
-                JudyTip.message(text: "\(fund_tables.t_investment)创建失败！")
+//                self.view.toast.activity()
             }
         }
     }

@@ -32,7 +32,6 @@ target 'Demo' do
   
   target 'EMERANA' do
     pod 'EnolaGay', :path => '../'
-    pod 'EnolaGay/HUD', :path => '../'
     pod 'IQKeyboardManagerSwift'
     
     #    pod 'MBProgressHUD'
@@ -81,6 +80,11 @@ end
 
 target 'HPickerDemo' do
   pod 'EnolaGay/HPickerView', :path => '../'
+end
+
+# MARK: HUD
+target 'HUD' do
+  pod 'EnolaGay/HUD', :path => '../'
 end
 
 # MARK: VersionCheck

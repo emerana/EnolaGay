@@ -32,7 +32,7 @@ extension AddFundView {
             if rs {
                 removeFromSuperview()
             } else {
-                JudyTip.message(text: "添加失败！已存在该基金")
+                self.toast.activity()
             }
         }
 

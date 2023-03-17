@@ -40,6 +40,7 @@ class FontViewCtrl: JudyBaseTableViewCtrl {
         super.viewDidLoad()
         tableView?.sectionIndexColor = .systemBlue
         tableView?.sectionIndexMinimumDisplayRowCount = 8
+        // 改变 dataSource 具体数据类型
         dataSource = [JSON]()
         // 获取字体数据源
         let familyNames = UIFont.familyNames
@@ -49,7 +50,7 @@ class FontViewCtrl: JudyBaseTableViewCtrl {
                 dataSource.append(JSON(fontName))
             }
         }
-//        (dataSource as! [JSON]).sort()   // 排序
+        // (dataSource as! [JSON]).sort()   // 排序
         
         var temp = ""
         var tempDataSection = [JSON]()
