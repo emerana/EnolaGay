@@ -39,21 +39,21 @@ Pod::Spec.new do |s|
       # ss.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
   end
 
-  #  水平方向选择器
+  # MARK: 水平方向选择器
   s.subspec 'SegmentedView' do |ss|
       # 使用到 JudyBasePageViewCtrl
       ss.dependency 'EnolaGay/EMERANA'
       ss.source_files = 'EnolaGay/Classes/SegmentedView/*'
   end
   
-  #  水平方向的滚动选择器，SegmentedView 则是不支持滚动选择的。
+  # MARK: 水平方向的滚动选择器，SegmentedView 则是不支持滚动选择的。
   s.subspec 'HPickerView' do |ss|
       # 使用到 NSMutableAttributedString 高配版生成器
       ss.dependency 'EnolaGay/EMERANA'
       ss.source_files = 'EnolaGay/Classes/HPickerView/*'
   end
   
-  #  一些输入框
+  # MARK: 一些输入框
   s.subspec 'TextFieldEffects' do |ss|
       # 全是 JudyBaseTextField 子类
       ss.dependency 'EnolaGay/EMERANA'
@@ -62,10 +62,12 @@ Pod::Spec.new do |s|
 
   # MARK: - 以下 pod 可独立安装,不依赖 pod 'EnolaGay'
   
+  # MARK: 烟花爆炸效果
   s.subspec 'JudyPopBubble' do |ss|
       ss.source_files = 'EnolaGay/Classes/JudyPopBubble/*'
   end
 
+  # MARK: 中间大按钮的 tabBar
   s.subspec 'JudyPlusButtonTabBar' do |ss|
       ss.source_files = 'EnolaGay/Classes/JudyPlusButtonTabBar/*'
   end
@@ -80,15 +82,15 @@ Pod::Spec.new do |s|
       ss.source_files = 'EnolaGay/Classes/GiftMessageCtrlPanel/*'
   end
 
-  #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
-#  s.subspec 'JudyWaterWaveView' do |ss|
-#      ss.source_files = 'EnolaGay/Classes/JudyWaterWaveView/*'
-#  end
+  # MARK: 水波 View
+  s.subspec 'JudyWaterWaveView' do |ss|
+      ss.source_files = 'EnolaGay/Classes/JudyWaterWaveView/*'
+  end
   
-  #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
-#  s.subspec 'MarqueeView' do |ss|
-#      ss.source_files = 'EnolaGay/Classes/MarqueeView/*'
-#  end
+  # MARK: 跑马灯效果 View
+  s.subspec 'MarqueeView' do |ss|
+      ss.source_files = 'EnolaGay/Classes/MarqueeView/*'
+  end
   
   
   
