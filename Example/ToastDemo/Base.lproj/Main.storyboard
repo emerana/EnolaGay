@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -17,27 +18,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gmL-CS-aee">
-                                <rect key="frame" x="105.66666666666669" y="65" width="164" height="137.33333333333337"/>
+                                <rect key="frame" x="136" y="65.000000000000014" width="103" height="137.33333333333337"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eib-ax-EjX">
-                                        <rect key="frame" x="0.0" y="0.0" width="164" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="103" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="makeToast"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="message1"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vy-Nx-DAb">
-                                        <rect key="frame" x="0.0" y="34.333333333333329" width="164" height="34.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="34.333333333333329" width="103" height="34.333333333333329"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="makeToastCustom"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="message2"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhk-50-4Qc">
-                                        <rect key="frame" x="0.0" y="68.666666666666657" width="164" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="68.666666666666657" width="103" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="showToast"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="message3"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dx4-BN-RPi">
-                                        <rect key="frame" x="0.0" y="103" width="164" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="103" width="103" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="showToastActivity"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="activity"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -45,14 +46,19 @@
                                 <rect key="frame" x="0.0" y="715.66666666666663" width="375" height="34.333333333333371"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sP-5F-XcJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="hideToast"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZV-2w-EfT">
-                                        <rect key="frame" x="187.66666666666663" y="0.0" width="187.33333333333337" height="34.333333333333336"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laH-GT-fnV">
+                                        <rect key="frame" x="125" y="0.0" width="125" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="hideToastActivity"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="hideAllToast"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZV-2w-EfT">
+                                        <rect key="frame" x="250" y="0.0" width="125" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="hideActivity"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -68,12 +74,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="hideToastActivityButton" destination="uZV-2w-EfT" id="DgZ-YW-JLU"/>
+                        <outlet property="activityButton" destination="Dx4-BN-RPi" id="1wi-9X-OYg"/>
+                        <outlet property="hideActivityButton" destination="uZV-2w-EfT" id="aSN-Kf-Ok6"/>
+                        <outlet property="hideAllButton" destination="laH-GT-fnV" id="twW-gZ-mgb"/>
                         <outlet property="hideToastButton" destination="7sP-5F-XcJ" id="NTs-FZ-d1g"/>
-                        <outlet property="makeToastButton" destination="eib-ax-EjX" id="sU1-Rb-J4X"/>
-                        <outlet property="makeToastCustomButton" destination="9Vy-Nx-DAb" id="R21-sJ-pso"/>
-                        <outlet property="showToastActivityButton" destination="Dx4-BN-RPi" id="l6O-cc-Zys"/>
-                        <outlet property="showToastButton" destination="yhk-50-4Qc" id="1z1-NI-4gS"/>
+                        <outlet property="message1Button" destination="eib-ax-EjX" id="SNv-la-EhH"/>
+                        <outlet property="message2Button" destination="9Vy-Nx-DAb" id="9Px-NN-uJS"/>
+                        <outlet property="message3Button" destination="yhk-50-4Qc" id="cB9-Yz-Khi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
