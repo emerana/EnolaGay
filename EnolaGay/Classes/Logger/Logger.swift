@@ -21,21 +21,21 @@ public enum LogLevel {
     /// 该级别通常代表好消息或令人愉悦的信息
     case 🟢
     /// 没有特别定义，用于强调、区分日志信息等级而已
-    case 🟣, 🕸, 🔘, 📀, 😀, 🦠, 😜, 💧, 🤪, 🧯, 😎, 🕘, 🍑, 🥭, 🚫, 🔆, 🌐, 👑, 🔔
+    case 🟣, 🕸, 🔘, 📀, 😀, 🦠, 😜, 💧, 🤪, 🧯, 😎, 🕘, 🍑, 🚫, 🔆, 🌐, 👑, 🔔
 }
 
 
 /// 通用打印函数，将依次打印文件名、触发函数所在行及函数名的信息。打印格式为**文件 [行] 函数 消息体**
 public func log<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
     #if DEBUG
-    print("\(type) \((file as NSString).lastPathComponent)[\(method)][\(line)]: \(message())")
+    print("\(type) \((file as NSString).lastPathComponent) [\(line)] \(method) \(message())")
     #endif
 }
 
 /// 该函数主要打印所在行信息，较于 log 仅仅不打印函数。打印格式为**文件 [行] 消息体**
 public func logl<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, line: Int = #line) {
     #if DEBUG
-    print("\(type) \((file as NSString).lastPathComponent) [\(line)] ⚓️ \(message())")
+    print("\(type) \((file as NSString).lastPathComponent) [\(line)] \(message())")
     #endif
 }
 
@@ -51,7 +51,7 @@ public func logTime<msg>(type: LogLevel = .🕘, format: String = "HH:mm:ss.SSS"
 }
 
 /// 极简打印，该函数仅输出要打印的消息体。
-public func logs<msg>(type: LogLevel = .🔘, _ message: @autoclosure () -> msg) {
+public func logs<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg) {
     #if DEBUG
     print("\(type) \(message())")
     #endif
@@ -60,28 +60,28 @@ public func logs<msg>(type: LogLevel = .🔘, _ message: @autoclosure () -> msg)
 /// 该函数用于换行打印。打印格式为**文件 [行] 函数 换行打印消息体**
 public func logn<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
     #if DEBUG
-    print("\(type) \((file as NSString).lastPathComponent) [\(line)] \(method) \n \(message())")
+    print("\(type) \((file as NSString).lastPathComponent) [\(line)] \(method)\n\(message())")
     #endif
 }
 
 /// 该函数用于打印好消息级别的输出。打印格式为**文件 [行] 函数 消息体**
 public func logHappy<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
     #if DEBUG
-    print("\(LogLevel.🟢) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
+    print("\(LogLevel.🟢) \((file as NSString).lastPathComponent) [\(line)] \(method) \(message())")
     #endif
 }
 
 /// 该函数用于打印警告或错误级别的输出。打印格式为**文件 [行] 函数 消息体**
 public func logWarning<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
     #if DEBUG
-    print("\(LogLevel.🔴) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
+    print("\(LogLevel.🔴) \((file as NSString).lastPathComponent) [\(line)] \(method) \(message())")
     #endif
 }
 
 /// 该函数用于打印线程相关输出。打印格式为**线程 [行] 函数 消息体**
 public func logt<msg>(type: LogLevel = .🟣, _ message: @autoclosure () -> msg, method: String = #function, line: Int = #line) {
     #if DEBUG
-    print("\(type) \(Thread.current) [\(line)] \(method) ⚓️ \(message())")
+    print("\(type) \(Thread.current) [\(line)] \(method) \(message())")
     #endif
 }
 
