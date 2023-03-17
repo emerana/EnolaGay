@@ -27,40 +27,6 @@ class FunctionListViewCtrl: JudyBaseTableViewCtrl {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        dataSource = [
-            [EMERANA.Key.title: "TableInScrollView",
-             EMERANA.Key.subtitle: "滚动视图里有一个TableView,删除一个Cell后立刻更新整个ScrollView高度",
-             EMERANA.Key.segue: "showTableInScrollView",
-            ],
-            [EMERANA.Key.title: "CollectionInScrollView",
-             EMERANA.Key.subtitle: "滚动视图里嵌套横向滚动视图，实现两个不同高度的CollectionView切换",
-             EMERANA.Key.segue: "showCollectionInScrollView",
-            ],
-            [EMERANA.Key.title: "GracePeriod",
-             EMERANA.Key.subtitle: "免息期计算功能",
-             EMERANA.Key.segue: "showGracePeriodViewCtrl",
-            ],
-            [EMERANA.Key.title: "微信步数增加",
-             EMERANA.Key.subtitle: "将微信运动步数增加至封顶",
-             EMERANA.Key.segue: "showWeiChatViewCtrl",
-            ],
-            [EMERANA.Key.title: "JudyStyleTextField",
-             EMERANA.Key.subtitle: "演示各种不同类型的输入框",
-             EMERANA.Key.segue: "showJudyTextFieldStyle",
-            ],
-            [EMERANA.Key.title: "EMERANA.FontStyle",
-             EMERANA.Key.subtitle: "演示 EMERANA 中各种 FontStyle",
-             EMERANA.Key.segue: "showEMERANA_FontStyle",
-            ],
-            [EMERANA.Key.title: "TableViewFeature",
-             EMERANA.Key.subtitle: "TableView的编辑操作",
-             EMERANA.Key.segue: "showTableViewFeature",
-            ],
-            [EMERANA.Key.title: "TableInScrollView",
-             EMERANA.Key.subtitle: "滚动视图里有一个TableView,删除一个Cell后立刻更新整个ScrollView高度",
-            ],
-        ]
     }
     
     override func didReceiveMemoryWarning() {

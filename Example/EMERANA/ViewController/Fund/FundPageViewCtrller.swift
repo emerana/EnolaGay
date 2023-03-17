@@ -10,7 +10,7 @@ import UIKit
 import EnolaGay
 
 /// 基金信息 pageViewCtrl
-class FundPageViewCtrller: JudyBasePageViewSegmentCtrl {
+class FundPageViewCtrller: JudyBasePageViewCtrl {
 
     
     override func viewDidLoad() {

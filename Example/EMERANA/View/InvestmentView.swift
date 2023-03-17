@@ -155,7 +155,8 @@ private extension InvestmentView {
         fundPurchased.remark = remarkTextField.text
         
         FundDataSourceCtrl.judy.addInvestment(fundPurchased: fundPurchased) { (rs) in
-            JudyTip.message(text: rs ? "添加定投成功":"添加定投失败！")
+            self.toast.activity()
+//            JudyTip.message(text: rs ? "添加定投成功":"添加定投失败！")
             if rs {
                 removeFromSuperview()
                 addSuccessCallback?()

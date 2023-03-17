@@ -40,7 +40,8 @@ class FontViewCtrl: JudyBaseTableViewCtrl {
         super.viewDidLoad()
         tableView?.sectionIndexColor = .systemBlue
         tableView?.sectionIndexMinimumDisplayRowCount = 8
-        
+        // 改变 dataSource 具体数据类型
+        dataSource = [JSON]()
         // 获取字体数据源
         let familyNames = UIFont.familyNames
         familyNames.forEach { familyName in
@@ -49,13 +50,13 @@ class FontViewCtrl: JudyBaseTableViewCtrl {
                 dataSource.append(JSON(fontName))
             }
         }
-        dataSource.sort()   // 排序
+        // (dataSource as! [JSON]).sort()   // 排序
         
         var temp = ""
         var tempDataSection = [JSON]()
         
         // 设置索引数据源
-        dataSource.forEach { (json) in
+        (dataSource as! [JSON]).forEach { (json) in
             // 得到首字母
             let tempForList = (json.stringValue as NSString).substring(with: NSMakeRange(0, 1))
             
@@ -160,7 +161,7 @@ extension FontViewCtrl: UISearchBarDelegate {
         if searchText == "" {
             setTableViewAgent(isSelf: true)
         } else {
-            searchAgent.searchDataSource = dataSource.filter { (json) -> Bool in
+            searchAgent.searchDataSource = (dataSource as! [JSON]).filter { (json) -> Bool in
                 let range = (json.stringValue as NSString).range(of: searchText, options: [.caseInsensitive, .numeric])
                 return range.length > 0
             }

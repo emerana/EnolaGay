@@ -265,7 +265,7 @@ extension UpdateFund {
                 removeFromSuperview()
                 updateCallback?()
             } else {
-                JudyTip.message(text: "修改失败！")
+                self.toast.activity()
             }
         }
     }
