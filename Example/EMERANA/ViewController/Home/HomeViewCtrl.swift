@@ -8,7 +8,7 @@
 
 import UIKit
 import EnolaGay
-import SDCycleScrollView
+//import SDCycleScrollView
 
 /// 首页
 class HomeViewCtrl: JudyBaseCollectionViewCtrl {
@@ -75,13 +75,13 @@ class HomeViewCtrl: JudyBaseCollectionViewCtrl {
 
     // MARK: Api相关
     
-    override func setApi() {
-        super.setApi()
-        
-        requestConfig.api = ApiActions.TCG.shopSearch
-        requestConfig.parameters = ["userName": "Judy"]
-    }
-    
+//    override func setApi() {
+//        super.setApi()
+//
+//        requestConfig.api = ApiActions.TCG.shopSearch
+//        requestConfig.parameters = ["userName": "Judy"]
+//    }
+    /*
     override func reqSuccess() {
         super.reqSuccess()
         Judy.log("请求成功-\(apiData)")
@@ -107,7 +107,7 @@ class HomeViewCtrl: JudyBaseCollectionViewCtrl {
         Judy.log("请求失败-\(apiData)")
         
     }
-
+     */
     // MARK: - Intial Methods - 初始化的方法
     
     // MARK: - Target Methods - 点击事件或通知事件

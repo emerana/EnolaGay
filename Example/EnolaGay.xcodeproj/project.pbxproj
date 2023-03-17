@@ -71,7 +71,6 @@
 		8B9BFC022921BAC3006939E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B9BFC012921BAC3006939E5 /* Assets.xcassets */; };
 		8B9BFC052921BAC3006939E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9BFC032921BAC3006939E5 /* LaunchScreen.storyboard */; };
 		8B9BFC0B2921C565006939E5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BFC0A2921C565006939E5 /* Models.swift */; };
-		8B9D4DFD2924917600C27958 /* MyRxRealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9D4DFC2924917600C27958 /* MyRxRealmTests.swift */; };
 		8BC07ADE291660E1006C6CD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC07ADD291660E1006C6CD2 /* AppDelegate.swift */; };
 		8BC07AE5291660E1006C6CD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC07AE3291660E1006C6CD2 /* Main.storyboard */; };
 		8BC07AE7291660E2006C6CD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC07AE6291660E2006C6CD2 /* Assets.xcassets */; };
@@ -147,7 +146,6 @@
 		8BC3DC9426DF481100A2A405 /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9626DF480F00A2A405 /* InvestmentView.swift */; };
 		8BC3DC9526DF481100A2A405 /* userInfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9826DF480F00A2A405 /* userInfo.txt */; };
 		8BC3DC9626DF481100A2A405 /* 基金精选表.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9926DF480F00A2A405 /* 基金精选表.json */; };
-		8BC3DC9726DF481100A2A405 /* HomeViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9C26DF480F00A2A405 /* HomeViewCtrl.swift */; };
 		8BC3DC9826DF481100A2A405 /* PaoPaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9D26DF480F00A2A405 /* PaoPaoViewController.swift */; };
 		8BC3DC9926DF481100A2A405 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9E26DF480F00A2A405 /* MyView.swift */; };
 		8BC3DCB226DF481100A2A405 /* EMERANA_NSMutableAttributedStringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBBC26DF480F00A2A405 /* EMERANA_NSMutableAttributedStringViewController.swift */; };
@@ -157,9 +155,7 @@
 		8BC3DCBC26DF481100A2A405 /* FullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC926DF480F00A2A405 /* FullViewController.swift */; };
 		8BC3DCBE26DF481100A2A405 /* TableViewFeatureTableViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBCC26DF480F00A2A405 /* TableViewFeatureTableViewCtrl.swift */; };
 		8BC3DCBF26DF481100A2A405 /* ViewCtrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBCD26DF480F00A2A405 /* ViewCtrller.swift */; };
-		8BC3DCC026DF481100A2A405 /* FunctionListViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBCE26DF480F00A2A405 /* FunctionListViewCtrl.swift */; };
 		8BC3DCC126DF481100A2A405 /* ViewCtrllerAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBCF26DF480F00A2A405 /* ViewCtrllerAgent.swift */; };
-		8BC3DCC226DF481100A2A405 /* WeiChatViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD026DF480F00A2A405 /* WeiChatViewCtrl.swift */; };
 		8BC3DCC326DF481100A2A405 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD126DF480F00A2A405 /* TableController.swift */; };
 		8BC3DCC426DF481100A2A405 /* GracePeriodViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD226DF480F00A2A405 /* GracePeriodViewCtrl.swift */; };
 		8BC3DCC526DF481100A2A405 /* UIGraphicsGetCurrentContextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD326DF480F00A2A405 /* UIGraphicsGetCurrentContextViewController.swift */; };
@@ -169,15 +165,12 @@
 		8BC3DCC926DF481100A2A405 /* FontViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD826DF480F00A2A405 /* FontViewCtrl.swift */; };
 		8BC3DCCA26DF481100A2A405 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD926DF480F00A2A405 /* CollectionViewController.swift */; };
 		8BC3DCCB26DF481100A2A405 /* FundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DBDB26DF481000A2A405 /* FundCell.xib */; };
-		8BC3DCCC26DF481100A2A405 /* FundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBDC26DF481000A2A405 /* FundViewController.swift */; };
 		8BC3DCCD26DF481100A2A405 /* FundPurchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBDD26DF481000A2A405 /* FundPurchased.swift */; };
 		8BC3DCCE26DF481100A2A405 /* Fund.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DBDE26DF481000A2A405 /* Fund.plist */; };
 		8BC3DCCF26DF481100A2A405 /* FundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBDF26DF481000A2A405 /* FundCell.swift */; };
 		8BC3DCD026DF481100A2A405 /* FundDetailViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBE026DF481000A2A405 /* FundDetailViewCtrl.swift */; };
 		8BC3DCD126DF481100A2A405 /* FundOptionViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBE126DF481000A2A405 /* FundOptionViewCtrl.swift */; };
-		8BC3DCD226DF481100A2A405 /* FundSearchViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBE226DF481000A2A405 /* FundSearchViewCtrl.swift */; };
 		8BC3DCD326DF481100A2A405 /* Fund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBE326DF481000A2A405 /* Fund.swift */; };
-		8BC3DCD426DF481100A2A405 /* InvestmentViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBE426DF481000A2A405 /* InvestmentViewCtrl.swift */; };
 		8BC3DCD526DF481100A2A405 /* FundPageViewCtrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBE526DF481000A2A405 /* FundPageViewCtrller.swift */; };
 		8BC3DCD626DF481100A2A405 /* InvestmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBE626DF481000A2A405 /* InvestmentCell.swift */; };
 		8BC3DCD726DF481100A2A405 /* RootTabBarViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBE726DF481000A2A405 /* RootTabBarViewCtrl.swift */; };
@@ -257,16 +250,6 @@
 		ECEB1478EB28652460F71169 /* Pods_FontExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20A11D0A2EF5359B59C7896 /* Pods_FontExtension.framework */; };
 		EEAB4A5216C59DC5EEF427B3 /* Pods_Semaphore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2219F8D3BC2903363B8DE5DE /* Pods_Semaphore.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		8B9D4DFE2924917600C27958 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8B9BFBF52921BAC2006939E5;
-			remoteInfo = MyRxRealm;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		00453799243965645ACB0682 /* Pods-AttributedStringDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttributedStringDemo.release.xcconfig"; path = "Target Support Files/Pods-AttributedStringDemo/Pods-AttributedStringDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -385,7 +368,6 @@
 		8B9BFC042921BAC3006939E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B9BFC062921BAC3006939E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B9BFC0A2921C565006939E5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		8B9D4DFA2924917600C27958 /* MyRxRealmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRxRealmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9D4DFC2924917600C27958 /* MyRxRealmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRxRealmTests.swift; sourceTree = "<group>"; };
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
 		8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftMessageViewCtrlTest.swift; sourceTree = "<group>"; };
@@ -682,13 +664,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B9D4DF72924917600C27958 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8BC07AD8291660E0006C6CD2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -955,7 +930,6 @@
 				8B174A2226F483B900B81EC7 /* JudyBaseNavigationCtrl.app */,
 				8BC07ADB291660E0006C6CD2 /* MyIGListKit.app */,
 				8B9BFBF62921BAC2006939E5 /* MyRxRealm.app */,
-				8B9D4DFA2924917600C27958 /* MyRxRealmTests.xctest */,
 				8BD025F22930D8AB005709D6 /* ToastDemo.app */,
 				8BE31B7729C2D229003038B2 /* Demo.app */,
 			);
@@ -1778,24 +1752,6 @@
 			productReference = 8B9BFBF62921BAC2006939E5 /* MyRxRealm.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8B9D4DF92924917600C27958 /* MyRxRealmTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8B9D4E002924917600C27958 /* Build configuration list for PBXNativeTarget "MyRxRealmTests" */;
-			buildPhases = (
-				8B9D4DF62924917600C27958 /* Sources */,
-				8B9D4DF72924917600C27958 /* Frameworks */,
-				8B9D4DF82924917600C27958 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8B9D4DFF2924917600C27958 /* PBXTargetDependency */,
-			);
-			name = MyRxRealmTests;
-			productName = MyRxRealmTests;
-			productReference = 8B9D4DFA2924917600C27958 /* MyRxRealmTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		8BC07ADA291660E0006C6CD2 /* MyIGListKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BC07AEE291660E2006C6CD2 /* Build configuration list for PBXNativeTarget "MyIGListKit" */;
@@ -2181,11 +2137,6 @@
 						DevelopmentTeam = 325J3J39TM;
 						ProvisioningStyle = Automatic;
 					};
-					8B9D4DF92924917600C27958 = {
-						CreatedOnToolsVersion = 14.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 8B9BFBF52921BAC2006939E5;
-					};
 					8BC07ADA291660E0006C6CD2 = {
 						CreatedOnToolsVersion = 14.1;
 						DevelopmentTeam = 325J3J39TM;
@@ -2300,7 +2251,6 @@
 				8B174A2126F483B900B81EC7 /* JudyBaseNavigationCtrl */,
 				8BC07ADA291660E0006C6CD2 /* MyIGListKit */,
 				8B9BFBF52921BAC2006939E5 /* MyRxRealm */,
-				8B9D4DF92924917600C27958 /* MyRxRealmTests */,
 				8BD025F12930D8AB005709D6 /* ToastDemo */,
 				8BE31B7629C2D229003038B2 /* Demo */,
 			);
@@ -2342,13 +2292,6 @@
 				8B9BFC052921BAC3006939E5 /* LaunchScreen.storyboard in Resources */,
 				8B9BFC022921BAC3006939E5 /* Assets.xcassets in Resources */,
 				8B9BFC002921BAC2006939E5 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8B9D4DF82924917600C27958 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2814,7 +2757,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demo-EMERANA/Pods-Demo-EMERANA-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-iOS11.0/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay.default-HUD-iOS11.0/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -3284,7 +3227,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Semaphore/Pods-Semaphore-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay.default-HUD/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay.default-HUD-iOS13.0/EnolaGay.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -3566,14 +3509,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B9D4DF62924917600C27958 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8B9D4DFD2924917600C27958 /* MyRxRealmTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8BC07AD7291660E0006C6CD2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3682,17 +3617,13 @@
 				8BC3DC9926DF481100A2A405 /* MyView.swift in Sources */,
 				8BC3DCC526DF481100A2A405 /* UIGraphicsGetCurrentContextViewController.swift in Sources */,
 				8B3BD1DD27014EB2001912FB /* DownloadViewCtrl.swift in Sources */,
-				8BC3DCCC26DF481100A2A405 /* FundViewController.swift in Sources */,
-				8BC3DCC226DF481100A2A405 /* WeiChatViewCtrl.swift in Sources */,
 				8BC3DC9826DF481100A2A405 /* PaoPaoViewController.swift in Sources */,
 				8BC3DCC826DF481100A2A405 /* FontViewSearchAgent.swift in Sources */,
 				8BC3DCC126DF481100A2A405 /* ViewCtrllerAgent.swift in Sources */,
-				8BC3DC9726DF481100A2A405 /* HomeViewCtrl.swift in Sources */,
 				8BC3DCCA26DF481100A2A405 /* CollectionViewController.swift in Sources */,
 				8BC3DC9126DF481100A2A405 /* UpdateFund.swift in Sources */,
 				8BC3DCC426DF481100A2A405 /* GracePeriodViewCtrl.swift in Sources */,
 				8BC3DCBA26DF481100A2A405 /* PushTest_ViewCtrl_B.swift in Sources */,
-				8BC3DCD226DF481100A2A405 /* FundSearchViewCtrl.swift in Sources */,
 				8BC3DC9426DF481100A2A405 /* InvestmentView.swift in Sources */,
 				8BC3DCD726DF481100A2A405 /* RootTabBarViewCtrl.swift in Sources */,
 				8BC3DC9326DF481100A2A405 /* AddFundView.swift in Sources */,
@@ -3709,10 +3640,8 @@
 				8BC3DB6E26DF479200A2A405 /* AppDelegate.swift in Sources */,
 				8BC3DCB226DF481100A2A405 /* EMERANA_NSMutableAttributedStringViewController.swift in Sources */,
 				8BC3DCD826DF481100A2A405 /* FundDataSourceCtrl.swift in Sources */,
-				8BC3DCC026DF481100A2A405 /* FunctionListViewCtrl.swift in Sources */,
 				8BC3DCD026DF481100A2A405 /* FundDetailViewCtrl.swift in Sources */,
 				8BC3DCCF26DF481100A2A405 /* FundCell.swift in Sources */,
-				8BC3DCD426DF481100A2A405 /* InvestmentViewCtrl.swift in Sources */,
 				8BC3DCBF26DF481100A2A405 /* ViewCtrller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3804,14 +3733,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8B9D4DFF2924917600C27958 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8B9BFBF52921BAC2006939E5 /* MyRxRealm */;
-			targetProxy = 8B9D4DFE2924917600C27958 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8B17484726EB3BC900B81EC7 /* Main.storyboard */ = {
@@ -4451,69 +4372,6 @@
 			};
 			name = Release;
 		};
-		8B9D4E012924917600C27958 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = judy.MyRxRealmTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyRxRealm.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyRxRealm";
-			};
-			name = Debug;
-		};
-		8B9D4E022924917600C27958 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = judy.MyRxRealmTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyRxRealm.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyRxRealm";
-			};
-			name = Release;
-		};
 		8BC07AEC291660E2006C6CD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 730720763D37F371DF18B58D /* Pods-MyIGListKit.debug.xcconfig */;
@@ -4931,7 +4789,7 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = EMERANA/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -4963,7 +4821,7 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = EMERANA/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.EMERANA;
@@ -5486,15 +5344,6 @@
 			buildConfigurations = (
 				8B9BFC072921BAC3006939E5 /* Debug */,
 				8B9BFC082921BAC3006939E5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8B9D4E002924917600C27958 /* Build configuration list for PBXNativeTarget "MyRxRealmTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8B9D4E012924917600C27958 /* Debug */,
-				8B9D4E022924917600C27958 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

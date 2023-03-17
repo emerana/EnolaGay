@@ -32,13 +32,16 @@ target 'Demo' do
   
   target 'EMERANA' do
     pod 'EnolaGay', :path => '../'
+    pod 'EnolaGay/HUD', :path => '../'
     pod 'IQKeyboardManagerSwift'
     
     #    pod 'MBProgressHUD'
     pod 'SwiftMessages'
     pod 'MJRefresh'
     pod 'SDWebImage'
-    pod 'SDCycleScrollView'
+    #  广告轮播图
+    # pod 'SDCycleScrollView'
+    
     #    pod 'SocketRocket'    # https://github.com/facebook/SocketRocket.git
     #    pod 'RESideMenu', '~> 4.0.7' #侧边菜单
     #    pod 'ResponseDetective'

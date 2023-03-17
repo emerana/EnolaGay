@@ -35,16 +35,10 @@ class FundOptionViewCtrl: JudyBaseTableRefreshViewCtrl {
     }
     
     // MARK: - override - 重写重载父类的方法
-    override func setApi() {
+    func setApi() {
         // 重新读取数据库，并重载tableView
         fundList = FundDataSourceCtrl.judy.getOptionList()
         tableView?.reloadData()
-    }
-
-    override func reqNotApi() {
-        super.reqNotApi()
-        
-        isReqSuccess = false
     }
     
     override func registerReuseComponents() {
@@ -75,7 +69,7 @@ class FundOptionViewCtrl: JudyBaseTableRefreshViewCtrl {
             let viewCtrl: FundDetailViewCtrl = segue.destination as! FundDetailViewCtrl
             viewCtrl.fund = sender as? Fund
             viewCtrl.deleteOptionCallback = ({
-                self.reqApi()
+//                self.reqApi()
             })
         }
     }
