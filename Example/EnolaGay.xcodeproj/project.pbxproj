@@ -14,7 +14,6 @@
 		2844F08FF283847D8070BF8A /* Pods_SegmentedDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47E999B91D99CC60E4315CC /* Pods_SegmentedDemo.framework */; };
 		56C2B4BDDE2BF1D78F8818A3 /* Pods_MyIGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09FCC4A97F55D3D86F8CBD8 /* Pods_MyIGListKit.framework */; };
 		5E10758CE6B0A3DBC745A837 /* Pods_MyRxRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9EB8CFB620E0BC26A279B3 /* Pods_MyRxRealm.framework */; };
-		6F2BB4AB710A8B2069A42DC0 /* Pods_Demo_Semaphore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB96159DBB50491DDAAB3FA /* Pods_Demo_Semaphore.framework */; };
 		6F6259394A3A9FC5E68D4243 /* Pods_PlayerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1A1A1370061A6D2BA38281 /* Pods_PlayerDemo.framework */; };
 		7DFC7173A357B9B7E880D315 /* Pods_MyCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271D1E28BDD517FC30EC966B /* Pods_MyCharts.framework */; };
 		8B17484226EB3BC900B81EC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B17484126EB3BC900B81EC7 /* AppDelegate.swift */; };
@@ -65,6 +64,7 @@
 		8B174A2E26F483BE00B81EC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B174A2D26F483BE00B81EC7 /* Assets.xcassets */; };
 		8B174A3126F483BE00B81EC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B174A2F26F483BE00B81EC7 /* LaunchScreen.storyboard */; };
 		8B3BD1DD27014EB2001912FB /* DownloadViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BD1DC27014EB2001912FB /* DownloadViewCtrl.swift */; };
+		8B4F5D4729C45C560092AF67 /* SemaphoreViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DA4526DE965800A2A405 /* SemaphoreViewCtrl.swift */; };
 		8B9BFBF92921BAC2006939E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BFBF82921BAC2006939E5 /* AppDelegate.swift */; };
 		8B9BFBFD2921BAC2006939E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BFBFC2921BAC2006939E5 /* ViewController.swift */; };
 		8B9BFC002921BAC2006939E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9BFBFE2921BAC2006939E5 /* Main.storyboard */; };
@@ -84,7 +84,6 @@
 		8BC3DA2D26DDF88C00A2A405 /* VersionCheckViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */; };
 		8BC3DA3226DDFA6E00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA3026DDFA6E00A2A405 /* Main.storyboard */; };
 		8BC3DA3326DDFAAC00A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */; };
-		8BC3DA4626DE965A00A2A405 /* SemaphoreViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DA4526DE965800A2A405 /* SemaphoreViewCtrl.swift */; };
 		8BC3DA5426DE97B100A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA5226DE97B100A2A405 /* Main.storyboard */; };
 		8BC3DA5526DE97C700A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA5026DE97A000A2A405 /* LaunchScreen.xib */; };
 		8BC3DA5926DE989D00A2A405 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DA5826DE989D00A2A405 /* App.swift */; };
@@ -256,6 +255,7 @@
 		E8924F7BE5DB78131352C79A /* Pods_CastSurelyCalculation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC320D0BB712D408990761B0 /* Pods_CastSurelyCalculation.framework */; };
 		E923A544DE457C697CF4DE8F /* Pods_KeyBoardPop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDC9002BE9A5AC51D0D2AA5 /* Pods_KeyBoardPop.framework */; };
 		ECEB1478EB28652460F71169 /* Pods_FontExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20A11D0A2EF5359B59C7896 /* Pods_FontExtension.framework */; };
+		EEAB4A5216C59DC5EEF427B3 /* Pods_Semaphore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2219F8D3BC2903363B8DE5DE /* Pods_Semaphore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -281,13 +281,14 @@
 		1370040E6669A6AF9B8CC4AF /* Pods-Demo-EMERANA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-EMERANA.release.xcconfig"; path = "Target Support Files/Pods-Demo-EMERANA/Pods-Demo-EMERANA.release.xcconfig"; sourceTree = "<group>"; };
 		143CD9C058C57130401B3EF3 /* Pods_EnolaGay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnolaGay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1491860A2509DC7F512E927B /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		1CC12BF30F37DB4AAA35F8F4 /* Pods-Semaphore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Semaphore.debug.xcconfig"; path = "Target Support Files/Pods-Semaphore/Pods-Semaphore.debug.xcconfig"; sourceTree = "<group>"; };
 		1EC789C4543A144891B0D8D9 /* Pods-KeyBoardPop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyBoardPop.debug.xcconfig"; path = "Target Support Files/Pods-KeyBoardPop/Pods-KeyBoardPop.debug.xcconfig"; sourceTree = "<group>"; };
+		2219F8D3BC2903363B8DE5DE /* Pods_Semaphore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Semaphore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		271D1E28BDD517FC30EC966B /* Pods_MyCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD932A0D4EC3DB184BD9B1E /* Pods-AGUL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGUL.release.xcconfig"; path = "Target Support Files/Pods-AGUL/Pods-AGUL.release.xcconfig"; sourceTree = "<group>"; };
 		2FC564A00EDED257C8FC1788 /* Pods-Demo-Semaphore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-Semaphore.debug.xcconfig"; path = "Target Support Files/Pods-Demo-Semaphore/Pods-Demo-Semaphore.debug.xcconfig"; sourceTree = "<group>"; };
 		3448F43C0484DBEAC0D6AB18 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		385859AD998457D6279B1E50 /* Pods-MyRxRealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRxRealm.debug.xcconfig"; path = "Target Support Files/Pods-MyRxRealm/Pods-MyRxRealm.debug.xcconfig"; sourceTree = "<group>"; };
-		3CB96159DBB50491DDAAB3FA /* Pods_Demo_Semaphore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo_Semaphore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D0D6509B70B42E53824E1F8 /* Pods_VersionCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VersionCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A6C91B602C1E02B3D9CC23 /* Pods-Demo-EMERANA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-EMERANA.debug.xcconfig"; path = "Target Support Files/Pods-Demo-EMERANA/Pods-Demo-EMERANA.debug.xcconfig"; sourceTree = "<group>"; };
 		4DEB91DC7B0952D2A5F30CE0 /* Pods-MyIGListKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyIGListKit.release.xcconfig"; path = "Target Support Files/Pods-MyIGListKit/Pods-MyIGListKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -629,6 +630,7 @@
 		A47E999B91D99CC60E4315CC /* Pods_SegmentedDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SegmentedDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5DD4A02AFF1747699A29E82 /* Pods_AGUL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AGUL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6F9B02276DB90ABE8BFCE11 /* Pods-CacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CacheDemo.release.xcconfig"; path = "Target Support Files/Pods-CacheDemo/Pods-CacheDemo.release.xcconfig"; sourceTree = "<group>"; };
+		AAE1DE886AAF212609DDD046 /* Pods-Semaphore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Semaphore.release.xcconfig"; path = "Target Support Files/Pods-Semaphore/Pods-Semaphore.release.xcconfig"; sourceTree = "<group>"; };
 		B20A11D0A2EF5359B59C7896 /* Pods_FontExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FontExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31877678D006019384F3D2A /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40175B5A5EF836CA280ABD0 /* Pods-FontExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontExtension.debug.xcconfig"; path = "Target Support Files/Pods-FontExtension/Pods-FontExtension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -707,7 +709,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F2BB4AB710A8B2069A42DC0 /* Pods_Demo_Semaphore.framework in Frameworks */,
+				EEAB4A5216C59DC5EEF427B3 /* Pods_Semaphore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -889,6 +891,8 @@
 				1370040E6669A6AF9B8CC4AF /* Pods-Demo-EMERANA.release.xcconfig */,
 				2FC564A00EDED257C8FC1788 /* Pods-Demo-Semaphore.debug.xcconfig */,
 				CDF5D251C8394C6CFE3C8C90 /* Pods-Demo-Semaphore.release.xcconfig */,
+				1CC12BF30F37DB4AAA35F8F4 /* Pods-Semaphore.debug.xcconfig */,
+				AAE1DE886AAF212609DDD046 /* Pods-Semaphore.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1709,7 +1713,7 @@
 				B31877678D006019384F3D2A /* Pods_Demo.framework */,
 				F6947AAF37AB3E6E86CBADD5 /* Pods_ToastDemo.framework */,
 				63F793883511E6BD42AF3A2D /* Pods_Demo_EMERANA.framework */,
-				3CB96159DBB50491DDAAB3FA /* Pods_Demo_Semaphore.framework */,
+				2219F8D3BC2903363B8DE5DE /* Pods_Semaphore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1838,7 +1842,7 @@
 				8BC3DA3626DE962800A2A405 /* Sources */,
 				8BC3DA3926DE962800A2A405 /* Frameworks */,
 				8BC3DA3C26DE962800A2A405 /* Resources */,
-				C4CFCC798DE37606EFBB29B3 /* [CP] Embed Pods Frameworks */,
+				9BE76607787870BE46320A04 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2142,7 +2146,6 @@
 				8BE31B7329C2D229003038B2 /* Sources */,
 				8BE31B7429C2D229003038B2 /* Frameworks */,
 				8BE31B7529C2D229003038B2 /* Resources */,
-				D4F06492A2D0A20AABC91A89 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2811,10 +2814,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demo-EMERANA/Pods-Demo-EMERANA-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-EMERANA-WKWebView/EnolaGay.framework",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh-iOS13.0/MJRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage-iOS13.0/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftMessages-iOS13.0/SwiftMessages.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-iOS11.0/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/BadgeHub/BadgeHub.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
@@ -2826,6 +2830,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
@@ -2971,7 +2976,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Demo-Semaphore-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Semaphore-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3093,7 +3098,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/EnolaGay-iOS11.0/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh-iOS11.0/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -3272,6 +3277,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ToastDemo/Pods-ToastDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9BE76607787870BE46320A04 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Semaphore/Pods-Semaphore-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay.default-HUD/EnolaGay.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Semaphore/Pods-Semaphore-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B07F5C26B986BB6BBC1ABCE3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3334,24 +3357,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C4CFCC798DE37606EFBB29B3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Demo-Semaphore/Pods-Demo-Semaphore-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-EMERANA-WKWebView/EnolaGay.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Demo-Semaphore/Pods-Demo-Semaphore-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		CE9988A92642D59C8EA9D709 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3392,24 +3397,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D4F06492A2D0A20AABC91A89 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-EMERANA-WKWebView/EnolaGay.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D6CCFBB1A5689FD387706263 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3441,8 +3428,8 @@
 				"${PODS_ROOT}/Target Support Files/Pods-AGUL/Pods-AGUL-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/EnolaGay-iOS11.0/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage-iOS11.0/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftMessages-iOS11.0/SwiftMessages.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -3612,8 +3599,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B4F5D4729C45C560092AF67 /* SemaphoreViewCtrl.swift in Sources */,
 				8BC3DA5926DE989D00A2A405 /* App.swift in Sources */,
-				8BC3DA4626DE965A00A2A405 /* SemaphoreViewCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4636,7 +4623,7 @@
 		};
 		8BC3DA4126DE962800A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2FC564A00EDED257C8FC1788 /* Pods-Demo-Semaphore.debug.xcconfig */;
+			baseConfigurationReference = 1CC12BF30F37DB4AAA35F8F4 /* Pods-Semaphore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -4653,7 +4640,7 @@
 		};
 		8BC3DA4226DE962800A2A405 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CDF5D251C8394C6CFE3C8C90 /* Pods-Demo-Semaphore.release.xcconfig */;
+			baseConfigurationReference = AAE1DE886AAF212609DDD046 /* Pods-Semaphore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
@@ -4944,7 +4931,7 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = EMERANA/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -4976,7 +4963,7 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = EMERANA/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.EMERANA;
