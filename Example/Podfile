@@ -22,6 +22,8 @@ target 'Demo' do
   target 'Semaphore' do
     #    inherit! :search_paths 这行可不写
     platform :ios, '13.0'
+    pod 'EnolaGay', :path => '../'
+
     pod 'EnolaGay/HUD', :path => '../'
 
   end

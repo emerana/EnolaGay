@@ -64,6 +64,7 @@
 		8B174A2E26F483BE00B81EC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B174A2D26F483BE00B81EC7 /* Assets.xcassets */; };
 		8B174A3126F483BE00B81EC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B174A2F26F483BE00B81EC7 /* LaunchScreen.storyboard */; };
 		8B3BD1DD27014EB2001912FB /* DownloadViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BD1DC27014EB2001912FB /* DownloadViewCtrl.swift */; };
+		8B4F5D4729C45C560092AF67 /* SemaphoreViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DA4526DE965800A2A405 /* SemaphoreViewCtrl.swift */; };
 		8B9BFBF92921BAC2006939E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BFBF82921BAC2006939E5 /* AppDelegate.swift */; };
 		8B9BFBFD2921BAC2006939E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BFBFC2921BAC2006939E5 /* ViewController.swift */; };
 		8B9BFC002921BAC2006939E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9BFBFE2921BAC2006939E5 /* Main.storyboard */; };
@@ -3283,7 +3284,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Semaphore/Pods-Semaphore-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-HUD/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay.default-HUD/EnolaGay.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -3598,6 +3599,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B4F5D4729C45C560092AF67 /* SemaphoreViewCtrl.swift in Sources */,
 				8BC3DA5926DE989D00A2A405 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

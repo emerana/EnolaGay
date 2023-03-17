@@ -68,11 +68,11 @@ Pod::Spec.new do |s|
       ss.source_files = 'EnolaGay/Classes/WKWebView/*'
   end
   
-  # MARK: 以上 pod 能力模块独立安装时将自动安装 pod 'EnolaGay' 的核心
+  # MARK: 以上 pod 能力模块独立安装时将自动安装 pod 'EnolaGay' 核心
   
   # MARK: -
   
-  # MARK: - 以下 pod 独立安装时不依赖 pod 'EnolaGay' 的核心
+  # MARK: - 以下 pod 独立安装时不依赖 pod 'EnolaGay' 核心
   
   # MARK: 烟花爆炸效果
   s.subspec 'JudyPopBubble' do |ss|
