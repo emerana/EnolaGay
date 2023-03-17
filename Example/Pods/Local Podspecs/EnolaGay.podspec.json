@@ -25,6 +25,66 @@
     {
       "name": "EMERANA",
       "source_files": "EnolaGay/Classes/Core/*"
+    },
+    {
+      "name": "SegmentedView",
+      "dependencies": {
+        "EnolaGay/EMERANA": [
+
+        ]
+      },
+      "source_files": "EnolaGay/Classes/SegmentedView/*"
+    },
+    {
+      "name": "HPickerView",
+      "dependencies": {
+        "EnolaGay/EMERANA": [
+
+        ]
+      },
+      "source_files": "EnolaGay/Classes/HPickerView/*"
+    },
+    {
+      "name": "TextFieldEffects",
+      "dependencies": {
+        "EnolaGay/EMERANA": [
+
+        ]
+      },
+      "source_files": "EnolaGay/Classes/TextFieldEffects/*"
+    },
+    {
+      "name": "WKWebView",
+      "dependencies": {
+        "EnolaGay/EMERANA": [
+
+        ]
+      },
+      "source_files": "EnolaGay/Classes/WKWebView/*"
+    },
+    {
+      "name": "JudyPopBubble",
+      "source_files": "EnolaGay/Classes/JudyPopBubble/*"
+    },
+    {
+      "name": "JudyPlusButtonTabBar",
+      "source_files": "EnolaGay/Classes/JudyPlusButtonTabBar/*"
+    },
+    {
+      "name": "CircularProgressView",
+      "source_files": "EnolaGay/Classes/CircularProgressView/*"
+    },
+    {
+      "name": "GiftMessageCtrlPanel",
+      "source_files": "EnolaGay/Classes/GiftMessageCtrlPanel/*"
+    },
+    {
+      "name": "JudyWaterWaveView",
+      "source_files": "EnolaGay/Classes/JudyWaterWaveView/*"
+    },
+    {
+      "name": "MarqueeView",
+      "source_files": "EnolaGay/Classes/MarqueeView/*"
     }
   ],
   "swift_version": "5.0"

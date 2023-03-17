@@ -3,26 +3,13 @@ use_frameworks!
 
 platform :ios, '11.0'
 
-target 'EnolaGay_Example' do
-  pod 'EnolaGay', :path => '../'
-#  pod 'EnolaGay/SegmentedView', :path => '../'
-#  pod 'EnolaGay/HPickerView', :path => '../'
-#  pod 'EnolaGay/TextFieldEffects', :path => '../'
-#  pod 'EnolaGay/JudyPopBubble', :path => '../'
-#  pod 'EnolaGay/JudyWaterWaveView', :path => '../'
-#  pod 'EnolaGay/MarqueeView', :path => '../'
-#  pod 'EnolaGay/CircularProgressView', :path => '../'
-#  pod 'EnolaGay/GiftMessageCtrlPanel', :path => '../'
-#  pod 'EnolaGay/SearchViewCtrl', :path => '../'
-#  pod 'EnolaGay/FileManager', :path => '../'
-#  pod 'EnolaGay/WKWebView', :path => '../'
-#  pod 'EnolaGay/JudyPlusButtonTabBar', :path => '../'
-#  pod 'EnolaGay/HUD', :path => '../'
-  
-#  pod 'Alamofire'
-  #  pod "SnapKit"
-#  pod 'SwiftyJSON'
-
+target 'Demo' do
+  #  pod 'EnolaGay/TextFieldEffects', :path => '../'
+  #  pod 'EnolaGay/JudyPopBubble', :path => '../'
+  #  pod 'EnolaGay/JudyPlusButtonTabBar', :path => '../'
+  #  pod 'EnolaGay/JudyWaterWaveView', :path => '../'
+  #  pod 'EnolaGay/MarqueeView', :path => '../'
+  pod 'EnolaGay/WKWebView', :path => '../'
   
   #  target 'EnolaGay_Tests' do
   #    inherit! :search_paths
@@ -34,7 +21,6 @@ target 'EnolaGay_Example' do
   
   target 'Semaphore' do
     #    inherit! :search_paths 这行可不写
-    
   end
   
   # MARK: EMERANA
@@ -77,6 +63,19 @@ target 'ToastDemo' do
 
 end
 
+# MARK: SegmentedDemo
+
+target 'SegmentedDemo' do
+  pod 'EnolaGay/SegmentedView', :path => '../'
+end
+
+
+# MARK: HPickerDemo
+
+target 'HPickerDemo' do
+  pod 'EnolaGay/HPickerView', :path => '../'
+end
+
 # MARK: VersionCheck
 
 target 'VersionCheck' do
@@ -108,15 +107,6 @@ end
 # MARK: RefreshAdapter
 
 target 'RefreshAdapter' do
-  pod 'EnolaGay', :path => '../'
-  pod 'MJRefresh'
-  pod 'Alamofire'
-end
-
-
-# MARK: HPickerDemo
-
-target 'HPickerDemo' do
   pod 'EnolaGay', :path => '../'
   pod 'MJRefresh'
   pod 'Alamofire'
@@ -189,13 +179,6 @@ target 'JudyLivePageViewCtrl' do
 end
 
 
-# MARK: SegmentedDemo
-
-target 'SegmentedDemo' do
-#  pod 'EnolaGay/SegmentedView', :path => '../'
-end
-
-
 # MARK: AttributedStringDemo
 
 target 'AttributedStringDemo' do
@@ -227,11 +210,4 @@ end
 target 'MyRxRealm' do
   pod 'EnolaGay', :path => '../'
   pod "RxRealm"
-end
-
-# MARK: Demo
-
-target 'Demo' do
-  pod 'EnolaGay', :path => '../'
-
 end

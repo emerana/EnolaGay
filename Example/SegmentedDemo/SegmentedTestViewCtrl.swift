@@ -20,6 +20,7 @@ class SegmentedTestViewCtrl: UIViewController {
         super.viewDidLoad()
 
         setSegmentedView()
+        Judy.logs("哈哈")
     }
     
     private func setSegmentedView() {
