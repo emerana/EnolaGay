@@ -60,7 +60,7 @@ Pod::Spec.new do |s|
       ss.source_files = 'EnolaGay/Classes/TextFieldEffects/*'
   end
 
-  #  以下 pod 可独立安装,不依赖 pod 'EnolaGay'
+  # MARK: - 以下 pod 可独立安装,不依赖 pod 'EnolaGay'
   
   s.subspec 'JudyPopBubble' do |ss|
       ss.source_files = 'EnolaGay/Classes/JudyPopBubble/*'
@@ -68,6 +68,16 @@ Pod::Spec.new do |s|
 
   s.subspec 'JudyPlusButtonTabBar' do |ss|
       ss.source_files = 'EnolaGay/Classes/JudyPlusButtonTabBar/*'
+  end
+  
+  # MARK: 圆环进度条
+  s.subspec 'CircularProgressView' do |ss|
+      ss.source_files = 'EnolaGay/Classes/CircularProgressView/*'
+  end
+  
+  # MARK: 直播间送礼物面板
+  s.subspec 'GiftMessageCtrlPanel' do |ss|
+      ss.source_files = 'EnolaGay/Classes/GiftMessageCtrlPanel/*'
   end
 
   #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
@@ -80,15 +90,6 @@ Pod::Spec.new do |s|
 #      ss.source_files = 'EnolaGay/Classes/MarqueeView/*'
 #  end
   
-  #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
-#  s.subspec 'CircularProgressView' do |ss|
-#      ss.source_files = 'EnolaGay/Classes/CircularProgressView/*'
-#  end
-  
-  #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
-#  s.subspec 'GiftMessageCtrlPanel' do |ss|
-#      ss.source_files = 'EnolaGay/Classes/GiftMessageCtrlPanel/*'
-#  end
   
   
 #  s.subspec 'SearchViewCtrl' do |ss|
