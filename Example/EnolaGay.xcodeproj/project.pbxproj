@@ -955,7 +955,6 @@
 				8BC3DB5326DF414D00A2A405 /* FontExtension */,
 				8BC3DB6C26DF479200A2A405 /* EMERANA */,
 				8BC3DD1C26DF58FB00A2A405 /* AGUL */,
-				8BC3DD7E26E05C8E00A2A405 /* SegmentedDemo */,
 				8BC3DD9A26E05E5000A2A405 /* AttributedStringDemo */,
 				8BC3DDB626E05F9100A2A405 /* GiftMessageViewCtrlDemo */,
 				8BC3DDD226E0617400A2A405 /* JudyLivePageViewCtrl */,
@@ -966,6 +965,7 @@
 				8B9BFBF72921BAC2006939E5 /* MyRxRealm */,
 				8B9D4DFB2924917600C27958 /* MyRxRealmTests */,
 				8BE31B7829C2D22A003038B2 /* Demo */,
+				8BC3DD7E26E05C8E00A2A405 /* SegmentedDemo */,
 				8BD025F32930D8AB005709D6 /* ToastDemo */,
 				607FACD11AFB9204008FA782 /* Products */,
 				48F58D42A596E8C4AFE02DEE /* Pods */,
@@ -2114,6 +2114,7 @@
 				8BC3DD7926E05C8D00A2A405 /* Sources */,
 				8BC3DD7A26E05C8D00A2A405 /* Frameworks */,
 				8BC3DD7B26E05C8D00A2A405 /* Resources */,
+				36E5577C86CBF0611AFF3448 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2870,6 +2871,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyRxRealm/Pods-MyRxRealm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		36E5577C86CBF0611AFF3448 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SegmentedDemo/Pods-SegmentedDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-EMERANA-SegmentedView/EnolaGay.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SegmentedDemo/Pods-SegmentedDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3A9591FD73A75A8B8EA4952E /* [CP] Check Pods Manifest.lock */ = {

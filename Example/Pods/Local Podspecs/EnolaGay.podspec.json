@@ -25,6 +25,15 @@
     {
       "name": "EMERANA",
       "source_files": "EnolaGay/Classes/Core/*"
+    },
+    {
+      "name": "SegmentedView",
+      "dependencies": {
+        "EnolaGay/EMERANA": [
+
+        ]
+      },
+      "source_files": "EnolaGay/Classes/SegmentedView/*"
     }
   ],
   "swift_version": "5.0"

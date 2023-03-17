@@ -39,11 +39,11 @@ Pod::Spec.new do |s|
       # ss.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
   end
 
-#  s.subspec 'SegmentedView' do |ss|
-#      # 使用到 JudyBasePageViewCtrl
-#      ss.dependency 'EnolaGay/EMERANA'
-#      ss.source_files = 'EnolaGay/Classes/SegmentedView/*'
-#  end
+  s.subspec 'SegmentedView' do |ss|
+      # 使用到 JudyBasePageViewCtrl
+      ss.dependency 'EnolaGay/EMERANA'
+      ss.source_files = 'EnolaGay/Classes/SegmentedView/*'
+  end
   
 #  s.subspec 'HPickerView' do |ss|
 #      # 使用到 NSMutableAttributedString 高配版生成器
