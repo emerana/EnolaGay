@@ -54,6 +54,15 @@
       "source_files": "EnolaGay/Classes/TextFieldEffects/*"
     },
     {
+      "name": "WKWebView",
+      "dependencies": {
+        "EnolaGay/EMERANA": [
+
+        ]
+      },
+      "source_files": "EnolaGay/Classes/WKWebView/*"
+    },
+    {
       "name": "JudyPopBubble",
       "source_files": "EnolaGay/Classes/JudyPopBubble/*"
     },
