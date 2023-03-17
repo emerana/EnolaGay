@@ -1565,8 +1565,6 @@ extension EnolaGayCompatible {
 }
 
 // MARK: 使指定类型接受命名空间兼容类型协议，指定类型就可以使用 Judy 命名空间。
-// 使 UIViewController 接受命名空间兼容类型协议
-extension UIViewController: EnolaGayCompatible { }
 // 使 Double 接受命名空间兼容类型协议
 extension Double: EnolaGayCompatible { }
 // 使 UIView 接受命名空间兼容类型协议

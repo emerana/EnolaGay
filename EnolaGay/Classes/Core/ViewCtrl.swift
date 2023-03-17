@@ -105,32 +105,10 @@ open class JudyBaseViewCtrl: UIViewController {
     /// 如需更改显示的标题请在 viewDidLoad 之后设置 navigationItem.title 即可。
     /// - Warning: 重写读写属性方式为实现 get、set，且里面最好全调用 super，尤其是 set.
     open var viewTitle: String? { nil }
-    /// 当前界面包含的 json 数据，设置该值将触发 jsonDidSet() 函数，初值为 JSON().
-    open var json = JSON() { didSet{ jsonDidSet() } }
-    
+
     /// 自动触发 reqApi() 方法时是否显示等待 hud，该值默认为 true.
     /// - Warning: 此属性仅在自动触发 reqApi() 方法时生效。
     open var isAllowApiWaitingHUD: Bool { true }
-
-    // MARK: Api 相关属性
-    
-    /// 请求配置对象
-    open lazy var requestConfig = ApiRequestConfig()
-    /// 服务器响应的 JSON 数据
-    final lazy private(set) public var apiData = JSON()
-    
-    /// 当前界面网络请求成功的标识，默认 false.
-    ///
-    /// 该值为 false 时会在 viewWillAppear() 中触发 reqApi()；
-    /// 若需要取消该请求，重写父类 viewWillAppear()，并在调用父类之前将值改为 true. 参考如下代码：
-    /// ```
-    /// isReqSuccess = true
-    /// super.viewWillAppear(animated)
-    /// ```
-    /// - Warning: 注意生命周期 viewWillAppear() ，每次都会调用；
-    /// * 当 requestConfig.api = nil，reqApi() 中会将该值设为 true;
-    /// * 若需要界面每次出现都发送请求，请在 super.viewWillAppear() 之前或 reqApi() 响应后（如 reqOver()）将该值设为 false.
-    final lazy public var isReqSuccess: Bool = false
 
     /// 是否由当前 viewCtrl 决定 statusBarStyle，默认 false.
     /// - Warning: 如果该值为 true，则重写 preferredStatusBarStyle 以设置当前 viewCtrl 的 statusBarStyle.
@@ -156,10 +134,6 @@ open class JudyBaseViewCtrl: UIViewController {
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // 若请求失败，则需在每次视图出现时重新发起请求。
-        if !isReqSuccess { reqApi(showHUD: isAllowApiWaitingHUD) }
-        
         // Judy-mark: 正确的修改导航条方式
         /*
          navigationController?.navigationBar.barTintColor = .white
@@ -181,104 +155,6 @@ open class JudyBaseViewCtrl: UIViewController {
         Judy.topViewCtrl.view.endEditing(true)
     }
     
-    /// 重写此函数以配置当 json 被设置的事件
-    /// - Warning: 若要在此函数中设置 UI 需要注意 json 的设置一定要在 viewDidLoad 之后
-    open func jsonDidSet() {}
-
-    // MARK: Api 相关函数
-    
-    /// 发起网络请求
-    ///
-    /// 通过调用此函数发起一个完整的请求流，此方法中将更新 apiData.
-    /// - Warning: 此方法中会更改 isReqSuccess 对应状态
-    /// - 请求结果在此函数中分流，此函数内部将依次执行以下函数，请重写相关函数以实现对应操作
-    ///     - setApi()
-    ///     - reqResult()
-    ///     - reqSuccess() / reqFailed()
-    ///     - reqOver()
-    /// - Parameters:
-    ///   - isSetApi: 是否需要调用 setApi()，默认 true，需重写 setApi() 并在其中设置 requestConfig 信息；若 isSetApi = false，则本次请求不调用 setApi().
-    ///   - showHUD: 是否需要弹出等待的 hud，默认为 true.
-    public final func reqApi(isSetApi: Bool = true, showHUD: Bool = true) {
-        // 判断是否需要弹出等待 hud
-        if showHUD { view.toast.makeToastActivity(.center) }
-        
-        if isSetApi { setApi() }
-        
-        /// 接收响应的闭包
-        let responseClosure: ((JSON) -> Void) = { [weak self] json in
-            guard let `self` = self else {
-                Judy.logWarning("发现逃逸对象！")
-                return
-            }
-            self.apiData = json
-            self.reqResult()
-
-            // 先处理失败情况
-            if let error = self.apiData.ApiERROR {
-                if error[.code].intValue == EMERANA.Code.notSetApi {
-                    // 如果是未设置 api 则视为请求成功处理
-                    self.isReqSuccess = true
-                    self.reqNotApi()
-                } else {
-                    self.isReqSuccess = false
-                    self.reqFailed()
-                }
-            } else {
-                self.isReqSuccess = true
-                self.reqSuccess()
-            }
-            
-            self.reqOver()
-            self.view.toast.hideToastActivity()
-        }
-        // 发起请求
-        requestConfig.request(withCallBack: responseClosure)
-    }
-    
-    /// 设置 requestConfig 及其它任何需要在发起请求前处理的事情
-    ///
-    /// 在整个 reqApi() 请求流程中最先执行的方法
-    /// - Warning: 在此方法中配置好 requestConfig 对象，一般情况子类可以不调用 super.setApi().
-    ///
-    /// ```
-    /// requestConfig.domain = "http://www.baidu.com/Api"
-    /// ```
-    /// 设置请求api的字段
-    /// ```
-    /// requestConfig.api = .???
-    /// ```
-    /// 设置请求参数体
-    /// ```
-    /// requestConfig.parameters?["userName"] = "Judy"
-    /// ```
-    open func setApi() {}
-    
-    /// 当 api 为 nil 时调用了 reqApi() ，请求流将终止在此方法中，不会进行网络请求，且 isReqSuccess 将被设为 true.
-    ///
-    /// 此方法应主要执行在上下拉刷新界面时需要中断 header、footer 刷新状态，更改 isReqSuccess 等操作
-    open func reqNotApi() {}
-    
-    /// 当请求得到响应时最先执行此方法，无论请求是啥结果。**此时 apiData 为服务器返回的元数据**
-    open func reqResult() {}
-    
-    /// 请求成功的消息处理
-    ///
-    /// - Warning: 若在此函数中涉及到修改 requestConfig.api 并触发 reqApi() 请注意先后顺序，遵循后来居上原则
-    open func reqSuccess() {}
-    
-    /// 请求失败或服务器响应为失败信息时的处理，在父类该函数将弹出失败消息体。若无需弹出请重写此函数并不调用 super 即可
-    open func reqFailed() {
-        if let error = apiData.ApiERROR {
-            view.toast.makeToast(error[.msg].stringValue)
-        }
-    }
-    
-    /// 在整个请求流程中最后执行的方法
-    ///
-    /// - Warning: 执行到此方法时，setApi() -> [ reqResult() -> reqFailed() / reqSuccess() ] 整个流程已经全部执行完毕
-    open func reqOver() {}
-    
     deinit {
         Judy.logHappy("\(classForCoder) - \(viewTitle ?? title ?? navigationItem.title ?? "未命名界面") 已释放")
     }
@@ -286,6 +162,8 @@ open class JudyBaseViewCtrl: UIViewController {
 }
 
 // MARK: - 为 UIViewController 提供的包装对象函数
+// 使 UIViewController 接受命名空间兼容类型协议，这样即可调用 judy 对象
+extension UIViewController: EnolaGayCompatible { }
 
 /// 由 EnolaGay 为 UIViewController 提供的函数
 public extension EnolaGayWrapper where Base: UIViewController {
@@ -597,7 +475,6 @@ public extension UIViewController {
         targetScrollView.contentOffset = savedContentOffset
         targetScrollView.frame = savedFrame
         UIGraphicsEndImageContext()
-
         
         // 将 imageLitter 添加到新图片上
         
@@ -616,98 +493,3 @@ public extension UIViewController {
         return result
     }
 }
-
-
-/// 此方式处理键盘遮挡输入框方式已废弃
-/*
-private extension UIViewController {
-
-    /// 在 extension 中新增存储属性相关的key
-    private struct AssociatedKey {
-        static var keyBoardHeight: CGFloat = 0
-        static var keyBoardView: UIView?
-        static var isSafeAreaInsetsBottom = false
-    }
-
-    /// 键盘的高度（如果有弹出键盘）
-    private(set) var keyBoardHeight: CGFloat {
-        get {
-            return objc_getAssociatedObject(self, &AssociatedKey.keyBoardHeight) as? CGFloat ?? 0
-        }
-        set {   // Bugfix: OBJC_ASSOCIATION_ASSIGN 会崩溃，用 OBJC_ASSOCIATION_COPY 就可以
-            objc_setAssociatedObject(self, &AssociatedKey.keyBoardHeight, newValue, .OBJC_ASSOCIATION_COPY)
-        }
-    }
-    
-    /// 需要跟随键盘移动的目标 View，通常为输入框的父视图
-    private(set) weak var quoteKeyBoardView: UIView? {
-        get {
-            return objc_getAssociatedObject(self, &AssociatedKey.keyBoardView) as? UIView
-        }
-        set { // OBJC_ASSOCIATION_RETAIN_NONATOMIC 也可以
-            objc_setAssociatedObject(self, &AssociatedKey.keyBoardView, newValue, .OBJC_ASSOCIATION_ASSIGN)
-        }
-    }
-    
-    /// keyBoardView 是否有保留安全区域底部内边距
-    private var isSafeAreaInsetsBottom: Bool {
-        get {
-            return objc_getAssociatedObject(self, &AssociatedKey.isSafeAreaInsetsBottom) as? Bool ?? false
-        }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKey.isSafeAreaInsetsBottom, newValue, .OBJC_ASSOCIATION_ASSIGN)
-        }
-    }
-
-    /// 注册监听键盘弹出收起事件，该函数可使 quoteKeyBoardView 跟随键盘弹出收起
-    /// - Parameter keyBoardView: 需要跟随键盘移动的 view，一般为输入框所在的父 View.
-    /// - Parameter isSafeAreaInsetsBottom: keyBoardView 是否保留安全区域底部内边距，默认 true，keyBoardView 在跟随键盘弹出时会自动扣除安全区域的高度距离，反之亦然
-    func registerKeyBoardListener(forView keyBoardView: UIView, isSafeAreaInsetsBottom: Bool = true) {
-        NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector:#selector(keyBoardShowHideAction(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        self.quoteKeyBoardView = keyBoardView
-        self.isSafeAreaInsetsBottom = isSafeAreaInsetsBottom
-    }
-    
-    /// 监听事件，键盘弹出或收起时均会触发此函数
-    @objc private func keyBoardShowHideAction(notification: NSNotification) {
-        guard let userInfo = notification.userInfo,
-              let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
-        else { return }
-        
-        /// 改变目标 keyBoardView 的执行过程事件，更新其 2D 仿射变换矩阵
-        let animations: (() -> Void) = { [weak self] in
-            // 键盘弹出事件
-            if notification.name == UIResponder.keyboardWillShowNotification {
-                // 得到键盘高度
-                self?.keyBoardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect).size.height
-                
-                /// quoteKeyBoardView y 轴需要移动的距离
-                var yDiff = -self!.keyBoardHeight
-                // 判断是否有底部安全区域
-                if self!.isSafeAreaInsetsBottom {
-                    let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-                    let bottomPadding = window?.safeAreaInsets.bottom ?? 0
-                    yDiff += bottomPadding
-                }
-                self?.quoteKeyBoardView?.transform = CGAffineTransform(translationX: 0,y: yDiff)
-            }
-            // 键盘收起事件
-            if notification.name == UIResponder.keyboardWillHideNotification {
-                self?.quoteKeyBoardView?.transform = CGAffineTransform.identity
-            }
-        }
-        
-        // 键盘弹出过程时长
-        if duration > 0 {
-            let options = UIView.AnimationOptions(rawValue: userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt)
-            UIView.animate(withDuration: duration, delay: 0, options: options, animations: animations, completion: nil)
-        } else {
-            // 键盘已经弹出，只是切换键盘，直接更新 keyBoardView 2D仿射变换矩阵
-            animations()
-        }
-
-    }
-    
-}
-*/

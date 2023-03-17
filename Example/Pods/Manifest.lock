@@ -4,6 +4,8 @@ PODS:
   - Cache (6.0.0)
   - Charts (4.1.0):
     - Charts/Core (= 4.1.0)
+  - Charts/Core (4.1.0):
+    - SwiftAlgorithms (~> 1.0)
   - DZNEmptyDataSet (1.8.1)
   - EnolaGay (4.0.1):
     - EnolaGay/EMERANA (= 4.0.1)
@@ -39,6 +41,7 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - SwiftAlgorithms (1.0.0)
   - SwiftMessages (9.0.4):
     - SwiftMessages/App (= 9.0.4)
   - SwiftMessages/App (9.0.4)
@@ -89,6 +92,7 @@ SPEC REPOS:
     - RxSwift
     - SDCycleScrollView
     - SDWebImage
+    - SwiftAlgorithms
     - SwiftMessages
     - SwiftyJSON
     - SwiftyUserDefaults
@@ -119,10 +123,11 @@ SPEC CHECKSUMS:
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SDCycleScrollView: a0d74c3384caa72bdfc81470bdbc8c14b3e1fbcf
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   SwiftMessages: 082ed63613a49fa8e749cd6000bb0a8b9bbc736f
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: 03380e32ee488be757f67111b81b57038c7df346
+PODFILE CHECKSUM: 378511e7975317a12817ab4e31d4bdd97cc0328b
 
 COCOAPODS: 1.12.0

@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
       # ss.exclude_files = 'EnolaGay/Classes/*'
       # ss.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
   end
-  
+
 #  s.subspec 'SegmentedView' do |ss|
 #      # 使用到 JudyBasePageViewCtrl
 #      ss.dependency 'EnolaGay/EMERANA'
