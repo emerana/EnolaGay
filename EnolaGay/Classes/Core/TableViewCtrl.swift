@@ -27,7 +27,7 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl {
     /// 是否隐藏 tableFooterView，默认 false，将该值调为 true 即可隐藏多余的 cell.
     @IBInspectable private(set) lazy public var isHideFooter: Bool = false
 
-    lazy public var dataSource = [Any]()
+    lazy open var dataSource = [Any]()
         
     
     // MARK: - Life Cycle

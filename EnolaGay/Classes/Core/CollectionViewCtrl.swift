@@ -21,7 +21,7 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl {
     /// 主要的 CollectionView,该 CollectionView 默认将 dataSource、dataSource 设置为 self.
     @IBOutlet public weak var collectionView: UICollectionView?
     
-    lazy public var dataSource = [Any]()
+    lazy open var dataSource = [Any]()
 
     /// 同一 line 中 item（cell）之间的最小间隙
     open var itemSpacing: CGFloat { return 6 }
