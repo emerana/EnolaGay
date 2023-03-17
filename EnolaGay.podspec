@@ -60,9 +60,14 @@ Pod::Spec.new do |s|
       ss.source_files = 'EnolaGay/Classes/TextFieldEffects/*'
   end
 
-  #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
+  #  以下 pod 可独立安装,不依赖 pod 'EnolaGay'
+  
   s.subspec 'JudyPopBubble' do |ss|
       ss.source_files = 'EnolaGay/Classes/JudyPopBubble/*'
+  end
+
+  s.subspec 'JudyPlusButtonTabBar' do |ss|
+      ss.source_files = 'EnolaGay/Classes/JudyPlusButtonTabBar/*'
   end
 
   #  该 pod 可独立安装,不依赖 pod 'EnolaGay'
@@ -101,9 +106,6 @@ Pod::Spec.new do |s|
 #      ss.source_files = 'EnolaGay/Classes/WKWebView/*'
 #  end
 
-#  s.subspec 'JudyPlusButtonTabBar' do |ss|
-#      ss.source_files = 'EnolaGay/Classes/JudyPlusButtonTabBar/*'
-#  end
 
 #  s.subspec 'HUD' do |ss|
 #      ss.source_files = 'EnolaGay/Classes/ProgressHUD/*'

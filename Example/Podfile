@@ -5,7 +5,8 @@ platform :ios, '11.0'
 
 target 'Demo' do
 #  pod 'EnolaGay/TextFieldEffects', :path => '../'
-  pod 'EnolaGay/JudyPopBubble', :path => '../'
+#pod 'EnolaGay/JudyPopBubble', :path => '../'
+pod 'EnolaGay/JudyPlusButtonTabBar', :path => '../'
   
   #  target 'EnolaGay_Tests' do
   #    inherit! :search_paths
