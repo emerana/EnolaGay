@@ -143,28 +143,6 @@ target 'CastSurelyCalculation' do
   pod 'EnolaGay', :path => '../'
 end
 
-# MARK: MyRxSwfit
-
-target 'MyRxSwfit' do
-  pod 'EnolaGay', :path => '../'
-  pod 'RxSwift'
-  pod 'RxCocoa'
-  pod 'Alamofire'
-
-end
-
-
-# MARK: MyCharts
-
-target 'MyCharts' do
-  platform :ios, '12.0'
-
-  pod 'EnolaGay', :path => '../'
-  pod 'Charts'
-
-end
-
-
 # MARK: GiftMessageViewCtrlDemo
 
 target 'GiftMessageViewCtrlDemo' do
@@ -188,21 +166,21 @@ target 'AttributedStringDemo' do
 end
 
 
-# MARK: AGUL
-
-target 'AGUL' do
-  pod 'EnolaGay', :path => '../'
-#  pod 'EnolaGay/MarqueeView', :path => '../'
-  
-  pod 'Kingfisher'
-  pod 'SwiftMessages'
-  pod 'SDWebImage'
-end
+## MARK: AGUL
+#
+#target 'AGUL' do
+#  pod 'EnolaGay', :path => '../'
+##  pod 'EnolaGay/MarqueeView', :path => '../'
+#  
+#  pod 'Kingfisher'
+#  pod 'SwiftMessages'
+#  pod 'SDWebImage'
+#end
 
 
 # MARK: MyIGListKit
 
 target 'MyIGListKit' do
-  pod 'EnolaGay', :path => '../'
+  pod 'EnolaGay/Logger', :path => '../'
   pod 'IGListKit', '~> 4.0.0'
 end

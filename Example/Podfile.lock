@@ -2,10 +2,6 @@ PODS:
   - Alamofire (4.9.1)
   - BadgeHub (1.0.0)
   - Cache (6.0.0)
-  - Charts (4.1.0):
-    - Charts/Core (= 4.1.0)
-  - Charts/Core (4.1.0):
-    - SwiftAlgorithms (~> 1.0)
   - DZNEmptyDataSet (1.8.1)
   - EnolaGay (4.0.6):
     - EnolaGay/Core (= 4.0.6)
@@ -28,7 +24,6 @@ PODS:
   - IGListKit (4.0.0):
     - IGListDiffKit (= 4.0.0)
   - IQKeyboardManagerSwift (6.5.6)
-  - Kingfisher (6.3.1)
   - MJRefresh (3.5.0)
   - Player (0.14.0)
   - RxCocoa (6.2.0):
@@ -40,7 +35,6 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
-  - SwiftAlgorithms (1.0.0)
   - SwiftMessages (9.0.4):
     - SwiftMessages/App (= 9.0.4)
   - SwiftMessages/App (9.0.4)
@@ -51,7 +45,6 @@ DEPENDENCIES:
   - Alamofire
   - BadgeHub
   - Cache
-  - Charts
   - DZNEmptyDataSet
   - EnolaGay (from `../`)
   - EnolaGay/EMERANA (from `../`)
@@ -64,7 +57,6 @@ DEPENDENCIES:
   - FMDB
   - IGListKit (~> 4.0.0)
   - IQKeyboardManagerSwift
-  - Kingfisher
   - MJRefresh
   - Player
   - RxCocoa
@@ -79,20 +71,17 @@ SPEC REPOS:
     - Alamofire
     - BadgeHub
     - Cache
-    - Charts
     - DZNEmptyDataSet
     - FMDB
     - IGListDiffKit
     - IGListKit
     - IQKeyboardManagerSwift
-    - Kingfisher
     - MJRefresh
     - Player
     - RxCocoa
     - RxRelay
     - RxSwift
     - SDWebImage
-    - SwiftAlgorithms
     - SwiftMessages
     - SwiftyJSON
     - SwiftyUserDefaults
@@ -105,25 +94,22 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   BadgeHub: b227771329f78c37a2dae7502607ec6d00a50bd4
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
-  Charts: 354f86803d11d9c35de280587fef50d1af063978
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   EnolaGay: e3abbc441d2c0b0b88b0bffa9eed6a19cffcfe41
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
-  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Player: 37e0acc16ea1495fc241df88fe9f089367513331
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
-  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   SwiftMessages: 082ed63613a49fa8e749cd6000bb0a8b9bbc736f
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: 983cfbd4beb8745243bbe76488539ff914e73d37
+PODFILE CHECKSUM: c37c255793dcc9a5daa341f4f04e73c1562a36d3
 
 COCOAPODS: 1.12.0
