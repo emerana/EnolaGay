@@ -83,7 +83,7 @@ class InvestmentView: UIView {
 
 
     deinit {
-        Judy.log("添加定投信息 View 已经释放")
+        log("添加定投信息 View 已经释放")
     }
 }
 
@@ -286,7 +286,7 @@ extension InvestmentView: UIPickerViewDataSource, UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 
-        Judy.log("选择了\(dataSource[row])")
+        log("选择了\(dataSource[row])")
         dayButton.setTitle(dataSource[row], for: .normal)
 
     }
