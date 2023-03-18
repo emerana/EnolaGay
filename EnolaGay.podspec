@@ -41,13 +41,13 @@ Pod::Spec.new do |s|
       # ss.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
   end
 
+  # MARK: - 可选能力模块
+
   # MARK: UI 扩展
   s.subspec 'EMERANA' do |ss|
       ss.dependency 'EnolaGay/Logger'
       ss.source_files = 'EnolaGay/Classes/UIBase/*'
   end
-
-  # MARK: - 可选能力模块
 
   # MARK: 水平方向选择器
   s.subspec 'SegmentedView' do |ss|
@@ -119,7 +119,7 @@ Pod::Spec.new do |s|
 
   # MARK: KeyboardHelper
   s.subspec 'KeyboardHelper' do |ss|
-      ss.source_files = 'EnolaGay/Classes/*'
+      ss.source_files = 'EnolaGay/Classes/KeyboardHelper/*'
   end
 
   # MARK: HUD
