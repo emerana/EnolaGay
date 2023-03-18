@@ -50,7 +50,7 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl {
         // 滑动时关闭键盘
         tableView?.keyboardDismissMode = .onDrag
         // 设置 tableView 的背景色
-        tableView?.backgroundColor = EMERANA.enolagayAdapter?.scrollViewBackGroundColor()
+        // tableView?.backgroundColor = EMERANA.enolagayAdapter?.scrollViewBackGroundColor()
 
         // 配置 tableView 的背景色
         /*

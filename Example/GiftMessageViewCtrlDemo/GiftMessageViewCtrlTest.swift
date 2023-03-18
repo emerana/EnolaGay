@@ -10,18 +10,15 @@ import UIKit
 import EnolaGay
 import SwiftyJSON
 
-class GiftMessageViewCtrlTest: JudyBaseViewCtrl {
+class GiftMessageViewCtrlTest: UIViewController {
     
-     override var viewTitle: String? { "送礼测试" }
+//     override var viewTitle: String? { "送礼测试" }
     
     @IBOutlet weak var giftMessageViewPanel: GiftMessageCtrlPanel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rs: Double = 2302.1025123123123
-        Judy.log(rs.judy.format(f: 2))
-        
-        
+
         //        giftMessageViewPanel.critConditionsClosure = { (oldGiftView, showGiftView) in
 //            return true
 //        }

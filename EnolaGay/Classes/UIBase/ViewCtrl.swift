@@ -129,7 +129,7 @@ open class JudyBaseViewCtrl: UIViewController {
         }
         
         // 设置背景色
-        view.backgroundColor = EMERANA.enolagayAdapter?.viewBackgroundColor() ?? .white
+        // view.backgroundColor = EMERANA.enolagayAdapter?.viewBackgroundColor() ?? .white
     }
     
     open override func viewWillAppear(_ animated: Bool) {

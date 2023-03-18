@@ -1,25 +1,122 @@
 //
 //  extensions.swift
 //
-//
 //  Created by 醉翁之意 on 2023/3/17.
 //  Copyright © 2023年 EnolaGay All rights reserved.
 //
 
-// MARK: - Double 扩展
+// MARK: - String 扩展
 
-/// 为空间包装对象 Double 添加扩展函数
-public extension EnolaGayWrapper where Base == Double {
+public extension String {
+    @available(*, unavailable, message: "请使用空间持有者 judy 对象", renamed: "judy.getVideoTime")
+    static func getVideoTime(duration: TimeInterval) -> String { "" }
     
-    /// 将 double 四舍五入到指定小数位数并输出 String.
+    @available(*, unavailable, message: "请使用空间持有者 judy 对象", renamed: "judy.dateFormatter")
+    func dateFormatter(formatterIn: String = "yyyy-MM-dd HH:mm:ss", formatterOut: String = "HH:mm:ss") -> String { "" }
+
+    @available(*, unavailable, message: "请使用空间持有者 judy 对象", renamed: "judy.clean")
+    func clean() -> String { "" }
+    
+    
+    /// 下标获取字符串
+    subscript(i: Int) -> String {
+        return String(self[index(startIndex, offsetBy: i)])
+    }
+    
+    subscript (r: Range<Int>) -> String {
+        let range = Range(uncheckedBounds: (lower: max(0, min(count, r.lowerBound)), upper: min(count, max(0, r.upperBound))))
+        let start = index(startIndex, offsetBy: range.lowerBound)
+        let end = index(start, offsetBy: range.upperBound - range.lowerBound)
+        return String(self[start ..< end])
+    }
+    
+    /// 转换成10进制的 Int 值
     ///
-    /// - Parameter f: 要保留的小数位数，默认为 2
-    /// - Returns: 转换后的 String
-    func format(f: Int = 2) -> String {
-        // String(format: "%.3f", 0.3030000000000000) ==> 0.303
-        return String(format: "%.\(f)f", base)
+    /// 如"0x606060"/"606060"，调用此属性即可获得559964256.
+    ///
+    /// 由于某些原因，使用了 String(15493441,radix:16) 函数将某个10进制的值转成16进制的 String,现在只能通过 String 的此属性还原成10进制的 Int.
+    ///
+    /// - Warning: 请确保该字符串内容是正确的16进制值
+    var intValueFrom16Decimal: Int {
+        let str = self.uppercased()
+        var sum = 0
+        for i in str.utf8 {
+            sum = sum * 16 + Int(i) - 48 // 0-9 从48开始
+            if i >= 65 { // A-Z 从65开始，但有初始值10，所以应该是减去55
+                sum -= 7
+            }
+        }
+        return sum
+    }
+
+    /*
+     let str = "Hello, world!"
+     let index = str.index(str.startIndex, offsetBy: 4)
+     str[index] // 返回字符 'o'
+     
+     let endIndex = str.index(str.endIndex, offsetBy:-2)
+     str[index ..< endIndex] // 返回 字符串 "o, worl"
+     
+     String(str.suffix(from: index)) // 返回 字符串 "o, world!"
+     String(str.prefix(upTo: index)) // 返回 字符串 "Hell"
+     
+     */
+    @available(*, unavailable, message: "此函数尚未验证其准确性")
+    func substring(fromIndex: Int) -> String {
+        return self[min(fromIndex, count) ..< count]
+    }
+    
+    /// 截取 String 前几位子字符串
+    /// - Parameter toIndex: 0 ..< toIndex
+    @available(*, unavailable, message: "此函数尚未验证其准确性")
+    func substring(toIndex: Int) -> String {
+        return self[0 ..< max(0, toIndex)]
+    }
+
+    //不包含后几个字符串的方法
+    //    func dropLast(_ n: Int = 1) -> String {
+    //        return String(characters.dropLast(n))
+    //    }
+    //    var dropLast: String {
+    //        return dropLast()
+    //    }
+}
+
+
+
+// MARK: - Date 扩展
+
+public extension Date {
+    /// 通过一个 string 构建一个北京时区的 date 对象
+    /// - Parameters:
+    ///   - string: 该 string 应符合一个正常日期格式
+    ///   - format: 目标的日期格式，该值默认为："yyyy-MM-dd".
+    init(string: String, format: String = "yyyy-MM-dd") {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        if let date = dateFormatter.date(from: string) {
+            self = date.judy.dateFromGMT()
+        } else {
+            self.init()
+        }
+    }
+    
+    /// 通过一个 string 构建一个北京时区的 date 对象
+    init(year: Int = 2020, month: Int = 3, day: Int = 22) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let dateString = "\(year)-\(month)-\(day)"
+        if let date = dateFormatter.date(from: dateString) {
+            self = date.judy.dateFromGMT()
+        } else {
+            self.init()
+        }
     }
 }
+
+
+// MARK: - Double 扩展
 
 public extension Double {
     @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.format")

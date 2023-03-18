@@ -20,27 +20,39 @@
   },
   "swift_versions": "5.0",
   "requires_arc": true,
-  "default_subspecs": "EMERANA",
+  "default_subspecs": "Core",
   "subspecs": [
     {
-      "name": "EMERANA",
+      "name": "Core",
       "source_files": "EnolaGay/Classes/Core/*"
+    },
+    {
+      "name": "EMERANA",
+      "dependencies": {
+        "EnolaGay/Logger": [
+
+        ]
+      },
+      "source_files": "EnolaGay/Classes/UIBase/*"
     },
     {
       "name": "SegmentedView",
       "dependencies": {
+        "EnolaGay/Core": [
+
+        ],
         "EnolaGay/EMERANA": [
 
         ]
       },
-      "source_files": [
-        "EnolaGay/Classes/SegmentedView/*",
-        "EnolaGay/Classes/Core/PageViewCtrl.swift"
-      ]
+      "source_files": "EnolaGay/Classes/SegmentedView/*"
     },
     {
       "name": "HPickerView",
       "dependencies": {
+        "EnolaGay/Core": [
+
+        ],
         "EnolaGay/EMERANA": [
 
         ]
@@ -92,6 +104,10 @@
     {
       "name": "MarqueeView",
       "source_files": "EnolaGay/Classes/MarqueeView/*"
+    },
+    {
+      "name": "KeyboardHelper",
+      "source_files": "EnolaGay/Classes/*"
     },
     {
       "name": "HUD",

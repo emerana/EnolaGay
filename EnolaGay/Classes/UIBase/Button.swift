@@ -73,9 +73,9 @@ open class JudyBaseButton: UIButton, FontStyle {
 private extension JudyBaseButton {
     /// 在构造 JudyBaseLabel 时就设置好 label 的默认 font.
     func initFont() {
-        if let defaultFont = EMERANA.enolagayAdapter?.defaultFontName() {
-            titleLabel?.font = UIFont(name: defaultFont.fontName, size: titleLabel?.font.pointSize ?? 12)
-        }
+//        if let defaultFont = EMERANA.enolagayAdapter?.defaultFontName() {
+//            titleLabel?.font = UIFont(name: defaultFont.fontName, size: titleLabel?.font.pointSize ?? 12)
+//        }
     }
 }
 
