@@ -87,6 +87,8 @@ end
 
 # MARK: HUD
 target 'HUD' do
+  platform :ios, '13.0'
+
   pod 'EnolaGay/HUD', :path => '../'
 end
 

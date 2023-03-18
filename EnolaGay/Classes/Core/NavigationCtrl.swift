@@ -326,7 +326,7 @@ public class JudyNavigationCtrl: JudyBaseNavigationCtrl {
     deinit {
         backgroundView?.removeFromSuperview()
         backgroundView = nil
-        Judy.logHappy("导航控制器已释放")
+        logHappy("导航控制器已释放")
     }
     
 }

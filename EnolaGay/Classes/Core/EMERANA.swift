@@ -396,7 +396,7 @@ public extension EnolaGayWrapper where Base == Calendar {
     func getWeekday(year: Int, month: Int, day: Int) -> Int {
         let date = Date(year: year, month: month, day: day)
         guard let weekday = base.dateComponents([.weekday], from: date).weekday else {
-            Judy.logWarning("获取星期失败，默认返回1")
+            logWarning("获取星期失败，默认返回1")
             return 1
         }
         return weekday
@@ -626,7 +626,7 @@ public extension UIImage {
         
         guard image?.cgImage != nil else {
             self.init()
-            Judy.logWarning("通过颜色生成图像时发生错误！")
+            logWarning("通过颜色生成图像时发生错误！")
             return
         }
         self.init(cgImage: image!.cgImage!)
@@ -653,7 +653,7 @@ public extension UIImage {
         
         guard outputImage?.cgImage != nil else {
             self.init()
-            Judy.logWarning("通过渐变颜色生成图像时发生错误！")
+            logWarning("通过渐变颜色生成图像时发生错误！")
             return
         }
         self.init(cgImage: outputImage!.cgImage!)
@@ -671,7 +671,7 @@ public extension UIImageView {
         set {
             if newValue {
                 guard frame.size.width == frame.size.height else {
-                    Judy.logWarning("该 UIImageView 非正方形，无法设置为正圆！")
+                    logWarning("该 UIImageView 非正方形，无法设置为正圆！")
                     return
                 }
                 layer.masksToBounds = true
@@ -693,7 +693,7 @@ public extension UIImageView {
     @available(*, deprecated, message: "此函数尚未确定其正确性，不建议使用！")
     final func roundImage() {
         guard bounds.size.height == bounds.size.width else {
-            Judy.logWarning("图片非正方形，无法设置正圆！")
+            logWarning("图片非正方形，无法设置正圆！")
             return
         }
         //开始图形上下文
@@ -711,7 +711,7 @@ public extension UIImageView {
         //关闭上下文
         UIGraphicsEndImageContext()
         guard newImage != nil else {
-            Judy.log("上下文图片创建失败!")
+            log("上下文图片创建失败!")
             return
         }
         image? = newImage!
@@ -1145,7 +1145,7 @@ public extension UITextFieldDelegate {
         let cs = CharacterSet(charactersIn: "0123456789\n").inverted
         /// 过滤输入的字符
         let filtered: String = (string.components(separatedBy: cs) as NSArray).componentsJoined(by: "")
-        guard (string as String) == filtered  else { Judy.logWarning("只能输入数值"); return false }
+        guard (string as String) == filtered  else { logWarning("只能输入数值"); return false }
         
         // 最大值校验
         if maxNumber != 0 {
@@ -1153,7 +1153,7 @@ public extension UITextFieldDelegate {
             // 将输入的整数值
             let numberValue = Int(textFieldString) ?? 0
             if numberValue > maxNumber {
-                Judy.logWarning("只能输入小于\(maxNumber)的值")
+                logWarning("只能输入小于\(maxNumber)的值")
                 return false
             }
         }
@@ -1247,7 +1247,7 @@ public extension EnolaGayWrapper where Base == String {
             dateFormatter.dateFormat = formatterOut
             return dateFormatter.string(from: dated)
         } else {
-            Judy.log("时间转换失败")
+            log("时间转换失败")
             return "time error"
         }
     }

@@ -121,13 +121,13 @@ public extension SegmentedView {
     /// 此函数为 SegmentedView 的关键函数，其规范了所有相关的数据、流程、并管理内部所有的关键信息
     final func reloadData() {
         guard dataSource != nil else {
-            Judy.logWarning("请设置 SegmentedView.dataSource")
+            logWarning("请设置 SegmentedView.dataSource")
             return
         }
         // 确定注册的 Cell
         cellReuseIdentifier = dataSource!.segmentedView(registerCellForCollectionViewAt: collectionView)
         guard cellReuseIdentifier != "" else {
-            Judy.logWarning("为 SegmentedView 注册 Cell 的 identifier 不能为空！")
+            logWarning("为 SegmentedView 注册 Cell 的 identifier 不能为空！")
             return
         }
 
@@ -240,7 +240,7 @@ public extension SegmentedView {
     /// - Parameter selectedType: 触发选择的操作类型。
     final func selectItem(at index: Int) {
         guard dataSource != nil else {
-            Judy.logWarning("dataSource 不能为 nil")
+            logWarning("dataSource 不能为 nil")
             return
         }
         // 确保允许选中
@@ -528,7 +528,7 @@ open class JudyBasePageViewSegmentCtrl: JudyBasePageViewCtrl, SegmentedViewDeleg
     open func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int) {
         // segmentedCtrl 改变 viewControllers.
         guard index < viewCtrlArray.count else {
-            Judy.logWarning("目标 index 不在 viewCtrlArray 范围!")
+            logWarning("目标 index 不在 viewCtrlArray 范围!")
             return
         }
         isDrag = false

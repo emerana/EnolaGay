@@ -33,7 +33,10 @@
 
         ]
       },
-      "source_files": "EnolaGay/Classes/SegmentedView/*"
+      "source_files": [
+        "EnolaGay/Classes/SegmentedView/*",
+        "EnolaGay/Classes/Core/PageViewCtrl.swift"
+      ]
     },
     {
       "name": "HPickerView",
@@ -64,7 +67,7 @@
     },
     {
       "name": "Logger",
-      "source_files": "EnolaGay/Classes/Logger/*"
+      "source_files": "EnolaGay/Classes/Core/Logger.Swift"
     },
     {
       "name": "JudyPopBubble",

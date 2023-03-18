@@ -33,7 +33,7 @@ public class Tip {
     }
     
     deinit {
-        Judy.logHappy("Tip 已释放")
+        logHappy("Tip 已释放")
     }
 
 }
@@ -67,7 +67,7 @@ public class JudyTipViewCtrl: UIViewController {
          }
     }
     
-    deinit { Judy.logHappy("\(classForCoder) - 已释放") }
+    deinit { logHappy("\(classForCoder) - 已释放") }
 }
 
 /// 具有事件穿透效果的 view，即该视图不接收响应事件，常用于视图控制器中的根 view.
@@ -156,7 +156,7 @@ open class JudyBaseViewCtrl: UIViewController {
     }
     
     deinit {
-        Judy.logHappy("\(classForCoder) - \(viewTitle ?? title ?? navigationItem.title ?? "未命名界面") 已释放")
+        logHappy("\(classForCoder) - \(viewTitle ?? title ?? navigationItem.title ?? "未命名界面") 已释放")
     }
     
 }
@@ -313,7 +313,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
     func captureImageSavedPhotosAlbum(targetView: UIView, transparent: Bool = false) -> Bool {
         let image = captureScreenImage(targetView: targetView, transparent: transparent)
         guard image != nil else {
-            Judy.logWarning("图片截取失败！")
+            logWarning("图片截取失败！")
             return false
         }
         
@@ -414,7 +414,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
                 navigationController = (base as! UITabBarController).selectedViewController?.judy.navigationCtrller()
             } else { // 只能是 UIViewController
                 guard navigationController != nil else {
-                    Judy.logWarning("当前 ViewCtrl 没有可用的 UINavigationController，故返回了一个 UINavigationController()")
+                    logWarning("当前 ViewCtrl 没有可用的 UINavigationController，故返回了一个 UINavigationController()")
                     return UINavigationController()
                 }
                 

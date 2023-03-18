@@ -45,7 +45,7 @@ Pod::Spec.new do |s|
   s.subspec 'SegmentedView' do |ss|
       # 使用到 JudyBasePageViewCtrl
       ss.dependency 'EnolaGay/EMERANA'
-      ss.source_files = 'EnolaGay/Classes/SegmentedView/*'
+      ss.source_files = 'EnolaGay/Classes/SegmentedView/*', 'EnolaGay/Classes/Core/PageViewCtrl.swift'
   end
   
   # MARK: 水平方向的滚动选择器，SegmentedView 则是不支持滚动选择的。
@@ -76,7 +76,7 @@ Pod::Spec.new do |s|
   
   # MARK: Debug 打印和日志文件输出功能
   s.subspec 'Logger' do |ss|
-      ss.source_files = 'EnolaGay/Classes/Logger/*'
+      ss.source_files = 'EnolaGay/Classes/Core/Logger.Swift'
   end
 
   # MARK: 烟花爆炸效果

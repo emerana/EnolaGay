@@ -20,7 +20,7 @@ class SegmentedTestViewCtrl: UIViewController {
         super.viewDidLoad()
 
         setSegmentedView()
-        Judy.logs("哈哈")
+        logs("哈哈")
     }
     
     private func setSegmentedView() {
@@ -49,6 +49,6 @@ class SegmentedTestViewCtrl: UIViewController {
 
 extension SegmentedTestViewCtrl: SegmentedViewDelegate {
     func segmentedView(_ segmentedView: SegmentedView, didSelectedItemAt index: Int) {
-        Judy.log("segmentedView:\(index)")
+        log("segmentedView:\(index)")
     }
 }
