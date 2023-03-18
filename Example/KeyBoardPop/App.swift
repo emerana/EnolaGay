@@ -44,8 +44,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-
-extension UIApplication: EnolaGayAdapter {
-    public func defaultFontName() -> UIFont { UIFont(name: "PingFangSC-Medium", size: 12)! }
-    
-}
