@@ -147,7 +147,7 @@ end
 # MARK: FontExtension
 
 target 'FontExtension' do
-  pod 'EnolaGay', :path => '../'
+  pod 'EnolaGay/EMERANA', :path => '../'
 end
 
 
@@ -169,14 +169,6 @@ target 'MyCharts' do
 
   pod 'EnolaGay', :path => '../'
   pod 'Charts'
-
-end
-
-
-# MARK: JudyBaseNavigationCtrl
-
-target 'JudyBaseNavigationCtrl' do
-  pod 'EnolaGay', :path => '../'
 
 end
 

@@ -29,7 +29,7 @@
     {
       "name": "EMERANA",
       "dependencies": {
-        "EnolaGay/Logger": [
+        "EnolaGay/Core": [
 
         ]
       },
@@ -38,9 +38,6 @@
     {
       "name": "SegmentedView",
       "dependencies": {
-        "EnolaGay/Core": [
-
-        ],
         "EnolaGay/EMERANA": [
 
         ]

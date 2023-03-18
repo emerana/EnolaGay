@@ -45,13 +45,12 @@ Pod::Spec.new do |s|
 
   # MARK: UI 扩展
   s.subspec 'EMERANA' do |ss|
-      ss.dependency 'EnolaGay/Logger'
+      ss.dependency 'EnolaGay/Core'
       ss.source_files = 'EnolaGay/Classes/UIBase/*'
   end
 
   # MARK: 水平方向选择器
   s.subspec 'SegmentedView' do |ss|
-      ss.dependency 'EnolaGay/Core'
       ss.dependency 'EnolaGay/EMERANA'
       ss.source_files = 'EnolaGay/Classes/SegmentedView/*'
   end
