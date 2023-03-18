@@ -40,10 +40,10 @@ Pod::Spec.new do |s|
       # ss.exclude_files = 'EnolaGay/Classes/*'
       # ss.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
   end
-
+  
   # MARK: - 可选能力模块
-
-  # MARK: UI 扩展
+  
+  # MARK: UI 扩展，默认包含核心所有能力
   s.subspec 'EMERANA' do |ss|
       ss.dependency 'EnolaGay/Core'
       ss.source_files = 'EnolaGay/Classes/UIBase/*'

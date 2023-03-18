@@ -95,7 +95,8 @@ end
 # MARK: VersionCheck
 
 target 'VersionCheck' do
-  pod 'EnolaGay', :path => '../'
+  pod 'EnolaGay/EMERANA', :path => '../'
+  pod 'SwiftyJSON'
   pod 'Alamofire'
   pod 'RxSwift'
   pod 'RxCocoa'

@@ -57,7 +57,7 @@ public func logs<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg)
     #endif
 }
 
-/// 该函数用于换行打印。打印格式为**文件 [行] 函数 换行打印消息体**
+/// 换行打印，此函数打印时将消息体另起一行打印。
 public func logn<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
     #if DEBUG
     print("\(type) \((file as NSString).lastPathComponent) [\(line)] \(method)\n\(message())")
