@@ -86,7 +86,7 @@ public func logt<msg>(type: LogLevel = .🟣, _ message: @autoclosure () -> msg,
 }
 
 
-/// 将当前 Date 值转换成北京时区的目标格式 string 值
+/// 获取当前 Date 值并转换成北京时区的目标格式 string 值
 ///
 /// 如 Date() 为 2022-11-18 06:08:47 +0000 ，此函数将转成 2022-11-18 06:08:47.
 ///
