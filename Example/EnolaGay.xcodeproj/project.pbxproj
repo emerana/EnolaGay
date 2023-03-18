@@ -16,6 +16,7 @@
 		5E10758CE6B0A3DBC745A837 /* Pods_MyRxRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9EB8CFB620E0BC26A279B3 /* Pods_MyRxRealm.framework */; };
 		6F6259394A3A9FC5E68D4243 /* Pods_PlayerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1A1A1370061A6D2BA38281 /* Pods_PlayerDemo.framework */; };
 		7DFC7173A357B9B7E880D315 /* Pods_MyCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271D1E28BDD517FC30EC966B /* Pods_MyCharts.framework */; };
+		8B0396EF29C581C00055C5EB /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0396EE29C581C00055C5EB /* KeyboardViewController.swift */; };
 		8B17484226EB3BC900B81EC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B17484126EB3BC900B81EC7 /* AppDelegate.swift */; };
 		8B17484626EB3BC900B81EC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B17484526EB3BC900B81EC7 /* ViewController.swift */; };
 		8B17484926EB3BC900B81EC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B17484726EB3BC900B81EC7 /* Main.storyboard */; };
@@ -300,6 +301,7 @@
 		7C4D2A820B67C965D6E49808 /* Pods-GiftMessageViewCtrlDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiftMessageViewCtrlDemo.debug.xcconfig"; path = "Target Support Files/Pods-GiftMessageViewCtrlDemo/Pods-GiftMessageViewCtrlDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7CB467C2C73C2918E12062EA /* Pods-AttributedStringDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttributedStringDemo.debug.xcconfig"; path = "Target Support Files/Pods-AttributedStringDemo/Pods-AttributedStringDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		85AB9D088CA6DA757AE9AF4F /* Pods-MyRxSwfit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRxSwfit.release.xcconfig"; path = "Target Support Files/Pods-MyRxSwfit/Pods-MyRxSwfit.release.xcconfig"; sourceTree = "<group>"; };
+		8B0396EE29C581C00055C5EB /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		8B17483F26EB3BC900B81EC7 /* MyCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B17484126EB3BC900B81EC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B17484526EB3BC900B81EC7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -1681,6 +1683,7 @@
 			children = (
 				8BE31B7929C2D22A003038B2 /* AppDelegate.swift */,
 				8BE31B7D29C2D22A003038B2 /* ViewController.swift */,
+				8B0396EE29C581C00055C5EB /* KeyboardViewController.swift */,
 				8BE31B7F29C2D22A003038B2 /* Main.storyboard */,
 				8BE31B8229C2D22B003038B2 /* Assets.xcassets */,
 				8BE31B8429C2D22B003038B2 /* LaunchScreen.storyboard */,
@@ -3869,6 +3872,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BE31B7E29C2D22A003038B2 /* ViewController.swift in Sources */,
+				8B0396EF29C581C00055C5EB /* KeyboardViewController.swift in Sources */,
 				8BE31B7A29C2D22A003038B2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
