@@ -29,28 +29,36 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '11.0'
   s.swift_versions = '5.0'
   s.requires_arc = true
+  
   #  如果不指定默认的 spec，则将安装所有的 spec。 pod ‘EnolaGay’ 即安装 EnolaGay/EMERANA 核心文件夹
-  s.default_subspec = 'EMERANA'
-  # 此为核心安装的 spec
-  s.subspec 'EMERANA' do |ss|
+  s.default_subspec = 'Core'
+  
+  # 默认安装的核心 spec
+  s.subspec 'Core' do |ss|
       ss.source_files = 'EnolaGay/Classes/Core/*'
-      #      ss.dependency 'SwiftyJSON' 取消依赖 SwiftyJSON
+      # ss.dependency 'SwiftyJSON' 取消依赖 SwiftyJSON
       # ss.exclude_files = 'EnolaGay/Classes/*'
       # ss.resource_bundles = {'EnolaGay' => ['EnolaGay/Classes/*.xib']}
   end
 
   # MARK: - 可选能力模块
 
+  # MARK: UI 扩展
+  s.subspec 'EMERANA' do |ss|
+      ss.dependency 'EnolaGay/Logger'
+      ss.source_files = 'EnolaGay/Classes/UIBase/*'
+  end
+
   # MARK: 水平方向选择器
   s.subspec 'SegmentedView' do |ss|
-      # 使用到 JudyBasePageViewCtrl
+      ss.dependency 'EnolaGay/Core'
       ss.dependency 'EnolaGay/EMERANA'
       ss.source_files = 'EnolaGay/Classes/SegmentedView/*'
   end
   
   # MARK: 水平方向的滚动选择器，SegmentedView 则是不支持滚动选择的。
   s.subspec 'HPickerView' do |ss|
-      # 使用到 NSMutableAttributedString 高配版生成器
+      ss.dependency 'EnolaGay/Core'
       ss.dependency 'EnolaGay/EMERANA'
       ss.source_files = 'EnolaGay/Classes/HPickerView/*'
   end
@@ -74,6 +82,11 @@ Pod::Spec.new do |s|
   
   # MARK: - 以下 pod 独立安装时不依赖 pod 'EnolaGay' 核心
   
+  # MARK: 此功能仅包含 Debug 打印和日志文件输出功能
+  s.subspec 'Logger' do |ss|
+      ss.source_files = 'EnolaGay/Classes/Core/Logger.Swift'
+  end
+
   # MARK: 烟花爆炸效果
   s.subspec 'JudyPopBubble' do |ss|
       ss.source_files = 'EnolaGay/Classes/JudyPopBubble/*'
@@ -102,6 +115,11 @@ Pod::Spec.new do |s|
   # MARK: 跑马灯效果 View
   s.subspec 'MarqueeView' do |ss|
       ss.source_files = 'EnolaGay/Classes/MarqueeView/*'
+  end
+
+  # MARK: KeyboardHelper
+  s.subspec 'KeyboardHelper' do |ss|
+      ss.source_files = 'EnolaGay/Classes/KeyboardHelper/*'
   end
 
   # MARK: HUD

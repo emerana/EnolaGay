@@ -16,8 +16,83 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="ftA-4S-67R">
+                                <rect key="frame" x="132.33333333333334" y="135.66666666666669" width="110.66666666666666" height="540.66666666666652"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ObT-vV-G2C">
+                                        <rect key="frame" x="0.0" y="0.0" width="110.66666666666667" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="log"/>
+                                        <connections>
+                                            <action selector="logAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8xe-2a-9zF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5k-Vu-htA">
+                                        <rect key="frame" x="0.0" y="72.333333333333343" width="110.66666666666667" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="logl"/>
+                                        <connections>
+                                            <action selector="loglAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NbI-h5-R84"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n34-2P-mhr">
+                                        <rect key="frame" x="0.0" y="144.66666666666666" width="110.66666666666667" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="logTime"/>
+                                        <connections>
+                                            <action selector="logTimeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UMJ-SH-UY5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIx-tr-RK1">
+                                        <rect key="frame" x="0.0" y="217.00000000000003" width="110.66666666666667" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="logs"/>
+                                        <connections>
+                                            <action selector="logsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jzf-Lo-7sS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZU6-gn-7iL">
+                                        <rect key="frame" x="0.0" y="289.33333333333337" width="110.66666666666667" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="logn"/>
+                                        <connections>
+                                            <action selector="lognAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nG5-B2-DKM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPd-zj-EjN">
+                                        <rect key="frame" x="0.0" y="361.66666666666663" width="110.66666666666667" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="logHappy"/>
+                                        <connections>
+                                            <action selector="logHappyAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jwf-iq-jZ4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P75-jE-Lbd">
+                                        <rect key="frame" x="0.0" y="434" width="110.66666666666667" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="logWarning"/>
+                                        <connections>
+                                            <action selector="logWarningAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HW2-Fk-Paj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68i-lc-sx6">
+                                        <rect key="frame" x="0.0" y="506.33333333333331" width="110.66666666666667" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="logt"/>
+                                        <connections>
+                                            <action selector="logtAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g6c-82-Z36"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ftA-4S-67R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A1j-5r-PXQ"/>
+                            <constraint firstItem="ftA-4S-67R" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="P2K-zO-Mmk"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

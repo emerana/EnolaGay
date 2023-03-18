@@ -207,7 +207,7 @@ class FundDetailViewCtrl: JudyBaseViewCtrl {
     // MARK: - Method - 私有方法的代码尽量抽取创建公共class。
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        Judy.log("identifier:\(identifier)")
+        log("identifier:\(identifier)")
         return true
     }
     

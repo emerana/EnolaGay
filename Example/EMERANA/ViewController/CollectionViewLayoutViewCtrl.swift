@@ -133,7 +133,7 @@ extension CollectionViewLayoutViewCtrl: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let json = dataSource[indexPath.section][indexPath.row].stringValue
-        Judy.log("选中\(json)")
+        log("选中\(json)")
 
     }
     

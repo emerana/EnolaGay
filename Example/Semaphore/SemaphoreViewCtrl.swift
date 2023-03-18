@@ -39,7 +39,7 @@ private extension SemaphoreViewCtrl {
         DispatchQueue.global().async {
             var numbers = 100 {
                 didSet {
-                    Judy.log(type: .🔔, "卖出一张票了，还有\(numbers)张票！")
+                    log(type: .🔔, "卖出一张票了，还有\(numbers)张票！")
                 }
             }
             // 最多允许多少个线程同时访问共享资源或者同时执行多少个任务。
@@ -48,10 +48,10 @@ private extension SemaphoreViewCtrl {
             for index in 1...102 {
                 DispatchQueue.global().async {
                     semaphore.wait()
-                    Judy.log(type: .😀, "第\(index)位用户开始抢票……")
+                    log(type: .😀, "第\(index)位用户开始抢票……")
                     
                     if numbers <= 0 {
-                        Judy.log(type: .🚫, "没票啦！！！")
+                        log(type: .🚫, "没票啦！！！")
                         semaphore.signal()
                         return
                     }
@@ -117,10 +117,10 @@ private extension SemaphoreViewCtrl {
          
          */
         
-        Judy.log("进入信号量测试……")
+        log("进入信号量测试……")
         
         DispatchQueue.global().async {
-            Judy.log("onstart")
+            log("onstart")
             
             // 创建信号量，若初始化信号量时就小于0，则遇到 semaphore.wait() 就会崩溃
             let semaphore = DispatchSemaphore(value: 0)
@@ -128,18 +128,18 @@ private extension SemaphoreViewCtrl {
             // 异步执行
             DispatchQueue.global().async {
                 
-                Judy.log("任务A执行中……")
+                log("任务A执行中……")
                 sleep(8)
-                Judy.log("任务A执行完毕！")
+                log("任务A执行完毕！")
                 
                 semaphore.signal()  // 信号量+1
             }
             
             DispatchQueue.global().async {
                 
-                Judy.log("任务B执行中……")
+                log("任务B执行中……")
                 sleep(10)
-                Judy.log("任务B执行完毕！")
+                log("任务B执行完毕！")
                 
                 semaphore.signal()  // 信号量+1
             }
@@ -149,7 +149,7 @@ private extension SemaphoreViewCtrl {
             
             // 信号量 >0 了，等待结束，线程继续……
             
-            Judy.log("over")
+            log("over")
         }
         
     }
@@ -222,16 +222,16 @@ extension SemaphoreViewCtrl {
                     print("\(Thread.current) 下载完成，耗时：\(s) 秒")
                     semaphore.signal()
                 }
-                Judy.log("执行了第\(i)个下载任务")
+                log("执行了第\(i)个下载任务")
             }
             for i in 1...maxSemaphore {
                 semaphore.wait()
-                Judy.log("等待第\(i)次")
+                log("等待第\(i)次")
             }
         }
         
         downloadAction.notify(queue: downloadQueue) {
-            Judy.logHappy("\(Thread.current) 下载任务全部完成！")
+            logHappy("\(Thread.current) 下载任务全部完成！")
         }
         
         downloadQueue.async(execute: downloadAction)

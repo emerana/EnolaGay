@@ -148,7 +148,7 @@ private extension GracePeriodViewCtrl {
             if 当日! < 31 && 当日! > 0 {
                 当前日期 = 当日!
             } else {    // 传入的日期不合法
-                Judy.log("请传入正确的日期！")
+                log("请传入正确的日期！")
 
                 let currentCarlendarComponents = Calendar.current.dateComponents([.day], from: Date())
                 当前日期 = currentCarlendarComponents.day!
@@ -175,7 +175,7 @@ private extension GracePeriodViewCtrl {
         }
         最长还款日Label.text = "最长免息天数：\(最长免息天数)天"
         当前免息期Label.text = "当前免息期天数：\(当前免息天数)天"
-        Judy.log("出账日：\(出账日)，还款日：\(还款日)，最长免息天数：\(最长免息天数)，今天\(当前日期)号，当前免息天数：\(当前免息天数)天")
+        log("出账日：\(出账日)，还款日：\(还款日)，最长免息天数：\(最长免息天数)，今天\(当前日期)号，当前免息天数：\(当前免息天数)天")
     }
 
 }

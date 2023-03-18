@@ -1,6 +1,6 @@
 {
   "name": "EnolaGay",
-  "version": "4.0.5",
+  "version": "4.0.6",
   "summary": "EnolaGay 架构，由早期的 EMERANA 进化而成。",
   "description": "EMERANA 经过了几年的历练，在多个 App 中不断完善，最终进化成可适用于绝大部分场景的便携式框架。",
   "homepage": "https://github.com/emerana/EnolaGay",
@@ -13,22 +13,34 @@
   },
   "source": {
     "git": "https://github.com/emerana/EnolaGay.git",
-    "tag": "4.0.5"
+    "tag": "4.0.6"
   },
   "platforms": {
     "ios": "11.0"
   },
   "swift_versions": "5.0",
   "requires_arc": true,
-  "default_subspecs": "EMERANA",
+  "default_subspecs": "Core",
   "subspecs": [
     {
-      "name": "EMERANA",
+      "name": "Core",
       "source_files": "EnolaGay/Classes/Core/*"
+    },
+    {
+      "name": "EMERANA",
+      "dependencies": {
+        "EnolaGay/Logger": [
+
+        ]
+      },
+      "source_files": "EnolaGay/Classes/UIBase/*"
     },
     {
       "name": "SegmentedView",
       "dependencies": {
+        "EnolaGay/Core": [
+
+        ],
         "EnolaGay/EMERANA": [
 
         ]
@@ -38,6 +50,9 @@
     {
       "name": "HPickerView",
       "dependencies": {
+        "EnolaGay/Core": [
+
+        ],
         "EnolaGay/EMERANA": [
 
         ]
@@ -63,6 +78,10 @@
       "source_files": "EnolaGay/Classes/WKWebView/*"
     },
     {
+      "name": "Logger",
+      "source_files": "EnolaGay/Classes/Core/Logger.Swift"
+    },
+    {
       "name": "JudyPopBubble",
       "source_files": "EnolaGay/Classes/JudyPopBubble/*"
     },
@@ -85,6 +104,10 @@
     {
       "name": "MarqueeView",
       "source_files": "EnolaGay/Classes/MarqueeView/*"
+    },
+    {
+      "name": "KeyboardHelper",
+      "source_files": "EnolaGay/Classes/KeyboardHelper/*"
     },
     {
       "name": "HUD",

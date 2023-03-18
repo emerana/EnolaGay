@@ -53,7 +53,7 @@ class DownloadViewCtrl: JudyBaseViewCtrl {
             let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).first
             let fileUrl = documentsUrl?.appendingPathComponent(response.suggestedFilename!)
             
-            Judy.log(fileUrl)
+            log(fileUrl)
             
             return (fileUrl!,[.removePreviousFile, .createIntermediateDirectories] )
         }

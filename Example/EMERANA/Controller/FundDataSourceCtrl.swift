@@ -88,7 +88,7 @@ extension FundDataSourceCtrl {
             // 确定数据库路径
             let docuPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
             let dbPath = docuPath.appending("/\(dataBaseName).db")
-            Judy.log("数据库 FundDB 沙盒路径：\(dbPath)")
+            log("数据库 FundDB 沙盒路径：\(dbPath)")
             dbQueue = FMDatabaseQueue(path: dbPath)
         }
         return dbQueue!
@@ -259,7 +259,7 @@ SELECT t_fundInfoList.*, t_fundOptional.fundID AS isOption, t_investment.fundID 
             searchText += "\(keywords[index])%"
             index = keywords.index(after: index)
         }
-        Judy.log("搜索关键字：" + searchText)
+        log("搜索关键字：" + searchText)
 
         var fundList = [Fund]()
         
@@ -350,9 +350,9 @@ extension FundDataSourceCtrl {
             
             let result = db.executeUpdate(sql, withArgumentsIn: [fund.fundID, fund.fundName])
             if result {
-                Judy.log("\(fund.fundID)写入成功")
+                log("\(fund.fundID)写入成功")
             } else {
-                Judy.log("\(fund_tables.t_fundOptional)-基金：\(fund.fundName)信息写入失败！")
+                log("\(fund_tables.t_fundOptional)-基金：\(fund.fundName)信息写入失败！")
                 rollback.pointee = true
             }
             callback(!rollback.pointee.boolValue)
@@ -478,9 +478,9 @@ extension FundDataSourceCtrl {
             
             let result = db.executeUpdate(sql, withArgumentsIn: [fundPurchased.fund.fundID, fundPurchased.fund.fundName, fundPurchased.amount, fundPurchased.investmentType.rawValue, fundPurchased.dayForInvestmentType, fundPurchased.remark ?? ""])
             if result {
-                Judy.log("\(fundPurchased.fund.fundID)写入定投成功")
+                log("\(fundPurchased.fund.fundID)写入定投成功")
             } else {
-                Judy.log("\(fund_tables.t_fundOptional)-基金：\(fundPurchased.fund.fundName)信息写入失败！")
+                log("\(fund_tables.t_fundOptional)-基金：\(fundPurchased.fund.fundName)信息写入失败！")
                 rollback.pointee = true
             }
             callback(!rollback.pointee.boolValue)

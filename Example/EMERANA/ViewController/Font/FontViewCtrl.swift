@@ -190,7 +190,7 @@ extension FontViewCtrl: UISearchBarDelegate {
     // 搜索框失去焦点事件
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
-        Judy.log("失去焦点")
+        log("失去焦点")
     }
 }
 

@@ -4,6 +4,10 @@ use_frameworks!
 platform :ios, '11.0'
 
 target 'Demo' do
+  
+  pod 'EnolaGay/Logger', :path => '../'
+  pod 'EnolaGay/KeyboardHelper', :path => '../'
+
   #  pod 'EnolaGay/TextFieldEffects', :path => '../'
   #  pod 'EnolaGay/JudyPopBubble', :path => '../'
   #  pod 'EnolaGay/JudyPlusButtonTabBar', :path => '../'
@@ -84,6 +88,8 @@ end
 
 # MARK: HUD
 target 'HUD' do
+  platform :ios, '13.0'
+
   pod 'EnolaGay/HUD', :path => '../'
 end
 
@@ -178,8 +184,9 @@ end
 # MARK: GiftMessageViewCtrlDemo
 
 target 'GiftMessageViewCtrlDemo' do
-  pod 'EnolaGay', :path => '../'
-#  pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
+  pod 'SwiftyJSON'
+
+  pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
 end
 
 

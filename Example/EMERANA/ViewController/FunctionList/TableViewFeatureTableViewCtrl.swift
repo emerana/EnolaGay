@@ -23,7 +23,7 @@ class TableViewFeatureTableViewCtrl: JudyBaseTableViewCtrl {
     }
     
     @IBAction func printAction(_ sender: Any) {
-        Judy.log("当前选中\(String(describing: tableView?.indexPathsForSelectedRows))")
+        log("当前选中\(String(describing: tableView?.indexPathsForSelectedRows))")
     }
     
     @IBAction func editSelectedAction(_ sender: Any) {

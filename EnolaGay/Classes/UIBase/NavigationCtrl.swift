@@ -57,9 +57,9 @@ open class JudyBaseNavigationCtrl: UINavigationController {
         // 如果要自定义反向指示符图像，还必须设置此图像。
         navigationBar.backIndicatorTransitionMaskImage = backIndicatorImage?.withRenderingMode(isAlwaysOriginal ? .alwaysOriginal:.automatic)
         
-        if let itemsColor = EMERANA.enolagayAdapter?.navigationBarItemsColor() {
-            judy.setItemsColor(color: itemsColor)
-        }
+//        if let itemsColor = EMERANA.enolagayAdapter?.navigationBarItemsColor() {
+//            judy.setItemsColor(color: itemsColor)
+//        }
     }
         
     /// 覆盖 push 事件，实现在 push 过程中自定义部分操作。
@@ -326,7 +326,7 @@ public class JudyNavigationCtrl: JudyBaseNavigationCtrl {
     deinit {
         backgroundView?.removeFromSuperview()
         backgroundView = nil
-        Judy.logHappy("导航控制器已释放")
+        logHappy("导航控制器已释放")
     }
     
 }

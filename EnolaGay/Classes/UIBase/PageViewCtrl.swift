@@ -128,14 +128,14 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
                 }
                 
                 guard theViewTitle != nil, theViewTitle != "" else {
-                    Judy.logWarning("viewController title 为空，请检查！")
+                    logWarning("viewController title 为空，请检查！")
                     return "EMERANA"
                 }
                 
                 return theViewTitle!
             })
 
-        } else { Judy.logWarning("未知数据源类型！") }
+        } else { logWarning("未知数据源类型！") }
     }
     
     /// 滚动到指定索引界面，此函数类似用户触发 segmented 发生的转换，常用于不需要由用户拖拽发生转换的场景
@@ -143,7 +143,7 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
     public final func scrollTo(index: Int) {
         // segmentedCtrl 改变 viewControllers.
         guard index < viewCtrlArray.count else {
-            Judy.logWarning("目标 index 不在 viewCtrlArray 范围!")
+            logWarning("目标 index 不在 viewCtrlArray 范围!")
             return
         }
         isDrag = false
@@ -158,7 +158,7 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
         scrollView?.delegate = self
     }
     
-    deinit { Judy.logHappy("\(title ?? "\(classForCoder)") 已经释放。") }
+    deinit { logHappy("\(title ?? "\(classForCoder)") 已经释放。") }
 
     
     // MARK: - UIPageViewControllerDelegate
@@ -360,7 +360,7 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
         }
     }
     
-    deinit { Judy.logHappy("\(title ?? "\(classForCoder)") 已经释放。") }
+    deinit { logHappy("\(title ?? "\(classForCoder)") 已经释放。") }
 
     // MARK: - UIPageViewControllerDataSource
     

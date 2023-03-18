@@ -45,7 +45,7 @@ extension CollectionViewController: UICollectionViewDataSource {
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        Judy.log(indexPath.row)
+        log(indexPath.row)
     }
     
     // cell大小

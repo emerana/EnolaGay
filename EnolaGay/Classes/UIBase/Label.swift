@@ -150,9 +150,9 @@ open class JudyBaseLabel: UILabel, FontStyle {
 private extension JudyBaseLabel {
     /// 在构造 JudyBaseLabel 时就设置好 label 的默认 font.
     func initFont() {
-        if let defaultFont = EMERANA.enolagayAdapter?.defaultFontName() {
-            font = UIFont(name: defaultFont.fontName, size: font.pointSize)
-        }
+//        if let defaultFont = EMERANA.enolagayAdapter?.defaultFontName() {
+//            font = UIFont(name: defaultFont.fontName, size: font.pointSize)
+//        }
     }
 }
 

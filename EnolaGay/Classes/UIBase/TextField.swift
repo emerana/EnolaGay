@@ -99,9 +99,9 @@ public extension JudyBaseTextField {
 private extension JudyBaseTextField {
     /// 在构造 JudyBaseTextField 时就设置好 label 的默认 font.
     func initFont() {
-        if let defaultFont = EMERANA.enolagayAdapter?.defaultFontName() {
-            font = UIFont(name: defaultFont.fontName, size: font?.pointSize ?? 12)
-        }
+//        if let defaultFont = EMERANA.enolagayAdapter?.defaultFontName() {
+//            font = UIFont(name: defaultFont.fontName, size: font?.pointSize ?? 12)
+//        }
     }
 
     /// 设置 inputType 事件

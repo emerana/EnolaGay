@@ -33,7 +33,7 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl {
         super.viewDidLoad()
         
         guard collectionView != nil else {
-            Judy.logWarning("collectionView 没有关联 IBOutlet")
+            logWarning("collectionView 没有关联 IBOutlet")
             return
         }
 
@@ -45,7 +45,7 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl {
         // 滑动时关闭键盘
         collectionView?.keyboardDismissMode = .onDrag
         // 设置 collectionView 的背景色
-        collectionView?.backgroundColor = EMERANA.enolagayAdapter?.scrollViewBackGroundColor()
+        // collectionView?.backgroundColor = EMERANA.enolagayAdapter?.scrollViewBackGroundColor()
 
         // 配置 collectionView 的背景色
         /*
@@ -139,7 +139,7 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegate {
     
     /// 选中事件
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        Judy.log("点击-\(indexPath)")
+        log("点击-\(indexPath)")
     }
     
     // 完美解决 collectionView 滚动条被 Header 遮挡问题
