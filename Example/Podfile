@@ -143,14 +143,6 @@ target 'CastSurelyCalculation' do
   pod 'EnolaGay', :path => '../'
 end
 
-
-# MARK: FontExtension
-
-target 'FontExtension' do
-  pod 'EnolaGay/EMERANA', :path => '../'
-end
-
-
 # MARK: MyRxSwfit
 
 target 'MyRxSwfit' do
@@ -185,7 +177,7 @@ end
 # MARK: JudyLivePageViewCtrl
 
 target 'JudyLivePageViewCtrl' do
-  pod 'EnolaGay', :path => '../'
+  pod 'EnolaGay/EMERANA', :path => '../'
 end
 
 
@@ -213,11 +205,4 @@ end
 target 'MyIGListKit' do
   pod 'EnolaGay', :path => '../'
   pod 'IGListKit', '~> 4.0.0'
-end
-
-# MARK: MyRxRealm
-
-target 'MyRxRealm' do
-  pod 'EnolaGay', :path => '../'
-  pod "RxRealm"
 end

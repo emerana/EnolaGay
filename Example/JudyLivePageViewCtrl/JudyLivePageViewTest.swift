@@ -50,7 +50,7 @@ extension JudyLivePageViewTest: JudyPageViewCtrlDelegate {
                 return
             }
         }
-        Judy.log("当前询问的序列索引为：\(rs)")
+        log("当前询问的序列索引为：\(rs)")
         return rs
     }
     

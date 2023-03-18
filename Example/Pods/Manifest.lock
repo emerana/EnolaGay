@@ -31,19 +31,9 @@ PODS:
   - Kingfisher (6.3.1)
   - MJRefresh (3.5.0)
   - Player (0.14.0)
-  - Realm (10.32.3):
-    - Realm/Headers (= 10.32.3)
-  - Realm/Headers (10.32.3)
-  - RealmSwift (10.32.3):
-    - Realm (= 10.32.3)
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
-  - RxRealm (5.0.4):
-    - Realm (~> 10.21)
-    - RealmSwift (~> 10.21)
-    - RxCocoa (~> 6.1)
-    - RxSwift (~> 6.1)
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
@@ -78,7 +68,6 @@ DEPENDENCIES:
   - MJRefresh
   - Player
   - RxCocoa
-  - RxRealm
   - RxSwift
   - SDWebImage
   - SwiftMessages
@@ -99,10 +88,7 @@ SPEC REPOS:
     - Kingfisher
     - MJRefresh
     - Player
-    - Realm
-    - RealmSwift
     - RxCocoa
-    - RxRealm
     - RxRelay
     - RxSwift
     - SDWebImage
@@ -129,10 +115,7 @@ SPEC CHECKSUMS:
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Player: 37e0acc16ea1495fc241df88fe9f089367513331
-  Realm: fdf6732924dc5e69e30e0db2c11e869f92b53f3d
-  RealmSwift: 7c181da8fa1c2fe613656a77c198d6a3dc3879a1
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
-  RxRealm: 666c8785327fe2fff972a3093b35dc7055c1ca38
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
@@ -141,6 +124,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: fe359f2d9e4bfddb05529dcda99ecb559d06ac1d
+PODFILE CHECKSUM: 983cfbd4beb8745243bbe76488539ff914e73d37
 
 COCOAPODS: 1.12.0

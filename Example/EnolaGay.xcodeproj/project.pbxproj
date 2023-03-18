@@ -12,7 +12,6 @@
 		20DDDAB7813F4A16A759AB33 /* Pods_AttributedStringDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74095273040DD49296A416BC /* Pods_AttributedStringDemo.framework */; };
 		2844F08FF283847D8070BF8A /* Pods_SegmentedDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47E999B91D99CC60E4315CC /* Pods_SegmentedDemo.framework */; };
 		56C2B4BDDE2BF1D78F8818A3 /* Pods_MyIGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09FCC4A97F55D3D86F8CBD8 /* Pods_MyIGListKit.framework */; };
-		5E10758CE6B0A3DBC745A837 /* Pods_MyRxRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9EB8CFB620E0BC26A279B3 /* Pods_MyRxRealm.framework */; };
 		6F6259394A3A9FC5E68D4243 /* Pods_PlayerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1A1A1370061A6D2BA38281 /* Pods_PlayerDemo.framework */; };
 		7DFC7173A357B9B7E880D315 /* Pods_MyCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271D1E28BDD517FC30EC966B /* Pods_MyCharts.framework */; };
 		8B17484226EB3BC900B81EC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B17484126EB3BC900B81EC7 /* AppDelegate.swift */; };
@@ -66,12 +65,6 @@
 		8B4F5D5929C46A7B0092AF67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B4F5D5829C46A7B0092AF67 /* Assets.xcassets */; };
 		8B4F5D5C29C46A7B0092AF67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4F5D5A29C46A7B0092AF67 /* LaunchScreen.storyboard */; };
 		8B4F5D6129C46AEC0092AF67 /* AddFundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9526DF480F00A2A405 /* AddFundView.swift */; };
-		8B9BFBF92921BAC2006939E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BFBF82921BAC2006939E5 /* AppDelegate.swift */; };
-		8B9BFBFD2921BAC2006939E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BFBFC2921BAC2006939E5 /* ViewController.swift */; };
-		8B9BFC002921BAC2006939E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9BFBFE2921BAC2006939E5 /* Main.storyboard */; };
-		8B9BFC022921BAC3006939E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B9BFC012921BAC3006939E5 /* Assets.xcassets */; };
-		8B9BFC052921BAC3006939E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9BFC032921BAC3006939E5 /* LaunchScreen.storyboard */; };
-		8B9BFC0B2921C565006939E5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BFC0A2921C565006939E5 /* Models.swift */; };
 		8BC07ADE291660E1006C6CD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC07ADD291660E1006C6CD2 /* AppDelegate.swift */; };
 		8BC07AE5291660E1006C6CD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC07AE3291660E1006C6CD2 /* Main.storyboard */; };
 		8BC07AE7291660E2006C6CD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC07AE6291660E2006C6CD2 /* Assets.xcassets */; };
@@ -241,7 +234,6 @@
 		E79751C2F0BA7AEE67D0DB21 /* Pods_MyRxSwfit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C81724A160FF905669494B /* Pods_MyRxSwfit.framework */; };
 		E8924F7BE5DB78131352C79A /* Pods_CastSurelyCalculation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC320D0BB712D408990761B0 /* Pods_CastSurelyCalculation.framework */; };
 		E923A544DE457C697CF4DE8F /* Pods_KeyBoardPop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDC9002BE9A5AC51D0D2AA5 /* Pods_KeyBoardPop.framework */; };
-		ECEB1478EB28652460F71169 /* Pods_FontExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20A11D0A2EF5359B59C7896 /* Pods_FontExtension.framework */; };
 		EEAB4A5216C59DC5EEF427B3 /* Pods_Semaphore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2219F8D3BC2903363B8DE5DE /* Pods_Semaphore.framework */; };
 /* End PBXBuildFile section */
 
@@ -331,7 +323,6 @@
 		8B1749DF26EB3DCE00B81EC7 /* HSDrawLayerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSDrawLayerProtocol.swift; sourceTree = "<group>"; };
 		8B1749E126EB3DCE00B81EC7 /* HSStockChartNameSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSStockChartNameSpace.swift; sourceTree = "<group>"; };
 		8B1749E226EB3DCE00B81EC7 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		8B174A2226F483B900B81EC7 /* JudyBaseNavigationCtrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JudyBaseNavigationCtrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1AA67225A74AE60063BE04 /* JudyLivePageViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudyLivePageViewTest.swift; sourceTree = "<group>"; };
 		8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveModelViewCtrl.swift; sourceTree = "<group>"; };
 		8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCheckViewCtrl.swift; sourceTree = "<group>"; };
@@ -353,16 +344,6 @@
 		8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VersionCheck-Info.plist"; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
-		8B784E0A2922768800F3AC22 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		8B9BFBF62921BAC2006939E5 /* MyRxRealm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRxRealm.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B9BFBF82921BAC2006939E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8B9BFBFC2921BAC2006939E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8B9BFBFF2921BAC2006939E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8B9BFC012921BAC3006939E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8B9BFC042921BAC3006939E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8B9BFC062921BAC3006939E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B9BFC0A2921C565006939E5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		8B9D4DFC2924917600C27958 /* MyRxRealmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRxRealmTests.swift; sourceTree = "<group>"; };
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
 		8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftMessageViewCtrlTest.swift; sourceTree = "<group>"; };
 		8BC07ADB291660E0006C6CD2 /* MyIGListKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyIGListKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -422,7 +403,6 @@
 		8BC3DB1A26DF3F2300A2A405 /* CastSurelyCalculation.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CastSurelyCalculation.plist; sourceTree = "<group>"; };
 		8BC3DB1C26DF3F2300A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BC3DB1E26DF3F2300A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		8BC3DB5226DF414D00A2A405 /* FontExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FontExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC3DB6B26DF479200A2A405 /* EMERANA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EMERANA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC3DB6D26DF479200A2A405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BC3DB7626DF479400A2A405 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -636,26 +616,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B174A1F26F483B900B81EC7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8B4F5D4A29C46A790092AF67 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B10CF77396383779B5E8AF24 /* Pods_HUD.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8B9BFBF32921BAC2006939E5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5E10758CE6B0A3DBC745A837 /* Pods_MyRxRealm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,14 +693,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8924F7BE5DB78131352C79A /* Pods_CastSurelyCalculation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BC3DB4F26DF414D00A2A405 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ECEB1478EB28652460F71169 /* Pods_FontExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -888,8 +845,6 @@
 				8BC3DDEF26E06BA000A2A405 /* MyRxSwfit */,
 				8B17484026EB3BC900B81EC7 /* MyCharts */,
 				8BC07ADC291660E1006C6CD2 /* MyIGListKit */,
-				8B9BFBF72921BAC2006939E5 /* MyRxRealm */,
-				8B9D4DFB2924917600C27958 /* MyRxRealmTests */,
 				8B4F5D4E29C46A790092AF67 /* HUD */,
 				8BE31B7829C2D22A003038B2 /* Demo */,
 				8BC3DACD26DF29B900A2A405 /* HPickerDemo */,
@@ -912,7 +867,6 @@
 				8BC3DACC26DF29A800A2A405 /* HPickerDemo.app */,
 				8BC3DAEE26DF3C2A00A2A405 /* KeyBoardPop.app */,
 				8BC3DB1226DF3EC100A2A405 /* CastSurelyCalculation.app */,
-				8BC3DB5226DF414D00A2A405 /* FontExtension.app */,
 				8BC3DB6B26DF479200A2A405 /* EMERANA.app */,
 				8BC3DD1B26DF58FB00A2A405 /* AGUL.app */,
 				8BC3DD7D26E05C8D00A2A405 /* SegmentedDemo.app */,
@@ -921,9 +875,7 @@
 				8BC3DDD126E0617400A2A405 /* JudyLivePageViewCtrl.app */,
 				8BC3DDEE26E06BA000A2A405 /* MyRxSwfit.app */,
 				8B17483F26EB3BC900B81EC7 /* MyCharts.app */,
-				8B174A2226F483B900B81EC7 /* JudyBaseNavigationCtrl.app */,
 				8BC07ADB291660E0006C6CD2 /* MyIGListKit.app */,
-				8B9BFBF62921BAC2006939E5 /* MyRxRealm.app */,
 				8BD025F22930D8AB005709D6 /* ToastDemo.app */,
 				8BE31B7729C2D229003038B2 /* Demo.app */,
 				8B4F5D4D29C46A790092AF67 /* HUD.app */,
@@ -1154,29 +1106,6 @@
 				8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		8B9BFBF72921BAC2006939E5 /* MyRxRealm */ = {
-			isa = PBXGroup;
-			children = (
-				8B9BFBF82921BAC2006939E5 /* AppDelegate.swift */,
-				8B784E0A2922768800F3AC22 /* MyPlayground.playground */,
-				8B9BFBFC2921BAC2006939E5 /* ViewController.swift */,
-				8B9BFC0A2921C565006939E5 /* Models.swift */,
-				8B9BFBFE2921BAC2006939E5 /* Main.storyboard */,
-				8B9BFC012921BAC3006939E5 /* Assets.xcassets */,
-				8B9BFC032921BAC3006939E5 /* LaunchScreen.storyboard */,
-				8B9BFC062921BAC3006939E5 /* Info.plist */,
-			);
-			path = MyRxRealm;
-			sourceTree = "<group>";
-		};
-		8B9D4DFB2924917600C27958 /* MyRxRealmTests */ = {
-			isa = PBXGroup;
-			children = (
-				8B9D4DFC2924917600C27958 /* MyRxRealmTests.swift */,
-			);
-			path = MyRxRealmTests;
 			sourceTree = "<group>";
 		};
 		8BC07ADC291660E1006C6CD2 /* MyIGListKit */ = {
@@ -1695,23 +1624,6 @@
 			productReference = 8B17483F26EB3BC900B81EC7 /* MyCharts.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8B174A2126F483B900B81EC7 /* JudyBaseNavigationCtrl */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8B174A3326F483BE00B81EC7 /* Build configuration list for PBXNativeTarget "JudyBaseNavigationCtrl" */;
-			buildPhases = (
-				8B174A1E26F483B900B81EC7 /* Sources */,
-				8B174A1F26F483B900B81EC7 /* Frameworks */,
-				8B174A2026F483B900B81EC7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = JudyBaseNavigationCtrl;
-			productName = JudyBaseNavigationCtrl;
-			productReference = 8B174A2226F483B900B81EC7 /* JudyBaseNavigationCtrl.app */;
-			productType = "com.apple.product-type.application";
-		};
 		8B4F5D4C29C46A790092AF67 /* HUD */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B4F5D5E29C46A7B0092AF67 /* Build configuration list for PBXNativeTarget "HUD" */;
@@ -1729,25 +1641,6 @@
 			name = HUD;
 			productName = HUD;
 			productReference = 8B4F5D4D29C46A790092AF67 /* HUD.app */;
-			productType = "com.apple.product-type.application";
-		};
-		8B9BFBF52921BAC2006939E5 /* MyRxRealm */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8B9BFC092921BAC3006939E5 /* Build configuration list for PBXNativeTarget "MyRxRealm" */;
-			buildPhases = (
-				BA2790F45F5552A8B78AC4F6 /* [CP] Check Pods Manifest.lock */,
-				8B9BFBF22921BAC2006939E5 /* Sources */,
-				8B9BFBF32921BAC2006939E5 /* Frameworks */,
-				8B9BFBF42921BAC2006939E5 /* Resources */,
-				2CBC54CE03653FB48F4DB1B9 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MyRxRealm;
-			productName = MyRxRealm;
-			productReference = 8B9BFBF62921BAC2006939E5 /* MyRxRealm.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8BC07ADA291660E0006C6CD2 /* MyIGListKit */ = {
@@ -1919,25 +1812,6 @@
 			name = CastSurelyCalculation;
 			productName = EnolaGay;
 			productReference = 8BC3DB1226DF3EC100A2A405 /* CastSurelyCalculation.app */;
-			productType = "com.apple.product-type.application";
-		};
-		8BC3DB5126DF414D00A2A405 /* FontExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8BC3DB6526DF414F00A2A405 /* Build configuration list for PBXNativeTarget "FontExtension" */;
-			buildPhases = (
-				899CD69AD499DDA81B7B10FA /* [CP] Check Pods Manifest.lock */,
-				8BC3DB4E26DF414D00A2A405 /* Sources */,
-				8BC3DB4F26DF414D00A2A405 /* Frameworks */,
-				8BC3DB5026DF414D00A2A405 /* Resources */,
-				CE9988A92642D59C8EA9D709 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = FontExtension;
-			productName = FontExtension;
-			productReference = 8BC3DB5226DF414D00A2A405 /* FontExtension.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8BC3DB6A26DF479200A2A405 /* EMERANA */ = {
@@ -2126,18 +2000,8 @@
 						DevelopmentTeam = 325J3J39TM;
 						ProvisioningStyle = Automatic;
 					};
-					8B174A2126F483B900B81EC7 = {
-						CreatedOnToolsVersion = 12.5.1;
-						DevelopmentTeam = 325J3J39TM;
-						ProvisioningStyle = Automatic;
-					};
 					8B4F5D4C29C46A790092AF67 = {
 						CreatedOnToolsVersion = 14.2;
-						DevelopmentTeam = 325J3J39TM;
-						ProvisioningStyle = Automatic;
-					};
-					8B9BFBF52921BAC2006939E5 = {
-						CreatedOnToolsVersion = 14.1;
 						DevelopmentTeam = 325J3J39TM;
 						ProvisioningStyle = Automatic;
 					};
@@ -2169,11 +2033,6 @@
 					};
 					8BC3DB0326DF3EC100A2A405 = {
 						DevelopmentTeam = 325J3J39TM;
-					};
-					8BC3DB5126DF414D00A2A405 = {
-						CreatedOnToolsVersion = 12.5.1;
-						DevelopmentTeam = 325J3J39TM;
-						ProvisioningStyle = Automatic;
 					};
 					8BC3DB6A26DF479200A2A405 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -2243,7 +2102,6 @@
 				8BC3DABD26DF29A800A2A405 /* HPickerDemo */,
 				8BC3DADF26DF3C2A00A2A405 /* KeyBoardPop */,
 				8BC3DB0326DF3EC100A2A405 /* CastSurelyCalculation */,
-				8BC3DB5126DF414D00A2A405 /* FontExtension */,
 				8BC3DB6A26DF479200A2A405 /* EMERANA */,
 				8BC3DD1A26DF58FB00A2A405 /* AGUL */,
 				8BC3DD7C26E05C8D00A2A405 /* SegmentedDemo */,
@@ -2252,9 +2110,7 @@
 				8BC3DDD026E0617400A2A405 /* JudyLivePageViewCtrl */,
 				8BC3DDED26E06BA000A2A405 /* MyRxSwfit */,
 				8B17483E26EB3BC900B81EC7 /* MyCharts */,
-				8B174A2126F483B900B81EC7 /* JudyBaseNavigationCtrl */,
 				8BC07ADA291660E0006C6CD2 /* MyIGListKit */,
-				8B9BFBF52921BAC2006939E5 /* MyRxRealm */,
 				8BD025F12930D8AB005709D6 /* ToastDemo */,
 				8BE31B7629C2D229003038B2 /* Demo */,
 				8B4F5D4C29C46A790092AF67 /* HUD */,
@@ -2280,13 +2136,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B174A2026F483B900B81EC7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8B4F5D4B29C46A790092AF67 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2294,16 +2143,6 @@
 				8B4F5D5C29C46A7B0092AF67 /* LaunchScreen.storyboard in Resources */,
 				8B4F5D5929C46A7B0092AF67 /* Assets.xcassets in Resources */,
 				8B4F5D5729C46A7A0092AF67 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8B9BFBF42921BAC2006939E5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8B9BFC052921BAC3006939E5 /* LaunchScreen.storyboard in Resources */,
-				8B9BFC022921BAC3006939E5 /* Assets.xcassets in Resources */,
-				8B9BFC002921BAC2006939E5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2389,13 +2228,6 @@
 			files = (
 				8BC3DB2426DF3F7A00A2A405 /* Main.storyboard in Resources */,
 				8BC3DB2526DF3F7A00A2A405 /* LaunchScreen.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BC3DB5026DF414D00A2A405 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2590,7 +2422,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JudyLivePageViewCtrl/Pods-JudyLivePageViewCtrl-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-iOS11.0/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-Core-EMERANA/EnolaGay.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -2691,36 +2523,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2CBC54CE03653FB48F4DB1B9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyRxRealm/Pods-MyRxRealm-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-iOS11.0/EnolaGay.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyRxRealm/Pods-MyRxRealm-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		36E5577C86CBF0611AFF3448 /* [CP] Embed Pods Frameworks */ = {
@@ -2859,28 +2661,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-AttributedStringDemo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		899CD69AD499DDA81B7B10FA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FontExtension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3305,28 +3085,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AttributedStringDemo/Pods-AttributedStringDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BA2790F45F5552A8B78AC4F6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MyRxRealm-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C352EED60D26BD8A167344D9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3365,24 +3123,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HUD/Pods-HUD-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CE9988A92642D59C8EA9D709 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FontExtension/Pods-FontExtension-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-Core-EMERANA/EnolaGay.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FontExtension/Pods-FontExtension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CF1CFA170DAA18FD5DED0E26 /* [CP] Check Pods Manifest.lock */ = {
@@ -3517,29 +3257,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B174A1E26F483B900B81EC7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8B4F5D4929C46A790092AF67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8B4F5D5429C46A7A0092AF67 /* ViewController.swift in Sources */,
 				8B4F5D5029C46A7A0092AF67 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8B9BFBF22921BAC2006939E5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8B9BFC0B2921C565006939E5 /* Models.swift in Sources */,
-				8B9BFBFD2921BAC2006939E5 /* ViewController.swift in Sources */,
-				8B9BFBF92921BAC2006939E5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3627,13 +3350,6 @@
 			files = (
 				8BC3DB2126DF3F6D00A2A405 /* CastSurelyCalculationViewCtrl.swift in Sources */,
 				8BC3DB2326DF3F6D00A2A405 /* App.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BC3DB4E26DF414D00A2A405 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3794,22 +3510,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				8B4F5D5B29C46A7B0092AF67 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		8B9BFBFE2921BAC2006939E5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8B9BFBFF2921BAC2006939E5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8B9BFC032921BAC3006939E5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8B9BFC042921BAC3006939E5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -4259,59 +3959,6 @@
 			};
 			name = Release;
 		};
-		8B174A3426F483BE00B81EC7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = JudyBaseNavigationCtrl/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.JudyBaseNavigationCtrl;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		8B174A3526F483BE00B81EC7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = JudyBaseNavigationCtrl/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.JudyBaseNavigationCtrl;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		8B4F5D5F29C46A7B0092AF67 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F3F44C852DFB4238F8BA9AD8 /* Pods-HUD.debug.xcconfig */;
@@ -4378,79 +4025,6 @@
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = judy.HUD;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		8B9BFC072921BAC3006939E5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 385859AD998457D6279B1E50 /* Pods-MyRxRealm.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyRxRealm/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = judy.MyRxRealm;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		8B9BFC082921BAC3006939E5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BDB567FC2C325E550ADEC75 /* Pods-MyRxRealm.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyRxRealm/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = judy.MyRxRealm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -4796,61 +4370,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		8BC3DB6326DF414F00A2A405 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B40175B5A5EF836CA280ABD0 /* Pods-FontExtension.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = FontExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.FontExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		8BC3DB6426DF414F00A2A405 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCA9EEF161DF786EE1F8134E /* Pods-FontExtension.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = FontExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.FontExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -5416,29 +4935,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8B174A3326F483BE00B81EC7 /* Build configuration list for PBXNativeTarget "JudyBaseNavigationCtrl" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8B174A3426F483BE00B81EC7 /* Debug */,
-				8B174A3526F483BE00B81EC7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		8B4F5D5E29C46A7B0092AF67 /* Build configuration list for PBXNativeTarget "HUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B4F5D5F29C46A7B0092AF67 /* Debug */,
 				8B4F5D6029C46A7B0092AF67 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8B9BFC092921BAC3006939E5 /* Build configuration list for PBXNativeTarget "MyRxRealm" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8B9BFC072921BAC3006939E5 /* Debug */,
-				8B9BFC082921BAC3006939E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -5520,15 +5021,6 @@
 			buildConfigurations = (
 				8BC3DB1026DF3EC100A2A405 /* Debug */,
 				8BC3DB1126DF3EC100A2A405 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8BC3DB6526DF414F00A2A405 /* Build configuration list for PBXNativeTarget "FontExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8BC3DB6326DF414F00A2A405 /* Debug */,
-				8BC3DB6426DF414F00A2A405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
