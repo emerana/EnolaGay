@@ -24,7 +24,6 @@ class VersionCheckViewCtrl: UIViewController {
     
     private let disposeBag = DisposeBag()
 
-
     private var viewModel: VersionCheckViewModel!
     
     override func viewDidLoad() {
@@ -37,17 +36,19 @@ class VersionCheckViewCtrl: UIViewController {
         // 模型 -> UI
         viewModel.bundleID.bind(to: bundleIDTextField.rx.text).disposed(by: disposeBag)
         viewModel.version.bind(to: versionTextField.rx.text).disposed(by: disposeBag)
-        viewModel.queryResult.bind(to: infoLabel.rx.text).disposed(by: disposeBag)
+        viewModel.outputInfoBehaviorRelay.bind(to: infoLabel.rx.text).disposed(by: disposeBag)
+        // 按钮是否有效
+        viewModel.queryButtonValid.drive(queryButton.rx.isEnabled).disposed(by: disposeBag)
+        // 输入提示
+//        viewModel.inputStatusInfo.drive(infoLabel.rx.text).disposed(by: disposeBag)
+        
         // UI -> 模型
         bundleIDTextField.rx.text.orEmpty.bind(to: viewModel.bundleID).disposed(by: disposeBag)
         versionTextField.rx.text.orEmpty.bind(to: viewModel.version).disposed(by: disposeBag)
-        // 按钮是否有效
-        viewModel.queryButtonValid.drive(queryButton.rx.isEnabled).disposed(by: disposeBag)
         
         // 按钮点击事件
-        viewModel.appStorePublisher()
-            .observe(on: MainScheduler.instance)
-            .subscribe { [weak self] (status, appStoreURL) in
+        viewModel.appStoreInfoDrive()
+            .drive { [weak self] (status, appStoreURL) in
                 guard let `self` = self else { return }
                 self.view.endEditing(true)
                 
@@ -78,24 +79,26 @@ class VersionCheckViewCtrl: UIViewController {
         alertController.addAction(okAction)
         Judy.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
-    
 
 }
 
 
 struct VersionCheckViewModel {
 
+    // subjects
     let bundleID = BehaviorRelay<String>(value: "com.shengda.whalemall")
     let version = BehaviorRelay<String>(value: Judy.versionShort)
-    /// 查询结果的 BehaviorSubject
-    let queryResult = BehaviorRelay<String>(value: "点击查询按钮开始查询")
+    
+    /// 输出信息的 BehaviorRelay
+    let outputInfoBehaviorRelay = BehaviorRelay<String>(value: "点击查询按钮开始查询")
 
-    // 输出
+    let queryButtonValid: Driver<Bool>
+    /// 用户的输入提示信息
+    let inputStatusInfo: Driver<String>
+    let tapAction: Signal<Void>
+    
     private let bundleIDValid: Driver<Bool>
     private let versionValid: Driver<Bool>
-    let queryButtonValid: Driver<Bool>
-    
-    let tapAction: Signal<Void>
 
     
     init(bundleID: ControlProperty<String>, version: ControlProperty<String>, tapAction: Signal<Void>) {
@@ -111,47 +114,30 @@ struct VersionCheckViewModel {
         queryButtonValid = Driver.combineLatest(bundleIDValid, versionValid)
             .map { $0 && $1 }
         
+        inputStatusInfo = Driver.combineLatest(bundleIDValid, versionValid)
+            .map {
+                if $0 == false { return "请输入正确的 bundleID" }
+                if $1 == false { return "请输入正确的版本号" }
+                return "点击查询按钮开始查询"
+            }
+        
         self.tapAction = tapAction
+        
     }
-    
-    /*
-    /// 以 Completable 任务是否完成的方式查询版本是否有强制更新
-    func versionCheckCompletable() -> Completable {
-        queryResult.onNext("查询中……")
-        return Completable.create { [weak self] completable in
-            guard let `self` = self  else { return Disposables.create {} }
-            _ = Observable.zip(self.getVersionInfo(), self.getVersionForce())
-                .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
-                .observe(on: MainScheduler.instance)
-                .subscribe({ event in
-                    switch event {
-                    case .next((let versionInfo, let force)):
-                        log("查询到的 versionStatus：\(versionInfo)")
-                        log("查询强制更新响应的 isHot = \(force)")
-
-                        var infoString = "查询结果\n"
-                        infoString += "Bundle ID: \(try! self.bundleID.value())\n"
-                        infoString += "Version: \(try! self.version.value())\n"
-                        infoString += versionInfo.0.rawValue
-                        self.queryResult.onNext(infoString)
-                    default:
-                        self.queryResult.onNext("完成查询\(event)")
-                    }
-                    completable(.completed)
-                })
-
-            return Disposables.create { }
-        }
+        
+    /// 用 Drive 的方式查询 App 版本状态
+    func appStoreInfoDrive() -> Driver<(AppVersionStatus, String?)> {
+        return requestAppStoreInfo()
+            .asDriver(onErrorJustReturn: (.notFound, nil))
+        
     }
-    */
-
     
     /// 查询当前 App 的版本状态
-    func appStorePublisher() -> Observable<(AppVersionStatus, String?)> {
+    private func requestAppStoreInfo() -> Observable<(AppVersionStatus, String?)> {
         let values = Observable.combineLatest(bundleID, version)
         return tapAction.throttle(.milliseconds(3000)).asObservable()
             .map {
-                queryResult.accept("查询中……")
+                outputInfoBehaviorRelay.accept("查询中……")
             }
             .withLatestFrom(values)  // 取 infos 的最新元素
             .map { (bundle: String, version: String) -> (URLRequest, String) in
@@ -161,7 +147,7 @@ struct VersionCheckViewModel {
                 // request.httpMethod = "POST"
                 return (request, version)
             }
-            .flatMap { (request: URLRequest, version: String) in
+            .flatMap { (request, version) in
                 return URLSession.shared.rx.json(request: request)
                     .map { JSON($0) }
                     .map { json in
@@ -187,9 +173,10 @@ struct VersionCheckViewModel {
                     }
             }
             .map { (status: AppVersionStatus, url: String?) in
-                queryResult.accept(status.localizedDescription)
+                outputInfoBehaviorRelay.accept(status.localizedDescription)
                 return (status, url)
             }
+
     }
     
 }
