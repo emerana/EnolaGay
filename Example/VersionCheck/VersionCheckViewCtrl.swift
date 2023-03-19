@@ -31,8 +31,9 @@ class VersionCheckViewCtrl: UIViewController {
         super.viewDidLoad()
 
         viewModel = VersionCheckViewModel(
-            bundleID: bundleIDTextField.rx.text.orEmpty.asObservable(),
-            version: versionTextField.rx.text.orEmpty.asObservable(), tapAction: queryButton.rx.tap.asObservable())
+            bundleID: bundleIDTextField.rx.text.orEmpty,
+            version: versionTextField.rx.text.orEmpty,
+            tapAction: queryButton.rx.tap.asSignal())
         // 模型 -> UI
         viewModel.bundleID.bind(to: bundleIDTextField.rx.text).disposed(by: disposeBag)
         viewModel.version.bind(to: versionTextField.rx.text).disposed(by: disposeBag)
@@ -40,8 +41,8 @@ class VersionCheckViewCtrl: UIViewController {
         // UI -> 模型
         bundleIDTextField.rx.text.orEmpty.bind(to: viewModel.bundleID).disposed(by: disposeBag)
         versionTextField.rx.text.orEmpty.bind(to: viewModel.version).disposed(by: disposeBag)
-        
-        viewModel.queryButtonValid.bind(to: queryButton.rx.isEnabled).disposed(by: disposeBag)
+        // 按钮是否有效
+        viewModel.queryButtonValid.drive(queryButton.rx.isEnabled).disposed(by: disposeBag)
         
         // 按钮点击事件
         viewModel.appStorePublisher()
@@ -50,60 +51,65 @@ class VersionCheckViewCtrl: UIViewController {
                 guard let `self` = self else { return }
                 self.view.endEditing(true)
                 
-                if appStoreURL == nil { return }
-                logn("拿到AppStore链接:\(appStoreURL!)")
+                guard let appStoreURL = appStoreURL else { return }
+                logn("拿到AppStore链接:\(appStoreURL)")
                 if status == .older {
-                    let alertController = UIAlertController(title: "请更新版本",
-                                                            message: nil,
-                                                            preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "去更新", style: .destructive) { action -> Void in
-                        if let url = URL(string: appStoreURL!) {
-                            if UIApplication.shared.canOpenURL(url) {
-                                logHappy("正在打开：\(url)")
-                                UIApplication.shared.open(url, completionHandler: nil)
-                            } else {
-                                logWarning("不能打开该 URL")
-                            }
-                        }
-                    }
-                    alertController.addAction(okAction)
-                    Judy.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+                    self.showAlert(appStoreUrl: appStoreURL)
                 }
             }
             .disposed(by: disposeBag)
-        
     }
+    
+    /// 弹出更新提示窗口
+    private func showAlert(appStoreUrl: String) {
+        let alertController = UIAlertController(title: "发现新版本",
+                                                message: "点击跳转到 AppStore 以更新",
+                                                preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "去更新", style: .destructive) { action -> Void in
+            if let url = URL(string: appStoreUrl) {
+                if UIApplication.shared.canOpenURL(url) {
+                    logHappy("正在打开：\(url)")
+                    UIApplication.shared.open(url, completionHandler: nil)
+                } else {
+                    logWarning("不能打开该 URL")
+                }
+            }
+        }
+        alertController.addAction(okAction)
+        Judy.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+    }
+    
 
 }
 
 
 struct VersionCheckViewModel {
 
-    let bundleID = BehaviorSubject<String>(value: "com.shengda.whalemall")
-    let version = BehaviorSubject<String>(value: Judy.versionShort)
+    let bundleID = BehaviorRelay<String>(value: "com.shengda.whalemall")
+    let version = BehaviorRelay<String>(value: Judy.versionShort)
     /// 查询结果的 BehaviorSubject
-    let queryResult = BehaviorSubject<String>(value: "点击查询按钮开始查询")
+    let queryResult = BehaviorRelay<String>(value: "点击查询按钮开始查询")
 
     // 输出
-    private let bundleIDValid: Observable<Bool>
-    private let versionValid: Observable<Bool>
-    let queryButtonValid: Observable<Bool>
-    let tapAction: Observable<Void>
+    private let bundleIDValid: Driver<Bool>
+    private let versionValid: Driver<Bool>
+    let queryButtonValid: Driver<Bool>
+    
+    let tapAction: Signal<Void>
 
     
-    init(bundleID: Observable<String>, version: Observable<String>, tapAction: Observable<Void>) {
+    init(bundleID: ControlProperty<String>, version: ControlProperty<String>, tapAction: Signal<Void>) {
         // bundleID 是否有效
-        bundleIDValid = bundleID
+        bundleIDValid = bundleID.asDriver()
             .map { $0.count >= 5 }
-            .share(replay: 1)
+
         // versionValid 是否有效
-        versionValid = version
+        versionValid = version.asDriver()
             .map { $0.count >= 1 }
-            .share(replay: 1)
+
         // 所有输入是否有效 -> 按钮是否可点击
-        queryButtonValid = Observable.combineLatest(bundleIDValid, versionValid)
+        queryButtonValid = Driver.combineLatest(bundleIDValid, versionValid)
             .map { $0 && $1 }
-            .share(replay: 1)
         
         self.tapAction = tapAction
     }
@@ -143,19 +149,19 @@ struct VersionCheckViewModel {
     /// 查询当前 App 的版本状态
     func appStorePublisher() -> Observable<(AppVersionStatus, String?)> {
         let values = Observable.combineLatest(bundleID, version)
-        return tapAction.throttle(.milliseconds(3000), scheduler: MainScheduler.instance)
+        return tapAction.throttle(.milliseconds(3000)).asObservable()
             .map {
-                queryResult.onNext("查询中……")
+                queryResult.accept("查询中……")
             }
             .withLatestFrom(values)  // 取 infos 的最新元素
-            .map { (bundle, version) in
+            .map { (bundle: String, version: String) -> (URLRequest, String) in
                 let requestURLStr = "https://itunes.apple.com/cn/lookup?bundleId=\(bundle)"
                 let requestURL = URL(string: requestURLStr)!
                 let request = URLRequest(url: requestURL, timeoutInterval: 8)
                 // request.httpMethod = "POST"
                 return (request, version)
             }
-            .flatMap { (request, version) in
+            .flatMap { (request: URLRequest, version: String) in
                 return URLSession.shared.rx.json(request: request)
                     .map { JSON($0) }
                     .map { json in
@@ -181,10 +187,9 @@ struct VersionCheckViewModel {
                     }
             }
             .map { (status: AppVersionStatus, url: String?) in
-                queryResult.onNext(status.localizedDescription)
+                queryResult.accept(status.localizedDescription)
                 return (status, url)
             }
-            .share(replay: 1)
     }
     
 }
