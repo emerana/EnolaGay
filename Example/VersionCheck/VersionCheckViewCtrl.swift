@@ -32,7 +32,7 @@ class VersionCheckViewCtrl: UIViewController {
         viewModel = VersionCheckViewModel(
             bundleID: bundleIDTextField.rx.text.orEmpty,
             version: versionTextField.rx.text.orEmpty,
-            tapAction: queryButton.rx.tap.asSignal())
+            tapAction: queryButton.rx.tap)
         // 模型 -> UI
         viewModel.bundleID.bind(to: bundleIDTextField.rx.text).disposed(by: disposeBag)
         viewModel.version.bind(to: versionTextField.rx.text).disposed(by: disposeBag)
@@ -95,13 +95,13 @@ struct VersionCheckViewModel {
     let queryButtonValid: Driver<Bool>
     /// 用户的输入提示信息
     let inputStatusInfo: Driver<String>
-    let tapAction: Signal<Void>
+    let tapAction: ControlEvent<Void>
     
     private let bundleIDValid: Driver<Bool>
     private let versionValid: Driver<Bool>
 
     
-    init(bundleID: ControlProperty<String>, version: ControlProperty<String>, tapAction: Signal<Void>) {
+    init(bundleID: ControlProperty<String>, version: ControlProperty<String>, tapAction: ControlEvent<Void>) {
         // bundleID 是否有效
         bundleIDValid = bundleID.asDriver()
             .map { $0.count >= 5 }
@@ -135,7 +135,7 @@ struct VersionCheckViewModel {
     /// 查询当前 App 的版本状态
     private func requestAppStoreInfo() -> Observable<(AppVersionStatus, String?)> {
         let values = Observable.combineLatest(bundleID, version)
-        return tapAction.throttle(.milliseconds(3000)).asObservable()
+        return tapAction.throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .map {
                 outputInfoBehaviorRelay.accept("查询中……")
             }
