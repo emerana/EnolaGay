@@ -16,7 +16,7 @@ class CircularProgressViewController: UIViewController {
     @IBOutlet weak private var recorderButton: UIButton!
     /// 录制状态信息 label.
     @IBOutlet weak private var recorderStateLabel: UILabel!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         

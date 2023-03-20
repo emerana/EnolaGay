@@ -11,23 +11,22 @@ import EnolaGay
 import SwiftyJSON
 
 class GiftMessageViewCtrlTest: UIViewController {
-    
-//     override var viewTitle: String? { "送礼测试" }
-    
+        
     @IBOutlet weak var giftMessageViewPanel: GiftMessageCtrlPanel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //        giftMessageViewPanel.critConditionsClosure = { (oldGiftView, showGiftView) in
+//        giftMessageViewPanel.critConditionsClosure = { (oldGiftView, showGiftView) in
 //            return true
 //        }
-//        var index = 1
-//        giftMessageViewPanel.criticalStrikeAction = { gifView in
-//            index += 1
-//            let label = gifView.viewWithTag(1101) as! UILabel
-//            label.text = "值为：\(index)"
-//        }
+        
+        var index = 1
+        giftMessageViewPanel.criticalStrikeAction = { gifView in
+            index += 1
+            let label = gifView.viewWithTag(1101) as! UILabel
+            label.text = "值为：\(index)"
+        }
     }
     
     /// 发送一个礼物事件。
@@ -43,6 +42,7 @@ class GiftMessageViewCtrlTest: UIViewController {
         view.addSubview(label)
         label.center = view.center
         view.backgroundColor = .red
+        
         giftMessageViewPanel.profferGiftMessageView(giftView: view)
     }
 
