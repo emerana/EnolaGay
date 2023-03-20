@@ -64,15 +64,13 @@ public class JudyPopBubble {
     public var bubble_animate_windUp: TimeInterval = 3
     /// 气泡消失时所需时长
     public var bubble_animate_dissmiss: TimeInterval = 3
-    /// 气泡动画路径高度
-    public var bubble_animate_height: CGFloat = 350
+    /// 气泡动画路径最长高度，默认取 bubble_parentView.frame.height
+    public var bubble_animate_height: CGFloat = 0
     
-    /// 气泡图片
-    private(set) public var bubble_image: UIImage?
     /// 气泡所在的 View
-    private(set) public var bubble_parentView: UIView?
-    /// 将该气泡放在该 View 下面，该 view 决定了气泡的起始位置，通常情况下是该对象是触发按钮
-    private(set) public var bubble_belowView: UIView?
+    private(set) public var bubble_parentView: UIView
+    /// 将气泡放在该 View 下面，该 View 决定了气泡的起始位置，通常情况下是该对象是触发按钮。
+    private(set) public var bubble_belowView: UIView
     
     
     /// 实例化放烟花的 JudyPopBubble
@@ -82,36 +80,36 @@ public class JudyPopBubble {
     public init(inView parentView: UIView, belowSubview belowView: UIView) {
         bubble_parentView = parentView
         bubble_belowView = belowView
+        // 设置最高能够飘到的高度
+        bubble_animate_height = bubble_parentView.frame.height
     }
     
     /// 飘出一个气泡动画
     /// - Parameters:
-    ///   - image: 气泡对象
-    public func popBubble(withImage image: UIImage?) {
-        guard image != nil else { return }
-        
-        bubble_image = image!
-        
+    ///   - bubbleImage: 气泡图片对象
+    public func popBubble(_ bubbleImage: UIImage) {
+
         /// 气泡图片
-        let bubbleImageView = UIImageView(image: bubble_image)
+        let bubbleImageView = UIImageView(image: bubbleImage)
         
         // 设置气泡图片的起始位置
         if bubble_image_Center == nil {
-            if bubble_belowView!.superview == bubble_parentView {
-                bubbleImageView.center = CGPoint(x: bubble_belowView!.center.x, y: bubble_belowView!.frame.origin.y)
-                bubble_parentView?.insertSubview(bubbleImageView, belowSubview: bubble_belowView!)
+            if bubble_belowView.superview == bubble_parentView {
+                bubbleImageView.center = CGPoint(x: bubble_belowView.center.x, y: bubble_belowView.frame.origin.y)
+                bubble_parentView.insertSubview(bubbleImageView, belowSubview: bubble_belowView)
             } else {
-                bubbleImageView.center = bubble_belowView!.convert(bubble_belowView!.center, to: bubble_parentView)
-                bubbleImageView.center.x -= bubble_belowView!.frame.origin.x
-                bubbleImageView.center.y -= bubble_belowView!.frame.origin.y
-                bubble_parentView?.insertSubview(bubbleImageView, belowSubview: bubble_belowView!.superview!)
+                bubbleImageView.center = bubble_belowView.convert(bubble_belowView.center, to: bubble_parentView)
+                bubbleImageView.center.x -= bubble_belowView.frame.origin.x
+                bubbleImageView.center.y -= bubble_belowView.frame.origin.y
+                bubble_parentView.insertSubview(bubbleImageView, belowSubview: bubble_belowView.superview!)
             }
         } else {
             bubbleImageView.center = bubble_image_Center!
         }
         
+        // 初始为完全透明
         bubbleImageView.transform = CGAffineTransform(scaleX: 0, y: 0)
-        bubbleImageView.alpha = 0 // 初始为完全透明
+        bubbleImageView.alpha = 0
         
         // 气泡冒出动画
         UIView.animate(withDuration: bubble_animate_showDuration, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: UIView.AnimationOptions.curveEaseOut) {

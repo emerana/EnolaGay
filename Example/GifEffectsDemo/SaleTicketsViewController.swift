@@ -64,8 +64,9 @@ private extension SaleTicketsViewController {
         // 创建计时器，并以默认模式在当前运行循环中调度它。
         animateTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
             // 随机挑选一张图片
-            let image = UIImage(named: imageNames[NSInteger(arc4random_uniform( UInt32((imageNames.count)) ))])
-            judyPopBubble.popBubble(withImage: image)
+            if let image = UIImage(named: imageNames[NSInteger(arc4random_uniform( UInt32((imageNames.count)) ))]) {
+                judyPopBubble.popBubble(image)
+            }
         }
     }
     
