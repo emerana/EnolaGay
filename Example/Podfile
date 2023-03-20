@@ -145,12 +145,13 @@ target 'CastSurelyCalculation' do
   pod 'EnolaGay', :path => '../'
 end
 
-# MARK: GiftMessageViewCtrlDemo
+# MARK: GifEffectsDemo 送礼物控制面板、烟花爆炸特效
 
-target 'GiftMessageViewCtrlDemo' do
-  pod 'SwiftyJSON'
-
+target 'GifEffectsDemo' do
+  pod 'EnolaGay/EMERANA' , :path => '../'
   pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
+  pod 'EnolaGay/JudyPopBubble' , :path => '../'
+  
 end
 
 

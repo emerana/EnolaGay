@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WbG-LP-y2Z">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="bAr-uo-BZq">
+            <objects>
+                <viewController id="vnl-jz-gZ0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ghM-hw-U5K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoQ-cq-UBJ">
+                                <rect key="frame" x="172.66666666666666" y="391" width="30" height="30"/>
+                                <state key="normal" title="Go"/>
+                                <connections>
+                                    <segue destination="Qji-k0-ZA5" kind="show" id="0Of-M3-tpS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gE8-Ed-ncr">
+                                <rect key="frame" x="133.66666666666666" y="625" width="108" height="30"/>
+                                <state key="normal" title="信号量崩溃测试"/>
+                                <connections>
+                                    <segue destination="K1g-Et-rsr" kind="show" id="nCm-zo-cf5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hWD-wI-8SY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yoQ-cq-UBJ" firstAttribute="centerY" secondItem="ghM-hw-U5K" secondAttribute="centerY" id="Clp-dj-1mS"/>
+                            <constraint firstItem="gE8-Ed-ncr" firstAttribute="centerX" secondItem="yoQ-cq-UBJ" secondAttribute="centerX" id="Wfv-ZY-W1A"/>
+                            <constraint firstItem="yoQ-cq-UBJ" firstAttribute="centerX" secondItem="ghM-hw-U5K" secondAttribute="centerX" id="hEA-Su-18N"/>
+                            <constraint firstItem="gE8-Ed-ncr" firstAttribute="top" secondItem="yoQ-cq-UBJ" secondAttribute="bottom" constant="204" id="ndY-mB-yMm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="60T-9b-84N"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ygy-Xd-eYQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1938.4000000000001" y="137.4384236453202"/>
+        </scene>
+        <!--送礼物测试-->
+        <scene sceneID="bnM-6b-8BJ">
+            <objects>
+                <viewController title="送礼物测试" id="Qji-k0-ZA5" customClass="GiftMessageViewCtrlTest" customModule="GiftMessageViewCtrlDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CU9-kB-gzB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nS-LN-a7w" customClass="GiftMessageCtrlPanel" customModule="EnolaGay">
+                                <rect key="frame" x="0.0" y="91" width="375" height="350"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.22352941179999999" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMV-Ln-Mag">
+                                <rect key="frame" x="141.66666666666666" y="621" width="92" height="40"/>
+                                <state key="normal" title="发送一个礼物"/>
+                                <connections>
+                                    <action selector="sendGiftAction:" destination="Qji-k0-ZA5" eventType="touchUpInside" id="HGK-lt-9jl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MRA-R8-XKE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5nS-LN-a7w" firstAttribute="top" secondItem="MRA-R8-XKE" secondAttribute="top" id="Brh-Ih-t7N"/>
+                            <constraint firstItem="IMV-Ln-Mag" firstAttribute="centerX" secondItem="CU9-kB-gzB" secondAttribute="centerX" id="MIf-e1-Ad1"/>
+                            <constraint firstItem="IMV-Ln-Mag" firstAttribute="top" secondItem="5nS-LN-a7w" secondAttribute="bottom" constant="180" id="SVr-BV-9dL"/>
+                            <constraint firstItem="5nS-LN-a7w" firstAttribute="trailing" secondItem="MRA-R8-XKE" secondAttribute="trailing" id="YP1-mO-ZVz"/>
+                            <constraint firstItem="MRA-R8-XKE" firstAttribute="bottom" secondItem="IMV-Ln-Mag" secondAttribute="bottom" constant="68" id="bdn-OQ-Aq0"/>
+                            <constraint firstItem="MRA-R8-XKE" firstAttribute="bottom" secondItem="5nS-LN-a7w" secondAttribute="bottom" constant="288" id="cp8-OA-sqm"/>
+                            <constraint firstItem="5nS-LN-a7w" firstAttribute="leading" secondItem="MRA-R8-XKE" secondAttribute="leading" id="uXP-8e-A86"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cgo-qp-KQI"/>
+                    <connections>
+                        <outlet property="giftMessageViewPanel" destination="5nS-LN-a7w" id="omE-Eg-fYx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wad-EQ-hjL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2821.5999999999999" y="137.4384236453202"/>
+        </scene>
+        <!--Crash Test View Ctrl-->
+        <scene sceneID="oCy-tx-hs0">
+            <objects>
+                <viewController id="K1g-Et-rsr" customClass="CrashTestViewCtrl" customModule="GiftMessageViewCtrlDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1st-ja-lth">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="uVd-Sf-mbD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="l4l-Y8-H2X"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j2W-Gw-uNh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1938" y="916"/>
+        </scene>
+        <!--送礼-->
+        <scene sceneID="yKY-lw-VTc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q4Y-vl-MTN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="送礼" id="CpV-HB-YPT"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s1V-5W-lGC">
+                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vnl-jz-gZ0" kind="relationship" relationship="rootViewController" id="czp-eN-KBw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xki-hV-wCd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028" y="137.4384236453202"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="oqN-Vx-WQ7">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="WbG-LP-y2Z" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Snc-jH-qhN">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="q4Y-vl-MTN" kind="relationship" relationship="viewControllers" id="fTU-jZ-s8M"/>
+                        <segue destination="53M-9X-ydX" kind="relationship" relationship="viewControllers" id="D9k-wr-adS"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QUE-pW-v94" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85.599999999999994" y="137.4384236453202"/>
+        </scene>
+        <!--烟花-->
+        <scene sceneID="GX1-Nj-nkt">
+            <objects>
+                <viewController id="53M-9X-ydX" customClass="PoPViewController" customModule="GifEffectsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F2z-1A-8Um">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12Q-Uy-k7R">
+                                <rect key="frame" x="150" y="694" width="75" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="emitAction:" destination="53M-9X-ydX" eventType="touchUpInside" id="ohw-ap-ahQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HCq-Px-u1Q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="12Q-Uy-k7R" firstAttribute="bottom" secondItem="HCq-Px-u1Q" secondAttribute="bottom" id="c9h-Q1-bpb"/>
+                            <constraint firstItem="12Q-Uy-k7R" firstAttribute="centerX" secondItem="F2z-1A-8Um" secondAttribute="centerX" id="fSm-uC-Sd7"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="烟花" id="yIk-Hf-Axx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ESV-hg-2fV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="86" y="916"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -7,74 +7,13 @@
 
 import UIKit
 
-// 使 UIView 接受命名空间兼容类型协议
-extension UIView: EnolaGayCompatible { }
 // 使 UIImage 接受命名空间兼容类型协议
 extension UIImage: EnolaGayCompatible { }
-// 使 UIApplication 接受命名空间兼容类型协议
+
+
+// MARK: - 使 UIApplication 接受命名空间兼容类型协议
 extension UIApplication: EnolaGayCompatible { }
 
-
-/// 为空间包装对象 String 添加扩展函数
-public extension EnolaGayWrapper where Base == String {
-
-    /// 计算文本的 size.
-    ///
-    /// - Parameters:
-    ///   - font: 以该字体作为计算尺寸的参考
-    ///   - maxSize: 最大尺寸，默认为 CGSize(width: 320, height: 68).
-    /// - Returns: 文本所需宽度
-    func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(size: 16)) -> CGSize {
-        // 根据文本内容获取尺寸，计算文字尺寸 UIFont.systemFont(ofSize: 14.0)
-        return base.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin],
-                                 attributes: [NSAttributedString.Key.font: font],
-                                 context: nil).size
-    }
-    
-    /// 计算文本的 size.
-    func sizeWith(font: UIFont = UIFont(size: 16) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize {
-        let options = NSStringDrawingOptions.usesLineFragmentOrigin
-        
-        let paragraphStyle : NSMutableParagraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = lineMargin
-        
-        var attributes = [NSAttributedString.Key : Any]()
-        attributes[NSAttributedString.Key.font] = font
-        attributes[NSAttributedString.Key.paragraphStyle] = paragraphStyle
-        let textBouds = base.boundingRect(with: maxSize, options: options, attributes: attributes, context: nil)
-        
-        return textBouds.size
-    }
-
-}
-
-
-// MARK: - 为 tableView 增加滚动到底部函数
-public extension EnolaGayWrapper where Base: UITableView {
-    /// 将 tableView 滚动到最底部
-    ///
-    /// 在此之前的方法可能会引起数组越界问题，此函数针对该问题修复
-    /// - Parameter animated: 是否需要动画效果？默认为 true
-    /// - Warning: 在调用该函数之前请先调用 reloadData()
-    func scrollToBottom(animated: Bool = true) {
-        if base.numberOfSections > 0 {
-            let lastSectionIndex = base.numberOfSections-1
-            let lastRowIndex = base.numberOfRows(inSection: lastSectionIndex)-1
-            if lastRowIndex > 0 {
-                let indexPath = IndexPath(row: lastRowIndex, section: lastSectionIndex)
-                base.scrollToRow(at: indexPath, at: .bottom, animated: animated)
-            }
-        }
-    }
-}
-
-public extension UITableView {
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.scrollToBottom")
-    func scrollToBottom(animated: Bool = true) { }
-}
-
-
-// MARK: - UIApplication 扩展
 public extension EnolaGayWrapper where Base: UIApplication {
     /// 获取状态栏 View.
     var statusBarView: UIView? {
@@ -100,9 +39,48 @@ public extension EnolaGayWrapper where Base: UIApplication {
     }
 }
 
+// MARK: - 使 UIView 接受命名空间兼容类型协议
+extension UIView: EnolaGayCompatible { }
 
-// MARK: - UIImage 扩展
+// MARK: - tableView 扩展
+public extension EnolaGayWrapper where Base: UITableView {
+    /// 将 tableView 滚动到最底部
+    ///
+    /// 在此之前的方法可能会引起数组越界问题，此函数针对该问题修复
+    /// - Parameter animated: 是否需要动画效果？默认为 true
+    /// - Warning: 在调用该函数之前请先调用 reloadData()
+    func scrollToBottom(animated: Bool = true) {
+        if base.numberOfSections > 0 {
+            let lastSectionIndex = base.numberOfSections-1
+            let lastRowIndex = base.numberOfRows(inSection: lastSectionIndex)-1
+            if lastRowIndex > 0 {
+                let indexPath = IndexPath(row: lastRowIndex, section: lastSectionIndex)
+                base.scrollToRow(at: indexPath, at: .bottom, animated: animated)
+            }
+        }
+    }
+}
 
+// MARK: - 解决 UIScrollView 不响应 touches 事件
+public extension UIScrollView {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        next?.touchesBegan(touches, with: event)
+        super.touchesBegan(touches, with: event)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        next?.touchesMoved(touches, with: event)
+        super.touchesMoved(touches, with: event)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        next?.touchesEnded(touches, with: event)
+        super.touchesEnded(touches, with: event)
+    }
+}
+
+// MARK: - UIImage 空间函数扩展
 public extension EnolaGayWrapper where Base: UIImage {
     /// 重设图片大小
     /// - Parameter reSize: 目标 size.
@@ -204,7 +182,6 @@ public extension EnolaGayWrapper where Base: UIImage {
 }
 
 // MARK: - 为 UIImage 新增构造函数
-
 public extension UIImage {
     
     /// 通过颜色生成一张图片
@@ -255,9 +232,7 @@ public extension UIImage {
     }
 }
 
-
 // MARK: - UIImageView IBDesignable 扩展
-
 public extension UIImageView {
     
     /// 标识该 imageView 是否需要设置为正圆，需要的话请确保其为正方形，否则不生效
@@ -315,30 +290,7 @@ public extension UIImageView {
     
 }
 
-
-// MARK: - 解决 UIScrollView 不响应 touches 事件
-
-public extension UIScrollView {
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        next?.touchesBegan(touches, with: event)
-        super.touchesBegan(touches, with: event)
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        next?.touchesMoved(touches, with: event)
-        super.touchesMoved(touches, with: event)
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        next?.touchesEnded(touches, with: event)
-        super.touchesEnded(touches, with: event)
-    }
-}
-
-
 // MARK: - UILabel 扩展 NSMutableAttributedString 函数
-
 public extension EnolaGayWrapper where Base: UILabel {
     
     /// 为当前 Label 显示的文本中设置部分文字高亮
@@ -370,35 +322,35 @@ public extension EnolaGayWrapper where Base: UILabel {
     }
 }
 
-public extension UILabel {
-    
-    @available(*, unavailable, message: "请使用 judy 持有者", renamed: "judy.setHighlighted")
-    func judy_setHighlighted(text highlightedText: String, color highlightedColor: UIColor? = nil, font highlightedFont: UIFont? = nil) {
-        // attributedText 即 label.text，所以直接判断 attributedText 不为 nil 即可
-        guard text != nil, attributedText != nil else { return }
-        //  attributedText: 为该属性分配新值也会将 text 属性的值替换为相同的字符串数据，但不包含任何格式化信息此外，分配一个新值将更新字体、textColor 和其他与样式相关的属性中的值，以便它们反映从带属性字符串的位置 0 开始的样式信息
-        
-        var attrs = [NSAttributedString.Key : Any]()
-        // 高亮文本颜色
-        attrs[.foregroundColor] = highlightedColor
-        // 高亮文本字体
-        attrs[.font] = highlightedFont
-        // 将 label 的 NSAttributedString 转换成 NSMutableAttributedString
-         let attributedString = NSMutableAttributedString(attributedString: attributedText!)
-        //  let attributedString = NSMutableAttributedString(text: text!, textColor: textColor, textFont: font, highlightText: highlightedText, highlightTextColor: highlightedColor, highlightTextFont: highlightedFont)
-        // 添加到指定范围
-        let highlightedRange = attributedString.mutableString.range(of: highlightedText)
-        attributedString.addAttributes(attrs, range: highlightedRange)
-        
-        // 重新给 label 的 attributedText 赋值
-        attributedText = attributedString
+// MARK: - UIView IBDesignable 扩展
+public extension UIView {
+    /// 边框宽度
+    @IBInspectable var borderWidth: CGFloat {
+        set { layer.borderWidth = newValue }
+        get { return layer.borderWidth }
+    }
+
+    /// 边框颜色
+    @IBInspectable var borderColor: UIColor? {
+        set { layer.borderColor = newValue?.cgColor }
+        get {
+            if let color = layer.borderColor {
+                return UIColor(cgColor: color)
+            } else { return nil }
+        }
     }
     
+    /// 圆角程度
+    @IBInspectable var cornerRadius: CGFloat {
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+        get { return layer.cornerRadius }
+    }
 }
 
-
 // MARK: - UIView frame 相关扩展
-
 public extension EnolaGayWrapper where Base: UIView {
     
     /// view 的 frame.origin.x.
@@ -631,41 +583,12 @@ public extension EnolaGayWrapper where Base: UIView {
     }
 }
 
-// MARK: - UIView IBDesignable 扩展
-public extension UIView {
-    /// 边框宽度
-    @IBInspectable var borderWidth: CGFloat {
-        set { layer.borderWidth = newValue }
-        get { return layer.borderWidth }
-    }
-
-    /// 边框颜色
-    @IBInspectable var borderColor: UIColor? {
-        set { layer.borderColor = newValue?.cgColor }
-        get {
-            if let color = layer.borderColor {
-                return UIColor(cgColor: color)
-            } else { return nil }
-        }
-    }
-    
-    /// 圆角程度
-    @IBInspectable var cornerRadius: CGFloat {
-        set {
-            layer.cornerRadius = newValue
-            layer.masksToBounds = newValue > 0
-        }
-        get { return layer.cornerRadius }
-    }
-}
-
 
 // MARK: - UIButton 扩展
 
 // MARK: - UITextField 扩展
 
 // MARK: - UITextFieldDelegate 扩展函数
-
 public extension UITextFieldDelegate {
     /// 限制当前输入的字符为整数
     /// - Warning: 此函数仅限在输入阶段的 shouldChangeCharactersIn() 使用
@@ -698,9 +621,7 @@ public extension UITextFieldDelegate {
 }
 
 
-
 // MARK: - UIColor 配置扩展
-
 public extension UIColor {
     // 浅色
     static let 淡红色 = #colorLiteral(red: 0.9254901961, green: 0.4117647059, blue: 0.2549019608, alpha: 1)

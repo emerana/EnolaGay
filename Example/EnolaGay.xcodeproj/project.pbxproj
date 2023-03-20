@@ -129,11 +129,6 @@
 		8BC3DDA526E05E5200A2A405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDA426E05E5200A2A405 /* Assets.xcassets */; };
 		8BC3DDAD26E05EBD00A2A405 /* AttributedStringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */; };
 		8BC3DDB026E05F3700A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDAE26E05F1500A2A405 /* LaunchScreen.xib */; };
-		8BC3DDB826E05F9100A2A405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DDB726E05F9100A2A405 /* AppDelegate.swift */; };
-		8BC3DDBF26E05F9100A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDBD26E05F9100A2A405 /* Main.storyboard */; };
-		8BC3DDC126E05F9300A2A405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDC026E05F9300A2A405 /* Assets.xcassets */; };
-		8BC3DDCB26E05FD500A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDC926E05FAE00A2A405 /* LaunchScreen.xib */; };
-		8BC3DDCC26E05FF200A2A405 /* GiftMessageViewCtrlTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */; };
 		8BC3DDD426E0617400A2A405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DDD326E0617400A2A405 /* AppDelegate.swift */; };
 		8BC3DDDB26E0617400A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDD926E0617400A2A405 /* Main.storyboard */; };
 		8BC3DDDD26E0617600A2A405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DDDC26E0617600A2A405 /* Assets.xcassets */; };
@@ -151,17 +146,23 @@
 		8BE31B8329C2D22B003038B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE31B8229C2D22B003038B2 /* Assets.xcassets */; };
 		8BE31B8629C2D22B003038B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE31B8429C2D22B003038B2 /* LaunchScreen.storyboard */; };
 		8BF65F6F29C81BBB001E2160 /* CircularProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF65F6E29C81BBB001E2160 /* CircularProgressViewController.swift */; };
+		8BF65F7729C844F8001E2160 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF65F7629C844F8001E2160 /* AppDelegate.swift */; };
+		8BF65F7E29C844F8001E2160 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF65F7C29C844F8001E2160 /* Main.storyboard */; };
+		8BF65F8029C844F9001E2160 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF65F7F29C844F9001E2160 /* Assets.xcassets */; };
+		8BF65F8329C844F9001E2160 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF65F8129C844F9001E2160 /* LaunchScreen.storyboard */; };
+		8BF65F8829C8453F001E2160 /* GiftMessageViewCtrlTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */; };
+		8BF65F8A29C8468E001E2160 /* PoPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF65F8929C8468E001E2160 /* PoPViewController.swift */; };
 		8DDD27D3FD749A645CA9BCC8 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31877678D006019384F3D2A /* Pods_Demo.framework */; };
 		9272EC45834F311F57DD0AB6 /* Pods_CacheDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13219953D03CB8934331ED80 /* Pods_CacheDemo.framework */; };
 		9BAECC1D87020F82DE89E4F6 /* Pods_HPickerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7929F86E764F85DFA1EF98 /* Pods_HPickerDemo.framework */; };
 		AF365B7AFEA752AE89D21F34 /* Pods_Demo_EMERANA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F793883511E6BD42AF3A2D /* Pods_Demo_EMERANA.framework */; };
 		B10CF77396383779B5E8AF24 /* Pods_HUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4184B351D17BE8A974CEA2BF /* Pods_HUD.framework */; };
 		B81C7931DB028FBDC7F50A7E /* Pods_JudyLivePageViewCtrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B4A427494A98F9DEA5A16A /* Pods_JudyLivePageViewCtrl.framework */; };
-		D571AAA024A1B519F784558A /* Pods_GiftMessageViewCtrlDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E34584FCEC0D60DBE3AFB585 /* Pods_GiftMessageViewCtrlDemo.framework */; };
 		DD52ABAB1A1E1D3FD3732979 /* Pods_RefreshAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2953210472AAEFB78DCA32B /* Pods_RefreshAdapter.framework */; };
 		E8924F7BE5DB78131352C79A /* Pods_CastSurelyCalculation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC320D0BB712D408990761B0 /* Pods_CastSurelyCalculation.framework */; };
 		E923A544DE457C697CF4DE8F /* Pods_KeyBoardPop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDC9002BE9A5AC51D0D2AA5 /* Pods_KeyBoardPop.framework */; };
 		EEAB4A5216C59DC5EEF427B3 /* Pods_Semaphore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2219F8D3BC2903363B8DE5DE /* Pods_Semaphore.framework */; };
+		FC7B0984DB577BFCD959EE43 /* Pods_GifEffectsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34653C6DAA478DB1F6CE7830 /* Pods_GifEffectsDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,9 +181,11 @@
 		1EC789C4543A144891B0D8D9 /* Pods-KeyBoardPop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyBoardPop.debug.xcconfig"; path = "Target Support Files/Pods-KeyBoardPop/Pods-KeyBoardPop.debug.xcconfig"; sourceTree = "<group>"; };
 		2219F8D3BC2903363B8DE5DE /* Pods_Semaphore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Semaphore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		271D1E28BDD517FC30EC966B /* Pods_MyCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AB80CA30BF1C4B9B93E750D /* Pods-GifEffectsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GifEffectsDemo.release.xcconfig"; path = "Target Support Files/Pods-GifEffectsDemo/Pods-GifEffectsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		2DD932A0D4EC3DB184BD9B1E /* Pods-AGUL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGUL.release.xcconfig"; path = "Target Support Files/Pods-AGUL/Pods-AGUL.release.xcconfig"; sourceTree = "<group>"; };
 		2FC564A00EDED257C8FC1788 /* Pods-Demo-Semaphore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-Semaphore.debug.xcconfig"; path = "Target Support Files/Pods-Demo-Semaphore/Pods-Demo-Semaphore.debug.xcconfig"; sourceTree = "<group>"; };
 		3448F43C0484DBEAC0D6AB18 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		34653C6DAA478DB1F6CE7830 /* Pods_GifEffectsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GifEffectsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		385859AD998457D6279B1E50 /* Pods-MyRxRealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRxRealm.debug.xcconfig"; path = "Target Support Files/Pods-MyRxRealm/Pods-MyRxRealm.debug.xcconfig"; sourceTree = "<group>"; };
 		3D0D6509B70B42E53824E1F8 /* Pods_VersionCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VersionCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4184B351D17BE8A974CEA2BF /* Pods_HUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -378,12 +381,6 @@
 		8BC3DDA426E05E5200A2A405 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BC3DDA926E05E5200A2A405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BC3DDAF26E05F1500A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		8BC3DDB526E05F9100A2A405 /* GiftMessageViewCtrlDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftMessageViewCtrlDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BC3DDB726E05F9100A2A405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8BC3DDBE26E05F9100A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8BC3DDC026E05F9300A2A405 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8BC3DDC526E05F9300A2A405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8BC3DDCA26E05FAE00A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8BC3DDD126E0617400A2A405 /* JudyLivePageViewCtrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JudyLivePageViewCtrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC3DDD326E0617400A2A405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BC3DDDA26E0617400A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -406,6 +403,13 @@
 		8BE31B8729C2D22B003038B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastViewCtrl.swift; sourceTree = "<group>"; };
 		8BF65F6E29C81BBB001E2160 /* CircularProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressViewController.swift; sourceTree = "<group>"; };
+		8BF65F7429C844F8001E2160 /* GifEffectsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifEffectsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BF65F7629C844F8001E2160 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8BF65F7D29C844F8001E2160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8BF65F7F29C844F9001E2160 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8BF65F8229C844F9001E2160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8BF65F8429C844F9001E2160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BF65F8929C8468E001E2160 /* PoPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoPViewController.swift; sourceTree = "<group>"; };
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerticalScrollView.storyboard; sourceTree = "<group>"; };
 		93ED1A022A78523F826484B5 /* Pods-SegmentedDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentedDemo.debug.xcconfig"; path = "Target Support Files/Pods-SegmentedDemo/Pods-SegmentedDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -437,6 +441,7 @@
 		E4B4A427494A98F9DEA5A16A /* Pods_JudyLivePageViewCtrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JudyLivePageViewCtrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C98F83C503B2A9D3537BDD /* Pods-HPickerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HPickerDemo.debug.xcconfig"; path = "Target Support Files/Pods-HPickerDemo/Pods-HPickerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		EAE2525BA874CBC232EF7377 /* Pods-RefreshAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefreshAdapter.debug.xcconfig"; path = "Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter.debug.xcconfig"; sourceTree = "<group>"; };
+		EB8DBE65F1CC351F8A5B220C /* Pods-GifEffectsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GifEffectsDemo.debug.xcconfig"; path = "Target Support Files/Pods-GifEffectsDemo/Pods-GifEffectsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		F09FCC4A97F55D3D86F8CBD8 /* Pods_MyIGListKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyIGListKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3F44C852DFB4238F8BA9AD8 /* Pods-HUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUD.debug.xcconfig"; path = "Target Support Files/Pods-HUD/Pods-HUD.debug.xcconfig"; sourceTree = "<group>"; };
 		F5A878C12B6B8B355A07638F /* Pods-SegmentedDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentedDemo.release.xcconfig"; path = "Target Support Files/Pods-SegmentedDemo/Pods-SegmentedDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -550,14 +555,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8BC3DDB226E05F9100A2A405 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D571AAA024A1B519F784558A /* Pods_GiftMessageViewCtrlDemo.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8BC3DDCE26E0617400A2A405 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -579,6 +576,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DDD27D3FD749A645CA9BCC8 /* Pods_Demo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BF65F7129C844F8001E2160 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC7B0984DB577BFCD959EE43 /* Pods_GifEffectsDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,6 +639,8 @@
 				AAE1DE886AAF212609DDD046 /* Pods-Semaphore.release.xcconfig */,
 				F3F44C852DFB4238F8BA9AD8 /* Pods-HUD.debug.xcconfig */,
 				FC5277D065A3430465946B92 /* Pods-HUD.release.xcconfig */,
+				EB8DBE65F1CC351F8A5B220C /* Pods-GifEffectsDemo.debug.xcconfig */,
+				2AB80CA30BF1C4B9B93E750D /* Pods-GifEffectsDemo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -653,7 +660,6 @@
 				8BC3DA4426DE965700A2A405 /* Semaphore */,
 				8BC3DB6C26DF479200A2A405 /* EMERANA */,
 				8BC3DD9A26E05E5000A2A405 /* AttributedStringDemo */,
-				8BC3DDB626E05F9100A2A405 /* GiftMessageViewCtrlDemo */,
 				8BC3DDD226E0617400A2A405 /* JudyLivePageViewCtrl */,
 				8BC07ADC291660E1006C6CD2 /* MyIGListKit */,
 				8B4F5D4E29C46A790092AF67 /* HUD */,
@@ -661,6 +667,7 @@
 				8BC3DACD26DF29B900A2A405 /* HPickerDemo */,
 				8BC3DD7E26E05C8E00A2A405 /* SegmentedDemo */,
 				8BD025F32930D8AB005709D6 /* ToastDemo */,
+				8BF65F7529C844F8001E2160 /* GifEffectsDemo */,
 				607FACD11AFB9204008FA782 /* Products */,
 				48F58D42A596E8C4AFE02DEE /* Pods */,
 				C2843BD89BA8C609ED35D6C4 /* Frameworks */,
@@ -681,12 +688,12 @@
 				8BC3DB6B26DF479200A2A405 /* EMERANA.app */,
 				8BC3DD7D26E05C8D00A2A405 /* SegmentedDemo.app */,
 				8BC3DD9926E05E5000A2A405 /* AttributedStringDemo.app */,
-				8BC3DDB526E05F9100A2A405 /* GiftMessageViewCtrlDemo.app */,
 				8BC3DDD126E0617400A2A405 /* JudyLivePageViewCtrl.app */,
 				8BC07ADB291660E0006C6CD2 /* MyIGListKit.app */,
 				8BD025F22930D8AB005709D6 /* ToastDemo.app */,
 				8BE31B7729C2D229003038B2 /* Demo.app */,
 				8B4F5D4D29C46A790092AF67 /* HUD.app */,
+				8BF65F7429C844F8001E2160 /* GifEffectsDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1096,19 +1103,6 @@
 			path = AttributedStringDemo;
 			sourceTree = "<group>";
 		};
-		8BC3DDB626E05F9100A2A405 /* GiftMessageViewCtrlDemo */ = {
-			isa = PBXGroup;
-			children = (
-				8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */,
-				8BC3DDB726E05F9100A2A405 /* AppDelegate.swift */,
-				8BC3DDBD26E05F9100A2A405 /* Main.storyboard */,
-				8BC3DDC026E05F9300A2A405 /* Assets.xcassets */,
-				8BC3DDC926E05FAE00A2A405 /* LaunchScreen.xib */,
-				8BC3DDC526E05F9300A2A405 /* Info.plist */,
-			);
-			path = GiftMessageViewCtrlDemo;
-			sourceTree = "<group>";
-		};
 		8BC3DDD226E0617400A2A405 /* JudyLivePageViewCtrl */ = {
 			isa = PBXGroup;
 			children = (
@@ -1150,6 +1144,20 @@
 			path = Demo;
 			sourceTree = "<group>";
 		};
+		8BF65F7529C844F8001E2160 /* GifEffectsDemo */ = {
+			isa = PBXGroup;
+			children = (
+				8BF65F7629C844F8001E2160 /* AppDelegate.swift */,
+				8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */,
+				8BF65F8929C8468E001E2160 /* PoPViewController.swift */,
+				8BF65F7C29C844F8001E2160 /* Main.storyboard */,
+				8BF65F7F29C844F9001E2160 /* Assets.xcassets */,
+				8BF65F8129C844F9001E2160 /* LaunchScreen.storyboard */,
+				8BF65F8429C844F9001E2160 /* Info.plist */,
+			);
+			path = GifEffectsDemo;
+			sourceTree = "<group>";
+		};
 		8BFCC83125E385F9000B1611 /* 垂直轮播图 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1187,6 +1195,7 @@
 				63F793883511E6BD42AF3A2D /* Pods_Demo_EMERANA.framework */,
 				2219F8D3BC2903363B8DE5DE /* Pods_Semaphore.framework */,
 				4184B351D17BE8A974CEA2BF /* Pods_HUD.framework */,
+				34653C6DAA478DB1F6CE7830 /* Pods_GifEffectsDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1441,25 +1450,6 @@
 			productReference = 8BC3DD9926E05E5000A2A405 /* AttributedStringDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8BC3DDB426E05F9100A2A405 /* GiftMessageViewCtrlDemo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8BC3DDC626E05F9300A2A405 /* Build configuration list for PBXNativeTarget "GiftMessageViewCtrlDemo" */;
-			buildPhases = (
-				21997874D8B0F642E4690878 /* [CP] Check Pods Manifest.lock */,
-				8BC3DDB126E05F9100A2A405 /* Sources */,
-				8BC3DDB226E05F9100A2A405 /* Frameworks */,
-				8BC3DDB326E05F9100A2A405 /* Resources */,
-				4A51C1A7598C2E3580C72A94 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = GiftMessageViewCtrlDemo;
-			productName = GiftMessageViewCtrlDemo;
-			productReference = 8BC3DDB526E05F9100A2A405 /* GiftMessageViewCtrlDemo.app */;
-			productType = "com.apple.product-type.application";
-		};
 		8BC3DDD026E0617400A2A405 /* JudyLivePageViewCtrl */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BC3DDE426E0617600A2A405 /* Build configuration list for PBXNativeTarget "JudyLivePageViewCtrl" */;
@@ -1515,6 +1505,25 @@
 			name = Demo;
 			productName = Demo;
 			productReference = 8BE31B7729C2D229003038B2 /* Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8BF65F7329C844F8001E2160 /* GifEffectsDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BF65F8529C844F9001E2160 /* Build configuration list for PBXNativeTarget "GifEffectsDemo" */;
+			buildPhases = (
+				D05B0362D391923AC008C4F8 /* [CP] Check Pods Manifest.lock */,
+				8BF65F7029C844F8001E2160 /* Sources */,
+				8BF65F7129C844F8001E2160 /* Frameworks */,
+				8BF65F7229C844F8001E2160 /* Resources */,
+				3230EDBA629199818D053BC9 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GifEffectsDemo;
+			productName = GifEffectsDemo;
+			productReference = 8BF65F7429C844F8001E2160 /* GifEffectsDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1576,11 +1585,6 @@
 						DevelopmentTeam = 325J3J39TM;
 						ProvisioningStyle = Automatic;
 					};
-					8BC3DDB426E05F9100A2A405 = {
-						CreatedOnToolsVersion = 12.5.1;
-						DevelopmentTeam = 325J3J39TM;
-						ProvisioningStyle = Automatic;
-					};
 					8BC3DDD026E0617400A2A405 = {
 						CreatedOnToolsVersion = 12.5.1;
 						DevelopmentTeam = 325J3J39TM;
@@ -1592,6 +1596,11 @@
 						ProvisioningStyle = Automatic;
 					};
 					8BE31B7629C2D229003038B2 = {
+						CreatedOnToolsVersion = 14.2;
+						DevelopmentTeam = 325J3J39TM;
+						ProvisioningStyle = Automatic;
+					};
+					8BF65F7329C844F8001E2160 = {
 						CreatedOnToolsVersion = 14.2;
 						DevelopmentTeam = 325J3J39TM;
 						ProvisioningStyle = Automatic;
@@ -1622,12 +1631,12 @@
 				8BC3DB6A26DF479200A2A405 /* EMERANA */,
 				8BC3DD7C26E05C8D00A2A405 /* SegmentedDemo */,
 				8BC3DD9826E05E5000A2A405 /* AttributedStringDemo */,
-				8BC3DDB426E05F9100A2A405 /* GiftMessageViewCtrlDemo */,
 				8BC3DDD026E0617400A2A405 /* JudyLivePageViewCtrl */,
 				8BC07ADA291660E0006C6CD2 /* MyIGListKit */,
 				8BD025F12930D8AB005709D6 /* ToastDemo */,
 				8BE31B7629C2D229003038B2 /* Demo */,
 				8B4F5D4C29C46A790092AF67 /* HUD */,
+				8BF65F7329C844F8001E2160 /* GifEffectsDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -1777,16 +1786,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8BC3DDB326E05F9100A2A405 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8BC3DDCB26E05FD500A2A405 /* LaunchScreen.xib in Resources */,
-				8BC3DDC126E05F9300A2A405 /* Assets.xcassets in Resources */,
-				8BC3DDBF26E05F9100A2A405 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8BC3DDCF26E0617400A2A405 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1814,6 +1813,16 @@
 				8BE31B8629C2D22B003038B2 /* LaunchScreen.storyboard in Resources */,
 				8BE31B8329C2D22B003038B2 /* Assets.xcassets in Resources */,
 				8BE31B8129C2D22A003038B2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BF65F7229C844F8001E2160 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BF65F8329C844F9001E2160 /* LaunchScreen.storyboard in Resources */,
+				8BF65F8029C844F9001E2160 /* Assets.xcassets in Resources */,
+				8BF65F7E29C844F8001E2160 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1904,28 +1913,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyIGListKit/Pods-MyIGListKit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		21997874D8B0F642E4690878 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GiftMessageViewCtrlDemo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		299A64C49742D988FC6BBB5D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1948,6 +1935,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3230EDBA629199818D053BC9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GifEffectsDemo/Pods-GifEffectsDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-Core-EMERANA-GiftMessageCtrlPanel-JudyPopBubble/EnolaGay.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GifEffectsDemo/Pods-GifEffectsDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		36E5577C86CBF0611AFF3448 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1964,26 +1969,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SegmentedDemo/Pods-SegmentedDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4A51C1A7598C2E3580C72A94 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GiftMessageViewCtrlDemo/Pods-GiftMessageViewCtrlDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-GiftMessageCtrlPanel/EnolaGay.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GiftMessageViewCtrlDemo/Pods-GiftMessageViewCtrlDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4D8023E299CF091570C755F5 /* [CP] Embed Pods Frameworks */ = {
@@ -2528,6 +2513,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D05B0362D391923AC008C4F8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GifEffectsDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FA513CA7A4D92155466C63EC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2707,15 +2714,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8BC3DDB126E05F9100A2A405 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8BC3DDB826E05F9100A2A405 /* AppDelegate.swift in Sources */,
-				8BC3DDCC26E05FF200A2A405 /* GiftMessageViewCtrlTest.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8BC3DDCD26E0617400A2A405 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2742,6 +2740,16 @@
 				8BF65F6F29C81BBB001E2160 /* CircularProgressViewController.swift in Sources */,
 				8BE31B7E29C2D22A003038B2 /* ViewController.swift in Sources */,
 				8BE31B7A29C2D22A003038B2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BF65F7029C844F8001E2160 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BF65F8829C8453F001E2160 /* GiftMessageViewCtrlTest.swift in Sources */,
+				8BF65F7729C844F8001E2160 /* AppDelegate.swift in Sources */,
+				8BF65F8A29C8468E001E2160 /* PoPViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2948,22 +2956,6 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
-		8BC3DDBD26E05F9100A2A405 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8BC3DDBE26E05F9100A2A405 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8BC3DDC926E05FAE00A2A405 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8BC3DDCA26E05FAE00A2A405 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 		8BC3DDD926E0617400A2A405 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -3008,6 +3000,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				8BE31B8529C2D22B003038B2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8BF65F7C29C844F8001E2160 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BF65F7D29C844F8001E2160 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8BF65F8129C844F9001E2160 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BF65F8229C844F9001E2160 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -3709,61 +3717,6 @@
 			};
 			name = Release;
 		};
-		8BC3DDC726E05F9300A2A405 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C4D2A820B67C965D6E49808 /* Pods-GiftMessageViewCtrlDemo.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = GiftMessageViewCtrlDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.GiftMessageViewCtrlDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		8BC3DDC826E05F9300A2A405 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E511D1D986F5E970B319878 /* Pods-GiftMessageViewCtrlDemo.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = GiftMessageViewCtrlDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.GiftMessageViewCtrlDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		8BC3DDE226E0617600A2A405 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 99AB06A7DA6445BB8A12EE0C /* Pods-JudyLivePageViewCtrl.debug.xcconfig */;
@@ -3965,6 +3918,79 @@
 			};
 			name = Release;
 		};
+		8BF65F8629C844F9001E2160 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB8DBE65F1CC351F8A5B220C /* Pods-GifEffectsDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GifEffectsDemo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = judy.GifEffectsDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8BF65F8729C844F9001E2160 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AB80CA30BF1C4B9B93E750D /* Pods-GifEffectsDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 325J3J39TM;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GifEffectsDemo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = judy.GifEffectsDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -4094,15 +4120,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BC3DDC626E05F9300A2A405 /* Build configuration list for PBXNativeTarget "GiftMessageViewCtrlDemo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8BC3DDC726E05F9300A2A405 /* Debug */,
-				8BC3DDC826E05F9300A2A405 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		8BC3DDE426E0617600A2A405 /* Build configuration list for PBXNativeTarget "JudyLivePageViewCtrl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -4126,6 +4143,15 @@
 			buildConfigurations = (
 				8BE31B8829C2D22B003038B2 /* Debug */,
 				8BE31B8929C2D22B003038B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BF65F8529C844F9001E2160 /* Build configuration list for PBXNativeTarget "GifEffectsDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BF65F8629C844F9001E2160 /* Debug */,
+				8BF65F8729C844F9001E2160 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

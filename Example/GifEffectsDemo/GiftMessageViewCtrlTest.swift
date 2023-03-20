@@ -8,7 +8,6 @@
 
 import UIKit
 import EnolaGay
-import SwiftyJSON
 
 class GiftMessageViewCtrlTest: UIViewController {
         

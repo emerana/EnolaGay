@@ -14,9 +14,9 @@ public struct EnolaGayWrapper<Base> {
     init(_ base: Base) { self.base = base }
 }
 
-/// 表示与 EnolaGay 兼容的对象类型协议
+/// 表示与 EnolaGay 兼容的对象类型协议。使指定类型接受命名空间兼容类型协议，指定类型就可以使用 Judy 命名空间。
 ///
-/// 目标类型在实现该协议后即可使用`judy`属性在 EnolaGay 的名称空间中获得一个值包装后的对象（不限制 AnyObject）
+/// 目标类型在实现该协议后即可使用`judy`属性在 EnolaGay 的名称空间中获得一个值包装后的对象（不限制 AnyObject）。
 public protocol EnolaGayCompatible { }
 
 extension EnolaGayCompatible {
@@ -27,17 +27,11 @@ extension EnolaGayCompatible {
     }
 }
 
-// MARK: 使指定类型接受命名空间兼容类型协议，指定类型就可以使用 Judy 命名空间。
+
+// MARK: - Double 扩展
+
 // 使 Double 接受命名空间兼容类型协议
 extension Double: EnolaGayCompatible { }
-// 使 Date 接受命名空间兼容类型协议
-extension Date: EnolaGayCompatible { }
-// 使 Calendar 接受命名空间兼容类型协议
-extension Calendar: EnolaGayCompatible { }
-// 使 String 接受命名空间兼容类型协议
-extension String: EnolaGayCompatible { }
-
-// MARK: - 针对 String 扩展的便携方法，这些方法尚未验证其准确性
 
 /// 为空间包装对象 Double 添加扩展函数
 public extension EnolaGayWrapper where Base == Double {
@@ -52,7 +46,11 @@ public extension EnolaGayWrapper where Base == Double {
     }
 }
 
-// MARK: - 针对 String 扩展的空间持有者方法，这些方法尚未验证其准确性
+
+// MARK: - String 扩展
+
+// 使 String 接受命名空间兼容类型协议
+extension String: EnolaGayCompatible { }
 
 /// 为空间包装对象 String 添加扩展函数
 public extension EnolaGayWrapper where Base == String {
@@ -93,15 +91,46 @@ public extension EnolaGayWrapper where Base == String {
         }
     }
     
+    /// 计算文本的 size.
+    ///
+    /// - Parameters:
+    ///   - font: 以该字体作为计算尺寸的参考
+    ///   - maxSize: 最大尺寸，默认为 CGSize(width: 320, height: 68).
+    /// - Returns: 文本所需宽度
+    func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(size: 16)) -> CGSize {
+        // 根据文本内容获取尺寸，计算文字尺寸 UIFont.systemFont(ofSize: 14.0)
+        return base.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin],
+                                 attributes: [NSAttributedString.Key.font: font],
+                                 context: nil).size
+    }
+    
+    /// 计算文本的 size.
+    func sizeWith(font: UIFont = UIFont(size: 16) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize {
+        let options = NSStringDrawingOptions.usesLineFragmentOrigin
+        
+        let paragraphStyle : NSMutableParagraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineMargin
+        
+        var attributes = [NSAttributedString.Key : Any]()
+        attributes[NSAttributedString.Key.font] = font
+        attributes[NSAttributedString.Key.paragraphStyle] = paragraphStyle
+        let textBouds = base.boundingRect(with: maxSize, options: options, attributes: attributes, context: nil)
+        
+        return textBouds.size
+    }
+
     /// 清除字符串中的所有空格
     ///
     /// - Returns: 如："str abc", "strabc".
     func clean() -> String { base.replacingOccurrences(of: " ", with: "") }
-    
 }
 
 
 // MARK: - Calendar 扩展
+
+// 使 Calendar 接受命名空间兼容类型协议
+extension Calendar: EnolaGayCompatible { }
+
 public extension EnolaGayWrapper where Base == Calendar {
     /// 获取当月从今天算起剩余的天数
     var daysResidueInCurrentMonth: Int {
@@ -175,6 +204,12 @@ public extension EnolaGayWrapper where Base == Calendar {
         return weekday
     }
 }
+
+
+// MARK: - Date 扩展
+
+// 使 Date 接受命名空间兼容类型协议
+extension Date: EnolaGayCompatible { }
 
 public extension EnolaGayWrapper where Base == Date {
     @available(*, unavailable, message: "此函数已被优化", renamed: "stringValue(format:)")

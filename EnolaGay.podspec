@@ -86,6 +86,11 @@ Pod::Spec.new do |s|
       ss.source_files = 'EnolaGay/Classes/Core/Logger.Swift'
   end
 
+  # MARK: 直播间送礼物面板
+  s.subspec 'GiftMessageCtrlPanel' do |ss|
+      ss.source_files = 'EnolaGay/Classes/GiftMessageCtrlPanel/*'
+  end
+
   # MARK: 烟花爆炸效果
   s.subspec 'JudyPopBubble' do |ss|
       ss.source_files = 'EnolaGay/Classes/JudyPopBubble/*'
@@ -99,11 +104,6 @@ Pod::Spec.new do |s|
   # MARK: 圆环进度条
   s.subspec 'CircularProgressView' do |ss|
       ss.source_files = 'EnolaGay/Classes/CircularProgressView/*'
-  end
-  
-  # MARK: 直播间送礼物面板
-  s.subspec 'GiftMessageCtrlPanel' do |ss|
-      ss.source_files = 'EnolaGay/Classes/GiftMessageCtrlPanel/*'
   end
 
   # MARK: 水波 View
