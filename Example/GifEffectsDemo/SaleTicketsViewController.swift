@@ -14,7 +14,7 @@ class SaleTicketsViewController: UIViewController {
 
     @IBOutlet weak private var likeButton: UIButton!
 
-    /// 爱心烟花动画计时器。
+    /// 爱心动画计时器。
     private var animateTimer: Timer?
 
 
@@ -43,7 +43,7 @@ class SaleTicketsViewController: UIViewController {
 
     /// 开始购买事件
     @IBAction private func startAction(_ sender: Any) {
-        setAnimateTimer()
+        startAnimateTimer()
     }
     
     // 烟花爆炸效果
@@ -55,17 +55,17 @@ class SaleTicketsViewController: UIViewController {
 
 private extension SaleTicketsViewController {
     
-    /// 设置爱心飘动的动画
-    func setAnimateTimer() {
+    /// 启动爱心飘动的动画
+    func startAnimateTimer() {
         let imageNames = ["icon_点赞1", "icon_点赞2", "icon_点赞3", "icon_点赞4", "icon_点赞5", ]
+        let judyPopBubble = JudyPopBubble(inView: self.view, belowSubview: self.likeButton)
+        /// 计时器两次触发之间的秒数。如果 interval 小于或等于0.0，则该方法选择 0.0001 秒的非负值。
         let interval = Double(arc4random_uniform(3)+1)/10
-        let judyPopBubble = JudyPopBubble()
         // 创建计时器，并以默认模式在当前运行循环中调度它。
-        animateTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] timer in
-            if let strongSelf = self {
-                let image = UIImage(named: imageNames[NSInteger(arc4random_uniform( UInt32((imageNames.count)) ))])
-                judyPopBubble.judy_popBubble(withImage: image, inView: strongSelf.view, belowSubview: strongSelf.likeButton)
-            }
+        animateTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
+            // 随机挑选一张图片
+            let image = UIImage(named: imageNames[NSInteger(arc4random_uniform( UInt32((imageNames.count)) ))])
+            judyPopBubble.popBubble(withImage: image)
         }
     }
     

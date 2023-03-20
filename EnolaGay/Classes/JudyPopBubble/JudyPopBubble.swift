@@ -1,6 +1,6 @@
 //
-//  JudyWaterWaveView.swift
-//  WaterWave
+//  JudyPopBubble.swift
+//  飘动的气泡动画类
 //
 //  Created by 王仁洁 on 2018/9/20.
 //  Copyright © 2018年 EMERANA. All rights reserved.
@@ -8,22 +8,49 @@
 
 import UIKit
 
-
 /// 一个气泡动画类
 ///
-/// 通过在运行循环中不断调度 judy_popBubble 函数以达到不断有气泡往上升的动画效果，可参考如下代码：
+/// 通过在运行循环中不断调度 popBubble 函数以达到不断有气泡往上升的动画效果，可参考如下代码：
 ///
 /// ```
-/// let judyPopBubble = JudyPopBubble()
-/// // 创建计时器，并以默认模式在当前运行循环中调度它
-/// animateTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
-///     if let strongSelf = self {
+/// /// 动画计时器
+/// private var animateTimer: Timer?
+///
+/// /// 启动爱心飘动的动画
+/// func startAnimateTimer() {
+///     let imageNames = ["icon_点赞1", "icon_点赞2", "icon_点赞3", "icon_点赞4", "icon_点赞5", ]
+///     let judyPopBubble = JudyPopBubble(inView: self.view, belowSubview: self.likeButton)
+///     /// 计时器两次触发之间的秒数。如果 interval 小于或等于0.0，则该方法选择 0.0001 秒的非负值。
+///     let interval = Double(arc4random_uniform(3)+1)/10
+///     // 创建计时器，并以默认模式在当前运行循环中调度它。
+///     animateTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
+///         // 随机挑选一张图片
 ///         let image = UIImage(named: imageNames[NSInteger(arc4random_uniform( UInt32((imageNames.count)) ))])
-///         judyPopBubble.judy_popBubble(withImage: image, inView: strongSelf.view, belowSubview: strongSelf.likeButton)
+///         judyPopBubble.popBubble(withImage: image)
 ///     }
 /// }
 /// ```
-/// - Warning: 通过调用 judy_popBubble 函数来弹出一个气泡动画
+/// - Warning: 需要注意 animateTimer 的管理
+///
+/// ```
+/// override func viewDidAppear(_ animated: Bool) {
+///     super.viewDidAppear(animated)
+///     // 恢复计时器
+///     animateTimer?.fireDate = Date()
+/// }
+///
+/// override func viewWillDisappear(_ animated: Bool) {
+///     super.viewWillDisappear(animated)
+///     // 暂停计时器
+///     animateTimer?.fireDate = Date.distantFuture
+/// }
+///
+/// deinit {
+///     // 销毁计时器
+///     animateTimer?.invalidate()
+///     animateTimer = nil
+/// }
+/// ```
 public class JudyPopBubble {
     
     /// 指定气泡的中心点，默认为 bubble_belowView 的中心点
@@ -48,19 +75,22 @@ public class JudyPopBubble {
     private(set) public var bubble_belowView: UIView?
     
     
-    public init() {}
-    
-    /// 执行一个气泡图片动画
+    /// 实例化放烟花的 JudyPopBubble
     /// - Parameters:
-    ///   - image: 气泡图片对象
     ///   - parentView: 执行气泡动画的 View
-    ///   - belowView: 将该气泡放在该 View 下面，该 view 决定了气泡的起始位置
-    public func judy_popBubble(withImage image: UIImage?, inView parentView: UIView, belowSubview belowView: UIView) {
+    ///   - belowView: 将该气泡放在该 View 下面，该 view 决定了气泡的起始位置。
+    public init(inView parentView: UIView, belowSubview belowView: UIView) {
+        bubble_parentView = parentView
+        bubble_belowView = belowView
+    }
+    
+    /// 飘出一个气泡动画
+    /// - Parameters:
+    ///   - image: 气泡对象
+    public func popBubble(withImage image: UIImage?) {
         guard image != nil else { return }
         
         bubble_image = image!
-        bubble_parentView = parentView
-        bubble_belowView = belowView
         
         /// 气泡图片
         let bubbleImageView = UIImageView(image: bubble_image)
