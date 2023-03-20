@@ -23,8 +23,8 @@ class ViewController: UIViewController {
         ///分
         let minute = Int((Int(timeInt) - days*24*3600-hours*3600)/60)
         ///秒
-        let second = Int((Int(timeInt)-days*24*3600-hours*3600)-60*minute)
-        let timeString = String(format: "%d:%d",hours,minute)
+//        let second = Int((Int(timeInt)-days*24*3600-hours*3600)-60*minute)
+//        let timeString = String(format: "%d:%d",hours,minute)
 
         debugPrint("测试")
     }

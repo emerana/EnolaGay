@@ -120,10 +120,8 @@ open class CircularProgressView: UIView {
 
 /// 适用于按住按钮递加进度
 open class CircularProgressLiveView: CircularProgressView {
-    
     /// 主要的 layer
     public let lineLayer = CAShapeLayer()
-    
 
     open override func awakeFromNib() {
         super.awakeFromNib()

@@ -150,6 +150,7 @@
 		8BE31B8129C2D22A003038B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE31B7F29C2D22A003038B2 /* Main.storyboard */; };
 		8BE31B8329C2D22B003038B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE31B8229C2D22B003038B2 /* Assets.xcassets */; };
 		8BE31B8629C2D22B003038B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE31B8429C2D22B003038B2 /* LaunchScreen.storyboard */; };
+		8BF65F6F29C81BBB001E2160 /* CircularProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF65F6E29C81BBB001E2160 /* CircularProgressViewController.swift */; };
 		8DDD27D3FD749A645CA9BCC8 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31877678D006019384F3D2A /* Pods_Demo.framework */; };
 		9272EC45834F311F57DD0AB6 /* Pods_CacheDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13219953D03CB8934331ED80 /* Pods_CacheDemo.framework */; };
 		9BAECC1D87020F82DE89E4F6 /* Pods_HPickerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7929F86E764F85DFA1EF98 /* Pods_HPickerDemo.framework */; };
@@ -404,6 +405,7 @@
 		8BE31B8529C2D22B003038B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BE31B8729C2D22B003038B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BE7F82B26CA4000001CE7EA /* ToastViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastViewCtrl.swift; sourceTree = "<group>"; };
+		8BF65F6E29C81BBB001E2160 /* CircularProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressViewController.swift; sourceTree = "<group>"; };
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerticalScrollView.storyboard; sourceTree = "<group>"; };
 		93ED1A022A78523F826484B5 /* Pods-SegmentedDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentedDemo.debug.xcconfig"; path = "Target Support Files/Pods-SegmentedDemo/Pods-SegmentedDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1139,6 +1141,7 @@
 			children = (
 				8BE31B7929C2D22A003038B2 /* AppDelegate.swift */,
 				8BE31B7D29C2D22A003038B2 /* ViewController.swift */,
+				8BF65F6E29C81BBB001E2160 /* CircularProgressViewController.swift */,
 				8BE31B7F29C2D22A003038B2 /* Main.storyboard */,
 				8BE31B8229C2D22B003038B2 /* Assets.xcassets */,
 				8BE31B8429C2D22B003038B2 /* LaunchScreen.storyboard */,
@@ -1990,7 +1993,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demo-EMERANA/Pods-Demo-EMERANA-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay.default-Logger/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay.default-CircularProgressView-Logger/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
@@ -2438,7 +2441,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-Logger/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-CircularProgressView-Logger/EnolaGay.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -2736,6 +2739,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BF65F6F29C81BBB001E2160 /* CircularProgressViewController.swift in Sources */,
 				8BE31B7E29C2D22A003038B2 /* ViewController.swift in Sources */,
 				8BE31B7A29C2D22A003038B2 /* AppDelegate.swift in Sources */,
 			);

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Log 测试-->
+        <!--log-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Log 测试" id="BYZ-38-t0r" customClass="ViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,29 +100,54 @@
             </objects>
             <point key="canvasLocation" x="887" y="4"/>
         </scene>
-        <!--keyboard 测试-->
+        <!--按住按钮-->
         <scene sceneID="fOh-OF-FxC">
             <objects>
-                <viewController title="keyboard 测试" id="O7R-Wk-Hkl" sceneMemberID="viewController">
+                <viewController id="O7R-Wk-Hkl" customClass="CircularProgressViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zj2-Hs-JrK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jsh-PA-svQ">
-                                <rect key="frame" x="16" y="695" width="343" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7mg-7K-743" customClass="CircularProgressLiveView" customModule="EnolaGay">
+                                <rect key="frame" x="147.66666666666666" y="366" width="80" height="80"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="NOf-BO-Cs8"/>
+                                    <constraint firstAttribute="width" secondItem="7mg-7K-743" secondAttribute="height" id="fcR-Bf-jgu"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQE-vd-Rsa">
+                                <rect key="frame" x="150" y="514" width="75" height="34.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="touchCancelAction:" destination="O7R-Wk-Hkl" eventType="touchCancel" id="2QS-M6-U18"/>
+                                    <action selector="touchDownAction:" destination="O7R-Wk-Hkl" eventType="touchDown" id="TEh-Mb-gkL"/>
+                                    <action selector="touchDownRepeatAction:" destination="O7R-Wk-Hkl" eventType="touchDownRepeat" id="Yx4-RR-LPw"/>
+                                    <action selector="touchDragEnterAction:" destination="O7R-Wk-Hkl" eventType="touchDragEnter" id="Qhx-66-nLg"/>
+                                    <action selector="touchDragExitAction:" destination="O7R-Wk-Hkl" eventType="touchDragExit" id="4KP-eb-fgx"/>
+                                    <action selector="touchDragInsideAction:" destination="O7R-Wk-Hkl" eventType="touchDragInside" id="3UP-6g-AoX"/>
+                                    <action selector="touchDragOutsideAction:" destination="O7R-Wk-Hkl" eventType="touchDragOutside" id="MVs-vI-YSo"/>
+                                    <action selector="touchUpInsideAction:" destination="O7R-Wk-Hkl" eventType="touchUpInside" id="jc1-kk-314"/>
+                                    <action selector="touchUpOutsideAction:" destination="O7R-Wk-Hkl" eventType="touchUpOutside" id="Ddx-Ly-PxP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="78b-Ae-J6T"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Jsh-PA-svQ" firstAttribute="leading" secondItem="78b-Ae-J6T" secondAttribute="leading" constant="16" id="PxR-CZ-5Fz"/>
-                            <constraint firstItem="78b-Ae-J6T" firstAttribute="trailing" secondItem="Jsh-PA-svQ" secondAttribute="trailing" constant="16" id="mpx-kX-xQ2"/>
-                            <constraint firstItem="Jsh-PA-svQ" firstAttribute="bottom" secondItem="78b-Ae-J6T" secondAttribute="bottom" id="qdU-Ab-T0e"/>
+                            <constraint firstItem="TQE-vd-Rsa" firstAttribute="centerX" secondItem="7mg-7K-743" secondAttribute="centerX" id="3jf-gw-l6K"/>
+                            <constraint firstItem="7mg-7K-743" firstAttribute="centerY" secondItem="Zj2-Hs-JrK" secondAttribute="centerY" id="Gnc-5Q-dJs"/>
+                            <constraint firstItem="7mg-7K-743" firstAttribute="centerX" secondItem="Zj2-Hs-JrK" secondAttribute="centerX" id="M9B-tz-bpI"/>
+                            <constraint firstItem="TQE-vd-Rsa" firstAttribute="top" secondItem="7mg-7K-743" secondAttribute="bottom" priority="750" constant="68" id="mcD-Hg-xMv"/>
+                            <constraint firstItem="78b-Ae-J6T" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="TQE-vd-Rsa" secondAttribute="bottom" constant="28" id="q51-a1-COZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="键盘" id="J3H-Oq-Z0X"/>
+                    <tabBarItem key="tabBarItem" title="按住按钮" id="J3H-Oq-Z0X"/>
+                    <connections>
+                        <outlet property="progressLiveView" destination="7mg-7K-743" id="7mL-sW-uxb"/>
+                        <outlet property="recorderButton" destination="TQE-vd-Rsa" id="HBA-Lo-G78"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8j-go-lfS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,8 +164,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="sp5-I4-oyP"/>
                         <segue destination="O7R-Wk-Hkl" kind="relationship" relationship="viewControllers" id="Bmn-uf-esC"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="sp5-I4-oyP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNo-32-Xsu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -151,6 +176,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

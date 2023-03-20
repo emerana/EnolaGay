@@ -5,6 +5,7 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - EnolaGay (4.0.6):
     - EnolaGay/Core (= 4.0.6)
+  - EnolaGay/CircularProgressView (4.0.6)
   - EnolaGay/Core (4.0.6)
   - EnolaGay/EMERANA (4.0.6):
     - EnolaGay/Core
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - Cache
   - DZNEmptyDataSet
   - EnolaGay (from `../`)
+  - EnolaGay/CircularProgressView (from `../`)
   - EnolaGay/EMERANA (from `../`)
   - EnolaGay/GiftMessageCtrlPanel (from `../`)
   - EnolaGay/HPickerView (from `../`)
@@ -110,6 +112,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: a9d50e7d242dfa68a47d1b70184ac54c7b96fa9a
+PODFILE CHECKSUM: 3aa75f6b8ad827d57f294588c8de6ce64a165f61
 
 COCOAPODS: 1.12.0
