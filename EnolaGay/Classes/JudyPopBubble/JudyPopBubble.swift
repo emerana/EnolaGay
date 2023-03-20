@@ -21,7 +21,7 @@ import UIKit
 ///     let imageNames = ["icon_点赞1", "icon_点赞2", "icon_点赞3", "icon_点赞4", "icon_点赞5", ]
 ///     let judyPopBubble = JudyPopBubble(inView: self.view, belowSubview: self.likeButton)
 ///     /// 计时器两次触发之间的秒数。如果 interval 小于或等于0.0，则该方法选择 0.0001 秒的非负值。
-///     let interval = Double(arc4random_uniform(3)+1)/10
+///     let interval = Double(1+arc4random_uniform(3))/10
 ///     // 创建计时器，并以默认模式在当前运行循环中调度它。
 ///     animateTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
 ///         // 随机挑选一张图片
@@ -60,9 +60,9 @@ public class JudyPopBubble {
     public var bubble_animate_showDuration = 0.2
     /// 气泡旋转过程动画所需时长，该值默认为 2.
     public var bubble_animate_rotatedDuration: TimeInterval = 2
-    /// 气泡往上飘到终点所需时长，该值默认为 3.
+    /// 气泡从起点往上飘到终点所需时长，该值默认为 3.
     public var bubble_animate_windUp: TimeInterval = 3
-    /// 气泡从出现开始能见度持续时长，该值确保不小于1。当达到该时长，气泡将完全透明不可见。该值默认为 2.
+    /// 气泡从出现到消失的时长，该值确保不小于1。气泡能见度随着该时长逐渐变低，直到完全不可见。该值默认为 2.
     public var bubble_animate_dissmiss: TimeInterval = 2
     /// 气泡动画路径最长距离，默认取 bubbleParentView 的高度（同时减去了 bubbleBelowView 的高度）。
     public var bubble_animate_height: CGFloat = 0
