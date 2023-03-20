@@ -151,7 +151,7 @@
 		8BF65F8029C844F9001E2160 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF65F7F29C844F9001E2160 /* Assets.xcassets */; };
 		8BF65F8329C844F9001E2160 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF65F8129C844F9001E2160 /* LaunchScreen.storyboard */; };
 		8BF65F8829C8453F001E2160 /* GiftMessageViewCtrlTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */; };
-		8BF65F8A29C8468E001E2160 /* PoPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF65F8929C8468E001E2160 /* PoPViewController.swift */; };
+		8BF65F8E29C866C7001E2160 /* SaleTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF65F8D29C866C7001E2160 /* SaleTicketsViewController.swift */; };
 		8DDD27D3FD749A645CA9BCC8 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31877678D006019384F3D2A /* Pods_Demo.framework */; };
 		9272EC45834F311F57DD0AB6 /* Pods_CacheDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13219953D03CB8934331ED80 /* Pods_CacheDemo.framework */; };
 		9BAECC1D87020F82DE89E4F6 /* Pods_HPickerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7929F86E764F85DFA1EF98 /* Pods_HPickerDemo.framework */; };
@@ -409,7 +409,7 @@
 		8BF65F7F29C844F9001E2160 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BF65F8229C844F9001E2160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BF65F8429C844F9001E2160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8BF65F8929C8468E001E2160 /* PoPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoPViewController.swift; sourceTree = "<group>"; };
+		8BF65F8D29C866C7001E2160 /* SaleTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleTicketsViewController.swift; sourceTree = "<group>"; };
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerticalScrollView.storyboard; sourceTree = "<group>"; };
 		93ED1A022A78523F826484B5 /* Pods-SegmentedDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentedDemo.debug.xcconfig"; path = "Target Support Files/Pods-SegmentedDemo/Pods-SegmentedDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1149,7 +1149,7 @@
 			children = (
 				8BF65F7629C844F8001E2160 /* AppDelegate.swift */,
 				8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */,
-				8BF65F8929C8468E001E2160 /* PoPViewController.swift */,
+				8BF65F8D29C866C7001E2160 /* SaleTicketsViewController.swift */,
 				8BF65F7C29C844F8001E2160 /* Main.storyboard */,
 				8BF65F7F29C844F9001E2160 /* Assets.xcassets */,
 				8BF65F8129C844F9001E2160 /* LaunchScreen.storyboard */,
@@ -2749,7 +2749,7 @@
 			files = (
 				8BF65F8829C8453F001E2160 /* GiftMessageViewCtrlTest.swift in Sources */,
 				8BF65F7729C844F8001E2160 /* AppDelegate.swift in Sources */,
-				8BF65F8A29C8468E001E2160 /* PoPViewController.swift in Sources */,
+				8BF65F8E29C866C7001E2160 /* SaleTicketsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
