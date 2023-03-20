@@ -74,15 +74,21 @@ private extension SaleTicketsViewController {
     func emitFireworks(launcher: UIView) {
         let blingImageView = UIImageView(image: UIImage(named: "button_喜欢"))
         blingImageView.frame.size = CGSize(width: 18, height: 18)
-        //
+        // 设置烟花的起始中心位置为发射台的中心位置。
+        // 转换规则为发射台的父 View 将发射台的位置转换成指定 View 上的坐标。
         blingImageView.center = launcher.superview!.convert(launcher.center, to: view)
         view.addSubview(blingImageView)
         
-        // 发射
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
-            blingImageView.center = CGPoint(x: CGFloat(arc4random_uniform(UInt32(self.view.bounds.width-128))+88), y: CGFloat(arc4random_uniform(UInt32(self.view.bounds.height-220))+88))
+        // 发射并爆炸
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: { [weak self] in
+            guard let `self` = self else { return }
+            // 用动画的方式移动烟花的位置，位置为屏幕中的随机点
+            blingImageView.center = CGPoint(
+                x: CGFloat(arc4random_uniform(UInt32(self.view.bounds.width))),
+                y: CGFloat(arc4random_uniform(UInt32(self.view.bounds.height)))
+            )
         }) { _ in
-            // 烟花爆炸
+            // 执行烟花爆炸，并在爆炸效果完成后从父视图中移除。
             blingImageView.judy.blingBling {
                 blingImageView.removeFromSuperview()
             }
