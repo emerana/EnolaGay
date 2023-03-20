@@ -58,7 +58,12 @@ private extension SaleTicketsViewController {
     /// 启动爱心飘动的动画
     func startAnimateTimer() {
         let imageNames = ["icon_点赞1", "icon_点赞2", "icon_点赞3", "icon_点赞4", "icon_点赞5", ]
-        let judyPopBubble = JudyPopBubble(inView: self.view, belowSubview: self.likeButton)
+        let judyPopBubble = JudyPopBubble(inView: view, belowSubview: likeButton)
+//        judyPopBubble.bubble_animate_dissmiss = 1
+//        judyPopBubble.bubble_animate_windUp = 6
+        judyPopBubble.bubble_animate_height = view.frame.height - 168
+
+        
         /// 计时器两次触发之间的秒数。如果 interval 小于或等于0.0，则该方法选择 0.0001 秒的非负值。
         let interval = Double(arc4random_uniform(3)+1)/10
         // 创建计时器，并以默认模式在当前运行循环中调度它。
