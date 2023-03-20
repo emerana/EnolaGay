@@ -46,29 +46,16 @@ class SaleTicketsViewController: UIViewController {
         setAnimateTimer()
     }
     
-    // 点赞的烟花爆炸效果
+    // 烟花爆炸效果
     @IBAction private func emitAction(_ sender: Any) {
-        let blingImageView = UIImageView(image: UIImage(named: "button_喜欢"))
-        blingImageView.frame.size = CGSize(width: 18, height: 18)
-        blingImageView.center = (sender as! UIView).superview!.convert((sender as! UIView).center, to: view)
-        view.addSubview(blingImageView)
-        
-        // 发射
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
-            blingImageView.center = CGPoint(x: CGFloat(arc4random_uniform(UInt32(self.view.bounds.width-128))+88), y: CGFloat(arc4random_uniform(UInt32(self.view.bounds.height-220))+88))
-        }) { _ in
-            // 烟花爆炸
-            blingImageView.judy.blingBling {
-                blingImageView.removeFromSuperview()
-            }
-        }
+        emitFireworks(launcher: sender as! UIView)
     }
 
 }
 
 private extension SaleTicketsViewController {
     
-    /// 设置烟花动画
+    /// 设置爱心飘动的动画
     func setAnimateTimer() {
         let imageNames = ["icon_点赞1", "icon_点赞2", "icon_点赞3", "icon_点赞4", "icon_点赞5", ]
         let interval = Double(arc4random_uniform(3)+1)/10
@@ -78,6 +65,26 @@ private extension SaleTicketsViewController {
             if let strongSelf = self {
                 let image = UIImage(named: imageNames[NSInteger(arc4random_uniform( UInt32((imageNames.count)) ))])
                 judyPopBubble.judy_popBubble(withImage: image, inView: strongSelf.view, belowSubview: strongSelf.likeButton)
+            }
+        }
+    }
+    
+    /// 发射一朵烟花
+    /// - Parameter launcher: 发射台。此 View 表示烟花从哪个位置发射的。
+    func emitFireworks(launcher: UIView) {
+        let blingImageView = UIImageView(image: UIImage(named: "button_喜欢"))
+        blingImageView.frame.size = CGSize(width: 18, height: 18)
+        //
+        blingImageView.center = launcher.superview!.convert(launcher.center, to: view)
+        view.addSubview(blingImageView)
+        
+        // 发射
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+            blingImageView.center = CGPoint(x: CGFloat(arc4random_uniform(UInt32(self.view.bounds.width-128))+88), y: CGFloat(arc4random_uniform(UInt32(self.view.bounds.height-220))+88))
+        }) { _ in
+            // 烟花爆炸
+            blingImageView.judy.blingBling {
+                blingImageView.removeFromSuperview()
             }
         }
     }
