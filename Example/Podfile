@@ -6,6 +6,7 @@ platform :ios, '11.0'
 target 'Demo' do
   
   pod 'EnolaGay/Logger', :path => '../'
+  pod 'EnolaGay/WKWebView', :path => '../'
   pod 'EnolaGay/CircularProgressView', :path => '../'
   
   #  pod 'EnolaGay/TextFieldEffects', :path => '../'

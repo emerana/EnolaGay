@@ -19,6 +19,8 @@ PODS:
   - EnolaGay/Logger (4.0.7)
   - EnolaGay/SegmentedView (4.0.7):
     - EnolaGay/EMERANA
+  - EnolaGay/WKWebView (4.0.7):
+    - EnolaGay/EMERANA
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -58,6 +60,7 @@ DEPENDENCIES:
   - EnolaGay/KeyboardHelper (from `../`)
   - EnolaGay/Logger (from `../`)
   - EnolaGay/SegmentedView (from `../`)
+  - EnolaGay/WKWebView (from `../`)
   - FMDB
   - IGListKit (~> 4.0.0)
   - IQKeyboardManagerSwift
@@ -114,6 +117,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: 1b10c6fa7fd048d8290869709e3621d4c64d5f24
+PODFILE CHECKSUM: 23c22773e1dd87a524c938f8bf045614436555cf
 
 COCOAPODS: 1.12.0
