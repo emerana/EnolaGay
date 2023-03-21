@@ -280,7 +280,6 @@ private extension SaleTicketsViewController {
         }
     }
 
-
     // MARK: - 并发队列测试
 
     /// 监听任务的执行是否完成
