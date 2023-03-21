@@ -21,17 +21,6 @@ target 'Demo' do
 
   # MARK: - 在该工程中为 target 额外安装 pod，并同时拥有主工程中的 pod.
   
-  # MARK: Semaphore
-  
-  target 'Semaphore' do
-    #    inherit! :search_paths 这行可不写
-    platform :ios, '13.0'
-    pod 'EnolaGay', :path => '../'
-
-    pod 'EnolaGay/HUD', :path => '../'
-
-  end
-  
   # MARK: EMERANA
   
   target 'EMERANA' do
