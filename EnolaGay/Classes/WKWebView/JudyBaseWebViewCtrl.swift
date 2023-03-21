@@ -42,9 +42,8 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
         
         // 记得在 deinit 中 webView.configuration.userContentController.removeScriptMessageHandler
         // webView.configuration.userContentController.add(WeakScriptMessageDelegate(self), name: "JMWPay")
-        guard url != nil,
-              let url = URL(stringUTF8: url!) else {
-            Judy.logWarning("无效 url，不能将无法打开 WKWebView!")
+        guard url != nil, let url = URL(stringUTF8: url!) else {
+            logWarning("无效 url，不能将无法打开 WKWebView!")
             return
         }
         
@@ -64,7 +63,7 @@ open class JudyBaseWebViewCtrl: UIViewController, WKNavigationDelegate {
     }
     
     deinit {
-        Judy.logHappy("\(classForCoder) - \(title ?? "未命名的 WebViewCtrl") 已经释放。")
+        logHappy("\(classForCoder) - \(title ?? "未命名的 WebViewCtrl") 已经释放。")
     }
     
     // KVO.

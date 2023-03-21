@@ -3,21 +3,21 @@ PODS:
   - BadgeHub (1.0.0)
   - Cache (6.0.0)
   - DZNEmptyDataSet (1.8.1)
-  - EnolaGay (4.0.6):
-    - EnolaGay/Core (= 4.0.6)
-  - EnolaGay/CircularProgressView (4.0.6)
-  - EnolaGay/Core (4.0.6)
-  - EnolaGay/EMERANA (4.0.6):
+  - EnolaGay (4.0.7):
+    - EnolaGay/Core (= 4.0.7)
+  - EnolaGay/CircularProgressView (4.0.7)
+  - EnolaGay/Core (4.0.7)
+  - EnolaGay/EMERANA (4.0.7):
     - EnolaGay/Core
-  - EnolaGay/GiftMessageCtrlPanel (4.0.6)
-  - EnolaGay/HPickerView (4.0.6):
+  - EnolaGay/GiftMessageCtrlPanel (4.0.7)
+  - EnolaGay/HPickerView (4.0.7):
     - EnolaGay/Core
     - EnolaGay/EMERANA
-  - EnolaGay/HUD (4.0.6)
-  - EnolaGay/JudyPopBubble (4.0.6)
-  - EnolaGay/KeyboardHelper (4.0.6)
-  - EnolaGay/Logger (4.0.6)
-  - EnolaGay/SegmentedView (4.0.6):
+  - EnolaGay/HUD (4.0.7)
+  - EnolaGay/JudyPopBubble (4.0.7)
+  - EnolaGay/KeyboardHelper (4.0.7)
+  - EnolaGay/Logger (4.0.7)
+  - EnolaGay/SegmentedView (4.0.7):
     - EnolaGay/EMERANA
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -99,7 +99,7 @@ SPEC CHECKSUMS:
   BadgeHub: b227771329f78c37a2dae7502607ec6d00a50bd4
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  EnolaGay: f966d02a7c1d73b5fab2336222fe29f21edee173
+  EnolaGay: 253cc2078c56d102b37c2c41fb3baeb6044be99b
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
@@ -114,6 +114,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: 86ee75bf513d06770a07a3e6ce8fea42bed86625
+PODFILE CHECKSUM: 1b10c6fa7fd048d8290869709e3621d4c64d5f24
 
 COCOAPODS: 1.12.0

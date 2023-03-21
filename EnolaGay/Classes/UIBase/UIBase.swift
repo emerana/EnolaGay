@@ -736,6 +736,38 @@ public extension UIFont {
     }
 }
 
+/// 为空间包装对象 String 添加扩展函数，此部分适用于 UIFont.
+public extension EnolaGayWrapper where Base == String {
+    
+    /// 计算文本的 size.
+    ///
+    /// - Parameters:
+    ///   - font: 以该字体作为计算尺寸的参考
+    ///   - maxSize: 最大尺寸，默认为 CGSize(width: 320, height: 68).
+    /// - Returns: 文本所需宽度
+    func textSize(maxSize: CGSize = CGSize(width: 320, height: 68), font: UIFont = UIFont(size: 16)) -> CGSize {
+        // 根据文本内容获取尺寸，计算文字尺寸 UIFont.systemFont(ofSize: 14.0)
+        return base.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin],
+                                 attributes: [NSAttributedString.Key.font: font],
+                                 context: nil).size
+    }
+    
+    /// 计算文本的 size.
+    func sizeWith(font: UIFont = UIFont(size: 16) , maxSize : CGSize = CGSize(width: 168, height: 0) , lineMargin : CGFloat = 2) -> CGSize {
+        let options = NSStringDrawingOptions.usesLineFragmentOrigin
+        
+        let paragraphStyle : NSMutableParagraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineMargin
+        
+        var attributes = [NSAttributedString.Key : Any]()
+        attributes[NSAttributedString.Key.font] = font
+        attributes[NSAttributedString.Key.paragraphStyle] = paragraphStyle
+        let textBouds = base.boundingRect(with: maxSize, options: options, attributes: attributes, context: nil)
+        
+        return textBouds.size
+    }
+}
+
 
 // MARK: - EnolaGayAdapter 协议：字体、颜色配置
 
