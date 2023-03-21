@@ -1789,7 +1789,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JudyLivePageViewCtrl/Pods-JudyLivePageViewCtrl-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-Core-EMERANA/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-Core-EMERANA-iOS11.0/EnolaGay.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1889,7 +1889,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Demo-EMERANA/Pods-Demo-EMERANA-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/EnolaGay.default-CircularProgressView-Logger/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-iOS11.0/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/BadgeHub/BadgeHub.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
@@ -1991,12 +1991,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VersionCheck/Pods-VersionCheck-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-Core-EMERANA/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-Core-EMERANA-iOS11.0/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-iOS11.0/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -2041,7 +2041,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CacheDemo/Pods-CacheDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-iOS11.0/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -2083,14 +2083,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-iOS12.0/EnolaGay.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-iOS12.0/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-Core-EMERANA-iOS12.0/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/Player/Player.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Player.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2127,7 +2125,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-iOS11.0/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 			);
@@ -2251,7 +2249,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CastSurelyCalculation/Pods-CastSurelyCalculation-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-iOS11.0/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -2291,7 +2289,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ToastDemo/Pods-ToastDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-iOS11.0/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -2333,7 +2331,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AttributedStringDemo/Pods-AttributedStringDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-Core-EMERANA/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-Core-EMERANA-iOS11.0/EnolaGay.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (

@@ -31,7 +31,19 @@ class VideoCell: JudyBaseTableCell {
             }
         }
     }
-
+    
+    /// 视频的 URL
+    var videoURL: String! {
+        didSet {
+            guard player.url?.absoluteString != videoURL else {
+                logWarning("都已经是同样的 URL 了，不用设置啦！")
+                return
+            }
+            player.url = URL(string: videoURL)
+        }
+    }
+    
+    
     fileprivate var player = Player()
 
     /// 播放按钮。
@@ -71,18 +83,6 @@ class VideoCell: JudyBaseTableCell {
         // Configure the view for the selected state
     }
     
-    
-    // MARK: - override
-    
-    /// 设置数据源事件。
-    override func jsonDidSetAction() {
-        guard player.url?.absoluteString != json["urls"].stringValue else {
-            Judy.logWarning("都已经是同样的 URL 了，不用设置啦！")
-            return
-        }
-        self.player.url = URL(string: json["urls"].stringValue)!
-    }
-    
 }
 
 
@@ -91,11 +91,11 @@ class VideoCell: JudyBaseTableCell {
 extension VideoCell: PlayerDelegate {
     
     func playerReady(_ player: Player) {
-        Judy.logHappy("ready")
+        logHappy("ready")
     }
     
     func playerPlaybackStateDidChange(_ player: Player) {
-        Judy.log(player.playbackState.description)
+        log(player.playbackState.description)
         switch player.playbackState {
         case .playing:
             playerButton.isHidden = true
@@ -111,7 +111,7 @@ extension VideoCell: PlayerDelegate {
     }
     
     func player(_ player: Player, didFailWithError error: Error?) {
-        Judy.logl("\(#function) error.description")
+        logl("\(#function) error.description")
     }
     
 }
