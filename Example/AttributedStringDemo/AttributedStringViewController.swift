@@ -20,29 +20,21 @@ class AttributedStringViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         bljudy_setHighlightedTest()
     }
-
 }
 
 private extension AttributedStringViewController {
 
     /// NSMutableAttributedString 初始化函数测试。
     func mutableAttributedStringInitTest() {
-        
         let attrs1 = NSMutableAttributedString(text: "只要￥9.9还包邮！", textFont: UIFont(size: 16))
-        
         label1?.attributedText = attrs1
-        
         let attrs2 = NSMutableAttributedString(text: "只要￥9.9还包邮！", textFont: UIFont(size: 16), highlightText: "￥", highlightTextColor: .red)
-        
         label2?.attributedText = attrs2
-        
         let attrs3 = NSMutableAttributedString(text: "只要￥9.9还包邮！", textColor: .green, textFont: UIFont(size: 16), highlightText: "￥", highlightTextColor: .red, highlightTextFont: UIFont(size: 16))
         
         label3?.attributedText = attrs3
-
     }
     
     /// UILabel judy_setHighlighted 测试。
@@ -62,8 +54,6 @@ private extension AttributedStringViewController {
         let labelTest = "￥9.9"
         label1.text = labelTest
 
-        
-
         let attrs = NSMutableAttributedString(text: labelTest, highlightText: "￥", highlightTextFont: UIFont(size: 16))
 //            judy_setHighlighted(text: "￥", font: UIFont(style: .S_B))
         
@@ -71,9 +61,7 @@ private extension AttributedStringViewController {
 //        for _ in 0...100 {
 //            label1.judy_setHighlighted(text: "￥", font: UIFont(style: .S_B))
 //        }
-        
     }
-
 
     func judy_mutableAttributedStringInitTest() {
         let labelTest = "￥9.9"
@@ -88,5 +76,4 @@ private extension AttributedStringViewController {
 
         label5.attributedText = NSMutableAttributedString(text: labelTest, textColor: .blue, textFont: UIFont(size: 16), highlightText: "￥", highlightTextColor: .red, highlightTextFont: UIFont(size: 16))
     }
-
 }

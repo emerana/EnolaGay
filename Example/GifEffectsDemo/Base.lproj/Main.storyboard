@@ -50,7 +50,7 @@
         <!--送礼物测试-->
         <scene sceneID="bnM-6b-8BJ">
             <objects>
-                <viewController title="送礼物测试" id="Qji-k0-ZA5" customClass="GiftMessageViewCtrlTest" customModule="GiftMessageViewCtrlDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="送礼物测试" id="Qji-k0-ZA5" customClass="GiftMessageViewCtrlTest" customModule="GifEffectsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CU9-kB-gzB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,7 +96,7 @@
         <!--Crash Test View Ctrl-->
         <scene sceneID="oCy-tx-hs0">
             <objects>
-                <viewController id="K1g-Et-rsr" customClass="CrashTestViewCtrl" customModule="GiftMessageViewCtrlDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="K1g-Et-rsr" customClass="CrashTestViewCtrl" customModule="GifEffectsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1st-ja-lth">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,6 +178,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sqU-k8-av4">
                                 <rect key="frame" x="28" y="649" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switchAction:" destination="lG1-HS-x7h" eventType="valueChanged" id="ffd-xS-ElS"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NxD-CV-oVy"/>
@@ -194,7 +197,11 @@
                     <tabBarItem key="tabBarItem" title="多线程" id="NEa-HI-B6e"/>
                     <connections>
                         <outlet property="likeButton" destination="Bqe-A0-Ccc" id="FbX-oz-CcG"/>
+                        <outlet property="saleStatusSwitch" destination="sqU-k8-av4" id="WNq-CV-lWo"/>
                         <outlet property="tickerNumbersLabel" destination="DPW-jv-sOU" id="qkr-hZ-YJi"/>
+                        <outlet property="window1Label" destination="45N-sr-Hs0" id="vga-m7-GqT"/>
+                        <outlet property="window2Label" destination="bIJ-Oc-IRo" id="oqQ-iv-zBX"/>
+                        <outlet property="window3Label" destination="nY1-VB-P5X" id="JH5-yK-G3E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1LR-Wo-Rrg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -226,6 +233,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="WbG-LP-y2Z" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Snc-jH-qhN">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

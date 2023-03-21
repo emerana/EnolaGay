@@ -57,7 +57,6 @@ Pod::Spec.new do |s|
   
   # MARK: 水平方向的滚动选择器，SegmentedView 则是不支持滚动选择的。
   s.subspec 'HPickerView' do |ss|
-      ss.dependency 'EnolaGay/Core'
       ss.dependency 'EnolaGay/EMERANA'
       ss.source_files = 'EnolaGay/Classes/HPickerView/*'
   end

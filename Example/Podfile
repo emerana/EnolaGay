@@ -4,7 +4,8 @@ use_frameworks!
 platform :ios, '11.0'
 
 target 'Demo' do
-  
+  pod 'EnolaGay', :path => '../'
+
   pod 'EnolaGay/Logger', :path => '../'
   pod 'EnolaGay/CircularProgressView', :path => '../'
   
@@ -24,7 +25,6 @@ target 'Demo' do
   # MARK: EMERANA
   
   target 'EMERANA' do
-    pod 'EnolaGay', :path => '../'
     pod 'IQKeyboardManagerSwift'
     
     #    pod 'MBProgressHUD'
@@ -106,8 +106,11 @@ end
 target 'PlayerDemo' do
   platform :ios, '12.0'
 
-  pod 'EnolaGay', :path => '../'
   pod "Player"
+  pod 'SwiftyJSON'
+
+  pod 'EnolaGay', :path => '../'
+
 end
 
 
@@ -154,7 +157,7 @@ end
 # MARK: AttributedStringDemo
 
 target 'AttributedStringDemo' do
-  pod 'EnolaGay', :path => '../'
+  pod 'EnolaGay/EMERANA', :path => '../'
 end
 
 
