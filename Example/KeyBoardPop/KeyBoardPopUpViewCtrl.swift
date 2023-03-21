@@ -40,7 +40,7 @@ class KeyBoardPopUpViewCtrl: UIViewController {
         }
     }
     
-    deinit { Judy.logHappy("正常释放！") }
+    deinit { logHappy("正常释放！") }
 }
 
 

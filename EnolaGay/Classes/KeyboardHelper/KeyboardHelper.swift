@@ -8,9 +8,13 @@
 
 // MARK: - 正确地处理键盘遮挡输入框
 
-/// 防止键盘遮挡输入框的工具类，让指定 view 跟着键盘移动就像微信的键盘输入效果
+/// 防止键盘遮挡输入框的工具类，让指定 view 跟着键盘移动就像微信的键盘输入效果。
 ///
 /// 仅需通过 registerKeyBoardListener() 函数即可实现输入框跟随键盘位置移动从而保证输入框不被遮挡
+/// - Warning: 请务必保持实例有效，如:
+/// ```
+/// let keyboardHelper = KeyboardHelper()
+/// ```
 public final class KeyboardHelper {
     
     /// 此属性用于记录当下键盘的高度，若键盘已被收起则为 0.

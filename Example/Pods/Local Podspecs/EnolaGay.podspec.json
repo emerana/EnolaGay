@@ -29,7 +29,7 @@
     {
       "name": "EMERANA",
       "dependencies": {
-        "EnolaGay/Logger": [
+        "EnolaGay/Core": [
 
         ]
       },
@@ -38,9 +38,6 @@
     {
       "name": "SegmentedView",
       "dependencies": {
-        "EnolaGay/Core": [
-
-        ],
         "EnolaGay/EMERANA": [
 
         ]
@@ -82,6 +79,10 @@
       "source_files": "EnolaGay/Classes/Core/Logger.Swift"
     },
     {
+      "name": "GiftMessageCtrlPanel",
+      "source_files": "EnolaGay/Classes/GiftMessageCtrlPanel/*"
+    },
+    {
       "name": "JudyPopBubble",
       "source_files": "EnolaGay/Classes/JudyPopBubble/*"
     },
@@ -92,10 +93,6 @@
     {
       "name": "CircularProgressView",
       "source_files": "EnolaGay/Classes/CircularProgressView/*"
-    },
-    {
-      "name": "GiftMessageCtrlPanel",
-      "source_files": "EnolaGay/Classes/GiftMessageCtrlPanel/*"
     },
     {
       "name": "JudyWaterWaveView",
