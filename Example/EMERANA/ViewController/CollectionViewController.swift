@@ -21,7 +21,6 @@ class CollectionViewController: UIViewController {
         
     }
 
-
 }
 
 // MARK: - UICollectionViewDataSource

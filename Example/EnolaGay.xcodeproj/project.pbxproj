@@ -84,12 +84,9 @@
 		8BC3DC9026DF481100A2A405 /* HomeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9226DF480F00A2A405 /* HomeCollectionCell.swift */; };
 		8BC3DC9126DF481100A2A405 /* UpdateFund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9326DF480F00A2A405 /* UpdateFund.swift */; };
 		8BC3DC9226DF481100A2A405 /* UpdateFund.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9426DF480F00A2A405 /* UpdateFund.xib */; };
-		8BC3DC9426DF481100A2A405 /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9626DF480F00A2A405 /* InvestmentView.swift */; };
 		8BC3DC9526DF481100A2A405 /* userInfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9826DF480F00A2A405 /* userInfo.txt */; };
 		8BC3DC9626DF481100A2A405 /* 基金精选表.json in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9926DF480F00A2A405 /* 基金精选表.json */; };
-		8BC3DC9826DF481100A2A405 /* PaoPaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9D26DF480F00A2A405 /* PaoPaoViewController.swift */; };
 		8BC3DC9926DF481100A2A405 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9E26DF480F00A2A405 /* MyView.swift */; };
-		8BC3DCB226DF481100A2A405 /* EMERANA_NSMutableAttributedStringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBBC26DF480F00A2A405 /* EMERANA_NSMutableAttributedStringViewController.swift */; };
 		8BC3DCB926DF481100A2A405 /* CollectionViewLayoutViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC526DF480F00A2A405 /* CollectionViewLayoutViewCtrl.swift */; };
 		8BC3DCBA26DF481100A2A405 /* PushTest_ViewCtrl_B.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC626DF480F00A2A405 /* PushTest_ViewCtrl_B.swift */; };
 		8BC3DCBB26DF481100A2A405 /* LiveViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC826DF480F00A2A405 /* LiveViewCtrl.swift */; };
@@ -99,22 +96,11 @@
 		8BC3DCC126DF481100A2A405 /* ViewCtrllerAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBCF26DF480F00A2A405 /* ViewCtrllerAgent.swift */; };
 		8BC3DCC326DF481100A2A405 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD126DF480F00A2A405 /* TableController.swift */; };
 		8BC3DCC426DF481100A2A405 /* GracePeriodViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD226DF480F00A2A405 /* GracePeriodViewCtrl.swift */; };
-		8BC3DCC526DF481100A2A405 /* UIGraphicsGetCurrentContextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD326DF480F00A2A405 /* UIGraphicsGetCurrentContextViewController.swift */; };
 		8BC3DCC626DF481100A2A405 /* PushTest_ViewCtrl_C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD426DF480F00A2A405 /* PushTest_ViewCtrl_C.swift */; };
 		8BC3DCC726DF481100A2A405 /* FontDetailViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD626DF480F00A2A405 /* FontDetailViewCtrl.swift */; };
 		8BC3DCC826DF481100A2A405 /* FontViewSearchAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD726DF480F00A2A405 /* FontViewSearchAgent.swift */; };
 		8BC3DCC926DF481100A2A405 /* FontViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD826DF480F00A2A405 /* FontViewCtrl.swift */; };
 		8BC3DCCA26DF481100A2A405 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD926DF480F00A2A405 /* CollectionViewController.swift */; };
-		8BC3DCCB26DF481100A2A405 /* FundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DBDB26DF481000A2A405 /* FundCell.xib */; };
-		8BC3DCCD26DF481100A2A405 /* FundPurchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBDD26DF481000A2A405 /* FundPurchased.swift */; };
-		8BC3DCCE26DF481100A2A405 /* Fund.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DBDE26DF481000A2A405 /* Fund.plist */; };
-		8BC3DCCF26DF481100A2A405 /* FundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBDF26DF481000A2A405 /* FundCell.swift */; };
-		8BC3DCD026DF481100A2A405 /* FundDetailViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBE026DF481000A2A405 /* FundDetailViewCtrl.swift */; };
-		8BC3DCD126DF481100A2A405 /* FundOptionViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBE126DF481000A2A405 /* FundOptionViewCtrl.swift */; };
-		8BC3DCD326DF481100A2A405 /* Fund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBE326DF481000A2A405 /* Fund.swift */; };
-		8BC3DCD526DF481100A2A405 /* FundPageViewCtrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBE526DF481000A2A405 /* FundPageViewCtrller.swift */; };
-		8BC3DCD626DF481100A2A405 /* InvestmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBE626DF481000A2A405 /* InvestmentCell.swift */; };
-		8BC3DCD726DF481100A2A405 /* RootTabBarViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBE726DF481000A2A405 /* RootTabBarViewCtrl.swift */; };
 		8BC3DD8026E05C8E00A2A405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DD7F26E05C8E00A2A405 /* AppDelegate.swift */; };
 		8BC3DD8726E05C8E00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD8526E05C8E00A2A405 /* Main.storyboard */; };
 		8BC3DD8926E05C8F00A2A405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DD8826E05C8F00A2A405 /* Assets.xcassets */; };
@@ -298,13 +284,9 @@
 		8BC3DB9326DF480F00A2A405 /* UpdateFund.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateFund.swift; sourceTree = "<group>"; };
 		8BC3DB9426DF480F00A2A405 /* UpdateFund.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateFund.xib; sourceTree = "<group>"; };
 		8BC3DB9526DF480F00A2A405 /* AddFundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFundView.swift; sourceTree = "<group>"; };
-		8BC3DB9626DF480F00A2A405 /* InvestmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentView.swift; sourceTree = "<group>"; };
 		8BC3DB9826DF480F00A2A405 /* userInfo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = userInfo.txt; sourceTree = "<group>"; };
 		8BC3DB9926DF480F00A2A405 /* 基金精选表.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "基金精选表.json"; sourceTree = "<group>"; };
-		8BC3DB9C26DF480F00A2A405 /* HomeViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCtrl.swift; sourceTree = "<group>"; };
-		8BC3DB9D26DF480F00A2A405 /* PaoPaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaoPaoViewController.swift; sourceTree = "<group>"; };
 		8BC3DB9E26DF480F00A2A405 /* MyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
-		8BC3DBBC26DF480F00A2A405 /* EMERANA_NSMutableAttributedStringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMERANA_NSMutableAttributedStringViewController.swift; sourceTree = "<group>"; };
 		8BC3DBBF26DF480F00A2A405 /* OCRAStd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OCRAStd.otf; sourceTree = "<group>"; };
 		8BC3DBC026DF480F00A2A405 /* NSObject+IGListDiffable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+IGListDiffable.swift"; sourceTree = "<group>"; };
 		8BC3DBC126DF480F00A2A405 /* JournalLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalLoader.swift; sourceTree = "<group>"; };
@@ -322,25 +304,11 @@
 		8BC3DBD026DF480F00A2A405 /* WeiChatViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiChatViewCtrl.swift; sourceTree = "<group>"; };
 		8BC3DBD126DF480F00A2A405 /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
 		8BC3DBD226DF480F00A2A405 /* GracePeriodViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GracePeriodViewCtrl.swift; sourceTree = "<group>"; };
-		8BC3DBD326DF480F00A2A405 /* UIGraphicsGetCurrentContextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGraphicsGetCurrentContextViewController.swift; sourceTree = "<group>"; };
 		8BC3DBD426DF480F00A2A405 /* PushTest_ViewCtrl_C.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushTest_ViewCtrl_C.swift; sourceTree = "<group>"; };
 		8BC3DBD626DF480F00A2A405 /* FontDetailViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontDetailViewCtrl.swift; sourceTree = "<group>"; };
 		8BC3DBD726DF480F00A2A405 /* FontViewSearchAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontViewSearchAgent.swift; sourceTree = "<group>"; };
 		8BC3DBD826DF480F00A2A405 /* FontViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontViewCtrl.swift; sourceTree = "<group>"; };
 		8BC3DBD926DF480F00A2A405 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		8BC3DBDB26DF481000A2A405 /* FundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FundCell.xib; sourceTree = "<group>"; };
-		8BC3DBDC26DF481000A2A405 /* FundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundViewController.swift; sourceTree = "<group>"; };
-		8BC3DBDD26DF481000A2A405 /* FundPurchased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundPurchased.swift; sourceTree = "<group>"; };
-		8BC3DBDE26DF481000A2A405 /* Fund.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fund.plist; sourceTree = "<group>"; };
-		8BC3DBDF26DF481000A2A405 /* FundCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundCell.swift; sourceTree = "<group>"; };
-		8BC3DBE026DF481000A2A405 /* FundDetailViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundDetailViewCtrl.swift; sourceTree = "<group>"; };
-		8BC3DBE126DF481000A2A405 /* FundOptionViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundOptionViewCtrl.swift; sourceTree = "<group>"; };
-		8BC3DBE226DF481000A2A405 /* FundSearchViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundSearchViewCtrl.swift; sourceTree = "<group>"; };
-		8BC3DBE326DF481000A2A405 /* Fund.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fund.swift; sourceTree = "<group>"; };
-		8BC3DBE426DF481000A2A405 /* InvestmentViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentViewCtrl.swift; sourceTree = "<group>"; };
-		8BC3DBE526DF481000A2A405 /* FundPageViewCtrller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundPageViewCtrller.swift; sourceTree = "<group>"; };
-		8BC3DBE626DF481000A2A405 /* InvestmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentCell.swift; sourceTree = "<group>"; };
-		8BC3DBE726DF481000A2A405 /* RootTabBarViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarViewCtrl.swift; sourceTree = "<group>"; };
 		8BC3DBE926DF481000A2A405 /* FundDataSourceCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundDataSourceCtrl.swift; sourceTree = "<group>"; };
 		8BC3DD6D26E05BC900A2A405 /* 温州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "温州.gpx"; sourceTree = "<group>"; };
 		8BC3DD6E26E05BC900A2A405 /* 浙江台州.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "浙江台州.gpx"; sourceTree = "<group>"; };
@@ -882,7 +850,6 @@
 				8BC3DB9326DF480F00A2A405 /* UpdateFund.swift */,
 				8BC3DB9426DF480F00A2A405 /* UpdateFund.xib */,
 				8BC3DB9526DF480F00A2A405 /* AddFundView.swift */,
-				8BC3DB9626DF480F00A2A405 /* InvestmentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -902,28 +869,14 @@
 				8BC3DBD526DF480F00A2A405 /* Font */,
 				8BC3DBC726DF480F00A2A405 /* Live */,
 				8BC3DBCA26DF480F00A2A405 /* FunctionList */,
-				8BC3DBDA26DF480F00A2A405 /* Fund */,
-				8BC3DB9B26DF480F00A2A405 /* Home */,
-				8BC3DB9D26DF480F00A2A405 /* PaoPaoViewController.swift */,
 				8BC3DB9E26DF480F00A2A405 /* MyView.swift */,
-				8BC3DBBC26DF480F00A2A405 /* EMERANA_NSMutableAttributedStringViewController.swift */,
 				8BC3DBC526DF480F00A2A405 /* CollectionViewLayoutViewCtrl.swift */,
 				8BC3DBC626DF480F00A2A405 /* PushTest_ViewCtrl_B.swift */,
-				8BC3DBD326DF480F00A2A405 /* UIGraphicsGetCurrentContextViewController.swift */,
 				8BC3DBD426DF480F00A2A405 /* PushTest_ViewCtrl_C.swift */,
-				8BC3DBD926DF480F00A2A405 /* CollectionViewController.swift */,
-				8BC3DBE726DF481000A2A405 /* RootTabBarViewCtrl.swift */,
 				8B3BD1DC27014EB2001912FB /* DownloadViewCtrl.swift */,
+				8BC3DBD926DF480F00A2A405 /* CollectionViewController.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		8BC3DB9B26DF480F00A2A405 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				8BC3DB9C26DF480F00A2A405 /* HomeViewCtrl.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		8BC3DBBE26DF480F00A2A405 /* Models */ = {
@@ -968,25 +921,6 @@
 				8BC3DBD826DF480F00A2A405 /* FontViewCtrl.swift */,
 			);
 			path = Font;
-			sourceTree = "<group>";
-		};
-		8BC3DBDA26DF480F00A2A405 /* Fund */ = {
-			isa = PBXGroup;
-			children = (
-				8BC3DBDB26DF481000A2A405 /* FundCell.xib */,
-				8BC3DBDC26DF481000A2A405 /* FundViewController.swift */,
-				8BC3DBDD26DF481000A2A405 /* FundPurchased.swift */,
-				8BC3DBDE26DF481000A2A405 /* Fund.plist */,
-				8BC3DBDF26DF481000A2A405 /* FundCell.swift */,
-				8BC3DBE026DF481000A2A405 /* FundDetailViewCtrl.swift */,
-				8BC3DBE126DF481000A2A405 /* FundOptionViewCtrl.swift */,
-				8BC3DBE226DF481000A2A405 /* FundSearchViewCtrl.swift */,
-				8BC3DBE326DF481000A2A405 /* Fund.swift */,
-				8BC3DBE426DF481000A2A405 /* InvestmentViewCtrl.swift */,
-				8BC3DBE526DF481000A2A405 /* FundPageViewCtrller.swift */,
-				8BC3DBE626DF481000A2A405 /* InvestmentCell.swift */,
-			);
-			path = Fund;
 			sourceTree = "<group>";
 		};
 		8BC3DBE826DF481000A2A405 /* Controller */ = {
@@ -1655,7 +1589,6 @@
 				8BC3DC8A26DF481100A2A405 /* FunctionList.storyboard in Resources */,
 				8BC3DC9626DF481100A2A405 /* 基金精选表.json in Resources */,
 				8BC3DC8526DF481100A2A405 /* NSMutableAttributedString.storyboard in Resources */,
-				8BC3DCCB26DF481100A2A405 /* FundCell.xib in Resources */,
 				8BC3DC8826DF481100A2A405 /* GracePeriod.storyboard in Resources */,
 				8BC3DC8F26DF481100A2A405 /* CollectionViewLayout.storyboard in Resources */,
 				8BC3DC8C26DF481100A2A405 /* Live.storyboard in Resources */,
@@ -1670,7 +1603,6 @@
 				8BC3DC9226DF481100A2A405 /* UpdateFund.xib in Resources */,
 				8BC3DC8B26DF481100A2A405 /* IndexHome.storyboard in Resources */,
 				8BC3DC7F26DF481100A2A405 /* LaunchScreen.storyboard in Resources */,
-				8BC3DCCE26DF481100A2A405 /* Fund.plist in Resources */,
 				8BC3DB7726DF479400A2A405 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2521,24 +2453,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B4F5D4829C469C10092AF67 /* FundDataSourceCtrl.swift in Sources */,
-				8BC3DCD626DF481100A2A405 /* InvestmentCell.swift in Sources */,
-				8BC3DCCD26DF481100A2A405 /* FundPurchased.swift in Sources */,
 				8BC3DCC326DF481100A2A405 /* TableController.swift in Sources */,
-				8BC3DCD526DF481100A2A405 /* FundPageViewCtrller.swift in Sources */,
 				8BC3DC9926DF481100A2A405 /* MyView.swift in Sources */,
-				8BC3DCC526DF481100A2A405 /* UIGraphicsGetCurrentContextViewController.swift in Sources */,
 				8B3BD1DD27014EB2001912FB /* DownloadViewCtrl.swift in Sources */,
-				8BC3DC9826DF481100A2A405 /* PaoPaoViewController.swift in Sources */,
 				8BC3DCC826DF481100A2A405 /* FontViewSearchAgent.swift in Sources */,
 				8BC3DCC126DF481100A2A405 /* ViewCtrllerAgent.swift in Sources */,
 				8BC3DCCA26DF481100A2A405 /* CollectionViewController.swift in Sources */,
 				8BC3DC9126DF481100A2A405 /* UpdateFund.swift in Sources */,
 				8BC3DCC426DF481100A2A405 /* GracePeriodViewCtrl.swift in Sources */,
 				8BC3DCBA26DF481100A2A405 /* PushTest_ViewCtrl_B.swift in Sources */,
-				8BC3DC9426DF481100A2A405 /* InvestmentView.swift in Sources */,
-				8BC3DCD726DF481100A2A405 /* RootTabBarViewCtrl.swift in Sources */,
-				8BC3DCD326DF481100A2A405 /* Fund.swift in Sources */,
-				8BC3DCD126DF481100A2A405 /* FundOptionViewCtrl.swift in Sources */,
 				8BC3DCC626DF481100A2A405 /* PushTest_ViewCtrl_C.swift in Sources */,
 				8BC3DCC726DF481100A2A405 /* FontDetailViewCtrl.swift in Sources */,
 				8BC3DC9026DF481100A2A405 /* HomeCollectionCell.swift in Sources */,
@@ -2548,9 +2471,6 @@
 				8BC3DCBB26DF481100A2A405 /* LiveViewCtrl.swift in Sources */,
 				8BC3DCB926DF481100A2A405 /* CollectionViewLayoutViewCtrl.swift in Sources */,
 				8BC3DB6E26DF479200A2A405 /* AppDelegate.swift in Sources */,
-				8BC3DCB226DF481100A2A405 /* EMERANA_NSMutableAttributedStringViewController.swift in Sources */,
-				8BC3DCD026DF481100A2A405 /* FundDetailViewCtrl.swift in Sources */,
-				8BC3DCCF26DF481100A2A405 /* FundCell.swift in Sources */,
 				8B4F5D6129C46AEC0092AF67 /* AddFundView.swift in Sources */,
 				8BC3DCBF26DF481100A2A405 /* ViewCtrller.swift in Sources */,
 			);
