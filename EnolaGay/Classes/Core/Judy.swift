@@ -4,10 +4,7 @@
 //  Created by Judy-王仁洁 on 2017/6/6.
 //  Copyright © 2017年 Judy.ICBC All rights reserved.
 //
-//  JudySDK
-/* 主类需要加上 public，extension 前面加了 public，则该分类里面的方法默认都是公开的 */
 
-// import UIKit
 
 /// 常用系统级相关工具类
 ///
@@ -218,83 +215,9 @@ public extension Judy {
 }
 
 /****************************************  ****************************************/
-// MARK: - 自定义输出、限制输入
+
 public extension Judy {
     
-    /// log 函数打印的可选级别。通过该级别可能更好地区分打印的信息等级以便于调试
-    enum LogLevel: String {
-        /// 默认级别，通常代表普通信息
-        case 🟡
-        /// 该级别通常表示警告、错误等需要重视的信息
-        case 🔴
-        /// 该级别通常代表好消息或令人愉悦的信息
-        case 🟢
-        /// 没有特别定义，用于强调、区分日志信息等级而已
-        case 🟣, 🕸, 🔘, 📀, 😀, 🦠, 😜, 💧, 🤪, 🧯, 😎, 🕘, 🍑, 🥭, 🚫, 🔆, 🌐, 👑, 🔔
-    }
-    
-    // 如果发现不能正常打印，请在Build Settings -> Active Compilation Conditions 的 Debug 项中添加一个 DEBUG 即可
-
-    /// 通用打印函数，将依次打印文件名、触发函数所在行及函数名的信息。打印格式为**文件 [行] 函数 消息体**
-    static func log<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
-        #if DEBUG
-        print("\(type) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
-        #endif
-    }
-
-    /// 该函数主要打印所在行信息，较于 log 仅仅不打印函数。打印格式为**文件 [行] 消息体**
-    static func logl<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, line: Int = #line) {
-        #if DEBUG
-        print("\(type) \((file as NSString).lastPathComponent) [\(line)] ⚓️ \(message())")
-        #endif
-    }
-
-    /// 该函数主要以时间为打印关键。打印格式为**时间 文件 [行] 消息体**
-    ///
-    /// - Parameters:
-    ///   - format: 打印时间的格式化，该值默认为 "HH:mm:ss.SSS".
-    static func logTime<msg>(type: LogLevel = .🕘, format: String = "HH:mm:ss.SSS", file: String = #file, line: Int = #line, _ message: @autoclosure () -> msg) {
-        #if DEBUG
-        let date = Date().judy.stringDateFormGMT(format: format)
-        print("\(type) \(date) \((file as NSString).lastPathComponent) [\(line)] \(message())")
-        #endif
-    }
-
-    /// 极简打印，该函数仅输出要打印的消息体。
-    static func logs<msg>(type: LogLevel = .🔘, _ message: @autoclosure () -> msg) {
-        #if DEBUG
-        print("\(type) \(message())")
-        #endif
-    }
-    
-    /// 该函数用于换行打印。打印格式为**文件 [行] 函数 换行打印消息体**
-    static func logn<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
-        #if DEBUG
-        print("\(type) \((file as NSString).lastPathComponent) [\(line)] \(method) \n \(message())")
-        #endif
-    }
-    
-    /// 该函数用于打印好消息级别的输出。打印格式为**文件 [行] 函数 消息体**
-    static func logHappy<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
-        #if DEBUG
-        print("\(LogLevel.🟢) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
-        #endif
-    }
-    
-    /// 该函数用于打印警告或错误级别的输出。打印格式为**文件 [行] 函数 消息体**
-    static func logWarning<msg>(_ message: @autoclosure () -> msg, file: String = #file, method: String = #function, line: Int = #line) {
-        #if DEBUG
-        print("\(LogLevel.🔴) \((file as NSString).lastPathComponent) [\(line)] \(method) ⚓️ \(message())")
-        #endif
-    }
-
-    /// 该函数用于打印线程相关输出。打印格式为**线程 [行] 函数 消息体**
-    static func logt<msg>(type: LogLevel = .🟣, _ message: @autoclosure () -> msg, method: String = #function, line: Int = #line) {
-        #if DEBUG
-        print("\(type) \(Thread.current) [\(line)] \(method) ⚓️ \(message())")
-        #endif
-    }
-
     // MARK: 自定义方法输入
     
     /// 对要输入的数值进行小数验证。比如只能输入2.1之类的，用于价格、里程数等
@@ -412,10 +335,10 @@ public extension Judy {
         // 信号量发现总量为0，便停在此处，程序不往下执行，10 秒超时时间，10秒内无人将信号量+1将直接往下执行。
         switch semaphore.wait(timeout: DispatchTime.now()+10) {
         case .success:
-            Judy.logHappy("未超时")
+            EnolaGay.logHappy("未超时")
             break
         case .timedOut:
-            Judy.logWarning("发现超时，直接返回数据")
+            EnolaGay.logWarning("发现超时，直接返回数据")
             break
         }
 
@@ -462,7 +385,7 @@ public extension Judy {
         // 比较版本
         for i in 0..<versionLocalList.count {
             guard (Int(versionLocalList[i]) != nil), (Int(versionOnLineList[i]) != nil) else {
-                Judy.logWarning("版本号中存在非 Int 字符")
+                EnolaGay.logWarning("版本号中存在非 Int 字符")
                 return .latest
             }
             verL = Int(versionLocalList[i])!
@@ -668,24 +591,6 @@ public extension Judy {
 }
 
 /****************************************  ****************************************/
-
-// MARK: - 测试类
-extension Judy {
-
-    public static func test(){
-        logWarning("这是来自测试类的打印")
-        testPrivate()
-    }
-    
-    fileprivate static func testPrivate(){
-        logWarning("这是私有打印")
-    }
-    
-    public static func testStaticVar(){
-        isAlerting = !isAlerting
-        logWarning("此时，temp=\(isAlerting)")
-    }
-}
 
 /****************************************  ****************************************/
 // MARK: - 私有方法

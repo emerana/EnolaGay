@@ -177,7 +177,7 @@ class UpdateFund: UIView {
     }
 
     deinit {
-        Judy.log("修改基金View释放")
+        log("修改基金View释放")
     }
     
     /*
@@ -212,7 +212,7 @@ extension UpdateFund: UITextFieldDelegate {
             break
         }
         
-        Judy.log("shouldChangeCharactersIn<!-- \(string) -->,输入之前为--> \(String(describing: textField.text))")
+        log("shouldChangeCharactersIn<!-- \(string) -->,输入之前为--> \(String(describing: textField.text))")
         
         return true
     }
@@ -233,7 +233,7 @@ extension UpdateFund: UITextFieldDelegate {
             break
         }
         
-        Judy.log(textField.text)
+        log(textField.text)
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -363,7 +363,7 @@ private extension UpdateFund {
         button.backgroundColor = button.isSelected ? .systemBlue:.white
         
         fund.isStarManager = button.isSelected
-        Judy.log("明星经理按钮选中状态：\(button.isSelected)")
+        log("明星经理按钮选中状态：\(button.isSelected)")
     }
 
     /// 确定选中按钮背景色
@@ -449,7 +449,7 @@ extension UpdateFund: UIPickerViewDataSource, UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 
-        Judy.log("选择了\(pickerViewDataSource[row])")
+        log("选择了\(pickerViewDataSource[row])")
         setSimilar(fromPickerDataSource: pickerViewDataSource[row])
     }
     
@@ -461,7 +461,7 @@ extension UpdateFund: UIPickerViewDataSource, UIPickerViewDelegate {
         for (index, value) in pickerViewDataSource.enumerated() {
             // 通过前缀判断是否为同一个字符
             if value[value.startIndex] == similarRawValue[similarRawValue.startIndex] {
-                Judy.log(value + "被设置了")
+                log(value + "被设置了")
                 picker.selectRow(index, inComponent: 0, animated: true)
                 
                 // 截取字符串，去掉前4个字符
@@ -469,7 +469,7 @@ extension UpdateFund: UIPickerViewDataSource, UIPickerViewDelegate {
                 let sourceString: String  = String(value[newStartIndex ..< value.endIndex])
                 
                 guard let similar = Fund.SimilarRankingGrade(rawValue: sourceString) else {
-                    Judy.log("同类排名信息转换失败！")
+                    log("同类排名信息转换失败！")
                     fund.similarRanking = .R
                     similarRankingButton.setTitle("转换失败！", for: .normal)
                     break

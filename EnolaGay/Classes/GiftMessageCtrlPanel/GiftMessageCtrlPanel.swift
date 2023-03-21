@@ -68,14 +68,13 @@ open class GiftMessageCtrlPanel: UIView {
     }
 
     open override func didMoveToWindow() {
-        // 说明被移除
+        // window 为 nil，控制面板被移除啦
         if window == nil {
-            // Judy.log("window 为 nil，控制面板被移除啦")
             for _ in 1...maxGiftViewCount {
                 semaphore.signal()
             }
         } else {
-            // Judy.log("控制面板被添加到屏幕上了。")
+            // 控制面板被添加到屏幕上了。")
         }
     }
     
@@ -116,6 +115,7 @@ open class GiftMessageCtrlPanel: UIView {
     }
 }
 
+// MARK: - 私有扩展函数
 private extension GiftMessageCtrlPanel {
     
     /// 将目标 GiftView 以动画方式并排好队列显示在 containerView 容器视图中，此函数请务必在 main 线程运行
@@ -213,12 +213,12 @@ private extension GiftMessageCtrlPanel {
 
 /// 直播间刷礼物弹出的消息视图
 open class GiftView: UIView {
-    /// 计时器完成的事件处理，通过此函数执行将本视图移除的相关操作
+    /// 计时器完成的事件处理，通过此函数执行将本视图移除的相关操作。
     var completeHandle: ((GiftView)->Void)?
     
     /// 默认倒计时时长，该时长决定触发 completeHandle 前的等待时间。该属性默认值为 3.
     var defaultWaitTime = 3
-    /// 实际倒计时时长
+    /// 实际使用的倒计时时长
     private var waitTime = 5
     
     /// 计时器对象

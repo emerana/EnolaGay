@@ -60,7 +60,7 @@ extension SectionControllerType_1 {
     }
     
     override func didSelectItem(at index: Int) {
-        Judy.log("点击了\(index)")
+        log("点击了\(index)")
     }
 
 }

@@ -4,6 +4,10 @@ use_frameworks!
 platform :ios, '11.0'
 
 target 'Demo' do
+  
+  pod 'EnolaGay/Logger', :path => '../'
+  pod 'EnolaGay/CircularProgressView', :path => '../'
+  
   #  pod 'EnolaGay/TextFieldEffects', :path => '../'
   #  pod 'EnolaGay/JudyPopBubble', :path => '../'
   #  pod 'EnolaGay/JudyPlusButtonTabBar', :path => '../'
@@ -16,17 +20,6 @@ target 'Demo' do
   #  end
 
   # MARK: - 在该工程中为 target 额外安装 pod，并同时拥有主工程中的 pod.
-  
-  # MARK: Semaphore
-  
-  target 'Semaphore' do
-    #    inherit! :search_paths 这行可不写
-    platform :ios, '13.0'
-    pod 'EnolaGay', :path => '../'
-
-    pod 'EnolaGay/HUD', :path => '../'
-
-  end
   
   # MARK: EMERANA
   
@@ -84,13 +77,16 @@ end
 
 # MARK: HUD
 target 'HUD' do
+  platform :ios, '13.0'
+
   pod 'EnolaGay/HUD', :path => '../'
 end
 
 # MARK: VersionCheck
 
 target 'VersionCheck' do
-  pod 'EnolaGay', :path => '../'
+  pod 'EnolaGay/EMERANA', :path => '../'
+  pod 'SwiftyJSON'
   pod 'Alamofire'
   pod 'RxSwift'
   pod 'RxCocoa'
@@ -127,7 +123,8 @@ end
 # MARK: KeyBoardPop
 
 target 'KeyBoardPop' do
-  pod 'EnolaGay', :path => '../'
+  pod 'EnolaGay/Logger', :path => '../'
+  pod 'EnolaGay/KeyboardHelper', :path => '../'
 end
 
 
@@ -137,56 +134,20 @@ target 'CastSurelyCalculation' do
   pod 'EnolaGay', :path => '../'
 end
 
+# MARK: GifEffectsDemo 送礼物控制面板、烟花爆炸特效
 
-# MARK: FontExtension
-
-target 'FontExtension' do
-  pod 'EnolaGay', :path => '../'
-end
-
-
-# MARK: MyRxSwfit
-
-target 'MyRxSwfit' do
-  pod 'EnolaGay', :path => '../'
-  pod 'RxSwift'
-  pod 'RxCocoa'
-  pod 'Alamofire'
-
-end
-
-
-# MARK: MyCharts
-
-target 'MyCharts' do
-  platform :ios, '12.0'
-
-  pod 'EnolaGay', :path => '../'
-  pod 'Charts'
-
-end
-
-
-# MARK: JudyBaseNavigationCtrl
-
-target 'JudyBaseNavigationCtrl' do
-  pod 'EnolaGay', :path => '../'
-
-end
-
-
-# MARK: GiftMessageViewCtrlDemo
-
-target 'GiftMessageViewCtrlDemo' do
-  pod 'EnolaGay', :path => '../'
-#  pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
+target 'GifEffectsDemo' do
+  pod 'EnolaGay/EMERANA' , :path => '../'
+  pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
+  pod 'EnolaGay/JudyPopBubble' , :path => '../'
+  
 end
 
 
 # MARK: JudyLivePageViewCtrl
 
 target 'JudyLivePageViewCtrl' do
-  pod 'EnolaGay', :path => '../'
+  pod 'EnolaGay/EMERANA', :path => '../'
 end
 
 
@@ -197,28 +158,21 @@ target 'AttributedStringDemo' do
 end
 
 
-# MARK: AGUL
-
-target 'AGUL' do
-  pod 'EnolaGay', :path => '../'
-#  pod 'EnolaGay/MarqueeView', :path => '../'
-  
-  pod 'Kingfisher'
-  pod 'SwiftMessages'
-  pod 'SDWebImage'
-end
+## MARK: AGUL
+#
+#target 'AGUL' do
+#  pod 'EnolaGay', :path => '../'
+##  pod 'EnolaGay/MarqueeView', :path => '../'
+#  
+#  pod 'Kingfisher'
+#  pod 'SwiftMessages'
+#  pod 'SDWebImage'
+#end
 
 
 # MARK: MyIGListKit
 
 target 'MyIGListKit' do
-  pod 'EnolaGay', :path => '../'
+  pod 'EnolaGay/Logger', :path => '../'
   pod 'IGListKit', '~> 4.0.0'
-end
-
-# MARK: MyRxRealm
-
-target 'MyRxRealm' do
-  pod 'EnolaGay', :path => '../'
-  pod "RxRealm"
 end
