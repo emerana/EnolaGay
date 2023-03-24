@@ -184,12 +184,14 @@ public extension EnolaGayWrapper where Base == Calendar {
 extension Date: EnolaGayCompatible { }
 
 public extension EnolaGayWrapper where Base == Date {
+    
     @available(*, unavailable, message: "此函数已被优化", renamed: "stringValue(format:)")
     func stringFormat(dateFormat: String = "yyyy-MM-dd HH:mm:ss") -> String { "" }
+    
     @available(*, unavailable, message: "此函数已被优化", renamed: "stringDateFormGMT")
     func stringGMT() -> Date { Date() }
 
-    /// 将当前 Date() 转转换成北京时区的 Date.
+    /// 获取转换成北京时区的 Date.
     ///
     /// Date() 将得到格林威治时间（标准时间），比北京时间早了 8 小时。此函数将其转换成北京时间。
     /// 如 Date() 为 2022-11-18 06:08:47 +0000，此函数将转成 2022-11-18 14:08:47 +0000.
@@ -202,12 +204,12 @@ public extension EnolaGayWrapper where Base == Date {
         return base.addingTimeInterval(secondFromGMT)
     }
     
-    /// 将当前 Date 值转换成指定格式化样式字符串
+    /// 获取转换成目标格式 string 值。
     ///
     /// 如 Date() 为 2022-11-18 06:08:47 +0000 ，此函数将转成 2022-11-18 06:08:47.
     ///
     /// - Parameter dateFormat: date 值的目标样式，默认值为 "yyyy-MM-dd HH:mm:ss".
-    /// - Returns: String 格式的目标样式
+    /// - Returns: format 对应的目标值。
     func stringValue(format: String = "yyyy-MM-dd HH:mm:ss") -> String {
         let timeZone = TimeZone(identifier: "UTC")
         let formatter = DateFormatter()
@@ -219,14 +221,17 @@ public extension EnolaGayWrapper where Base == Date {
         return date
     }
     
-    /// 当 Date 转换成北京时区的目标格式 string 值
+    @available(*, unavailable, message: "此函数已被优化", renamed: "stringValueFormGMT")
+    func stringDateFormGMT(format: String = "yyyy-MM-dd HH:mm:ss") -> String { "" }
+    
+    /// 获取转换成北京时区的目标格式 string 值。
     /// - Parameter format: 目标格式，默认为 "yyyy-MM-dd HH:mm:ss".
-    /// - Returns: format 对应的目标值
-    func stringDateFormGMT(format: String = "yyyy-MM-dd HH:mm:ss") -> String {
+    /// - Returns: format 对应的目标值。
+    func stringValueFormGMT(format: String = "yyyy-MM-dd HH:mm:ss") -> String {
         return dateFromGMT().judy.stringValue(format: format)
     }
+    
 }
-
 
 
 // MARK: - Swift提供的许多功能强大的全局函数
