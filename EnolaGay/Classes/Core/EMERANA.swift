@@ -154,9 +154,6 @@ protocol EMERANA_CollectionBasic where Self: JudyBaseViewCtrl {
  */
 
 
-
-
-
 /*
  什么时候用结构体，什么时候用类？
  

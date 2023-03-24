@@ -9,10 +9,10 @@
 
 /*
  如果发现不能正常打印……
- 请在Build Settings -> Active Compilation Conditions 的 Debug 项中添加一个 DEBUG 即可
+ 请在 Build Settings -> Active Compilation Conditions 的 Debug 项中添加一个 DEBUG 即可。
  */
 
-/// log 函数打印的可选级别。通过该级别可能更好地区分打印的信息等级以便于调试
+/// log 函数打印的可选级别。通过该级别可能更好地区分打印的信息等级以便于调试。
 public enum LogLevel {
     /// 默认级别，通常代表普通信息
     case 🟡
@@ -20,7 +20,7 @@ public enum LogLevel {
     case 🔴
     /// 该级别通常代表好消息或令人愉悦的信息
     case 🟢
-    /// 没有特别定义，用于强调、区分日志信息等级而已
+    /// 其他可选的级别，没有特别定义，用于强调、区分日志信息等级而已。
     case 🟣, 🕸, 🔘, 📀, 😀, 🦠, 😜, 💧, 🤪, 🧯, 😎, 🕘, 🍑, 🚫, 🔆, 🌐, 👑, 🔔
 }
 
@@ -39,7 +39,7 @@ public func logl<msg>(type: LogLevel = .🟡, _ message: @autoclosure () -> msg,
     #endif
 }
 
-/// 该函数主要以时间为打印关键。打印格式为**时间 文件 [行] 消息体**
+/// 该函数包含打印时间。打印格式为**时间 文件 [行] 消息体**
 ///
 /// - Parameters:
 ///   - format: 打印时间的格式化，该值默认为 "HH:mm:ss.SSS".
@@ -86,13 +86,13 @@ public func logt<msg>(type: LogLevel = .🟣, _ message: @autoclosure () -> msg,
 }
 
 
-/// 获取当前 Date 值并转换成北京时区的目标格式 string 值
+/// 获取当前 Date 值并转换成北京时区的目标格式 String 值。
 ///
 /// 如 Date() 为 2022-11-18 06:08:47 +0000 ，此函数将转成 2022-11-18 06:08:47.
 ///
-/// - Parameter dateFormat: date 值的目标样式，默认值为 "yyyy-MM-dd HH:mm:ss".
-/// - Returns: String 格式的目标样式
-public func stringValue(format: String = "yyyy-MM-dd HH:mm:ss") -> String {
+/// - Parameter format: date 值的目标样式，默认值为 "yyyy-MM-dd HH:mm:ss".
+/// - Returns: String 格式的目标样式。
+private func stringValue(format: String = "yyyy-MM-dd HH:mm:ss") -> String {
     let timeZone = TimeZone(identifier: "UTC")
     let formatter = DateFormatter()
     formatter.timeZone = timeZone

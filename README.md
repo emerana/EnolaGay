@@ -4,6 +4,39 @@
 [![License](https://img.shields.io/cocoapods/l/EnolaGay.svg?style=flat)](https://cocoapods.org/pods/EnolaGay)
 [![Platform](https://img.shields.io/cocoapods/p/EnolaGay.svg?style=flat)](https://cocoapods.org/pods/EnolaGay)
 
+  
+## 以下 Pod 已包含 'EnolaGay'
+
+#### EnolaGay/EMERANA
+- 包含 'EnolaGay' 核心
+```ruby
+pod 'EnolaGay/EMERANA'
+```
+  
+#### EnolaGay/SegmentedView
+- 包含 'EnolaGay/EMERANA' 核心
+```ruby
+pod 'EnolaGay/SegmentedView'
+```
+  
+#### EnolaGay/HPickerView
+- 包含 'EnolaGay/EMERANA' 核心
+```ruby
+pod 'EnolaGay/HPickerView'
+```
+
+#### EnolaGay/TextFieldEffects
+- 包含 'EnolaGay/EMERANA' 核心
+```ruby
+pod 'EnolaGay/TextFieldEffects'
+```
+  
+#### EnolaGay/WKWebView
+- 包含 'EnolaGay/EMERANA' 核心
+```ruby
+pod 'EnolaGay/WKWebView'
+```
+
 
 ## 核心
 描述。

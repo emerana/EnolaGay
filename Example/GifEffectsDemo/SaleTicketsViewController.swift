@@ -14,17 +14,38 @@ class SaleTicketsViewController: UIViewController {
 
     @IBOutlet weak private var likeButton: UIButton!
 
+    @IBOutlet weak private var window1Label: UILabel!
+    @IBOutlet weak private var window2Label: UILabel!
+    @IBOutlet weak private var window3Label: UILabel!
+    
+    @IBOutlet weak private var saleStatusSwitch: UISwitch!
+    
     /// 爱心动画计时器。
     private var animateTimer: Timer?
     
     /// 剩余火车票数量
     @IBOutlet weak private var tickerNumbersLabel: UILabel!
     
+    /// 火车票总数量
+    private var tickerCounts = 100 {
+        didSet {
+            logt(type: .🟢, "卖掉了一张票，还剩：\(tickerCounts)张")
+            DispatchQueue.main.async { [weak self] in
+                guard let `self` = self else { return }
+                if self.tickerCounts == 0 {
+                    self.tickerNumbersLabel.text = "没票啦"
+                } else {
+                    self.tickerNumbersLabel.text = "剩余火车票：\(self.tickerCounts)"
+                }
+            }
+        }
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        saleStatusSwitch.setOn(false, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,16 +65,20 @@ class SaleTicketsViewController: UIViewController {
         animateTimer = nil
     }
 
+    /// 开关切换事件
+    @IBAction func switchAction(_ sender: Any) {
+        
+//        if (sender as! UISwitch).isOn {
+//            animateTimer?.invalidate()
+//            animateTimer = nil
+//        } else {
+//            startAnimateTimer()
+//        }
+    }
+    
     /// 开始购买事件
     @IBAction private func startAction(_ sender: Any) {
         startAnimateTimer()
-        
-         //onStart()
-        // concurrentDispatchQueue()
-        // notify()
-//         downloadAction()
-//         saleTickerDemo()
-//        mySemaphore()
         startSaleTickets()
     }
     
@@ -118,20 +143,6 @@ private extension SaleTicketsViewController {
 
     /// 开始模拟销售火车票同步
     func startSaleTickets() {
-        var tickerCounts = 100 {
-            didSet {
-                logt(type: .🟢, "卖掉了一张票，还剩：\(tickerCounts)张")
-                DispatchQueue.main.async { [weak self] in
-                    if tickerCounts == 0 {
-                        self?.tickerNumbersLabel.text = "没票啦"
-                    } else {
-                        self?.tickerNumbersLabel.text = "剩余火车票：\(tickerCounts)"
-                    }
-                }
-
-            }
-        }
-        
         // 创建一个并发队列
         let saleQueue = DispatchQueue(label: "saleQueue", qos: .default, attributes: .concurrent)
         // 创建信号量，限制对同一资源的访问线程数量。若初始化信号量时就小于0，则遇到 wait() 就会崩溃。
@@ -144,21 +155,26 @@ private extension SaleTicketsViewController {
                 // 异步执行
                 saleQueue.async {
                     Thread.current.name = "\(i)号窗口"
-                    while(true) {
-                        semaphore.wait()
-                        let s = arc4random()%2/10
-                        if tickerCounts > 0 {
-                            logt("出票中……，预计耗时：\(s) 秒")
-                            sleep(s)
-                            tickerCounts -= 1
-                        } else {
-                            logWarning("票已售完")
-                            semaphore.signal()
-                            break
-                        }
-                        semaphore.signal()
-                    }
+                    sale()
                 }
+            }
+        }
+        
+        /// 售票窗口实际执行减一操作
+        func sale() {
+            while(true) {
+                semaphore.wait()
+                let s = arc4random()%2/10
+                if tickerCounts > 0 {
+                    logt("出票中……，预计耗时：\(s) 秒")
+                    sleep(s)
+                    tickerCounts -= 1
+                } else {
+                    logWarning("票已售完")
+                    semaphore.signal()
+                    break
+                }
+                semaphore.signal()
             }
         }
     }
