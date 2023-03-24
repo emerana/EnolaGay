@@ -62,17 +62,10 @@ target 'ToastDemo' do
 
 end
 
-# MARK: SegmentedDemo
-
-target 'SegmentedDemo' do
-  pod 'EnolaGay/SegmentedView', :path => '../'
-end
-
-
-# MARK: HPickerDemo
-
-target 'HPickerDemo' do
+# MARK: PickerDemo
+target 'PickerDemo' do
   pod 'EnolaGay/HPickerView', :path => '../'
+  pod 'EnolaGay/SegmentedView', :path => '../'
 end
 
 # MARK: HUD

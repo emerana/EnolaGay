@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  SegmentedDemo
+//  PickerDemo
 //
-//  Created by 王仁洁 on 2021/9/2.
-//  Copyright © 2021 CocoaPods. All rights reserved.
+//  Created by 醉翁之意 on 2023/3/24.
+//  Copyright © 2023 EnolaGay. All rights reserved.
 //
 
 import UIKit
@@ -18,7 +18,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-
-
 }
-
