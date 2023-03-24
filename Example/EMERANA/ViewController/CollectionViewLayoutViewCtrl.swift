@@ -119,14 +119,6 @@ extension CollectionViewLayoutViewCtrl: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension CollectionViewLayoutViewCtrl: UICollectionViewDelegate {
     
-    // MARK: scrollView delegate
-    
-    /// scrollView 滚动之后执行的代理方法，此方法实现了上拉隐藏下拉显示导航栏，重写此方法记得super可实现。
-    ///
-    /// - Parameter scrollView: scrollView对象
-    //    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    //    }
-    
     // MARK: collectionView delegate
     
     // 选中事件
@@ -136,14 +128,13 @@ extension CollectionViewLayoutViewCtrl: UICollectionViewDelegate {
         log("选中\(json)")
 
     }
-    
 }
 
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension CollectionViewLayoutViewCtrl: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8)
     }
-    
 }

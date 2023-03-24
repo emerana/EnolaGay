@@ -14,6 +14,7 @@ public struct Judy {
     /// 私有init,不允许构建对象
     private init() {}
     
+    
     /// 获取最顶层的 ViewController，不包含 navigationCtrl
     ///
     /// - Warning: 调用时请注意在 App 启动后再调用，否则有可能出现 keyWindow 为空，就会返回一个新的 UIViewController
@@ -142,6 +143,7 @@ public struct Judy {
         return false
     }
     
+    
     /// 毫秒转时间
     ///
     /// - Parameters:
@@ -212,6 +214,7 @@ public extension Judy {
         let decodedString = NSString(data: decodedData! as Data, encoding: String.Encoding.utf8.rawValue)! as String
         return decodedString
     }
+    
 }
 
 /****************************************  ****************************************/
@@ -539,12 +542,7 @@ public extension Judy {
     }
     
     @available(*, unavailable, message: "该函数已废弃")
-    static func alertOpenURL(force: Bool,
-                             alertTitle: String,
-                             alertMsg: String,
-                             btnText: String,
-                             cancel: String,
-                             trackURL: String) {
+    static func alertOpenURL(force: Bool, alertTitle: String, alertMsg: String, btnText: String, cancel: String, trackURL: String) {
         if isAlerting {
             return
         }
@@ -577,7 +575,6 @@ public extension Judy {
             isAlerting = true
         })
     }
-    
 
     @available(*, unavailable, message: "该函数已废弃")
     static func versionNormal(alertTitle: String = "发现新版本", alertMsg: String?, btnText: String = "前往更新", cancel: String = "不，谢谢") { }
@@ -590,9 +587,7 @@ public extension Judy {
     
 }
 
-/****************************************  ****************************************/
 
-/****************************************  ****************************************/
 // MARK: - 私有方法
 fileprivate extension Judy {
     
@@ -618,7 +613,6 @@ fileprivate extension Judy {
     }
     
 }
-
 
 /*
  既然静态方法和实例化方式的区分是为了解决模式的问题，如果我们考虑不需要继承和多态的时候，就可以使用静态方法，但就算不考虑继承和多态，就一概使用静态方法也不是好的编程思想

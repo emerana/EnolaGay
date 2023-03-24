@@ -8,7 +8,6 @@
 
 import UIKit
 import EnolaGay
-import SwiftyJSON
 import AVFAudio
 
 class MyPlayerViewCtrl: JudyBaseTableViewCtrl {
@@ -29,11 +28,6 @@ class MyPlayerViewCtrl: JudyBaseTableViewCtrl {
 
         setDataSoruce()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        isReqSuccess = true
-        super.viewWillAppear(animated)
-    }
 
     override func registerReuseComponents() {
         let nib = UINib(nibName: "VideoCell", bundle: nil)
@@ -45,26 +39,26 @@ class MyPlayerViewCtrl: JudyBaseTableViewCtrl {
 extension MyPlayerViewCtrl {
     func setDataSoruce() {
         dataSource = [
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210413161440.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210429131045.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210414135138.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210415143308.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210425160443.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210426084615.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210414135009.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210426130012.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210414135329.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210425153032.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210422095345.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210422100200.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210422100512.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210410094203.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210425160639.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210429132634.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210420153851.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210415130817.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210425152907.mp4"]),
-            JSON(["urls": "https://video.jingmaiwang.com/smallvideo/-1_20210426085627.mp4"]),
+            "https://video.jingmaiwang.com/smallvideo/-1_20210413161440.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210429131045.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210414135138.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210415143308.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210425160443.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210426084615.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210414135009.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210426130012.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210414135329.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210425153032.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210422095345.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210422100200.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210422100512.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210410094203.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210425160639.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210429132634.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210420153851.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210415130817.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210425152907.mp4",
+            "https://video.jingmaiwang.com/smallvideo/-1_20210426085627.mp4",
         ]
     }
 }
@@ -85,7 +79,7 @@ extension MyPlayerViewCtrl {
     /// 询问指定 indexPath 的 cell 实例，默认取 identifier 为 cell 的实例。
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)  as! VideoCell
-        cell.json = dataSource[indexPath.row]
+        cell.videoURL = (dataSource as! [String])[indexPath.row]
         cell.selectionStyle = .none
         
         return cell
@@ -97,12 +91,12 @@ extension MyPlayerViewCtrl {
 extension MyPlayerViewCtrl {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        Judy.logs("Cell \(indexPath.row) 显示，并开始播放。")
+        logs("Cell \(indexPath.row) 显示，并开始播放。")
         currentPlayerCell = cell as? VideoCell
     }
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        Judy.logWarning("Cell \(indexPath.row) 消失，并暂停播放。")
+        logWarning("Cell \(indexPath.row) 消失，并暂停播放。")
         (cell as? VideoCell)?.isDisAppear = true
     }
 

@@ -53,9 +53,6 @@ import UIKit
 /// ```
 public class JudyPopBubble {
     
-    /// 指定气泡起始位置的中心点，默认为 bubble_belowView 的中心点。
-    public var bubble_image_Center: CGPoint?
-    
     /// 气泡冒出过程动画所需时长，该值默认为 0.2.
     public var bubble_animate_showDuration = 0.2
     /// 气泡旋转过程动画所需时长，该值默认为 2.
@@ -92,18 +89,14 @@ public class JudyPopBubble {
         let bubbleImageView = UIImageView(image: bubbleImage)
         
         // 设置气泡图片的起始位置
-        if bubble_image_Center == nil {
-            if bubbleBelowView.superview == bubbleParentView {
-                bubbleImageView.center = CGPoint(x: bubbleBelowView.center.x, y: bubbleBelowView.frame.origin.y)
-                bubbleParentView.insertSubview(bubbleImageView, belowSubview: bubbleBelowView)
-            } else {
-                bubbleImageView.center = bubbleBelowView.convert(bubbleBelowView.center, to: bubbleParentView)
-                bubbleImageView.center.x -= bubbleBelowView.frame.origin.x
-                bubbleImageView.center.y -= bubbleBelowView.frame.origin.y
-                bubbleParentView.insertSubview(bubbleImageView, belowSubview: bubbleBelowView.superview!)
-            }
+        if bubbleBelowView.superview == bubbleParentView {
+            bubbleImageView.center = CGPoint(x: bubbleBelowView.center.x, y: bubbleBelowView.frame.origin.y)
+            bubbleParentView.insertSubview(bubbleImageView, belowSubview: bubbleBelowView)
         } else {
-            bubbleImageView.center = bubble_image_Center!
+            bubbleImageView.center = bubbleBelowView.convert(bubbleBelowView.center, to: bubbleParentView)
+            bubbleImageView.center.x -= bubbleBelowView.frame.origin.x
+            bubbleImageView.center.y -= bubbleBelowView.frame.origin.y
+            bubbleParentView.insertSubview(bubbleImageView, belowSubview: bubbleBelowView.superview!)
         }
         
         // 初始为完全透明
@@ -132,16 +125,18 @@ public class JudyPopBubble {
             bubbleImageView.transform = transform
         }
         
-        // 随机终点
+        // 气泡运动的终点位置
         let ViewX = bubbleImageView.center.x
         let ViewY = bubbleImageView.center.y
         let endPoint = CGPoint(x: ViewX + travelDirection*10, y: ViewY - bubble_animate_height)
         
         let m1 = ViewX + CGFloat(travelDirection*(CGFloat(arc4random_uniform(20)) + 50))
         let n1 = ViewY - CGFloat(60 + travelDirection*CGFloat(arc4random_uniform(20)))
+        // control 根据自己动画想要的效果做灵活的调整
+        let controlPoint1 = CGPoint(x: m1, y: n1)
+        
         let m2 = ViewX - CGFloat(travelDirection*(CGFloat(arc4random_uniform(20)) + 50))
         let n2 = ViewY - CGFloat(90 + travelDirection*CGFloat(arc4random_uniform(20)))
-        let controlPoint1 = CGPoint(x: m1, y: n1)   // control 根据自己动画想要的效果做灵活的调整
         let controlPoint2 = CGPoint(x: m2, y: n2)
         
         /// 气泡移动轨迹路径

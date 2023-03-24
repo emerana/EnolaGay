@@ -9,8 +9,7 @@
 import UIKit
 import EnolaGay
 
-class CastSurelyCalculationViewCtrl: JudyBaseViewCtrl {
-    override var viewTitle: String? { "定投计算" }
+class CastSurelyCalculationViewCtrl: UIViewController {
 
     // MARK: - let property and IBOutlet
     @IBOutlet weak var inputTextField: UITextField!
@@ -79,13 +78,13 @@ extension CastSurelyCalculationViewCtrl: UITextFieldDelegate {
     // 输入验证。当值发生更改时的确认。
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
-        Judy.log("shouldChangeCharactersIn<!-- \(string) -->,输入之前为--> \(String(describing: textField.text))")
+        log("shouldChangeCharactersIn<!-- \(string) -->,输入之前为--> \(String(describing: textField.text))")
 
         return numberRestriction(textField: textField, inputString: string)
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
-        Judy.log(textField.text)
+        log(textField.text)
         calculationAction("执行计算")
     }
 }
