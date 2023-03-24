@@ -133,7 +133,7 @@ end
 # MARK: CastSurelyCalculation
 
 target 'CastSurelyCalculation' do
-  pod 'EnolaGay', :path => '../'
+  pod 'EnolaGay/EMERANA', :path => '../'
 end
 
 # MARK: GifEffectsDemo 送礼物控制面板、烟花爆炸特效
