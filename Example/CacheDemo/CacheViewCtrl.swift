@@ -10,8 +10,7 @@ import UIKit
 import EnolaGay
 import Cache
 
-class CacheViewCtrl: JudyBaseViewCtrl {
-    override var viewTitle: String? { "Cache 使用" }
+class CacheViewCtrl: UIViewController {
     
     /// Storage<String, User>
     private let storage: Storage? = { () -> (Storage<String, User>?) in
@@ -25,11 +24,6 @@ class CacheViewCtrl: JudyBaseViewCtrl {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        isReqSuccess = true
-        super.viewWillAppear(animated)
     }
     
     @IBAction func pushAction(_ sender: Any) {
@@ -46,9 +40,9 @@ class CacheViewCtrl: JudyBaseViewCtrl {
         storage?.async.setObject(user, forKey: "user") { result in
             switch result {
             case .value:
-                Judy.logHappy("保存了 user 对象")
+                logHappy("保存了 user 对象")
             case .error(let error):
-                Judy.logWarning("对象保存失败：\(error)")
+                logWarning("对象保存失败：\(error)")
             }
         }
 
@@ -57,50 +51,51 @@ class CacheViewCtrl: JudyBaseViewCtrl {
     /// 删除对象
     @IBAction private func deleteActin(_ sender: Any) {
         try? storage?.removeObject(forKey: "user")
-        Judy.logWarning("删除了 user 对象")
+        logWarning("删除了 user 对象")
     }
 
     @IBAction private func showActin(_ sender: Any) {
         do {
             let user = try storage?.object(forKey: "user")
-            view.toast.makeToast(user?.userName)
+            view.toast.message(user?.userName ?? "没用")
         } catch StorageError.notFound {
-            Judy.log("没有找到文件")
+            log("没有找到文件")
         } catch StorageError.typeNotMatch {
-            Judy.log("类型不匹配")
+            log("类型不匹配")
         } catch StorageError.malformedFileAttributes {
-            Judy.log("畸形的文件属性")
+            log("畸形的文件属性")
         } catch StorageError.decodingFailed {
-            Judy.log("解码")
+            log("解码")
         } catch StorageError.encodingFailed {
-            Judy.log("转码失败")
+            log("转码失败")
         } catch StorageError.deallocated {
-            Judy.log("已释放")
+            log("已释放")
         } catch StorageError.transformerFail {
-            Judy.log("转换失败")
+            log("转换失败")
         } catch {
-            Judy.log(error.localizedDescription)
-            view.toast.makeToast(error.localizedDescription)
+            log(error.localizedDescription)
+            view.toast.message(error.localizedDescription)
         }
     }
     
     /// 删除所有对象
     @IBAction private func removeAllActin(_ sender: Any) {
         try? storage?.removeAll()
-        Judy.logWarning("删除所有对象")
+        logWarning("删除所有对象")
     }
 
     /// 删除所有过期对象
     @IBAction private func removeExpiredObjectsActin(_ sender: Any) {
         try? storage?.removeExpiredObjects()
-        Judy.log("删除所有过期对象")
+        log("删除所有过期对象")
     }
 
     /// entry 获取对象的元数据和过期信息
     @IBAction private func entryAction(_ sender: Any) {
         let user = try? storage?.entry(forKey: "user")
-        view.toast.makeToast(user?.object.userName)
+        view.toast.message(user?.object.userName ?? "聚合函数")
     }
+    
 }
 
 class User: Codable {

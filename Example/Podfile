@@ -89,7 +89,7 @@ end
 # MARK: CacheDemo
 
 target 'CacheDemo' do
-  pod 'EnolaGay', :path => '../'
+  pod 'EnolaGay/EMERANA', :path => '../'
   pod 'Cache'
 end
 
