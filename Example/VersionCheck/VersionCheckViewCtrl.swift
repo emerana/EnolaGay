@@ -173,7 +173,7 @@ struct VersionCheckViewModel {
                     }
             }
             .map { (status: AppVersionStatus, url: String?) in
-                outputInfoBehaviorRelay.accept(status.localizedDescription)
+                outputInfoBehaviorRelay.accept(status.description)
                 return (status, url)
             }
 
@@ -245,9 +245,9 @@ enum AppVersionStatus {
 }
 
 // 添加本地化描述，我们可以显示对用户友好的错误信息。
-extension AppVersionStatus: LocalizedError {
+extension AppVersionStatus: CustomStringConvertible {
     
-    var localizedDescription: String {
+    var description: String {
         switch self {
         case .latest:
             return "您使用的是最新版本!"
@@ -259,4 +259,5 @@ extension AppVersionStatus: LocalizedError {
             return "在 AppStore 中没有发现您当前使用的 App"
         }
     }
+    
 }
