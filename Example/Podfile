@@ -8,6 +8,7 @@ target 'Demo' do
   pod 'EnolaGay/EMERANA', :path => '../'
   pod 'EnolaGay/Logger', :path => '../'
   pod 'EnolaGay/CircularProgressView', :path => '../'
+  pod 'EnolaGay/TextFieldEffects', :path => '../'
   
   pod 'SwiftyJSON'
   pod 'Alamofire'
@@ -111,12 +112,6 @@ target 'RefreshAdapter' do
   pod 'Alamofire'
 end
 
-
-# MARK: CastSurelyCalculation
-
-target 'CastSurelyCalculation' do
-  pod 'EnolaGay/EMERANA', :path => '../'
-end
 
 # MARK: GifEffectsDemo 送礼物控制面板、烟花爆炸特效
 
