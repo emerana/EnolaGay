@@ -9,6 +9,8 @@ target 'Demo' do
   pod 'EnolaGay/Logger', :path => '../'
   pod 'EnolaGay/CircularProgressView', :path => '../'
   pod 'EnolaGay/TextFieldEffects', :path => '../'
+  pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
+  pod 'EnolaGay/JudyPopBubble' , :path => '../'
 
   pod 'SwiftyJSON'
   pod 'Alamofire'
@@ -95,16 +97,6 @@ target 'RefreshAdapter' do
   pod 'EnolaGay', :path => '../'
   pod 'MJRefresh'
   pod 'Alamofire'
-end
-
-
-# MARK: GifEffectsDemo 送礼物控制面板、烟花爆炸特效
-
-target 'GifEffectsDemo' do
-  pod 'EnolaGay/EMERANA' , :path => '../'
-  pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
-  pod 'EnolaGay/JudyPopBubble' , :path => '../'
-  
 end
 
 

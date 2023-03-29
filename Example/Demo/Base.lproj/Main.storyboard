@@ -186,19 +186,21 @@
                     </tabBar>
                     <connections>
                         <segue destination="qTJ-hK-9BM" kind="relationship" relationship="viewControllers" id="Bmn-uf-esC"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="sp5-I4-oyP"/>
-                        <segue destination="eSi-Cb-lFe" kind="relationship" relationship="viewControllers" id="e5R-hC-dVP"/>
-                        <segue destination="9nx-aH-jhV" kind="relationship" relationship="viewControllers" id="3Y9-Ea-KP3"/>
-                        <segue destination="kK6-8r-Ieg" kind="relationship" relationship="viewControllers" id="h4a-QX-F2f"/>
-                        <segue destination="D5V-SX-oeT" kind="relationship" relationship="viewControllers" id="khR-wj-PfS"/>
                         <segue destination="GR1-v6-AKi" kind="relationship" relationship="viewControllers" id="IFm-qh-VOv"/>
+                        <segue destination="D5V-SX-oeT" kind="relationship" relationship="viewControllers" id="khR-wj-PfS"/>
+                        <segue destination="9nx-aH-jhV" kind="relationship" relationship="viewControllers" id="3Y9-Ea-KP3"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="sp5-I4-oyP"/>
+                        <segue destination="kK6-8r-Ieg" kind="relationship" relationship="viewControllers" id="h4a-QX-F2f"/>
+                        <segue destination="eSi-Cb-lFe" kind="relationship" relationship="viewControllers" id="e5R-hC-dVP"/>
+                        <segue destination="fSa-fr-GEY" kind="relationship" relationship="viewControllers" id="1Hp-UN-G7V"/>
+                        <segue destination="j0X-yt-X74" kind="relationship" relationship="viewControllers" id="c1l-nF-EIy"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNo-32-Xsu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-36" y="3.6945812807881775"/>
         </scene>
-        <!--Item-->
+        <!--attributedString-->
         <scene sceneID="h23-BW-Qt5">
             <objects>
                 <viewController id="eSi-Cb-lFe" customClass="AttributedStringViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
@@ -250,7 +252,7 @@
                             <constraint firstItem="2X9-NE-kMr" firstAttribute="top" secondItem="Pvd-C0-uue" secondAttribute="top" constant="28" id="eB8-l5-gT8"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="qdk-at-jMc"/>
+                    <tabBarItem key="tabBarItem" title="attributedString" id="qdk-at-jMc"/>
                     <connections>
                         <outlet property="label1" destination="IFX-rK-Hof" id="4Gf-b5-VeB"/>
                         <outlet property="label2" destination="7uw-TI-9JQ" id="Eba-Bo-ppj"/>
@@ -551,7 +553,7 @@
         <!--定投计算-->
         <scene sceneID="4B9-KX-bgG">
             <objects>
-                <viewController id="kK6-8r-Ieg" customClass="CastSurelyCalculationViewCtrl" customModule="CastSurelyCalculation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kK6-8r-Ieg" customClass="CastSurelyCalculationViewCtrl" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UXu-yc-jz3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -629,7 +631,7 @@
         <!--Cache View Ctrl-->
         <scene sceneID="d5H-EL-ArN">
             <objects>
-                <viewController storyboardIdentifier="CacheViewCtrl" id="Ls6-B1-GNO" customClass="CacheViewCtrl" customModule="CacheDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CacheViewCtrl" id="Ls6-B1-GNO" customClass="CacheViewCtrl" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QvV-2I-GXD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -802,13 +804,227 @@
             </objects>
             <point key="canvasLocation" x="4518" y="4"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Dsg-2V-Gjt">
+            <objects>
+                <viewController id="4da-cS-CkD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r4G-Y0-Be7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mw-PO-pF8">
+                                <rect key="frame" x="172.66666666666666" y="391" width="30" height="30"/>
+                                <state key="normal" title="Go"/>
+                                <connections>
+                                    <segue destination="r5M-Jr-ox5" kind="show" id="B9S-5J-GAa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yh0-es-D6d">
+                                <rect key="frame" x="133.66666666666666" y="625" width="108" height="30"/>
+                                <state key="normal" title="信号量崩溃测试"/>
+                                <connections>
+                                    <segue destination="mc5-aa-uwO" kind="show" id="S8r-1x-PFa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6vx-fc-LOz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4mw-PO-pF8" firstAttribute="centerX" secondItem="r4G-Y0-Be7" secondAttribute="centerX" id="F07-yZ-Rcq"/>
+                            <constraint firstItem="4mw-PO-pF8" firstAttribute="centerY" secondItem="r4G-Y0-Be7" secondAttribute="centerY" id="HwC-jS-mws"/>
+                            <constraint firstItem="Yh0-es-D6d" firstAttribute="centerX" secondItem="4mw-PO-pF8" secondAttribute="centerX" id="aea-v5-2TN"/>
+                            <constraint firstItem="Yh0-es-D6d" firstAttribute="top" secondItem="4mw-PO-pF8" secondAttribute="bottom" constant="204" id="yjR-J7-v5i"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="0de-Y9-imH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XwH-W7-bqg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="886" y="2458"/>
+        </scene>
+        <!--送礼物测试-->
+        <scene sceneID="uGr-H5-tEc">
+            <objects>
+                <viewController title="送礼物测试" id="r5M-Jr-ox5" customClass="GiftMessageViewCtrlTest" customModule="GifEffectsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tX9-I0-kMm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJt-9N-PZe" customClass="GiftMessageCtrlPanel" customModule="EnolaGay">
+                                <rect key="frame" x="0.0" y="91" width="375" height="350"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.22352941179999999" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZ0-HF-Sf0">
+                                <rect key="frame" x="141.66666666666666" y="621" width="92" height="40"/>
+                                <state key="normal" title="发送一个礼物"/>
+                                <connections>
+                                    <action selector="sendGiftAction:" destination="r5M-Jr-ox5" eventType="touchUpInside" id="OtO-GN-6QQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yTC-jt-kXI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bZ0-HF-Sf0" firstAttribute="centerX" secondItem="tX9-I0-kMm" secondAttribute="centerX" id="5Ay-yu-Vy9"/>
+                            <constraint firstItem="kJt-9N-PZe" firstAttribute="leading" secondItem="yTC-jt-kXI" secondAttribute="leading" id="9kt-5f-FOS"/>
+                            <constraint firstItem="kJt-9N-PZe" firstAttribute="top" secondItem="yTC-jt-kXI" secondAttribute="top" id="APc-XB-hCc"/>
+                            <constraint firstItem="kJt-9N-PZe" firstAttribute="trailing" secondItem="yTC-jt-kXI" secondAttribute="trailing" id="ISf-7q-JSL"/>
+                            <constraint firstItem="yTC-jt-kXI" firstAttribute="bottom" secondItem="bZ0-HF-Sf0" secondAttribute="bottom" constant="68" id="N5T-0R-yYL"/>
+                            <constraint firstItem="yTC-jt-kXI" firstAttribute="bottom" secondItem="kJt-9N-PZe" secondAttribute="bottom" constant="288" id="Yyj-DQ-NHo"/>
+                            <constraint firstItem="bZ0-HF-Sf0" firstAttribute="top" secondItem="kJt-9N-PZe" secondAttribute="bottom" constant="180" id="fL9-2m-1ty"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Sop-2E-wub"/>
+                    <connections>
+                        <outlet property="giftMessageViewPanel" destination="kJt-9N-PZe" id="DIP-T1-ITF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PkY-a1-l08" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1758" y="2459"/>
+        </scene>
+        <!--Crash Test View Ctrl-->
+        <scene sceneID="Js7-yT-J23">
+            <objects>
+                <viewController id="mc5-aa-uwO" customClass="CrashTestViewCtrl" customModule="GifEffectsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jvr-Pe-tId">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="dY4-y8-eHr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fev-HH-hZc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AKS-TB-lJ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="886" y="3239"/>
+        </scene>
+        <!--送礼-->
+        <scene sceneID="J1Y-Ac-d5r">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fSa-fr-GEY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="送礼" id="Cxq-X7-Hz0"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bHd-lB-zrH">
+                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4da-cS-CkD" kind="relationship" relationship="rootViewController" id="TGE-LN-erq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vJt-FQ-CV5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-36" y="2459"/>
+        </scene>
+        <!--多线程-->
+        <scene sceneID="wBH-gE-pQO">
+            <objects>
+                <viewController id="j0X-yt-X74" customClass="SaleTicketsViewController" customModule="GifEffectsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fS2-PH-wng">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="jQA-k9-pXL">
+                                <rect key="frame" x="8" y="55" width="359" height="46.666666666666657"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="剩余火车票：100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTB-36-C1w">
+                                        <rect key="frame" x="113.66666666666669" y="0.0" width="132" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="82" translatesAutoresizingMaskIntoConstraints="NO" id="C0R-3X-fGw">
+                                        <rect key="frame" x="35.666666666666657" y="26.333333333333329" width="288" height="20.333333333333329"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKL-6U-QLk">
+                                                <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DwV-BC-bVb">
+                                                <rect key="frame" x="123.33333333333333" y="0.0" width="41.333333333333329" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Pw-XA-Tin">
+                                                <rect key="frame" x="246.66666666666666" y="0.0" width="41.333333333333343" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="qmL-S0-qIa">
+                                <rect key="frame" x="28" y="688" width="319" height="41"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Waz-sx-w5g">
+                                        <rect key="frame" x="0.0" y="3.3333333333333712" width="93.333333333333329" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="开始购买"/>
+                                        <connections>
+                                            <action selector="startAction:" destination="j0X-yt-X74" eventType="touchUpInside" id="kVD-oe-caZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Kv-fZ-E7w">
+                                        <rect key="frame" x="270.66666666666669" y="0.0" width="48.333333333333314" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="7Kv-fZ-E7w" secondAttribute="height" multiplier="13:11" id="X4m-1p-1R9"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="button_喜欢"/>
+                                        <connections>
+                                            <action selector="emitAction:" destination="j0X-yt-X74" eventType="touchUpInside" id="dRT-QK-rmq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5YH-kW-nOL">
+                                <rect key="frame" x="28" y="649" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switchAction:" destination="j0X-yt-X74" eventType="valueChanged" id="R1n-8d-q8E"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OJ9-1q-kAp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qmL-S0-qIa" firstAttribute="leading" secondItem="OJ9-1q-kAp" secondAttribute="leading" constant="28" id="C0v-LH-OT7"/>
+                            <constraint firstItem="qmL-S0-qIa" firstAttribute="bottom" secondItem="OJ9-1q-kAp" secondAttribute="bottom" id="TNr-lz-ndV"/>
+                            <constraint firstItem="OJ9-1q-kAp" firstAttribute="trailing" secondItem="jQA-k9-pXL" secondAttribute="trailing" constant="8" id="TgW-xv-3uC"/>
+                            <constraint firstItem="jQA-k9-pXL" firstAttribute="leading" secondItem="OJ9-1q-kAp" secondAttribute="leading" constant="8" id="WHt-MB-PNf"/>
+                            <constraint firstItem="qmL-S0-qIa" firstAttribute="centerX" secondItem="fS2-PH-wng" secondAttribute="centerX" id="hVv-pY-npB"/>
+                            <constraint firstItem="jQA-k9-pXL" firstAttribute="top" secondItem="OJ9-1q-kAp" secondAttribute="top" constant="8" id="yj5-pZ-wrq"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="多线程" id="tWs-5W-ptG"/>
+                    <connections>
+                        <outlet property="likeButton" destination="7Kv-fZ-E7w" id="cQT-Ii-et4"/>
+                        <outlet property="saleStatusSwitch" destination="5YH-kW-nOL" id="Toh-8H-BXZ"/>
+                        <outlet property="tickerNumbersLabel" destination="jTB-36-C1w" id="t0Q-UT-SDa"/>
+                        <outlet property="window1Label" destination="KKL-6U-QLk" id="UbB-U5-Fan"/>
+                        <outlet property="window2Label" destination="DwV-BC-bVb" id="QBC-f6-GmJ"/>
+                        <outlet property="window3Label" destination="8Pw-XA-Tin" id="Pwf-Le-rCX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4qK-af-k7y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5399" y="4"/>
+        </scene>
     </scenes>
-    <designables>
-        <designable name="2QM-g4-EV5">
-            <size key="intrinsicContentSize" width="92" height="23.333333333333332"/>
-        </designable>
-    </designables>
     <resources>
+        <image name="button_喜欢" width="41" height="41"/>
         <image name="chat_bottom_smile_nor" width="34" height="34"/>
         <image name="chat_bottom_up_nor" width="34" height="34"/>
         <image name="chat_bottom_voice_nor" width="34" height="34"/>
@@ -818,6 +1034,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

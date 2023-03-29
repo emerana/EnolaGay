@@ -92,6 +92,8 @@
 		8BE5BA7329D45443003E75D5 /* CastSurelyCalculationViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB1426DF3F0F00A2A405 /* CastSurelyCalculationViewCtrl.swift */; };
 		8BE5BA7429D46405003E75D5 /* CacheViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DA6C26DEB1B000A2A405 /* CacheViewCtrl.swift */; };
 		8BE5BA7529D46601003E75D5 /* ToastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD025F82930D8AB005709D6 /* ToastViewController.swift */; };
+		8BE5BA7629D46898003E75D5 /* GiftMessageViewCtrlTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */; };
+		8BE5BA7729D46898003E75D5 /* SaleTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF65F8D29C866C7001E2160 /* SaleTicketsViewController.swift */; };
 		8BF21D6C29CD3F4F00308310 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF21D6B29CD3F4F00308310 /* AppDelegate.swift */; };
 		8BF21D7329CD3F4F00308310 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF21D7129CD3F4F00308310 /* Main.storyboard */; };
 		8BF21D7529CD3F5000308310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF21D7429CD3F5000308310 /* Assets.xcassets */; };
@@ -101,25 +103,17 @@
 		8BF21D7F29CD3FC500308310 /* HPickerViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DACE26DF29B900A2A405 /* HPickerViewCtrl.swift */; };
 		8BF21D8029CD40E800308310 /* AttributedStringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */; };
 		8BF65F6F29C81BBB001E2160 /* CircularProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF65F6E29C81BBB001E2160 /* CircularProgressViewController.swift */; };
-		8BF65F7729C844F8001E2160 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF65F7629C844F8001E2160 /* AppDelegate.swift */; };
-		8BF65F7E29C844F8001E2160 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF65F7C29C844F8001E2160 /* Main.storyboard */; };
-		8BF65F8029C844F9001E2160 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF65F7F29C844F9001E2160 /* Assets.xcassets */; };
-		8BF65F8329C844F9001E2160 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF65F8129C844F9001E2160 /* LaunchScreen.storyboard */; };
-		8BF65F8829C8453F001E2160 /* GiftMessageViewCtrlTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */; };
-		8BF65F8E29C866C7001E2160 /* SaleTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF65F8D29C866C7001E2160 /* SaleTicketsViewController.swift */; };
 		8DDD27D3FD749A645CA9BCC8 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31877678D006019384F3D2A /* Pods_Demo.framework */; };
 		AF365B7AFEA752AE89D21F34 /* Pods_Demo_EMERANA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F793883511E6BD42AF3A2D /* Pods_Demo_EMERANA.framework */; };
 		B10CF77396383779B5E8AF24 /* Pods_HUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4184B351D17BE8A974CEA2BF /* Pods_HUD.framework */; };
 		B81C7931DB028FBDC7F50A7E /* Pods_JudyLivePageViewCtrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B4A427494A98F9DEA5A16A /* Pods_JudyLivePageViewCtrl.framework */; };
 		DD52ABAB1A1E1D3FD3732979 /* Pods_RefreshAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2953210472AAEFB78DCA32B /* Pods_RefreshAdapter.framework */; };
-		FC7B0984DB577BFCD959EE43 /* Pods_GifEffectsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34653C6DAA478DB1F6CE7830 /* Pods_GifEffectsDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		091B3C4ADF023E2EB5F0D89D /* Pods-Demo-EMERANA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-EMERANA.debug.xcconfig"; path = "Target Support Files/Pods-Demo-EMERANA/Pods-Demo-EMERANA.debug.xcconfig"; sourceTree = "<group>"; };
 		0BAC097A9A49FAAB1408143D /* Pods-Demo-EMERANA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-EMERANA.release.xcconfig"; path = "Target Support Files/Pods-Demo-EMERANA/Pods-Demo-EMERANA.release.xcconfig"; sourceTree = "<group>"; };
 		0C243929FF8D4B328B4F9630 /* Pods-ToastDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToastDemo.release.xcconfig"; path = "Target Support Files/Pods-ToastDemo/Pods-ToastDemo.release.xcconfig"; sourceTree = "<group>"; };
-		0CC6B26319B0E250A0A24EB0 /* Pods-GifEffectsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GifEffectsDemo.release.xcconfig"; path = "Target Support Files/Pods-GifEffectsDemo/Pods-GifEffectsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		0D92101AFAAF635313CA40E0 /* Pods-PlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerDemo.release.xcconfig"; path = "Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		0E6C295DBC94B3FBC54D472F /* Pods-CacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CacheDemo.release.xcconfig"; path = "Target Support Files/Pods-CacheDemo/Pods-CacheDemo.release.xcconfig"; sourceTree = "<group>"; };
 		0E809C7EC8D898AEFAFAC9DF /* Pods-CacheDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CacheDemo.debug.xcconfig"; path = "Target Support Files/Pods-CacheDemo/Pods-CacheDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,7 +124,6 @@
 		234B5C798AE9B6267A33CF83 /* Pods-CastSurelyCalculation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastSurelyCalculation.debug.xcconfig"; path = "Target Support Files/Pods-CastSurelyCalculation/Pods-CastSurelyCalculation.debug.xcconfig"; sourceTree = "<group>"; };
 		271D1E28BDD517FC30EC966B /* Pods_MyCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3448F43C0484DBEAC0D6AB18 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		34653C6DAA478DB1F6CE7830 /* Pods_GifEffectsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GifEffectsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3878908E3E74E5DBD391C8E5 /* Pods-JudyLivePageViewCtrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JudyLivePageViewCtrl.release.xcconfig"; path = "Target Support Files/Pods-JudyLivePageViewCtrl/Pods-JudyLivePageViewCtrl.release.xcconfig"; sourceTree = "<group>"; };
 		3A43BA5BD3868E911D27FFFF /* Pods-PickerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerDemo.debug.xcconfig"; path = "Target Support Files/Pods-PickerDemo/Pods-PickerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		3D0D6509B70B42E53824E1F8 /* Pods_VersionCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VersionCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,12 +275,6 @@
 		8BF21D7729CD3F5000308310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BF21D7929CD3F5000308310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BF65F6E29C81BBB001E2160 /* CircularProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressViewController.swift; sourceTree = "<group>"; };
-		8BF65F7429C844F8001E2160 /* GifEffectsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifEffectsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BF65F7629C844F8001E2160 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8BF65F7D29C844F8001E2160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8BF65F7F29C844F9001E2160 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8BF65F8229C844F9001E2160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8BF65F8429C844F9001E2160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BF65F8D29C866C7001E2160 /* SaleTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleTicketsViewController.swift; sourceTree = "<group>"; };
 		8BFCC83225E38602000B1611 /* VerticalScrollViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewCtrl.swift; sourceTree = "<group>"; };
 		8BFCC83625E38684000B1611 /* VerticalScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerticalScrollView.storyboard; sourceTree = "<group>"; };
@@ -300,7 +287,6 @@
 		A9734DE283A0B7DF09CE8858 /* Pods-MyIGListKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyIGListKit.release.xcconfig"; path = "Target Support Files/Pods-MyIGListKit/Pods-MyIGListKit.release.xcconfig"; sourceTree = "<group>"; };
 		B20A11D0A2EF5359B59C7896 /* Pods_FontExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FontExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31877678D006019384F3D2A /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B4C94936B9CB673DD7CCF5E7 /* Pods-GifEffectsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GifEffectsDemo.debug.xcconfig"; path = "Target Support Files/Pods-GifEffectsDemo/Pods-GifEffectsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B8C81724A160FF905669494B /* Pods_MyRxSwfit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyRxSwfit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B6E29A61386BD4338679BC /* Pods-RefreshAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefreshAdapter.release.xcconfig"; path = "Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter.release.xcconfig"; sourceTree = "<group>"; };
 		BE1F2AE7AB71074C116F06F7 /* Pods-JudyLivePageViewCtrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JudyLivePageViewCtrl.debug.xcconfig"; path = "Target Support Files/Pods-JudyLivePageViewCtrl/Pods-JudyLivePageViewCtrl.debug.xcconfig"; sourceTree = "<group>"; };
@@ -384,14 +370,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8BF65F7129C844F8001E2160 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FC7B0984DB577BFCD959EE43 /* Pods_GifEffectsDemo.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -406,8 +384,6 @@
 				820568F60FA76A11A83949B6 /* Pods-Demo.release.xcconfig */,
 				091B3C4ADF023E2EB5F0D89D /* Pods-Demo-EMERANA.debug.xcconfig */,
 				0BAC097A9A49FAAB1408143D /* Pods-Demo-EMERANA.release.xcconfig */,
-				B4C94936B9CB673DD7CCF5E7 /* Pods-GifEffectsDemo.debug.xcconfig */,
-				0CC6B26319B0E250A0A24EB0 /* Pods-GifEffectsDemo.release.xcconfig */,
 				57DF5FDAEA9C29C5BBEE726E /* Pods-HUD.debug.xcconfig */,
 				5D1DF9E197675CB05DDB8213 /* Pods-HUD.release.xcconfig */,
 				BE1F2AE7AB71074C116F06F7 /* Pods-JudyLivePageViewCtrl.debug.xcconfig */,
@@ -445,7 +421,6 @@
 				8BC07ADC291660E1006C6CD2 /* MyIGListKit */,
 				8B4F5D4E29C46A790092AF67 /* HUD */,
 				8BE31B7829C2D22A003038B2 /* Demo */,
-				8BF65F7529C844F8001E2160 /* GifEffectsDemo */,
 				8BF21D6A29CD3F4F00308310 /* PickerDemo */,
 				607FACD11AFB9204008FA782 /* Products */,
 				48F58D42A596E8C4AFE02DEE /* Pods */,
@@ -463,7 +438,6 @@
 				8BC07ADB291660E0006C6CD2 /* MyIGListKit.app */,
 				8BE31B7729C2D229003038B2 /* Demo.app */,
 				8B4F5D4D29C46A790092AF67 /* HUD.app */,
-				8BF65F7429C844F8001E2160 /* GifEffectsDemo.app */,
 				8BF21D6929CD3F4E00308310 /* PickerDemo.app */,
 			);
 			name = Products;
@@ -766,6 +740,8 @@
 				8BC3DB1426DF3F0F00A2A405 /* CastSurelyCalculationViewCtrl.swift */,
 				8BC3DA6C26DEB1B000A2A405 /* CacheViewCtrl.swift */,
 				8BD025F82930D8AB005709D6 /* ToastViewController.swift */,
+				8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */,
+				8BF65F8D29C866C7001E2160 /* SaleTicketsViewController.swift */,
 				8BE31B7F29C2D22A003038B2 /* Main.storyboard */,
 				8BE31B8229C2D22B003038B2 /* Assets.xcassets */,
 				8BE31B8429C2D22B003038B2 /* LaunchScreen.storyboard */,
@@ -787,20 +763,6 @@
 				8BF21D7929CD3F5000308310 /* Info.plist */,
 			);
 			path = PickerDemo;
-			sourceTree = "<group>";
-		};
-		8BF65F7529C844F8001E2160 /* GifEffectsDemo */ = {
-			isa = PBXGroup;
-			children = (
-				8BF65F7629C844F8001E2160 /* AppDelegate.swift */,
-				8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */,
-				8BF65F8D29C866C7001E2160 /* SaleTicketsViewController.swift */,
-				8BF65F7C29C844F8001E2160 /* Main.storyboard */,
-				8BF65F7F29C844F9001E2160 /* Assets.xcassets */,
-				8BF65F8129C844F9001E2160 /* LaunchScreen.storyboard */,
-				8BF65F8429C844F9001E2160 /* Info.plist */,
-			);
-			path = GifEffectsDemo;
 			sourceTree = "<group>";
 		};
 		8BFCC83125E385F9000B1611 /* 垂直轮播图 */ = {
@@ -837,7 +799,6 @@
 				63F793883511E6BD42AF3A2D /* Pods_Demo_EMERANA.framework */,
 				2219F8D3BC2903363B8DE5DE /* Pods_Semaphore.framework */,
 				4184B351D17BE8A974CEA2BF /* Pods_HUD.framework */,
-				34653C6DAA478DB1F6CE7830 /* Pods_GifEffectsDemo.framework */,
 				F62F58DD4E9C5C782315CC74 /* Pods_Empty.framework */,
 				E9205DCC3767921C765CC144 /* Pods_PickerDemo.framework */,
 			);
@@ -999,25 +960,6 @@
 			productReference = 8BF21D6929CD3F4E00308310 /* PickerDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8BF65F7329C844F8001E2160 /* GifEffectsDemo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8BF65F8529C844F9001E2160 /* Build configuration list for PBXNativeTarget "GifEffectsDemo" */;
-			buildPhases = (
-				D05B0362D391923AC008C4F8 /* [CP] Check Pods Manifest.lock */,
-				8BF65F7029C844F8001E2160 /* Sources */,
-				8BF65F7129C844F8001E2160 /* Frameworks */,
-				8BF65F7229C844F8001E2160 /* Resources */,
-				3230EDBA629199818D053BC9 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = GifEffectsDemo;
-			productName = GifEffectsDemo;
-			productReference = 8BF65F7429C844F8001E2160 /* GifEffectsDemo.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1064,11 +1006,6 @@
 						DevelopmentTeam = 325J3J39TM;
 						ProvisioningStyle = Automatic;
 					};
-					8BF65F7329C844F8001E2160 = {
-						CreatedOnToolsVersion = 14.2;
-						DevelopmentTeam = 325J3J39TM;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "EnolaGay" */;
@@ -1091,7 +1028,6 @@
 				8BC07ADA291660E0006C6CD2 /* MyIGListKit */,
 				8BE31B7629C2D229003038B2 /* Demo */,
 				8B4F5D4C29C46A790092AF67 /* HUD */,
-				8BF65F7329C844F8001E2160 /* GifEffectsDemo */,
 				8BF21D6829CD3F4D00308310 /* PickerDemo */,
 			);
 		};
@@ -1195,16 +1131,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8BF65F7229C844F8001E2160 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8BF65F8329C844F9001E2160 /* LaunchScreen.storyboard in Resources */,
-				8BF65F8029C844F9001E2160 /* Assets.xcassets in Resources */,
-				8BF65F7E29C844F8001E2160 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1292,24 +1218,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyIGListKit/Pods-MyIGListKit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3230EDBA629199818D053BC9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GifEffectsDemo/Pods-GifEffectsDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-Core-EMERANA-GiftMessageCtrlPanel-JudyPopBubble/EnolaGay.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GifEffectsDemo/Pods-GifEffectsDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4D8023E299CF091570C755F5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1319,7 +1227,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Demo-EMERANA/Pods-Demo-EMERANA-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-e70722b4/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-4e952815/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -1535,7 +1443,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-e70722b4/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-4e952815/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -1590,28 +1498,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-MyIGListKit-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D05B0362D391923AC008C4F8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GifEffectsDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1709,10 +1595,12 @@
 				8BE5BA7429D46405003E75D5 /* CacheViewCtrl.swift in Sources */,
 				8BE5BA7529D46601003E75D5 /* ToastViewController.swift in Sources */,
 				8BE5BA7129D44765003E75D5 /* VersionCheckViewCtrl.swift in Sources */,
+				8BE5BA7729D46898003E75D5 /* SaleTicketsViewController.swift in Sources */,
 				8BF21D8029CD40E800308310 /* AttributedStringViewController.swift in Sources */,
 				8BE31B7E29C2D22A003038B2 /* ViewController.swift in Sources */,
 				8BE31B7A29C2D22A003038B2 /* AppDelegate.swift in Sources */,
 				8BE5BA7329D45443003E75D5 /* CastSurelyCalculationViewCtrl.swift in Sources */,
+				8BE5BA7629D46898003E75D5 /* GiftMessageViewCtrlTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1724,16 +1612,6 @@
 				8BF21D7D29CD3FBC00308310 /* SegmentedTestViewCtrl.swift in Sources */,
 				8BF21D7F29CD3FC500308310 /* HPickerViewCtrl.swift in Sources */,
 				8BF21D6C29CD3F4F00308310 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BF65F7029C844F8001E2160 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8BF65F8829C8453F001E2160 /* GiftMessageViewCtrlTest.swift in Sources */,
-				8BF65F7729C844F8001E2160 /* AppDelegate.swift in Sources */,
-				8BF65F8E29C866C7001E2160 /* SaleTicketsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1856,22 +1734,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				8BF21D7729CD3F5000308310 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		8BF65F7C29C844F8001E2160 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8BF65F7D29C844F8001E2160 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8BF65F8129C844F9001E2160 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8BF65F8229C844F9001E2160 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -2464,79 +2326,6 @@
 			};
 			name = Release;
 		};
-		8BF65F8629C844F9001E2160 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4C94936B9CB673DD7CCF5E7 /* Pods-GifEffectsDemo.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GifEffectsDemo/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = judy.GifEffectsDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		8BF65F8729C844F9001E2160 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0CC6B26319B0E250A0A24EB0 /* Pods-GifEffectsDemo.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GifEffectsDemo/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = judy.GifEffectsDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2617,15 +2406,6 @@
 			buildConfigurations = (
 				8BF21D7A29CD3F5000308310 /* Debug */,
 				8BF21D7B29CD3F5000308310 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8BF65F8529C844F9001E2160 /* Build configuration list for PBXNativeTarget "GifEffectsDemo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8BF65F8629C844F9001E2160 /* Debug */,
-				8BF65F8729C844F9001E2160 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

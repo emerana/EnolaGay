@@ -43,7 +43,7 @@ extension IGListKitViewController: ListAdapterDataSource {
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return SectionControllerType_1()
+        return SectionController()
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? { return nil }

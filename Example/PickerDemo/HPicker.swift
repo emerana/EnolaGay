@@ -77,7 +77,7 @@ class HPicker: UIView {
     /// 刷新数据
     open func reloadData() {
         // remove.
-        items.forEach { $0.removeFromSuperview()}
+        items.forEach { $0.removeFromSuperview() }
         items.removeAll()
         
         // create

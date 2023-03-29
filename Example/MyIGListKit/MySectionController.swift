@@ -1,5 +1,5 @@
 //
-//  SectionControllerType_1.swift
+//  SectionController.swift
 //  emerana
 //
 //  Created by 王仁洁 on 2019/12/19.
@@ -10,7 +10,7 @@ import UIKit
 import IGListKit
 import EnolaGay
 
-class SectionControllerType_1: ListSectionController {
+class SectionController: ListSectionController {
     
     var entry: Model!
     
@@ -20,16 +20,15 @@ class SectionControllerType_1: ListSectionController {
         inset = UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0)
     }
     
-    
 }
 
-extension SectionControllerType_1 {
+extension SectionController {
 
     override func numberOfItems() -> Int { 3 }
     
     override func sizeForItem(at index: Int) -> CGSize {
         guard let context = collectionContext else { return .zero }
-        // 固定宽度，自动高度，切记 label 的 line 一定要设为 0.
+        // 固定宽度，自动高度，切记 label 的 line 一定要设为 zero.
         return CGSize(width: context.containerSize.width, height: .zero)
     }
     
@@ -41,7 +40,6 @@ extension SectionControllerType_1 {
         switch index {
         case 1:
             label.text = entry.msg
-            label.font = UIFont(name: "OCRAStd", size: 16)
             cell.backgroundColor = .blue
         case 2:
             label.text = entry.user
@@ -50,6 +48,8 @@ extension SectionControllerType_1 {
             label.text = entry.date
             cell.backgroundColor = .red
         }
+        label.font = UIFont(name: "OCRAStd", size: 16)
+        
         // 由于先设置的 sizeForItem，后赋值，所以复制后需要调用 layoutIfNeeded() 更新布局。
         cell.layoutIfNeeded()
         
