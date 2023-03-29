@@ -1,5 +1,5 @@
 //
-//  JudyLivePageViewTest.swift
+//  LivePageViewCtrl.swift
 //  EnolaGay
 //
 //  Created by 醉翁之意 on 2021/1/7.
@@ -9,8 +9,8 @@
 import UIKit
 import EnolaGay
 
-/// JudyLivePageViewCtrl 测试用例
-class JudyLivePageViewTest: UIViewController {
+/// LivePageViewCtrl 测试用例
+class LivePageViewCtrl: UIViewController {
 
     private var livePageViewCtrl: JudyLivePageViewCtrl!
     
@@ -38,7 +38,7 @@ class JudyLivePageViewTest: UIViewController {
 
 }
 
-extension JudyLivePageViewTest: JudyPageViewCtrlDelegate {
+extension LivePageViewCtrl: JudyPageViewCtrlDelegate {
     
     func entitys(for pageViewCtrl: UIPageViewController) -> [Any] { dataSource }
     

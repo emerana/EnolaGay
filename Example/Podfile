@@ -102,12 +102,6 @@ target 'RefreshAdapter' do
 end
 
 
-# MARK: JudyLivePageViewCtrl
-
-target 'JudyLivePageViewCtrl' do
-  pod 'EnolaGay/EMERANA', :path => '../'
-end
-
 ## MARK: AGUL
 #
 #target 'AGUL' do

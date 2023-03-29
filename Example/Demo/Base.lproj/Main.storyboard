@@ -196,6 +196,7 @@
                         <segue destination="fSa-fr-GEY" kind="relationship" relationship="viewControllers" id="1Hp-UN-G7V"/>
                         <segue destination="j0X-yt-X74" kind="relationship" relationship="viewControllers" id="c1l-nF-EIy"/>
                         <segue destination="2YO-8L-p8f" kind="relationship" relationship="viewControllers" id="20m-pt-puk"/>
+                        <segue destination="6dp-HZ-Zg7" kind="relationship" relationship="viewControllers" id="3uM-cf-6jK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNo-32-Xsu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -847,7 +848,7 @@
         <!--送礼物测试-->
         <scene sceneID="uGr-H5-tEc">
             <objects>
-                <viewController title="送礼物测试" id="r5M-Jr-ox5" customClass="GiftMessageViewCtrlTest" customModule="GifEffectsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="送礼物测试" id="r5M-Jr-ox5" customClass="GiftMessageViewCtrlTest" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tX9-I0-kMm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -893,7 +894,7 @@
         <!--Crash Test View Ctrl-->
         <scene sceneID="Js7-yT-J23">
             <objects>
-                <viewController id="mc5-aa-uwO" customClass="CrashTestViewCtrl" customModule="GifEffectsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mc5-aa-uwO" customClass="CrashTestViewCtrl" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jvr-Pe-tId">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -928,7 +929,7 @@
         <!--多线程-->
         <scene sceneID="wBH-gE-pQO">
             <objects>
-                <viewController id="j0X-yt-X74" customClass="SaleTicketsViewController" customModule="GifEffectsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="j0X-yt-X74" customClass="SaleTicketsViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fS2-PH-wng">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1102,6 +1103,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IdB-7M-5Tr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-36" y="2452"/>
+        </scene>
+        <!--传统的使用方式-->
+        <scene sceneID="sc0-5a-NVd">
+            <objects>
+                <navigationController title="传统的使用方式" id="6dp-HZ-Zg7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="LivePageView" id="qU9-lh-bsR"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nel-1U-j6w">
+                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ORI-Zj-gsV" kind="relationship" relationship="rootViewController" id="653-uH-8Pe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Mr-4q-tF0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-36" y="4782"/>
+        </scene>
+        <!--Live Page View Ctrl-->
+        <scene sceneID="jO5-Dn-fku">
+            <objects>
+                <viewController id="ORI-Zj-gsV" customClass="LivePageViewCtrl" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mTw-yH-2jz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huJ-WX-jUQ">
+                                <rect key="frame" x="0.0" y="91" width="375" height="638"/>
+                                <connections>
+                                    <segue destination="EOz-eR-Zlt" kind="embed" identifier="loadJudyLivePageViewCtrl" id="Wza-N6-vJ5"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="upf-hG-Lnh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="upf-hG-Lnh" firstAttribute="bottom" secondItem="huJ-WX-jUQ" secondAttribute="bottom" id="9iU-y2-cOf"/>
+                            <constraint firstItem="huJ-WX-jUQ" firstAttribute="leading" secondItem="upf-hG-Lnh" secondAttribute="leading" id="Eb9-M1-WuL"/>
+                            <constraint firstItem="upf-hG-Lnh" firstAttribute="trailing" secondItem="huJ-WX-jUQ" secondAttribute="trailing" id="KSh-Cq-uea"/>
+                            <constraint firstItem="huJ-WX-jUQ" firstAttribute="top" secondItem="upf-hG-Lnh" secondAttribute="top" id="Kp4-9p-gct"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="doe-KY-ne6"/>
+                    <connections>
+                        <segue destination="9cL-9o-bUA" kind="show" id="WhB-gj-XJ4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s9W-Qg-ygO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="884" y="4782"/>
+        </scene>
+        <!--Judy Live Page View Ctrl-->
+        <scene sceneID="2r2-90-u6N">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="vertical" spineLocation="none" id="EOz-eR-Zlt" customClass="JudyLivePageViewCtrl" customModule="EnolaGay" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="CsO-cE-knJ"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ydv-DP-wfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="884" y="5462"/>
+        </scene>
+        <!--Live Model View Ctrl-->
+        <scene sceneID="h3V-N2-Zrw">
+            <objects>
+                <viewController storyboardIdentifier="LiveModelViewCtrl" id="9cL-9o-bUA" customClass="LiveModelViewCtrl" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cdc-UA-Vg1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHi-Rr-tb7">
+                                <rect key="frame" x="166.66666666666666" y="395.66666666666669" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="30Z-RY-ZTT"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <constraints>
+                            <constraint firstItem="MHi-Rr-tb7" firstAttribute="centerX" secondItem="Cdc-UA-Vg1" secondAttribute="centerX" id="ASZ-BX-cNI"/>
+                            <constraint firstItem="MHi-Rr-tb7" firstAttribute="centerY" secondItem="Cdc-UA-Vg1" secondAttribute="centerY" id="eEr-PO-BmS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="76X-mW-MXl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tHc-a6-8ru" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1841" y="4782"/>
         </scene>
     </scenes>
     <designables>
