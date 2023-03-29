@@ -189,6 +189,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="sp5-I4-oyP"/>
                         <segue destination="eSi-Cb-lFe" kind="relationship" relationship="viewControllers" id="e5R-hC-dVP"/>
                         <segue destination="9nx-aH-jhV" kind="relationship" relationship="viewControllers" id="3Y9-Ea-KP3"/>
+                        <segue destination="kK6-8r-Ieg" kind="relationship" relationship="viewControllers" id="h4a-QX-F2f"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNo-32-Xsu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -545,6 +546,84 @@
             </objects>
             <point key="canvasLocation" x="-36" y="844.58128078817742"/>
         </scene>
+        <!--定投计算-->
+        <scene sceneID="4B9-KX-bgG">
+            <objects>
+                <viewController id="kK6-8r-Ieg" customClass="CastSurelyCalculationViewCtrl" customModule="CastSurelyCalculation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UXu-yc-jz3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lLe-Xe-oIX">
+                                <rect key="frame" x="18" y="65" width="339" height="58"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入金额" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2QM-g4-EV5" customClass="JudyHoshiTextField" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="0.0" width="273" height="58"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" systemColor="systemGreenColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.97647058819999999" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.4549019608" green="0.38431372549999998" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="kK6-8r-Ieg" id="Jet-7r-XQ7"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sn9-Ne-hJD" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="281" y="0.0" width="58" height="58"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="58" id="bMf-GV-f0B"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="计算"/>
+                                        <connections>
+                                            <action selector="calculationAction:" destination="kK6-8r-Ieg" eventType="touchUpInside" id="ckc-gf-GkG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="afh-Df-y36"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5g-be-qbo" customClass="JudyBaseLabel" customModule="EnolaGay">
+                                <rect key="frame" x="18" y="151" width="339" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kpk-su-3qq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="s5g-be-qbo" firstAttribute="trailing" secondItem="lLe-Xe-oIX" secondAttribute="trailing" id="5Ec-zd-7Uj"/>
+                            <constraint firstItem="lLe-Xe-oIX" firstAttribute="top" secondItem="kpk-su-3qq" secondAttribute="top" constant="18" id="6DR-vj-cPf"/>
+                            <constraint firstItem="kpk-su-3qq" firstAttribute="trailing" secondItem="lLe-Xe-oIX" secondAttribute="trailing" constant="18" id="6h6-L6-IkM"/>
+                            <constraint firstItem="lLe-Xe-oIX" firstAttribute="leading" secondItem="kpk-su-3qq" secondAttribute="leading" constant="18" id="Kzi-4d-D8A"/>
+                            <constraint firstItem="s5g-be-qbo" firstAttribute="top" secondItem="lLe-Xe-oIX" secondAttribute="bottom" constant="28" id="khQ-lX-dSJ"/>
+                            <constraint firstItem="s5g-be-qbo" firstAttribute="leading" secondItem="lLe-Xe-oIX" secondAttribute="leading" id="zC9-w8-si0"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="定投计算" id="tXh-fQ-wk2"/>
+                    <navigationItem key="navigationItem" id="7KF-rE-8Br"/>
+                    <connections>
+                        <outlet property="detailLabel" destination="s5g-be-qbo" id="erI-GP-heW"/>
+                        <outlet property="inputTextField" destination="2QM-g4-EV5" id="Xhh-fr-W13"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="grK-ue-tcE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3607" y="4"/>
+        </scene>
     </scenes>
     <resources>
         <image name="chat_bottom_smile_nor" width="34" height="34"/>
@@ -556,6 +635,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

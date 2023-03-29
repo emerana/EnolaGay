@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZfS-4v-YRJ">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v26-9d-8il">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -13,13 +13,13 @@
         <!--IGList-->
         <scene sceneID="3EF-F7-WI6">
             <objects>
-                <viewController title="IGList" id="j15-ar-HvO" customClass="IGListKitViewController" customModule="EMERANA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="IGList" id="j15-ar-HvO" customClass="IGListKitViewController" customModule="MyIGListKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kea-GX-UkZ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QJz-wW-IdT">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qdI-QF-Qj3">
                                     <size key="itemSize" width="108" height="51"/>
@@ -69,16 +69,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1b-Uh-JBS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23.188405797101453" y="75.669642857142847"/>
+            <point key="canvasLocation" x="919.20000000000005" y="75.369458128078819"/>
         </scene>
-        <!--IGList-->
+        <!--Navigation Controller-->
         <scene sceneID="1LD-ZU-MXU">
             <objects>
                 <navigationController id="ZfS-4v-YRJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="IGList" image="IGList" selectedImage="IGList_H" id="OK4-NL-f3v"/>
+                    <tabBarItem key="tabBarItem" selectedImage="IGList_H" systemItem="favorites" id="OK4-NL-f3v"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9r9-sq-rlu">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -87,11 +87,27 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHy-hq-UV5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1000" y="76"/>
+            <point key="canvasLocation" x="-58.399999999999999" y="75.369458128078819"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="daW-uo-dDI">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="v26-9d-8il" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JTQ-0i-15F">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ZfS-4v-YRJ" kind="relationship" relationship="viewControllers" id="x8p-cv-DeT"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IRg-sK-YjE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1000.8" y="75.369458128078819"/>
         </scene>
     </scenes>
     <resources>
-        <image name="IGList" width="22" height="20"/>
         <image name="IGList_H" width="22" height="20"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

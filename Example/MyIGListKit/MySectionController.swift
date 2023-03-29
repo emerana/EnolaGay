@@ -41,6 +41,7 @@ extension SectionControllerType_1 {
         switch index {
         case 1:
             label.text = entry.msg
+            label.font = UIFont(name: "OCRAStd", size: 16)
             cell.backgroundColor = .blue
         case 2:
             label.text = entry.user
