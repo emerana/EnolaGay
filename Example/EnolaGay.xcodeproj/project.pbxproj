@@ -43,11 +43,6 @@
 		8BC3DAB926DEB75D00A2A405 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DAB326DEB75D00A2A405 /* App.swift */; };
 		8BC3DABB26DEB7B300A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DAB526DEB75D00A2A405 /* Main.storyboard */; };
 		8BC3DABC26DEB7B300A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DAB726DEB75D00A2A405 /* LaunchScreen.xib */; };
-		8BC3DAFD26DF3CC200A2A405 /* KeyBoardPopUpViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DAF026DF3C4100A2A405 /* KeyBoardPopUpViewCtrl.swift */; };
-		8BC3DAFE26DF3CC200A2A405 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DAF626DF3C6700A2A405 /* App.swift */; };
-		8BC3DAFF26DF3CCF00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DAF726DF3C6700A2A405 /* Main.storyboard */; };
-		8BC3DB0026DF3CCF00A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DAF926DF3C6700A2A405 /* LaunchScreen.xib */; };
-		8BC3DB0226DF3DD800A2A405 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DB0126DF3DD800A2A405 /* Media.xcassets */; };
 		8BC3DB2126DF3F6D00A2A405 /* CastSurelyCalculationViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB1426DF3F0F00A2A405 /* CastSurelyCalculationViewCtrl.swift */; };
 		8BC3DB2326DF3F6D00A2A405 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB1826DF3F2300A2A405 /* App.swift */; };
 		8BC3DB2426DF3F7A00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DB1B26DF3F2300A2A405 /* Main.storyboard */; };
@@ -107,6 +102,7 @@
 		8BE31B8329C2D22B003038B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE31B8229C2D22B003038B2 /* Assets.xcassets */; };
 		8BE31B8629C2D22B003038B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE31B8429C2D22B003038B2 /* LaunchScreen.storyboard */; };
 		8BE5BA7129D44765003E75D5 /* VersionCheckViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */; };
+		8BE5BA7229D4493A003E75D5 /* KeyBoardPopUpViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DAF026DF3C4100A2A405 /* KeyBoardPopUpViewCtrl.swift */; };
 		8BF21D6C29CD3F4F00308310 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF21D6B29CD3F4F00308310 /* AppDelegate.swift */; };
 		8BF21D7329CD3F4F00308310 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF21D7129CD3F4F00308310 /* Main.storyboard */; };
 		8BF21D7529CD3F5000308310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF21D7429CD3F5000308310 /* Assets.xcassets */; };
@@ -129,7 +125,6 @@
 		B81C7931DB028FBDC7F50A7E /* Pods_JudyLivePageViewCtrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B4A427494A98F9DEA5A16A /* Pods_JudyLivePageViewCtrl.framework */; };
 		DD52ABAB1A1E1D3FD3732979 /* Pods_RefreshAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2953210472AAEFB78DCA32B /* Pods_RefreshAdapter.framework */; };
 		E8924F7BE5DB78131352C79A /* Pods_CastSurelyCalculation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC320D0BB712D408990761B0 /* Pods_CastSurelyCalculation.framework */; };
-		E923A544DE457C697CF4DE8F /* Pods_KeyBoardPop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDC9002BE9A5AC51D0D2AA5 /* Pods_KeyBoardPop.framework */; };
 		FC7B0984DB577BFCD959EE43 /* Pods_GifEffectsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34653C6DAA478DB1F6CE7830 /* Pods_GifEffectsDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -219,13 +214,7 @@
 		8BC3DAB826DEB75D00A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8BC3DACE26DF29B900A2A405 /* HPickerViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HPickerViewCtrl.swift; sourceTree = "<group>"; };
 		8BC3DACF26DF29B900A2A405 /* HPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HPicker.swift; sourceTree = "<group>"; };
-		8BC3DAEE26DF3C2A00A2A405 /* KeyBoardPop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyBoardPop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC3DAF026DF3C4100A2A405 /* KeyBoardPopUpViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBoardPopUpViewCtrl.swift; sourceTree = "<group>"; };
-		8BC3DAF426DF3C6700A2A405 /* KeyBoardPop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KeyBoardPop-Info.plist"; sourceTree = "<group>"; };
-		8BC3DAF626DF3C6700A2A405 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		8BC3DAF826DF3C6700A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8BC3DAFA26DF3C6700A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		8BC3DB0126DF3DD800A2A405 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		8BC3DB1226DF3EC100A2A405 /* CastSurelyCalculation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CastSurelyCalculation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC3DB1426DF3F0F00A2A405 /* CastSurelyCalculationViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastSurelyCalculationViewCtrl.swift; sourceTree = "<group>"; };
 		8BC3DB1826DF3F2300A2A405 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -400,14 +389,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8BC3DAE526DF3C2A00A2A405 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E923A544DE457C697CF4DE8F /* Pods_KeyBoardPop.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8BC3DB0826DF3EC100A2A405 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -512,7 +493,6 @@
 				607FACD21AFB9204008FA782 /* Example for EnolaGay */,
 				8BC3DA6B26DEB1AF00A2A405 /* CacheDemo */,
 				8BC3DB1326DF3F0F00A2A405 /* CastSurelyCalculation */,
-				8BC3DAEF26DF3C4100A2A405 /* KeyBoardPop */,
 				8BC3DAAB26DEB74A00A2A405 /* RefreshAdapter */,
 				8BC3DA8826DEB43500A2A405 /* PlayerDemo */,
 				8BC3DB6C26DF479200A2A405 /* EMERANA */,
@@ -535,7 +515,6 @@
 				8BC3DA6A26DEB1A200A2A405 /* CacheDemo.app */,
 				8BC3DA8726DEB40300A2A405 /* PlayerDemo.app */,
 				8BC3DAAA26DEB71800A2A405 /* RefreshAdapter.app */,
-				8BC3DAEE26DF3C2A00A2A405 /* KeyBoardPop.app */,
 				8BC3DB1226DF3EC100A2A405 /* CastSurelyCalculation.app */,
 				8BC3DB6B26DF479200A2A405 /* EMERANA.app */,
 				8BC3DDD126E0617400A2A405 /* JudyLivePageViewCtrl.app */,
@@ -684,19 +663,6 @@
 				8BC3DAB726DEB75D00A2A405 /* LaunchScreen.xib */,
 			);
 			path = RefreshAdapter;
-			sourceTree = "<group>";
-		};
-		8BC3DAEF26DF3C4100A2A405 /* KeyBoardPop */ = {
-			isa = PBXGroup;
-			children = (
-				8BC3DAF026DF3C4100A2A405 /* KeyBoardPopUpViewCtrl.swift */,
-				8BC3DAF726DF3C6700A2A405 /* Main.storyboard */,
-				8BC3DAF626DF3C6700A2A405 /* App.swift */,
-				8BC3DAF426DF3C6700A2A405 /* KeyBoardPop-Info.plist */,
-				8BC3DAF926DF3C6700A2A405 /* LaunchScreen.xib */,
-				8BC3DB0126DF3DD800A2A405 /* Media.xcassets */,
-			);
-			path = KeyBoardPop;
 			sourceTree = "<group>";
 		};
 		8BC3DB1326DF3F0F00A2A405 /* CastSurelyCalculation */ = {
@@ -889,6 +855,7 @@
 			children = (
 				8BE31B7929C2D22A003038B2 /* AppDelegate.swift */,
 				8BE31B7D29C2D22A003038B2 /* ViewController.swift */,
+				8BC3DAF026DF3C4100A2A405 /* KeyBoardPopUpViewCtrl.swift */,
 				8BF65F6E29C81BBB001E2160 /* CircularProgressViewController.swift */,
 				8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */,
 				8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */,
@@ -1068,25 +1035,6 @@
 			productReference = 8BC3DAAA26DEB71800A2A405 /* RefreshAdapter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8BC3DADF26DF3C2A00A2A405 /* KeyBoardPop */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8BC3DAEB26DF3C2A00A2A405 /* Build configuration list for PBXNativeTarget "KeyBoardPop" */;
-			buildPhases = (
-				8BC3DAE026DF3C2A00A2A405 /* [CP] Check Pods Manifest.lock */,
-				8BC3DAE126DF3C2A00A2A405 /* Sources */,
-				8BC3DAE526DF3C2A00A2A405 /* Frameworks */,
-				8BC3DAE726DF3C2A00A2A405 /* Resources */,
-				8BC3DAEA26DF3C2A00A2A405 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = KeyBoardPop;
-			productName = EnolaGay;
-			productReference = 8BC3DAEE26DF3C2A00A2A405 /* KeyBoardPop.app */;
-			productType = "com.apple.product-type.application";
-		};
 		8BC3DB0326DF3EC100A2A405 /* CastSurelyCalculation */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BC3DB0F26DF3EC100A2A405 /* Build configuration list for PBXNativeTarget "CastSurelyCalculation" */;
@@ -1249,9 +1197,6 @@
 					8BC3DA9A26DEB71800A2A405 = {
 						DevelopmentTeam = 325J3J39TM;
 					};
-					8BC3DADF26DF3C2A00A2A405 = {
-						DevelopmentTeam = 325J3J39TM;
-					};
 					8BC3DB0326DF3EC100A2A405 = {
 						DevelopmentTeam = 325J3J39TM;
 					};
@@ -1303,7 +1248,6 @@
 				8BC3DA5C26DEB1A200A2A405 /* CacheDemo */,
 				8BC3DA7926DEB40300A2A405 /* PlayerDemo */,
 				8BC3DA9A26DEB71800A2A405 /* RefreshAdapter */,
-				8BC3DADF26DF3C2A00A2A405 /* KeyBoardPop */,
 				8BC3DB0326DF3EC100A2A405 /* CastSurelyCalculation */,
 				8BC3DB6A26DF479200A2A405 /* EMERANA */,
 				8BC3DDD026E0617400A2A405 /* JudyLivePageViewCtrl */,
@@ -1364,16 +1308,6 @@
 			files = (
 				8BC3DABB26DEB7B300A2A405 /* Main.storyboard in Resources */,
 				8BC3DABC26DEB7B300A2A405 /* LaunchScreen.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BC3DAE726DF3C2A00A2A405 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8BC3DAFF26DF3CCF00A2A405 /* Main.storyboard in Resources */,
-				8BC3DB0226DF3DD800A2A405 /* Media.xcassets in Resources */,
-				8BC3DB0026DF3CCF00A2A405 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1598,7 +1532,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demo-EMERANA/Pods-Demo-EMERANA-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-CircularProgressView-Core-EMERANA-Logger/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-38bd9330/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -1824,46 +1758,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8BC3DAE026DF3C2A00A2A405 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KeyBoardPop-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8BC3DAEA26DF3C2A00A2A405 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KeyBoardPop/Pods-KeyBoardPop-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-KeyboardHelper-Logger/EnolaGay.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KeyBoardPop/Pods-KeyBoardPop-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8BC3DB0426DF3EC100A2A405 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1958,7 +1852,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-CircularProgressView-Core-EMERANA-Logger/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-38bd9330/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -2093,15 +1987,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8BC3DAE126DF3C2A00A2A405 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8BC3DAFD26DF3CC200A2A405 /* KeyBoardPopUpViewCtrl.swift in Sources */,
-				8BC3DAFE26DF3CC200A2A405 /* App.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8BC3DB0526DF3EC100A2A405 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2163,6 +2048,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BF65F6F29C81BBB001E2160 /* CircularProgressViewController.swift in Sources */,
+				8BE5BA7229D4493A003E75D5 /* KeyBoardPopUpViewCtrl.swift in Sources */,
 				8BE5BA7129D44765003E75D5 /* VersionCheckViewCtrl.swift in Sources */,
 				8BF21D8029CD40E800308310 /* AttributedStringViewController.swift in Sources */,
 				8BE31B7E29C2D22A003038B2 /* ViewController.swift in Sources */,
@@ -2270,22 +2156,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				8BC3DAB826DEB75D00A2A405 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		8BC3DAF726DF3C6700A2A405 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8BC3DAF826DF3C6700A2A405 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8BC3DAF926DF3C6700A2A405 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8BC3DAFA26DF3C6700A2A405 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -2746,38 +2616,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.RefreshAdapter;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		8BC3DAEC26DF3C2A00A2A405 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE6917FF180857346912967A /* Pods-KeyBoardPop.debug.xcconfig */;
-			buildSettings = {
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				INFOPLIST_FILE = "$(TARGET_NAME)/$(TARGET_NAME)-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.KeyBoardPop;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		8BC3DAED26DF3C2A00A2A405 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94F91544DF063B1B0C335F4C /* Pods-KeyBoardPop.release.xcconfig */;
-			buildSettings = {
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				INFOPLIST_FILE = "$(TARGET_NAME)/$(TARGET_NAME)-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.KeyBoardPop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -3279,15 +3117,6 @@
 			buildConfigurations = (
 				8BC3DAA826DEB71800A2A405 /* Debug */,
 				8BC3DAA926DEB71800A2A405 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8BC3DAEB26DF3C2A00A2A405 /* Build configuration list for PBXNativeTarget "KeyBoardPop" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8BC3DAEC26DF3C2A00A2A405 /* Debug */,
-				8BC3DAED26DF3C2A00A2A405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

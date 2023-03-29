@@ -101,7 +101,7 @@
             </objects>
             <point key="canvasLocation" x="887" y="4"/>
         </scene>
-        <!--按钮事件-->
+        <!--Circular Progress View Controller-->
         <scene sceneID="fOh-OF-FxC">
             <objects>
                 <viewController id="O7R-Wk-Hkl" customClass="CircularProgressViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
@@ -133,18 +133,28 @@
                                     <action selector="touchUpOutsideAction:" destination="O7R-Wk-Hkl" eventType="touchUpOutside" id="Ddx-Ly-PxP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ol-EW-GNz">
+                                <rect key="frame" x="140.66666666666666" y="606.33333333333337" width="94" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="键盘动画"/>
+                                <connections>
+                                    <segue destination="6qv-Fc-xtI" kind="show" id="LgH-Qe-j4Y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="78b-Ae-J6T"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="0Ol-EW-GNz" firstAttribute="centerX" secondItem="TQE-vd-Rsa" secondAttribute="centerX" id="2vk-Sb-jOJ"/>
                             <constraint firstItem="TQE-vd-Rsa" firstAttribute="centerX" secondItem="7mg-7K-743" secondAttribute="centerX" id="3jf-gw-l6K"/>
                             <constraint firstItem="7mg-7K-743" firstAttribute="centerY" secondItem="Zj2-Hs-JrK" secondAttribute="centerY" id="Gnc-5Q-dJs"/>
                             <constraint firstItem="7mg-7K-743" firstAttribute="centerX" secondItem="Zj2-Hs-JrK" secondAttribute="centerX" id="M9B-tz-bpI"/>
                             <constraint firstItem="TQE-vd-Rsa" firstAttribute="top" secondItem="7mg-7K-743" secondAttribute="bottom" priority="750" constant="68" id="mcD-Hg-xMv"/>
+                            <constraint firstItem="0Ol-EW-GNz" firstAttribute="top" secondItem="TQE-vd-Rsa" secondAttribute="bottom" constant="58" id="n8J-Jy-qcq"/>
                             <constraint firstItem="78b-Ae-J6T" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="TQE-vd-Rsa" secondAttribute="bottom" constant="28" id="q51-a1-COZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="按钮事件" id="J3H-Oq-Z0X"/>
+                    <navigationItem key="navigationItem" id="EZS-wG-pUu"/>
                     <connections>
                         <outlet property="progressLiveView" destination="7mg-7K-743" id="7mL-sW-uxb"/>
                         <outlet property="recorderButton" destination="TQE-vd-Rsa" id="HBA-Lo-G78"/>
@@ -152,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8j-go-lfS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1727" y="4"/>
+            <point key="canvasLocation" x="886" y="845"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="MeR-nd-nUi">
@@ -165,7 +175,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="O7R-Wk-Hkl" kind="relationship" relationship="viewControllers" id="Bmn-uf-esC"/>
+                        <segue destination="qTJ-hK-9BM" kind="relationship" relationship="viewControllers" id="Bmn-uf-esC"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="sp5-I4-oyP"/>
                         <segue destination="eSi-Cb-lFe" kind="relationship" relationship="viewControllers" id="e5R-hC-dVP"/>
                         <segue destination="9nx-aH-jhV" kind="relationship" relationship="viewControllers" id="3Y9-Ea-KP3"/>
@@ -238,12 +248,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQC-am-wwg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2582" y="4"/>
+            <point key="canvasLocation" x="1798" y="4"/>
         </scene>
         <!--版本检测-->
         <scene sceneID="usT-0c-WhE">
             <objects>
-                <viewController id="9nx-aH-jhV" customClass="VersionCheckViewCtrl" customModule="VersionCheck" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9nx-aH-jhV" customClass="VersionCheckViewCtrl" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PFd-gk-KyK"/>
                         <viewControllerLayoutGuide type="bottom" id="W9y-pY-DEF"/>
@@ -355,10 +365,182 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J31-rQ-aBn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3452" y="4"/>
+            <point key="canvasLocation" x="2668" y="4"/>
+        </scene>
+        <!--微信-->
+        <scene sceneID="J3q-TQ-Hsu">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" id="6qv-Fc-xtI" customClass="KeyBoardPopUpViewCtrl" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vqQ-tF-kCp"/>
+                        <viewControllerLayoutGuide type="bottom" id="ok0-nd-bVB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4fG-xd-r6f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVQ-tn-7Xh">
+                                <rect key="frame" x="0.0" y="734" width="375" height="78"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toolbar_bottom_bar" translatesAutoresizingMaskIntoConstraints="NO" id="FS7-0i-gt0">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4qh-zs-0J9">
+                                        <rect key="frame" x="10" y="4" width="355" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itk-cU-y9A">
+                                                <rect key="frame" x="0.0" y="5" width="17" height="34"/>
+                                                <state key="normal" image="chat_bottom_voice_nor">
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B3u-KL-vxJ">
+                                                <rect key="frame" x="25" y="7" width="246" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="246" id="6tX-4n-7RW"/>
+                                                    <constraint firstAttribute="height" constant="30" id="VpD-tn-uyU"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="6tX-4n-7RW"/>
+                                                        <exclude reference="VpD-tn-uyU"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="6tX-4n-7RW"/>
+                                                        <include reference="VpD-tn-uyU"/>
+                                                    </mask>
+                                                </variation>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USh-rH-mt2">
+                                                <rect key="frame" x="279" y="5" width="34" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="34" id="70f-vy-tdc"/>
+                                                    <constraint firstAttribute="height" constant="34" id="fpQ-pJ-hDd"/>
+                                                </constraints>
+                                                <state key="normal" image="chat_bottom_smile_nor">
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="70f-vy-tdc"/>
+                                                        <exclude reference="fpQ-pJ-hDd"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="70f-vy-tdc"/>
+                                                        <include reference="fpQ-pJ-hDd"/>
+                                                    </mask>
+                                                </variation>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ag4-kS-HH6">
+                                                <rect key="frame" x="321" y="5" width="34" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="8Ok-4K-8F5"/>
+                                                    <constraint firstAttribute="width" constant="34" id="GVD-Tk-UEH"/>
+                                                </constraints>
+                                                <state key="normal" image="chat_bottom_up_nor">
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="8Ok-4K-8F5"/>
+                                                        <exclude reference="GVD-Tk-UEH"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="8Ok-4K-8F5"/>
+                                                        <include reference="GVD-Tk-UEH"/>
+                                                    </mask>
+                                                </variation>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="qHM-XB-eyf"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="FS7-0i-gt0" secondAttribute="trailing" id="AKh-GV-unA"/>
+                                    <constraint firstItem="4qh-zs-0J9" firstAttribute="leading" secondItem="yVQ-tn-7Xh" secondAttribute="leading" constant="10" id="Eqh-77-jE2"/>
+                                    <constraint firstAttribute="bottom" secondItem="FS7-0i-gt0" secondAttribute="bottom" id="UGY-tf-3aM"/>
+                                    <constraint firstAttribute="trailing" secondItem="4qh-zs-0J9" secondAttribute="trailing" constant="10" id="aZY-UC-QKD"/>
+                                    <constraint firstItem="4qh-zs-0J9" firstAttribute="top" secondItem="yVQ-tn-7Xh" secondAttribute="top" constant="4" id="bpv-B4-gJ5"/>
+                                    <constraint firstItem="FS7-0i-gt0" firstAttribute="leading" secondItem="yVQ-tn-7Xh" secondAttribute="leading" id="cB8-PP-aZo"/>
+                                    <constraint firstItem="FS7-0i-gt0" firstAttribute="top" secondItem="yVQ-tn-7Xh" secondAttribute="top" id="cXa-s1-yw0"/>
+                                    <constraint firstAttribute="bottom" secondItem="4qh-zs-0J9" secondAttribute="bottom" constant="30" id="nTr-Df-auA"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="FS7-0i-gt0"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="FS7-0i-gt0"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fuu-FN-ZfB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yVQ-tn-7Xh" firstAttribute="leading" secondItem="4fG-xd-r6f" secondAttribute="leading" id="5Da-V5-qbn"/>
+                            <constraint firstAttribute="trailing" secondItem="yVQ-tn-7Xh" secondAttribute="trailing" id="O65-uA-xcI"/>
+                            <constraint firstAttribute="bottom" secondItem="yVQ-tn-7Xh" secondAttribute="bottom" id="QVp-47-2P9"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="yVQ-tn-7Xh"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="yVQ-tn-7Xh"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="微信" id="0NA-7O-Q7f"/>
+                    <connections>
+                        <outlet property="keyBaordView" destination="yVQ-tn-7Xh" id="el6-zM-6fO"/>
+                        <outlet property="textFeild" destination="B3u-KL-vxJ" id="8NU-Uu-8Se"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4uE-S8-wDx" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1798" y="845"/>
+        </scene>
+        <!--按钮事件-->
+        <scene sceneID="MO3-BB-rDl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qTJ-hK-9BM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="按钮事件" id="J3H-Oq-Z0X"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="THs-Rk-5rk">
+                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="O7R-Wk-Hkl" kind="relationship" relationship="rootViewController" id="9ET-Zf-JwH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VmU-P7-pgY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-36" y="844.58128078817742"/>
         </scene>
     </scenes>
     <resources>
+        <image name="chat_bottom_smile_nor" width="34" height="34"/>
+        <image name="chat_bottom_up_nor" width="34" height="34"/>
+        <image name="chat_bottom_voice_nor" width="34" height="34"/>
+        <image name="toolbar_bottom_bar" width="10" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

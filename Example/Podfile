@@ -14,6 +14,8 @@ target 'Demo' do
   pod 'RxSwift'
   pod 'RxCocoa'
 
+  pod 'EnolaGay/KeyboardHelper', :path => '../'
+
   #  pod 'EnolaGay/TextFieldEffects', :path => '../'
   #  pod 'EnolaGay/JudyPopBubble', :path => '../'
   #  pod 'EnolaGay/JudyPlusButtonTabBar', :path => '../'
@@ -107,14 +109,6 @@ target 'RefreshAdapter' do
   pod 'EnolaGay', :path => '../'
   pod 'MJRefresh'
   pod 'Alamofire'
-end
-
-
-# MARK: KeyBoardPop
-
-target 'KeyBoardPop' do
-  pod 'EnolaGay/Logger', :path => '../'
-  pod 'EnolaGay/KeyboardHelper', :path => '../'
 end
 
 
