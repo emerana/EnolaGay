@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		56C2B4BDDE2BF1D78F8818A3 /* Pods_MyIGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09FCC4A97F55D3D86F8CBD8 /* Pods_MyIGListKit.framework */; };
 		6F6259394A3A9FC5E68D4243 /* Pods_PlayerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1A1A1370061A6D2BA38281 /* Pods_PlayerDemo.framework */; };
 		7280E2F4B766AE98EF4C4C38 /* Pods_PickerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9205DCC3767921C765CC144 /* Pods_PickerDemo.framework */; };
 		8B3BD1DD27014EB2001912FB /* DownloadViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BD1DC27014EB2001912FB /* DownloadViewCtrl.swift */; };
@@ -18,15 +17,11 @@
 		8B4F5D5929C46A7B0092AF67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B4F5D5829C46A7B0092AF67 /* Assets.xcassets */; };
 		8B4F5D5C29C46A7B0092AF67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4F5D5A29C46A7B0092AF67 /* LaunchScreen.storyboard */; };
 		8B4F5D6129C46AEC0092AF67 /* AddFundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DB9526DF480F00A2A405 /* AddFundView.swift */; };
-		8BC07ADE291660E1006C6CD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC07ADD291660E1006C6CD2 /* AppDelegate.swift */; };
-		8BC07AE5291660E1006C6CD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC07AE3291660E1006C6CD2 /* Main.storyboard */; };
-		8BC07AE7291660E2006C6CD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC07AE6291660E2006C6CD2 /* Assets.xcassets */; };
-		8BC07AEA291660E2006C6CD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC07AE8291660E2006C6CD2 /* LaunchScreen.storyboard */; };
-		8BC07B07291661C7006C6CD2 /* MySectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC326DF480F00A2A405 /* MySectionController.swift */; };
-		8BC07B08291661C7006C6CD2 /* IGListKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC426DF480F00A2A405 /* IGListKitViewController.swift */; };
-		8BC07B0A29166266006C6CD2 /* JournalLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC126DF480F00A2A405 /* JournalLoader.swift */; };
-		8BC07B0B29166266006C6CD2 /* NSObject+IGListDiffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC026DF480F00A2A405 /* NSObject+IGListDiffable.swift */; };
-		8BC07B0C29166266006C6CD2 /* OCRAStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DBBF26DF480F00A2A405 /* OCRAStd.otf */; };
+		8B682B9829D46F8900408A8D /* IGListKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC426DF480F00A2A405 /* IGListKitViewController.swift */; };
+		8B682B9929D46F8900408A8D /* MySectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC326DF480F00A2A405 /* MySectionController.swift */; };
+		8B682B9A29D46F8D00408A8D /* JournalLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC126DF480F00A2A405 /* JournalLoader.swift */; };
+		8B682B9B29D46F8D00408A8D /* NSObject+IGListDiffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC026DF480F00A2A405 /* NSObject+IGListDiffable.swift */; };
+		8B682B9C29D46F8D00408A8D /* OCRAStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DBBF26DF480F00A2A405 /* OCRAStd.otf */; };
 		8BC3DA8D26DEB43500A2A405 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DA8926DEB43500A2A405 /* VideoCell.swift */; };
 		8BC3DA8E26DEB43500A2A405 /* MyPlayerViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DA8A26DEB43500A2A405 /* MyPlayerViewCtrl.swift */; };
 		8BC3DA9026DEB43500A2A405 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA8C26DEB43500A2A405 /* VideoCell.xib */; };
@@ -165,12 +160,6 @@
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
 		8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftMessageViewCtrlTest.swift; sourceTree = "<group>"; };
-		8BC07ADB291660E0006C6CD2 /* MyIGListKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyIGListKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BC07ADD291660E1006C6CD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8BC07AE4291660E1006C6CD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8BC07AE6291660E2006C6CD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8BC07AE9291660E2006C6CD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8BC07AEB291660E2006C6CD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BC3DA6C26DEB1B000A2A405 /* CacheViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheViewCtrl.swift; sourceTree = "<group>"; };
 		8BC3DA8726DEB40300A2A405 /* PlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC3DA8926DEB43500A2A405 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
@@ -314,14 +303,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8BC07AD8291660E0006C6CD2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				56C2B4BDDE2BF1D78F8818A3 /* Pods_MyIGListKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8BC3DA7E26DEB40300A2A405 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -418,7 +399,6 @@
 				8BC3DA8826DEB43500A2A405 /* PlayerDemo */,
 				8BC3DB6C26DF479200A2A405 /* EMERANA */,
 				8BC3DDD226E0617400A2A405 /* JudyLivePageViewCtrl */,
-				8BC07ADC291660E1006C6CD2 /* MyIGListKit */,
 				8B4F5D4E29C46A790092AF67 /* HUD */,
 				8BE31B7829C2D22A003038B2 /* Demo */,
 				8BF21D6A29CD3F4F00308310 /* PickerDemo */,
@@ -435,7 +415,6 @@
 				8BC3DAAA26DEB71800A2A405 /* RefreshAdapter.app */,
 				8BC3DB6B26DF479200A2A405 /* EMERANA.app */,
 				8BC3DDD126E0617400A2A405 /* JudyLivePageViewCtrl.app */,
-				8BC07ADB291660E0006C6CD2 /* MyIGListKit.app */,
 				8BE31B7729C2D229003038B2 /* Demo.app */,
 				8B4F5D4D29C46A790092AF67 /* HUD.app */,
 				8BF21D6929CD3F4E00308310 /* PickerDemo.app */,
@@ -516,6 +495,16 @@
 			path = HUD;
 			sourceTree = "<group>";
 		};
+		8B682B9729D46DCE00408A8D /* IGListKit */ = {
+			isa = PBXGroup;
+			children = (
+				8BC3DBBE26DF480F00A2A405 /* Models */,
+				8BC3DBC326DF480F00A2A405 /* MySectionController.swift */,
+				8BC3DBC426DF480F00A2A405 /* IGListKitViewController.swift */,
+			);
+			path = IGListKit;
+			sourceTree = "<group>";
+		};
 		8B76428E25A702C400A418F8 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -524,21 +513,6 @@
 				8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		8BC07ADC291660E1006C6CD2 /* MyIGListKit */ = {
-			isa = PBXGroup;
-			children = (
-				8BC3DBBE26DF480F00A2A405 /* Models */,
-				8BC3DBC326DF480F00A2A405 /* MySectionController.swift */,
-				8BC3DBC426DF480F00A2A405 /* IGListKitViewController.swift */,
-				8BC07ADD291660E1006C6CD2 /* AppDelegate.swift */,
-				8BC07AE3291660E1006C6CD2 /* Main.storyboard */,
-				8BC07AE6291660E2006C6CD2 /* Assets.xcassets */,
-				8BC07AE8291660E2006C6CD2 /* LaunchScreen.storyboard */,
-				8BC07AEB291660E2006C6CD2 /* Info.plist */,
-			);
-			path = MyIGListKit;
 			sourceTree = "<group>";
 		};
 		8BC3DA8826DEB43500A2A405 /* PlayerDemo */ = {
@@ -731,6 +705,7 @@
 		8BE31B7829C2D22A003038B2 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				8B682B9729D46DCE00408A8D /* IGListKit */,
 				8BE31B7929C2D22A003038B2 /* AppDelegate.swift */,
 				8BE31B7D29C2D22A003038B2 /* ViewController.swift */,
 				8BC3DAF026DF3C4100A2A405 /* KeyBoardPopUpViewCtrl.swift */,
@@ -825,25 +800,6 @@
 			name = HUD;
 			productName = HUD;
 			productReference = 8B4F5D4D29C46A790092AF67 /* HUD.app */;
-			productType = "com.apple.product-type.application";
-		};
-		8BC07ADA291660E0006C6CD2 /* MyIGListKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8BC07AEE291660E2006C6CD2 /* Build configuration list for PBXNativeTarget "MyIGListKit" */;
-			buildPhases = (
-				CF1CFA170DAA18FD5DED0E26 /* [CP] Check Pods Manifest.lock */,
-				8BC07AD7291660E0006C6CD2 /* Sources */,
-				8BC07AD8291660E0006C6CD2 /* Frameworks */,
-				8BC07AD9291660E0006C6CD2 /* Resources */,
-				1BECEF9147C0365C8C9446B7 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MyIGListKit;
-			productName = MyIGListKit;
-			productReference = 8BC07ADB291660E0006C6CD2 /* MyIGListKit.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8BC3DA7926DEB40300A2A405 /* PlayerDemo */ = {
@@ -975,11 +931,6 @@
 						DevelopmentTeam = 325J3J39TM;
 						ProvisioningStyle = Automatic;
 					};
-					8BC07ADA291660E0006C6CD2 = {
-						CreatedOnToolsVersion = 14.1;
-						DevelopmentTeam = 325J3J39TM;
-						ProvisioningStyle = Automatic;
-					};
 					8BC3DA7926DEB40300A2A405 = {
 						DevelopmentTeam = 325J3J39TM;
 					};
@@ -1025,7 +976,6 @@
 				8BC3DA9A26DEB71800A2A405 /* RefreshAdapter */,
 				8BC3DB6A26DF479200A2A405 /* EMERANA */,
 				8BC3DDD026E0617400A2A405 /* JudyLivePageViewCtrl */,
-				8BC07ADA291660E0006C6CD2 /* MyIGListKit */,
 				8BE31B7629C2D229003038B2 /* Demo */,
 				8B4F5D4C29C46A790092AF67 /* HUD */,
 				8BF21D6829CD3F4D00308310 /* PickerDemo */,
@@ -1041,17 +991,6 @@
 				8B4F5D5C29C46A7B0092AF67 /* LaunchScreen.storyboard in Resources */,
 				8B4F5D5929C46A7B0092AF67 /* Assets.xcassets in Resources */,
 				8B4F5D5729C46A7A0092AF67 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BC07AD9291660E0006C6CD2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8BC07AEA291660E2006C6CD2 /* LaunchScreen.storyboard in Resources */,
-				8BC07AE7291660E2006C6CD2 /* Assets.xcassets in Resources */,
-				8BC07B0C29166266006C6CD2 /* OCRAStd.otf in Resources */,
-				8BC07AE5291660E1006C6CD2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1117,6 +1056,7 @@
 			files = (
 				8BE31B8629C2D22B003038B2 /* LaunchScreen.storyboard in Resources */,
 				8BE31B8329C2D22B003038B2 /* Assets.xcassets in Resources */,
+				8B682B9C29D46F8D00408A8D /* OCRAStd.otf in Resources */,
 				8BE31B8129C2D22A003038B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1196,28 +1136,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JudyLivePageViewCtrl/Pods-JudyLivePageViewCtrl-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1BECEF9147C0365C8C9446B7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyIGListKit/Pods-MyIGListKit-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-Logger/EnolaGay.framework",
-				"${BUILT_PRODUCTS_DIR}/IGListDiffKit/IGListDiffKit.framework",
-				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListDiffKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyIGListKit/Pods-MyIGListKit-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4D8023E299CF091570C755F5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1228,6 +1146,8 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/EnolaGay-4e952815/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/IGListDiffKit/IGListDiffKit.framework",
+				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -1246,6 +1166,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListDiffKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -1444,6 +1366,8 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/EnolaGay-4e952815/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/IGListDiffKit/IGListDiffKit.framework",
+				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -1454,6 +1378,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListDiffKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -1482,28 +1408,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HUD/Pods-HUD-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CF1CFA170DAA18FD5DED0E26 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MyIGListKit-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1513,18 +1417,6 @@
 			files = (
 				8B4F5D5429C46A7A0092AF67 /* ViewController.swift in Sources */,
 				8B4F5D5029C46A7A0092AF67 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BC07AD7291660E0006C6CD2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8BC07B0A29166266006C6CD2 /* JournalLoader.swift in Sources */,
-				8BC07ADE291660E1006C6CD2 /* AppDelegate.swift in Sources */,
-				8BC07B07291661C7006C6CD2 /* MySectionController.swift in Sources */,
-				8BC07B08291661C7006C6CD2 /* IGListKitViewController.swift in Sources */,
-				8BC07B0B29166266006C6CD2 /* NSObject+IGListDiffable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1590,17 +1482,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B682B9A29D46F8D00408A8D /* JournalLoader.swift in Sources */,
 				8BF65F6F29C81BBB001E2160 /* CircularProgressViewController.swift in Sources */,
 				8BE5BA7229D4493A003E75D5 /* KeyBoardPopUpViewCtrl.swift in Sources */,
 				8BE5BA7429D46405003E75D5 /* CacheViewCtrl.swift in Sources */,
 				8BE5BA7529D46601003E75D5 /* ToastViewController.swift in Sources */,
 				8BE5BA7129D44765003E75D5 /* VersionCheckViewCtrl.swift in Sources */,
 				8BE5BA7729D46898003E75D5 /* SaleTicketsViewController.swift in Sources */,
+				8B682B9929D46F8900408A8D /* MySectionController.swift in Sources */,
 				8BF21D8029CD40E800308310 /* AttributedStringViewController.swift in Sources */,
+				8B682B9B29D46F8D00408A8D /* NSObject+IGListDiffable.swift in Sources */,
 				8BE31B7E29C2D22A003038B2 /* ViewController.swift in Sources */,
 				8BE31B7A29C2D22A003038B2 /* AppDelegate.swift in Sources */,
 				8BE5BA7329D45443003E75D5 /* CastSurelyCalculationViewCtrl.swift in Sources */,
 				8BE5BA7629D46898003E75D5 /* GiftMessageViewCtrlTest.swift in Sources */,
+				8B682B9829D46F8900408A8D /* IGListKitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1630,22 +1526,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				8B4F5D5B29C46A7B0092AF67 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		8BC07AE3291660E1006C6CD2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8BC07AE4291660E1006C6CD2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8BC07AE8291660E2006C6CD2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8BC07AE9291660E2006C6CD2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1914,79 +1794,6 @@
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = judy.HUD;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		8BC07AEC291660E2006C6CD2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9197CBE665588AE0A54F96C /* Pods-MyIGListKit.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyIGListKit/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = judy.MyIGListKit;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		8BC07AED291660E2006C6CD2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9734DE283A0B7DF09CE8858 /* Pods-MyIGListKit.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyIGListKit/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = judy.MyIGListKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -2343,15 +2150,6 @@
 			buildConfigurations = (
 				8B4F5D5F29C46A7B0092AF67 /* Debug */,
 				8B4F5D6029C46A7B0092AF67 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8BC07AEE291660E2006C6CD2 /* Build configuration list for PBXNativeTarget "MyIGListKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8BC07AEC291660E2006C6CD2 /* Debug */,
-				8BC07AED291660E2006C6CD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

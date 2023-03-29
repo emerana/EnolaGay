@@ -20,6 +20,8 @@ target 'Demo' do
   pod 'EnolaGay/KeyboardHelper', :path => '../'
 
   pod 'Cache'
+  pod 'IGListKit'
+
   #  pod 'EnolaGay/TextFieldEffects', :path => '../'
   #  pod 'EnolaGay/JudyPopBubble', :path => '../'
   #  pod 'EnolaGay/JudyPlusButtonTabBar', :path => '../'
@@ -116,11 +118,3 @@ end
 #  pod 'SwiftMessages'
 #  pod 'SDWebImage'
 #end
-
-
-# MARK: MyIGListKit
-
-target 'MyIGListKit' do
-  pod 'EnolaGay/Logger', :path => '../'
-  pod 'IGListKit', '~> 4.0.0'
-end
