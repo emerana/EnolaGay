@@ -29,7 +29,7 @@ class KeyBoardPopUpViewCtrl: UIViewController {
         tapGestureRecognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGestureRecognizer)
 
-        keyboardHelper.registerKeyBoardListener(forView: keyBaordView, isKeepSafeAreaInsetsBottom: true)
+        keyboardHelper.registerKeyboardListener(forView: keyBaordView, isKeepSafeAreaInsetsBottom: true)
     }
     
     

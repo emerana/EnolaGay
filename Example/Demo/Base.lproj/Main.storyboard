@@ -109,12 +109,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7mg-7K-743" customClass="CircularProgressLiveView" customModule="EnolaGay">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7mg-7K-743" customClass="CircularProgressView" customModule="EnolaGay">
                                 <rect key="frame" x="147.66666666666666" y="366" width="80" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="圆形进度条" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tb-TI-cDM">
+                                        <rect key="frame" x="9.3333333333333464" y="33" width="61.333333333333343" height="14.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemBlueColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                 <constraints>
+                                    <constraint firstItem="8tb-TI-cDM" firstAttribute="centerY" secondItem="7mg-7K-743" secondAttribute="centerY" id="2k6-dN-rzz"/>
                                     <constraint firstAttribute="height" constant="80" id="NOf-BO-Cs8"/>
                                     <constraint firstAttribute="width" secondItem="7mg-7K-743" secondAttribute="height" id="fcR-Bf-jgu"/>
+                                    <constraint firstItem="8tb-TI-cDM" firstAttribute="centerX" secondItem="7mg-7K-743" secondAttribute="centerX" id="s2t-DU-7cj"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQE-vd-Rsa">
@@ -543,6 +553,9 @@
         <image name="toolbar_bottom_bar" width="10" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

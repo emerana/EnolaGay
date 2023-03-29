@@ -13,7 +13,6 @@ import UIKit
 /// 支持自定义相关属性的圆形进度条
 /// - Warning: 仅限在 StoryBoard 中使用
 open class CircularProgressView: UIView {
-    // MARK: 公开属性
 
     /// 该属性指定圆环的粗细，默认为 10
     public var lineWith: Float = 10
@@ -27,13 +26,10 @@ open class CircularProgressView: UIView {
     /// 是否顺时针方向，默认为 true
     public var clockwise: Bool = true
     
-
-    // MARK: 私有属性
-    
-    /// 圆心
-    private(set) var circleCenterPoint: CGPoint!
     /// 圆的半径
     private(set) var radius: Float!
+    /// 圆心
+    private(set) var circleCenterPoint: CGPoint!
 
     
     open override func awakeFromNib() {
@@ -79,14 +75,15 @@ open class CircularProgressView: UIView {
 
     /// 画辅助圆环
     public final func drawMiddlecircle() {
-        // 计算圆的半径
+        // 计算圆的半径，取较小的边长的一半。
         let x = Float(bounds.size.height/2) - lineWith/2
         let y = Float(bounds.size.width/2) - lineWith/2
         radius = min(x, y)
 
         // 确定圆心位置
-        let center =  min(bounds.size.width/2, bounds.size.width/2)
+        let center =  min(bounds.size.width/2, bounds.size.height/2)
         circleCenterPoint = CGPoint(x: center, y: center)
+
         // 用于画圆的贝塞尔曲线
         let circleBezierPath = UIBezierPath(arcCenter: circleCenterPoint,
                                  radius: CGFloat(radius),
@@ -112,7 +109,6 @@ open class CircularProgressView: UIView {
                                        clockwise: clockwise)
         
         addLineLayer(circlePath: circlePath)
-        
     }
     
 }
@@ -126,7 +122,7 @@ open class CircularProgressLiveView: CircularProgressView {
     open override func awakeFromNib() {
         super.awakeFromNib()
         
-        // 旋转 View, 将开始点设置在顶部，即（3/2）π 处，必须以重新赋值的方式设置
+        // 旋转 View, 将开始点设置在顶部，即（3/2）π 处，必须以重新赋值的方式设置。
         var transform = self.transform
         transform = transform.rotated(by: -CGFloat(Double.pi/2)) // 逆时针旋转90°
         self.transform = transform
@@ -150,6 +146,7 @@ open class CircularProgressLiveView: CircularProgressView {
     open override func draw(_ rect: CGRect) {
         // Drawing code
     }
+    
 }
 
 @available(*, unavailable, message: "此类尚未完成测试，请勿使用")
