@@ -54,7 +54,7 @@ private extension AttributedStringViewController {
         let labelTest = "￥9.9"
         label1.text = labelTest
 
-        let attrs = NSMutableAttributedString(text: labelTest, highlightText: "￥", highlightTextFont: UIFont(size: 16))
+        let attrs = NSMutableAttributedString(text: labelTest, highlightText: "￥", highlightTextColor: .red)
 //            judy_setHighlighted(text: "￥", font: UIFont(style: .S_B))
         
         label1.attributedText = attrs
