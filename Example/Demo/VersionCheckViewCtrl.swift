@@ -151,7 +151,7 @@ struct VersionCheckViewModel {
                 return URLSession.shared.rx.json(request: request)
                     .map { JSON($0) }
                     .map { json in
-                        sleep(5)// 线程休眠 5 秒
+                        sleep(5) // 线程休眠 5 秒
                         guard json["resultCount"].intValue != 0 else {
                             return (AppVersionStatus.notFound, nil)
                         }
@@ -159,7 +159,7 @@ struct VersionCheckViewModel {
                         // 服务器的版本
                         let versionOnLine: String = info["version"].stringValue
                         
-                        let versionStatus = AppVersionStatus.versionCompare(localVersion: version, onLineVersion: versionOnLine)
+                        let versionStatus = AppVersionStatus.versionStatus(localVersion: version, onLineVersion: versionOnLine)
                         
                         let appStoreUrl: String?
                         if versionStatus == .older {
@@ -192,12 +192,13 @@ enum AppVersionStatus {
     /// 当前 App 尚未出现在 AppStore
     case notFound
     
-    /// 版本状态比较，通过传入一个线上版本号与当前版本进行比较。
-    ///
-    /// - Parameter localVersion: 本地版本号
-    /// - Parameter onLineVersion: 线上版本号
-    /// - Returns: App 版本状态
-    static func versionCompare(localVersion: String, onLineVersion: String) -> AppVersionStatus {
+    
+    /// 获取当前版本状态。通过传入一个线上版本号与当前版本进行比较得出当前的版本状态。
+    /// - Parameters:
+    ///   - localVersion: 本地版本号
+    ///   - onLineVersion: AppStore 的版本号
+    /// - Returns: 当前 App 的版本状态
+    static func versionStatus(localVersion: String, onLineVersion: String) -> AppVersionStatus {
         var versionStatus = AppVersionStatus.latest
         
         // 切割字符串并返回数组
@@ -216,24 +217,22 @@ enum AppVersionStatus {
                 }
             }
         }
-        var verL: Int = 0, verS: Int = 0
+
         // 比较版本
         for i in 0..<versionLocalList.count {
-            guard (Int(versionLocalList[i]) != nil), (Int(versionOnLineList[i]) != nil) else {
+            guard  let versionLocal = Int(versionLocalList[i]), let versionServer = Int(versionOnLineList[i]) else {
                 logWarning("版本号中存在非 Int 字符")
                 return .latest
             }
-            verL = Int(versionLocalList[i])!
-            verS = Int(versionOnLineList[i])!
-            if verL == verS {
+            if versionLocal == versionServer {
                 versionStatus = .latest
                 continue
             }
-            if verL < verS {
+            if versionLocal < versionServer {
                 versionStatus = .older
                 break
             }
-            if verL > verS {
+            if versionLocal > versionServer {
                 versionStatus = .review
                 break
             }

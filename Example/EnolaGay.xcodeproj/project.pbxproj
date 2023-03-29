@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0C56F386646EE2DDF9648462 /* Pods_ToastDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6947AAF37AB3E6E86CBADD5 /* Pods_ToastDemo.framework */; };
-		1CC90012F3F8D06CB89E2183 /* Pods_VersionCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0D6509B70B42E53824E1F8 /* Pods_VersionCheck.framework */; };
 		56C2B4BDDE2BF1D78F8818A3 /* Pods_MyIGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09FCC4A97F55D3D86F8CBD8 /* Pods_MyIGListKit.framework */; };
 		6F6259394A3A9FC5E68D4243 /* Pods_PlayerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1A1A1370061A6D2BA38281 /* Pods_PlayerDemo.framework */; };
 		7280E2F4B766AE98EF4C4C38 /* Pods_PickerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9205DCC3767921C765CC144 /* Pods_PickerDemo.framework */; };
@@ -29,10 +28,6 @@
 		8BC07B0A29166266006C6CD2 /* JournalLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC126DF480F00A2A405 /* JournalLoader.swift */; };
 		8BC07B0B29166266006C6CD2 /* NSObject+IGListDiffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC026DF480F00A2A405 /* NSObject+IGListDiffable.swift */; };
 		8BC07B0C29166266006C6CD2 /* OCRAStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DBBF26DF480F00A2A405 /* OCRAStd.otf */; };
-		8BC3DA2D26DDF88C00A2A405 /* VersionCheckViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */; };
-		8BC3DA3226DDFA6E00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA3026DDFA6E00A2A405 /* Main.storyboard */; };
-		8BC3DA3326DDFAAC00A2A405 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */; };
-		8BC3DA5B26DE98FF00A2A405 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DA5A26DE98E800A2A405 /* App.swift */; };
 		8BC3DA6E26DEB1B000A2A405 /* CacheViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DA6C26DEB1B000A2A405 /* CacheViewCtrl.swift */; };
 		8BC3DA7626DEB1C300A2A405 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DA7026DEB1C300A2A405 /* App.swift */; };
 		8BC3DA7726DEB21C00A2A405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DA7226DEB1C300A2A405 /* Main.storyboard */; };
@@ -111,6 +106,7 @@
 		8BE31B8129C2D22A003038B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE31B7F29C2D22A003038B2 /* Main.storyboard */; };
 		8BE31B8329C2D22B003038B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE31B8229C2D22B003038B2 /* Assets.xcassets */; };
 		8BE31B8629C2D22B003038B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE31B8429C2D22B003038B2 /* LaunchScreen.storyboard */; };
+		8BE5BA7129D44765003E75D5 /* VersionCheckViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */; };
 		8BF21D6C29CD3F4F00308310 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF21D6B29CD3F4F00308310 /* AppDelegate.swift */; };
 		8BF21D7329CD3F4F00308310 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF21D7129CD3F4F00308310 /* Main.storyboard */; };
 		8BF21D7529CD3F5000308310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF21D7429CD3F5000308310 /* Assets.xcassets */; };
@@ -190,7 +186,6 @@
 		8B4F5D5829C46A7B0092AF67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B4F5D5B29C46A7B0092AF67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B4F5D5D29C46A7B0092AF67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VersionCheck-Info.plist"; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
@@ -201,10 +196,6 @@
 		8BC07AE6291660E2006C6CD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BC07AE9291660E2006C6CD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BC07AEB291660E2006C6CD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8BC3DA2A26DDF70100A2A405 /* VersionCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VersionCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BC3DA2F26DDFA5100A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		8BC3DA3126DDFA6E00A2A405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8BC3DA5A26DE98E800A2A405 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		8BC3DA6A26DEB1A200A2A405 /* CacheDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CacheDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC3DA6C26DEB1B000A2A405 /* CacheViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheViewCtrl.swift; sourceTree = "<group>"; };
 		8BC3DA7026DEB1C300A2A405 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -385,14 +376,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8BC3DA0D26DDF70100A2A405 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1CC90012F3F8D06CB89E2183 /* Pods_VersionCheck.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8BC3DA6126DEB1A200A2A405 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -531,7 +514,6 @@
 				8BC3DB1326DF3F0F00A2A405 /* CastSurelyCalculation */,
 				8BC3DAEF26DF3C4100A2A405 /* KeyBoardPop */,
 				8BC3DAAB26DEB74A00A2A405 /* RefreshAdapter */,
-				8B620EA326DDF347001E1A9D /* VersionCheck */,
 				8BC3DA8826DEB43500A2A405 /* PlayerDemo */,
 				8BC3DB6C26DF479200A2A405 /* EMERANA */,
 				8BC3DDD226E0617400A2A405 /* JudyLivePageViewCtrl */,
@@ -550,7 +532,6 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8BC3DA2A26DDF70100A2A405 /* VersionCheck.app */,
 				8BC3DA6A26DEB1A200A2A405 /* CacheDemo.app */,
 				8BC3DA8726DEB40300A2A405 /* PlayerDemo.app */,
 				8BC3DAAA26DEB71800A2A405 /* RefreshAdapter.app */,
@@ -639,18 +620,6 @@
 				8B4F5D5D29C46A7B0092AF67 /* Info.plist */,
 			);
 			path = HUD;
-			sourceTree = "<group>";
-		};
-		8B620EA326DDF347001E1A9D /* VersionCheck */ = {
-			isa = PBXGroup;
-			children = (
-				8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */,
-				8BC3DA5A26DE98E800A2A405 /* App.swift */,
-				8BC3DA3026DDFA6E00A2A405 /* Main.storyboard */,
-				8B620EA426DDF347001E1A9D /* VersionCheck-Info.plist */,
-				8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */,
-			);
-			path = VersionCheck;
 			sourceTree = "<group>";
 		};
 		8B76428E25A702C400A418F8 /* Tests */ = {
@@ -922,6 +891,7 @@
 				8BE31B7D29C2D22A003038B2 /* ViewController.swift */,
 				8BF65F6E29C81BBB001E2160 /* CircularProgressViewController.swift */,
 				8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */,
+				8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */,
 				8BE31B7F29C2D22A003038B2 /* Main.storyboard */,
 				8BE31B8229C2D22B003038B2 /* Assets.xcassets */,
 				8BE31B8429C2D22B003038B2 /* LaunchScreen.storyboard */,
@@ -1039,25 +1009,6 @@
 			name = MyIGListKit;
 			productName = MyIGListKit;
 			productReference = 8BC07ADB291660E0006C6CD2 /* MyIGListKit.app */;
-			productType = "com.apple.product-type.application";
-		};
-		8BC3D9F226DDF70100A2A405 /* VersionCheck */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8BC3DA2726DDF70100A2A405 /* Build configuration list for PBXNativeTarget "VersionCheck" */;
-			buildPhases = (
-				8BC3D9F326DDF70100A2A405 /* [CP] Check Pods Manifest.lock */,
-				8BC3D9F426DDF70100A2A405 /* Sources */,
-				8BC3DA0D26DDF70100A2A405 /* Frameworks */,
-				8BC3DA0F26DDF70100A2A405 /* Resources */,
-				8BC3DA2626DDF70100A2A405 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = VersionCheck;
-			productName = EnolaGay;
-			productReference = 8BC3DA2A26DDF70100A2A405 /* VersionCheck.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8BC3DA5C26DEB1A200A2A405 /* CacheDemo */ = {
@@ -1289,9 +1240,6 @@
 						DevelopmentTeam = 325J3J39TM;
 						ProvisioningStyle = Automatic;
 					};
-					8BC3D9F226DDF70100A2A405 = {
-						DevelopmentTeam = 325J3J39TM;
-					};
 					8BC3DA5C26DEB1A200A2A405 = {
 						DevelopmentTeam = 325J3J39TM;
 					};
@@ -1352,7 +1300,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8BC3D9F226DDF70100A2A405 /* VersionCheck */,
 				8BC3DA5C26DEB1A200A2A405 /* CacheDemo */,
 				8BC3DA7926DEB40300A2A405 /* PlayerDemo */,
 				8BC3DA9A26DEB71800A2A405 /* RefreshAdapter */,
@@ -1389,15 +1336,6 @@
 				8BC07AE7291660E2006C6CD2 /* Assets.xcassets in Resources */,
 				8BC07B0C29166266006C6CD2 /* OCRAStd.otf in Resources */,
 				8BC07AE5291660E1006C6CD2 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BC3DA0F26DDF70100A2A405 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8BC3DA3326DDFAAC00A2A405 /* LaunchScreen.xib in Resources */,
-				8BC3DA3226DDFA6E00A2A405 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1659,8 +1597,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demo-EMERANA/Pods-Demo-EMERANA-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay.default-CircularProgressView-EMERANA-Logger/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-CircularProgressView-Core-EMERANA-Logger/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/BadgeHub/BadgeHub.framework",
@@ -1673,8 +1614,11 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BadgeHub.framework",
@@ -1750,56 +1694,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8BC3D9F326DDF70100A2A405 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VersionCheck-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8BC3DA2626DDF70100A2A405 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VersionCheck/Pods-VersionCheck-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-Core-EMERANA-iOS11.0/EnolaGay.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VersionCheck/Pods-VersionCheck-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8BC3DA5D26DEB1A200A2A405 /* [CP] Check Pods Manifest.lock */ = {
@@ -1915,14 +1809,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2063,11 +1957,21 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay.default-CircularProgressView-EMERANA-Logger/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-CircularProgressView-Core-EMERANA-Logger/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2157,15 +2061,6 @@
 				8BC07B07291661C7006C6CD2 /* MySectionController.swift in Sources */,
 				8BC07B08291661C7006C6CD2 /* IGListKitViewController.swift in Sources */,
 				8BC07B0B29166266006C6CD2 /* NSObject+IGListDiffable.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BC3D9F426DDF70100A2A405 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8BC3DA5B26DE98FF00A2A405 /* App.swift in Sources */,
-				8BC3DA2D26DDF88C00A2A405 /* VersionCheckViewCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2268,6 +2163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BF65F6F29C81BBB001E2160 /* CircularProgressViewController.swift in Sources */,
+				8BE5BA7129D44765003E75D5 /* VersionCheckViewCtrl.swift in Sources */,
 				8BF21D8029CD40E800308310 /* AttributedStringViewController.swift in Sources */,
 				8BE31B7E29C2D22A003038B2 /* ViewController.swift in Sources */,
 				8BE31B7A29C2D22A003038B2 /* AppDelegate.swift in Sources */,
@@ -2328,22 +2224,6 @@
 				8BC07AE9291660E2006C6CD2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		8BC3DA2E26DDFA5100A2A405 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8BC3DA2F26DDFA5100A2A405 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		8BC3DA3026DDFA6E00A2A405 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8BC3DA3126DDFA6E00A2A405 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		8BC3DA7226DEB1C300A2A405 /* Main.storyboard */ = {
@@ -2767,40 +2647,6 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		8BC3DA2826DDF70100A2A405 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8180494C14BE15BFE769498 /* Pods-VersionCheck.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				INFOPLIST_FILE = "$(TARGET_NAME)/VersionCheck-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.VersionCheck;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		8BC3DA2926DDF70100A2A405 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4EC94FC87B0219BE0B11D940 /* Pods-VersionCheck.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 325J3J39TM;
-				INFOPLIST_FILE = "$(TARGET_NAME)/VersionCheck-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.VersionCheck;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -3406,15 +3252,6 @@
 			buildConfigurations = (
 				8BC07AEC291660E2006C6CD2 /* Debug */,
 				8BC07AED291660E2006C6CD2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8BC3DA2726DDF70100A2A405 /* Build configuration list for PBXNativeTarget "VersionCheck" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8BC3DA2826DDF70100A2A405 /* Debug */,
-				8BC3DA2926DDF70100A2A405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
