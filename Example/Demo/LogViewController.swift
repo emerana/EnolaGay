@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LogViewController.swift
 //  Demo
 //
 //  Created by 醉翁之意 on 2023/3/16.
@@ -9,7 +9,7 @@
 import UIKit
 import EnolaGay
 
-class ViewController: UIViewController {
+class LogViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

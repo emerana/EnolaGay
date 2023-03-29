@@ -72,7 +72,7 @@
 		8BC3DCC926DF481100A2A405 /* FontViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD826DF480F00A2A405 /* FontViewCtrl.swift */; };
 		8BC3DCCA26DF481100A2A405 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBD926DF480F00A2A405 /* CollectionViewController.swift */; };
 		8BE31B7A29C2D22A003038B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE31B7929C2D22A003038B2 /* AppDelegate.swift */; };
-		8BE31B7E29C2D22A003038B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE31B7D29C2D22A003038B2 /* ViewController.swift */; };
+		8BE31B7E29C2D22A003038B2 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE31B7D29C2D22A003038B2 /* LogViewController.swift */; };
 		8BE31B8129C2D22A003038B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE31B7F29C2D22A003038B2 /* Main.storyboard */; };
 		8BE31B8329C2D22B003038B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE31B8229C2D22B003038B2 /* Assets.xcassets */; };
 		8BE31B8629C2D22B003038B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE31B8429C2D22B003038B2 /* LaunchScreen.storyboard */; };
@@ -240,7 +240,7 @@
 		8BD025F82930D8AB005709D6 /* ToastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToastViewController.swift; path = ../ToastDemo/ToastViewController.swift; sourceTree = "<group>"; };
 		8BE31B7729C2D229003038B2 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BE31B7929C2D22A003038B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8BE31B7D29C2D22A003038B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8BE31B7D29C2D22A003038B2 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		8BE31B8029C2D22A003038B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BE31B8229C2D22B003038B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BE31B8529C2D22B003038B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -673,7 +673,7 @@
 				8BE640E329D47358005D6EEB /* JudyLivePageViewCtrl */,
 				8B682B9729D46DCE00408A8D /* IGListKit */,
 				8BE31B7929C2D22A003038B2 /* AppDelegate.swift */,
-				8BE31B7D29C2D22A003038B2 /* ViewController.swift */,
+				8BE31B7D29C2D22A003038B2 /* LogViewController.swift */,
 				8BC3DAF026DF3C4100A2A405 /* KeyBoardPopUpViewCtrl.swift */,
 				8BF65F6E29C81BBB001E2160 /* CircularProgressViewController.swift */,
 				8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */,
@@ -1384,7 +1384,7 @@
 				8BF21D8029CD40E800308310 /* AttributedStringViewController.swift in Sources */,
 				8BE640E129D47348005D6EEB /* LivePageViewCtrl.swift in Sources */,
 				8B682B9B29D46F8D00408A8D /* NSObject+IGListDiffable.swift in Sources */,
-				8BE31B7E29C2D22A003038B2 /* ViewController.swift in Sources */,
+				8BE31B7E29C2D22A003038B2 /* LogViewController.swift in Sources */,
 				8BE31B7A29C2D22A003038B2 /* AppDelegate.swift in Sources */,
 				8BE5BA7329D45443003E75D5 /* CastSurelyCalculationViewCtrl.swift in Sources */,
 				8BE5BA7629D46898003E75D5 /* GiftMessageViewCtrlTest.swift in Sources */,
