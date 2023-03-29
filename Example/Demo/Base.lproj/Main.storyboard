@@ -190,6 +190,8 @@
                         <segue destination="eSi-Cb-lFe" kind="relationship" relationship="viewControllers" id="e5R-hC-dVP"/>
                         <segue destination="9nx-aH-jhV" kind="relationship" relationship="viewControllers" id="3Y9-Ea-KP3"/>
                         <segue destination="kK6-8r-Ieg" kind="relationship" relationship="viewControllers" id="h4a-QX-F2f"/>
+                        <segue destination="D5V-SX-oeT" kind="relationship" relationship="viewControllers" id="khR-wj-PfS"/>
+                        <segue destination="GR1-v6-AKi" kind="relationship" relationship="viewControllers" id="IFm-qh-VOv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNo-32-Xsu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -623,6 +625,182 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grK-ue-tcE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3607" y="4"/>
+        </scene>
+        <!--Cache View Ctrl-->
+        <scene sceneID="d5H-EL-ArN">
+            <objects>
+                <viewController storyboardIdentifier="CacheViewCtrl" id="Ls6-B1-GNO" customClass="CacheViewCtrl" customModule="CacheDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QvV-2I-GXD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XuY-Im-jeH">
+                                <rect key="frame" x="28" y="296" width="139" height="220"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfT-mf-0zT" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="0.0" width="139" height="30"/>
+                                        <state key="normal" title="保存 user 对象"/>
+                                        <connections>
+                                            <action selector="saveActin:" destination="Ls6-B1-GNO" eventType="touchUpInside" id="AI4-la-EgS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUH-XF-Vxo" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="38" width="139" height="30"/>
+                                        <state key="normal" title="删除 user 对象"/>
+                                        <connections>
+                                            <action selector="deleteActin:" destination="Ls6-B1-GNO" eventType="touchUpInside" id="KG1-4X-vcs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6h-yO-OuY" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="76" width="139" height="30"/>
+                                        <state key="normal" title="获取 user 对象"/>
+                                        <connections>
+                                            <action selector="showActin:" destination="Ls6-B1-GNO" eventType="touchUpInside" id="h61-ea-OiY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Kj-CB-LI3" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="114" width="139" height="30"/>
+                                        <state key="normal" title="删除所有对象"/>
+                                        <connections>
+                                            <action selector="removeAllActin:" destination="Ls6-B1-GNO" eventType="touchUpInside" id="0ar-nE-PSi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8W-H3-45Z" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="152" width="139" height="30"/>
+                                        <state key="normal" title="删除所有过期对象"/>
+                                        <connections>
+                                            <action selector="removeExpiredObjectsActin:" destination="Ls6-B1-GNO" eventType="touchUpInside" id="TmH-61-Ruu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEX-hv-CrY" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="190" width="139" height="30"/>
+                                        <state key="normal" title="获取 user Entry 对象"/>
+                                        <connections>
+                                            <action selector="entryAction:" destination="Ls6-B1-GNO" eventType="touchUpInside" id="ivN-NF-hxn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R01-1S-qrW">
+                                <rect key="frame" x="170" y="119" width="35" height="30"/>
+                                <state key="normal" title="Push"/>
+                                <connections>
+                                    <action selector="pushAction:" destination="Ls6-B1-GNO" eventType="touchUpInside" id="ZMQ-m5-qHl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4S7-xu-apA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XuY-Im-jeH" firstAttribute="leading" secondItem="4S7-xu-apA" secondAttribute="leading" constant="28" id="Lrs-We-utz"/>
+                            <constraint firstItem="XuY-Im-jeH" firstAttribute="centerY" secondItem="QvV-2I-GXD" secondAttribute="centerY" id="QQn-4v-bEd"/>
+                            <constraint firstItem="R01-1S-qrW" firstAttribute="centerX" secondItem="QvV-2I-GXD" secondAttribute="centerX" id="ZYa-LW-gzT"/>
+                            <constraint firstItem="R01-1S-qrW" firstAttribute="top" secondItem="4S7-xu-apA" secondAttribute="top" constant="28" id="alH-FV-nPJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="37J-qw-Gvr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mLy-CZ-0OM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="886" y="1633"/>
+        </scene>
+        <!--Cache-->
+        <scene sceneID="LZr-Fm-Kdx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D5V-SX-oeT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cache" id="uR0-dj-S54"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yb9-aG-0dC">
+                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ls6-B1-GNO" kind="relationship" relationship="rootViewController" id="t9t-98-4s6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5WJ-HU-9wW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25" y="1633"/>
+        </scene>
+        <!--Toast-->
+        <scene sceneID="eXI-KR-NGD">
+            <objects>
+                <viewController id="GR1-v6-AKi" customClass="ToastViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qkx-n8-mzx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vj0-sm-Jvi">
+                                <rect key="frame" x="136" y="65.000000000000014" width="103" height="137.33333333333337"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIz-PQ-FEF">
+                                        <rect key="frame" x="0.0" y="0.0" width="103" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="message1"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJC-t4-BbD">
+                                        <rect key="frame" x="0.0" y="34.333333333333329" width="103" height="34.333333333333329"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="message2"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhG-wp-yoz">
+                                        <rect key="frame" x="0.0" y="68.666666666666657" width="103" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="message3"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vm6-gh-0ds">
+                                        <rect key="frame" x="0.0" y="103" width="103" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="activity"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ASM-PP-LxK">
+                                <rect key="frame" x="0.0" y="666.66666666666663" width="375" height="34.333333333333371"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJs-wa-1UX">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="hideToast"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJ9-3B-PW6">
+                                        <rect key="frame" x="125" y="0.0" width="125" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="hideAllToast"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82T-oM-FNN">
+                                        <rect key="frame" x="250" y="0.0" width="125" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="hideActivity"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2YT-qf-T8Y"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Vj0-sm-Jvi" firstAttribute="centerX" secondItem="qkx-n8-mzx" secondAttribute="centerX" id="1Ew-BX-rOP"/>
+                            <constraint firstItem="Vj0-sm-Jvi" firstAttribute="top" secondItem="2YT-qf-T8Y" secondAttribute="top" constant="18" id="AC2-CE-9k7"/>
+                            <constraint firstAttribute="trailing" secondItem="ASM-PP-LxK" secondAttribute="trailing" id="L3I-Od-54B"/>
+                            <constraint firstItem="ASM-PP-LxK" firstAttribute="leading" secondItem="2YT-qf-T8Y" secondAttribute="leading" id="iAZ-dv-eCq"/>
+                            <constraint firstItem="2YT-qf-T8Y" firstAttribute="bottom" secondItem="ASM-PP-LxK" secondAttribute="bottom" constant="28" id="mLu-fS-5em"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Toast" id="wQR-qa-jzM"/>
+                    <connections>
+                        <outlet property="activityButton" destination="Vm6-gh-0ds" id="ITi-Vw-IUD"/>
+                        <outlet property="hideActivityButton" destination="82T-oM-FNN" id="2kx-ho-gde"/>
+                        <outlet property="hideAllButton" destination="VJ9-3B-PW6" id="NBQ-Tl-vue"/>
+                        <outlet property="hideToastButton" destination="HJs-wa-1UX" id="h8L-5g-gGd"/>
+                        <outlet property="message1Button" destination="oIz-PQ-FEF" id="ci3-4t-JZX"/>
+                        <outlet property="message2Button" destination="mJC-t4-BbD" id="OpM-Gf-YIb"/>
+                        <outlet property="message3Button" destination="rhG-wp-yoz" id="Vnv-cE-VF5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0dl-Dj-8Xv" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4518" y="4"/>
         </scene>
     </scenes>
     <designables>

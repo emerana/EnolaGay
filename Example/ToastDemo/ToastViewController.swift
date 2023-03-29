@@ -11,7 +11,7 @@ import EnolaGay
 import RxSwift
 import RxCocoa
 
-class ViewController: UIViewController {
+class ToastViewController: UIViewController {
     
     @IBOutlet weak private var message1Button: UIButton!
     @IBOutlet weak private var message2Button: UIButton!
