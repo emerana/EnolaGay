@@ -86,9 +86,8 @@ end
 target 'PlayerDemo' do
   platform :ios, '12.0'
 
+  pod 'EnolaGay', :path => '../'
   pod "Player"
-
-  pod 'EnolaGay/EMERANA', :path => '../'
 
 end
 

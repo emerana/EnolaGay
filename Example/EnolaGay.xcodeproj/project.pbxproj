@@ -136,10 +136,6 @@
 		8B1AA67225A74AE60063BE04 /* LivePageViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePageViewCtrl.swift; sourceTree = "<group>"; };
 		8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveModelViewCtrl.swift; sourceTree = "<group>"; };
 		8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCheckViewCtrl.swift; sourceTree = "<group>"; };
-		8B372D08268E9F3E004840FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8B372D09268E9F3E004840FC /* rescheduler.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rescheduler.gif; sourceTree = "<group>"; };
-		8B372D1A268EA104004840FC /* MandolineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MandolineViewController.swift; sourceTree = "<group>"; };
-		8B372D1C268EA105004840FC /* Mandoline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mandoline.storyboard; sourceTree = "<group>"; };
 		8B3BD1DC27014EB2001912FB /* DownloadViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewCtrl.swift; sourceTree = "<group>"; };
 		8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTestViewCtrl.swift; sourceTree = "<group>"; };
 		8B4A4DEA266F0B8B007D6DC5 /* DouYin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DouYin.storyboard; sourceTree = "<group>"; };
@@ -404,7 +400,6 @@
 		607FACD21AFB9204008FA782 /* Example for EnolaGay */ = {
 			isa = PBXGroup;
 			children = (
-				8B372D13268EA06F004840FC /* Mandoline */,
 				8B4A4DE9266F0B7B007D6DC5 /* DouYinHome */,
 				8BFCC83125E385F9000B1611 /* 垂直轮播图 */,
 				8B76428E25A702C400A418F8 /* Tests */,
@@ -423,33 +418,6 @@
 				5D849979F9CC82D37AB0E47D /* LICENSE */,
 			);
 			name = "Podspec Metadata";
-			sourceTree = "<group>";
-		};
-		8B372CFD268E9F3E004840FC /* Mandoline */ = {
-			isa = PBXGroup;
-			children = (
-				8B372D07268E9F3E004840FC /* Assets */,
-			);
-			path = Mandoline;
-			sourceTree = "<group>";
-		};
-		8B372D07268E9F3E004840FC /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				8B372D08268E9F3E004840FC /* Assets.xcassets */,
-				8B372D09268E9F3E004840FC /* rescheduler.gif */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		8B372D13268EA06F004840FC /* Mandoline */ = {
-			isa = PBXGroup;
-			children = (
-				8B372CFD268E9F3E004840FC /* Mandoline */,
-				8B372D1C268EA105004840FC /* Mandoline.storyboard */,
-				8B372D1A268EA104004840FC /* MandolineViewController.swift */,
-			);
-			path = Mandoline;
 			sourceTree = "<group>";
 		};
 		8B4A4DE9266F0B7B007D6DC5 /* DouYinHome */ = {
@@ -1177,7 +1145,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-Core-EMERANA-iOS12.0/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-iOS12.0/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/Player/Player.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1220,7 +1188,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-iOS11.0/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";

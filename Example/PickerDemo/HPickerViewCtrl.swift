@@ -34,14 +34,13 @@ class HPickerViewCtrl: JudyBaseViewCtrl {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = UIColor.white
         
         setUpUI()
-        
     }
     
     fileprivate func setUpUI() {
-        
         // 1.数据源
         let titleArray = ["Judy", "EnolaGay", "emerana", "浙江温州", "江南皮革厂", "倒闭了"]
         for (i,title) in titleArray.enumerated() {
@@ -61,7 +60,6 @@ class HPickerViewCtrl: JudyBaseViewCtrl {
         
         pickerScollView.seletedIndex = 0
         pickerScollView.scollToSelectdIndex(0)
-        
     }
     
 }
@@ -106,7 +104,6 @@ extension HPickerViewCtrl: MLPickerScrollViewDataSource,MLPickerScrollViewDelega
 
 
 class MLDemoItem: MLPickerItem {
-
 
     public var title: String? {
         didSet{

@@ -10,7 +10,7 @@ import UIKit
 import EnolaGay
 import Player
 
-class VideoCell: JudyBaseTableCell {
+class VideoCell: UITableViewCell {
     
     // MARK: - public var property
     
@@ -21,14 +21,9 @@ class VideoCell: JudyBaseTableCell {
     /// - 请在 didEndDisplaying cell 函数中将该值设为 true.
     var isDisAppear = true {
         didSet {
-            log(type: .💧, "和和")
             log("isDisAppear 被设为：\(isDisAppear)，此时播放器状态为：\(player.playbackState.description)")
-            // 需要暂停播放
-            if isDisAppear {
-                player.pause()
-            } else {
-                player.playFromCurrentTime()
-            }
+            // 暂停播放，或者继续播放
+            isDisAppear ? player.pause() : player.playFromCurrentTime()
         }
     }
     
@@ -47,7 +42,7 @@ class VideoCell: JudyBaseTableCell {
     fileprivate var player = Player()
 
     /// 播放按钮。
-    @IBOutlet weak var playerButton: JudyBaseButton!
+    @IBOutlet weak var playerButton: UIButton!
     
     // MARK: - life cycle
     
@@ -100,7 +95,7 @@ extension VideoCell: PlayerDelegate {
         case .playing:
             playerButton.isHidden = true
         case .paused, .failed, .stopped:
-            playerButton.show()
+            playerButton.isHidden = false
         }
     }
     
@@ -131,8 +126,8 @@ extension VideoCell: PlayerPlaybackDelegate {
     
     func playerPlaybackWillLoop(_ player: Player) {
     }
-
+    
     func playerPlaybackDidLoop(_ player: Player) {
     }
+    
 }
-

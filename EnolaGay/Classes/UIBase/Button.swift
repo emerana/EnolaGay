@@ -113,7 +113,6 @@ public extension UIButton {
     
     /// 以动画的方式显示该按钮
     func show() {
-        
         guard isHidden == true else { return }
         
         isHidden = false
@@ -130,8 +129,8 @@ public extension UIButton {
         
         layer.add(scaleAnimation, forKey: "scale")
         layer.add(opacityAnimation, forKey: "opacity")
-        
     }
+    
 }
 
 
@@ -163,7 +162,6 @@ public extension UIButton {
     /// - Warning: 在设置字体、文本、尺寸大小后需要重新调用此函数已确保正确将图片显示在文本上方
     /// - Parameter spacing: 图片与文本的间隔，默认0，此属性决定了图片和文字各偏移spacing/2.
     func setImageTop(spacing: CGFloat = 0) {
-        
         guard imageView != nil, titleLabel != nil, titleLabel?.text != nil else { return }
         /*
          修复日志：
