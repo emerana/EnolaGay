@@ -9,6 +9,7 @@
 import UIKit
 import EnolaGay
 
+/// 送礼物控制面板
 class GiftMessageViewCtrlTest: UIViewController {
         
     @IBOutlet weak var giftMessageViewPanel: GiftMessageCtrlPanel!

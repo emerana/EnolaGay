@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ygh-4J-Cgf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ygh-4J-Cgf">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -186,6 +186,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="fSa-fr-GEY" kind="relationship" relationship="viewControllers" id="1Hp-UN-G7V"/>
                         <segue destination="qTJ-hK-9BM" kind="relationship" relationship="viewControllers" id="Bmn-uf-esC"/>
                         <segue destination="GR1-v6-AKi" kind="relationship" relationship="viewControllers" id="IFm-qh-VOv"/>
                         <segue destination="D5V-SX-oeT" kind="relationship" relationship="viewControllers" id="khR-wj-PfS"/>
@@ -193,7 +194,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="sp5-I4-oyP"/>
                         <segue destination="kK6-8r-Ieg" kind="relationship" relationship="viewControllers" id="h4a-QX-F2f"/>
                         <segue destination="eSi-Cb-lFe" kind="relationship" relationship="viewControllers" id="e5R-hC-dVP"/>
-                        <segue destination="fSa-fr-GEY" kind="relationship" relationship="viewControllers" id="1Hp-UN-G7V"/>
                         <segue destination="j0X-yt-X74" kind="relationship" relationship="viewControllers" id="c1l-nF-EIy"/>
                         <segue destination="2YO-8L-p8f" kind="relationship" relationship="viewControllers" id="20m-pt-puk"/>
                         <segue destination="6dp-HZ-Zg7" kind="relationship" relationship="viewControllers" id="3uM-cf-6jK"/>
@@ -212,7 +212,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2X9-NE-kMr">
-                                <rect key="frame" x="20" y="74.999999999999986" width="335" height="133.66666666666663"/>
+                                <rect key="frame" x="20" y="77.999999999999986" width="335" height="133.66666666666663"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥38" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFX-rK-Hof">
                                         <rect key="frame" x="0.0" y="0.0" width="38" height="20.333333333333332"/>
@@ -281,7 +281,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="XLE-CW-ASQ">
-                                <rect key="frame" x="16" y="55" width="343" height="96"/>
+                                <rect key="frame" x="16" y="58" width="343" height="96"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Nn-Bj-8f3">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="34"/>
@@ -337,7 +337,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npn-mG-ZU2" customClass="JudyBaseButton" customModule="EnolaGay">
-                                <rect key="frame" x="114" y="209" width="147" height="34"/>
+                                <rect key="frame" x="114" y="212" width="147" height="34"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <inset key="contentEdgeInsets" minX="58" minY="8" maxX="58" maxY="8"/>
                                 <state key="normal" title="查询">
@@ -353,7 +353,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRk-ve-jAk" customClass="JudyBaseLabel" customModule="EnolaGay">
-                                <rect key="frame" x="16" y="271" width="343" height="20.333333333333314"/>
+                                <rect key="frame" x="16" y="274" width="343" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemPurpleColor"/>
                                 <nil key="highlightedColor"/>
@@ -541,7 +541,7 @@
                     <tabBarItem key="tabBarItem" title="按钮事件" id="J3H-Oq-Z0X"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="THs-Rk-5rk">
-                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -562,7 +562,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lLe-Xe-oIX">
-                                <rect key="frame" x="18" y="65" width="339" height="58"/>
+                                <rect key="frame" x="18" y="68" width="339" height="58"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入金额" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2QM-g4-EV5" customClass="JudyHoshiTextField" customModule="EnolaGay">
                                         <rect key="frame" x="0.0" y="0.0" width="273" height="58"/>
@@ -603,7 +603,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5g-be-qbo" customClass="JudyBaseLabel" customModule="EnolaGay">
-                                <rect key="frame" x="18" y="151" width="339" height="0.0"/>
+                                <rect key="frame" x="18" y="154" width="339" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -687,7 +687,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R01-1S-qrW">
-                                <rect key="frame" x="170" y="119" width="35" height="30"/>
+                                <rect key="frame" x="170" y="122" width="35" height="30"/>
                                 <state key="normal" title="Push"/>
                                 <connections>
                                     <action selector="pushAction:" destination="Ls6-B1-GNO" eventType="touchUpInside" id="ZMQ-m5-qHl"/>
@@ -716,7 +716,7 @@
                     <tabBarItem key="tabBarItem" title="Cache" id="uR0-dj-S54"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yb9-aG-0dC">
-                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -737,7 +737,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vj0-sm-Jvi">
-                                <rect key="frame" x="136" y="65.000000000000014" width="103" height="137.33333333333337"/>
+                                <rect key="frame" x="136" y="68.000000000000014" width="103" height="137.33333333333337"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIz-PQ-FEF">
                                         <rect key="frame" x="0.0" y="0.0" width="103" height="34.333333333333336"/>
@@ -854,7 +854,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJt-9N-PZe" customClass="GiftMessageCtrlPanel" customModule="EnolaGay">
-                                <rect key="frame" x="0.0" y="91" width="375" height="350"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="347"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -914,7 +914,7 @@
                     <tabBarItem key="tabBarItem" title="送礼" id="Cxq-X7-Hz0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bHd-lB-zrH">
-                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -935,7 +935,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="jQA-k9-pXL">
-                                <rect key="frame" x="8" y="55" width="359" height="46.666666666666657"/>
+                                <rect key="frame" x="8" y="58" width="359" height="46.666666666666657"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="剩余火车票：100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTB-36-C1w">
                                         <rect key="frame" x="113.66666666666669" y="0.0" width="132" height="20.333333333333332"/>
@@ -1093,7 +1093,7 @@
                     <tabBarItem key="tabBarItem" title="IGList" id="cQC-6G-eeG"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="d3O-QO-0df">
-                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -1110,7 +1110,7 @@
                 <navigationController title="传统的使用方式" id="6dp-HZ-Zg7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="LivePageView" id="qU9-lh-bsR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nel-1U-j6w">
-                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -1130,7 +1130,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huJ-WX-jUQ">
-                                <rect key="frame" x="0.0" y="91" width="375" height="638"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="635"/>
                                 <connections>
                                     <segue destination="EOz-eR-Zlt" kind="embed" identifier="loadJudyLivePageViewCtrl" id="Wza-N6-vJ5"/>
                                 </connections>

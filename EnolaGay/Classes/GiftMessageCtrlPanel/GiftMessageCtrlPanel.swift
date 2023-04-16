@@ -1,6 +1,6 @@
 //
-//  JudyWaterWaveView.swift
-//  WaterWave
+//  GiftMessageCtrlPanel.swift
+//  直播间送礼物控制系统
 //
 //  Created by 王仁洁 on 2018/9/20.
 //  Copyright © 2018年 EMERANA. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// 直播间送礼物控制面板
+/// 直播间刷礼物控制面板
 ///
 /// 通过 profferGiftMessageView() 函数送出一个礼物，该礼物将显示在当前 View 上。
 open class GiftMessageCtrlPanel: UIView {
@@ -40,17 +40,19 @@ open class GiftMessageCtrlPanel: UIView {
     /// 往上飘（消失过程的）动画时长，默认 3 秒
     public var disappearDuration: TimeInterval = 3
     
+    /// 当前队列中的礼物对象数量
+    private(set) var queueCount = 0
+
     /// 存储所有正在显示的礼物消息视图 view.
     private var giftViews = [GiftView]()
     /// giftView 的桩点，只有存在 giftViewAnchors 里面的桩点才能显示 giftView.
     private var giftViewAnchors = [CGPoint]()
     
     /// 最多允许多少个线程同时访问共享资源或者同时执行多少个任务，任务数量取决于 maxGiftViewCount
-    /// - Warning: semaphore 处于 wait() 时， 若释放引起崩溃(EXC_BAD_INSTRUCTION)，需在释放前将当前信号量值大于等于初始信号量值
+    /// - Warning: semaphore 处于 wait() 时， 若释放引起崩溃(EXC_BAD_INSTRUCTION)，需在释放前将确保当前信号量值大于等于初始信号量值
     private var semaphore = DispatchSemaphore(value: 3)
     // 一个用于执行礼物动画的并发队列
-    private let giftMessageQueue = DispatchQueue(label: "GiftMessageCtrlPanel", attributes: .concurrent)
-    
+    private let giftMessageQueue = DispatchQueue(label: "GiftMessageCtrlPanel", qos: DispatchQoS.default, attributes: .concurrent)
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -68,18 +70,19 @@ open class GiftMessageCtrlPanel: UIView {
     }
 
     open override func didMoveToWindow() {
-        // window 为 nil，控制面板被移除啦
+        // window 为 nil，说明控制面板被移除啦
         if window == nil {
-            for _ in 1...maxGiftViewCount {
+            guard queueCount > 0 else { return }
+            for _ in 1...queueCount {
                 semaphore.signal()
             }
         } else {
-            // 控制面板被添加到屏幕上了。")
+            // 控制面板被添加到屏幕上了
         }
     }
+
     
-    
-    /// 通过该函数送出一个 GiftView，即送出一个礼物
+    /// 该函数将送出一个 GiftView，即送出一个礼物。
     ///
     /// 该函数会优先确认暴击条件函数 critConditionsClosure，如果送出的礼物符合暴击条件将不会弹出新 GiftView.
     /// - Parameter giftView: 要显示的 giftView
@@ -102,28 +105,29 @@ open class GiftMessageCtrlPanel: UIView {
             }
         }
         giftMessageQueue.async { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.semaphore.wait()
+            guard let `self` = self else { return }
+            self.queueCount += 1
+            self.semaphore.wait()   // 此处等待信号量 +1 后放行下面的代码
             DispatchQueue.main.async {
-                strongSelf.showGiftView(giftView: giftView)
+                self.showGiftView(giftView: giftView)
             }
         }
     }
 
     deinit {
-        // Judy.logHappy("GiftMessageCtrlPanel 已经释放。")
+        logHappy("GiftMessageCtrlPanel 已经释放")
     }
 }
 
 // MARK: - 私有扩展函数
 private extension GiftMessageCtrlPanel {
     
-    /// 将目标 GiftView 以动画方式并排好队列显示在 containerView 容器视图中，此函数请务必在 main 线程运行
+    /// 弹出一个 GiftView 对象，将以动画方式并排好队列显示在控制面板视图中，此函数请务必在 main 线程运行
     func showGiftView(giftView: GiftView) {
         // 配置 giftView 基础信息
         giftView.defaultWaitTime = duringShow
-        giftView.completeHandle = { view in
-            self.dismissGiftView(giftView: view)
+        giftView.completeHandle = { [weak self] view in
+            self?.dismissGiftView(giftView: view)
         }
 
         // 将 giftView 插入到 containerView 上方，同时存储到 giftViews 中
@@ -158,7 +162,7 @@ private extension GiftMessageCtrlPanel {
         
     }
     
-    /// 动画将指定 giftView 移除
+    /// 移除一个指定的 GiftView 对象
     func dismissGiftView(giftView: GiftView) {
         // 先释放信号量，不必非得等到 giftView 移除后再释放
         if let index = giftViews.lastIndex(of: giftView) {
@@ -166,6 +170,7 @@ private extension GiftMessageCtrlPanel {
             giftViewAnchors.append(giftView.center)
         }
         semaphore.signal()
+        queueCount -= 1
 
         /// 往上飘气泡移动轨迹路径
         let travelPath = UIBezierPath()
@@ -211,7 +216,7 @@ private extension GiftMessageCtrlPanel {
  
  */
 
-/// 直播间刷礼物弹出的消息视图
+/// 直播间刷礼物弹出的具体消息视图（即礼物视图）
 open class GiftView: UIView {
     /// 计时器完成的事件处理，通过此函数执行将本视图移除的相关操作。
     var completeHandle: ((GiftView)->Void)?
