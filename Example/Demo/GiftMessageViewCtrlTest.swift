@@ -17,9 +17,9 @@ class GiftMessageViewCtrlTest: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        giftMessageViewPanel.critConditionsClosure = { (oldGiftView, showGiftView) in
-//            return true
-//        }
+        giftMessageViewPanel.critConditionsClosure = { (oldGiftView, showGiftView) in
+            return true
+        }
         
         var index = 1
         giftMessageViewPanel.criticalStrikeAction = { gifView in

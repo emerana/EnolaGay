@@ -18,20 +18,20 @@ open class GiftMessageCtrlPanel: UIView {
     /// 每个 GiftView 显示的时长，默认为 3 秒，该时间过后即释放该 GiftView.
     @IBInspectable public var duringShow: Int = 3
     /// 最多同时显示的 giftView 数量，默认为 3.
-    @IBInspectable public var maxGiftViewCount: Int = 3 {
+    @IBInspectable public var maxShowCount: Int = 3 {
         didSet {
-            if maxGiftViewCount > 0 {
-                semaphore = DispatchSemaphore(value: maxGiftViewCount)
+            if maxShowCount > 0 {
+                semaphore = DispatchSemaphore(value: maxShowCount)
             }
         }
     }
 
-    /// 询问目标 GiftView 对象成立暴击的条件
+    /// 询问目标 GiftView 对象是否成立暴击
     ///
     /// 通过比较两个 GiftView 判断是否为需要暴击的 GiftView，其中，第一个参数为已存在的 GiftView，第二个参数为要送出去的 GiftView，若需要暴击请实现 criticalStrikeAction 函数
-    public var critConditionsClosure: ((_ oldGiftView: GiftView, _ showGiftView: GiftView)->(Bool))?
-    /// 当发生暴击事件时通过此匿名函数更新被暴击的 giftView（更新已存在的礼物视图）
-    public var criticalStrikeAction: ((GiftView)->Void)?
+    public var critConditionsClosure: ((_ oldGiftView: GiftView, _ showGiftView: GiftView) -> (Bool))?
+    /// 暴击动作，当发生暴击事件时通过此匿名函数更新被暴击的 giftView（更新已存在的礼物视图）。
+    public var criticalStrikeAction: ((GiftView) -> Void)?
     
     /// 同屏显示的礼物间距，默认 10.
     public var giftViewSpace = 10
@@ -91,14 +91,14 @@ open class GiftMessageCtrlPanel: UIView {
         if critConditionsClosure != nil {
             /// 查找需要暴击的 giftView 索引
             var critConditionsIndex: Int? = nil
-            let existlist = giftViews.enumerated().filter { (index, oldGiftView) -> Bool in
+            let existList = giftViews.enumerated().filter { (index, oldGiftView) -> Bool in
                 /// 是否符合暴击条件
                 let isEeligible = critConditionsClosure!(oldGiftView, giftView)
                 if isEeligible { critConditionsIndex = index }
                 return isEeligible
             }
             // 判断是否存在相同特性的 GiftView,如果存在则直接触发暴击
-            guard existlist.isEmpty else {
+            guard existList.isEmpty else {
                 criticalStrikeAction?(giftViews[critConditionsIndex!])
                 giftViews[critConditionsIndex!].criticalStrike()
                 return
@@ -259,7 +259,7 @@ open class GiftView: UIView {
         }
     }
     
-    /// 发生暴击事件（显示相同的已存在礼物视图）时重置 waitTime.
+    /// 发生暴击事件（显示相同的已存在礼物视图）时必须调用此函数以重置 waitTime.
     final func criticalStrike() { waitTime = defaultWaitTime }
     
     /// 结束倒计时，并将计时器设为无效
