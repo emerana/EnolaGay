@@ -14,6 +14,7 @@ PODS:
     - EnolaGay/EMERANA
   - EnolaGay/HUD (4.0.9)
   - EnolaGay/JudyPopBubble (4.0.9)
+  - EnolaGay/JudyWaterWaveView (4.0.9)
   - EnolaGay/KeyboardHelper (4.0.9)
   - EnolaGay/Logger (4.0.9)
   - EnolaGay/SegmentedView (4.0.9):
@@ -56,6 +57,7 @@ DEPENDENCIES:
   - EnolaGay/HPickerView (from `../`)
   - EnolaGay/HUD (from `../`)
   - EnolaGay/JudyPopBubble (from `../`)
+  - EnolaGay/JudyWaterWaveView (from `../`)
   - EnolaGay/KeyboardHelper (from `../`)
   - EnolaGay/Logger (from `../`)
   - EnolaGay/SegmentedView (from `../`)
@@ -116,6 +118,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: 7794752df16f90f62cd0066580723aff4cb96b79
+PODFILE CHECKSUM: 15014035e29f20c6530b6b74c9061e17e3982fa5
 
 COCOAPODS: 1.12.0

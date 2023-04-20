@@ -100,18 +100,28 @@ import UIKit
 }
 
 // MARK: 公开函数
-
 public extension JudyWaterWaveView {
-    
-    /// 停止动画
-    func stop() {
-        disPlayLink.invalidate()
-    }
     
     /// 开始动画
     func star() {
         disPlayLink.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
     }
+    
+    /// 暂停动画
+    func paused() {
+        disPlayLink.isPaused = true
+    }
+
+    /// 继续动画
+    func `continue`() {
+        disPlayLink.isPaused = false
+    }
+
+    /// 停止动画
+    func stop() {
+        disPlayLink.invalidate()
+    }
+    
 }
 
 // MARK: 私有函数
