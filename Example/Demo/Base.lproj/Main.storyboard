@@ -270,18 +270,40 @@
                                     <constraint firstAttribute="width" secondItem="Jd3-9k-3up" secondAttribute="height" id="EVc-JC-bd8"/>
                                 </constraints>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.10000000000000001" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="2ov-y0-ezi">
+                                <rect key="frame" x="26" y="683" width="323" height="47"/>
+                                <connections>
+                                    <action selector="speedChanged:" destination="Gbe-52-YGB" eventType="valueChanged" id="y7f-aZ-ZbF"/>
+                                </connections>
+                            </slider>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="太极图" translatesAutoresizingMaskIntoConstraints="NO" id="p8B-sx-Gkx">
+                                <rect key="frame" x="27.666666666666657" y="335" width="320" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="p8B-sx-Gkx" secondAttribute="height" multiplier="1:1" id="S0i-BG-rp4"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="diW-Eh-rna"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                         <constraints>
+                            <constraint firstItem="2ov-y0-ezi" firstAttribute="leading" secondItem="diW-Eh-rna" secondAttribute="leading" constant="28" id="9QK-kK-UvK"/>
+                            <constraint firstItem="diW-Eh-rna" firstAttribute="trailing" secondItem="2ov-y0-ezi" secondAttribute="trailing" constant="28" id="GgL-hL-LBl"/>
                             <constraint firstItem="Jd3-9k-3up" firstAttribute="centerX" secondItem="9Yh-om-Uwb" secondAttribute="centerX" id="OoM-f7-k7d"/>
+                            <constraint firstItem="p8B-sx-Gkx" firstAttribute="centerX" secondItem="9Yh-om-Uwb" secondAttribute="centerX" id="Se6-g4-wMe"/>
+                            <constraint firstItem="2ov-y0-ezi" firstAttribute="bottom" secondItem="diW-Eh-rna" secondAttribute="bottom" id="a7E-bI-s3R"/>
+                            <constraint firstItem="p8B-sx-Gkx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="diW-Eh-rna" secondAttribute="leading" constant="18" id="eAI-ED-w3a"/>
+                            <constraint firstItem="p8B-sx-Gkx" firstAttribute="top" secondItem="Jd3-9k-3up" secondAttribute="bottom" constant="28" id="ocW-8c-7wx"/>
+                            <constraint firstItem="2ov-y0-ezi" firstAttribute="centerX" secondItem="9Yh-om-Uwb" secondAttribute="centerX" id="oed-oG-2DW"/>
                             <constraint firstItem="Jd3-9k-3up" firstAttribute="top" secondItem="9Yh-om-Uwb" secondAttribute="top" constant="68" id="td4-wY-OXh"/>
+                            <constraint firstItem="2ov-y0-ezi" firstAttribute="top" secondItem="p8B-sx-Gkx" secondAttribute="bottom" constant="28" id="uyO-QY-FKW"/>
                             <constraint firstItem="Jd3-9k-3up" firstAttribute="leading" secondItem="diW-Eh-rna" secondAttribute="leading" constant="68" id="v6Y-8x-Mq9"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="WaterWaveView" id="flY-RE-RTa"/>
                     <navigationItem key="navigationItem" id="EmS-4x-7iV"/>
                     <connections>
+                        <outlet property="imageView" destination="p8B-sx-Gkx" id="cc7-90-RIk"/>
+                        <outlet property="speedSlider" destination="2ov-y0-ezi" id="PgB-cW-hhe"/>
                         <outlet property="wateerView" destination="Jd3-9k-3up" id="BQo-xg-XYU"/>
                     </connections>
                 </viewController>
@@ -350,8 +372,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="太极图" width="320" height="320"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

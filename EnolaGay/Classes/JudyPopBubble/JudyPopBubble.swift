@@ -105,6 +105,7 @@ public class JudyPopBubble {
         
         // 气泡冒出动画
         UIView.animate(withDuration: bubble_animate_showDuration, delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: UIView.AnimationOptions.curveEaseOut) {
+            // 还原
             bubbleImageView.transform = CGAffineTransform.identity
             bubbleImageView.alpha = 1
         } completion: { isCompletion in }

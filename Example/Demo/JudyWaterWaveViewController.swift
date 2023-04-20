@@ -14,10 +14,20 @@ class JudyWaterWaveViewController: UIViewController {
 
     @IBOutlet weak var wateerView: JudyWaterWaveView!
     
+    /// 太极图
+    @IBOutlet weak private var imageView: UIImageView!
+    @IBOutlet weak private var speedSlider: UISlider!
+    
+    // 1. 创建动画
+    private let rotationAnim = CABasicAnimation(keyPath: EMERANA.Key.keypath.rotation)
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        rotateText()
         wateerView.star()
+
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -36,6 +46,16 @@ class JudyWaterWaveViewController: UIViewController {
         wateerView.stop()
     }
     
+    @IBAction private func speedChanged(_ sender: Any) {
+        // 更新转速，即转一圈所需要的时间
+        rotationAnim.duration = CFTimeInterval((sender as! UISlider).value)
+        imageView.layer.add(rotationAnim, forKey: EMERANA.Key.keypath.rotation) // 给需要旋转的 view 增加动画
+//        textView.layer.duration = rotationAnim.duration
+        // imageView.layer.animation(forKey: "Judy")?.repeatDuration = CFTimeInterval((sender as! UISlider).value)
+//        CABasicAnimation
+        
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -46,4 +66,24 @@ class JudyWaterWaveViewController: UIViewController {
     }
     */
 
+}
+
+private extension JudyWaterWaveViewController {
+    
+    func rotateText() {
+//        // 1. 创建动画
+//        let rotationAnim = CABasicAnimation(keyPath: EMERANA.Key.keypath.rotation)
+        
+        // 2. 设置动画属性
+        rotationAnim.fromValue = 0 // 开始角度
+        rotationAnim.toValue = Double.pi * 2 // 结束角度
+        rotationAnim.repeatCount = MAXFLOAT // 重复次数,无限次
+
+        rotationAnim.duration = 6 // 转一圈所需要的时间
+        rotationAnim.isRemovedOnCompletion = false // 默认是true，切换到其他控制器再回来，动画效果会消失，需要设置成false，动画就不会停了
+        // 还原动画
+        // textView.transform = .identity//CGAffineTransformIdentity
+
+        imageView.layer.add(rotationAnim, forKey: "Judy") // 给需要旋转的 view 增加动画
+    }
 }

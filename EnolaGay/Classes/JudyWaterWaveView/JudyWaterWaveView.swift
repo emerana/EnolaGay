@@ -12,11 +12,11 @@ import UIKit
 /// 波浪动画 View
 @IBDesignable open class JudyWaterWaveView: UIView {
     
-    /** 进度，已用容量百分比。默认为60% */
+    /** 进度，已用容量百分比。默认为 60% */
     @IBInspectable public var 进度: CGFloat = 0.6
     /** 曲线(波浪)振幅 */
     @IBInspectable public var 振幅: CGFloat = 6
-    /** 是否为正圆，如果该View长宽不等则不会设置正圆。默认为true */
+    /** 是否为正圆，如果该 View 长宽不等则不会设置正圆。默认为 true */
     @IBInspectable public var 正圆: Bool = true
     /** 底层波浪颜色，最先被添加到layer上的波浪的颜色 */
     @IBInspectable public var 底层波浪颜色: UIColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 0.5)
@@ -63,7 +63,7 @@ import UIKit
         layer.addSublayer(底层Layer)
         layer.addSublayer(顶层Layer)
         
-        //角速度
+        // 角速度
         /*
          决定波的宽度和周期，比如，我们可以看到上面的例子中是一个周期的波曲线，
          一个波峰、一个波谷，如果我们想在0到2π这个距离显示2个完整的波曲线，那么周期就是π
