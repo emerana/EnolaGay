@@ -51,6 +51,8 @@ import UIKit
     open override func awakeFromNib() {
         super.awakeFromNib()
         
+//        #colorLiteral(red: 0.9019607843, green: 0, blue: 0.07058823529, alpha: 1)
+        backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.68)
         // 设定两条波浪的颜色
         底层Layer.fillColor = 底层波浪颜色.cgColor
         底层Layer.strokeColor = 底层波浪颜色.cgColor
@@ -75,8 +77,6 @@ import UIKit
         
         //以屏幕刷新速度为周期刷新曲线的位置
         disPlayLink = CADisplayLink.init(target: self, selector: #selector(waveAnimation(link:)))
-        //        disPlayLink.add(to: RunLoop.main, forMode: .commonModes)
-        
     }
     
     open override func layoutSubviews() {
@@ -135,7 +135,7 @@ private extension JudyWaterWaveView {
         startWaveAnimation() // 波浪轨迹和动画
     }
     
-    // 更新偏距的大小 直到达到目标偏距 让wave有一个匀速增长的效果
+    // 更新偏距的大小 直到达到目标偏距 让 wave 有一个匀速增长的效果
     func updateWaveY() {
         let targetY: CGFloat = bounds.height - 进度 * bounds.height
         if (waveY < targetY) {
