@@ -69,8 +69,7 @@ class JudyWaterWaveViewController: UIViewController {
         default:
             rotationAnim.duration = 10
         }
-        
-        imageView.layer.add(rotationAnim, forKey: EMERANA.Key.keypath.rotation)        
+        imageView.layer.add(rotationAnim, forKey: EMERANA.Key.keypath.rotation)
     }
     
     /*
@@ -99,7 +98,7 @@ private extension JudyWaterWaveViewController {
         rotationAnim.duration = 6 // 转一圈所需要的时间
         rotationAnim.isRemovedOnCompletion = false // 默认是true，切换到其他控制器再回来，动画效果会消失，需要设置成false，动画就不会停了
         // 还原动画
-        // textView.transform = .identity//CGAffineTransformIdentity
+        // imageView.transform = .identity//CGAffineTransformIdentity
 
         imageView.layer.add(rotationAnim, forKey: "Judy") // 给需要旋转的 view 增加动画
     }
