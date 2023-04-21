@@ -87,14 +87,14 @@ class JudyWaterWaveViewController: UIViewController {
 private extension JudyWaterWaveViewController {
     
     func rotateText() {
-//        // 1. 创建动画
-//        let rotationAnim = CABasicAnimation(keyPath: EMERANA.Key.keypath.rotation)
+        // 1. 创建动画
+        // let rotationAnim = CABasicAnimation(keyPath: EMERANA.Key.keypath.rotation)
         
         // 2. 设置动画属性
         rotationAnim.fromValue = 0 // 开始角度
         rotationAnim.toValue = Double.pi * 2 // 结束角度
         rotationAnim.repeatCount = MAXFLOAT // 重复次数,无限次
-
+        
         rotationAnim.duration = 6 // 转一圈所需要的时间
         rotationAnim.isRemovedOnCompletion = false // 默认是true，切换到其他控制器再回来，动画效果会消失，需要设置成false，动画就不会停了
         // 还原动画

@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="18D-eD-UfF">
-                                        <rect key="frame" x="0.0" y="8" width="375" height="500"/>
+                                        <rect key="frame" x="0.0" y="8" width="375" height="669.33333333333337"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYu-bn-cpy">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="34.333333333333336"/>
@@ -118,6 +118,26 @@
                                                 <connections>
                                                     <segue destination="omp-SA-9nC" kind="show" id="SFQ-jc-uZN"/>
                                                 </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igu-nJ-rff">
+                                                <rect key="frame" x="0.0" y="507.99999999999994" width="375" height="34.333333333333314"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="键盘动画"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Req-DV-uP3">
+                                                <rect key="frame" x="0.0" y="550.33333333333337" width="375" height="34.333333333333371"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="键盘动画"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJF-oq-Vnd">
+                                                <rect key="frame" x="0.0" y="592.66666666666663" width="375" height="34.333333333333371"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="键盘动画"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cp-GM-GrS">
+                                                <rect key="frame" x="0.0" y="635" width="375" height="34.333333333333371"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="键盘动画"/>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -256,15 +276,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jd3-9k-3up" customClass="JudyWaterWaveView" customModule="EnolaGay">
-                                <rect key="frame" x="143.66666666666666" y="68" width="88" height="88"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <rect key="frame" x="123.66666666666669" y="68" width="128" height="128"/>
+                                <color key="backgroundColor" red="0.94325709339999997" green="0.65781731139999999" blue="0.5006688507" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jd3-9k-3up" secondAttribute="height" id="EVc-JC-bd8"/>
-                                    <constraint firstAttribute="width" constant="88" id="GAT-cA-o2u"/>
+                                    <constraint firstAttribute="width" constant="128" id="GAT-cA-o2u"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="太极图" translatesAutoresizingMaskIntoConstraints="NO" id="p8B-sx-Gkx">
-                                <rect key="frame" x="103.66666666666669" y="184" width="168" height="168"/>
+                                <rect key="frame" x="103.66666666666669" y="224" width="168" height="168"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="p8B-sx-Gkx" secondAttribute="height" multiplier="1:1" id="S0i-BG-rp4"/>
                                     <constraint firstAttribute="width" constant="168" id="clp-q2-aX8"/>
@@ -381,9 +401,6 @@
         <image name="太极图" width="320" height="320"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
