@@ -99,7 +99,7 @@ private extension JudyWaterWaveViewController {
         rotationAnim.isRemovedOnCompletion = false // 默认是true，切换到其他控制器再回来，动画效果会消失，需要设置成false，动画就不会停了
         // 还原动画
         // imageView.transform = .identity//CGAffineTransformIdentity
-
+        // imageView.transform = CGAffineTransform.identity
         imageView.layer.add(rotationAnim, forKey: "Judy") // 给需要旋转的 view 增加动画
     }
 }
