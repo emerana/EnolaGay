@@ -52,7 +52,7 @@ import UIKit
         super.awakeFromNib()
         
 //        #colorLiteral(red: 0.9019607843, green: 0, blue: 0.07058823529, alpha: 1)
-        backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.68)
+        backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.28)
         // 设定两条波浪的颜色
         底层Layer.fillColor = 底层波浪颜色.cgColor
         底层Layer.strokeColor = 底层波浪颜色.cgColor
@@ -84,9 +84,7 @@ import UIKit
         
         // 正圆设置
         if 正圆 {
-            if bounds.width == bounds.height {
-                layer.cornerRadius = bounds.size.width/2.0
-            }
+            layer.cornerRadius = min(bounds.width, bounds.height)/2.0
         }
         layer.masksToBounds = true
     }

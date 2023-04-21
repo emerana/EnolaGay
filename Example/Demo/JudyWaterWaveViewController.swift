@@ -16,7 +16,6 @@ class JudyWaterWaveViewController: UIViewController {
     
     /// 太极图
     @IBOutlet weak private var imageView: UIImageView!
-    @IBOutlet weak private var speedSlider: UISlider!
     
     // 1. 创建动画
     private let rotationAnim = CABasicAnimation(keyPath: EMERANA.Key.keypath.rotation)
@@ -47,13 +46,31 @@ class JudyWaterWaveViewController: UIViewController {
     }
     
     @IBAction private func speedChanged(_ sender: Any) {
+        let value = CFTimeInterval((sender as! UISlider).value)
+        
         // 更新转速，即转一圈所需要的时间
-        rotationAnim.duration = CFTimeInterval((sender as! UISlider).value)
+        rotationAnim.duration = 1/value
         imageView.layer.add(rotationAnim, forKey: EMERANA.Key.keypath.rotation) // 给需要旋转的 view 增加动画
 //        textView.layer.duration = rotationAnim.duration
         // imageView.layer.animation(forKey: "Judy")?.repeatDuration = CFTimeInterval((sender as! UISlider).value)
 //        CABasicAnimation
         
+    }
+    
+    /// 转速变更事件
+    @IBAction func rpmChanged(_ sender: Any) {
+        switch (sender as! UISegmentedControl).selectedSegmentIndex {
+        case 1:
+            rotationAnim.duration = 1/60
+        case 2:
+            rotationAnim.duration = 1/90
+        case 3:
+            rotationAnim.duration = 1/120
+        default:
+            rotationAnim.duration = 10
+        }
+        
+        imageView.layer.add(rotationAnim, forKey: EMERANA.Key.keypath.rotation)        
     }
     
     /*

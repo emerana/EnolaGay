@@ -264,52 +264,66 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jd3-9k-3up" customClass="JudyWaterWaveView" customModule="EnolaGay">
-                                <rect key="frame" x="68" y="68" width="239" height="239"/>
+                                <rect key="frame" x="143.66666666666666" y="68" width="88" height="88"/>
                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jd3-9k-3up" secondAttribute="height" id="EVc-JC-bd8"/>
+                                    <constraint firstAttribute="width" constant="88" id="GAT-cA-o2u"/>
                                 </constraints>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.10000000000000001" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="2ov-y0-ezi">
-                                <rect key="frame" x="26" y="683" width="323" height="47"/>
-                                <connections>
-                                    <action selector="speedChanged:" destination="Gbe-52-YGB" eventType="valueChanged" id="y7f-aZ-ZbF"/>
-                                </connections>
-                            </slider>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="太极图" translatesAutoresizingMaskIntoConstraints="NO" id="p8B-sx-Gkx">
-                                <rect key="frame" x="27.666666666666657" y="335" width="320" height="320"/>
+                                <rect key="frame" x="103.66666666666669" y="184" width="168" height="168"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="p8B-sx-Gkx" secondAttribute="height" multiplier="1:1" id="S0i-BG-rp4"/>
+                                    <constraint firstAttribute="width" constant="168" id="clp-q2-aX8"/>
                                 </constraints>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="FvR-q5-F8Y">
+                                <rect key="frame" x="8" y="622" width="359" height="79"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yAF-Yl-h4c">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="32"/>
+                                        <segments>
+                                            <segment title="正常"/>
+                                            <segment title="60"/>
+                                            <segment title="90"/>
+                                            <segment title="120"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="rpmChanged:" destination="Gbe-52-YGB" eventType="valueChanged" id="V7Q-af-g6r"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="90" translatesAutoresizingMaskIntoConstraints="NO" id="2ov-y0-ezi">
+                                        <rect key="frame" x="-2" y="49" width="363" height="31"/>
+                                        <connections>
+                                            <action selector="speedChanged:" destination="Gbe-52-YGB" eventType="valueChanged" id="y7f-aZ-ZbF"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="diW-Eh-rna"/>
                         <color key="backgroundColor" systemColor="systemGrayColor"/>
                         <constraints>
-                            <constraint firstItem="2ov-y0-ezi" firstAttribute="leading" secondItem="diW-Eh-rna" secondAttribute="leading" constant="28" id="9QK-kK-UvK"/>
-                            <constraint firstItem="diW-Eh-rna" firstAttribute="trailing" secondItem="2ov-y0-ezi" secondAttribute="trailing" constant="28" id="GgL-hL-LBl"/>
+                            <constraint firstItem="diW-Eh-rna" firstAttribute="bottom" secondItem="FvR-q5-F8Y" secondAttribute="bottom" constant="28" id="4se-EE-tif"/>
                             <constraint firstItem="Jd3-9k-3up" firstAttribute="centerX" secondItem="9Yh-om-Uwb" secondAttribute="centerX" id="OoM-f7-k7d"/>
+                            <constraint firstItem="diW-Eh-rna" firstAttribute="trailing" secondItem="FvR-q5-F8Y" secondAttribute="trailing" constant="8" id="RyM-bg-Dw3"/>
                             <constraint firstItem="p8B-sx-Gkx" firstAttribute="centerX" secondItem="9Yh-om-Uwb" secondAttribute="centerX" id="Se6-g4-wMe"/>
-                            <constraint firstItem="2ov-y0-ezi" firstAttribute="bottom" secondItem="diW-Eh-rna" secondAttribute="bottom" id="a7E-bI-s3R"/>
-                            <constraint firstItem="p8B-sx-Gkx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="diW-Eh-rna" secondAttribute="leading" constant="18" id="eAI-ED-w3a"/>
+                            <constraint firstItem="FvR-q5-F8Y" firstAttribute="leading" secondItem="diW-Eh-rna" secondAttribute="leading" constant="8" id="bmw-xV-9sK"/>
                             <constraint firstItem="p8B-sx-Gkx" firstAttribute="top" secondItem="Jd3-9k-3up" secondAttribute="bottom" constant="28" id="ocW-8c-7wx"/>
-                            <constraint firstItem="2ov-y0-ezi" firstAttribute="centerX" secondItem="9Yh-om-Uwb" secondAttribute="centerX" id="oed-oG-2DW"/>
                             <constraint firstItem="Jd3-9k-3up" firstAttribute="top" secondItem="9Yh-om-Uwb" secondAttribute="top" constant="68" id="td4-wY-OXh"/>
-                            <constraint firstItem="2ov-y0-ezi" firstAttribute="top" secondItem="p8B-sx-Gkx" secondAttribute="bottom" constant="28" id="uyO-QY-FKW"/>
-                            <constraint firstItem="Jd3-9k-3up" firstAttribute="leading" secondItem="diW-Eh-rna" secondAttribute="leading" constant="68" id="v6Y-8x-Mq9"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="WaterWaveView" id="flY-RE-RTa"/>
                     <navigationItem key="navigationItem" id="EmS-4x-7iV"/>
                     <connections>
                         <outlet property="imageView" destination="p8B-sx-Gkx" id="cc7-90-RIk"/>
-                        <outlet property="speedSlider" destination="2ov-y0-ezi" id="PgB-cW-hhe"/>
                         <outlet property="wateerView" destination="Jd3-9k-3up" id="BQo-xg-XYU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVQ-GI-3Fq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="918" y="-2623"/>
+            <point key="canvasLocation" x="917.60000000000002" y="-2623.152709359606"/>
         </scene>
         <!--CircularProgress-->
         <scene sceneID="yOF-IU-jin">
