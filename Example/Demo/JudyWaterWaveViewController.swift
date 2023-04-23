@@ -11,7 +11,7 @@ import EnolaGay
 
 /// 水波纹动画
 class JudyWaterWaveViewController: UIViewController {
-
+    
     @IBOutlet weak var wateerView: JudyWaterWaveView!
     
     /// 太极图
@@ -26,9 +26,9 @@ class JudyWaterWaveViewController: UIViewController {
 
         rotateText()
         wateerView.star()
-
+        
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -37,10 +37,10 @@ class JudyWaterWaveViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
+        
         wateerView.paused()
     }
-
+    
     deinit {
         wateerView.stop()
     }
@@ -51,9 +51,6 @@ class JudyWaterWaveViewController: UIViewController {
         // 更新转速，即转一圈所需要的时间
         rotationAnim.duration = 1/value
         imageView.layer.add(rotationAnim, forKey: EMERANA.Key.keypath.rotation) // 给需要旋转的 view 增加动画
-//        textView.layer.duration = rotationAnim.duration
-        // imageView.layer.animation(forKey: "Judy")?.repeatDuration = CFTimeInterval((sender as! UISlider).value)
-//        CABasicAnimation
         
     }
     
@@ -72,16 +69,16 @@ class JudyWaterWaveViewController: UIViewController {
         imageView.layer.add(rotationAnim, forKey: EMERANA.Key.keypath.rotation)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // 开关事件
+    @IBAction private func switchAction(_ sender: Any) {
+        if (sender as! UISwitch).isOn {
+            resumeRotate()
+        } else {
+            pauseRotate()
+        }
+        
     }
-    */
-
+    
 }
 
 private extension JudyWaterWaveViewController {
@@ -93,13 +90,53 @@ private extension JudyWaterWaveViewController {
         // 2. 设置动画属性
         rotationAnim.fromValue = 0 // 开始角度
         rotationAnim.toValue = Double.pi * 2 // 结束角度
-        rotationAnim.repeatCount = MAXFLOAT // 重复次数,无限次
+        // rotationAnim.repeatCount = MAXFLOAT // 重复次数,无限次
         
+        // 将这个属性设置为greatestFiniteMagnitude会导致动画一直重复下去
+        rotationAnim.repeatCount = .greatestFiniteMagnitude
+        // 一个可选的定时函数，定义动画的节奏
+        // rotationAnim.timingFunction = CAMediaTimingFunction(name: .easeOut)
+
         rotationAnim.duration = 6 // 转一圈所需要的时间
-        rotationAnim.isRemovedOnCompletion = false // 默认是true，切换到其他控制器再回来，动画效果会消失，需要设置成false，动画就不会停了
+        // 默认是true，切换到其他控制器再回来，动画效果会消失，需要设置成false，动画就不会停了
+        rotationAnim.isRemovedOnCompletion = false
+        
+        rotationAnim.delegate = self
         // 还原动画
-        // imageView.transform = .identity//CGAffineTransformIdentity
+        // imageView.transform = .identity
         // imageView.transform = CGAffineTransform.identity
-        imageView.layer.add(rotationAnim, forKey: "Judy") // 给需要旋转的 view 增加动画
+        imageView.layer.add(rotationAnim, forKey: EMERANA.Key.keypath.rotation) // 给需要旋转的 view 增加动画
     }
+    
+    
+    /// 暂停动画
+    func pauseRotate() {
+        let pauseTime = imageView.layer.convertTime(CACurrentMediaTime(), from: nil)
+        imageView.layer.speed = 0.0
+        imageView.layer.timeOffset = pauseTime
+    }
+    
+    /// 继续动画
+    func resumeRotate() {
+        let pauseTime = imageView.layer.timeOffset
+        imageView.layer.speed = 1.0
+        imageView.layer.timeOffset = 0.0
+        imageView.layer.beginTime = 0.0
+        let timeSincePause = imageView.layer.convertTime(CACurrentMediaTime(), from: nil) - pauseTime
+        imageView.layer.beginTime = timeSincePause
+    }
+
+
+}
+
+extension JudyWaterWaveViewController: CAAnimationDelegate {
+    
+    func animationDidStart(_ anim: CAAnimation) {
+        log("动画开始")
+    }
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        log("动画停止: finished - \(flag)")
+    }
+    
 }

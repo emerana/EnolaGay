@@ -291,10 +291,16 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="FvR-q5-F8Y">
-                                <rect key="frame" x="8" y="622" width="359" height="79"/>
+                                <rect key="frame" x="8" y="572.66666666666663" width="359" height="128.33333333333337"/>
                                 <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bcd-hb-DpZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="31"/>
+                                        <connections>
+                                            <action selector="switchAction:" destination="Gbe-52-YGB" eventType="valueChanged" id="e2f-BW-C00"/>
+                                        </connections>
+                                    </switch>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yAF-Yl-h4c">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="32"/>
+                                        <rect key="frame" x="0.0" y="49" width="359" height="32"/>
                                         <segments>
                                             <segment title="正常"/>
                                             <segment title="60"/>
@@ -306,7 +312,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="90" translatesAutoresizingMaskIntoConstraints="NO" id="2ov-y0-ezi">
-                                        <rect key="frame" x="-2" y="49" width="363" height="31"/>
+                                        <rect key="frame" x="-2" y="98.333333333333371" width="363" height="31"/>
                                         <connections>
                                             <action selector="speedChanged:" destination="Gbe-52-YGB" eventType="valueChanged" id="y7f-aZ-ZbF"/>
                                         </connections>
