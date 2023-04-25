@@ -72,9 +72,10 @@ class JudyWaterWaveViewController: UIViewController {
     // 开关事件
     @IBAction private func switchAction(_ sender: Any) {
         if (sender as! UISwitch).isOn {
-            resumeRotate()
+            imageView.layer.resumeAnimation()
+
         } else {
-            pauseRotate()
+            imageView.layer.pauseAnimation()
         }
         
     }
@@ -90,10 +91,10 @@ private extension JudyWaterWaveViewController {
         // 2. 设置动画属性
         rotationAnim.fromValue = 0 // 开始角度
         rotationAnim.toValue = Double.pi * 2 // 结束角度
-        // rotationAnim.repeatCount = MAXFLOAT // 重复次数,无限次
-        
-        // 将这个属性设置为greatestFiniteMagnitude会导致动画一直重复下去
+
+        // 将这个属性设置为 greatestFiniteMagnitude 会导致动画一直重复下去
         rotationAnim.repeatCount = .greatestFiniteMagnitude
+        
         // 一个可选的定时函数，定义动画的节奏
         // rotationAnim.timingFunction = CAMediaTimingFunction(name: .easeOut)
 
@@ -108,25 +109,6 @@ private extension JudyWaterWaveViewController {
         imageView.layer.add(rotationAnim, forKey: EMERANA.Key.keypath.rotation) // 给需要旋转的 view 增加动画
     }
     
-    
-    /// 暂停动画
-    func pauseRotate() {
-        let pauseTime = imageView.layer.convertTime(CACurrentMediaTime(), from: nil)
-        imageView.layer.speed = 0.0
-        imageView.layer.timeOffset = pauseTime
-    }
-    
-    /// 继续动画
-    func resumeRotate() {
-        let pauseTime = imageView.layer.timeOffset
-        imageView.layer.speed = 1.0
-        imageView.layer.timeOffset = 0.0
-        imageView.layer.beginTime = 0.0
-        let timeSincePause = imageView.layer.convertTime(CACurrentMediaTime(), from: nil) - pauseTime
-        imageView.layer.beginTime = timeSincePause
-    }
-
-
 }
 
 extension JudyWaterWaveViewController: CAAnimationDelegate {
@@ -137,6 +119,31 @@ extension JudyWaterWaveViewController: CAAnimationDelegate {
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         log("动画停止: finished - \(flag)")
+    }
+    
+}
+
+// MARK: - 直接给 Layer 添加一个分类 外界可以通过 layer 很方便的调用对应的方法
+extension CALayer {
+
+    /// 暂停动画
+    func pauseAnimation() {
+        let pauseTime = convertTime(CACurrentMediaTime(), from: nil)
+        speed = 0.0
+        timeOffset = pauseTime
+    }
+    
+    /// 从暂停中恢复动画
+    func resumeAnimation() {
+        // 1.取出时间
+        let pauseTime = timeOffset
+        // 2.设置动画的属性
+        speed = 1.0
+        timeOffset = 0.0
+        beginTime = 0.0
+        // 3.设置开始动画
+        let startTime = convertTime(CACurrentMediaTime(), from: nil) - pauseTime
+        beginTime = startTime
     }
     
 }
