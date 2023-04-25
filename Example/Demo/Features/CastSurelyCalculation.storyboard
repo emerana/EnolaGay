@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X86-t3-AOA">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--定投计算-->
+        <scene sceneID="RZQ-jM-Yyw">
+            <objects>
+                <viewController id="X86-t3-AOA" customClass="CastSurelyCalculationViewCtrl" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q82-Se-reC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CTj-ox-23f">
+                                <rect key="frame" x="18" y="68" width="339" height="58"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入金额" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jyA-m1-Pgw" customClass="JudyHoshiTextField" customModule="EnolaGay">
+                                        <rect key="frame" x="0.0" y="0.0" width="301" height="58"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" systemColor="systemGreenColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.97647058819999999" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.4549019608" green="0.38431372549999998" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="X86-t3-AOA" id="yYl-yX-b78"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcE-q5-A8H" customClass="JudyBaseButton" customModule="EnolaGay">
+                                        <rect key="frame" x="309" y="0.0" width="30" height="58"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="计算"/>
+                                        <connections>
+                                            <action selector="calculationAction:" destination="X86-t3-AOA" eventType="touchUpInside" id="1cJ-Qj-0l9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="ksI-FB-WVG"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yM-Zj-beq" customClass="JudyBaseLabel" customModule="EnolaGay">
+                                <rect key="frame" x="18" y="154" width="339" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AAX-AM-eX5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CTj-ox-23f" firstAttribute="top" secondItem="AAX-AM-eX5" secondAttribute="top" constant="18" id="2Yx-QY-4a7"/>
+                            <constraint firstItem="5yM-Zj-beq" firstAttribute="leading" secondItem="CTj-ox-23f" secondAttribute="leading" id="5fv-9V-OPo"/>
+                            <constraint firstItem="5yM-Zj-beq" firstAttribute="trailing" secondItem="CTj-ox-23f" secondAttribute="trailing" id="DPo-fv-VPp"/>
+                            <constraint firstItem="AAX-AM-eX5" firstAttribute="trailing" secondItem="CTj-ox-23f" secondAttribute="trailing" constant="18" id="LtP-HD-im5"/>
+                            <constraint firstItem="CTj-ox-23f" firstAttribute="leading" secondItem="AAX-AM-eX5" secondAttribute="leading" constant="18" id="dG8-P6-Ehd"/>
+                            <constraint firstItem="5yM-Zj-beq" firstAttribute="top" secondItem="CTj-ox-23f" secondAttribute="bottom" constant="28" id="xqm-cQ-JQk"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="定投计算" id="uZd-rI-hD2"/>
+                    <navigationItem key="navigationItem" id="3Xb-Ku-xlR"/>
+                    <connections>
+                        <outlet property="detailLabel" destination="5yM-Zj-beq" id="6qe-RE-uL6"/>
+                        <outlet property="inputTextField" destination="jyA-m1-Pgw" id="ZvR-EP-S6s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S1K-Ki-hEe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2950" y="-3141"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="jyA-m1-Pgw">
+            <size key="intrinsicContentSize" width="92" height="23.333333333333332"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

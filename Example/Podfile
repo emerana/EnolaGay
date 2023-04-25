@@ -4,11 +4,25 @@ use_frameworks!
 platform :ios, '11.0'
 
 target 'Demo' do
-  pod 'EnolaGay', :path => '../'
+
   pod 'EnolaGay/EMERANA', :path => '../'
   pod 'EnolaGay/Logger', :path => '../'
   pod 'EnolaGay/CircularProgressView', :path => '../'
+  pod 'EnolaGay/TextFieldEffects', :path => '../'
+  pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
+  pod 'EnolaGay/JudyPopBubble' , :path => '../'
+  pod 'EnolaGay/JudyWaterWaveView' , :path => '../'
   
+  pod 'SwiftyJSON'
+  pod 'Alamofire'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+
+  pod 'EnolaGay/KeyboardHelper', :path => '../'
+
+  pod 'Cache'
+  pod 'IGListKit'
+
   #  pod 'EnolaGay/TextFieldEffects', :path => '../'
   #  pod 'EnolaGay/JudyPopBubble', :path => '../'
   #  pod 'EnolaGay/JudyPlusButtonTabBar', :path => '../'
@@ -53,14 +67,6 @@ end
 
 # MARK: - 独立为 target 安装 pod，不继承主工程已安装的 pod.
 
-# MARK: ToastDemo
-
-target 'ToastDemo' do
-  pod 'EnolaGay', :path => '../'
-  pod 'RxSwift'
-  pod 'RxCocoa'
-
-end
 
 # MARK: PickerDemo
 target 'PickerDemo' do
@@ -75,33 +81,14 @@ target 'HUD' do
   pod 'EnolaGay/HUD', :path => '../'
 end
 
-# MARK: VersionCheck
-
-target 'VersionCheck' do
-  pod 'EnolaGay/EMERANA', :path => '../'
-  pod 'SwiftyJSON'
-  pod 'Alamofire'
-  pod 'RxSwift'
-  pod 'RxCocoa'
-end
-
-
-# MARK: CacheDemo
-
-target 'CacheDemo' do
-  pod 'EnolaGay', :path => '../'
-  pod 'Cache'
-end
-
 
 # MARK: PlayerDemo
 
 target 'PlayerDemo' do
   platform :ios, '12.0'
 
+  pod 'EnolaGay', :path => '../'
   pod "Player"
-
-  pod 'EnolaGay/EMERANA', :path => '../'
 
 end
 
@@ -115,36 +102,6 @@ target 'RefreshAdapter' do
 end
 
 
-# MARK: KeyBoardPop
-
-target 'KeyBoardPop' do
-  pod 'EnolaGay/Logger', :path => '../'
-  pod 'EnolaGay/KeyboardHelper', :path => '../'
-end
-
-
-# MARK: CastSurelyCalculation
-
-target 'CastSurelyCalculation' do
-  pod 'EnolaGay/EMERANA', :path => '../'
-end
-
-# MARK: GifEffectsDemo 送礼物控制面板、烟花爆炸特效
-
-target 'GifEffectsDemo' do
-  pod 'EnolaGay/EMERANA' , :path => '../'
-  pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
-  pod 'EnolaGay/JudyPopBubble' , :path => '../'
-  
-end
-
-
-# MARK: JudyLivePageViewCtrl
-
-target 'JudyLivePageViewCtrl' do
-  pod 'EnolaGay/EMERANA', :path => '../'
-end
-
 ## MARK: AGUL
 #
 #target 'AGUL' do
@@ -155,11 +112,3 @@ end
 #  pod 'SwiftMessages'
 #  pod 'SDWebImage'
 #end
-
-
-# MARK: MyIGListKit
-
-target 'MyIGListKit' do
-  pod 'EnolaGay/Logger', :path => '../'
-  pod 'IGListKit', '~> 4.0.0'
-end

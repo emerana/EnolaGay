@@ -10,7 +10,6 @@ import UIKit
 // 使 UIImage 接受命名空间兼容类型协议
 extension UIImage: EnolaGayCompatible { }
 
-
 // MARK: - 使 UIApplication 接受命名空间兼容类型协议
 extension UIApplication: EnolaGayCompatible { }
 
@@ -825,3 +824,70 @@ public extension EnolaGayAdapter {
     func navigationBarItemsColor() -> UIColor { .systemBlue }
 }
 
+public extension EMERANA.Key {
+    
+    /// CABasicAnimation 中的常用 keypath
+    ///
+    /// ```
+    /// // 大小比例
+    /// let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
+    /// layer.add(scaleAnimation, forKey: "scale")
+    /// ```
+    struct keypath {
+        /// 大小比例
+        public static let scale = "transform.scale"
+        /// 宽的比例转换
+        public static let scaleX = "transform.scale.x"
+        /// 高的比例转换
+        public static let scaleY = "transform.scale.y"
+        /// 平面的旋转
+        public static let rotation = "transform.rotation.z"
+        /// 透明度
+        public static let opacity = "opacity"
+        /// 布局
+        public static let margin = "margin"
+        /// 翻转
+        public static let zPosition = "zPosition"
+        /// 背景颜色
+        public static let backgroundColor = "backgroundColor"
+        /// 圆角
+        public static let cornerRadius = "cornerRadius"
+        /// 边框宽
+        public static let borderWidth = "borderWidth"
+        /// 大小
+        public static let bounds = "bounds"
+        /// 内容
+        public static let contents = "contents"
+        /// 内容大小
+        public static let contentsRect = "contentsRect"
+        /// 大小位置
+        public static let frame = "frame"
+        /// 显示隐藏
+        public static let hidden = "hidden"
+    }
+    
+    /*
+     抖动动画：
+     let ani: CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "transform.rotation")
+     ani.values = [-Double.pi/1804,Double.pi/1804,-Double.pi/180*4]
+     ani.repeatCount = 3
+     imgView.layer.add(ani, forKey: "shakeAnimation")
+
+
+     CABasicAnimation 中常用的 keypath 值：
+     // 大小比例
+     let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
+     layer.add(scaleAnimation, forKey: "scale")
+
+     mask
+     masksToBounds
+     opacity
+     position
+     shadowColor
+     shadowOffset
+     shadowOpacity
+     shadowRadius
+     
+     */
+
+}

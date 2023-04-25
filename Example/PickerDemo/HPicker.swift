@@ -17,6 +17,7 @@ protocol MLPickerScrollViewDelegate: AnyObject {
     /// 改变-非-中心位置的Item样式
     func itemForIndexBack(item: MLPickerItem)
 }
+
 extension MLPickerScrollViewDelegate {
 
     func pickerScrollView(menuScrollView: HPicker, didSelecteItemAtIndex index: NSInteger) {}
@@ -77,7 +78,7 @@ class HPicker: UIView {
     /// 刷新数据
     open func reloadData() {
         // remove.
-        items.forEach { $0.removeFromSuperview()}
+        items.forEach { $0.removeFromSuperview() }
         items.removeAll()
         
         // create

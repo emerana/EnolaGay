@@ -10,9 +10,12 @@ import UIKit
 import EnolaGay
 import AVFAudio
 
-class MyPlayerViewCtrl: JudyBaseTableViewCtrl {
-    override var viewTitle: String? { "Player" }
+class MyPlayerViewCtrl: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    private var dataSource = [String]()
+    
     /// 当前正播放视频的 Cell.
     private(set) var currentPlayerCell: VideoCell? {
         didSet {
@@ -23,13 +26,19 @@ class MyPlayerViewCtrl: JudyBaseTableViewCtrl {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView?.dataSource = self
+        tableView?.delegate = self
+        
+        registerReuseComponents()
+        
         // 手机静音模式下依然播放声音。
         try! AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
 
         setDataSoruce()
     }
 
-    override func registerReuseComponents() {
+    func registerReuseComponents() {
         let nib = UINib(nibName: "VideoCell", bundle: nil)
         tableView?.register(nib, forCellReuseIdentifier: EMERANA.Key.cell)
     }
@@ -37,6 +46,7 @@ class MyPlayerViewCtrl: JudyBaseTableViewCtrl {
 }
 
 extension MyPlayerViewCtrl {
+    
     func setDataSoruce() {
         dataSource = [
             "https://video.jingmaiwang.com/smallvideo/-1_20210413161440.mp4",
@@ -61,10 +71,16 @@ extension MyPlayerViewCtrl {
             "https://video.jingmaiwang.com/smallvideo/-1_20210426085627.mp4",
         ]
     }
+    
 }
 
-extension MyPlayerViewCtrl {
-    // 明确预估高度。
+extension MyPlayerViewCtrl: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        dataSource.count
+    }
+    
+    // 明确预估高度
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         // viewDidLoad 中执行 tableView?.scrollToRow 后，
         // 导致上下切换 Cell 还会残留上一个 Cell 问题，
@@ -77,9 +93,9 @@ extension MyPlayerViewCtrl {
     }
     
     /// 询问指定 indexPath 的 cell 实例，默认取 identifier 为 cell 的实例。
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = super.tableView(tableView, cellForRowAt: indexPath)  as! VideoCell
-        cell.videoURL = (dataSource as! [String])[indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! VideoCell
+        cell.videoURL = dataSource[indexPath.row]
         cell.selectionStyle = .none
         
         return cell
@@ -88,7 +104,7 @@ extension MyPlayerViewCtrl {
 
 
 // MARK: - tableView delegate
-extension MyPlayerViewCtrl {
+extension MyPlayerViewCtrl: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         logs("Cell \(indexPath.row) 显示，并开始播放。")
@@ -108,9 +124,9 @@ extension MyPlayerViewCtrl {
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as? VideoCell
-        cell?.isDisAppear = !cell!.isDisAppear
+        cell?.isDisAppear.toggle()// = !cell!.isDisAppear
     }
 
 }

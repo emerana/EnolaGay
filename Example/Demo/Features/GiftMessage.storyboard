@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u1F-sL-v43">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="xpz-0r-k7X">
+            <objects>
+                <viewController id="u1F-sL-v43" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TLL-EJ-J8B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NJ-CA-Vib">
+                                <rect key="frame" x="172.66666666666666" y="391" width="30" height="30"/>
+                                <state key="normal" title="Go"/>
+                                <connections>
+                                    <segue destination="Vwc-dc-dSo" kind="show" id="mNl-VS-nz5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jzl-2r-12t">
+                                <rect key="frame" x="133.66666666666666" y="625" width="108" height="30"/>
+                                <state key="normal" title="信号量崩溃测试"/>
+                                <connections>
+                                    <segue destination="n7n-Gi-taH" kind="show" id="PBp-ib-tJ3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1fL-YC-wSe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Jzl-2r-12t" firstAttribute="centerX" secondItem="2NJ-CA-Vib" secondAttribute="centerX" id="FA5-hn-x5d"/>
+                            <constraint firstItem="2NJ-CA-Vib" firstAttribute="centerY" secondItem="TLL-EJ-J8B" secondAttribute="centerY" id="RNr-uN-fQ7"/>
+                            <constraint firstItem="2NJ-CA-Vib" firstAttribute="centerX" secondItem="TLL-EJ-J8B" secondAttribute="centerX" id="Yit-Xa-3cD"/>
+                            <constraint firstItem="Jzl-2r-12t" firstAttribute="top" secondItem="2NJ-CA-Vib" secondAttribute="bottom" constant="204" id="dlX-Di-4dP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="S9u-ia-e6z"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D2R-6a-NxM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5689" y="-4403"/>
+        </scene>
+        <!--送礼物测试-->
+        <scene sceneID="4yl-C1-tCp">
+            <objects>
+                <viewController title="送礼物测试" id="Vwc-dc-dSo" customClass="GiftMessageViewCtrlTest" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ea1-IP-NSZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="802"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WzU-7N-DJf" customClass="GiftMessageCtrlPanel" customModule="EnolaGay">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="514"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.22352941179999999" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfl-Lf-zJD">
+                                <rect key="frame" x="141.66666666666666" y="694" width="92" height="40"/>
+                                <state key="normal" title="发送一个礼物"/>
+                                <connections>
+                                    <action selector="sendGiftAction:" destination="Vwc-dc-dSo" eventType="touchUpInside" id="pLw-He-Uvc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nvs-b9-tRZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nvs-b9-tRZ" firstAttribute="bottom" secondItem="sfl-Lf-zJD" secondAttribute="bottom" constant="68" id="2eo-LP-JAW"/>
+                            <constraint firstItem="sfl-Lf-zJD" firstAttribute="centerX" secondItem="ea1-IP-NSZ" secondAttribute="centerX" id="2zK-6w-K2J"/>
+                            <constraint firstItem="sfl-Lf-zJD" firstAttribute="top" secondItem="WzU-7N-DJf" secondAttribute="bottom" constant="180" id="GZq-my-s0j"/>
+                            <constraint firstItem="WzU-7N-DJf" firstAttribute="top" secondItem="nvs-b9-tRZ" secondAttribute="top" id="ZEj-kI-5rP"/>
+                            <constraint firstItem="nvs-b9-tRZ" firstAttribute="bottom" secondItem="WzU-7N-DJf" secondAttribute="bottom" constant="288" id="iRS-nB-azS"/>
+                            <constraint firstItem="WzU-7N-DJf" firstAttribute="trailing" secondItem="nvs-b9-tRZ" secondAttribute="trailing" id="kUf-NW-bb1"/>
+                            <constraint firstItem="WzU-7N-DJf" firstAttribute="leading" secondItem="nvs-b9-tRZ" secondAttribute="leading" id="pWM-n5-RG3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="eKD-Ud-Fhm"/>
+                    <connections>
+                        <outlet property="giftMessageViewPanel" destination="WzU-7N-DJf" id="24P-zC-Hyb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="daA-UV-LBR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6561" y="-4403"/>
+        </scene>
+        <!--Crash Test View Ctrl-->
+        <scene sceneID="SE0-KR-BZA">
+            <objects>
+                <viewController id="n7n-Gi-taH" customClass="CrashTestViewCtrl" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J6L-xa-zR9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="802"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="sjd-GZ-6sH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jQx-Rq-Bus"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o7F-st-Cm8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5689" y="-3622"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

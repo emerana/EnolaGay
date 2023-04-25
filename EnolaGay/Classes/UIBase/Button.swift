@@ -81,39 +81,9 @@ private extension JudyBaseButton {
 
 // MARK: - 显示的效果
 public extension UIButton {
-    /*
-     常用的keypath值：
-
-     transform.scale = 大小比例
-     transform.scale.x = 宽的比例转换
-     transform.scale.y = 高的比例转换
-     transform.rotation.z = 平面的旋转
-     opacity = 透明度
-     margin = 布局
-     zPosition = 翻转
-     backgroundColor = 背景颜色
-     cornerRadius = 圆角
-     borderWidth = 边框宽
-     bounds = 大小
-     contents = 内容
-     contentsRect = 内容大小
-     cornerRadius = 圆角
-     frame = 大小位置
-     hidden = 显示隐藏
-     mask
-     masksToBounds
-     opacity
-     position
-     shadowColor
-     shadowOffset
-     shadowOpacity
-     shadowRadius
-     
-     */
     
     /// 以动画的方式显示该按钮
     func show() {
-        
         guard isHidden == true else { return }
         
         isHidden = false
@@ -130,8 +100,8 @@ public extension UIButton {
         
         layer.add(scaleAnimation, forKey: "scale")
         layer.add(opacityAnimation, forKey: "opacity")
-        
     }
+    
 }
 
 
@@ -163,7 +133,6 @@ public extension UIButton {
     /// - Warning: 在设置字体、文本、尺寸大小后需要重新调用此函数已确保正确将图片显示在文本上方
     /// - Parameter spacing: 图片与文本的间隔，默认0，此属性决定了图片和文字各偏移spacing/2.
     func setImageTop(spacing: CGFloat = 0) {
-        
         guard imageView != nil, titleLabel != nil, titleLabel?.text != nil else { return }
         /*
          修复日志：

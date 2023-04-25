@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XfZ-tf-utT">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Circular Progress View Controller-->
+        <scene sceneID="xSQ-5V-cwo">
+            <objects>
+                <viewController id="XfZ-tf-utT" customClass="CircularProgressViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cjo-kK-IpC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qx2-qf-g8o" customClass="CircularProgressView" customModule="EnolaGay">
+                                <rect key="frame" x="143.66666666666666" y="362" width="88" height="88"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="圆形进度条" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqY-Fs-5nB">
+                                        <rect key="frame" x="13.333333333333346" y="37" width="61.333333333333343" height="14.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstItem="AqY-Fs-5nB" firstAttribute="centerX" secondItem="qx2-qf-g8o" secondAttribute="centerX" id="3PO-dj-zTE"/>
+                                    <constraint firstAttribute="height" constant="88" id="46h-1F-hHt"/>
+                                    <constraint firstAttribute="width" secondItem="qx2-qf-g8o" secondAttribute="height" id="YBX-Ko-VjY"/>
+                                    <constraint firstItem="AqY-Fs-5nB" firstAttribute="centerY" secondItem="qx2-qf-g8o" secondAttribute="centerY" id="hE9-hg-0OO"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqj-Zq-jtY">
+                                <rect key="frame" x="140.66666666666666" y="538" width="94" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="按住录制"/>
+                                <connections>
+                                    <action selector="touchCancelAction:" destination="XfZ-tf-utT" eventType="touchCancel" id="J1F-mC-V6e"/>
+                                    <action selector="touchDownAction:" destination="XfZ-tf-utT" eventType="touchDown" id="p9U-n7-gTd"/>
+                                    <action selector="touchDownRepeatAction:" destination="XfZ-tf-utT" eventType="touchDownRepeat" id="oCv-gY-TdB"/>
+                                    <action selector="touchDragEnterAction:" destination="XfZ-tf-utT" eventType="touchDragEnter" id="nfY-Da-qwU"/>
+                                    <action selector="touchDragExitAction:" destination="XfZ-tf-utT" eventType="touchDragExit" id="zJv-3f-t8s"/>
+                                    <action selector="touchDragInsideAction:" destination="XfZ-tf-utT" eventType="touchDragInside" id="r3d-aF-ln6"/>
+                                    <action selector="touchDragOutsideAction:" destination="XfZ-tf-utT" eventType="touchDragOutside" id="dGz-Wq-OJ7"/>
+                                    <action selector="touchUpInsideAction:" destination="XfZ-tf-utT" eventType="touchUpInside" id="c8s-l9-p8M"/>
+                                    <action selector="touchUpOutsideAction:" destination="XfZ-tf-utT" eventType="touchUpOutside" id="LtJ-Wy-YIr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="D1m-U6-bud"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qx2-qf-g8o" firstAttribute="centerX" secondItem="cjo-kK-IpC" secondAttribute="centerX" id="1bS-lI-Wp1"/>
+                            <constraint firstItem="aqj-Zq-jtY" firstAttribute="centerX" secondItem="qx2-qf-g8o" secondAttribute="centerX" id="Lai-jZ-XMY"/>
+                            <constraint firstItem="aqj-Zq-jtY" firstAttribute="top" secondItem="qx2-qf-g8o" secondAttribute="bottom" priority="750" constant="88" id="di8-pl-u5g"/>
+                            <constraint firstItem="qx2-qf-g8o" firstAttribute="centerY" secondItem="cjo-kK-IpC" secondAttribute="centerY" id="pH8-1z-wjn"/>
+                            <constraint firstItem="D1m-U6-bud" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aqj-Zq-jtY" secondAttribute="bottom" constant="28" id="wVV-2A-jLJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3NR-Bb-FVE"/>
+                    <connections>
+                        <outlet property="progressLiveView" destination="qx2-qf-g8o" id="2bx-V9-Ksp"/>
+                        <outlet property="recorderButton" destination="aqj-Zq-jtY" id="m2H-Ev-ljd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QbY-pb-lfk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2950" y="-4013"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
