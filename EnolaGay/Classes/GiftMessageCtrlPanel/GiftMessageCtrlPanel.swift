@@ -113,10 +113,13 @@ open class GiftMessageCtrlPanel: UIView {
             }
         }
     }
-
-    deinit {
+    
+    /*
+     deinit {
+        // 需要集成 Logger
         logHappy("GiftMessageCtrlPanel 已经释放")
-    }
+     }
+     */
 }
 
 // MARK: - 私有扩展函数
@@ -268,7 +271,9 @@ open class GiftView: UIView {
         countdownTimer = nil
     }
     
-    deinit {
+    /*
+     deinit {
         // Judy.logHappy("GiftView 释放。")
-    }
+     }
+     */
 }
