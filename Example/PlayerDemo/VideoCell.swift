@@ -86,17 +86,17 @@ class VideoCell: UITableViewCell {
 extension VideoCell: PlayerDelegate {
     
     func playerReady(_ player: Player) {
-        logHappy("ready")
+        logHappy("ready……")
     }
     
     func playerPlaybackStateDidChange(_ player: Player) {
         log(player.playbackState.description)
-        switch player.playbackState {
-        case .playing:
-            playerButton.isHidden = true
-        case .paused, .failed, .stopped:
-            playerButton.isHidden = false
-        }
+//        switch player.playbackState {
+//        case .playing:
+//            playerButton.isHidden = true
+//        case .paused, .failed, .stopped:
+//            playerButton.isHidden = false
+//        }
     }
     
     func playerBufferingStateDidChange(_ player: Player) {
