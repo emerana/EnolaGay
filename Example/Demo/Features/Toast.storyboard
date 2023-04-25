@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lDH-US-Dau">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Toast-->
+        <scene sceneID="akJ-2p-nf5">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="lDH-US-Dau" customClass="ToastViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xiB-ob-AH9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="euI-N6-z0g">
+                                <rect key="frame" x="136" y="68.000000000000014" width="103" height="137.33333333333337"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Blk-gU-ZAD">
+                                        <rect key="frame" x="0.0" y="0.0" width="103" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="message1"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEJ-Tu-EZa">
+                                        <rect key="frame" x="0.0" y="34.333333333333329" width="103" height="34.333333333333329"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="message2"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iiu-aU-s6K">
+                                        <rect key="frame" x="0.0" y="68.666666666666657" width="103" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="message3"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hit-SO-JCE">
+                                        <rect key="frame" x="0.0" y="103" width="103" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="activity"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rFR-tZ-brh">
+                                <rect key="frame" x="0.0" y="715.66666666666663" width="375" height="34.333333333333371"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9q-cC-maE">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="hideToast"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xu-XT-Qjp">
+                                        <rect key="frame" x="125" y="0.0" width="125" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="hideAllToast"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAx-K3-Hi8">
+                                        <rect key="frame" x="250" y="0.0" width="125" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="hideActivity"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZTD-37-Mol"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="euI-N6-z0g" firstAttribute="centerX" secondItem="xiB-ob-AH9" secondAttribute="centerX" id="8iS-xT-pPx"/>
+                            <constraint firstItem="ZTD-37-Mol" firstAttribute="bottom" secondItem="rFR-tZ-brh" secondAttribute="bottom" constant="28" id="BgY-UW-qJs"/>
+                            <constraint firstItem="euI-N6-z0g" firstAttribute="top" secondItem="ZTD-37-Mol" secondAttribute="top" constant="18" id="TR3-m5-jvQ"/>
+                            <constraint firstAttribute="trailing" secondItem="rFR-tZ-brh" secondAttribute="trailing" id="wh6-7P-Ref"/>
+                            <constraint firstItem="rFR-tZ-brh" firstAttribute="leading" secondItem="ZTD-37-Mol" secondAttribute="leading" id="wvC-Kr-tlP"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Toast" id="BTc-XI-eVF"/>
+                    <navigationItem key="navigationItem" id="yJQ-10-VMO"/>
+                    <connections>
+                        <outlet property="activityButton" destination="Hit-SO-JCE" id="Sbu-BA-0W5"/>
+                        <outlet property="hideActivityButton" destination="zAx-K3-Hi8" id="1aC-v5-Ikh"/>
+                        <outlet property="hideAllButton" destination="7xu-XT-Qjp" id="Njq-3H-aax"/>
+                        <outlet property="hideToastButton" destination="R9q-cC-maE" id="4ID-TI-tDU"/>
+                        <outlet property="message1Button" destination="Blk-gU-ZAD" id="7l4-54-Owx"/>
+                        <outlet property="message2Button" destination="sEJ-Tu-EZa" id="6jO-b3-pUa"/>
+                        <outlet property="message3Button" destination="Iiu-aU-s6K" id="IBQ-w0-L6i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aMD-bM-1yR" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3446" y="-2623"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -56,7 +56,8 @@ import UIKit
             updatePlaceholder()
         }
     }
-//    @IBInspectable dynamic fileprivate var textFieldSpace: CGFloat = 3
+
+    // @IBInspectable dynamic fileprivate var textFieldSpace: CGFloat = 3
 
     open override var placeholder: String? {
         didSet {

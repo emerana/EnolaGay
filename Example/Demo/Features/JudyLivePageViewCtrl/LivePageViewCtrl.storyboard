@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TGS-vz-0Er">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Live Page View Ctrl-->
+        <scene sceneID="ZHl-xf-5kw">
+            <objects>
+                <viewController id="TGS-vz-0Er" customClass="LivePageViewCtrl" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="keG-xV-oCc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gw-VF-a2j">
+                                <rect key="frame" x="0.0" y="50" width="375" height="728"/>
+                                <connections>
+                                    <segue destination="NVd-pl-IW8" kind="embed" identifier="loadJudyLivePageViewCtrl" id="PJl-md-zyn"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GMx-Y0-tvX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GMx-Y0-tvX" firstAttribute="trailing" secondItem="6gw-VF-a2j" secondAttribute="trailing" id="L90-N9-0q0"/>
+                            <constraint firstItem="GMx-Y0-tvX" firstAttribute="bottom" secondItem="6gw-VF-a2j" secondAttribute="bottom" id="YJ5-WG-UDf"/>
+                            <constraint firstItem="6gw-VF-a2j" firstAttribute="top" secondItem="GMx-Y0-tvX" secondAttribute="top" id="Zdk-1J-0Y3"/>
+                            <constraint firstItem="6gw-VF-a2j" firstAttribute="leading" secondItem="GMx-Y0-tvX" secondAttribute="leading" id="gKA-OG-GGv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8lL-bo-SB0"/>
+                    <connections>
+                        <segue destination="DmN-g5-NiX" kind="show" id="gj6-Ua-NwL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Szg-7d-ZAv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6561" y="-3622"/>
+        </scene>
+        <!--Judy Live Page View Ctrl-->
+        <scene sceneID="0c1-qR-wfh">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="vertical" spineLocation="none" id="NVd-pl-IW8" customClass="JudyLivePageViewCtrl" customModule="EnolaGay" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="UuW-ux-oyi"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jbp-WS-bKd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6561" y="-2943"/>
+        </scene>
+        <!--Live Model View Ctrl-->
+        <scene sceneID="QE5-ZY-lT0">
+            <objects>
+                <viewController storyboardIdentifier="LiveModelViewCtrl" id="DmN-g5-NiX" customClass="LiveModelViewCtrl" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gtg-Ap-wvQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="802"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXH-XP-dl5">
+                                <rect key="frame" x="166.66666666666666" y="390.66666666666669" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PbF-Hx-run"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <constraints>
+                            <constraint firstItem="cXH-XP-dl5" firstAttribute="centerY" secondItem="gtg-Ap-wvQ" secondAttribute="centerY" id="GZG-ca-aUa"/>
+                            <constraint firstItem="cXH-XP-dl5" firstAttribute="centerX" secondItem="gtg-Ap-wvQ" secondAttribute="centerX" id="ljW-DU-LWg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="r5E-QN-dCo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HWt-YT-Duj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7518" y="-3622"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

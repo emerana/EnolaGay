@@ -8,15 +8,14 @@
 
 import UIKit
 
-
 /// 波浪动画 View
 @IBDesignable open class JudyWaterWaveView: UIView {
     
-    /** 进度，已用容量百分比。默认为60% */
+    /** 进度，已用容量百分比。默认为 60% */
     @IBInspectable public var 进度: CGFloat = 0.6
     /** 曲线(波浪)振幅 */
     @IBInspectable public var 振幅: CGFloat = 6
-    /** 是否为正圆，如果该View长宽不等则不会设置正圆。默认为true */
+    /** 是否为正圆，如果该 View 长宽不等则不会设置正圆。默认为 true */
     @IBInspectable public var 正圆: Bool = true
     /** 底层波浪颜色，最先被添加到layer上的波浪的颜色 */
     @IBInspectable public var 底层波浪颜色: UIColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 0.5)
@@ -51,6 +50,8 @@ import UIKit
     open override func awakeFromNib() {
         super.awakeFromNib()
         
+//        #colorLiteral(red: 0.9019607843, green: 0, blue: 0.07058823529, alpha: 1)
+        backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 0.28)
         // 设定两条波浪的颜色
         底层Layer.fillColor = 底层波浪颜色.cgColor
         底层Layer.strokeColor = 底层波浪颜色.cgColor
@@ -61,7 +62,7 @@ import UIKit
         layer.addSublayer(底层Layer)
         layer.addSublayer(顶层Layer)
         
-        //角速度
+        // 角速度
         /*
          决定波的宽度和周期，比如，我们可以看到上面的例子中是一个周期的波曲线，
          一个波峰、一个波谷，如果我们想在0到2π这个距离显示2个完整的波曲线，那么周期就是π
@@ -75,8 +76,6 @@ import UIKit
         
         //以屏幕刷新速度为周期刷新曲线的位置
         disPlayLink = CADisplayLink.init(target: self, selector: #selector(waveAnimation(link:)))
-        //        disPlayLink.add(to: RunLoop.main, forMode: .commonModes)
-        
     }
     
     open override func layoutSubviews() {
@@ -84,9 +83,7 @@ import UIKit
         
         // 正圆设置
         if 正圆 {
-            if bounds.width == bounds.height {
-                layer.cornerRadius = bounds.size.width/2.0
-            }
+            layer.cornerRadius = min(bounds.width, bounds.height)/2.0
         }
         layer.masksToBounds = true
     }
@@ -100,18 +97,28 @@ import UIKit
 }
 
 // MARK: 公开函数
-
 public extension JudyWaterWaveView {
-    
-    /// 停止动画
-    func stop() {
-        disPlayLink.invalidate()
-    }
     
     /// 开始动画
     func star() {
         disPlayLink.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
     }
+    
+    /// 暂停动画
+    func paused() {
+        disPlayLink.isPaused = true
+    }
+
+    /// 继续动画
+    func `continue`() {
+        disPlayLink.isPaused = false
+    }
+
+    /// 停止动画
+    func stop() {
+        disPlayLink.invalidate()
+    }
+    
 }
 
 // MARK: 私有函数
@@ -125,7 +132,7 @@ private extension JudyWaterWaveView {
         startWaveAnimation() // 波浪轨迹和动画
     }
     
-    // 更新偏距的大小 直到达到目标偏距 让wave有一个匀速增长的效果
+    // 更新偏距的大小 直到达到目标偏距 让 wave 有一个匀速增长的效果
     func updateWaveY() {
         let targetY: CGFloat = bounds.height - 进度 * bounds.height
         if (waveY < targetY) {

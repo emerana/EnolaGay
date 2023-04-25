@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="51p-SU-gXc">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--log-->
+        <scene sceneID="HpQ-sp-G6D">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="51p-SU-gXc" customClass="LogViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JHM-ec-ijF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="263-BW-RPy">
+                                <rect key="frame" x="132.33333333333334" y="135.66666666666669" width="110.66666666666666" height="540.66666666666652"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tr8-XW-1mQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="110.66666666666667" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="log"/>
+                                        <connections>
+                                            <action selector="logAction:" destination="51p-SU-gXc" eventType="touchUpInside" id="UEg-kf-sga"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZ5-1F-fEd">
+                                        <rect key="frame" x="0.0" y="72.333333333333343" width="110.66666666666667" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="logl"/>
+                                        <connections>
+                                            <action selector="loglAction:" destination="51p-SU-gXc" eventType="touchUpInside" id="DgS-jV-cCO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ra6-g7-k8i">
+                                        <rect key="frame" x="0.0" y="144.66666666666666" width="110.66666666666667" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="logTime"/>
+                                        <connections>
+                                            <action selector="logTimeAction:" destination="51p-SU-gXc" eventType="touchUpInside" id="JbI-lX-lfo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Er-z9-rw9">
+                                        <rect key="frame" x="0.0" y="217.00000000000003" width="110.66666666666667" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="logs"/>
+                                        <connections>
+                                            <action selector="logsAction:" destination="51p-SU-gXc" eventType="touchUpInside" id="KGs-ZB-02e"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7O-2V-bUL">
+                                        <rect key="frame" x="0.0" y="289.33333333333337" width="110.66666666666667" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="logn"/>
+                                        <connections>
+                                            <action selector="lognAction:" destination="51p-SU-gXc" eventType="touchUpInside" id="lJj-GJ-VZY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvV-EB-BN0">
+                                        <rect key="frame" x="0.0" y="361.66666666666663" width="110.66666666666667" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="logHappy"/>
+                                        <connections>
+                                            <action selector="logHappyAction:" destination="51p-SU-gXc" eventType="touchUpInside" id="Bax-2D-fnc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRj-kn-5tX">
+                                        <rect key="frame" x="0.0" y="434" width="110.66666666666667" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="logWarning"/>
+                                        <connections>
+                                            <action selector="logWarningAction:" destination="51p-SU-gXc" eventType="touchUpInside" id="dOK-IY-D1u"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmK-ek-RZ0">
+                                        <rect key="frame" x="0.0" y="506.33333333333331" width="110.66666666666667" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="logt"/>
+                                        <connections>
+                                            <action selector="logtAction:" destination="51p-SU-gXc" eventType="touchUpInside" id="7Vx-QP-POH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Pq9-4J-zMN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="263-BW-RPy" firstAttribute="centerY" secondItem="JHM-ec-ijF" secondAttribute="centerY" id="X4H-tU-4Nb"/>
+                            <constraint firstItem="263-BW-RPy" firstAttribute="centerX" secondItem="JHM-ec-ijF" secondAttribute="centerX" id="s1l-dp-ssZ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="log" id="rW7-3a-VSu"/>
+                    <navigationItem key="navigationItem" id="VE5-y2-JkP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rf7-tv-cpn" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3102" y="-2026"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

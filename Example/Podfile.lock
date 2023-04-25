@@ -1,22 +1,25 @@
 PODS:
-  - Alamofire (4.9.1)
+  - Alamofire (5.6.4)
   - BadgeHub (1.0.0)
   - Cache (6.0.0)
   - DZNEmptyDataSet (1.8.1)
-  - EnolaGay (4.0.8):
-    - EnolaGay/Core (= 4.0.8)
-  - EnolaGay/CircularProgressView (4.0.8)
-  - EnolaGay/Core (4.0.8)
-  - EnolaGay/EMERANA (4.0.8):
+  - EnolaGay (4.0.9):
+    - EnolaGay/Core (= 4.0.9)
+  - EnolaGay/CircularProgressView (4.0.9)
+  - EnolaGay/Core (4.0.9)
+  - EnolaGay/EMERANA (4.0.9):
     - EnolaGay/Core
-  - EnolaGay/GiftMessageCtrlPanel (4.0.8)
-  - EnolaGay/HPickerView (4.0.8):
+  - EnolaGay/GiftMessageCtrlPanel (4.0.9)
+  - EnolaGay/HPickerView (4.0.9):
     - EnolaGay/EMERANA
-  - EnolaGay/HUD (4.0.8)
-  - EnolaGay/JudyPopBubble (4.0.8)
-  - EnolaGay/KeyboardHelper (4.0.8)
-  - EnolaGay/Logger (4.0.8)
-  - EnolaGay/SegmentedView (4.0.8):
+  - EnolaGay/HUD (4.0.9)
+  - EnolaGay/JudyPopBubble (4.0.9)
+  - EnolaGay/JudyWaterWaveView (4.0.9)
+  - EnolaGay/KeyboardHelper (4.0.9)
+  - EnolaGay/Logger (4.0.9)
+  - EnolaGay/SegmentedView (4.0.9):
+    - EnolaGay/EMERANA
+  - EnolaGay/TextFieldEffects (4.0.9):
     - EnolaGay/EMERANA
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -24,21 +27,21 @@ PODS:
   - IGListDiffKit (4.0.0)
   - IGListKit (4.0.0):
     - IGListDiffKit (= 4.0.0)
-  - IQKeyboardManagerSwift (6.5.6)
-  - MJRefresh (3.5.0)
+  - IQKeyboardManagerSwift (6.5.11)
+  - MJRefresh (3.7.5)
   - Player (0.14.0)
-  - RxCocoa (6.2.0):
-    - RxRelay (= 6.2.0)
-    - RxSwift (= 6.2.0)
-  - RxRelay (6.2.0):
-    - RxSwift (= 6.2.0)
-  - RxSwift (6.2.0)
-  - SDWebImage (5.11.1):
-    - SDWebImage/Core (= 5.11.1)
-  - SDWebImage/Core (5.11.1)
-  - SwiftMessages (9.0.4):
-    - SwiftMessages/App (= 9.0.4)
-  - SwiftMessages/App (9.0.4)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - SDWebImage (5.15.5):
+    - SDWebImage/Core (= 5.15.5)
+  - SDWebImage/Core (5.15.5)
+  - SwiftMessages (9.0.6):
+    - SwiftMessages/App (= 9.0.6)
+  - SwiftMessages/App (9.0.6)
   - SwiftyJSON (5.0.1)
   - SwiftyUserDefaults (5.0.0-beta.5)
 
@@ -54,11 +57,13 @@ DEPENDENCIES:
   - EnolaGay/HPickerView (from `../`)
   - EnolaGay/HUD (from `../`)
   - EnolaGay/JudyPopBubble (from `../`)
+  - EnolaGay/JudyWaterWaveView (from `../`)
   - EnolaGay/KeyboardHelper (from `../`)
   - EnolaGay/Logger (from `../`)
   - EnolaGay/SegmentedView (from `../`)
+  - EnolaGay/TextFieldEffects (from `../`)
   - FMDB
-  - IGListKit (~> 4.0.0)
+  - IGListKit
   - IQKeyboardManagerSwift
   - MJRefresh
   - Player
@@ -94,25 +99,25 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   BadgeHub: b227771329f78c37a2dae7502607ec6d00a50bd4
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  EnolaGay: 7f43631466f9d497ebbb6afcfb713efbcfa7804a
+  EnolaGay: f5b8f34ce80063e1808f623335f0afdc259d22c5
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
-  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
-  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  IQKeyboardManagerSwift: c7955c0bdbf7b2eb29bb7daaa44e3d90f55a9a85
+  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   Player: 37e0acc16ea1495fc241df88fe9f089367513331
-  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
-  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
-  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
-  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
-  SwiftMessages: 082ed63613a49fa8e749cd6000bb0a8b9bbc736f
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
+  SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: 2c0904e2ea73f69e22a556011a7ac36af93da82e
+PODFILE CHECKSUM: 15014035e29f20c6530b6b74c9061e17e3982fa5
 
 COCOAPODS: 1.12.0
