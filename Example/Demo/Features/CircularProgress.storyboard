@@ -18,27 +18,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qx2-qf-g8o" customClass="CircularProgressView" customModule="EnolaGay">
-                                <rect key="frame" x="147.66666666666666" y="366" width="80" height="80"/>
+                                <rect key="frame" x="143.66666666666666" y="362" width="88" height="88"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="圆形进度条" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqY-Fs-5nB">
-                                        <rect key="frame" x="9.3333333333333464" y="33" width="61.333333333333343" height="14.333333333333336"/>
+                                        <rect key="frame" x="13.333333333333346" y="37" width="61.333333333333343" height="14.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" systemColor="systemBlueColor"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                 <constraints>
                                     <constraint firstItem="AqY-Fs-5nB" firstAttribute="centerX" secondItem="qx2-qf-g8o" secondAttribute="centerX" id="3PO-dj-zTE"/>
-                                    <constraint firstAttribute="height" constant="80" id="46h-1F-hHt"/>
+                                    <constraint firstAttribute="height" constant="88" id="46h-1F-hHt"/>
                                     <constraint firstAttribute="width" secondItem="qx2-qf-g8o" secondAttribute="height" id="YBX-Ko-VjY"/>
                                     <constraint firstItem="AqY-Fs-5nB" firstAttribute="centerY" secondItem="qx2-qf-g8o" secondAttribute="centerY" id="hE9-hg-0OO"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqj-Zq-jtY">
-                                <rect key="frame" x="150" y="514" width="75" height="34.333333333333371"/>
+                                <rect key="frame" x="140.66666666666666" y="538" width="94" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="按住录制"/>
                                 <connections>
                                     <action selector="touchCancelAction:" destination="XfZ-tf-utT" eventType="touchCancel" id="J1F-mC-V6e"/>
                                     <action selector="touchDownAction:" destination="XfZ-tf-utT" eventType="touchDown" id="p9U-n7-gTd"/>
@@ -51,20 +51,13 @@
                                     <action selector="touchUpOutsideAction:" destination="XfZ-tf-utT" eventType="touchUpOutside" id="LtJ-Wy-YIr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86l-WY-tIT">
-                                <rect key="frame" x="140.66666666666666" y="606.33333333333337" width="94" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="键盘动画"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="D1m-U6-bud"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="qx2-qf-g8o" firstAttribute="centerX" secondItem="cjo-kK-IpC" secondAttribute="centerX" id="1bS-lI-Wp1"/>
-                            <constraint firstItem="86l-WY-tIT" firstAttribute="top" secondItem="aqj-Zq-jtY" secondAttribute="bottom" constant="58" id="HSA-VT-g0j"/>
                             <constraint firstItem="aqj-Zq-jtY" firstAttribute="centerX" secondItem="qx2-qf-g8o" secondAttribute="centerX" id="Lai-jZ-XMY"/>
-                            <constraint firstItem="86l-WY-tIT" firstAttribute="centerX" secondItem="aqj-Zq-jtY" secondAttribute="centerX" id="O2y-QN-3N9"/>
-                            <constraint firstItem="aqj-Zq-jtY" firstAttribute="top" secondItem="qx2-qf-g8o" secondAttribute="bottom" priority="750" constant="68" id="di8-pl-u5g"/>
+                            <constraint firstItem="aqj-Zq-jtY" firstAttribute="top" secondItem="qx2-qf-g8o" secondAttribute="bottom" priority="750" constant="88" id="di8-pl-u5g"/>
                             <constraint firstItem="qx2-qf-g8o" firstAttribute="centerY" secondItem="cjo-kK-IpC" secondAttribute="centerY" id="pH8-1z-wjn"/>
                             <constraint firstItem="D1m-U6-bud" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aqj-Zq-jtY" secondAttribute="bottom" constant="28" id="wVV-2A-jLJ"/>
                         </constraints>
@@ -83,9 +76,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
