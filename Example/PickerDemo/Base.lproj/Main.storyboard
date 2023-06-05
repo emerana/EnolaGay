@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CAu-Qq-y6h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CAu-Qq-y6h">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,6 +15,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="CAu-Qq-y6h" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZHO-nf-vgz">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -30,7 +31,7 @@
         <!--Item-->
         <scene sceneID="NdL-yj-JAK">
             <objects>
-                <viewController id="bko-xp-MsO" customClass="HPickerViewCtrl" customModule="HPickerDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bko-xp-MsO" customClass="HPickerViewCtrl" customModule="PickerDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MPh-p7-xDk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,10 +44,18 @@
             </objects>
             <point key="canvasLocation" x="33" y="768"/>
         </scene>
+        <!--Page View Controller-->
+        <scene sceneID="f9y-hy-E6K">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Dv2-Ay-p20" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bd2-nh-DMB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1180" y="768"/>
+        </scene>
         <!--Segmented Test View Ctrl-->
         <scene sceneID="gJN-9P-qhq">
             <objects>
-                <viewController id="uom-oW-5ax" customClass="SegmentedTestViewCtrl" customModule="SegmentedDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uom-oW-5ax" customClass="SegmentedTestViewCtrl" customModule="PickerDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sGU-yc-vdO"/>
                         <viewControllerLayoutGuide type="bottom" id="wZ1-NF-RWH"/>
@@ -56,14 +65,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K9Z-ZY-fQI" customClass="SegmentedView" customModule="EnolaGay">
-                                <rect key="frame" x="0.0" y="99" width="375" height="68"/>
+                                <rect key="frame" x="0.0" y="102" width="375" height="68"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="EGf-FF-9LA"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQC-Kb-3hL" customClass="SegmentedView" customModule="EnolaGay">
-                                <rect key="frame" x="0.0" y="235" width="375" height="48"/>
+                                <rect key="frame" x="0.0" y="238" width="375" height="48"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="cq7-DG-0CN"/>
@@ -97,7 +106,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="Cli-ae-AcJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="04u-vq-ZMb">
-                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
