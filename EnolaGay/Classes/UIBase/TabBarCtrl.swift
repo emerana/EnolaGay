@@ -9,33 +9,15 @@
 import UIKit
 
 /// TabBarCtrl 基类
-/// * 支持 tabBar.items 小 icon 使用原图功能，该功能默认为 false，需要手动在 Storyboard 中开启
 open class JudyBaseTabBarCtrl: UITabBarController {
-    
-    /// 是否使 tabBar.items 中的图标使用原图，默认 false，若需要此功能请在 storyboard 手动开启
-    /// - warning: 初始值必须为 false
-    @IBInspectable
-    public private(set) var isItemOriginal: Bool = false
-    
-    
-    // MARK: - tabBarCtrl 生命周期
-    
+
     open override func awakeFromNib() {
         super.awakeFromNib()
         
     }
     
-    
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 变更 tabBar icon 的呈现模式（原色彩）
-        if isItemOriginal, let items = tabBar.items {
-            for item in items {
-                item.image = item.image?.withRenderingMode(.alwaysOriginal)
-                item.selectedImage = item.selectedImage?.withRenderingMode(.alwaysOriginal)
-            }
-        }
         
     }
     

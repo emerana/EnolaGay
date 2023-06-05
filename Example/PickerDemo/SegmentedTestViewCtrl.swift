@@ -42,7 +42,7 @@ class SegmentedTestViewCtrl: UIViewController {
         
         let indicatorBottom = IndicatorLineView()
         indicatorBottom.indicatorPosition = .bottom
-        indicatorBottom.indicatorColor = .blue
+        indicatorBottom.indicatorColor = .green
 
         segmentedView.indicators = [indicatorTop, indicatorBottom]
     }
