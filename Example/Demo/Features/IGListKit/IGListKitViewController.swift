@@ -25,14 +25,16 @@ class IGListKitViewController: UIViewController {
         super.viewDidLoad()
         
         loader.loadLatest()
-        
+
         adapter.dataSource = self
         adapter.collectionView = collectionView
         adapter.collectionView?.alwaysBounceVertical = true
+
         adapter.collectionView?.layoutIfNeeded()
     }
     
 }
+
 
 // MARK: - ListAdapterDataSource
 
@@ -43,8 +45,11 @@ extension IGListKitViewController: ListAdapterDataSource {
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return SectionController()
+         let sectionCtrl = SectionController()
+
+        return sectionCtrl
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? { return nil }
 }
+

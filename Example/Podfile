@@ -55,7 +55,7 @@ target 'Demo' do
     pod 'SwiftyUserDefaults', '5.0.0-beta.5'
     pod 'DZNEmptyDataSet'
 
-    pod 'FMDB'
+#    pod 'FMDB'
     pod 'Alamofire'
     pod 'BadgeHub'
     pod 'SwiftyJSON'
