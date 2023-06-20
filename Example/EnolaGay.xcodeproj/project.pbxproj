@@ -22,6 +22,8 @@
 		8B682B9A29D46F8D00408A8D /* JournalLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC126DF480F00A2A405 /* JournalLoader.swift */; };
 		8B682B9B29D46F8D00408A8D /* NSObject+IGListDiffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC026DF480F00A2A405 /* NSObject+IGListDiffable.swift */; };
 		8B682B9C29D46F8D00408A8D /* OCRAStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DBBF26DF480F00A2A405 /* OCRAStd.otf */; };
+		8B6B2F3E2A41A45E00099528 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B2F3D2A41A45E00099528 /* TableController.swift */; };
+		8B6B2F402A41A48800099528 /* ScrollViewTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B6B2F3F2A41A48800099528 /* ScrollViewTableView.storyboard */; };
 		8BBC8F0F29F1318F0036C838 /* JudyWaterWaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBC8F0E29F1318F0036C838 /* JudyWaterWaveViewController.swift */; };
 		8BBC8F1129F13E280036C838 /* CircularProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBC8F1029F13E280036C838 /* CircularProgress.storyboard */; };
 		8BBC8F1429F1405C0036C838 /* CastSurelyCalculation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBC8F1329F1405C0036C838 /* CastSurelyCalculation.storyboard */; };
@@ -168,6 +170,8 @@
 		8B4F5D5829C46A7B0092AF67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B4F5D5B29C46A7B0092AF67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B4F5D5D29C46A7B0092AF67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B6B2F3D2A41A45E00099528 /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
+		8B6B2F3F2A41A48800099528 /* ScrollViewTableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScrollViewTableView.storyboard; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
@@ -486,6 +490,15 @@
 			path = IGListKit;
 			sourceTree = "<group>";
 		};
+		8B6B2F3C2A41A43B00099528 /* ScrollViewTableView */ = {
+			isa = PBXGroup;
+			children = (
+				8B6B2F3D2A41A45E00099528 /* TableController.swift */,
+				8B6B2F3F2A41A48800099528 /* ScrollViewTableView.storyboard */,
+			);
+			path = ScrollViewTableView;
+			sourceTree = "<group>";
+		};
 		8B76428E25A702C400A418F8 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +512,7 @@
 		8BBC8F1229F13E2C0036C838 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				8B6B2F3C2A41A43B00099528 /* ScrollViewTableView */,
 				8BE640E329D47358005D6EEB /* JudyLivePageViewCtrl */,
 				8B682B9729D46DCE00408A8D /* IGListKit */,
 				8BBC8F1029F13E280036C838 /* CircularProgress.storyboard */,
@@ -1027,6 +1041,7 @@
 				8BBC8F2029F142F20036C838 /* AttributedString.storyboard in Resources */,
 				8BBC8F1A29F141D20036C838 /* IGListKit.storyboard in Resources */,
 				8BBC8F1829F141650036C838 /* GiftMessage.storyboard in Resources */,
+				8B6B2F402A41A48800099528 /* ScrollViewTableView.storyboard in Resources */,
 				8B682B9C29D46F8D00408A8D /* OCRAStd.otf in Resources */,
 				8BBC8F2429F143B80036C838 /* Toast.storyboard in Resources */,
 				8BE31B8129C2D22A003038B2 /* Main.storyboard in Resources */,
@@ -1406,6 +1421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B682B9A29D46F8D00408A8D /* JournalLoader.swift in Sources */,
+				8B6B2F3E2A41A45E00099528 /* TableController.swift in Sources */,
 				8BF65F6F29C81BBB001E2160 /* CircularProgressViewController.swift in Sources */,
 				8BE5BA7229D4493A003E75D5 /* KeyBoardPopUpViewCtrl.swift in Sources */,
 				8BE5BA7429D46405003E75D5 /* CacheViewCtrl.swift in Sources */,
