@@ -172,6 +172,7 @@
 		8B4F5D5D29C46A7B0092AF67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B6B2F3D2A41A45E00099528 /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
 		8B6B2F3F2A41A48800099528 /* ScrollViewTableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScrollViewTableView.storyboard; sourceTree = "<group>"; };
+		8B72098A2A499C58008D9006 /* 吉安瑞德广场.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "吉安瑞德广场.gpx"; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
@@ -697,6 +698,7 @@
 			isa = PBXGroup;
 			children = (
 				8BC3DD6D26E05BC900A2A405 /* 温州.gpx */,
+				8B72098A2A499C58008D9006 /* 吉安瑞德广场.gpx */,
 				8BAB183A2A47E29200ED831E /* 茂盛路.gpx */,
 				8BC3DD6E26E05BC900A2A405 /* 浙江台州.gpx */,
 				8BC3DD6F26E05BC900A2A405 /* 陆港电商小镇.gpx */,
