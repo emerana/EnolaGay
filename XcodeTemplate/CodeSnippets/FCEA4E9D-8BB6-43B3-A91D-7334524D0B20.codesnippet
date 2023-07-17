@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>mark</string>
+	<string>dispose</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>// MARK: - &lt;#title#&gt;</string>
+	<string>    /// 清除包
+    private let disposeBag = DisposeBag()
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>2642C3D0-A7CC-4E32-B809-2E8F48ABB38C</string>
+	<string>FCEA4E9D-8BB6-43B3-A91D-7334524D0B20</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetSummary</key>
-	<string></string>
+	<string>创建一个清除包</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>MARK - 带分割线的标记</string>
+	<string>声明一个 disposeBag</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
