@@ -21,12 +21,24 @@ class JudyWaterWaveViewController: UIViewController {
     private let rotationAnim = CABasicAnimation(keyPath: EMERANA.Key.keypath.rotation)
 
     
+    @IBOutlet weak var stackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         rotateText()
         wateerView.star()
         
+        let imageView1 = UIImageView(image: UIImage(named: "icon_点赞1"))
+        let imageView2 = UIImageView(image: UIImage(named: "icon_点赞2"))
+        let imageView3 = UIImageView(image: UIImage(named: "icon_点赞3"))
+        let imageView4 = UIImageView(image: UIImage(named: "icon_点赞4"))
+        let imageView5 = UIImageView(image: UIImage(named: "icon_点赞5"))
+        stackView.addArrangedSubview(imageView1)
+        stackView.addArrangedSubview(imageView2)
+        stackView.addArrangedSubview(imageView3)
+        stackView.addArrangedSubview(imageView4)
+        stackView.addArrangedSubview(imageView5)
     }
     
     override func viewDidAppear(_ animated: Bool) {

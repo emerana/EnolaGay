@@ -317,15 +317,23 @@
                                     </slider>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="XZp-rG-kn1">
+                                <rect key="frame" x="16" y="427" width="73" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="vka-cw-fqD"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="diW-Eh-rna"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="diW-Eh-rna" firstAttribute="bottom" secondItem="FvR-q5-F8Y" secondAttribute="bottom" constant="28" id="4se-EE-tif"/>
+                            <constraint firstItem="XZp-rG-kn1" firstAttribute="leading" secondItem="diW-Eh-rna" secondAttribute="leading" constant="16" id="7Fe-5H-E5Q"/>
                             <constraint firstItem="Jd3-9k-3up" firstAttribute="centerX" secondItem="9Yh-om-Uwb" secondAttribute="centerX" id="OoM-f7-k7d"/>
                             <constraint firstItem="diW-Eh-rna" firstAttribute="trailing" secondItem="FvR-q5-F8Y" secondAttribute="trailing" constant="8" id="RyM-bg-Dw3"/>
                             <constraint firstItem="p8B-sx-Gkx" firstAttribute="centerX" secondItem="9Yh-om-Uwb" secondAttribute="centerX" id="Se6-g4-wMe"/>
                             <constraint firstItem="FvR-q5-F8Y" firstAttribute="leading" secondItem="diW-Eh-rna" secondAttribute="leading" constant="8" id="bmw-xV-9sK"/>
+                            <constraint firstItem="XZp-rG-kn1" firstAttribute="top" secondItem="p8B-sx-Gkx" secondAttribute="bottom" constant="35" id="lKS-ZN-Zz0"/>
                             <constraint firstItem="p8B-sx-Gkx" firstAttribute="top" secondItem="Jd3-9k-3up" secondAttribute="bottom" constant="28" id="ocW-8c-7wx"/>
                             <constraint firstItem="Jd3-9k-3up" firstAttribute="top" secondItem="9Yh-om-Uwb" secondAttribute="top" constant="68" id="td4-wY-OXh"/>
                         </constraints>
@@ -334,6 +342,7 @@
                     <navigationItem key="navigationItem" id="EmS-4x-7iV"/>
                     <connections>
                         <outlet property="imageView" destination="p8B-sx-Gkx" id="cc7-90-RIk"/>
+                        <outlet property="stackView" destination="XZp-rG-kn1" id="kLJ-HD-D7V"/>
                         <outlet property="wateerView" destination="Jd3-9k-3up" id="BQo-xg-XYU"/>
                     </connections>
                 </viewController>
