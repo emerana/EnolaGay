@@ -150,6 +150,7 @@
 		82ACB32009D817D4A81BB520 /* Pods-PlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerDemo.debug.xcconfig"; path = "Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		8B1AA67225A74AE60063BE04 /* LivePageViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePageViewCtrl.swift; sourceTree = "<group>"; };
 		8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveModelViewCtrl.swift; sourceTree = "<group>"; };
+		8B1E81762A6B69E500F06512 /* 中洲控股中心.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "中洲控股中心.gpx"; sourceTree = "<group>"; };
 		8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCheckViewCtrl.swift; sourceTree = "<group>"; };
 		8B3BD1DC27014EB2001912FB /* DownloadViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewCtrl.swift; sourceTree = "<group>"; };
 		8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTestViewCtrl.swift; sourceTree = "<group>"; };
@@ -698,6 +699,7 @@
 			isa = PBXGroup;
 			children = (
 				8BC3DD6D26E05BC900A2A405 /* 温州.gpx */,
+				8B1E81762A6B69E500F06512 /* 中洲控股中心.gpx */,
 				8B72098A2A499C58008D9006 /* 吉安瑞德广场.gpx */,
 				8BAB183A2A47E29200ED831E /* 茂盛路.gpx */,
 				8BC3DD6E26E05BC900A2A405 /* 浙江台州.gpx */,
