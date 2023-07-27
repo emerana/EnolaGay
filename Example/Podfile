@@ -14,7 +14,6 @@ target 'Demo' do
   pod 'EnolaGay/JudyWaterWaveView' , :path => '../'
   
   pod 'SwiftyJSON'
-  pod 'Alamofire'
   pod 'RxSwift'
   pod 'RxCocoa'
 
@@ -44,7 +43,7 @@ target 'Demo' do
     #    pod 'MBProgressHUD'
     pod 'SwiftMessages'
     pod 'MJRefresh'
-    pod 'SDWebImage'
+    #    pod 'SDWebImage'
     #  广告轮播图
     # pod 'SDCycleScrollView'
     
@@ -55,10 +54,7 @@ target 'Demo' do
     pod 'SwiftyUserDefaults', '5.0.0-beta.5'
     pod 'DZNEmptyDataSet'
 
-#    pod 'FMDB'
-    pod 'Alamofire'
     pod 'BadgeHub'
-    pod 'SwiftyJSON'
     
   end
   

@@ -24,7 +24,7 @@ PODS:
   - IGListDiffKit (4.0.0)
   - IGListKit (4.0.0):
     - IGListDiffKit (= 4.0.0)
-  - IQKeyboardManagerSwift (6.5.11)
+  - IQKeyboardManagerSwift (6.5.12)
   - MJRefresh (3.7.5)
   - Player (0.14.0)
   - RxCocoa (6.5.0):
@@ -33,9 +33,6 @@ PODS:
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
-  - SDWebImage (5.15.8):
-    - SDWebImage/Core (= 5.15.8)
-  - SDWebImage/Core (5.15.8)
   - SwiftMessages (9.0.6):
     - SwiftMessages/App (= 9.0.6)
   - SwiftMessages/App (9.0.6)
@@ -65,7 +62,6 @@ DEPENDENCIES:
   - Player
   - RxCocoa
   - RxSwift
-  - SDWebImage
   - SwiftMessages
   - SwiftyJSON
   - SwiftyUserDefaults (= 5.0.0-beta.5)
@@ -84,7 +80,6 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
-    - SDWebImage
     - SwiftMessages
     - SwiftyJSON
     - SwiftyUserDefaults
@@ -101,17 +96,16 @@ SPEC CHECKSUMS:
   EnolaGay: bfea4a6880216e341f85f4563226869558c5721d
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
-  IQKeyboardManagerSwift: c7955c0bdbf7b2eb29bb7daaa44e3d90f55a9a85
+  IQKeyboardManagerSwift: 371b08cb39664fb56030f5345c815a4ffc74bbc0
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   Player: 37e0acc16ea1495fc241df88fe9f089367513331
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
-  SDWebImage: cb032eba469c54e0000e78bcb0a13cdde0a52798
   SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: 9a4524d4dc51d6a732227ff599512bcf2dc54c7c
+PODFILE CHECKSUM: f12df4b93e239736da7eadb9bb921d76c89a120a
 
 COCOAPODS: 1.12.1
