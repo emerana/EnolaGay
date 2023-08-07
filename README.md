@@ -13,12 +13,6 @@
 pod 'EnolaGay/EMERANA'
 ```
   
-#### EnolaGay/SegmentedView
-- 包含 'EnolaGay/EMERANA' 核心
-```ruby
-pod 'EnolaGay/SegmentedView'
-```
-  
 #### EnolaGay/HPickerView
 - 包含 'EnolaGay/EMERANA' 核心
 ```ruby

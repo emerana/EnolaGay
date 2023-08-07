@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (5.7.1)
   - BadgeHub (1.0.0)
   - Cache (6.0.0)
   - DZNEmptyDataSet (1.8.1)
@@ -17,8 +16,6 @@ PODS:
   - EnolaGay/JudyWaterWaveView (4.0.10)
   - EnolaGay/KeyboardHelper (4.0.10)
   - EnolaGay/Logger (4.0.10)
-  - EnolaGay/SegmentedView (4.0.10):
-    - EnolaGay/EMERANA
   - EnolaGay/TextFieldEffects (4.0.10):
     - EnolaGay/EMERANA
   - IGListDiffKit (4.0.0)
@@ -40,7 +37,6 @@ PODS:
   - SwiftyUserDefaults (5.0.0-beta.5)
 
 DEPENDENCIES:
-  - Alamofire
   - BadgeHub
   - Cache
   - DZNEmptyDataSet
@@ -54,7 +50,6 @@ DEPENDENCIES:
   - EnolaGay/JudyWaterWaveView (from `../`)
   - EnolaGay/KeyboardHelper (from `../`)
   - EnolaGay/Logger (from `../`)
-  - EnolaGay/SegmentedView (from `../`)
   - EnolaGay/TextFieldEffects (from `../`)
   - IGListKit
   - IQKeyboardManagerSwift
@@ -68,7 +63,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Alamofire
     - BadgeHub
     - Cache
     - DZNEmptyDataSet
@@ -89,11 +83,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   BadgeHub: b227771329f78c37a2dae7502607ec6d00a50bd4
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  EnolaGay: bfea4a6880216e341f85f4563226869558c5721d
+  EnolaGay: f7d5bd5aa98eb992ea186a9ed369ec187b445992
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
   IQKeyboardManagerSwift: 371b08cb39664fb56030f5345c815a4ffc74bbc0
@@ -106,6 +99,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 8880483e55be344dce2e5e2f18c70b0564ff7676
 
-PODFILE CHECKSUM: f12df4b93e239736da7eadb9bb921d76c89a120a
+PODFILE CHECKSUM: 14e0464776db13e15e8a65744a3a00aa8d54302d
 
 COCOAPODS: 1.12.1

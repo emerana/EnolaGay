@@ -12,12 +12,11 @@ target 'Demo' do
   pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
   pod 'EnolaGay/JudyPopBubble' , :path => '../'
   pod 'EnolaGay/JudyWaterWaveView' , :path => '../'
+  pod 'EnolaGay/KeyboardHelper', :path => '../'
   
   pod 'SwiftyJSON'
   pod 'RxSwift'
   pod 'RxCocoa'
-
-  pod 'EnolaGay/KeyboardHelper', :path => '../'
 
   pod 'Cache'
   pod 'IGListKit'
@@ -67,7 +66,6 @@ end
 # MARK: PickerDemo
 target 'PickerDemo' do
   pod 'EnolaGay/HPickerView', :path => '../'
-  pod 'EnolaGay/SegmentedView', :path => '../'
 end
 
 # MARK: HUD
@@ -94,7 +92,6 @@ end
 target 'RefreshAdapter' do
   pod 'EnolaGay', :path => '../'
   pod 'MJRefresh'
-  pod 'Alamofire'
 end
 
 

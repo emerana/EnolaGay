@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="18D-eD-UfF">
-                                        <rect key="frame" x="0.0" y="8" width="375" height="662.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="8" width="375" height="610"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYu-bn-cpy">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="34.333333333333336"/>
@@ -39,8 +39,9 @@
                                                     <segue destination="oyN-Js-KBp" kind="show" id="8rA-6t-SOo"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JV4-kf-yTU">
-                                                <rect key="frame" x="0.0" y="104.66666666666667" width="375" height="34.333333333333329"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JV4-kf-yTU">
+                                                <rect key="frame" x="0.0" y="95.666666666666671" width="375" height="0.0"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="IGList"/>
                                                 <connections>
@@ -48,7 +49,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgD-8E-veZ">
-                                                <rect key="frame" x="0.0" y="157" width="375" height="34.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="104.66666666666667" width="375" height="34.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="定投计算"/>
                                                 <connections>
@@ -56,7 +57,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97W-EI-7fL">
-                                                <rect key="frame" x="0.0" y="209.33333333333334" width="375" height="34.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="157" width="375" height="34.333333333333343"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="送礼"/>
                                                 <connections>
@@ -64,7 +65,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zc0-fZ-Gx7">
-                                                <rect key="frame" x="0.0" y="261.66666666666669" width="375" height="34.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="209.33333333333334" width="375" height="34.333333333333343"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="LivePageView"/>
                                                 <connections>
@@ -72,7 +73,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vt4-Fc-Dto">
-                                                <rect key="frame" x="0.0" y="314" width="375" height="34.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="261.66666666666669" width="375" height="34.333333333333314"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Log 演示"/>
                                                 <connections>
@@ -80,7 +81,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXu-7R-Whx">
-                                                <rect key="frame" x="0.0" y="366.33333333333331" width="375" height="34.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="314" width="375" height="34.333333333333314"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="attributedString"/>
                                                 <connections>
@@ -88,7 +89,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OuH-zu-QJ5">
-                                                <rect key="frame" x="0.0" y="418.66666666666669" width="375" height="34.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="366.33333333333331" width="375" height="34.333333333333314"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="版本检测"/>
                                                 <connections>
@@ -96,7 +97,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdv-ab-hEn">
-                                                <rect key="frame" x="0.0" y="471" width="375" height="34.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="418.66666666666669" width="375" height="34.333333333333314"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Toast 演示"/>
                                                 <connections>
@@ -104,7 +105,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNV-SD-K3Q">
-                                                <rect key="frame" x="0.0" y="523.33333333333337" width="375" height="34.333333333333371"/>
+                                                <rect key="frame" x="0.0" y="471" width="375" height="34.333333333333314"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="多线程"/>
                                                 <connections>
@@ -112,7 +113,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UK1-cA-14L">
-                                                <rect key="frame" x="0.0" y="575.66666666666663" width="375" height="34.333333333333371"/>
+                                                <rect key="frame" x="0.0" y="523.33333333333337" width="375" height="34.333333333333371"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="键盘动画"/>
                                                 <connections>
@@ -120,7 +121,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlT-6x-RJp">
-                                                <rect key="frame" x="0.0" y="628" width="375" height="34.333333333333371"/>
+                                                <rect key="frame" x="0.0" y="575.66666666666663" width="375" height="34.333333333333371"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="ScrollView包含tableView"/>
                                                 <connections>
@@ -128,6 +129,11 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="JV4-kf-yTU"/>
+                                            </mask>
+                                        </variation>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -317,15 +323,23 @@
                                     </slider>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="XZp-rG-kn1">
+                                <rect key="frame" x="16" y="427" width="73" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="vka-cw-fqD"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="diW-Eh-rna"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="diW-Eh-rna" firstAttribute="bottom" secondItem="FvR-q5-F8Y" secondAttribute="bottom" constant="28" id="4se-EE-tif"/>
+                            <constraint firstItem="XZp-rG-kn1" firstAttribute="leading" secondItem="diW-Eh-rna" secondAttribute="leading" constant="16" id="7Fe-5H-E5Q"/>
                             <constraint firstItem="Jd3-9k-3up" firstAttribute="centerX" secondItem="9Yh-om-Uwb" secondAttribute="centerX" id="OoM-f7-k7d"/>
                             <constraint firstItem="diW-Eh-rna" firstAttribute="trailing" secondItem="FvR-q5-F8Y" secondAttribute="trailing" constant="8" id="RyM-bg-Dw3"/>
                             <constraint firstItem="p8B-sx-Gkx" firstAttribute="centerX" secondItem="9Yh-om-Uwb" secondAttribute="centerX" id="Se6-g4-wMe"/>
                             <constraint firstItem="FvR-q5-F8Y" firstAttribute="leading" secondItem="diW-Eh-rna" secondAttribute="leading" constant="8" id="bmw-xV-9sK"/>
+                            <constraint firstItem="XZp-rG-kn1" firstAttribute="top" secondItem="p8B-sx-Gkx" secondAttribute="bottom" constant="35" id="lKS-ZN-Zz0"/>
                             <constraint firstItem="p8B-sx-Gkx" firstAttribute="top" secondItem="Jd3-9k-3up" secondAttribute="bottom" constant="28" id="ocW-8c-7wx"/>
                             <constraint firstItem="Jd3-9k-3up" firstAttribute="top" secondItem="9Yh-om-Uwb" secondAttribute="top" constant="68" id="td4-wY-OXh"/>
                         </constraints>
@@ -334,6 +348,7 @@
                     <navigationItem key="navigationItem" id="EmS-4x-7iV"/>
                     <connections>
                         <outlet property="imageView" destination="p8B-sx-Gkx" id="cc7-90-RIk"/>
+                        <outlet property="stackView" destination="XZp-rG-kn1" id="kLJ-HD-D7V"/>
                         <outlet property="wateerView" destination="Jd3-9k-3up" id="BQo-xg-XYU"/>
                     </connections>
                 </viewController>
