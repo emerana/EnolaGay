@@ -12,13 +12,12 @@ target 'Demo' do
   pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
   pod 'EnolaGay/JudyPopBubble' , :path => '../'
   pod 'EnolaGay/JudyWaterWaveView' , :path => '../'
+  pod 'EnolaGay/KeyboardHelper', :path => '../'
   
   pod 'SwiftyJSON'
   pod 'Alamofire'
   pod 'RxSwift'
   pod 'RxCocoa'
-
-  pod 'EnolaGay/KeyboardHelper', :path => '../'
 
   pod 'Cache'
   pod 'IGListKit'
