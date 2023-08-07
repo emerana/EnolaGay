@@ -71,7 +71,6 @@ end
 # MARK: PickerDemo
 target 'PickerDemo' do
   pod 'EnolaGay/HPickerView', :path => '../'
-  pod 'EnolaGay/SegmentedView', :path => '../'
 end
 
 # MARK: HUD
@@ -98,7 +97,6 @@ end
 target 'RefreshAdapter' do
   pod 'EnolaGay', :path => '../'
   pod 'MJRefresh'
-  pod 'Alamofire'
 end
 
 
