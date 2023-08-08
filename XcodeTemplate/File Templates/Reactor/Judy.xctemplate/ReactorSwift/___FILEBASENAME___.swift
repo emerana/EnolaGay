@@ -5,7 +5,7 @@ import EnolaGay
 import ReactorKit
 import RxCocoa
 
-/// <#反应器名#>
+/// <#反应器#>
 final class ___FILEBASENAMEASIDENTIFIER___: Reactor {
 
     enum Action {
@@ -17,24 +17,22 @@ final class ___FILEBASENAMEASIDENTIFIER___: Reactor {
     
     enum Mutation {
         /// 设置数据源
-        case setDataSource(result: Result<([<#DataSourceModel#>], Int?), AppError>)
+        case setDataSource(result: Result<([<#Model#>], Int?), AppError>)
         /// 添加数据源
-        case appendDataSource(result: Result<([<#DataSourceModel#>], Int?), AppError>)
+        case appendDataSource(result: Result<([<#Model#>], Int?), AppError>)
         
         /// 设置当前加载数据的刷新状态
         case setRefreshStatus(refreshType: RefreshAction)
-        /// 结束上下拉刷新状态
-        case setEndRefreshStatus
     }
-    
+
     struct State {
         /// 下一页页码
         var nextPage: Int?
-        /// 当前加载数据的类型
+        /// 当前加载数据的引发方式
         var refreshAction = RefreshAction.none
         /// 是否没有更多数据
-        var isNoMoreData = false
-        
+        var isNoMoreData: Bool { nextPage == nil }
+
         /// 数据源
         var dataSource = [<#PraiseModel#>]()
     }
@@ -43,26 +41,61 @@ final class ___FILEBASENAMEASIDENTIFIER___: Reactor {
     
     
     func mutate(action: Action) -> Observable<Mutation> {
-        guard User.token != nil else { return Observable.just(Mutation.setEndRefreshStatus) }
+        guard User.token != nil else { return Observable.just(Mutation.setRefreshStatus(refreshType: .none)) }
 
         switch action {
-//        case .loadData:
-//            let praiseRequest = PraiseRequest(token: User.token!, pageNum: 1)
-//            return Observable.concat([
-//                praiseRequest.praisePublisher
-//                    .map { Mutation.setDataSource(result: $0) },
-//                // 设置刷新状态为重新载入
-//                Observable.just(Mutation.setRefreshStatus(refreshType: .refresh)),
-//            ])
+        case .loadData:
+            let request = MyCircleListRequest(dataSourceType: dataSourceType,
+                                              token: User.token!,
+                                              pageNum: 1,
+                                              scrollId: currentState.scrollId)
+            return Observable.concat([
+                request.dataPublisher
+                    .map { Mutation.setDataSource(result: $0) },
+                // 设置刷新状态为下拉刷新
+                Observable.just(Mutation.setRefreshStatus(refreshType: .pullDown)),
+            ])
+        case .loadNextPage:
+            guard let page = self.currentState.nextPage else
+            { return Observable.just(Mutation.setRefreshStatus(refreshType: .none)) }
+
+            let request = MyCircleListRequest(dataSourceType: dataSourceType,
+                                              token: User.token!,
+                                              pageNum: page,
+                                              scrollId: currentState.scrollId)
+            return Observable.concat([
+                request.dataPublisher
+                    .map { Mutation.appendDataSource(result: $0) },
+                Observable.just(Mutation.setRefreshStatus(refreshType: .pullUp)),
+            ])
         }
     }
-    
+
     
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
-        case .setEndRefreshStatus:
-            newState.refreshAction = .none
+        case .setDataSource(let result):
+            switch result {
+            case .success((let list, let nextPage)):
+                newState.dataSource = list
+                newState.nextPage = nextPage
+            case .failure(let error):
+                logWarning(error.localizedDescription)
+            }
+            
+        case .appendDataSource(result: let result):
+            switch result {
+            case .success((let list, let nextPage)):
+                newState.dataSource.append(contentsOf: list)
+                newState.nextPage = nextPage
+            case .failure(let error):
+                logWarning(error.localizedDescription)
+            }
+            
+        case .setRefreshStatus(refreshType: let refreshType):
+            newState.refreshAction = refreshType
+            
         }
         return newState
     }
