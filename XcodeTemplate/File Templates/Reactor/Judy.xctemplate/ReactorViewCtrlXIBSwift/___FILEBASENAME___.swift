@@ -20,15 +20,15 @@ class ___FILEBASENAMEASIDENTIFIER___: UIViewController, StoryboardView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = Separator.color
-        tableView.backgroundColor = Separator.color
+        view.backgroundColor = .red
+        tableView.backgroundColor = .red
         
         tableView.rowHeight = UITableView.automaticDimension    // 155
         // 注册 Cell
         tableView.register(UINib(nibName: "InRoopBaseCell", bundle: nil), forCellReuseIdentifier: "Cell")
 
         reactor?.action.onNext(.loadData)
-        
+
     }
 
     
@@ -40,7 +40,7 @@ class ___FILEBASENAMEASIDENTIFIER___: UIViewController, StoryboardView {
         reactor.state.map { $0.dataSource }
             .bind(to: tableView.rx.items(cellIdentifier: "Cell")) { [weak self] index, model, cell in
                 if let cell = cell as? InRoopBaseCell {
-                    cell.setModel(circleType: reactor.dataSourceType, model: model)
+                    cell.setModel(model: model)
                 }
             }
             .disposed(by: disposeBag)

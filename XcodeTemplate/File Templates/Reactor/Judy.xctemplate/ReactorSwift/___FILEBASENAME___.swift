@@ -9,7 +9,7 @@ import RxCocoa
 final class ___FILEBASENAMEASIDENTIFIER___: Reactor {
 
     enum Action {
-        /// 重新载入数据
+        /// 载入初始数据
         case loadData
         /// 加载下一页
         case loadNextPage
@@ -41,14 +41,11 @@ final class ___FILEBASENAMEASIDENTIFIER___: Reactor {
     
     
     func mutate(action: Action) -> Observable<Mutation> {
-        guard User.token != nil else { return Observable.just(Mutation.setRefreshStatus(refreshType: .none)) }
+        guard let token = User.token else { return Observable.just(Mutation.setRefreshStatus(refreshType: .none)) }
 
         switch action {
         case .loadData:
-            let request = MyCircleListRequest(dataSourceType: dataSourceType,
-                                              token: User.token!,
-                                              pageNum: 1,
-                                              scrollId: currentState.scrollId)
+            let request = MyCircleListRequest(token: token, pageNum: 1)
             return Observable.concat([
                 request.dataPublisher
                     .map { Mutation.setDataSource(result: $0) },
@@ -56,13 +53,11 @@ final class ___FILEBASENAMEASIDENTIFIER___: Reactor {
                 Observable.just(Mutation.setRefreshStatus(refreshType: .pullDown)),
             ])
         case .loadNextPage:
-            guard let page = self.currentState.nextPage else
-            { return Observable.just(Mutation.setRefreshStatus(refreshType: .none)) }
-
-            let request = MyCircleListRequest(dataSourceType: dataSourceType,
-                                              token: User.token!,
-                                              pageNum: page,
-                                              scrollId: currentState.scrollId)
+            guard let page = currentState.nextPage else {
+                return Observable.just(Mutation.setRefreshStatus(refreshType: .none))
+            }
+            
+            let request = MyCircleListRequest(token: token, pageNum: 1)
             return Observable.concat([
                 request.dataPublisher
                     .map { Mutation.appendDataSource(result: $0) },
