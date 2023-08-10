@@ -1,6 +1,6 @@
 import Foundation
 
-class JournalEntryLoader {
+class ContentLoader {
     
     var entries = [Model]()
     

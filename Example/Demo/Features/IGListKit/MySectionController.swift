@@ -53,7 +53,7 @@ extension SectionController {
         }
         label.font = UIFont(name: "OCRAStd", size: 16)
         
-        // 由于先设置的 sizeForItem，后赋值，所以复制后需要调用 layoutIfNeeded() 更新布局。
+        // 由于先设置的 sizeForItem，后赋值，所以赋值后需要调用 layoutIfNeeded() 更新布局。
         cell.layoutIfNeeded()
         
         return cell

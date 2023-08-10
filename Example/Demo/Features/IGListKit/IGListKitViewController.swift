@@ -19,7 +19,7 @@ class IGListKitViewController: UIViewController {
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
     
-    let loader = JournalEntryLoader()
+    let loader = ContentLoader()
     
     override func viewDidLoad() {
         super.viewDidLoad()
