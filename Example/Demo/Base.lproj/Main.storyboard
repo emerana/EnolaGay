@@ -240,7 +240,7 @@
         <!--导航条-->
         <scene sceneID="gDE-hd-rNe">
             <objects>
-                <navigationController id="3G2-WT-Ciz" customClass="JudyBaseNavigationCtrl" customModule="EnolaGay" sceneMemberID="viewController">
+                <navigationController id="3G2-WT-Ciz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="导航条" image="chevron.right.to.line" catalog="system" id="uzF-Io-oyY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xOg-aa-9HW">
                         <rect key="frame" x="0.0" y="50" width="375" height="44"/>
@@ -328,11 +328,28 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Bt5-Cr-VPd" id="B38-LY-cQv"/>
+                        <segue destination="oG9-eU-EB2" kind="show" identifier="showTransparentViewCtrl" id="v6Q-qI-03j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7q2-bl-x1t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-378.39999999999998" y="-1238.423645320197"/>
+        </scene>
+        <!--Transparent View Ctrl-->
+        <scene sceneID="N3J-WU-iBn">
+            <objects>
+                <viewController id="oG9-eU-EB2" customClass="TransparentViewCtrl" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RAn-1V-jQl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aib-Ft-gMd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ArE-lc-XXR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i58-uU-O2O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="566" y="-1238"/>
         </scene>
         <!--LogViewController-->
         <scene sceneID="CyR-he-G3n">
