@@ -198,7 +198,7 @@ public struct Judy {
     /// 将对象转成字典对象。
     /// - Parameter model: 符合 Codable 协议的对象
     /// - Returns: 目标对象经过转换后的字典对象
-    static func formatToDictionary<T: Codable>(_ model: T) -> [String: Any] {
+    public static func formatToDictionary<T: Codable>(_ model: T) -> [String: Any] {
         do {
             let encoder = JSONEncoder()
             encoder.outputFormatting = .prettyPrinted
