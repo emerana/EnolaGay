@@ -1,5 +1,5 @@
 //
-//  NavigationBarDataSourceLoader.swift
+//  DataLoader.swift
 //  Demo
 //
 //  Created by EnolaGay on 2023/8/10.
@@ -10,7 +10,7 @@ import Foundation
 import EnolaGay
 
 /// 数据载入器
-final class NavigationBarDataSourceLoader {
+final class DataLoader {
 
     lazy var entries: [Model] = {
         return loadInitializationLatest()
@@ -53,7 +53,7 @@ final class NavigationBarDataSourceLoader {
 
 }
 
-extension NavigationBarDataSourceLoader {
+extension DataLoader {
     
     /// 数据模型
     class Model: NSObject {

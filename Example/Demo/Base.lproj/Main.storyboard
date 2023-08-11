@@ -312,7 +312,20 @@
                             <constraint firstItem="Bt5-Cr-VPd" firstAttribute="leading" secondItem="bRq-gP-Wop" secondAttribute="leading" id="X57-qz-FzY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8Fk-iy-aWK"/>
+                    <navigationItem key="navigationItem" id="8Fk-iy-aWK">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="trash" id="SCp-z6-vYG">
+                                <connections>
+                                    <action selector="deleteAction:" destination="Idf-nZ-fw9" id="8rO-H4-PMF"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="erd-1p-kEE">
+                                <connections>
+                                    <action selector="addAction:" destination="Idf-nZ-fw9" id="Dji-sx-kZP"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Bt5-Cr-VPd" id="B38-LY-cQv"/>
                     </connections>
@@ -403,8 +416,8 @@
                                     </slider>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="XZp-rG-kn1">
-                                <rect key="frame" x="16" y="427" width="73" height="110"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" ambiguous="YES" distribution="fillProportionally" alignment="center" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="XZp-rG-kn1">
+                                <rect key="frame" x="16" y="427" width="140" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="vka-cw-fqD"/>
                                 </constraints>
@@ -434,7 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVQ-GI-3Fq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-377" y="-3069"/>
+            <point key="canvasLocation" x="-378.39999999999998" y="-3069.4581280788179"/>
         </scene>
         <!--CircularProgress-->
         <scene sceneID="yOF-IU-jin">

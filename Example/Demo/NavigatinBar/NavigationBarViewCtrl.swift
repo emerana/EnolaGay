@@ -19,7 +19,7 @@ class NavigationBarViewCtrl: UIViewController {
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
     
-    let loader = NavigationBarDataSourceLoader()
+    let loader = DataLoader()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,15 @@ class NavigationBarViewCtrl: UIViewController {
         adapter.collectionView?.layoutIfNeeded()
     }
     
+    @IBAction func addAction(_ sender: Any) {
+        log("添加一个数据")
+    }
 
+    @IBAction func deleteAction(_ sender: Any) {
+        log("删除一个数据")
+    }
+
+    
     /*
     // MARK: - Navigation
 
@@ -55,7 +63,7 @@ extension NavigationBarViewCtrl: ListAdapterDataSource {
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-         let sectionCtrl = NavigationBarSectionCtrl()
+         let sectionCtrl = SectionCtrlS1()
 
         return sectionCtrl
     }

@@ -1,5 +1,5 @@
 //
-//  NavigationBarSectionCtrl.swift
+//  SectionCtrlS1.swift
 //  Demo
 //
 //  Created by EnolaGay on 2023/8/10.
@@ -11,9 +11,9 @@ import IGListKit
 import EnolaGay
 
 /// section 控制器
-class NavigationBarSectionCtrl: ListSectionController {
+class SectionCtrlS1: ListSectionController {
 
-    var entry: NavigationBarDataSourceLoader.Model!
+    var entry: DataLoader.Model!
     
     override init() {
         super.init()
@@ -56,7 +56,7 @@ class NavigationBarSectionCtrl: ListSectionController {
     }
     
     override func didUpdate(to object: Any) {
-        entry = object as? NavigationBarDataSourceLoader.Model
+        entry = object as? DataLoader.Model
     }
     
     override func didSelectItem(at index: Int) {
@@ -65,7 +65,7 @@ class NavigationBarSectionCtrl: ListSectionController {
 
 }
 
-extension NavigationBarSectionCtrl: ListSupplementaryViewSource {
+extension SectionCtrlS1: ListSupplementaryViewSource {
     
     func supportedElementKinds() -> [String] { [UICollectionView.elementKindSectionHeader] }
     
@@ -80,7 +80,7 @@ extension NavigationBarSectionCtrl: ListSupplementaryViewSource {
     
 }
 
-extension NavigationBarSectionCtrl: ListScrollDelegate {
+extension SectionCtrlS1: ListScrollDelegate {
     
     func listAdapter(_ listAdapter: ListAdapter, didScroll sectionController: ListSectionController) {
         
