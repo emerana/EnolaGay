@@ -194,7 +194,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
     func getGradient(vertical: Bool = true, frame: CGRect = UIScreen.main.bounds, startColor: UIColor = .red, endColor: UIColor = .green) -> CAGradientLayer {
         //create gradientLayer
         let gradientLayer : CAGradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect.init(x: 0, y: 0, width: frame.width, height: frame.height)
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         
         //gradient colors
         // Judy.colorByRGB(r: 2, g: 191, b: 101), Judy.colorByRGB(r: 51, g: 221, b: 140)
@@ -221,7 +221,6 @@ public extension EnolaGayWrapper where Base: UIViewController {
     /// - Warning: 调用此方法务必在 viewDidAppear 函数之后
     /// - Returns: 你要的图像
     func captureScreenImage(targetScrollView: UIScrollView, transparent: Bool = false, savedPhotosAlbum: Bool = false ) -> UIImage? {
-        
         UIGraphicsBeginImageContextWithOptions(targetScrollView.contentSize, false, 0.0)
         
         guard let context = UIGraphicsGetCurrentContext() else { return nil }
