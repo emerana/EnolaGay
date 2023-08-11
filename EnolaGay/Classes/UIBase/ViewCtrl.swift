@@ -362,11 +362,10 @@ public extension EnolaGayWrapper where Base: UIViewController {
         }
     }
     
-    /// 将导航条设为不透明的毛玻璃（半透明）颜色外观配置。
-    /// 由于 iOS15 将导航条默认设为透明，可以使用此方法恢复到之前的效果，即恢复导航条在 iOS15 之前的毛玻璃效果。
+    /// 将导航条保留阴影线并设为持续显示。
     ///
-    /// - Warning: 此函数会保留阴影线，并使导航条持续显示。
-    func navigationBarWithOpaqueBackground() {
+    /// 由于 iOS15 将导航条默认设为透明，可以使用此方法恢复到之前的效果，即恢复导航条在 iOS15 之前的持续显示毛玻璃外观配置效果。
+    func navigationBarWithAppearance() {
         if #available(iOS 15, *) {
             let appearance = UINavigationBarAppearance()
             base.navigationController?.navigationBar.standardAppearance = appearance
@@ -375,8 +374,8 @@ public extension EnolaGayWrapper where Base: UIViewController {
     }
     
 
-    /// 将 navigationBar 设为全透明，且会删除阴影线。
-    func navigationBarTransparency() {
+    /// 将 navigationBar 设为全透明样式，且会删除阴影线。
+    func navigationBarWithTransparentBackground() {
         // 首先设置 navigationBar 的具体背景样式
         if #available(iOS 15, *) {
             let appearance = UINavigationBarAppearance()
@@ -399,7 +398,36 @@ public extension EnolaGayWrapper where Base: UIViewController {
         // edgesForExtendedLayout = .bottom
         
     }
+
+    /// 高斯模糊背景样式的导航条
+    func navigationBarBlurBackground() {
+        // 首先设置 navigationBar 的具体背景样式
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            // 配置具有透明背景和无阴影的工具条外观对象。
+            appearance.configureWithTransparentBackground()
+            appearance.backgroundColor = .clear
+            // appearance.backgroundEffect = UIBlurEffect(style: .dark)
+            appearance.backgroundEffect = UIBlurEffect(style: .regular)
+            base.navigationController?.navigationBar.standardAppearance = appearance
+            base.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        }
+    }
     
+    /// 设置为完全不透明颜色配置外观。
+    func navigationBarOpaque() {
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            // 用一组适合当前主题的不透明颜色配置栏外观对象。
+            // appearance.configureWithOpaqueBackground()
+
+            // appearance.backgroundEffect = UIBlurEffect(style: .regular)
+
+            base.navigationController?.navigationBar.standardAppearance = appearance
+            base.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        }
+    }
+
     
     
     /// 弹出一个系统警告框，只包含一个取消类型的按钮。通常用于临时性提醒、警告作用。

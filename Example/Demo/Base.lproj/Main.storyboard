@@ -355,7 +355,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rH9-uB-Pzv">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="恢复毛玻璃"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="持续显示导航条"/>
                                         <connections>
                                             <action selector="resetNavigationBar:" destination="oG9-eU-EB2" eventType="touchUpInside" id="kMk-W0-3no"/>
                                         </connections>

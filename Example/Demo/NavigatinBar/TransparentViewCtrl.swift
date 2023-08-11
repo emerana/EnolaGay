@@ -18,18 +18,19 @@ class TransparentViewCtrl: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    /// 恢复毛玻璃
+    
+    /// 持续显示导航条
     @IBAction func resetNavigationBar(_ sender: Any) {
-        judy.navigationBarWithOpaqueBackground()
+        judy.navigationBarWithAppearance()
     }
     
-    /// 设为全透明
+    /// 全透明导航条
     @IBAction func navigationBarResetGroundGlassEffect(_ sender: Any) {
-        judy.navigationBarTransparency()
+        judy.navigationBarWithTransparentBackground()
     }
 
     @IBAction func navigationBarOpaque(_ sender: Any) {
-        judy.navigationBarOpaque()
+        judy.navigationBarBlurBackground()
     }
 
 
