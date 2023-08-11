@@ -362,7 +362,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
         }
     }
     
-    /// 将导航条保留阴影线并设为持续显示。
+    /// 将导航条恢复为持续显示。
     ///
     /// 由于 iOS15 将导航条默认设为透明，可以使用此方法恢复到之前的效果，即恢复导航条在 iOS15 之前的持续显示毛玻璃外观配置效果。
     func navigationBarWithAppearance() {
@@ -374,7 +374,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
     }
     
 
-    /// 将 navigationBar 设为全透明样式，且会删除阴影线。
+    /// 将导航条设为全透明样式，且会删除阴影线。
     func navigationBarWithTransparentBackground() {
         // 首先设置 navigationBar 的具体背景样式
         if #available(iOS 15, *) {
@@ -399,7 +399,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
         
     }
 
-    /// 高斯模糊背景样式的导航条
+    /// 高斯模糊背景样式的导航条。
     func navigationBarBlurBackground() {
         // 首先设置 navigationBar 的具体背景样式
         if #available(iOS 15, *) {
@@ -414,20 +414,18 @@ public extension EnolaGayWrapper where Base: UIViewController {
         }
     }
     
-    /// 设置为完全不透明颜色配置外观。
-    func navigationBarOpaque() {
+    /// 将导航条设为默认的外观样式，自动显示毛玻璃效果。
+    func navigationBarDefault() {
         if #available(iOS 15, *) {
             let appearance = UINavigationBarAppearance()
             // 用一组适合当前主题的不透明颜色配置栏外观对象。
             // appearance.configureWithOpaqueBackground()
-
             // appearance.backgroundEffect = UIBlurEffect(style: .regular)
-
+            appearance.configureWithDefaultBackground()
             base.navigationController?.navigationBar.standardAppearance = appearance
-            base.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            base.navigationController?.navigationBar.scrollEdgeAppearance = nil
         }
     }
-
     
     
     /// 弹出一个系统警告框，只包含一个取消类型的按钮。通常用于临时性提醒、警告作用。

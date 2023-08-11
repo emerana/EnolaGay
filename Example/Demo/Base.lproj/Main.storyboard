@@ -371,7 +371,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRW-Gq-E72">
                                         <rect key="frame" x="0.0" y="166.66666666666663" width="180" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="恢复不透明样式"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="恢复默认样式"/>
                                         <connections>
                                             <action selector="navigationBarOpaque:" destination="oG9-eU-EB2" eventType="touchUpInside" id="z4V-wa-RsT"/>
                                         </connections>

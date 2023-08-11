@@ -30,7 +30,7 @@ class TransparentViewCtrl: UIViewController {
     }
 
     @IBAction func navigationBarOpaque(_ sender: Any) {
-        judy.navigationBarBlurBackground()
+        judy.navigationBarDefault()
     }
 
 
