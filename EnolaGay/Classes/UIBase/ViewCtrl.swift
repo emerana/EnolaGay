@@ -186,7 +186,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
     /// ```
     ///
     /// - Parameters:
-    ///   - vertical: 是否垂直方向的渐变，默认是。否则为横向渐变
+    ///   - vertical: 是否垂直方向的渐变，默认是。否则为横向渐变。
     ///   - frame: 默认为屏幕 frame.
     ///   - startColor: 起始颜色，默认为 red.
     ///   - endColor: 终止颜色，默认为 green.
@@ -204,8 +204,8 @@ public extension EnolaGayWrapper where Base: UIViewController {
         if vertical {
             gradientLayer.endPoint = CGPoint(x: 0, y: 1);
         }
-        //        self.navigationBar.layer.insertSublayer(gradientLayer, at: 0)     // 这样无效
-        //        self.navigationBar.setBackgroundImage(Judy.image(fromLayer: gradientLayer), for: .default)
+        // self.navigationBar.layer.insertSublayer(gradientLayer, at: 0)     // 这样无效
+        // self.navigationBar.setBackgroundImage(Judy.image(fromLayer: gradientLayer), for: .default)
         return gradientLayer
     }
     
