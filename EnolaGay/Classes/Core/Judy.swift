@@ -195,6 +195,18 @@ public struct Judy {
     @available(*, unavailable, message: "此函数已禁用，请使用 SwiftyJSON 的 json.rawString() ")
     public static func string(withDictionary: [String: Any]) -> String { "" }
 
+
+    /// URL 有效性校验。这涵盖了所有类型的验证（如子域），无论是否带有 HTTP/HTTPS.
+    /// - Parameter url: 目标 url 字符串
+    /// - Returns: 该字符串是否为一个有效的 URL.
+    public static func isValidURL(url: String) -> Bool {
+        /// 正则表达式
+        let urlRegularExpression = "^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$"
+        let urlTest = NSPredicate(format:"SELF MATCHES %@", urlRegularExpression)
+        let result = urlTest.evaluate(with: url)
+        return result
+    }
+
 }
 
 /****************************************  ****************************************/

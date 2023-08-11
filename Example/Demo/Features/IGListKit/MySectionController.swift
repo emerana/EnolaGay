@@ -10,14 +10,17 @@ import UIKit
 import IGListKit
 import EnolaGay
 
+
 class SectionController: ListSectionController {
-    
+
     var entry: Model!
     
     override init() {
         super.init()
-        
         inset = UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0)
+        supplementaryViewSource = self
+        scrollDelegate = self
+        
     }
     
 }
@@ -50,7 +53,7 @@ extension SectionController {
         }
         label.font = UIFont(name: "OCRAStd", size: 16)
         
-        // 由于先设置的 sizeForItem，后赋值，所以复制后需要调用 layoutIfNeeded() 更新布局。
+        // 由于先设置的 sizeForItem，后赋值，所以赋值后需要调用 layoutIfNeeded() 更新布局。
         cell.layoutIfNeeded()
         
         return cell
@@ -63,5 +66,43 @@ extension SectionController {
     override func didSelectItem(at index: Int) {
         log("点击了\(index)")
     }
+    
+}
 
+extension SectionController: ListSupplementaryViewSource {
+    
+    func supportedElementKinds() -> [String] { [UICollectionView.elementKindSectionHeader] }
+    
+    func viewForSupplementaryElement(ofKind elementKind: String, at index: Int) -> UICollectionReusableView {
+        
+        return collectionContext!.dequeueReusableSupplementaryView(fromStoryboardOfKind: UICollectionView.elementKindSectionHeader, withIdentifier: "Header", for: self, at: index)
+    }
+    
+    func sizeForSupplementaryView(ofKind elementKind: String, at index: Int) -> CGSize {
+        return CGSize(width: .zero, height: 28)
+    }
+    
+}
+
+extension SectionController: ListScrollDelegate {
+    
+    func listAdapter(_ listAdapter: ListAdapter, didScroll sectionController: ListSectionController) {
+        
+    }
+    
+    func listAdapter(_ listAdapter: ListAdapter, willBeginDragging sectionController: ListSectionController) {
+        
+    }
+    
+    
+    //    func listAdapter(_ listAdapter: ListAdapter, didScroll sectionController: ListSectionController) {
+    //        log("滚动：\(listAdapter.collectionView?.contentOffset.y)")
+    //        listAdapter.collectionView?.contentInset =
+    //        UIEdgeInsets(top: -128, left: 0, bottom: 0, right: 0)
+    //    }
+    
+    func listAdapter(_ listAdapter: ListAdapter, didEndDragging sectionController: ListSectionController, willDecelerate decelerate: Bool) {
+        
+    }
+    
 }

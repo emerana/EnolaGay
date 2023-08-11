@@ -1,6 +1,6 @@
 import Foundation
 
-class JournalEntryLoader {
+class ContentLoader {
     
     var entries = [Model]()
     
@@ -32,6 +32,7 @@ class JournalEntryLoader {
                 msg: "风筝误，误了梨花花又开\n风筝误，误了金钗雪里埋\n风筝误，悟满相思挂苍苔\n听雨声，数几声，风会来\n风筝误，误了梨花花又开\n风筝误，捂了金钗雪里埋\n风筝误，悟满相思挂苍苔\n听雨声，数几声，风会来\n风筝误\n悟了一句\n情似露珠\n谁约我，又在这，风烟处\n风筝误。",
                 user: "醉翁之意"
             ),
+
         ]
         self.entries = entries
     }

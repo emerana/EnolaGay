@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EnolaGay'
-  s.version          = '4.0.10'
+  s.version          = '4.0.11'
   s.summary          = 'EnolaGay 架构，由早期的 EMERANA 进化而成。'
 
 # This description is used to generate tags and improve search results.
@@ -47,12 +47,6 @@ Pod::Spec.new do |s|
   s.subspec 'EMERANA' do |ss|
       ss.dependency 'EnolaGay/Core'
       ss.source_files = 'EnolaGay/Classes/UIBase/*'
-  end
-
-  # MARK: 水平方向选择器
-  s.subspec 'SegmentedView' do |ss|
-      ss.dependency 'EnolaGay/EMERANA'
-      ss.source_files = 'EnolaGay/Classes/SegmentedView/*'
   end
   
   # MARK: 水平方向的滚动选择器，SegmentedView 则是不支持滚动选择的。

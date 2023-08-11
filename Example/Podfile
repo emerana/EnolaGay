@@ -12,13 +12,11 @@ target 'Demo' do
   pod 'EnolaGay/GiftMessageCtrlPanel' , :path => '../'
   pod 'EnolaGay/JudyPopBubble' , :path => '../'
   pod 'EnolaGay/JudyWaterWaveView' , :path => '../'
+  pod 'EnolaGay/KeyboardHelper', :path => '../'
   
   pod 'SwiftyJSON'
-  pod 'Alamofire'
   pod 'RxSwift'
   pod 'RxCocoa'
-
-  pod 'EnolaGay/KeyboardHelper', :path => '../'
 
   pod 'Cache'
   pod 'IGListKit'
@@ -44,7 +42,7 @@ target 'Demo' do
     #    pod 'MBProgressHUD'
     pod 'SwiftMessages'
     pod 'MJRefresh'
-    pod 'SDWebImage'
+    #    pod 'SDWebImage'
     #  广告轮播图
     # pod 'SDCycleScrollView'
     
@@ -55,10 +53,7 @@ target 'Demo' do
     pod 'SwiftyUserDefaults', '5.0.0-beta.5'
     pod 'DZNEmptyDataSet'
 
-    pod 'FMDB'
-    pod 'Alamofire'
     pod 'BadgeHub'
-    pod 'SwiftyJSON'
     
   end
   
@@ -71,7 +66,6 @@ end
 # MARK: PickerDemo
 target 'PickerDemo' do
   pod 'EnolaGay/HPickerView', :path => '../'
-  pod 'EnolaGay/SegmentedView', :path => '../'
 end
 
 # MARK: HUD
@@ -98,7 +92,6 @@ end
 target 'RefreshAdapter' do
   pod 'EnolaGay', :path => '../'
   pod 'MJRefresh'
-  pod 'Alamofire'
 end
 
 

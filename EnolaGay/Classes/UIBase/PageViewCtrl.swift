@@ -27,15 +27,15 @@ import UIKit
 
 /// 支持模型驱动和数据驱动的标准 JudyBasePageViewCtrl.
 ///
-/// 通过 setPageViewDataSource 函数设置数据及界面，此类适用于切换的页面较少的场景，会保留所有出现的 viewCtrl
-/// - Warning: setPageViewDataSource 函数中直接明确了所有需要出现的 viewCtrls 及对应的 titles
-/// - Warning: 如果是模型驱动，则必须实现 enolagay 代理对象
+/// 通过 setPageViewDataSource 函数设置数据及界面，此类适用于切换的页面较少的场景，会保留所有出现的 viewCtrl.
+/// - Warning: setPageViewDataSource 函数中直接明确了所有需要出现的 viewCtrls 及对应的 titles.
+/// - Warning: 如果是模型驱动，则必须实现 enolagay 代理对象.
 open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDelegate, UIScrollViewDelegate {
     
-    /// emerana 代理，此代理负责处理 pageViewCtrl 切换事件
+    /// emerana 代理，此代理负责处理 pageViewCtrl 切换事件。
     weak public var emerana: EMERANA_JudyPageViewCtrlAnimating?
     
-    /// 模型驱动代理，在使用模型驱动时必须实现该代理，并通过此代理设置 viewCtrl 模型
+    /// 模型驱动代理，在使用模型驱动时必须实现该代理，并通过此代理设置 viewCtrl 模型。
     weak public var enolagay: EMERANA_JudyBasePageViewCtrlModel?
 
     /// 记录当前显示的索引，该值默认为 0.
@@ -46,7 +46,7 @@ open class JudyBasePageViewCtrl: UIPageViewController, UIPageViewControllerDeleg
     @IBInspectable public lazy var isAutoPop: Bool = false
     
     /// 是否支持弹簧效果，默认为 true
-    /// - Warning: 将该值设为 false 则 pageViewCtrl 首位界面没有向外部滚动的弹簧效果
+    /// - Warning: 将该值设为 false 则 pageViewCtrl 首尾界面没有向外部滚动的弹簧效果
     @IBInspectable public lazy var isBounces: Bool = true
 
     /// 该值用于记录最后一次视图的转换是否由用户通过拖拽触发，该值默认为 true.

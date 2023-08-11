@@ -22,6 +22,8 @@
 		8B682B9A29D46F8D00408A8D /* JournalLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC126DF480F00A2A405 /* JournalLoader.swift */; };
 		8B682B9B29D46F8D00408A8D /* NSObject+IGListDiffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3DBC026DF480F00A2A405 /* NSObject+IGListDiffable.swift */; };
 		8B682B9C29D46F8D00408A8D /* OCRAStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8BC3DBBF26DF480F00A2A405 /* OCRAStd.otf */; };
+		8B6B2F3E2A41A45E00099528 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B2F3D2A41A45E00099528 /* TableController.swift */; };
+		8B6B2F402A41A48800099528 /* ScrollViewTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B6B2F3F2A41A48800099528 /* ScrollViewTableView.storyboard */; };
 		8BBC8F0F29F1318F0036C838 /* JudyWaterWaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBC8F0E29F1318F0036C838 /* JudyWaterWaveViewController.swift */; };
 		8BBC8F1129F13E280036C838 /* CircularProgress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBC8F1029F13E280036C838 /* CircularProgress.storyboard */; };
 		8BBC8F1429F1405C0036C838 /* CastSurelyCalculation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBC8F1329F1405C0036C838 /* CastSurelyCalculation.storyboard */; };
@@ -110,6 +112,10 @@
 		8DDD27D3FD749A645CA9BCC8 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31877678D006019384F3D2A /* Pods_Demo.framework */; };
 		AF365B7AFEA752AE89D21F34 /* Pods_Demo_EMERANA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F793883511E6BD42AF3A2D /* Pods_Demo_EMERANA.framework */; };
 		B10CF77396383779B5E8AF24 /* Pods_HUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4184B351D17BE8A974CEA2BF /* Pods_HUD.framework */; };
+		D4DA85472A84E931003E3B94 /* NavigationBarViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA85462A84E931003E3B94 /* NavigationBarViewCtrl.swift */; };
+		D4DA85492A84E9B3003E3B94 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA85482A84E9B3003E3B94 /* DataLoader.swift */; };
+		D4DA854B2A84EA3D003E3B94 /* SectionCtrlS1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA854A2A84EA3D003E3B94 /* SectionCtrlS1.swift */; };
+		D4DA85712A85E8C6003E3B94 /* TransparentViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA85702A85E8C6003E3B94 /* TransparentViewCtrl.swift */; };
 		DD52ABAB1A1E1D3FD3732979 /* Pods_RefreshAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2953210472AAEFB78DCA32B /* Pods_RefreshAdapter.framework */; };
 /* End PBXBuildFile section */
 
@@ -148,14 +154,13 @@
 		82ACB32009D817D4A81BB520 /* Pods-PlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerDemo.debug.xcconfig"; path = "Target Support Files/Pods-PlayerDemo/Pods-PlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		8B1AA67225A74AE60063BE04 /* LivePageViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePageViewCtrl.swift; sourceTree = "<group>"; };
 		8B1AA67F25A74C1B0063BE04 /* LiveModelViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveModelViewCtrl.swift; sourceTree = "<group>"; };
+		8B1E81762A6B69E500F06512 /* 中洲控股中心.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "中洲控股中心.gpx"; sourceTree = "<group>"; };
 		8B25A22C26DDB9CC00EA4F32 /* VersionCheckViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCheckViewCtrl.swift; sourceTree = "<group>"; };
 		8B3BD1DC27014EB2001912FB /* DownloadViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewCtrl.swift; sourceTree = "<group>"; };
 		8B486BF726087A8A001EEEB5 /* SegmentedTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTestViewCtrl.swift; sourceTree = "<group>"; };
 		8B48819F29F2AC8A00C04EC7 /* 世界魔鬼城.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "世界魔鬼城.gpx"; sourceTree = "<group>"; };
 		8B4881A029F2B9A800C04EC7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		8B4881A129F2B9A800C04EC7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		8B4881A229F2B9A900C04EC7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		8B4881A329F2B9A900C04EC7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		8B4881A529F2B9A900C04EC7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		8B4881A629F2B9A900C04EC7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		8B4881A929F2B9A900C04EC7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -170,9 +175,13 @@
 		8B4F5D5829C46A7B0092AF67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B4F5D5B29C46A7B0092AF67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B4F5D5D29C46A7B0092AF67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B6B2F3D2A41A45E00099528 /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
+		8B6B2F3F2A41A48800099528 /* ScrollViewTableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScrollViewTableView.storyboard; sourceTree = "<group>"; };
+		8B72098A2A499C58008D9006 /* 吉安瑞德广场.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "吉安瑞德广场.gpx"; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
+		8BAB183A2A47E29200ED831E /* 茂盛路.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "茂盛路.gpx"; sourceTree = "<group>"; };
 		8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftMessageViewCtrlTest.swift; sourceTree = "<group>"; };
 		8BBC8F0E29F1318F0036C838 /* JudyWaterWaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudyWaterWaveViewController.swift; sourceTree = "<group>"; };
 		8BBC8F1029F13E280036C838 /* CircularProgress.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CircularProgress.storyboard; sourceTree = "<group>"; };
@@ -304,6 +313,10 @@
 		CCE7FB212293B8C02A23BF4D /* Pods-RefreshAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefreshAdapter.debug.xcconfig"; path = "Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter.debug.xcconfig"; sourceTree = "<group>"; };
 		D221CE43130751AADE49E262 /* Pods-ToastDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToastDemo.debug.xcconfig"; path = "Target Support Files/Pods-ToastDemo/Pods-ToastDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D2953210472AAEFB78DCA32B /* Pods_RefreshAdapter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RefreshAdapter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4DA85462A84E931003E3B94 /* NavigationBarViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarViewCtrl.swift; sourceTree = "<group>"; };
+		D4DA85482A84E9B3003E3B94 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		D4DA854A2A84EA3D003E3B94 /* SectionCtrlS1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCtrlS1.swift; sourceTree = "<group>"; };
+		D4DA85702A85E8C6003E3B94 /* TransparentViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentViewCtrl.swift; sourceTree = "<group>"; };
 		DC320D0BB712D408990761B0 /* Pods_CastSurelyCalculation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CastSurelyCalculation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E34584FCEC0D60DBE3AFB585 /* Pods_GiftMessageViewCtrlDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiftMessageViewCtrlDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B4A427494A98F9DEA5A16A /* Pods_JudyLivePageViewCtrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JudyLivePageViewCtrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -488,6 +501,15 @@
 			path = IGListKit;
 			sourceTree = "<group>";
 		};
+		8B6B2F3C2A41A43B00099528 /* ScrollViewTableView */ = {
+			isa = PBXGroup;
+			children = (
+				8B6B2F3D2A41A45E00099528 /* TableController.swift */,
+				8B6B2F3F2A41A48800099528 /* ScrollViewTableView.storyboard */,
+			);
+			path = ScrollViewTableView;
+			sourceTree = "<group>";
+		};
 		8B76428E25A702C400A418F8 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,6 +523,7 @@
 		8BBC8F1229F13E2C0036C838 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				8B6B2F3C2A41A43B00099528 /* ScrollViewTableView */,
 				8BE640E329D47358005D6EEB /* JudyLivePageViewCtrl */,
 				8B682B9729D46DCE00408A8D /* IGListKit */,
 				8BBC8F1029F13E280036C838 /* CircularProgress.storyboard */,
@@ -684,6 +707,9 @@
 			isa = PBXGroup;
 			children = (
 				8BC3DD6D26E05BC900A2A405 /* 温州.gpx */,
+				8B1E81762A6B69E500F06512 /* 中洲控股中心.gpx */,
+				8B72098A2A499C58008D9006 /* 吉安瑞德广场.gpx */,
+				8BAB183A2A47E29200ED831E /* 茂盛路.gpx */,
 				8BC3DD6E26E05BC900A2A405 /* 浙江台州.gpx */,
 				8BC3DD6F26E05BC900A2A405 /* 陆港电商小镇.gpx */,
 				8BC3DD7026E05BC900A2A405 /* 深圳北站.gpx */,
@@ -708,6 +734,7 @@
 				8BBC8F0E29F1318F0036C838 /* JudyWaterWaveViewController.swift */,
 				8BE31B7F29C2D22A003038B2 /* Main.storyboard */,
 				8BBC8F1229F13E2C0036C838 /* Features */,
+				D4DA85452A84E905003E3B94 /* NavigatinBar */,
 				8BE31B8229C2D22B003038B2 /* Assets.xcassets */,
 				8BE31B8429C2D22B003038B2 /* LaunchScreen.storyboard */,
 				8BE31B8729C2D22B003038B2 /* Info.plist */,
@@ -778,6 +805,17 @@
 				E9205DCC3767921C765CC144 /* Pods_PickerDemo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4DA85452A84E905003E3B94 /* NavigatinBar */ = {
+			isa = PBXGroup;
+			children = (
+				D4DA85462A84E931003E3B94 /* NavigationBarViewCtrl.swift */,
+				D4DA854A2A84EA3D003E3B94 /* SectionCtrlS1.swift */,
+				D4DA85482A84E9B3003E3B94 /* DataLoader.swift */,
+				D4DA85702A85E8C6003E3B94 /* TransparentViewCtrl.swift */,
+			);
+			path = NavigatinBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -903,7 +941,6 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = NO;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = EnolaGay;
@@ -926,7 +963,7 @@
 					};
 					8BE31B7629C2D229003038B2 = {
 						CreatedOnToolsVersion = 14.2;
-						DevelopmentTeam = 325J3J39TM;
+						DevelopmentTeam = 77K85WWG9G;
 						ProvisioningStyle = Automatic;
 					};
 					8BF21D6829CD3F4D00308310 = {
@@ -1030,6 +1067,7 @@
 				8BBC8F2029F142F20036C838 /* AttributedString.storyboard in Resources */,
 				8BBC8F1A29F141D20036C838 /* IGListKit.storyboard in Resources */,
 				8BBC8F1829F141650036C838 /* GiftMessage.storyboard in Resources */,
+				8B6B2F402A41A48800099528 /* ScrollViewTableView.storyboard in Resources */,
 				8B682B9C29D46F8D00408A8D /* OCRAStd.otf in Resources */,
 				8BBC8F2429F143B80036C838 /* Toast.storyboard in Resources */,
 				8BE31B8129C2D22A003038B2 /* Main.storyboard in Resources */,
@@ -1081,7 +1119,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demo-EMERANA/Pods-Demo-EMERANA-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/EnolaGay-ce35eb76/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/IGListDiffKit/IGListDiffKit.framework",
@@ -1093,15 +1130,12 @@
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/BadgeHub/BadgeHub.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
-				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListDiffKit.framework",
@@ -1113,9 +1147,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BadgeHub.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 			);
@@ -1153,7 +1185,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PickerDemo/Pods-PickerDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EnolaGay-Core-EMERANA-HPickerView-SegmentedView/EnolaGay.framework",
+				"${BUILT_PRODUCTS_DIR}/EnolaGay-Core-EMERANA-HPickerView/EnolaGay.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1257,13 +1289,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/EnolaGay-iOS11.0/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 			);
@@ -1301,7 +1331,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/EnolaGay-ce35eb76/EnolaGay.framework",
 				"${BUILT_PRODUCTS_DIR}/IGListDiffKit/IGListDiffKit.framework",
@@ -1313,7 +1342,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EnolaGay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListDiffKit.framework",
@@ -1410,13 +1438,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4DA854B2A84EA3D003E3B94 /* SectionCtrlS1.swift in Sources */,
 				8B682B9A29D46F8D00408A8D /* JournalLoader.swift in Sources */,
+				8B6B2F3E2A41A45E00099528 /* TableController.swift in Sources */,
 				8BF65F6F29C81BBB001E2160 /* CircularProgressViewController.swift in Sources */,
+				D4DA85472A84E931003E3B94 /* NavigationBarViewCtrl.swift in Sources */,
 				8BE5BA7229D4493A003E75D5 /* KeyBoardPopUpViewCtrl.swift in Sources */,
 				8BE5BA7429D46405003E75D5 /* CacheViewCtrl.swift in Sources */,
 				8BE5BA7529D46601003E75D5 /* ToastViewController.swift in Sources */,
+				D4DA85712A85E8C6003E3B94 /* TransparentViewCtrl.swift in Sources */,
 				8BE5BA7129D44765003E75D5 /* VersionCheckViewCtrl.swift in Sources */,
 				8BE5BA7729D46898003E75D5 /* SaleTicketsViewController.swift in Sources */,
+				D4DA85492A84E9B3003E3B94 /* DataLoader.swift in Sources */,
 				8B682B9929D46F8900408A8D /* MySectionController.swift in Sources */,
 				8BE640E229D47348005D6EEB /* LiveModelViewCtrl.swift in Sources */,
 				8BBC8F0F29F1318F0036C838 /* JudyWaterWaveViewController.swift in Sources */,
@@ -1467,7 +1500,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				8BC3DA9426DEB46500A2A405 /* Base */,
-				8B4881A329F2B9A900C04EC7 /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -1476,7 +1508,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				8BC3DA9626DEB46500A2A405 /* Base */,
-				8B4881A229F2B9A900C04EC7 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1731,7 +1762,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
 				INFOPLIST_FILE = "$(TARGET_NAME)/PlayerDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.PlayerDemo;
@@ -1748,7 +1779,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 325J3J39TM;
 				INFOPLIST_FILE = "$(TARGET_NAME)/PlayerDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = EnolaGay.PlayerDemo;
@@ -1870,7 +1901,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 325J3J39TM;
+				DEVELOPMENT_TEAM = 77K85WWG9G;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
@@ -1880,7 +1911,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1908,7 +1939,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 325J3J39TM;
+				DEVELOPMENT_TEAM = 77K85WWG9G;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
@@ -1918,7 +1949,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;

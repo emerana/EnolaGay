@@ -186,7 +186,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
     /// ```
     ///
     /// - Parameters:
-    ///   - vertical: 是否垂直方向的渐变，默认是。否则为横向渐变
+    ///   - vertical: 是否垂直方向的渐变，默认是。否则为横向渐变。
     ///   - frame: 默认为屏幕 frame.
     ///   - startColor: 起始颜色，默认为 red.
     ///   - endColor: 终止颜色，默认为 green.
@@ -194,7 +194,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
     func getGradient(vertical: Bool = true, frame: CGRect = UIScreen.main.bounds, startColor: UIColor = .red, endColor: UIColor = .green) -> CAGradientLayer {
         //create gradientLayer
         let gradientLayer : CAGradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect.init(x: 0, y: 0, width: frame.width, height: frame.height)
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         
         //gradient colors
         // Judy.colorByRGB(r: 2, g: 191, b: 101), Judy.colorByRGB(r: 51, g: 221, b: 140)
@@ -204,8 +204,8 @@ public extension EnolaGayWrapper where Base: UIViewController {
         if vertical {
             gradientLayer.endPoint = CGPoint(x: 0, y: 1);
         }
-        //        self.navigationBar.layer.insertSublayer(gradientLayer, at: 0)     // 这样无效
-        //        self.navigationBar.setBackgroundImage(Judy.image(fromLayer: gradientLayer), for: .default)
+        // self.navigationBar.layer.insertSublayer(gradientLayer, at: 0)     // 这样无效
+        // self.navigationBar.setBackgroundImage(Judy.image(fromLayer: gradientLayer), for: .default)
         return gradientLayer
     }
     
@@ -221,7 +221,6 @@ public extension EnolaGayWrapper where Base: UIViewController {
     /// - Warning: 调用此方法务必在 viewDidAppear 函数之后
     /// - Returns: 你要的图像
     func captureScreenImage(targetScrollView: UIScrollView, transparent: Bool = false, savedPhotosAlbum: Bool = false ) -> UIImage? {
-        
         UIGraphicsBeginImageContextWithOptions(targetScrollView.contentSize, false, 0.0)
         
         guard let context = UIGraphicsGetCurrentContext() else { return nil }
@@ -341,7 +340,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
         return textField
     }
         
-    // MARK: 将导航栏移出屏幕外
+    // MARK: - 导航栏
     
     /// 移动导航条，将导航栏移出屏幕外（或恢复原位置）
     ///
@@ -362,6 +361,72 @@ public extension EnolaGayWrapper where Base: UIViewController {
                        height: base.navigationController!.navigationBar.frame.size.height)
         }
     }
+    
+    /// 将导航条恢复为持续显示。
+    ///
+    /// 由于 iOS15 将导航条默认设为透明，可以使用此方法恢复到之前的效果，即恢复导航条在 iOS15 之前的持续显示毛玻璃外观配置效果。
+    func navigationBarWithAppearance() {
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            base.navigationController?.navigationBar.standardAppearance = appearance
+            base.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        }
+    }
+    
+
+    /// 将导航条设为全透明样式，且会删除阴影线。
+    func navigationBarWithTransparentBackground() {
+        // 首先设置 navigationBar 的具体背景样式
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            // 配置具有透明背景和无阴影的工具条外观对象。
+            appearance.configureWithTransparentBackground()
+            // appearance.backgroundColor = .clear
+            // appearance.backgroundEffect = UIBlurEffect(style: .dark)
+            // appearance.backgroundEffect = UIBlurEffect(style: .regular)
+            base.navigationController?.navigationBar.standardAppearance = appearance
+            base.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            // 移除导航栏的背景图毛玻璃效果，设为一个空的 image，这样就完全透明了。
+            base.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            // 导航栏下边的黑边，该黑边是一个 UIImage，通过给其设置一个全新的 UIImage 达到清除横线的效果。
+            base.navigationController?.navigationBar.shadowImage = UIImage()
+        }
+        // 其次设置 navigationBar 是否透明，非常关键！
+        base.extendedLayoutIncludesOpaqueBars = true
+        // 最后需要设置布局起始点位置，如果非 scrollView，则设置属性
+        // edgesForExtendedLayout = .bottom
+        
+    }
+
+    /// 高斯模糊背景样式的导航条。
+    func navigationBarBlurBackground() {
+        // 首先设置 navigationBar 的具体背景样式
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            // 配置具有透明背景和无阴影的工具条外观对象。
+            appearance.configureWithTransparentBackground()
+            appearance.backgroundColor = .clear
+            // appearance.backgroundEffect = UIBlurEffect(style: .dark)
+            appearance.backgroundEffect = UIBlurEffect(style: .regular)
+            base.navigationController?.navigationBar.standardAppearance = appearance
+            base.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        }
+    }
+    
+    /// 将导航条设为默认的外观样式，自动显示毛玻璃效果。
+    func navigationBarDefault() {
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            // 用一组适合当前主题的不透明颜色配置栏外观对象。
+            // appearance.configureWithOpaqueBackground()
+            // appearance.backgroundEffect = UIBlurEffect(style: .regular)
+            appearance.configureWithDefaultBackground()
+            base.navigationController?.navigationBar.standardAppearance = appearance
+            base.navigationController?.navigationBar.scrollEdgeAppearance = nil
+        }
+    }
+    
     
     /// 弹出一个系统警告框，只包含一个取消类型的按钮。通常用于临时性提醒、警告作用。
     /// - Parameters:
@@ -401,9 +466,9 @@ public extension EnolaGayWrapper where Base: UIViewController {
     }
     
     
-    /// 获取当前 UIViewController 的导航控制器
+    /// 获取当前 UIViewController 的导航控制器。
     ///
-    /// - Returns: UIViewController的导航控制器对象
+    /// - Returns: UINavigationController.
     func navigationCtrller() -> UINavigationController {
         var navigationController: UINavigationController!
         
