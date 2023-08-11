@@ -112,6 +112,10 @@
 		8DDD27D3FD749A645CA9BCC8 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31877678D006019384F3D2A /* Pods_Demo.framework */; };
 		AF365B7AFEA752AE89D21F34 /* Pods_Demo_EMERANA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F793883511E6BD42AF3A2D /* Pods_Demo_EMERANA.framework */; };
 		B10CF77396383779B5E8AF24 /* Pods_HUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4184B351D17BE8A974CEA2BF /* Pods_HUD.framework */; };
+		D4DA85472A84E931003E3B94 /* NavigationBarViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA85462A84E931003E3B94 /* NavigationBarViewCtrl.swift */; };
+		D4DA85492A84E9B3003E3B94 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA85482A84E9B3003E3B94 /* DataLoader.swift */; };
+		D4DA854B2A84EA3D003E3B94 /* SectionCtrlS1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA854A2A84EA3D003E3B94 /* SectionCtrlS1.swift */; };
+		D4DA85712A85E8C6003E3B94 /* TransparentViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA85702A85E8C6003E3B94 /* TransparentViewCtrl.swift */; };
 		DD52ABAB1A1E1D3FD3732979 /* Pods_RefreshAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2953210472AAEFB78DCA32B /* Pods_RefreshAdapter.framework */; };
 /* End PBXBuildFile section */
 
@@ -309,6 +313,10 @@
 		CCE7FB212293B8C02A23BF4D /* Pods-RefreshAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RefreshAdapter.debug.xcconfig"; path = "Target Support Files/Pods-RefreshAdapter/Pods-RefreshAdapter.debug.xcconfig"; sourceTree = "<group>"; };
 		D221CE43130751AADE49E262 /* Pods-ToastDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToastDemo.debug.xcconfig"; path = "Target Support Files/Pods-ToastDemo/Pods-ToastDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D2953210472AAEFB78DCA32B /* Pods_RefreshAdapter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RefreshAdapter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4DA85462A84E931003E3B94 /* NavigationBarViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarViewCtrl.swift; sourceTree = "<group>"; };
+		D4DA85482A84E9B3003E3B94 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		D4DA854A2A84EA3D003E3B94 /* SectionCtrlS1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCtrlS1.swift; sourceTree = "<group>"; };
+		D4DA85702A85E8C6003E3B94 /* TransparentViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentViewCtrl.swift; sourceTree = "<group>"; };
 		DC320D0BB712D408990761B0 /* Pods_CastSurelyCalculation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CastSurelyCalculation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E34584FCEC0D60DBE3AFB585 /* Pods_GiftMessageViewCtrlDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiftMessageViewCtrlDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B4A427494A98F9DEA5A16A /* Pods_JudyLivePageViewCtrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JudyLivePageViewCtrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -726,6 +734,7 @@
 				8BBC8F0E29F1318F0036C838 /* JudyWaterWaveViewController.swift */,
 				8BE31B7F29C2D22A003038B2 /* Main.storyboard */,
 				8BBC8F1229F13E2C0036C838 /* Features */,
+				D4DA85452A84E905003E3B94 /* NavigatinBar */,
 				8BE31B8229C2D22B003038B2 /* Assets.xcassets */,
 				8BE31B8429C2D22B003038B2 /* LaunchScreen.storyboard */,
 				8BE31B8729C2D22B003038B2 /* Info.plist */,
@@ -796,6 +805,17 @@
 				E9205DCC3767921C765CC144 /* Pods_PickerDemo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4DA85452A84E905003E3B94 /* NavigatinBar */ = {
+			isa = PBXGroup;
+			children = (
+				D4DA85462A84E931003E3B94 /* NavigationBarViewCtrl.swift */,
+				D4DA854A2A84EA3D003E3B94 /* SectionCtrlS1.swift */,
+				D4DA85482A84E9B3003E3B94 /* DataLoader.swift */,
+				D4DA85702A85E8C6003E3B94 /* TransparentViewCtrl.swift */,
+			);
+			path = NavigatinBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1418,14 +1438,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4DA854B2A84EA3D003E3B94 /* SectionCtrlS1.swift in Sources */,
 				8B682B9A29D46F8D00408A8D /* JournalLoader.swift in Sources */,
 				8B6B2F3E2A41A45E00099528 /* TableController.swift in Sources */,
 				8BF65F6F29C81BBB001E2160 /* CircularProgressViewController.swift in Sources */,
+				D4DA85472A84E931003E3B94 /* NavigationBarViewCtrl.swift in Sources */,
 				8BE5BA7229D4493A003E75D5 /* KeyBoardPopUpViewCtrl.swift in Sources */,
 				8BE5BA7429D46405003E75D5 /* CacheViewCtrl.swift in Sources */,
 				8BE5BA7529D46601003E75D5 /* ToastViewController.swift in Sources */,
+				D4DA85712A85E8C6003E3B94 /* TransparentViewCtrl.swift in Sources */,
 				8BE5BA7129D44765003E75D5 /* VersionCheckViewCtrl.swift in Sources */,
 				8BE5BA7729D46898003E75D5 /* SaleTicketsViewController.swift in Sources */,
+				D4DA85492A84E9B3003E3B94 /* DataLoader.swift in Sources */,
 				8B682B9929D46F8900408A8D /* MySectionController.swift in Sources */,
 				8BE640E229D47348005D6EEB /* LiveModelViewCtrl.swift in Sources */,
 				8BBC8F0F29F1318F0036C838 /* JudyWaterWaveViewController.swift in Sources */,

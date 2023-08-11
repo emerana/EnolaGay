@@ -445,7 +445,7 @@ public extension EnolaGayWrapper where Base: UIView {
         base.layer.insertSublayer(borderLayer, at: 0)
     }
     
-    /// 给 View 设置渐变背景色，改背景色的方向为从左往右
+    /// 给 View 设置渐变背景色，改背景色的方向为从左往右。
     ///
     /// 此方法中会先移除最底层的 CAGradientLayer.
     /// - Parameters:

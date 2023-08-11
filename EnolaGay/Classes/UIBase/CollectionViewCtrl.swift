@@ -362,19 +362,19 @@ public extension UICollectionViewLayoutAttributes {
 }
 
 
-/// UICollectionViewFlowLayout 自定义版，该布局主要解决了在只有一个 Cell 时显示在中间而没有居左显示问题。使用了该布局可以不实现 cellSize函数。
+/// 该布局可以使 Cell 居左显示。请根据需要自行继承该布局并重写 prepare() 函数，该布局默认设置了 estimatedItemSize，可以不实现 cellSize 函数。
 open class JudyCollectionViewLayout: UICollectionViewFlowLayout {
     
     open override func prepare() {
         super.prepare()
         /*
          设置一个非0的 size 以自动计算 Cell 大小，此时 Cell 内部的有 intrinsic content size 的控件（例如button，label）可以将 Cell 撑大。
-         具有intrinsic content size的控件自己知道（可以计算）自己的大小，例如一个label，当你设置text，font之后，其大小是可以计算到的。
-         Content Compression Resistance = 不许挤我！
-         Content Hugging = 不许拉伸我！
-         其数值为话语权的权重大小，权重越大执行力度则越大
+
+         具有 intrinsic content size 的控件自己知道（可以计算）自己的大小，例如一个 label，当你设置 text，font 之后，其大小是可以计算到的。
+         Content Compression Resistance = 抗压缩能力
+         Content Hugging = 抗拉伸能力
          
-         若将该值设置为.zero，则不自动计算 Cell 大小。
+         若将该值设置为 estimatedItemSize = .zero，则不会自动计算 Cell 大小。
          */
         estimatedItemSize = CGSize(width: 100, height: 28)
     }
@@ -396,9 +396,7 @@ open class JudyCollectionViewLayout: UICollectionViewFlowLayout {
         return updatedAttributes
     }
     
-    /*
-     返回指定 indexPath 的 item 的布局信息。子类必须重载该方法,该方法只能为 cell 提供布局信息，不能为补充视图和装饰视图提供。
-     */
+    /// 返回指定 indexPath 的 item 的布局信息。子类必须重载该方法,该方法只能为 cell 提供布局信息，不能为补充视图和装饰视图提供。
     open override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
                 
         let currentItemAttributes: UICollectionViewLayoutAttributes = super.layoutAttributesForItem(at: indexPath)!
@@ -445,7 +443,7 @@ open class JudyCollectionViewLayout: UICollectionViewFlowLayout {
 }
 
 private extension JudyCollectionViewLayout {
-    /// 计算 Cell 间最小项间距
+    /// 计算 Cell 间最小项间距。
     func evaluatedMinimumInteritemSpacingForSectionAtIndex(sectionIndex: NSInteger) -> CGFloat {
 
         if collectionView?.delegate?.responds(to: #selector((collectionView!.delegate as! UICollectionViewDelegateFlowLayout).collectionView(_:layout:minimumInteritemSpacingForSectionAt:))) ?? false {
@@ -502,8 +500,8 @@ open class JudyBaseCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         
         /*
-         给cell添加渐变颜色
-         //create gradientLayer
+         给 cell 添加渐变颜色
+         // create gradientLayer
          let gradientLayer : CAGradientLayer = CAGradientLayer()
          gradientLayer.frame = CGRect.init(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
          

@@ -166,6 +166,7 @@ public extension EnolaGayWrapper where Base: UINavigationController {
 }
 
 extension UINavigationController {
+    
     /// 通过重写此函数为 JudyBaseNavigationCtrl 对象设置一个统一返回指示符图像
     ///
     /// - Returns: UIImage: 指定的返回图标，若为 nil 则使用 storyboard 设置的或系统自带的, Bool: 决定了是否使用图片原色彩
