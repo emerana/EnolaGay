@@ -340,7 +340,7 @@ public extension EnolaGayWrapper where Base: UIViewController {
         return textField
     }
         
-    // MARK: 将导航栏移出屏幕外
+    // MARK: - 导航栏
     
     /// 移动导航条，将导航栏移出屏幕外（或恢复原位置）
     ///
@@ -361,6 +361,46 @@ public extension EnolaGayWrapper where Base: UIViewController {
                        height: base.navigationController!.navigationBar.frame.size.height)
         }
     }
+    
+    /// 将导航条设为不透明的毛玻璃（半透明）颜色外观配置。
+    /// 由于 iOS15 将导航条默认设为透明，可以使用此方法恢复到之前的效果，即恢复导航条在 iOS15 之前的毛玻璃效果。
+    ///
+    /// - Warning: 此函数会保留阴影线，并使导航条持续显示。
+    func navigationBarWithOpaqueBackground() {
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            base.navigationController?.navigationBar.standardAppearance = appearance
+            base.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        }
+    }
+    
+
+    /// 将 navigationBar 设为全透明，且会删除阴影线。
+    func navigationBarTransparency() {
+        // 首先设置 navigationBar 的具体背景样式
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            // 配置具有透明背景和无阴影的工具条外观对象。
+            appearance.configureWithTransparentBackground()
+            // appearance.backgroundColor = .clear
+            // appearance.backgroundEffect = UIBlurEffect(style: .dark)
+            // appearance.backgroundEffect = UIBlurEffect(style: .regular)
+            base.navigationController?.navigationBar.standardAppearance = appearance
+            base.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            // 移除导航栏的背景图毛玻璃效果，设为一个空的 image，这样就完全透明了。
+            base.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            // 导航栏下边的黑边，该黑边是一个 UIImage，通过给其设置一个全新的 UIImage 达到清除横线的效果。
+            base.navigationController?.navigationBar.shadowImage = UIImage()
+        }
+        // 其次设置 navigationBar 是否透明，非常关键！
+        base.extendedLayoutIncludesOpaqueBars = true
+        // 最后需要设置布局起始点位置，如果非 scrollView，则设置属性
+        // edgesForExtendedLayout = .bottom
+        
+    }
+    
+    
     
     /// 弹出一个系统警告框，只包含一个取消类型的按钮。通常用于临时性提醒、警告作用。
     /// - Parameters:
@@ -400,9 +440,9 @@ public extension EnolaGayWrapper where Base: UIViewController {
     }
     
     
-    /// 获取当前 UIViewController 的导航控制器
+    /// 获取当前 UIViewController 的导航控制器。
     ///
-    /// - Returns: UIViewController的导航控制器对象
+    /// - Returns: UINavigationController.
     func navigationCtrller() -> UINavigationController {
         var navigationController: UINavigationController!
         

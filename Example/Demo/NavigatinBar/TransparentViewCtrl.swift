@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EnolaGay
 
 /// 全透明的导航条
 class TransparentViewCtrl: UIViewController {
@@ -17,7 +18,22 @@ class TransparentViewCtrl: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    /// 恢复毛玻璃
+    @IBAction func resetNavigationBar(_ sender: Any) {
+        judy.navigationBarWithOpaqueBackground()
+    }
+    
+    /// 设为全透明
+    @IBAction func navigationBarResetGroundGlassEffect(_ sender: Any) {
+        judy.navigationBarTransparency()
+    }
 
+    @IBAction func navigationBarOpaque(_ sender: Any) {
+        judy.navigationBarOpaque()
+    }
+
+
+    
     /*
     // MARK: - Navigation
 

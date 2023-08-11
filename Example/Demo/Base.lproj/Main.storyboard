@@ -342,14 +342,58 @@
                     <view key="view" contentMode="scaleToFill" id="RAn-1V-jQl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Judy" translatesAutoresizingMaskIntoConstraints="NO" id="Cc4-F9-CJv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Cc4-F9-CJv" secondAttribute="height" id="UdT-V0-X1U"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="1Rd-Qm-hS2">
+                                <rect key="frame" x="97.666666666666686" y="305.66666666666669" width="180" height="201"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rH9-uB-Pzv">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="恢复毛玻璃"/>
+                                        <connections>
+                                            <action selector="resetNavigationBar:" destination="oG9-eU-EB2" eventType="touchUpInside" id="kMk-W0-3no"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMS-1U-nxl">
+                                        <rect key="frame" x="0.0" y="83.333333333333314" width="180" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="设置为全透明导航条"/>
+                                        <connections>
+                                            <action selector="navigationBarResetGroundGlassEffect:" destination="oG9-eU-EB2" eventType="touchUpInside" id="E5e-tm-76z"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRW-Gq-E72">
+                                        <rect key="frame" x="0.0" y="166.66666666666663" width="180" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="恢复不透明样式"/>
+                                        <connections>
+                                            <action selector="navigationBarOpaque:" destination="oG9-eU-EB2" eventType="touchUpInside" id="z4V-wa-RsT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="aib-Ft-gMd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Cc4-F9-CJv" firstAttribute="top" secondItem="RAn-1V-jQl" secondAttribute="top" id="cwu-ZU-DlC"/>
+                            <constraint firstItem="Cc4-F9-CJv" firstAttribute="leading" secondItem="aib-Ft-gMd" secondAttribute="leading" id="eiv-0y-OvM"/>
+                            <constraint firstItem="Cc4-F9-CJv" firstAttribute="trailing" secondItem="aib-Ft-gMd" secondAttribute="trailing" id="mBm-DM-MOP"/>
+                            <constraint firstItem="1Rd-Qm-hS2" firstAttribute="centerY" secondItem="RAn-1V-jQl" secondAttribute="centerY" id="oGg-mU-uNL"/>
+                            <constraint firstItem="1Rd-Qm-hS2" firstAttribute="centerX" secondItem="RAn-1V-jQl" secondAttribute="centerX" id="ywr-qE-rkr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ArE-lc-XXR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i58-uU-O2O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="566" y="-1238"/>
+            <point key="canvasLocation" x="565.60000000000002" y="-1238.423645320197"/>
         </scene>
         <!--LogViewController-->
         <scene sceneID="CyR-he-G3n">
@@ -527,6 +571,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Judy" width="168" height="168"/>
         <image name="chevron.right.to.line" catalog="system" width="104" height="128"/>
         <image name="太极图" width="320" height="320"/>
         <systemColor name="systemBackgroundColor">
