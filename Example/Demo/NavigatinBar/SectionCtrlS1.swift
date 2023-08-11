@@ -61,6 +61,7 @@ class SectionCtrlS1: ListSectionController {
     
     override func didSelectItem(at index: Int) {
         log("点击了\(index)")
+
         // 直接跳转
         Judy.topViewCtrl.performSegue(withIdentifier: "showTransparentViewCtrl", sender: nil)
     }

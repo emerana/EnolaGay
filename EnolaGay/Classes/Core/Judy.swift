@@ -195,6 +195,26 @@ public struct Judy {
     @available(*, unavailable, message: "此函数已禁用，请使用 SwiftyJSON 的 json.rawString() ")
     public static func string(withDictionary: [String: Any]) -> String { "" }
 
+    /// 将对象转成字典对象。
+    /// - Parameter model: 符合 Codable 协议的对象
+    /// - Returns: 目标对象经过转换后的字典对象
+    public static func formatToDictionary<T: Codable>(_ model: T) -> [String: Any] {
+        do {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            guard let data = try? encoder.encode(model) else {
+                return ["错误":"对象序列化失败！"]
+            }
+            guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String: Any]
+            else {
+                return [:]
+            }
+            return dictionary
+        } catch {
+            return ["错误":"对象转换成字典失败！"]
+        }
+    }
+
 
     /// URL 有效性校验。这涵盖了所有类型的验证（如子域），无论是否带有 HTTP/HTTPS.
     /// - Parameter url: 目标 url 字符串
