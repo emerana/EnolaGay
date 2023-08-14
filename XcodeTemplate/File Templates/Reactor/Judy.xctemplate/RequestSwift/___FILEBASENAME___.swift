@@ -21,7 +21,7 @@ struct ___FILEBASENAMEASIDENTIFIER___ {
         // 配置请求 URL
         let reqURL = API.requestURL(action: .searchJoinGroupList)
         
-        return json(.get, reqURL, parameters: parameters(), headers: header())
+        return json(.post, reqURL, parameters: parameters(), encoding: JSONEncoding.default, headers: header())
             .map { JSON($0) }
             .map { json in
                 guard json["code"].intValue == 200 else { return .failure(AppError.requestFailed(json["msg"].stringValue)) }
