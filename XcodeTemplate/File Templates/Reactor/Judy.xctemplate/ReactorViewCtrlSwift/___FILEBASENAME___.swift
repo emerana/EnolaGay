@@ -25,7 +25,7 @@ class ___FILEBASENAMEASIDENTIFIER___: UIViewController, StoryboardView {
         
         tableView.rowHeight = UITableView.automaticDimension    // 155
         // 注册 Cell
-        tableView.register(UINib(nibName: "InRoopBaseCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        tableView.register(UINib(nibName: "<#Cell#>", bundle: nil), forCellReuseIdentifier: "Cell")
 
         reactor?.action.onNext(.loadData)
 
@@ -39,8 +39,8 @@ class ___FILEBASENAMEASIDENTIFIER___: UIViewController, StoryboardView {
         // 将结果输出到列表页上
         reactor.state.map { $0.dataSource }
             .bind(to: tableView.rx.items(cellIdentifier: "Cell")) { [weak self] index, model, cell in
-                if let cell = cell as? InRoopBaseCell {
-                    cell.setModel(model: model)
+                if let cell = cell as? <#Cell#> {
+                    // cell.setModel(model: model)
                 }
             }
             .disposed(by: disposeBag)

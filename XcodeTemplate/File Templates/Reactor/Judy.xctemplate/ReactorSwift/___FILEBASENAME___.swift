@@ -34,7 +34,7 @@ final class ___FILEBASENAMEASIDENTIFIER___: Reactor {
         var isNoMoreData: Bool { nextPage == nil }
 
         /// 数据源
-        var dataSource = [<#PraiseModel#>]()
+        var dataSource = [<#Model#>]()
     }
     
     let initialState = State()
@@ -45,7 +45,7 @@ final class ___FILEBASENAMEASIDENTIFIER___: Reactor {
 
         switch action {
         case .loadData:
-            let request = MyCircleListRequest(token: token, pageNum: 1)
+            let request = ListRequest(token: token, pageNum: 1)
             return Observable.concat([
                 request.dataPublisher
                     .map { Mutation.setDataSource(result: $0) },
@@ -57,7 +57,7 @@ final class ___FILEBASENAMEASIDENTIFIER___: Reactor {
                 return Observable.just(Mutation.setRefreshStatus(refreshType: .none))
             }
             
-            let request = MyCircleListRequest(token: token, pageNum: 1)
+            let request = ListRequest(token: token, pageNum: page)
             return Observable.concat([
                 request.dataPublisher
                     .map { Mutation.appendDataSource(result: $0) },
@@ -79,7 +79,7 @@ final class ___FILEBASENAMEASIDENTIFIER___: Reactor {
                 logWarning(error.localizedDescription)
             }
             
-        case .appendDataSource(result: let result):
+        case .appendDataSource(let result):
             switch result {
             case .success((let list, let nextPage)):
                 newState.dataSource.append(contentsOf: list)
@@ -88,7 +88,7 @@ final class ___FILEBASENAMEASIDENTIFIER___: Reactor {
                 logWarning(error.localizedDescription)
             }
             
-        case .setRefreshStatus(refreshType: let refreshType):
+        case .setRefreshStatus(let refreshType):
             newState.refreshAction = refreshType
             
         }
