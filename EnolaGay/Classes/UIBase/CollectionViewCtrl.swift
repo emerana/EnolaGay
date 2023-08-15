@@ -88,7 +88,7 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDataSource {
     
     /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: EMERANA.Key.cell, for: indexPath)
+        return collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
     }
     
     // 生成 HeaderView 和 FooterView

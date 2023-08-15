@@ -150,7 +150,7 @@ extension JudyBaseTableViewCtrl: UITableViewDataSource {
     /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 此方法可以不判断 Cell 是否为 nil.
-        return tableView.dequeueReusableCell(withIdentifier: EMERANA.Key.cell, for: indexPath)
+        return tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
     }
     
 }

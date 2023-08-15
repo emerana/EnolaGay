@@ -182,7 +182,7 @@ public struct EMERANA {
     // private var appearanceManager: Appearance?
     
     
-    // 私有化构造器；在单例模式下，只有该单例被首次访问时才会创建该对象
+    // 私有化构造器；在单例模式下，只有该单例被首次访问时才会创建该对象。
     private init() { }
     
     /// 该数据结构为 EMERANA 中可访问性数据的封装
@@ -200,8 +200,6 @@ public struct EMERANA {
         public static let statusBarViewTag = 20210727
         /// 该值用作于 EMERANA UIView 扩展函数 gradientView() 辨别 gradientLayer.name.
         public static let gradientViewName = "EMERANA_GRADIENT_LAYER_NAME"
-        /// 在 JudyBaseTableViewCtrl/JudyBaseCollectionViewCtrl 中 dequeueReusableCell 用到的 Cell 标识符
-        public static let cell = "Cell"
         
     }
     
@@ -211,12 +209,4 @@ public struct EMERANA {
         case 新增全局Cell代理管理
     }
     
-    /// 常用代码
-    public struct Code {
-        /// 默认错误，代码 250
-        public static let `default` = 250
-        /// 在 ApiRequestConfig 中发起请求时没有设置 Api
-        public static let notSetApi = 2500
-    }
 }
-

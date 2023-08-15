@@ -636,7 +636,7 @@ public extension UIColor {
     static let 浅蓝紫 = #colorLiteral(red: 0.3725490196, green: 0.3215686275, blue: 0.6274509804, alpha: 1)
     static let 浅紫洋红 = #colorLiteral(red: 0.6823529412, green: 0.3647058824, blue: 0.631372549, alpha: 1)
 
-    // 纯净
+    // 纯净颜色
     static let 纯红 = #colorLiteral(red: 0.9019607843, green: 0, blue: 0.07058823529, alpha: 1)
     static let 纯红橙 = #colorLiteral(red: 0.9215686275, green: 0.3803921569, blue: 0, alpha: 1)
     static let 纯黄橙 = #colorLiteral(red: 0.9529411765, green: 0.5960784314, blue: 0, alpha: 1)
@@ -661,9 +661,6 @@ public extension UIColor {
      * static 定义的属性和 func 没办法被子类 override.
      * class 定义的属性和 func 可以被子类 override.
      */
-    
-    /// 此颜色为白色
-    static let scrollView: UIColor = .white
 
     // MARK: 构造函数
 

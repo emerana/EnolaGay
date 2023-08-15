@@ -79,7 +79,7 @@ private extension JudyBaseButton {
     }
 }
 
-// MARK: - UIButton 扩展方法
+// MARK: - UIButton 空间扩展方法
 public extension EnolaGayWrapper where Base: UIButton {
     
     /// 以动画的方式显示该按钮

@@ -184,7 +184,7 @@ public struct Judy {
     /// 时间长度单位转化，将毫秒数转换为具体时间长度的时分秒
     /// - Parameter secondValue: 具体秒数
     /// - Returns: (时，分，秒)
-    public static func timeCount(secondValue: Int) -> (Int,Int,Int) {
+    public static func timeCount(secondValue: Int) -> (Int, Int, Int) {
         let hour = secondValue/3600
         let minute = secondValue%3600/60
         let second = secondValue%60
@@ -214,7 +214,6 @@ public struct Judy {
             return ["错误":"对象转换成字典失败！"]
         }
     }
-
 
     /// URL 有效性校验。这涵盖了所有类型的验证（如子域），无论是否带有 HTTP/HTTPS.
     /// - Parameter url: 目标 url 字符串
