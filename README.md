@@ -118,7 +118,7 @@ pod 'EnolaGay/HUD'
 ```ruby
 pod 'EnolaGay'
 ```
-如果需要额外的能力，直接加上你要的 pod 就像这样……
+如果需要其它能力，直接加上你要的 pod 即可，就像这样……
 ```ruby
 pod 'EnolaGay'
 pod 'EnolaGay/EMERANA'
