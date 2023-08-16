@@ -6,12 +6,12 @@
 
 
 #### EnolaGay 基础
-- 仅包含 Core 文件夹下的基础功能，常用扩展、Judy 工具类、日志打印类等。
+- Core 文件夹下的基础功能，常用扩展、Judy 工具类、日志打印类等。
 ```ruby
 pod 'EnolaGay'
 ```
 
-## 此部分的 Pod 已包含 pod 'EnolaGay'，独立安装时会安装 pod 'EnolaGay'
+## 此部分的 Pod 已包含 EnolaGay 基础，独立安装时会安装 pod 'EnolaGay'
 
 #### UIKit 扩展功能
 - 为 UIKit 提供的功能。
@@ -39,9 +39,8 @@ pod 'EnolaGay/WKWebView'
 
 ## 以下的 Pod 均不包含 pod 'EnolaGay'，独立安装时不会安装 pod 'EnolaGay'
 
-## 极简的打印工具
 
-#### 日志打印功能
+#### 极简的打印工具，日志打印功能
 - 仅包含日志打印功能，常用与 SwiftUI 项目。
 ```ruby
 pod 'EnolaGay/Logger'
@@ -96,98 +95,26 @@ pod 'EnolaGay/HUD'
 ```
 
 
-## 核心
-描述。
-#### EnolaGay
-- 核心
-
-## 功能介绍
-
-- 核心。
-
-## 实现以下扩展
-
-#### 基础配置
-EnolaGay 全局配置，当前包含配置全局字体样式、颜色等，详见 EnolaGayAdapter 协议。
-```ruby
-extension UIApplication: EnolaGayAdapter
-```
-
-
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-
-## Requirements
+## 要求
 
 - iOS 11.0
 - Xcode 10+
 - Swift 5.0+
 
-## Installation
+## 安装
 
-EnolaGay is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
+就像这样，即可使用基础的 EnolaGay 能力。
 ```ruby
 pod 'EnolaGay'
 ```
-## 可选能力模块
-
-#### UI 扩展相关功能
+如果需要额外的能力，直接加上你要的 pod 就像这样……
 ```ruby
+pod 'EnolaGay'
 pod 'EnolaGay/EMERANA'
-```
-#### HPickerView
-```ruby
-pod 'EnolaGay/HPickerView'
-```
-#### TextFieldEffects
-```ruby
 pod 'EnolaGay/TextFieldEffects'
-```
-#### JudyPopBubble
-```ruby
-pod 'EnolaGay/JudyPopBubble'
-```
-#### JudyWaterWaveView
-```ruby
-pod 'EnolaGay/JudyWaterWaveView'
-```
-#### CircularProgressView
-```ruby
-pod 'EnolaGay/CircularProgressView'
-```
-#### GiftMessageCtrlPanel
-```ruby
-pod 'EnolaGay/GiftMessageCtrlPanel'
-```
-#### MarqueeView
-```ruby
-pod 'EnolaGay/MarqueeView'
-```
-
-#### SearchViewCtrl
-```ruby
-pod 'EnolaGay/SearchViewCtrl'
-```
-
-#### FileManager
-```ruby
-pod 'EnolaGay/FileManager'
-```
-
-#### JudyBaseWebViewCtrl
-```ruby
-pod 'EnolaGay/WKWebView'
-```
-
-#### JudyPlusButtonTabBar
-```ruby
 pod 'EnolaGay/JudyPlusButtonTabBar'
+……
 ```
-
 
 ## Author
 
