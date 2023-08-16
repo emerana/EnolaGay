@@ -11,11 +11,11 @@
 pod 'EnolaGay'
 ```
 
-## 此部分的 Pod 已包含 EnolaGay 基础，独立安装时会安装 pod 'EnolaGay'
+## 此部分的 Pod 包含 EnolaGay 基础功能，安装时会自动安装 pod 'EnolaGay'
 
 #### EMERANA
 - 为 UIKit 提供的扩展功能。
-- 此 pod 包含了基础 pod 'EnolaGay'。
+- 此 pod 包含了基础 pod 'EnolaGay'
 ```ruby
 pod 'EnolaGay/EMERANA'
 ```
@@ -40,7 +40,7 @@ pod 'EnolaGay/TextFieldEffects'
 pod 'EnolaGay/WKWebView'
 ```
 
-## 以下的 Pod 均不包含 pod 'EnolaGay'，独立安装时不会安装 pod 'EnolaGay'
+## 以下的 Pod 为纯 pod，独立安装时不会安装 pod 'EnolaGay'
 
 
 #### Logger
