@@ -13,25 +13,28 @@ pod 'EnolaGay'
 
 ## 此部分的 Pod 已包含 EnolaGay 基础，独立安装时会安装 pod 'EnolaGay'
 
-#### UIKit 扩展功能
-- 为 UIKit 提供的功能。
+#### EMERANA
+- 为 UIKit 提供的扩展功能。
+- 此 pod 包含了基础 pod 'EnolaGay'。
 ```ruby
 pod 'EnolaGay/EMERANA'
 ```
   
-#### EnolaGay/HPickerView
+#### HPickerView
 - 水平方向的滚动选择器，SegmentedView 则是不支持滚动选择的。
+- 此 pod 包含了 pod 'EnolaGay/EMERANA'
 ```ruby
 pod 'EnolaGay/HPickerView'
 ```
 
-#### EnolaGay/TextFieldEffects
+#### TextFieldEffects
 - 一些输入框
+- 此 pod 包含了 pod 'EnolaGay/EMERANA'
 ```ruby
 pod 'EnolaGay/TextFieldEffects'
 ```
   
-#### EnolaGay/WKWebView
+#### WKWebView
 - 包含 'EnolaGay/EMERANA' 核心
 ```ruby
 pod 'EnolaGay/WKWebView'
@@ -40,60 +43,68 @@ pod 'EnolaGay/WKWebView'
 ## 以下的 Pod 均不包含 pod 'EnolaGay'，独立安装时不会安装 pod 'EnolaGay'
 
 
-#### 极简的打印工具，日志打印功能
+#### Logger
+- 极简的打印工具，日志打印功能
 - 仅包含日志打印功能，常用与 SwiftUI 项目。
 ```ruby
 pod 'EnolaGay/Logger'
 ```
 
-#### 直播间送礼物面板
-- 不包含 pod 'EnolaGay'
+#### GiftMessageCtrlPanel
+- 直播间送礼物面板
+- 可单独安装
 ```ruby
 pod 'EnolaGay/GiftMessageCtrlPanel'
 ```
 
-#### 烟花爆炸效果
-- 不包含 pod 'EnolaGay'
+#### JudyPopBubble
+- 烟花爆炸效果
+- 可单独安装
 ```ruby
 pod 'EnolaGay/JudyPopBubble'
 ```
 
-#### 中间大按钮的 tabBar
-- 不包含 pod 'EnolaGay'
+#### JudyPlusButtonTabBar
+- 中间大按钮的 tabBar
+- 可单独安装
 ```ruby
 pod 'EnolaGay/JudyPlusButtonTabBar'
 ```
 
-#### 圆环进度条
-- 不包含 pod 'EnolaGay'
+#### CircularProgressView
+- 圆环进度条
+- 可单独安装
 ```ruby
 pod 'EnolaGay/CircularProgressView'
 ```
 
-#### 水波 View
-- 不包含 pod 'EnolaGay'
+#### JudyWaterWaveView
+- 水波 View
+- 可单独安装
 ```ruby
 pod 'EnolaGay/JudyWaterWaveView'
 ```
 
-#### 跑马灯效果 View
-- 不包含 pod 'EnolaGay'
+#### MarqueeView
+- 跑马灯效果 View
+- 可单独安装
 ```ruby
 pod 'EnolaGay/MarqueeView'
 ```
 
-#### KeyboardHelper 动画键盘
-- 不包含 pod 'EnolaGay'
+#### KeyboardHelper 
+- 动画键盘
+- 可单独安装
 ```ruby
 pod 'EnolaGay/KeyboardHelper'
 ```
 
 #### HUD
-- 不包含 pod 'EnolaGay'，要求 iOS 13.
+- 可单独安装
+- 要求 iOS 13.
 ```ruby
 pod 'EnolaGay/HUD'
 ```
-
 
 ## 要求
 
@@ -116,7 +127,7 @@ pod 'EnolaGay/JudyPlusButtonTabBar'
 ……
 ```
 
-## Author
+## 作者
 
 醉翁之意, Judy_u@163.com
 
