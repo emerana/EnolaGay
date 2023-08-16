@@ -11,8 +11,6 @@
 pod 'EnolaGay'
 ```
 
-## 此部分的 Pod 包含 EnolaGay 基础功能，安装时会自动安装 pod 'EnolaGay'
-
 #### EMERANA
 - 为 UIKit 提供的扩展功能。
 - 此 pod 包含了基础 pod 'EnolaGay'
@@ -40,12 +38,9 @@ pod 'EnolaGay/TextFieldEffects'
 pod 'EnolaGay/WKWebView'
 ```
 
-## 以下的 Pod 为纯 pod，独立安装时不会安装 pod 'EnolaGay'
-
-
 #### Logger
 - 极简的打印工具，日志打印功能
-- 仅包含日志打印功能，常用与 SwiftUI 项目。
+- 可单独安装，仅包含日志打印功能，常用与 SwiftUI 项目。
 ```ruby
 pod 'EnolaGay/Logger'
 ```
