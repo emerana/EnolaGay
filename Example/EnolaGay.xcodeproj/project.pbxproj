@@ -180,9 +180,12 @@
 		8B72098A2A499C58008D9006 /* 吉安瑞德广场.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "吉安瑞德广场.gpx"; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
+		8B930A722AA6B9E900D137A6 /* 湖南师正律师事务所.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "湖南师正律师事务所.gpx"; sourceTree = "<group>"; };
+		8B930A732AA6BA6100D137A6 /* 国家税务总局湖南省税务局.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "国家税务总局湖南省税务局.gpx"; sourceTree = "<group>"; };
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
 		8BAB183A2A47E29200ED831E /* 茂盛路.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "茂盛路.gpx"; sourceTree = "<group>"; };
 		8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftMessageViewCtrlTest.swift; sourceTree = "<group>"; };
+		8BBBA1642AA87DA00017E928 /* 国粹研究所.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "国粹研究所.gpx"; sourceTree = "<group>"; };
 		8BBC8F0E29F1318F0036C838 /* JudyWaterWaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudyWaterWaveViewController.swift; sourceTree = "<group>"; };
 		8BBC8F1029F13E280036C838 /* CircularProgress.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CircularProgress.storyboard; sourceTree = "<group>"; };
 		8BBC8F1329F1405C0036C838 /* CastSurelyCalculation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CastSurelyCalculation.storyboard; sourceTree = "<group>"; };
@@ -721,6 +724,9 @@
 				8BC3DD7626E05BC900A2A405 /* 福建龙岩.gpx */,
 				8BC3DD7726E05BC900A2A405 /* 深圳龙岗天安数码城.gpx */,
 				8B48819F29F2AC8A00C04EC7 /* 世界魔鬼城.gpx */,
+				8B930A722AA6B9E900D137A6 /* 湖南师正律师事务所.gpx */,
+				8B930A732AA6BA6100D137A6 /* 国家税务总局湖南省税务局.gpx */,
+				8BBBA1642AA87DA00017E928 /* 国粹研究所.gpx */,
 				8BC3DD7826E05BC900A2A405 /* 广东韶关.gpx */,
 			);
 			name = GPX;
