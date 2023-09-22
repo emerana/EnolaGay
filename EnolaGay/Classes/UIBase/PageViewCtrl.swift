@@ -302,8 +302,9 @@ open class JudyLivePageViewCtrl: UIPageViewController, UIPageViewControllerDataS
     /// viewCtrl 数据源配置代理对象，所有要显示的 viewCtrl 均通过此协议配置
     weak public var enolagay: JudyPageViewCtrlDelegate!
     
-    @available(*, unavailable, message: "请使用 enolagay 实现下拉刷新")
+    @available(*, deprecated, message: "请使用 enolagay 实现下拉刷新")
     public var scrollViewClosure: ((UIScrollView) -> Void)?
+    
     /// 在 UIPageViewController 中的核心 ScrollView.
     public private(set) var scrollView: UIScrollView? {
         didSet{
