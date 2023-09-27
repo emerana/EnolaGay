@@ -10,21 +10,21 @@ import UIKit
 import EnolaGay
 
 class CircularProgressViewController: UIViewController {
-    /// 圆形进度条。
+    /// 圆形进度条
     @IBOutlet weak private var progressLiveView: CircularProgressLiveView!
-    /// 录制按钮。
+    /// 录制按钮
     @IBOutlet weak private var recorderButton: UIButton!
     /// 录制状态信息 label.
     @IBOutlet weak private var recorderStateLabel: UILabel!
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        progressLiveView.lineLayer.strokeColor = UIColor.red.cgColor
-        progressLiveView.lineLayer.strokeEnd = 0.68
+        progressLiveView.unfillColor = .red
+        // progressLiveView.lineLayer.strokeColor = UIColor.red.cgColor
+        // progressLiveView.lineLayer.strokeEnd = 0.68
     }
     
-
+    
     // touch Cancel
     @IBAction private func touchCancelAction(_ sender: Any) {
         log("取消？")
