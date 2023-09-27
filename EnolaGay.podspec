@@ -17,8 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = 'EMERANA 经过了几年的历练，在多个 App 中不断完善，最终进化成可适用于绝大部分场景的便携式框架。'
-
+  s.description      = '没啥可描述的，前身是EMERANA'
   s.homepage         = 'https://github.com/emerana/EnolaGay'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -33,7 +32,7 @@ Pod::Spec.new do |s|
   #  如果不指定默认的 spec，则将安装所有的 spec。 pod ‘EnolaGay’ 即安装 EnolaGay/EMERANA 核心文件夹
   s.default_subspec = 'Core'
   
-  # 默认安装的核心 spec
+  # 基础 spec
   s.subspec 'Core' do |ss|
       ss.source_files = 'EnolaGay/Classes/Core/*'
       # ss.dependency 'SwiftyJSON' 取消依赖 SwiftyJSON
@@ -43,7 +42,7 @@ Pod::Spec.new do |s|
   
   # MARK: - 可选能力模块
   
-  # MARK: UI 扩展，默认包含核心所有能力
+  # MARK: UI 扩展，已包含 'EnolaGay/Core'
   s.subspec 'EMERANA' do |ss|
       ss.dependency 'EnolaGay/Core'
       ss.source_files = 'EnolaGay/Classes/UIBase/*'
@@ -109,7 +108,7 @@ Pod::Spec.new do |s|
       ss.source_files = 'EnolaGay/Classes/MarqueeView/*'
   end
 
-  # MARK: KeyboardHelper
+  # MARK: KeyboardHelper 动画键盘
   s.subspec 'KeyboardHelper' do |ss|
       ss.source_files = 'EnolaGay/Classes/KeyboardHelper/*'
   end

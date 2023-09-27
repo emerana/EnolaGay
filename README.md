@@ -4,128 +4,125 @@
 [![License](https://img.shields.io/cocoapods/l/EnolaGay.svg?style=flat)](https://cocoapods.org/pods/EnolaGay)
 [![Platform](https://img.shields.io/cocoapods/p/EnolaGay.svg?style=flat)](https://cocoapods.org/pods/EnolaGay)
 
-  
-## 以下 Pod 已包含 'EnolaGay'
 
-#### EnolaGay/EMERANA
-- 包含 'EnolaGay' 核心
+#### EnolaGay 基础
+- Core 文件夹下的基础功能，常用扩展、Judy 工具类、日志打印类等。
+```ruby
+pod 'EnolaGay'
+```
+
+#### EMERANA
+- 为 UIKit 提供的扩展功能。
+- 此 pod 包含了基础 pod 'EnolaGay'
 ```ruby
 pod 'EnolaGay/EMERANA'
 ```
   
-#### EnolaGay/HPickerView
-- 包含 'EnolaGay/EMERANA' 核心
+#### HPickerView
+- 水平方向的滚动选择器，SegmentedView 则是不支持滚动选择的。
+- 此 pod 包含了 pod 'EnolaGay/EMERANA'
 ```ruby
 pod 'EnolaGay/HPickerView'
 ```
 
-#### EnolaGay/TextFieldEffects
-- 包含 'EnolaGay/EMERANA' 核心
+#### TextFieldEffects
+- 一些输入框
+- 此 pod 包含了 pod 'EnolaGay/EMERANA'
 ```ruby
 pod 'EnolaGay/TextFieldEffects'
 ```
   
-#### EnolaGay/WKWebView
+#### WKWebView
 - 包含 'EnolaGay/EMERANA' 核心
 ```ruby
 pod 'EnolaGay/WKWebView'
 ```
 
-
-## 核心
-描述。
-#### EnolaGay
-- 核心
-
-## 功能介绍
-
-- 核心。
-
-## 实现以下扩展
-
-#### 基础配置
-EnolaGay 全局配置，当前包含配置全局字体样式、颜色等，详见 EnolaGayAdapter 协议。
+#### Logger
+- 极简的打印工具，日志打印功能
+- 可单独安装，仅包含日志打印功能，常用与 SwiftUI 项目。
 ```ruby
-extension UIApplication: EnolaGayAdapter
+pod 'EnolaGay/Logger'
 ```
 
+#### GiftMessageCtrlPanel
+- 直播间送礼物面板
+- 可单独安装
+```ruby
+pod 'EnolaGay/GiftMessageCtrlPanel'
+```
 
-## Example
+#### JudyPopBubble
+- 烟花爆炸效果
+- 可单独安装
+```ruby
+pod 'EnolaGay/JudyPopBubble'
+```
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+#### JudyPlusButtonTabBar
+- 中间大按钮的 tabBar
+- 可单独安装
+```ruby
+pod 'EnolaGay/JudyPlusButtonTabBar'
+```
 
+#### CircularProgressView
+- 圆环进度条
+- 可单独安装
+```ruby
+pod 'EnolaGay/CircularProgressView'
+```
 
-## Requirements
+#### JudyWaterWaveView
+- 水波 View
+- 可单独安装
+```ruby
+pod 'EnolaGay/JudyWaterWaveView'
+```
+
+#### MarqueeView
+- 跑马灯效果 View
+- 可单独安装
+```ruby
+pod 'EnolaGay/MarqueeView'
+```
+
+#### KeyboardHelper 
+- 动画键盘
+- 可单独安装
+```ruby
+pod 'EnolaGay/KeyboardHelper'
+```
+
+#### HUD
+- 可单独安装
+- 要求 iOS 13.
+```ruby
+pod 'EnolaGay/HUD'
+```
+
+## 要求
 
 - iOS 11.0
 - Xcode 10+
 - Swift 5.0+
 
-## Installation
+## 安装
 
-EnolaGay is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
+就像这样，即可使用基础的 EnolaGay 能力。
 ```ruby
 pod 'EnolaGay'
 ```
-## 可选能力模块
-
-#### UI 扩展相关功能
+如果需要其它能力，直接加上你要的 pod 即可，就像这样……
 ```ruby
+pod 'EnolaGay'
 pod 'EnolaGay/EMERANA'
-```
-#### HPickerView
-```ruby
-pod 'EnolaGay/HPickerView'
-```
-#### TextFieldEffects
-```ruby
 pod 'EnolaGay/TextFieldEffects'
-```
-#### JudyPopBubble
-```ruby
-pod 'EnolaGay/JudyPopBubble'
-```
-#### JudyWaterWaveView
-```ruby
-pod 'EnolaGay/JudyWaterWaveView'
-```
-#### CircularProgressView
-```ruby
-pod 'EnolaGay/CircularProgressView'
-```
-#### GiftMessageCtrlPanel
-```ruby
-pod 'EnolaGay/GiftMessageCtrlPanel'
-```
-#### MarqueeView
-```ruby
-pod 'EnolaGay/MarqueeView'
-```
-
-#### SearchViewCtrl
-```ruby
-pod 'EnolaGay/SearchViewCtrl'
-```
-
-#### FileManager
-```ruby
-pod 'EnolaGay/FileManager'
-```
-
-#### JudyBaseWebViewCtrl
-```ruby
-pod 'EnolaGay/WKWebView'
-```
-
-#### JudyPlusButtonTabBar
-```ruby
 pod 'EnolaGay/JudyPlusButtonTabBar'
+……
 ```
 
-
-## Author
+## 作者
 
 醉翁之意, Judy_u@163.com
 

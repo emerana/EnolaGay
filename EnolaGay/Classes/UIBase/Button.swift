@@ -55,9 +55,9 @@ open class JudyBaseButton: UIButton, FontStyle {
         }
         switch tempImageDirection {
         case .up:
-            setImageTop(spacing: 8)
+            judy.setImageTop(spacing: 8)
         case .right:
-            setImageRight()
+            judy.setImageRight()
         default:break
         }
     
@@ -79,14 +79,14 @@ private extension JudyBaseButton {
     }
 }
 
-// MARK: - 显示的效果
-public extension UIButton {
+// MARK: - UIButton 空间扩展方法
+public extension EnolaGayWrapper where Base: UIButton {
     
     /// 以动画的方式显示该按钮
     func show() {
-        guard isHidden == true else { return }
+        guard base.isHidden == true else { return }
         
-        isHidden = false
+        base.isHidden = false
         // 大小比例
         let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
         scaleAnimation.fromValue = 5
@@ -98,22 +98,16 @@ public extension UIButton {
         opacityAnimation.toValue = 1
         opacityAnimation.duration = 0.3
         
-        layer.add(scaleAnimation, forKey: "scale")
-        layer.add(opacityAnimation, forKey: "opacity")
+        base.layer.add(scaleAnimation, forKey: "scale")
+        base.layer.add(opacityAnimation, forKey: "opacity")
     }
-    
-}
-
-
-// MARK: - UIButton扩展，支持调整图片和文字的排序及间距
-public extension UIButton {
     
     /// 设置文字在左，图片在右
     ///
     /// - Warning: 直接在 Storyboard 使用 semanticContentAttribute 属性设为从右向左即可
     /// - Parameter spacing: 间距
     func setImageRight(spacing: CGFloat = 0) {
-        semanticContentAttribute = .forceRightToLeft
+        base.semanticContentAttribute = .forceRightToLeft
         setImageTextSpacing(spacing: spacing)
         /* 已废弃的方式
          guard imageView != nil, titleLabel != nil else {
@@ -133,17 +127,23 @@ public extension UIButton {
     /// - Warning: 在设置字体、文本、尺寸大小后需要重新调用此函数已确保正确将图片显示在文本上方
     /// - Parameter spacing: 图片与文本的间隔，默认0，此属性决定了图片和文字各偏移spacing/2.
     func setImageTop(spacing: CGFloat = 0) {
-        guard imageView != nil, titleLabel != nil, titleLabel?.text != nil else { return }
+        guard base.imageView != nil,
+              base.titleLabel != nil,
+              base.titleLabel?.text != nil else { return }
         /*
          修复日志：
          2018年05月24日17:19
          他娘的，原来要用文本内容的宽度来计算，之前一直用titleLabel.frame.width，当实际内容大于按钮本身时就不准确了我操，搞了一下午突然发现用文本内容计算就贼他妈准确了！
          */
-        let titleWidth: CGFloat = titleLabel!.text!.judy.textSize(font: titleLabel!.font).width
+        let titleWidth: CGFloat = base.titleLabel!.text!
+            .judy.textSize(font: base.titleLabel!.font).width
         //设置文字偏移：向下偏移图片高度＋向左偏移图片宽度 （偏移量是根据［图片］大小来的，这点是关键）
-        titleEdgeInsets = UIEdgeInsets.init(top: imageView!.frame.size.height + spacing/2, left: -imageView!.frame.size.width, bottom: 0, right: 0)
+        base.titleEdgeInsets = UIEdgeInsets(top: base.imageView!.frame.size.height + spacing/2,
+                                            left: -base.imageView!.frame.size.width,
+                                            bottom: 0, right: 0)
         //设置图片偏移：向上偏移文字高度＋向右偏移文字宽度 （偏移量是根据［文字］大小来的，这点是关键）
-        imageEdgeInsets = UIEdgeInsets(top: -titleLabel!.bounds.size.height, left: 0, bottom: spacing/2, right: -titleWidth)
+        base.imageEdgeInsets = UIEdgeInsets(top: -base.titleLabel!.bounds.size.height,
+                                            left: 0, bottom: spacing/2, right: -titleWidth)
     }
     
     /// 设置左右结构的间距。正常情况下图片在左，文字在右，但间距太小
@@ -151,21 +151,27 @@ public extension UIButton {
     /// - Warning: 若按钮发生变化需重新调用此函数
     /// - Parameter spacing: 间距值，默认2，此属性决定了图片和文字各偏移 spacing/2.
     func setImageTextSpacing(spacing: CGFloat = 2) {
-        guard imageView != nil, titleLabel != nil else { return }
+        guard base.imageView != nil, base.titleLabel != nil else { return }
         
         // UIEdgeInsets(top: 0, left: 8, bottom: 0, right: -8)
-        contentEdgeInsets = UIEdgeInsets(top: 0 + contentEdgeInsets.top, left: spacing/2 + contentEdgeInsets.left, bottom: 0 + contentEdgeInsets.bottom, right: spacing/2 + contentEdgeInsets.right)
+        base.contentEdgeInsets = UIEdgeInsets(top: 0 + base.contentEdgeInsets.top,
+                                              left: spacing/2 + base.contentEdgeInsets.left,
+                                              bottom: 0 + base.contentEdgeInsets.bottom,
+                                              right: spacing/2 + base.contentEdgeInsets.right)
 
-        switch semanticContentAttribute {
+        switch base.semanticContentAttribute {
         // 标题在左，图片在右
         case .forceRightToLeft:
-            imageEdgeInsets = UIEdgeInsets(top: 0, left: spacing/2 + titleEdgeInsets.left, bottom: 0, right: -spacing/2 + titleEdgeInsets.right)
-            titleEdgeInsets = UIEdgeInsets(top: 0, left: -spacing/2, bottom: 0, right: spacing/2)
+            base.imageEdgeInsets = UIEdgeInsets(top: 0,
+                                                left: spacing/2 + base.titleEdgeInsets.left,
+                                                bottom: 0,
+                                                right: -spacing/2 + base.titleEdgeInsets.right)
+            base.titleEdgeInsets = UIEdgeInsets(top: 0, left: -spacing/2, bottom: 0, right: spacing/2)
         
         // 图片在左，标题在右
         case .forceLeftToRight, .unspecified:
-            titleEdgeInsets = UIEdgeInsets(top: 0, left: spacing/2, bottom: 0, right: -spacing/2)
-            imageEdgeInsets = UIEdgeInsets(top: 0, left: -spacing/2, bottom: 0, right: spacing/2)
+            base.titleEdgeInsets = UIEdgeInsets(top: 0, left: spacing/2, bottom: 0, right: -spacing/2)
+            base.imageEdgeInsets = UIEdgeInsets(top: 0, left: -spacing/2, bottom: 0, right: spacing/2)
         default:
             break
         }

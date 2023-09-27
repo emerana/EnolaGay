@@ -30,6 +30,9 @@ class LogViewController: UIViewController {
     }
 
     @IBAction func logAction(_ sender: Any) {
+        let button = sender as! UIButton
+//        button.judy.setImage
+        
         log("哈哈哈")
     }
 
