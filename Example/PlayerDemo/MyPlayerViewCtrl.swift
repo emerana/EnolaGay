@@ -40,7 +40,7 @@ class MyPlayerViewCtrl: UIViewController {
 
     func registerReuseComponents() {
         let nib = UINib(nibName: "VideoCell", bundle: nil)
-        tableView?.register(nib, forCellReuseIdentifier: EMERANA.Key.cell)
+        tableView?.register(nib, forCellReuseIdentifier: "Cell")
     }
 
 }
