@@ -21,7 +21,7 @@ public struct Judy {
     public static var topViewCtrl: UIViewController {
         //  UIApplication.shared.windows.last!.rootViewController
         guard Judy.keyWindow?.rootViewController != nil else {
-            logWarning("topViewCtrl 调用太早，此时 keyWindow 为 nil，只能返回一个 UIViewController()")
+            Logger.error("topViewCtrl 调用太早，此时 keyWindow 为 nil，只能返回一个 UIViewController()")
             return UIViewController()
         }
         return getTopViewCtrl(rootVC: Judy.keyWindow!.rootViewController!)
@@ -34,7 +34,7 @@ public struct Judy {
         if appWindow.rootViewController != nil {
             return appWindow.rootViewController as? UITabBarController
         }
-        logWarning("appWindow.rootViewController 为 nil！")
+        Logger.error("appWindow.rootViewController 为 nil！")
         return Judy.keyWindow?.rootViewController as? UITabBarController
     }
     
@@ -44,11 +44,11 @@ public struct Judy {
     /// - Warning: 如果调用太早（如程序刚启动）这个 window 可能正被隐藏中，并不活跃
     public static var appWindow: UIWindow {
         guard UIApplication.shared.delegate?.window! != nil else {
-            logWarning("app?.window 为 nil，调用太早！")
+            Logger.error("app?.window 为 nil，调用太早！")
             if Judy.keyWindow != nil {
                 return Judy.keyWindow!
             } else {
-                logWarning("keyWindow 为 nil")
+                Logger.error("keyWindow 为 nil")
             }
             return UIWindow()
         }
@@ -74,7 +74,7 @@ public struct Judy {
     /// 当前是否有 alert 弹出，主要是提醒更新版本的 Alert
     fileprivate static var isAlerting = false {
         didSet{
-            logWarning("哎呀，isAlerting 被设置为\(isAlerting)")
+            Logger.error("哎呀，isAlerting 被设置为\(isAlerting)")
         }
     }
     
@@ -104,12 +104,12 @@ public struct Judy {
     ///   - closure: 闭包,(success: Bool)
     public static func openURL(_ urlStr: String, completionHandler closure: @escaping ((Bool) -> Void)) {
         guard let url = URL(string: urlStr) else {
-            logWarning("无效 URL ->\(urlStr)")
+            Logger.error("无效 URL ->\(urlStr)")
             return
         }
 
         if UIApplication.shared.canOpenURL(url) {
-            logHappy("正在打开：\(url)")
+            Logger.happy("正在打开：\(url)")
             // UIApplication.shared.open(url, options: [:], completionHandler: nil)
             UIApplication.shared.open(url, completionHandler: { (success: Bool) in
                 closure(success)
@@ -117,7 +117,7 @@ public struct Judy {
         } else {
             //  入口协议：从其他App跳转到当前App的协议。在配置文件的URL Types中URL Schemes设定，如：tc
             //  出口协议：当前App跳转到其他App的协议。需要将目标App的入口协议添加到当前App中配置文件的LSApplicationQueriesSchemes白名单里
-            logWarning("未安装路由->\(url)或没有在plist文件中添加LSApplicationQueriesSchemes白名单(出口失败)")
+            Logger.error("未安装路由->\(url)或没有在plist文件中添加LSApplicationQueriesSchemes白名单(出口失败)")
             closure(false)
         }
     }
@@ -139,7 +139,7 @@ public struct Judy {
             UIApplication.shared.open(url)
             return true
         }
-        logWarning("不合法的电话号码：\(phoneNo)")
+        Logger.error("不合法的电话号码：\(phoneNo)")
         return false
     }
     
@@ -274,7 +274,7 @@ public extension Judy {
         if prefix != 0 && NSNotFound == nDotLoc && string != "" && string != "." {
             // 小数点前面位数验证
             if textFieldText.length >= prefix {
-                logWarning("小数点前只能输入\(prefix)位")
+                Logger.error("小数点前只能输入\(prefix)位")
                 return false
             }
         }
@@ -288,12 +288,12 @@ public extension Judy {
         let filtered: String = (string.components(separatedBy: cs!) as NSArray).componentsJoined(by: "")
         
         if string as String != filtered {
-            logWarning("请输入正确的小数")
+            Logger.error("请输入正确的小数")
             return false
         }
         
         if num != 0 && NSNotFound != nDotLoc && range.location > nDotLoc + num {
-            logWarning("小数点后只能保留\(num)位")
+            Logger.error("小数点后只能保留\(num)位")
             return false
         }
         return true
@@ -311,7 +311,7 @@ public extension Judy {
         let cs: CharacterSet = CharacterSet.init(charactersIn: "0123456789\n").inverted
         let filtered: String = (string.components(separatedBy: cs) as NSArray).componentsJoined(by: "")
         guard string as String == filtered  else {
-            logWarning("仅限输入数值")
+            Logger.error("仅限输入数值")
             return false
         }
 
@@ -369,10 +369,10 @@ public extension Judy {
         // 信号量发现总量为0，便停在此处，程序不往下执行，10 秒超时时间，10秒内无人将信号量+1将直接往下执行。
         switch semaphore.wait(timeout: DispatchTime.now()+10) {
         case .success:
-            EnolaGay.logHappy("未超时")
+            Logger.happy("未超时")
             break
         case .timedOut:
-            EnolaGay.logWarning("发现超时，直接返回数据")
+            EnolaGay.Logger.error("发现超时，直接返回数据")
             break
         }
 
@@ -419,7 +419,7 @@ public extension Judy {
         // 比较版本
         for i in 0..<versionLocalList.count {
             guard (Int(versionLocalList[i]) != nil), (Int(versionOnLineList[i]) != nil) else {
-                EnolaGay.logWarning("版本号中存在非 Int 字符")
+                Logger.error("版本号中存在非 Int 字符")
                 return .latest
             }
             verL = Int(versionLocalList[i])!

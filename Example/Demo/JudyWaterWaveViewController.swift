@@ -126,11 +126,11 @@ private extension JudyWaterWaveViewController {
 extension JudyWaterWaveViewController: CAAnimationDelegate {
     
     func animationDidStart(_ anim: CAAnimation) {
-        log("动画开始")
+        Logger.info("动画开始")
     }
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        log("动画停止: finished - \(flag)")
+        Logger.info("动画停止: finished - \(flag)")
     }
     
 }

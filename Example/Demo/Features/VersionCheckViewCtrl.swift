@@ -53,7 +53,7 @@ class VersionCheckViewCtrl: UIViewController {
                 self.view.endEditing(true)
                 
                 guard let appStoreURL = appStoreURL else { return }
-                logn("拿到AppStore链接:\(appStoreURL)")
+                Logger.info("拿到AppStore链接:\(appStoreURL)")
                 if status == .older {
                     self.showAlert(appStoreUrl: appStoreURL)
                 }
@@ -69,10 +69,10 @@ class VersionCheckViewCtrl: UIViewController {
         let okAction = UIAlertAction(title: "去更新", style: .destructive) { action -> Void in
             if let url = URL(string: appStoreUrl) {
                 if UIApplication.shared.canOpenURL(url) {
-                    logHappy("正在打开：\(url)")
+                    Logger.happy("正在打开：\(url)")
                     UIApplication.shared.open(url, completionHandler: nil)
                 } else {
-                    logWarning("不能打开该 URL")
+                    Logger.error("不能打开该 URL")
                 }
             }
         }
@@ -221,7 +221,7 @@ enum AppVersionStatus {
         // 比较版本
         for i in 0..<versionLocalList.count {
             guard  let versionLocal = Int(versionLocalList[i]), let versionServer = Int(versionOnLineList[i]) else {
-                logWarning("版本号中存在非 Int 字符")
+                Logger.error("版本号中存在非 Int 字符")
                 return .latest
             }
             if versionLocal == versionServer {

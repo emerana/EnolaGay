@@ -77,14 +77,14 @@ private extension CastSurelyCalculationViewCtrl {
 extension CastSurelyCalculationViewCtrl: UITextFieldDelegate {
     // 输入验证。当值发生更改时的确认。
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-        log("shouldChangeCharactersIn<!-- \(string) -->,输入之前为--> \(String(describing: textField.text))")
+        
+        Logger.info("shouldChangeCharactersIn<!-- \(string) -->,输入之前为--> \(String(describing: textField.text))")
 
         return numberRestriction(textField: textField, inputString: string)
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
-        log(textField.text)
+        Logger.info(textField.text)
         calculationAction("执行计算")
     }
 }

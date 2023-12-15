@@ -29,7 +29,7 @@ class SaleTicketsViewController: UIViewController {
     /// 火车票总数量
     private var tickerCounts = 100 {
         didSet {
-            logt(type: .🟢, "卖掉了一张票，还剩：\(tickerCounts)张")
+            Logger.thread(type: .🟢, "卖掉了一张票，还剩：\(tickerCounts)张")
             DispatchQueue.main.async { [weak self] in
                 guard let `self` = self else { return }
                 if self.tickerCounts == 0 {
@@ -149,7 +149,7 @@ private extension SaleTicketsViewController {
         let semaphore = DispatchSemaphore(value: 1)
 
         saleQueue.async {
-            log("开启售票……")
+            Logger.info("开启售票……")
             // 开启多条线程同时售票
             for i in 1...6 {
                 // 异步执行
@@ -166,11 +166,12 @@ private extension SaleTicketsViewController {
                 semaphore.wait()
                 let s = arc4random()%2/10
                 if tickerCounts > 0 {
-                    logt("出票中……，预计耗时：\(s) 秒")
+                    
+                    Logger.thread("出票中……，预计耗时：\(s) 秒")
                     sleep(s)
                     tickerCounts -= 1
                 } else {
-                    logWarning("票已售完")
+                    Logger.error("票已售完")
                     semaphore.signal()
                     break
                 }
@@ -234,28 +235,28 @@ private extension SaleTicketsViewController {
          
          */
         
-        log("进入信号量测试……")
+        Logger.info("进入信号量测试……")
         
         DispatchQueue.global().async {
-            log("onStart")
+            Logger.info("onStart")
             
             // 创建信号量，若初始化信号量时就小于0，则遇到 semaphore.wait() 就会崩溃
             let semaphore = DispatchSemaphore(value: 0)
             
             // 异步执行
             DispatchQueue.global().async {
-                log("任务A执行中……")
+                Logger.info("任务A执行中……")
                 sleep(8)
-                log("任务A执行完毕！")
+                Logger.info("任务A执行完毕！")
                 
                 semaphore.signal()  // 信号量+1
             }
             
             DispatchQueue.global().async {
                 
-                log("任务B执行中……")
+                Logger.info("任务B执行中……")
                 sleep(10)
-                log("任务B执行完毕！")
+                Logger.info("任务B执行完毕！")
                 
                 semaphore.signal()  // 信号量+1
             }
@@ -264,7 +265,7 @@ private extension SaleTicketsViewController {
             semaphore.wait()
             
             // 信号量 >0 了，等待结束，线程继续……
-            log("over")
+            Logger.info("over")
         }
         
     }
@@ -283,15 +284,15 @@ private extension SaleTicketsViewController {
         for i in 1...10 {
             downloadAction(index: i, dispatchQueue: downloadQueue)
         }
-        logWarning("一来就下载任务完成")
+        Logger.error("一来就下载任务完成")
         
         /// 使用目标队列执行一个下载任务。
         func downloadAction(index: Int, dispatchQueue: DispatchQueue) {
             dispatchQueue.async {
                 Thread.current.name = "线程：\(index)"
-                logt("任务开始……")
+                Logger.thread("任务开始……")
                 sleep(6)
-                logt(type: .🟢, "任务完成。")
+                Logger.thread(type: .🟢, "任务完成。")
             }
         }
     }
@@ -308,17 +309,17 @@ private extension SaleTicketsViewController {
             Thread.current.name = "下载线程"
             // 取余 11
             let s = arc4random()%11
-            logt("执行下载任务，预计耗时：\(s) 秒")
+            Logger.thread("执行下载任务，预计耗时：\(s) 秒")
             sleep(s)
         }
         // 任务通知到队列
         downloadAction.notify(queue: downloadQueue) {
-            log("队列下载任务完成！")
+            Logger.info("队列下载任务完成！")
         }
         // 执行任务
         downloadQueue.async(execute: downloadAction)
         
-        logt("队列开始执行")
+        Logger.thread("队列开始执行")
     }
 
     /// 模拟下载多个数据
@@ -334,21 +335,21 @@ private extension SaleTicketsViewController {
                 downloadQueue.async {
                     Thread.current.name = "第\(i)线程"
                     let s = arc4random()%9
-                    logt("开始下载任务，预计耗时：\(s) 秒")
+                    Logger.thread("开始下载任务，预计耗时：\(s) 秒")
                     sleep(s)
-                    logt("下载完成，耗时：\(s) 秒")
+                    Logger.thread("下载完成，耗时：\(s) 秒")
                     semaphore.signal()
                 }
-                logt("安排了第\(i)个下载任务")
+                Logger.thread("安排了第\(i)个下载任务")
             }
             for i in 1...maxSemaphore {
                 semaphore.wait()
-                log("等待第\(i)次")
+                Logger.info("等待第\(i)次")
             }
         }
         
         downloadAction.notify(queue: downloadQueue) {
-            logHappy("\(Thread.current) 下载任务全部完成！")
+            Logger.happy("\(Thread.current) 下载任务全部完成！")
         }
         
         downloadQueue.async(execute: downloadAction)
@@ -428,7 +429,7 @@ private extension SaleTicketsViewController {
             print("任务组中所有任务均已完成！")
         }
         
-        logt("任务组开始执行了")
+        Logger.thread("任务组开始执行了")
         
         func addDownload(group: DispatchGroup, dispatchQueue: DispatchQueue, semaphore: DispatchSemaphore) {
             group.enter()

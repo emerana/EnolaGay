@@ -31,7 +31,7 @@ class VideoCell: UITableViewCell {
     var videoURL: String! {
         didSet {
             guard player.url?.absoluteString != videoURL else {
-                logWarning("都已经是同样的 URL 了，不用设置啦！")
+                Logger.error("都已经是同样的 URL 了，不用设置啦！")
                 return
             }
             player.url = URL(string: videoURL)
@@ -86,7 +86,7 @@ class VideoCell: UITableViewCell {
 extension VideoCell: PlayerDelegate {
     
     func playerReady(_ player: Player) {
-        logHappy("ready……")
+        Logger.happy("ready……")
     }
     
     func playerPlaybackStateDidChange(_ player: Player) {

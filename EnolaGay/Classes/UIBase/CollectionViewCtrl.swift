@@ -33,7 +33,7 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl {
         super.viewDidLoad()
         
         guard collectionView != nil else {
-            logWarning("collectionView 没有关联 IBOutlet")
+            Logger.error("collectionView 没有关联 IBOutlet")
             return
         }
 
@@ -139,7 +139,7 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegate {
     
     /// 选中事件
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        log("点击-\(indexPath)")
+        Logger.info("点击-\(indexPath)")
     }
     
     // 完美解决 collectionView 滚动条被 Header 遮挡问题

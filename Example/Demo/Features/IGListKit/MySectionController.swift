@@ -64,7 +64,7 @@ extension SectionController {
     }
     
     override func didSelectItem(at index: Int) {
-        log("点击了\(index)")
+        Logger.info("点击了\(index)")
     }
     
 }
@@ -96,7 +96,7 @@ extension SectionController: ListScrollDelegate {
     
     
     //    func listAdapter(_ listAdapter: ListAdapter, didScroll sectionController: ListSectionController) {
-    //        log("滚动：\(listAdapter.collectionView?.contentOffset.y)")
+    //        Logger.info("滚动：\(listAdapter.collectionView?.contentOffset.y)")
     //        listAdapter.collectionView?.contentInset =
     //        UIEdgeInsets(top: -128, left: 0, bottom: 0, right: 0)
     //    }

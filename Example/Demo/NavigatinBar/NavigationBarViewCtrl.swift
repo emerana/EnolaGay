@@ -34,11 +34,11 @@ class NavigationBarViewCtrl: UIViewController {
     }
     
     @IBAction func addAction(_ sender: Any) {
-        log("添加一个数据")
+        Logger.info("添加一个数据")
     }
 
     @IBAction func deleteAction(_ sender: Any) {
-        log("删除一个数据")
+        Logger.info("删除一个数据")
     }
 
     

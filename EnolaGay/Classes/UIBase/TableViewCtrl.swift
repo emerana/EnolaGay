@@ -36,7 +36,7 @@ open class JudyBaseTableViewCtrl: JudyBaseViewCtrl {
         super.viewDidLoad()
         
         guard tableView != nil else {
-            logWarning("tableView 没有关联 IBOutlet！")
+            Logger.error("tableView 没有关联 IBOutlet！")
             return
         }
         

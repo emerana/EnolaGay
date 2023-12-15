@@ -69,14 +69,14 @@ class DouYinPageViewCtrl: JudyBasePageViewCtrl {
     
     private var userHome: UIViewController? {
         didSet {
-            Judy.logHappy( userHome != nil ? "生成新界面":"释放新界面")
+            Judy.Logger.happy( userHome != nil ? "生成新界面":"释放新界面")
         }
     }
     
     /// 该标识表示当前是否正在移动新界面
     private var isPushing = false {
         didSet {
-            Judy.logHappy(isPushing ? "push 开始":"push 结束")
+            Judy.Logger.happy(isPushing ? "push 开始":"push 结束")
         }
     }
         
@@ -95,7 +95,7 @@ class DouYinPageViewCtrl: JudyBasePageViewCtrl {
                     Judy.log("移动中……")
                     // 直接 push!
                     if scrollView.contentOffset.x - scrollView.frame.width > 55 {
-                        Judy.logWarning("触发 push!")
+                        Judy.Logger.error("触发 push!")
 //                        navigationController?.pushViewController(userHome!, animated: true)
                         isPushing = false
                         scrollView.delegate = nil

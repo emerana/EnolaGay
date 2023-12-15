@@ -27,50 +27,50 @@ class CircularProgressViewController: UIViewController {
     
     // touch Cancel
     @IBAction private func touchCancelAction(_ sender: Any) {
-        log("取消？")
+        Logger.info("取消？")
     }
 
     // touch Down
     // 手指碰到按钮即响应
     @IBAction private func touchDownAction(_ sender: Any) {
-        log("手指碰到按钮了")
+        Logger.info("手指碰到按钮了")
     }
 
     // touch Down Repeat
     @IBAction private func touchDownRepeatAction(_ sender: Any) {
-        log(" 按钮重复点击")
+        Logger.info(" 按钮重复点击")
     }
 
     // touch Drag Enter
     @IBAction private func touchDragEnterAction(_ sender: Any) {
-        log("手指在按钮之外又回来了")
+        Logger.info("手指在按钮之外又回来了")
     }
     
     // 松开或手指滑到按钮之外即响应。
     @IBAction private func touchDragExitAction(_ sender: Any) {
-        logHappy("手指移动到按钮之外")
+        Logger.happy("手指移动到按钮之外")
     }
 
     // touch Drag Inside
     @IBAction private func touchDragInsideAction(_ sender: Any) {
-        logWarning("手指在按钮里面移动……")
+        Logger.error("手指在按钮里面移动……")
     }
 
     // touch Drag Outside
     @IBAction private func touchDragOutsideAction(_ sender: Any) {
-        logWarning("手指在按钮之外移动……")
+        Logger.error("手指在按钮之外移动……")
     }
 
     // touch Up Inside
     // 手指按压按钮并再按钮内部离开按钮即响应。
     @IBAction private func touchUpInsideAction(_ sender: Any) {
-        logHappy("手指从按钮内部离开")
+        Logger.happy("手指从按钮内部离开")
     }
 
     // touch Up Outside
     // 手指按压按钮并移动到按钮外部再离开按钮即响应。
     @IBAction private func touchUpOutsideAction(_ sender: Any) {
-        logHappy("手指从按钮外部离开")
+        Logger.happy("手指从按钮外部离开")
     }
 
 }
