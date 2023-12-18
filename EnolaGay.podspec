@@ -62,10 +62,10 @@ Pod::Spec.new do |s|
   end
 
   # MARK: WKWebView
-  s.subspec 'WKWebView' do |ss|
-      ss.dependency 'EnolaGay/EMERANA'
-      ss.source_files = 'EnolaGay/Classes/WKWebView/*'
-  end
+#  s.subspec 'WKWebView' do |ss|
+#      ss.dependency 'EnolaGay/EMERANA'
+#      ss.source_files = 'EnolaGay/Classes/WKWebView/*'
+#  end
   
   # MARK: 以上 pod 能力模块独立安装时将自动安装 pod 'EnolaGay' 核心
   
