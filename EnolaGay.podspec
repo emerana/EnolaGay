@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EnolaGay'
-  s.version          = '4.0.13'
+  s.version          = '4.1.0'
   s.summary          = 'EnolaGay 架构，由早期的 EMERANA 进化而成。'
 
 # This description is used to generate tags and improve search results.
