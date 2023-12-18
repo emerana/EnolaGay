@@ -327,7 +327,7 @@ public class JudyNavigationCtrl: JudyBaseNavigationCtrl {
     deinit {
         backgroundView?.removeFromSuperview()
         backgroundView = nil
-        logHappy("导航控制器已释放")
+        Logger.happy("导航控制器已释放")
     }
     
 }
@@ -464,10 +464,10 @@ private extension JudyNavigationCtrl {
         
         switch recoginzer.state {
         case .began: // 开始拖动屏幕时触发
-            // Judy.logWarning("began：\(touchPoint.x)")
+            // Judy.Logger.error("began：\(touchPoint.x)")
             panBeganAction(startTouchPoint: touchPoint)
         case .ended: // 结束，手指离开屏幕触发
-            // Judy.logWarning("ended：\(touchPoint.x)")
+            // Judy.Logger.error("ended：\(touchPoint.x)")
             // 设置滑动多少距离就可以触发 pop.
             if touchPoint.x - startTouch.x > 28 {
                 popActionWithAnimate()
@@ -476,11 +476,11 @@ private extension JudyNavigationCtrl {
             }
             return
         case .cancelled: // 取消了
-            // Judy.logWarning("cancelled：\(touchPoint.x)")
+            // Judy.Logger.error("cancelled：\(touchPoint.x)")
             panEndedReductionAction()
             return
         case .changed: // 正在拖动的过程中
-            // Judy.logWarning("changed：\(touchPoint.x)")
+            // Judy.Logger.error("changed：\(touchPoint.x)")
             moveViewWithX(x: touchPoint.x - startTouch.x)
         default: break
         }

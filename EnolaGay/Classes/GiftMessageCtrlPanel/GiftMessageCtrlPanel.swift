@@ -117,7 +117,7 @@ open class GiftMessageCtrlPanel: UIView {
     /*
      deinit {
         // 需要集成 Logger
-        logHappy("GiftMessageCtrlPanel 已经释放")
+        Logger.happy("GiftMessageCtrlPanel 已经释放")
      }
      */
 }
@@ -273,7 +273,7 @@ open class GiftView: UIView {
     
     /*
      deinit {
-        // Judy.logHappy("GiftView 释放。")
+        // Judy.Logger.happy("GiftView 释放。")
      }
      */
 }

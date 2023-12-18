@@ -33,7 +33,7 @@ open class JudyBaseCollectionViewCtrl: JudyBaseViewCtrl {
         super.viewDidLoad()
         
         guard collectionView != nil else {
-            logWarning("collectionView 没有关联 IBOutlet")
+            Logger.error("collectionView 没有关联 IBOutlet")
             return
         }
 
@@ -88,7 +88,7 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDataSource {
     
     /// 询问指定 indexPath 的 Cell 实例，默认取 identifier 为 Cell 的实例
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: EMERANA.Key.cell, for: indexPath)
+        return collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
     }
     
     // 生成 HeaderView 和 FooterView
@@ -139,7 +139,7 @@ extension JudyBaseCollectionViewCtrl: UICollectionViewDelegate {
     
     /// 选中事件
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        log("点击-\(indexPath)")
+        Logger.info("点击-\(indexPath)")
     }
     
     // 完美解决 collectionView 滚动条被 Header 遮挡问题

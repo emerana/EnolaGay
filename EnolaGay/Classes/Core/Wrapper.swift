@@ -86,7 +86,7 @@ public extension EnolaGayWrapper where Base == String {
             dateFormatter.dateFormat = formatterOut
             return dateFormatter.string(from: dated)
         } else {
-            log("时间转换失败")
+            Logger.info("时间转换失败")
             return "time error"
         }
     }
@@ -170,7 +170,7 @@ public extension EnolaGayWrapper where Base == Calendar {
     func getWeekday(year: Int, month: Int, day: Int) -> Int {
         let date = Date(year: year, month: month, day: day)
         guard let weekday = base.dateComponents([.weekday], from: date).weekday else {
-            logWarning("获取星期失败，默认返回1")
+            Logger.error("获取星期失败，默认返回1")
             return 1
         }
         return weekday

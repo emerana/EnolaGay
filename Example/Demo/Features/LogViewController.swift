@@ -30,35 +30,38 @@ class LogViewController: UIViewController {
     }
 
     @IBAction func logAction(_ sender: Any) {
-        log("哈哈哈")
+        let button = sender as! UIButton
+//        button.judy.setImage
+        
+        Logger.info("哈哈哈")
     }
 
     @IBAction func loglAction(_ sender: Any) {
-        logl("哈哈哈")
+        Logger.info("哈哈哈")
     }
 
     @IBAction func logTimeAction(_ sender: Any) {
-        logTime("哈哈哈")
+        Logger.info("哈哈哈")
     }
 
     @IBAction func logsAction(_ sender: Any) {
-        logs("哈哈哈")
+        Logger.info("哈哈哈")
     }
 
     @IBAction func lognAction(_ sender: Any) {
-        logn("哈哈哈")
+        Logger.info("哈哈哈")
     }
 
-    @IBAction func logHappyAction(_ sender: Any) {
-        logHappy("哈哈哈")
+    @IBAction func happyAction(_ sender: Any) {
+        Logger.happy("哈哈哈")
     }
 
-    @IBAction func logWarningAction(_ sender: Any) {
-        logWarning("哈哈哈")
+    @IBAction func errorAction(_ sender: Any) {
+        Logger.error("哈哈哈")
     }
 
     @IBAction func logtAction(_ sender: Any) {
-        logt("哈哈哈")
+        Logger.time("哈哈哈")
     }
 
 }

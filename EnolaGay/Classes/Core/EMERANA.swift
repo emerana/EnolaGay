@@ -170,26 +170,23 @@ public struct EMERANA {
     public static let judy = EMERANA()
     
     /// EnolaGay 框架全局适配器
-//    static let enolagayAdapter: EnolaGayAdapter? = UIApplication.shared as? EnolaGayAdapter
+    //    static let enolagayAdapter: EnolaGayAdapter? = UIApplication.shared as? EnolaGayAdapter
     
     /// API 层适配器
-//    static let apiAdapter: ApiAdapter? = UIApplication.shared as? ApiAdapter
+    //    static let apiAdapter: ApiAdapter? = UIApplication.shared as? ApiAdapter
     
     /// 刷新视图适配器
     static let refreshAdapter: RefreshAdapter? = UIApplication.shared as? RefreshAdapter
     
-    /// 全局外观配置管理员
+    /// 全局外观配置管理
     // private var appearanceManager: Appearance?
     
     
-    // 私有化构造器；在单例模式下，只有该单例被首次访问时才会创建该对象
+    // 私有化构造器；在单例模式下，只有该单例被首次访问时才会创建该对象。
     private init() { }
     
     /// 该数据结构为 EMERANA 中可访问性数据的封装
-    /// - Warning: 注意
-    ///     * 项目中所有固定的可访问性字符都应该封装在此结构体内，在此结构体中定义所有可访问性数据（字符）
-    ///     * 希望数据结构的实例被赋值给另一个实例时是拷贝而不是引用，封装的数据及其中存储的值也是拷贝而不是引用
-    ///     * 该数据结构不需要使用继承
+    /// - Warning: 项目中所有固定的可访问性字符都应该封装在此结构体内，在此结构体中定义所有可访问性数据（字符）
     public struct Key {
         /// 在分页加载的界面中用于表示 pageIndex 的字段名
         public static let pageIndexParameter = "pageIndex"
@@ -200,8 +197,6 @@ public struct EMERANA {
         public static let statusBarViewTag = 20210727
         /// 该值用作于 EMERANA UIView 扩展函数 gradientView() 辨别 gradientLayer.name.
         public static let gradientViewName = "EMERANA_GRADIENT_LAYER_NAME"
-        /// 在 JudyBaseTableViewCtrl/JudyBaseCollectionViewCtrl 中 dequeueReusableCell 用到的 Cell 标识符
-        public static let cell = "Cell"
         
     }
     
@@ -211,12 +206,4 @@ public struct EMERANA {
         case 新增全局Cell代理管理
     }
     
-    /// 常用代码
-    public struct Code {
-        /// 默认错误，代码 250
-        public static let `default` = 250
-        /// 在 ApiRequestConfig 中发起请求时没有设置 Api
-        public static let notSetApi = 2500
-    }
 }
-

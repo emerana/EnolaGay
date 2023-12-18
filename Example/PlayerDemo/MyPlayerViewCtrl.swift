@@ -40,7 +40,7 @@ class MyPlayerViewCtrl: UIViewController {
 
     func registerReuseComponents() {
         let nib = UINib(nibName: "VideoCell", bundle: nil)
-        tableView?.register(nib, forCellReuseIdentifier: EMERANA.Key.cell)
+        tableView?.register(nib, forCellReuseIdentifier: "Cell")
     }
 
 }
@@ -112,7 +112,7 @@ extension MyPlayerViewCtrl: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        logWarning("Cell \(indexPath.row) 消失，并暂停播放。")
+        Logger.error("Cell \(indexPath.row) 消失，并暂停播放。")
         (cell as? VideoCell)?.isDisAppear = true
     }
 

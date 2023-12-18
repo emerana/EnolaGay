@@ -40,9 +40,9 @@ class CacheViewCtrl: UIViewController {
         storage?.async.setObject(user, forKey: "user") { result in
             switch result {
             case .value:
-                logHappy("保存了 user 对象")
+                Logger.happy("保存了 user 对象")
             case .error(let error):
-                logWarning("对象保存失败：\(error)")
+                Logger.error("对象保存失败：\(error)")
             }
         }
 
@@ -51,7 +51,7 @@ class CacheViewCtrl: UIViewController {
     /// 删除对象
     @IBAction private func deleteActin(_ sender: Any) {
         try? storage?.removeObject(forKey: "user")
-        logWarning("删除了 user 对象")
+        Logger.error("删除了 user 对象")
     }
 
     @IBAction private func showActin(_ sender: Any) {
@@ -59,21 +59,21 @@ class CacheViewCtrl: UIViewController {
             let user = try storage?.object(forKey: "user")
             view.toast.message(user?.userName ?? "没用")
         } catch StorageError.notFound {
-            log("没有找到文件")
+            Logger.info("没有找到文件")
         } catch StorageError.typeNotMatch {
-            log("类型不匹配")
+            Logger.info("类型不匹配")
         } catch StorageError.malformedFileAttributes {
-            log("畸形的文件属性")
+            Logger.info("畸形的文件属性")
         } catch StorageError.decodingFailed {
-            log("解码")
+            Logger.info("解码")
         } catch StorageError.encodingFailed {
-            log("转码失败")
+            Logger.info("转码失败")
         } catch StorageError.deallocated {
-            log("已释放")
+            Logger.info("已释放")
         } catch StorageError.transformerFail {
-            log("转换失败")
+            Logger.info("转换失败")
         } catch {
-            log(error.localizedDescription)
+            Logger.info(error.localizedDescription)
             view.toast.message(error.localizedDescription)
         }
     }
@@ -81,13 +81,13 @@ class CacheViewCtrl: UIViewController {
     /// 删除所有对象
     @IBAction private func removeAllActin(_ sender: Any) {
         try? storage?.removeAll()
-        logWarning("删除所有对象")
+        Logger.error("删除所有对象")
     }
 
     /// 删除所有过期对象
     @IBAction private func removeExpiredObjectsActin(_ sender: Any) {
         try? storage?.removeExpiredObjects()
-        log("删除所有过期对象")
+        Logger.info("删除所有过期对象")
     }
 
     /// entry 获取对象的元数据和过期信息

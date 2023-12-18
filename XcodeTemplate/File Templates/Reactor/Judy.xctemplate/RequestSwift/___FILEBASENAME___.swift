@@ -11,17 +11,17 @@ import EnolaGay
 struct ___FILEBASENAMEASIDENTIFIER___ {
 
     let token: String
-    
+    /// 当前请求的页码
     let pageNum: Int
     var pageSize: Int = 15
     let searchWord: String
 
-    /// 圈子搜索 publisher（数据源，下一页页码?, 错误提示？）
-    var circlePublisher: Observable<Result<(Array<SearchCircleModel>, Int?), AppError>> {
+    /// <#数据请求#> publisher（数据源，下一页页码?, 错误提示？）
+    var dataPublisher: Observable<Result<(Array<<#Model#>>, Int?), AppError>> {
         // 配置请求 URL
         let reqURL = API.requestURL(action: .searchJoinGroupList)
         
-        return json(.get, reqURL, parameters: parameters(), headers: header())
+        return json(.post, reqURL, parameters: parameters(), encoding: JSONEncoding.default, headers: header())
             .map { JSON($0) }
             .map { json in
                 guard json["code"].intValue == 200 else { return .failure(AppError.requestFailed(json["msg"].stringValue)) }
@@ -33,37 +33,7 @@ struct ___FILEBASENAMEASIDENTIFIER___ {
                     let jsonData: Data = try json["data", "rows"].rawData()
 //                    let jsonArrayString = json["data", "rows"].rawString()
 //                    let list = [FansResponseModel].deserialize(from: jsonArrayString)
-                    let list = try JSONDecoder().decode(Array<SearchCircle>.self , from: jsonData)
-                    return .success((list, nextPage))
-                } catch let error {
-                    logWarning(error)
-                    return .failure(AppError.requestFailed("响应数据格式不正确"))
-                }
-            }
-//            .do(onError: { error in
-//                print("⚠️ GitHub API rate limit exceeded. Wait for 60 seconds and try again.")
-//            })
-            .catchAndReturn(.failure(AppError.requestFailed("请求失败")))
-
-    }
-    
-    /// 好友搜索 publisher（数据源，下一页页码?, 错误提示？）
-    var friendPublisher: Observable<Result<(Array<SearchCircle>, Int?), AppError>> {
-        let reqURL = API.requestURL(action: .searchfriendList)
-
-        return json(.get, reqURL, parameters: parameters(), headers: header())
-            .map { JSON($0) }
-            .map { json in
-                guard json["code"].intValue == 200 else { return .failure(AppError.requestFailed(json["msg"].stringValue)) }
-
-                let nextPage: Int? = json["data", "haveNextPage"].boolValue ? pageNum+1 : nil
-                
-                do {
-                    // 将 JSON 字符串转成 Data.
-                    let jsonData: Data = try json["data", "rows"].rawData()
-//                    let jsonArrayString = json["data", "rows"].rawString()
-//                    let list = [FansResponseModel].deserialize(from: jsonArrayString)
-                    let list = try JSONDecoder().decode(Array<SearchFriend>.self , from: jsonData)
+                    let list = try JSONDecoder().decode(Array<<#Model#>>.self , from: jsonData)
                     return .success((list, nextPage))
                 } catch let error {
                     logWarning(error)

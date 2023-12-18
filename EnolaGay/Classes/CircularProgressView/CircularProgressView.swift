@@ -19,10 +19,11 @@ open class CircularProgressView: UIView {
     /// 基准圆环颜色
     public var unfillColor: UIColor = .lightGray
     
-    /// 画的过程动画时长
+    /// 画的过程动画时长，该值默认为 5
     public var animationTime: Float = 5
     /// 结束角
     // public var endAngle: Float = 18
+    
     /// 是否顺时针方向，默认为 true
     public var clockwise: Bool = true
     
@@ -39,14 +40,54 @@ open class CircularProgressView: UIView {
     }
     
     open override func draw(_ rect: CGRect) {
-        drawMiddlecircle()
+        drawRinged()
         drawCircle()
     }
 
     
     // MARK: 私有方法
     
-    /// 添加一条 lineLayer
+
+    /// 画圆环
+    private final func drawRinged() {
+        // 计算圆的半径，取较小的边长的一半。
+        let x = Float(bounds.size.height/2) - lineWith/2
+        let y = Float(bounds.size.width/2) - lineWith/2
+        radius = min(x, y)
+
+        // 确定圆心位置
+        let center =  min(bounds.size.width/2, bounds.size.height/2)
+        circleCenterPoint = CGPoint(x: center, y: center)
+        
+        // 用于画圆的贝塞尔曲线
+        let circleBezierPath = UIBezierPath(arcCenter: circleCenterPoint,
+                                            radius: CGFloat(radius),
+                                            startAngle: CGFloat(Double.pi * 0), // 起始位置
+                                            endAngle: CGFloat(Double.pi * 2 ), // 终点位置
+                                            clockwise: clockwise)
+        
+        circleBezierPath.lineWidth = CGFloat(lineWith)
+        circleBezierPath.lineCapStyle = .round
+        circleBezierPath.lineJoinStyle = .round
+
+        unfillColor.setStroke()
+        // 使用当前绘图属性沿路径绘制一条线
+        circleBezierPath.stroke()
+    }
+    
+    /// 画圆形进度环
+    private func drawCircle() {
+        // 确定路径
+        let circlePath = UIBezierPath(arcCenter: circleCenterPoint,
+                                      radius: CGFloat(radius),
+                                      startAngle: 0,// 起始位置
+                                      endAngle: CGFloat(Double.pi*2),// 终点位置，Double.pi 为半圈
+                                      clockwise: clockwise)
+        
+        addLineLayer(circlePath: circlePath)
+    }
+    
+    /// 添加一条 lineLayer，支持动画
     /// - Parameter circlePath: 用于绘制的路径
     /// - Returns: CAShapeLayer
     @discardableResult
@@ -73,44 +114,6 @@ open class CircularProgressView: UIView {
     }
 
 
-    /// 画辅助圆环
-    public final func drawMiddlecircle() {
-        // 计算圆的半径，取较小的边长的一半。
-        let x = Float(bounds.size.height/2) - lineWith/2
-        let y = Float(bounds.size.width/2) - lineWith/2
-        radius = min(x, y)
-
-        // 确定圆心位置
-        let center =  min(bounds.size.width/2, bounds.size.height/2)
-        circleCenterPoint = CGPoint(x: center, y: center)
-
-        // 用于画圆的贝塞尔曲线
-        let circleBezierPath = UIBezierPath(arcCenter: circleCenterPoint,
-                                 radius: CGFloat(radius),
-                                 startAngle: CGFloat(Double.pi * 0), // 起始位置
-                                 endAngle: CGFloat(Double.pi * 2 ), // 终点位置
-                                 clockwise: clockwise)
-        
-        circleBezierPath.lineWidth = CGFloat(lineWith)
-        circleBezierPath.lineCapStyle = .round
-        circleBezierPath.lineJoinStyle = .round
-
-        unfillColor.setStroke()
-        // 使用当前绘图属性沿路径绘制一条线
-        circleBezierPath.stroke()
-    }
-    
-    /// 画圆环
-    private func drawCircle() {
-        let circlePath = UIBezierPath(arcCenter: circleCenterPoint,
-                                       radius: CGFloat(radius),
-                                       startAngle: 0,// 起始位置
-                                       endAngle: CGFloat(Double.pi*2),// 终点位置，Double.pi 为半圈
-                                       clockwise: clockwise)
-        
-        addLineLayer(circlePath: circlePath)
-    }
-    
 }
 
 
@@ -136,7 +139,7 @@ open class CircularProgressLiveView: CircularProgressView {
         let circleBezierPath = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: 0, y: 0), size: frame.size))
 
         lineLayer.path = circleBezierPath.cgPath
-        layer.addSublayer(lineLayer)
+         layer.addSublayer(lineLayer)
         // 设置
         lineLayer.strokeStart = 0
         lineLayer.strokeEnd = 0

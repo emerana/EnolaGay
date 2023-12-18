@@ -197,7 +197,7 @@ public extension UIImage {
         
         guard image?.cgImage != nil else {
             self.init()
-            logWarning("通过颜色生成图像时发生错误！")
+            Logger.error("通过颜色生成图像时发生错误！")
             return
         }
         self.init(cgImage: image!.cgImage!)
@@ -224,7 +224,7 @@ public extension UIImage {
         
         guard outputImage?.cgImage != nil else {
             self.init()
-            logWarning("通过渐变颜色生成图像时发生错误！")
+            Logger.error("通过渐变颜色生成图像时发生错误！")
             return
         }
         self.init(cgImage: outputImage!.cgImage!)
@@ -240,7 +240,7 @@ public extension UIImageView {
         set {
             if newValue {
                 guard frame.size.width == frame.size.height else {
-                    logWarning("该 UIImageView 非正方形，无法设置为正圆！")
+                    Logger.error("该 UIImageView 非正方形，无法设置为正圆！")
                     return
                 }
                 layer.masksToBounds = true
@@ -262,7 +262,7 @@ public extension UIImageView {
     @available(*, deprecated, message: "此函数尚未确定其正确性，不建议使用！")
     final func roundImage() {
         guard bounds.size.height == bounds.size.width else {
-            logWarning("图片非正方形，无法设置正圆！")
+            Logger.error("图片非正方形，无法设置正圆！")
             return
         }
         //开始图形上下文
@@ -280,7 +280,7 @@ public extension UIImageView {
         //关闭上下文
         UIGraphicsEndImageContext()
         guard newImage != nil else {
-            log("上下文图片创建失败!")
+            Logger.info("上下文图片创建失败!")
             return
         }
         image? = newImage!
@@ -603,7 +603,7 @@ public extension UITextFieldDelegate {
         let cs = CharacterSet(charactersIn: "0123456789\n").inverted
         /// 过滤输入的字符
         let filtered: String = (string.components(separatedBy: cs) as NSArray).componentsJoined(by: "")
-        guard (string as String) == filtered  else { logWarning("只能输入数值"); return false }
+        guard (string as String) == filtered  else { Logger.error("只能输入数值"); return false }
         
         // 最大值校验
         if maxNumber != 0 {
@@ -611,7 +611,7 @@ public extension UITextFieldDelegate {
             // 将输入的整数值
             let numberValue = Int(textFieldString) ?? 0
             if numberValue > maxNumber {
-                logWarning("只能输入小于\(maxNumber)的值")
+                Logger.error("只能输入小于\(maxNumber)的值")
                 return false
             }
         }
@@ -636,7 +636,7 @@ public extension UIColor {
     static let 浅蓝紫 = #colorLiteral(red: 0.3725490196, green: 0.3215686275, blue: 0.6274509804, alpha: 1)
     static let 浅紫洋红 = #colorLiteral(red: 0.6823529412, green: 0.3647058824, blue: 0.631372549, alpha: 1)
 
-    // 纯净
+    // 纯净颜色
     static let 纯红 = #colorLiteral(red: 0.9019607843, green: 0, blue: 0.07058823529, alpha: 1)
     static let 纯红橙 = #colorLiteral(red: 0.9215686275, green: 0.3803921569, blue: 0, alpha: 1)
     static let 纯黄橙 = #colorLiteral(red: 0.9529411765, green: 0.5960784314, blue: 0, alpha: 1)
@@ -661,9 +661,6 @@ public extension UIColor {
      * static 定义的属性和 func 没办法被子类 override.
      * class 定义的属性和 func 可以被子类 override.
      */
-    
-    /// 此颜色为白色
-    static let scrollView: UIColor = .white
 
     // MARK: 构造函数
 
