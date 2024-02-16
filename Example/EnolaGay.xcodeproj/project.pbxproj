@@ -177,6 +177,8 @@
 		8B4F5D5D29C46A7B0092AF67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B6B2F3D2A41A45E00099528 /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
 		8B6B2F3F2A41A48800099528 /* ScrollViewTableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScrollViewTableView.storyboard; sourceTree = "<group>"; };
+		8B71E1F32B4DAB000057C6BD /* 快到衢州了.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "快到衢州了.gpx"; sourceTree = "<group>"; };
+		8B71E1F42B4E03CE0057C6BD /* 萧山区金苑大厦.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "萧山区金苑大厦.gpx"; sourceTree = "<group>"; };
 		8B72098A2A499C58008D9006 /* 吉安瑞德广场.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "吉安瑞德广场.gpx"; sourceTree = "<group>"; };
 		8B76428F25A702C400A418F8 /* AppConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigs.swift; sourceTree = "<group>"; };
 		8B76429525A7036500A418F8 /* ApiTestViewCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTestViewCtrl.swift; sourceTree = "<group>"; };
@@ -184,9 +186,11 @@
 		8B8CF7CA2AD82BD30077490D /* 维也纳酒店铁道学院.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "维也纳酒店铁道学院.gpx"; sourceTree = "<group>"; };
 		8B930A722AA6B9E900D137A6 /* 湖南师正律师事务所.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "湖南师正律师事务所.gpx"; sourceTree = "<group>"; };
 		8B930A732AA6BA6100D137A6 /* 国家税务总局湖南省税务局.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "国家税务总局湖南省税务局.gpx"; sourceTree = "<group>"; };
+		8B985C1A2B7CF423005F2D3C /* 萍乡怡和园.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "萍乡怡和园.gpx"; sourceTree = "<group>"; };
 		8BA4EA5C2AFE4EEC00269F2F /* 温州 copy.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "温州 copy.gpx"; sourceTree = "<group>"; };
 		8BA9AA00260EDAAC008B1803 /* AttributedStringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringViewController.swift; sourceTree = "<group>"; };
 		8BAB183A2A47E29200ED831E /* 茂盛路.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "茂盛路.gpx"; sourceTree = "<group>"; };
+		8BB324BF2B7C73AA0038E6A5 /* 萍乡武功山温泉.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "萍乡武功山温泉.gpx"; sourceTree = "<group>"; };
 		8BB8861D265CF30A00E8836D /* GiftMessageViewCtrlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftMessageViewCtrlTest.swift; sourceTree = "<group>"; };
 		8BBBA1642AA87DA00017E928 /* 国粹研究所.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "国粹研究所.gpx"; sourceTree = "<group>"; };
 		8BBC8F0E29F1318F0036C838 /* JudyWaterWaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudyWaterWaveViewController.swift; sourceTree = "<group>"; };
@@ -285,6 +289,7 @@
 		8BC3DD7726E05BC900A2A405 /* 深圳龙岗天安数码城.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "深圳龙岗天安数码城.gpx"; sourceTree = "<group>"; };
 		8BC3DD7826E05BC900A2A405 /* 广东韶关.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "广东韶关.gpx"; sourceTree = "<group>"; };
 		8BD025F82930D8AB005709D6 /* ToastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastViewController.swift; sourceTree = "<group>"; };
+		8BDE01B82B46C3EB00BFCA68 /* 杭州富阳.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "杭州富阳.gpx"; sourceTree = "<group>"; };
 		8BE31B7729C2D229003038B2 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BE31B7929C2D22A003038B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BE31B7D29C2D22A003038B2 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
@@ -714,6 +719,8 @@
 			children = (
 				8BC3DD6D26E05BC900A2A405 /* 温州.gpx */,
 				8BA4EA5C2AFE4EEC00269F2F /* 温州 copy.gpx */,
+				8B71E1F32B4DAB000057C6BD /* 快到衢州了.gpx */,
+				8B71E1F42B4E03CE0057C6BD /* 萧山区金苑大厦.gpx */,
 				8B1E81762A6B69E500F06512 /* 中洲控股中心.gpx */,
 				8B72098A2A499C58008D9006 /* 吉安瑞德广场.gpx */,
 				8BAB183A2A47E29200ED831E /* 茂盛路.gpx */,
@@ -722,6 +729,9 @@
 				8BC3DD7026E05BC900A2A405 /* 深圳北站.gpx */,
 				8BC3DD7126E05BC900A2A405 /* 天津.gpx */,
 				8BC3DD7226E05BC900A2A405 /* 杭州五联东苑.gpx */,
+				8BDE01B82B46C3EB00BFCA68 /* 杭州富阳.gpx */,
+				8BB324BF2B7C73AA0038E6A5 /* 萍乡武功山温泉.gpx */,
+				8B985C1A2B7CF423005F2D3C /* 萍乡怡和园.gpx */,
 				8BC3DD7326E05BC900A2A405 /* 广东清远.gpx */,
 				8BC3DD7426E05BC900A2A405 /* 湖南郴州.gpx */,
 				8BC3DD7526E05BC900A2A405 /* 深圳东站东广场.gpx */,
@@ -963,7 +973,7 @@
 						ProvisioningStyle = Automatic;
 					};
 					8BC3DA7926DEB40300A2A405 = {
-						DevelopmentTeam = 77K85WWG9G;
+						DevelopmentTeam = C8374TY87E;
 					};
 					8BC3DA9A26DEB71800A2A405 = {
 						DevelopmentTeam = 325J3J39TM;
@@ -975,7 +985,7 @@
 					};
 					8BE31B7629C2D229003038B2 = {
 						CreatedOnToolsVersion = 14.2;
-						DevelopmentTeam = 77K85WWG9G;
+						DevelopmentTeam = C8374TY87E;
 						ProvisioningStyle = Automatic;
 					};
 					8BF21D6829CD3F4D00308310 = {
@@ -1772,7 +1782,7 @@
 			baseConfigurationReference = 82ACB32009D817D4A81BB520 /* Pods-PlayerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 77K85WWG9G;
+				DEVELOPMENT_TEAM = C8374TY87E;
 				INFOPLIST_FILE = "$(TARGET_NAME)/PlayerDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1789,7 +1799,7 @@
 			baseConfigurationReference = 0D92101AFAAF635313CA40E0 /* Pods-PlayerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 77K85WWG9G;
+				DEVELOPMENT_TEAM = C8374TY87E;
 				INFOPLIST_FILE = "$(TARGET_NAME)/PlayerDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1913,7 +1923,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 77K85WWG9G;
+				DEVELOPMENT_TEAM = C8374TY87E;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
@@ -1951,7 +1961,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 77K85WWG9G;
+				DEVELOPMENT_TEAM = C8374TY87E;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
